@@ -1,0 +1,46 @@
+{
+  "zeitpunkt": "2026-07-28T21:19:23",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptZeichen": 19698,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 7.14,
+  "eingabe": {
+    "titel": "Ballsport und Fitnesstraining",
+    "nummer": "3860-51",
+    "programmbereich": "Gesundheit",
+    "niveau": "kein Sprachniveau",
+    "text": "Nach einer Aufwärmphase mit  Gymnastik, Konditions- und Fitnesstraining spielen Sie in entspannter Atmosphäre Ball. Basketball, Handball und Fußball stehen je nach Wunsch der Gruppe auf dem Programm. Auch für weniger trainierte Sportler:innen geeignet."
+  },
+  "benutzernachricht": "KURSTITEL:        Ballsport und Fitnesstraining\nKURSNUMMER:       3860-51\nPROGRAMMBEREICH:  Gesundheit\nNIVEAU:           kein Sprachniveau\nTEXT:\nNach einer Aufwärmphase mit  Gymnastik, Konditions- und Fitnesstraining spielen Sie in entspannter Atmosphäre Ball. Basketball, Handball und Fußball stehen je nach Wunsch der Gruppe auf dem Programm. Auch für weniger trainierte Sportler:innen geeignet.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Ballsport und Fitness, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · SATZ\n    Stelle:      \"Nach einer Aufwärmphase mit Gymnastik, Konditions- und Fitnesstraining spielen Sie in entspannter Atmosphäre Ball.\"\n    Grund:       Der Satz hat 16 Wörter und ist damit für einen Gebrauchstext zu lang.\n    Vorschlag:   \"Nach einer Aufwärmphase mit Gymnastik, Konditions- und Fitnesstraining spielen Sie Ball. Die Atmosphäre ist entspannt.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, AMTSDEUTSCH, ANREDE, LEER\n\nGESAMT\n1 Befund, davon 0 Pflicht.\nDer Text ist verständlich und klar formuliert. Der Satzbefund ist eine Empfehlung zur weiteren Verbesserung, steht einer Veröffentlichung aber nicht im Weg. Der Text ist aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8044,
+    "completion_tokens": 315,
+    "total_tokens": 8359,
+    "cost": 0.028857,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.028857,
+      "upstream_inference_prompt_cost": 0.024132,
+      "upstream_inference_completions_cost": 0.004725
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
