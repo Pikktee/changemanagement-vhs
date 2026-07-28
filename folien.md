@@ -47,6 +47,9 @@ Website, am 28. Juli. Der Datensatz liegt der Arbeit bei.
 
 typ: punkte
 kapitel: ÜBERBLICK
+bild: bilder/02-teile-ganzes.jpg
+bu: Fünf Teile, ein Bild.
+bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Das Ganze
 akzent: in sechs Sätzen.
 punkte:
@@ -358,6 +361,8 @@ Konzept, weil sie sonst niemand macht, aber sie ist kein KI-Thema.
 ## 9 — Schlussfolie
 
 typ: schluss
+bild: bilder/15-durchgang.jpg
+bildprompt: Wand aus dichten Balken mit einem Durchgang, dahinter Helligkeit, eine Figur geht hindurch. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Der Prompt ist ein Nachmittag Arbeit.
 akzent: Alles, was ihn erlaubt, ist der eigentliche Aufwand.
 untertitel: Vielen Dank. Ich freue mich auf eure Fragen.
