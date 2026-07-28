@@ -312,16 +312,60 @@ def t_zitat(f, seite_, gesamt):
 
 
 def t_text(f, seite_, gesamt):
-    abs_ = "".join(f'<p class="lede" style="font-size:19px;color:var(--ink);'
+    abs_ = "".join(f'<p class="lede" style="font-size:18px;color:var(--ink);'
                    f'max-width:960px">{e(a)}</p>' for a in f.get("absaetze", []))
-    call = callout(f)
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  {h1(f)}
-  <div class="body">{abs_}{call}</div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    return seite(f, seite_, gesamt, abs_ + callout(f))
+
+
+
+def t_matrix(f, seite_, gesamt):
+    """Stakeholder-Matrix Einfluss x Betroffenheit, Quadrantennamen laut Aufgabenblatt."""
+    def q(key, stark=False):
+        roh = f.get(key, "")
+        teile = [x.strip() for x in roh.split("||")] if roh else [""]
+        titel = teile[0]
+        lis = "".join(f"<li>{e(x)}</li>" for x in teile[1:])
+        kl = " stark" if stark else ""
+        return f'<div class="quad{kl}"><div class="qt">{e(titel)}</div><ul>{lis}</ul></div>'
+
+    matrix = (q("oben_links") + q("oben_rechts", stark=True)
+              + q("unten_links") + q("unten_rechts"))
+    inhalt = f"""<div class="matrixwrap">
+  <div class="yachse"><span>{e(f.get('yhoch','Einfluss hoch'))}</span>
+                      <span>{e(f.get('yniedrig','niedrig'))}</span></div>
+  <div class="matrixcol">
+    <div class="matrix">{matrix}</div>
+    <div class="xachse"><span>{e(f.get('xniedrig','Betroffenheit niedrig'))}</span>
+                        <span>{e(f.get('xhoch','hoch'))}</span></div>
+  </div>
+</div>{callout(f)}"""
+    return seite(f, seite_, gesamt, inhalt)
+
+
+def t_timeline(f, seite_, gesamt):
+    """Integrierte Timeline: drei Straenge ueber drei Monate."""
+    kopf_ = "".join(f"<span>{e(x.strip())}</span>"
+                    for x in f.get("monate", "Monat 1|Monat 2|Monat 3").split("|"))
+    zeilen = []
+    for i in (1, 2, 3):
+        roh = f.get(f"strang{i}")
+        if not roh:
+            continue
+        teile = [x.strip() for x in roh.split("||")]
+        name, felder = teile[0], teile[1:]
+        fs = []
+        for j, feld in enumerate(felder):
+            kl = ""
+            if feld.startswith("+"):
+                kl, feld = " aktiv", feld[1:].strip()
+            elif feld.startswith("~"):
+                kl, feld = " mint", feld[1:].strip()
+            fs.append(f'<div class="tlfeld{kl}">{e(feld)}</div>')
+        zeilen.append(f'<div class="tlzeile"><div class="tlname">{e(name)}</div>'
+                      f'{"".join(fs)}</div>')
+    inhalt = (f'<div class="tl"><div class="tlkopf">{kopf_}</div>'
+              f'{"".join(zeilen)}</div>{callout(f)}')
+    return seite(f, seite_, gesamt, inhalt)
 
 
 TYPEN = {
@@ -334,6 +378,8 @@ TYPEN = {
     "tabelle":   t_tabelle,
     "zitat":     t_zitat,
     "text":      t_text,
+    "matrix":    t_matrix,
+    "timeline":  t_timeline,
 }
 
 

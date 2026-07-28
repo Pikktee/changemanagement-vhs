@@ -58,7 +58,9 @@ punkte:
   - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses Kurses geprüft."
   - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Technische Barrierefreiheit prüft weiterhin ein deterministisches Werkzeug. Die KI übernimmt nur, was Urteil verlangt."
-callout: Der Prompt schlägt vor. Der Mensch entscheidet und veröffentlicht.
+  - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Alle neuen Texte im Pilotbereich geprüft. Messung mit demselben Skript, das den Ausgangswert erhoben hat."
+callout: Ich bitte um Freigabe eines Pilotprojekts in einem Programmbereich, drei Monate, ohne Beschaffung.
+calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 
 ### NOTIZ
 
@@ -252,7 +254,51 @@ Das ist der Punkt, an dem ein fachlich eingestellter Prompt etwas kann, was ein
 Standardwerkzeug nicht kann.
 
 
-## 7 — Pflicht und Kür
+## 7 — Rechtslage und Einführung
+
+typ: text
+kapitel: 01 · EINORDNUNG
+bild: bilder/11-zeitleiste.jpg
+bu: Von der UN-Konvention bis zur hessischen Verordnung.
+bildprompt: Waagerechte Zeitleiste als dicker Balken mit unterschiedlich hohen Markierungen. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Welches Recht hier
+akzent: überhaupt gilt.
+klein: ja
+absaetze:
+  - "Digitale Barrierefreiheit heißt: Websites und Anwendungen müssen so gebaut sein, dass auch Menschen mit Behinderung sie nutzen können. Der technische Maßstab dafür sind die **WCAG**, eine internationale Richtlinie mit drei Stufen."
+  - "Die Kette beginnt 2009 mit der **UN-Behindertenrechtskonvention**, führt über die **EU-Richtlinie 2016/2102** für öffentliche Stellen und mündet 2025 im **Barrierefreiheitsstärkungsgesetz** für Unternehmen."
+  - "Für die vhs Frankfurt gilt keines davon direkt. Als kommunale Einrichtung in Hessen greift **Landesrecht**: § 14 HessBGG und die **BITV HE** von 2019. Gefordert ist Konformitätsstufe **AA**."
+callout: Nicht die BITV 2.0 des Bundes. Das ist der häufigste Zitierfehler kommunaler Stellen.
+quellen: HessBGG, BITV HE 2019, EN 301 549, Landesfachstelle Barrierefreie IT Hessen
+
+### NOTIZ
+
+Bevor ich zur Lösung komme, kurz die Rechtslage. Ich halte mich knapp, weil
+das nicht der Kern meiner Arbeit ist, aber ohne diese Folie fehlt der Rahmen.
+
+Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit
+Behinderung nutzbar sein muss. Der technische Maßstab sind die WCAG, eine
+internationale Richtlinie mit drei Stufen: A, doppel A und dreifach A.
+
+Die Rechtskette beginnt 2009 mit der UN-Behindertenrechtskonvention. Dann kam
+2016 die EU-Richtlinie für öffentliche Stellen, und seit Juni 2025 gilt das
+Barrierefreiheitsstärkungsgesetz für Unternehmen.
+
+Für die vhs gilt keines davon unmittelbar. Sie ist eine kommunale Einrichtung
+in Hessen, und damit greift Landesrecht: Paragraph vierzehn des Hessischen
+Behindertengleichstellungsgesetzes und die hessische Verordnung von 2019.
+Gefordert wird Stufe doppel A.
+
+Der Satz unten ist wichtiger, als er aussieht. Sehr viele kommunale Stellen
+berufen sich auf die BITV 2.0 des Bundes. Die gilt für Bundesbehörden, nicht
+für Kommunen. Wer das verwechselt, prüft am falschen Maßstab.
+
+Eine Randnotiz für Nachfragen: Die hessische Verordnung tritt Ende 2027 außer
+Kraft, und sie verweist dynamisch auf die jeweils gültige europäische Norm.
+Der Maßstab kann sich also ändern, ohne dass ein Gesetz geändert wird.
+
+
+## 8 — Pflicht und Kür
 
 typ: tabelle
 kapitel: 01 · EINORDNUNG
@@ -358,7 +404,252 @@ Mein Projekt betrifft ausschließlich die rechte Spalte. Die linke gehört ins
 Konzept, weil sie sonst niemand macht, aber sie ist kein KI-Thema.
 
 
-## 9 — Schlussfolie
+
+## 10 — Der Prompt in sechs Bausteinen
+
+typ: tabelle
+kapitel: 02 · SYSTEM-PROMPT
+bild: bilder/10-sechs-bloecke.jpg
+bu: Sechs Bausteine, festgelegte Reihenfolge.
+bildprompt: Sechs gestapelte Rechtecke unterschiedlicher Breite wie ein Bauplan, verbunden durch duenne Linien. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Der Prompt in
+akzent: sechs Bausteinen.
+klein: ja
+spalten: Baustein | Was darin steht
+zeilen:
+  - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, entscheidet nichts."
+  - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
+  - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
+  - "GRENZEN | ! Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
+  - "KONTEXT | Die acht Programmbereiche, Hausabkürzungen, neun Prüfregeln, Goethe- und DTZ-Wortlisten."
+  - "REGELN | Namen entfernen, wörtlich zitieren, höchstens zehn Befunde, Pflicht vor Empfehlung."
+callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
+calloutsub: Sie hält das Projekt aus Anhang III des EU AI Act heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
+quellen: system-prompt.md, Fassung v2 vom 28.07.2026
+
+### NOTIZ
+
+Damit zum Kern der Aufgabe, dem System-Prompt. Er folgt der
+Sechs-Komponenten-Struktur aus dem Aufgabenblatt.
+
+Die ROLLE macht ihn zur Redaktionsassistenz, nicht zur Autorin. Die AUFGABE
+schreibt die Reihenfolge vor: erst die Zielgruppe bestimmen, dann prüfen. Das
+FORMAT erzwingt zu jedem Befund ein wörtliches Zitat, eine Begründung und
+einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
+
+Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die
+Abkürzungen des Hauses, neun Prüfregeln und, das ist der wichtigste Teil, die
+veröffentlichten Wortlisten des Goethe-Instituts und des Deutsch-Tests für
+Zuwanderer. Der Prompt schätzt das Sprachniveau also nicht frei, sondern
+begründet am tatsächlichen Prüfungswortschatz. Eine schöne Fußnote dazu: Der
+Grundstock dieser Wortlisten stammt laut Goethe-Institut aus einer
+Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschulverbands in
+Frankfurt.
+
+Die REGELN sagen unter anderem, dass Personennamen aus der Ausgabe entfernt
+werden. Kursbeschreibungen enthalten die Namen der Kursleitungen.
+
+Und jetzt zur Zeile GRENZEN, die ich hervorgehoben habe. Dort steht: bewertet
+Texte, niemals Personen. Dieser eine Satz leistet zweierlei. Er hält das
+Projekt aus dem Hochrisikobereich des EU AI Act heraus, denn dort geht es um
+Systeme, die Personen bewerten. Und er ist die Antwort auf die Frage des
+Personalrats, ob hier Leistung kontrolliert wird. Ein Satz, zwei Wirkungen.
+
+
+## 11 — Ein Durchlauf am echten Text
+
+typ: zweispalt
+kapitel: 02 · SYSTEM-PROMPT
+bild: bilder/12-passstueck.jpg
+bu: Der fehlende Schritt zwischen Schreiben und Veröffentlichen.
+bildprompt: Eine bestehende Struktur mit einer Luecke, ein passendes kleines Teil wird eingesetzt. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Ein Durchlauf,
+akzent: an einem echten Text.
+klein: ja
+lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Zielgruppe liest Deutsch auf A2-Niveau.
+spalte1: EINGABE · ORIGINALTEXT
+punkte1:
+  - "Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF."
+  - "Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich."
+  - "Diesen können Sie hier ablegen."
+  - "Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren."
+spalte2: AUSGABE · BEFUNDE
+punkte2:
+  - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
+  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung" stehen nicht im A2-Wortschatz."
+  - "EMPFEHLUNG · AMTSDEUTSCH: „idealerweise" statt „am besten"."
+  - "EMPFEHLUNG · ABK: „DaF" wird nicht aufgelöst."
+  - "HINWEIS · BAUSTEIN: Passage steht wortgleich über weiteren Kursen, auch über A1."
+callout: Der Prüfschritt sitzt genau dort, wo auf Folie 4 die Lücke war.
+quellen: eigene Erhebung, Kurs 4074-74, Portalabruf vom 28.07.2026
+
+### NOTIZ
+
+Damit das nicht abstrakt bleibt, ein echter Durchlauf. Links steht ein
+Originaltext aus dem Portal, die Anmeldehinweise über einem Deutschkurs auf
+Stufe A2. Rechts steht, was der Prompt daraus macht.
+
+Der erste Befund ist Pflicht: Der Link heißt schlicht „hier". Wer sich die
+Seite vorlesen lässt und von Link zu Link springt, hört nur „hier".
+
+Die nächsten drei sind Empfehlungen, und sie sind für diese Zielgruppe die
+eigentlich wichtigen. Selbsteinschätzung, Fehleinschätzung, Umbuchung. Diese
+Wörter stehen nicht im A2-Wortschatz. Sie stehen über einem Kurs, der A2 erst
+vermittelt.
+
+Der letzte Befund ist der ergiebigste. Diese Passage ist ein Textbaustein. Sie
+steht wortgleich über mehreren Kursen, auch über Kursen auf A1. Ein einziger
+Baustein, einmal überarbeitet, verbessert viele Texte gleichzeitig. Das ist
+mein Quick Win.
+
+Und damit ist die Lücke von Folie 4 geschlossen. Der Prüfschritt sitzt
+zwischen Einpflegen und Veröffentlichen. Er meldet, er ändert nicht. Die
+Programmbereichsleitung entscheidet.
+
+## 12 — Stakeholder
+
+typ: matrix
+kapitel: 03 · CHANGE MANAGEMENT
+titel: Wer eingebunden
+akzent: werden muss.
+klein: ja
+yhoch: Einfluss hoch
+yniedrig: Einfluss niedrig
+xniedrig: Betroffenheit niedrig
+xhoch: Betroffenheit hoch
+oben_links: Beobachten || Städtische IT || Advellence, Portaldienstleister || Hessische Durchsetzungsstelle
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Acht Programmbereichsleitungen || Personalrat, zwei Sitze in der Betriebskommission
+unten_links: Informieren || Betriebskommission || Stadtkämmerei
+unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Inklusionsbeauftragte || Teilnehmende, besonders in DaF und Grundbildung
+callout: Die Kursleitungen sind hoch betroffen und haben keinen formalen Einfluss.
+calloutsub: Sie sind nicht weisungsgebunden. Beteiligung ist hier kein guter Stil, sondern das einzige verfügbare Instrument.
+
+### NOTIZ
+
+Damit komme ich zum Change-Teil, und der beginnt mit der Frage, wer eigentlich
+betroffen ist. Die Achsen sind Einfluss und Betroffenheit.
+
+Oben rechts, eng einzubinden: der Direktor, der laut Impressum persönlich für
+die redaktionellen Inhalte verantwortlich ist. Die acht
+Programmbereichsleitungen, die die Texte verantworten. Und der Personalrat,
+der zwei Sitze in der Betriebskommission hat. Ich hatte das auf Folie drei
+angekündigt, hier wird es eingelöst.
+
+Oben links, zu beobachten: die städtische IT, der Schweizer
+Portaldienstleister und die hessische Durchsetzungsstelle. Hoher Einfluss,
+aber geringe Betroffenheit, weil mein Projekt ihre Arbeit nicht verändert.
+
+Unten links nur informieren: die Betriebskommission und die Kämmerei.
+
+Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
+Kursleitungen sind maximal betroffen, sie schreiben viele dieser Texte. Und
+sie haben keinen formalen Einfluss, denn sie sitzen in keinem Gremium. Sie
+sind Honorarkräfte. Man kann ihnen nichts vorschreiben.
+
+Genau deshalb steht unten der Satz: Beteiligung ist hier kein guter Stil,
+sondern das einzige Instrument, das überhaupt zur Verfügung steht.
+
+Ein Hinweis zur Matrix selbst: Ich verwende die Achsen aus dem Aufgabenblatt,
+also Einfluss und Betroffenheit. In der Change Toolbox ist sie als
+Einfluss-Interesse-Matrix geführt. Ich halte Betroffenheit hier für
+trennschärfer, weil die Kursleitungen sehr betroffen sind, ohne besonderes
+Interesse an dem Thema zu haben.
+
+
+## 13 — Widerstand
+
+typ: zweispalt
+kapitel: 03 · CHANGE MANAGEMENT
+bild: bilder/14-widerstand.jpg
+bu: Zwei Kräfte, ein Gleichgewicht.
+bildprompt: Zwei entgegengesetzte Kraefte treffen an einer senkrechten Naht aufeinander, im Gleichgewicht. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Warum jemand Nein sagt,
+akzent: und was hilft.
+klein: ja
+spalte1: URSACHE · WAS ICH HÖREN WERDE
+punkte1:
+  - "Verlustangst: „Jetzt korrigiert mich eine Maschine."
+  - "Unsicherheit: „Wird damit meine Arbeit bewertet?"
+  - "Gewohnheit: „Wir schreiben das seit fünfzehn Jahren so."
+  - "Fehlende Perspektive: „Noch eine Aufgabe, für die ich keine Zeit habe."
+spalte2: INTERVENTION
+punkte2:
+  - "Zuhören, bevor geschult wird. Der Prompt prüft Texte, nie Personen."
+  - "Keine Auswertung nach Urheber, keine Rangliste. Schriftlich zusichern und dem Personalrat vorlegen."
+  - "Nicht das Schreiben ändern, nur einen Schritt danach ergänzen."
+  - "Quick Win zuerst: die gemeinsamen Textbausteine. Sichtbare Wirkung ohne Mehrarbeit."
+callout: Betroffene zu Beteiligten machen. Der Pilotbereich wählt selbst, welche Regeln zuerst gelten.
+
+### NOTIZ
+
+Jetzt zum Widerstand. Ich habe die vier Ursachen aus dem Unterricht genommen
+und für jede den Satz aufgeschrieben, den ich in diesem Haus tatsächlich
+erwarte.
+
+Verlustangst klingt hier so: Jetzt korrigiert mich eine Maschine. Dahinter
+steckt Verlustaversion, wir gewichten einen Verlust etwa doppelt so stark wie
+einen gleich großen Gewinn. Die Kursleitung sieht zuerst den Kontrollverlust
+über ihren eigenen Text, nicht die Entlastung.
+
+Unsicherheit klingt so: Wird damit meine Arbeit bewertet? Das ist die
+gefährlichste Frage, und sie ist berechtigt. Meine Antwort ist dieselbe wie
+auf der Prompt-Folie: Es werden Texte ausgewertet, nicht Personen. Keine
+Statistik nach Urheberin, keine Rangliste. Und das gehört nicht nur gesagt,
+sondern schriftlich zugesichert und dem Personalrat vorgelegt, bevor der
+Pilot beginnt und nicht danach.
+
+Gewohnheit und fehlende Perspektive begegne ich mit dem Zuschnitt selbst. Ich
+ändere nicht, wie jemand schreibt. Ich ergänze einen Schritt danach. Und ich
+fange mit den Textbausteinen an, weil dort mit einer einzigen Überarbeitung
+viele Kurse besser werden. Das ist sichtbare Wirkung, für die niemand seine
+Arbeitsweise ändern muss.
+
+Der Satz unten ist der Kern jeder Widerstandsarbeit: Betroffene zu Beteiligten
+machen. Konkret heißt das, dass der Pilotbereich selbst entscheidet, welche
+der neun Prüfregeln zuerst scharf gestellt werden.
+
+
+## 14 — Timeline
+
+typ: timeline
+kapitel: 03 · CHANGE MANAGEMENT
+titel: Drei Monate,
+akzent: drei Stränge.
+klein: ja
+monate: Monat 1 | Monat 2 | Monat 3
+strang1: Technische Implementation || Assistent in fobizz anlegen, Regeln schärfen || +Pilot in einem Programmbereich || Ausweitung auf alle acht
+strang2: Kommunikation || Ankündigung, Personalrat einbeziehen || Schulung nach Artikel 4 KI-Verordnung || ~Sprechstunde und Support
+strang3: Change || Betroffene befragen, Bausteine sichten || Quick Win Textbausteine || Nachmessung und Entscheidung
+callout: Erste 30 Tage: Personalrat einbinden, Pilotbereich gewinnen, Textbausteine überarbeiten.
+calloutsub: KPI eins: Befundquote unter 40 Prozent. KPI zwei: alle Neutexte im Pilot geprüft. KPI drei: DaF-Texte mit C1-Vokabular von 9 von 13 auf höchstens 2 von 13.
+quellen: Ausgangsmessung 28.07.2026, Nachmessung mit identischem Skript
+
+### NOTIZ
+
+Der Zeitplan, drei Monate, drei Stränge.
+
+Technisch ist wenig zu tun, und das ist der Vorteil dieses Projekts. Im ersten
+Monat wird der Assistent im vorhandenen Rahmen angelegt und an echten Texten
+nachgeschärft. Im zweiten läuft der Pilot in einem Programmbereich. Im dritten
+die Ausweitung.
+
+Der Kommunikationsstrang beginnt vor dem technischen. Ankündigung und
+Einbeziehung des Personalrats stehen bewusst im ersten Monat. Die Schulung im
+zweiten ist übrigens keine Kür: Artikel vier der KI-Verordnung verpflichtet
+Betreiber seit Februar 2025, für ausreichende KI-Kompetenz ihres Personals zu
+sorgen. Mein Qualifizierungskonzept erfüllt damit eine Rechtspflicht.
+
+Der Change-Strang: erst fragen, dann handeln. Der Quick Win mit den
+Textbausteinen liegt im zweiten Monat, weil er dann auf schon geweckte
+Erwartung trifft.
+
+Unten stehen die ersten dreißig Tage und drei Kennzahlen. Der wichtigste Punkt
+daran: Die Ausgangsmessung liegt bereits vor, erhoben mit einem Skript. Die
+Nachmessung läuft mit demselben Skript. Ich muss also für die Erfolgskontrolle
+nichts Neues aufbauen, und niemand kann später über die Messmethode streiten.
+
+
+## 15 — Schlussfolie
 
 typ: schluss
 bild: bilder/15-durchgang.jpg

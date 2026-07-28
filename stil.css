@@ -203,3 +203,42 @@ td.nein{ color:var(--warn); font-weight:700; }
 /* ---------- Quellenzeile ---------- */
 .quellen{ font-size:11px; color:var(--mut); line-height:1.45; margin-top:auto;
           padding-top:16px; }
+
+/* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
+.matrixwrap{ display:flex; gap:12px; flex:1; min-height:0; }
+.yachse{ writing-mode:vertical-rl; transform:rotate(180deg);
+         display:flex; justify-content:space-between; align-items:center;
+         font-size:10.5px; font-weight:700; letter-spacing:2px;
+         text-transform:uppercase; color:var(--mut); padding:4px 0; }
+.matrixcol{ flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
+.matrix{ flex:1; display:grid; grid-template-columns:1fr 1fr;
+         grid-template-rows:1fr 1fr; gap:8px; min-height:0; }
+.quad{ background:var(--grey); padding:12px 14px; display:flex;
+       flex-direction:column; min-height:0; }
+.quad.stark{ background:var(--brand); color:#fff; }
+.quad .qt{ font-size:12px; font-weight:700; letter-spacing:1.8px;
+           text-transform:uppercase; margin-bottom:8px; color:var(--brand); }
+.quad.stark .qt{ color:var(--lime); }
+.quad ul{ list-style:none; }
+.quad li{ font-size:14.5px; line-height:1.35; margin-bottom:4px;
+          padding-left:12px; position:relative; }
+.quad li::before{ content:""; position:absolute; left:0; top:8px;
+                  width:5px; height:2px; background:var(--brand); }
+.quad.stark li::before{ background:var(--lime); }
+.xachse{ display:flex; justify-content:space-between;
+         font-size:10.5px; font-weight:700; letter-spacing:2px;
+         text-transform:uppercase; color:var(--mut); }
+
+/* ---------- Typ: timeline (drei Straenge ueber drei Monate) ---------- */
+.tl{ display:flex; flex-direction:column; gap:11px; }
+.tlkopf{ display:flex; gap:6px; padding-left:186px; }
+.tlkopf span{ flex:1; font-size:10.5px; font-weight:700; letter-spacing:2px;
+              text-transform:uppercase; color:var(--mut);
+              border-bottom:2px solid var(--brand); padding-bottom:5px; }
+.tlzeile{ display:flex; gap:6px; align-items:stretch; }
+.tlname{ width:180px; flex:none; font-size:13.5px; font-weight:700;
+         line-height:1.3; display:flex; align-items:center; color:var(--ink); }
+.tlfeld{ flex:1; background:var(--grey); padding:11px 13px;
+         font-size:14px; line-height:1.3; min-width:0; }
+.tlfeld.aktiv{ background:var(--brand); color:#fff; font-weight:700; }
+.tlfeld.mint{ background:var(--lime); color:var(--brand-dk); font-weight:700; }
