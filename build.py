@@ -299,10 +299,14 @@ def t_tabelle(f, seite_, gesamt):
         tds = []
         for z in [x.strip() for x in zeile.split("|")]:
             kl = ""
+            # Das fuehrende + bzw. ! bleibt stehen. Faerbt man die Zelle nur
+            # ein, haengt die Unterscheidung allein an der Farbe — WCAG 1.4.1,
+            # Stufe A und damit verbindlich. Ausgerechnet diese Arbeit sollte
+            # das nicht tun.
             if z.startswith("+"):
-                kl, z = ' class="ja"', z[1:].strip()
+                kl = ' class="ja"'
             elif z.startswith("!"):
-                kl, z = ' class="nein"', z[1:].strip()
+                kl = ' class="nein"'
             elif re.match(r"^[\d.,]+\s*%?$", z):
                 kl = ' class="num"'
             tds.append(f"<td{kl}>{e(z)}</td>")
