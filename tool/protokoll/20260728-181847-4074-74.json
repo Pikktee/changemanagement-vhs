@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T18:18:47",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v1 · 28.07.2026",
+  "promptPruefsumme": "e09cb50b25a8107a",
+  "promptZeichen": 16270,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 21.77,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2 (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2 (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende mit Deutschkenntnissen auf A1-Niveau, die einen A2.2-Kurs suchen und Deutsch als Fremdsprache lernen.\n\nBEFUNDE\n[1] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen.\"\n    Grund:       Das Wort \"hier\" sagt ohne den vorherigen Satz nicht, wohin der Link führt. Screenreader-Nutzende hören nur \"hier\" und wissen nicht, was sie erwartet.\n    Vorschlag:   \"Den Online-Test können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>auf dieser Seite machen</a>.\"\n\n[2] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF.\"\n    Grund:       \"idealerweise\" und \"erfolgt\" sind Verwaltungssprache. Für A1-Lernende sind einfachere Wörter besser.\n    Vorschlag:   \"Am besten melden Sie sich mit einem Termin bei der Sprachberatung DaF an.\"\n\n[3] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\"\n    Grund:       \"Selbsteinschätzung\" steht nicht im A1-Wortschatz und ist ein zusammengesetztes Fachwort. \"individuelle Buchung\" und \"ebenfalls\" sind für A1 zu komplex.\n    Vorschlag:   \"Sie können sich auch selbst anmelden. Machen Sie vorher den Online-Test.\"\n\n[4] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\"\n    Grund:       \"Fehleinschätzung\", \"Umbuchung\" und \"garantieren\" stehen nicht im A1-Wortschatz. Der Satz ist auch mit 13 Wörtern komplex strukturiert.\n    Vorschlag:   \"Wenn der Kurs nicht passt, können wir Sie vielleicht nicht in einen anderen Kurs umbuchen.\"\n\n[5] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc.\"\n    Grund:       Der Satz hat 25 Wörter und ist für A1-Lernende zu lang. Die Struktur mit Aufzählung macht ihn schwer lesbar.\n    Vorschlag:   \"In den A2-Kursen lernen Sie Ausdrücke für den Alltag. Zum Beispiel: Informationen zur Person, Familie, Einkaufen, Arbeit.\"\n\n[6] EMPFEHLUNG · NIVEAU\n    Stelle:      \"oft gebrauchte Ausdrücke\"\n    Grund:       \"gebraucht\" steht nicht im A1-Wortschatz. \"oft verwendet\" oder \"häufig\" wären einfacher, aber auch diese sind grenzwertig.\n    Vorschlag:   \"wichtige Ausdrücke\"\n\n[7] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben.\"\n    Grund:       Der Satz hat 15 Wörter, was für A1-Lernende die Obergrenze ist. Die Konstruktion mit zwei Infinitiven macht ihn komplex.\n    Vorschlag:   \"Sie können in einfachen Situationen Informationen austauschen. Sie können Dinge aus dem Alltag beschreiben.\"\n\n[8] EMPFEHLUNG · ABK\n    Stelle:      \"z. B.\"\n    Grund:       Die Abkürzung wird nicht aufgelöst. Für A1-Lernende ist \"zum Beispiel\" ausgeschrieben verständlicher.\n    Vorschlag:   \"zum Beispiel\"\n\n[9] EMPFEHLUNG · ABK\n    Stelle:      \"etc.\"\n    Grund:       Die lateinische Abkürzung wird nicht aufgelöst und steht nicht im A1-Wortschatz. Für A1-Lernende ist eine deutsche Formulierung besser.\n    Vorschlag:   \"und andere Themen\" oder streichen, da die Aufzählung bereits Beispiele gibt\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, ANREDE, LEER\n\nGESAMT\n9 Befunde, davon 1 Pflicht.\nDer Text enthält einen Pflichtbefund zur Barrierefreiheit und mehrere Formulierungen, die für A1-Lernende zu komplex sind. Der erste Absatz (Hinweis zur Anmeldung) ist als Textbaustein zu behandeln und sollte auf A1-Niveau vereinfacht werden, da er in vielen DaF-Kursen erscheint.",
+  "verbrauch": {
+    "prompt_tokens": 6920,
+    "completion_tokens": 1385,
+    "total_tokens": 8305,
+    "cost": 0.041535,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.041535,
+      "upstream_inference_prompt_cost": 0.02076,
+      "upstream_inference_completions_cost": 0.020775
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

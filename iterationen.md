@@ -86,6 +86,54 @@ eine Behauptung und muss als solche kenntlich sein.
 
 ---
 
+## v2 · 28.07.2026, 20:45 · Ausnahmeregeln gegen Fehlalarme
+
+**Anlass.** Die Wortliste war da, also habe ich sie gegen echte Texte gehalten,
+bevor sie in Betrieb geht. Ausgewertet wurden die 13 Kursbeschreibungen für
+Deutschlernende aus der Stichprobe, insgesamt 830 Wörter.
+
+**Befund.** 51 Prozent der Wörter stehen nicht wörtlich in der A1-Liste. Ein
+Prompt, der stur abgleicht, hätte also bei jedem zweiten Wort angeschlagen.
+
+Die Auswertung der häufigsten Treffer zeigt, warum:
+
+| Wort | Vorkommen | Zu melden? |
+|---|---|---|
+| Niveaustufe | 22 | ja, echtes Problem |
+| den | 11 | nein, Form von „der" |
+| umfasst | 9 | ja |
+| Teilstufen | 9 | ja |
+| Kursen | 8 | nein, Form von „Kurs" |
+| ist, eine, einer, dem | je 4 bis 6 | nein, Funktionswörter |
+
+Die Liste enthält Grundformen. Deutsche Texte enthalten gebeugte Formen. Ohne
+eine ausdrückliche Regel dazu wäre das Werkzeug in der Praxis unbrauchbar
+gewesen, und zwar auf eine Art, die man erst merkt, wenn eine Redakteurin das
+erste Mal damit arbeitet.
+
+**Was geändert wurde.**
+
+1. Vier ausdrückliche Ausnahmen im KONTEXT: gebeugte Formen, Funktionswörter,
+   erschließbare Zusammensetzungen, Eigennamen. Jeweils mit Beispielen aus den
+   echten Texten, damit die Regel nicht abstrakt bleibt.
+2. Gegenbeispiele ergänzt: Wörter, die zu Recht Befunde sind, also
+   Niveaustufe, Teilstufen, umfasst, äußern, Selbsteinschätzung.
+3. Ausdrückliche Anweisung, ohne Rücksicht auf Groß- und Kleinschreibung zu
+   vergleichen. Sonst wird jedes Wort am Satzanfang gemeldet. Dieser Punkt kam
+   als Hinweis aus der Extraktion der Wortliste.
+4. Neue Schlussregel: **Im Zweifel nicht melden.** Ein übersehener Befund
+   kostet weniger als ein falscher, weil falsche Befunde das Vertrauen in das
+   Werkzeug zerstören. Das ist zugleich die Antwort auf den Einwand, ein
+   Sprachmodell schwanke in seinen Ergebnissen.
+
+**Zusätzlich an der Datengrundlage.** Die Goethe-Liste enthält keine
+Sprachbezeichnungen. Englisch, Spanisch und Italienisch stehen aber in fast
+jedem Titel eines Sprachkurses. 23 Sprachbezeichnungen wurden ergänzt, die
+Datei weist das in der Kopfzeile aus. Ländernamen wurden bewusst nicht
+ergänzt, weil das Inventar im Original dort ausdrücklich offen gehalten ist.
+
+---
+
 ## Offen für die nächsten Fassungen
 
 Erprobung an echten Texten steht aus. Erwartete Prüfpunkte:

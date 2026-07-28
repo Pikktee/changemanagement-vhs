@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KLARTEXT — Redaktionsassistenz VHS Frankfurt</title>
+<style>
+:root{
+  --brand:#124a53;
+  --brand-dk:#0e3b42;
+  --ink:#191917;
+  --mut:#6d6d67;
+  --paper:#f4f1ea;
+  --hair:#d3cec2;
+  --grey:#e7e2d5;
+  --mint:#6fd0c0;
+  --warn:#c4622d;
+  --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+  min-height:100%;
+}
+button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inherit; border-radius:0; }
+
+/* ---------- Kopf ---------- */
+.kopf{ padding:20px 30px 0; flex:none; }
+.kopfzeile{ display:flex; align-items:center; gap:18px; }
+.mark{ display:flex; align-items:center; gap:9px; }
+.sq{ width:14px; height:14px; background:var(--brand); flex:none; }
+.wortmarke{ font-size:15px; font-weight:700; letter-spacing:4px; color:var(--brand); }
+.kopfsub{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
+          color:var(--mut); margin-left:auto; text-align:right; }
+.kopfregel{ height:3px; background:var(--brand); margin-top:10px; }
+
+/* ---------- Warnbalken ---------- */
+.balken{ display:none; padding:9px 30px; font-size:12.5px; letter-spacing:.4px; flex:none; }
+.balken.an{ display:block; }
+.balken.warn{ background:var(--warn); color:#fff; font-weight:700; }
+.balken.fehl{ background:var(--ink); color:#fff; font-weight:700; }
+.balken b{ letter-spacing:1.4px; text-transform:uppercase; font-size:11px; margin-right:8px; }
+
+/* ---------- Bühne ---------- */
+.buehne{ flex:1; display:flex; align-items:stretch; min-height:0; padding:0 30px; }
+.spalte{ display:flex; flex-direction:column; min-width:0; padding:22px 0 26px; }
+.links{ flex:0 0 38%; padding-right:28px; overflow-y:auto; }
+.rechts{ flex:1; padding-left:28px; border-left:1px solid var(--hair); overflow-y:auto; }
+
+.spkopf{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
+.spkopf h2{ font-size:11px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
+            color:#fff; background:var(--brand); padding:5px 11px; }
+.spkopf .zusatz{ font-size:11.5px; color:var(--mut); letter-spacing:.3px; margin-left:auto; }
+.spkopf .zusatz button{ background:none; border:none; color:var(--brand); font-size:11px;
+  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; padding:0 0 0 14px; }
+.spkopf .zusatz button:hover{ color:var(--warn); }
+
+/* ---------- Formular ---------- */
+label{ display:block; font-size:10.5px; font-weight:700; letter-spacing:1.9px;
+       text-transform:uppercase; color:var(--mut); margin-bottom:5px; }
+input[type=text], select, textarea{
+  width:100%; background:#fff; border:1px solid var(--hair); padding:9px 10px;
+  font-size:14px; line-height:1.4; color:var(--ink); outline:none;
+}
+input[type=text]:focus, select:focus, textarea:focus{ border-color:var(--brand); box-shadow:inset 0 0 0 1px var(--brand); }
+select{ appearance:none; background-image:none; cursor:pointer; }
+textarea{ min-height:270px; resize:vertical; line-height:1.55; }
+.feld{ margin-bottom:14px; }
+.paar{ display:flex; gap:12px; }
+.paar .feld{ flex:1; min-width:0; }
+.kurswahl{ background:var(--grey); padding:13px 14px; margin-bottom:18px; }
+.kurswahl label{ margin-bottom:6px; }
+.kurswahl .hint{ font-size:11.5px; color:var(--mut); margin-top:7px; line-height:1.4; }
+.zeichen{ font-size:11px; color:var(--mut); margin-top:5px; text-align:right; letter-spacing:.4px; }
+
+.knopfreihe{ display:flex; gap:10px; margin-top:6px; align-items:stretch; }
+.knopf{
+  background:var(--brand); color:#fff; border:1px solid var(--brand); cursor:pointer;
+  padding:13px 22px; font-size:12px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
+}
+.knopf:hover{ background:var(--brand-dk); border-color:var(--brand-dk); }
+.knopf:disabled{ background:var(--grey); border-color:var(--hair); color:var(--mut); cursor:default; }
+.knopf.leise{ background:none; color:var(--brand); border-color:var(--hair); }
+.knopf.leise:hover{ background:var(--grey); color:var(--brand-dk); border-color:var(--hair); }
+.tastenhinweis{ font-size:11px; color:var(--mut); margin-top:10px; letter-spacing:.3px; }
+
+/* ---------- Ausgabe ---------- */
+.leer{ border:1px solid var(--hair); padding:26px; color:var(--mut); font-size:14px; line-height:1.55; }
+.leer b{ color:var(--ink); display:block; font-size:16px; letter-spacing:-.3px; margin-bottom:8px; }
+
+.laden{ border:1px solid var(--brand); padding:24px 26px; }
+.laden .lt{ font-size:20px; font-weight:700; letter-spacing:-.5px; color:var(--brand); }
+.laden .ls{ font-size:12.5px; color:var(--mut); margin-top:6px; line-height:1.5; }
+.ladebalken{ height:5px; background:var(--grey); margin-top:16px; overflow:hidden; position:relative; }
+.ladebalken i{ position:absolute; top:0; left:0; height:100%; width:34%; background:var(--brand);
+  animation:wandern 1.15s linear infinite; }
+@keyframes wandern{ 0%{ left:-34%; } 100%{ left:100%; } }
+
+.fehler{ border:1px solid var(--warn); border-left:6px solid var(--warn); padding:18px 20px; }
+.fehler .ft{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
+             color:var(--warn); margin-bottom:8px; }
+.fehler .fm{ font-size:14.5px; line-height:1.5; }
+.fehler .fh{ font-size:12.5px; color:var(--mut); margin-top:10px; line-height:1.5; }
+
+.block{ margin-bottom:20px; }
+.blockkopf{ font-size:10.5px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
+            color:var(--mut); border-bottom:2px solid var(--brand); padding-bottom:6px; margin-bottom:11px; }
+.zielgruppe{ font-size:18px; line-height:1.42; font-weight:700; letter-spacing:-.4px;
+             border-left:6px solid var(--mint); padding:3px 0 3px 18px; }
+
+.zaehler{ display:flex; gap:0; border:1px solid var(--hair); margin-bottom:20px; }
+.zaehler div{ flex:1; padding:11px 14px; border-left:1px solid var(--hair); }
+.zaehler div:first-child{ border-left:none; }
+.zaehler .zn{ font-size:30px; font-weight:700; line-height:1; letter-spacing:-1.4px; color:var(--brand); }
+.zaehler .zn.warn{ color:var(--warn); }
+.zaehler .zn.grau{ color:var(--mut); }
+.zaehler .zl{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
+              color:var(--mut); margin-top:7px; }
+
+.befund{ border:1px solid var(--hair); border-left:6px solid var(--grey); margin-bottom:12px; background:#fff; }
+.befund.pflicht{ border-left-color:var(--brand); }
+.befund.empfehlung{ border-left-color:var(--warn); }
+.befund.hinweis{ border-left-color:var(--grey); }
+.bkopf{ display:flex; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--hair);
+        background:var(--paper); }
+.stufe{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
+        padding:4px 9px; background:var(--grey); color:var(--ink); }
+.befund.pflicht .stufe{ background:var(--brand); color:#fff; }
+.befund.empfehlung .stufe{ background:var(--warn); color:#fff; }
+.befund.hinweis .stufe{ background:var(--grey); color:var(--ink); }
+.regel{ font-size:11.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--mut); }
+.bnr{ margin-left:auto; font-size:11.5px; font-weight:700; color:var(--hair); letter-spacing:1px; }
+.bkoerper{ padding:12px 14px 13px; }
+.zeile{ display:flex; gap:14px; padding:6px 0; align-items:flex-start; }
+.zeile + .zeile{ border-top:1px solid var(--paper); }
+.zeile dt{ flex:0 0 74px; font-size:10px; font-weight:700; letter-spacing:1.7px;
+           text-transform:uppercase; color:var(--mut); padding-top:3px; }
+.zeile dd{ flex:1; font-size:14.5px; line-height:1.5; min-width:0; }
+.zeile dd.zitat{ font-weight:700; color:var(--brand); }
+.zeile dd.vorschlag{ background:var(--grey); padding:7px 10px; }
+.extra{ font-size:13px; color:var(--mut); line-height:1.5; padding:6px 0 0; }
+
+.kbz{ font-size:14px; line-height:1.55; color:var(--mut); }
+.kbz span{ display:inline-block; background:var(--grey); color:var(--ink); font-size:11px;
+  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; padding:4px 9px; margin:0 6px 6px 0; }
+.gesamt{ background:var(--brand); color:#fff; padding:15px 18px; font-size:15.5px; line-height:1.45; }
+.gesamt.ohne{ background:var(--warn); }
+
+pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:12.5px; line-height:1.55;
+  white-space:pre-wrap; word-wrap:break-word; font-family:"SFMono-Regular",Menlo,Consolas,monospace; }
+.rohnote{ font-size:12px; color:var(--warn); font-weight:700; margin-bottom:9px; letter-spacing:.3px; }
+
+/* ---------- Fuß ---------- */
+.fuss{ flex:none; margin:0 30px; border-top:1px solid var(--hair); padding:10px 0 14px;
+  display:flex; gap:22px; flex-wrap:wrap; font-size:10.5px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--mut); }
+.fuss span b{ color:var(--ink); font-weight:700; }
+.fuss .warnton b{ color:var(--warn); }
+
+@media (max-width:980px){
+  .buehne{ flex-direction:column; }
+  .links{ flex:none; padding-right:0; }
+  .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--hair); }
+}
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="kopfzeile">
+    <div class="mark"><span class="sq"></span><span class="wortmarke">KLARTEXT</span></div>
+    <div class="kopfsub">Redaktionsassistenz &middot; Volkshochschule Frankfurt am Main</div>
+  </div>
+  <div class="kopfregel"></div>
+</header>
+
+<div id="balkenWort" class="balken warn"><b>Ohne Referenzwortschatz</b>Die Datei <code>daten/wortliste-goethe-a1.txt</code> fehlt oder ist leer. Niveau-Befunde sind Schaetzungen, nicht am Goethe-A1-Wortschatz belegt.</div>
+<div id="balkenFehl" class="balken fehl"></div>
+
+<main class="buehne">
+
+  <section class="spalte links">
+    <div class="spkopf">
+      <h2>Eingabe</h2>
+      <div class="zusatz"><span id="kursZahl">Kurse werden geladen</span></div>
+    </div>
+
+    <div class="kurswahl">
+      <label for="kurswahl">Kurs aus der Stichprobe laden</label>
+      <select id="kurswahl">
+        <option value="">Bitte waehlen, oder unten frei eingeben</option>
+      </select>
+      <div class="hint" id="kursHint">60 echte Kursbeschreibungen der VHS Frankfurt. Programmbereich und Niveau werden aus Kursnummer und Titel vorbelegt und lassen sich aendern.</div>
+    </div>
+
+    <div class="feld">
+      <label for="titel">Kurstitel</label>
+      <input type="text" id="titel" placeholder="z. B. DaF Deutsch 4 A2.2 (A2)">
+    </div>
+
+    <div class="paar">
+      <div class="feld">
+        <label for="nummer">Kursnummer</label>
+        <input type="text" id="nummer" placeholder="z. B. 4074-74">
+      </div>
+      <div class="feld">
+        <label for="niveau">Niveau</label>
+        <select id="niveau">
+          <option>kein Sprachniveau</option>
+          <option>A1</option><option>A2</option><option>B1</option>
+          <option>B2</option><option>C1</option><option>C2</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="feld">
+      <label for="bereich">Programmbereich</label>
+      <select id="bereich"></select>
+    </div>
+
+    <div class="feld">
+      <label for="text">Ankuendigungstext</label>
+      <textarea id="text" placeholder="Den zu pruefenden Kurstext hier einsetzen."></textarea>
+      <div class="zeichen" id="zeichen">0 Zeichen</div>
+    </div>
+
+    <div class="knopfreihe">
+      <button class="knopf" id="pruefen">Text pruefen</button>
+      <button class="knopf leise" id="leeren">Leeren</button>
+    </div>
+    <div class="tastenhinweis">Cmd + Return startet die Pruefung.</div>
+  </section>
+
+  <section class="spalte rechts">
+    <div class="spkopf">
+      <h2>Befunde</h2>
+      <div class="zusatz">
+        <span id="laufinfo"></span>
+        <button id="rohKnopf" style="display:none">Rohtext</button>
+      </div>
+    </div>
+    <div id="ausgabe">
+      <div class="leer">
+        <b>Noch keine Pruefung.</b>
+        Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen, dann
+        &bdquo;Text pruefen&ldquo;. Die Befunde erscheinen hier, sortiert nach Einstufung:
+        Pflicht, Empfehlung, Hinweis.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss" id="fuss">
+  <span>Promptfassung <b id="fFassung">wird geladen</b></span>
+  <span>Modell <b id="fModell">&ndash;</b></span>
+  <span>Temperatur <b id="fTemp">&ndash;</b></span>
+  <span id="fWortWrap">Referenzwortschatz <b id="fWort">&ndash;</b></span>
+  <span id="fProtokoll"></span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var el = function(id){ return document.getElementById(id); };
+  var kurse = [];
+  var status = null;
+  var letzterRohtext = "";
+  var rohSichtbar = false;
+  var letzteBefunde = null;
+  var laeuft = false;
+  var uhr = null;
+
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+
+  // ---------------------------------------------------------------- Aufbau
+  function bereicheFuellen(liste){
+    var sel = el("bereich");
+    sel.innerHTML = "";
+    liste.forEach(function(b){
+      var o = document.createElement("option");
+      o.textContent = b; sel.appendChild(o);
+    });
+  }
+
+  function statusHolen(){
+    return fetch("/api/status").then(function(r){ return r.json(); }).then(function(s){
+      status = s;
+      bereicheFuellen(s.bereiche || []);
+      el("fFassung").textContent = s.fassung || "unbekannt";
+      el("fModell").textContent = s.modell || "-";
+      el("fTemp").textContent = String(s.temperatur).replace(".", ",");
+      if(s.wortlisteVorhanden){
+        el("fWort").textContent = s.wortanzahl + " Eintraege";
+        el("fWortWrap").classList.remove("warnton");
+        el("balkenWort").classList.remove("an");
+      } else {
+        el("fWort").textContent = "fehlt";
+        el("fWortWrap").classList.add("warnton");
+        el("balkenWort").classList.add("an");
+      }
+      if(!s.hatKey){
+        zeigeBalkenFehler("Kein API-Key gefunden. Bitte OPENROUTER_API_KEY in der .env pruefen. Pruefungen sind bis dahin nicht moeglich.");
+      } else if(s.promptFehler){
+        zeigeBalkenFehler(s.promptFehler);
+      }
+    }).catch(function(){
+      zeigeBalkenFehler("Der lokale Server antwortet nicht. Laeuft server.py noch?");
+    });
+  }
+
+  function zeigeBalkenFehler(text){
+    var b = el("balkenFehl");
+    b.innerHTML = "<b>Achtung</b>" + esc(text);
+    b.classList.add("an");
+  }
+
+  function kurseHolen(){
+    return fetch("/api/kurse").then(function(r){ return r.json(); }).then(function(d){
+      kurse = d.kurse || [];
+      var sel = el("kurswahl");
+      kurse.forEach(function(k, i){
+        var o = document.createElement("option");
+        o.value = String(i);
+        o.textContent = k.nummer + "  ·  " + k.titel.replace(/\s+/g," ").trim();
+        sel.appendChild(o);
+      });
+      el("kursZahl").textContent = kurse.length + " Kurse in der Stichprobe";
+    }).catch(function(){
+      el("kursZahl").textContent = "Kursdaten nicht ladbar";
+    });
+  }
+
+  function kursUebernehmen(){
+    var i = el("kurswahl").value;
+    if(i === "") return;
+    var k = kurse[Number(i)];
+    if(!k) return;
+    el("titel").value = k.titel.replace(/\s+/g," ").trim();
+    el("nummer").value = k.nummer;
+    setzeAuswahl(el("bereich"), k.programmbereich);
+    setzeAuswahl(el("niveau"), k.niveau);
+    el("text").value = k.text;
+    zeichenZaehlen();
+  }
+
+  function setzeAuswahl(sel, wert){
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].textContent === wert || sel.options[i].value === wert){
+        sel.selectedIndex = i; return;
+      }
+    }
+  }
+
+  function zeichenZaehlen(){
+    var n = el("text").value.length;
+    el("zeichen").textContent = n.toLocaleString("de-DE") + " Zeichen";
+  }
+
+  // ---------------------------------------------------------------- Parser
+  function parseAntwort(roh){
+    var text = String(roh || "").replace(/\r\n/g,"\n").trim();
+    text = text.replace(/^```[a-zA-Z]*\s*\n/, "").replace(/\n```\s*$/, "");
+
+    var marken = [
+      [/^ZIELGRUPPE:?$/i, "zielgruppe"],
+      [/^BEFUNDE:?$/i, "befunde"],
+      [/^KEIN\s+BEFUND\s+ZU:?$/i, "keinBefund"],
+      [/^GESAMT:?$/i, "gesamt"]
+    ];
+    var puffer = { zielgruppe:[], befunde:[], keinBefund:[], gesamt:[] };
+    var aktuell = null, gefunden = 0;
+
+    text.split("\n").forEach(function(z){
+      var t = z.trim().replace(/^#+\s*/,"").replace(/\*\*/g,"").replace(/^[-*]\s+/,"");
+      var marke = null;
+      for(var i=0;i<marken.length;i++){ if(marken[i][0].test(t)){ marke = marken[i][1]; break; } }
+      if(marke){ aktuell = marke; gefunden++; return; }
+      if(aktuell) puffer[aktuell].push(z);
+    });
+
+    if(gefunden === 0) return null;
+
+    return {
+      zielgruppe: puffer.zielgruppe.join("\n").trim(),
+      befunde: parseBefunde(puffer.befunde),
+      befundeRoh: puffer.befunde.join("\n").trim(),
+      keinBefund: puffer.keinBefund.join(" ").replace(/\s+/g," ").trim(),
+      gesamt: puffer.gesamt.join("\n").trim()
+    };
+  }
+
+  function parseBefunde(zeilen){
+    var liste = [], akt = null, feld = null;
+    zeilen.forEach(function(z){
+      var kopf = z.match(/^\s*\[?\s*(\d+)\s*[\]\.\)]\s*(.*)$/);
+      if(kopf && /(PFLICHT|EMPFEHLUNG|HINWEIS)/i.test(kopf[2])){
+        if(akt) liste.push(akt);
+        var rest = kopf[2].replace(/\*\*/g,"").trim();
+        var m = rest.match(/(PFLICHT|EMPFEHLUNG|HINWEIS)/i);
+        var stufe = m ? m[1].toUpperCase() : "";
+        var regel = rest.replace(/(PFLICHT|EMPFEHLUNG|HINWEIS)/i,"")
+                        .replace(/^[\s·:\-–|,]+/,"").trim();
+        akt = { nr:kopf[1], stufe:stufe, regel:regel, stelle:"", grund:"", vorschlag:"", extra:[] };
+        feld = null; return;
+      }
+      if(!akt) return;
+      var f = z.match(/^\s*\*{0,2}(Stelle|Grund|Vorschlag)\*{0,2}\s*:\s*(.*)$/i);
+      if(f){ feld = f[1].toLowerCase(); akt[feld] = f[2].trim(); return; }
+      var t = z.trim();
+      if(!t){ feld = null; return; }
+      if(feld){ akt[feld] = (akt[feld] + " " + t).trim(); }
+      else { akt.extra.push(t); }
+    });
+    if(akt) liste.push(akt);
+    return liste;
+  }
+
+  // ------------------------------------------------------------- Darstellung
+  function stufenKlasse(s){
+    if(/PFLICHT/i.test(s)) return "pflicht";
+    if(/EMPFEHLUNG/i.test(s)) return "empfehlung";
+    return "hinweis";
+  }
+
+  function zeile(label, wert, klasse){
+    if(!wert) return "";
+    return '<div class="zeile"><dt>' + label + '</dt><dd class="' + (klasse||"") + '">'
+         + esc(wert) + "</dd></div>";
+  }
+
+  function darstellen(daten, meta){
+    var h = "";
+
+    if(daten.zielgruppe){
+      h += '<div class="block"><div class="blockkopf">Zielgruppe</div>'
+         + '<div class="zielgruppe">' + esc(daten.zielgruppe) + "</div></div>";
+    }
+
+    var b = daten.befunde || [];
+    var pflicht = 0, empf = 0, hinw = 0;
+    b.forEach(function(x){
+      var k = stufenKlasse(x.stufe);
+      if(k === "pflicht") pflicht++; else if(k === "empfehlung") empf++; else hinw++;
+    });
+
+    if(b.length){
+      h += '<div class="zaehler">'
+        + '<div><div class="zn">' + pflicht + '</div><div class="zl">Pflicht</div></div>'
+        + '<div><div class="zn warn">' + empf + '</div><div class="zl">Empfehlung</div></div>'
+        + '<div><div class="zn grau">' + hinw + '</div><div class="zl">Hinweis</div></div>'
+        + '<div><div class="zn">' + b.length + '</div><div class="zl">Befunde gesamt</div></div>'
+        + "</div>";
+
+      h += '<div class="block"><div class="blockkopf">Befunde</div>';
+      b.forEach(function(x){
+        var k = stufenKlasse(x.stufe);
+        h += '<article class="befund ' + k + '">'
+           + '<div class="bkopf"><span class="stufe">' + esc(x.stufe || "Befund") + "</span>"
+           + (x.regel ? '<span class="regel">' + esc(x.regel) + "</span>" : "")
+           + '<span class="bnr">' + esc(x.nr) + "</span></div>"
+           + '<div class="bkoerper"><dl>'
+           + zeile("Stelle", x.stelle, "zitat")
+           + zeile("Grund", x.grund, "")
+           + zeile("Vorschlag", x.vorschlag, "vorschlag")
+           + "</dl>"
+           + (x.extra && x.extra.length ? '<div class="extra">' + esc(x.extra.join(" ")) + "</div>" : "")
+           + "</div></article>";
+      });
+      h += "</div>";
+    } else if(daten.befundeRoh){
+      h += '<div class="block"><div class="blockkopf">Befunde</div>'
+         + '<div class="kbz">' + esc(daten.befundeRoh) + "</div></div>";
+    }
+
+    if(daten.keinBefund){
+      var kuerzel = daten.keinBefund.split(/[,;]/).map(function(s){ return s.trim(); })
+                    .filter(function(s){ return s.length > 0; });
+      h += '<div class="block"><div class="blockkopf">Kein Befund zu</div><div class="kbz">'
+         + kuerzel.map(function(s){ return "<span>" + esc(s) + "</span>"; }).join("")
+         + "</div></div>";
+    }
+
+    if(daten.gesamt){
+      var ohne = /ohne referenzwortschatz/i.test(daten.gesamt);
+      h += '<div class="block"><div class="blockkopf">Gesamt</div>'
+         + '<div class="gesamt' + (ohne ? " ohne" : "") + '">' + esc(daten.gesamt) + "</div></div>";
+    }
+
+    if(!h){
+      return rohDarstellen("Die Antwort liess sich nicht in Abschnitte zerlegen.");
+    }
+    return h;
+  }
+
+  function rohDarstellen(grund){
+    return '<div class="block">'
+      + (grund ? '<div class="rohnote">' + esc(grund) + " Unten steht die unveraenderte Modellantwort.</div>" : "")
+      + '<pre class="roh">' + esc(letzterRohtext) + "</pre></div>";
+  }
+
+  function neuZeichnen(){
+    if(!letzterRohtext){ return; }
+    if(rohSichtbar || !letzteBefunde){
+      el("ausgabe").innerHTML = rohDarstellen(letzteBefunde ? "" : "Die Antwort folgt nicht dem erwarteten Format.");
+    } else {
+      el("ausgabe").innerHTML = darstellen(letzteBefunde);
+    }
+  }
+
+  // ---------------------------------------------------------------- Ablauf
+  function ladenZeigen(){
+    var start = Date.now();
+    el("ausgabe").innerHTML =
+      '<div class="laden"><div class="lt">Pruefung laeuft</div>'
+      + '<div class="ls">Der Text geht mit dem System-Prompt an ' + esc(status && status.modell ? status.modell : "das Modell")
+      + '. Das dauert ueblicherweise 20 bis 60 Sekunden.</div>'
+      + '<div class="ladebalken"><i></i></div>'
+      + '<div class="ls" id="ladeUhr">0 Sekunden</div></div>';
+    uhr = setInterval(function(){
+      var s = Math.round((Date.now() - start)/1000);
+      var u = el("ladeUhr");
+      if(u) u.textContent = s + (s === 1 ? " Sekunde" : " Sekunden");
+    }, 1000);
+  }
+
+  function ladenAus(){
+    if(uhr){ clearInterval(uhr); uhr = null; }
+  }
+
+  function fehlerZeigen(meldung, hinweis){
+    el("ausgabe").innerHTML =
+      '<div class="fehler"><div class="ft">Pruefung nicht moeglich</div>'
+      + '<div class="fm">' + esc(meldung) + "</div>"
+      + (hinweis ? '<div class="fh">' + esc(hinweis) + "</div>" : "")
+      + "</div>";
+  }
+
+  function pruefen(){
+    if(laeuft) return;
+    var text = el("text").value.trim();
+    if(!text){
+      fehlerZeigen("Kein Kurstext eingegeben.",
+        "Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen.");
+      el("text").focus();
+      return;
+    }
+    laeuft = true;
+    el("pruefen").disabled = true;
+    el("pruefen").textContent = "Bitte warten";
+    el("rohKnopf").style.display = "none";
+    el("laufinfo").textContent = "";
+    el("fProtokoll").textContent = "";
+    rohSichtbar = false;
+    ladenZeigen();
+
+    fetch("/api/pruefen", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        titel: el("titel").value,
+        nummer: el("nummer").value,
+        programmbereich: el("bereich").value || el("bereich").selectedOptions[0] && el("bereich").selectedOptions[0].textContent,
+        niveau: el("niveau").selectedOptions[0] ? el("niveau").selectedOptions[0].textContent : "",
+        text: text
+      })
+    }).then(function(r){
+      return r.json().then(function(d){ return { ok:r.ok, daten:d }; });
+    }).then(function(res){
+      ladenAus();
+      if(!res.ok || res.daten.error){
+        fehlerZeigen(res.daten.error || "Die Anfrage ist fehlgeschlagen.",
+          "Der Server laeuft weiter. Netzverbindung und .env pruefen, dann erneut versuchen.");
+        return;
+      }
+      letzterRohtext = res.daten.inhalt || "";
+      letzteBefunde = parseAntwort(letzterRohtext);
+      neuZeichnen();
+      el("rohKnopf").style.display = "inline";
+      el("rohKnopf").textContent = "Rohtext";
+      el("laufinfo").textContent = String(res.daten.dauerSekunden).replace(".", ",") + " s";
+      el("fModell").textContent = res.daten.modell + (res.daten.ersatzmodellGenutzt ? " (Ersatzmodell)" : "");
+      el("fFassung").textContent = res.daten.fassung || "unbekannt";
+      if(res.daten.protokoll){
+        el("fProtokoll").innerHTML = "Protokoll <b>" + esc(res.daten.protokoll) + "</b>";
+      }
+      if(!res.daten.wortlisteVorhanden){ el("balkenWort").classList.add("an"); }
+      else { el("balkenWort").classList.remove("an"); el("fWort").textContent = res.daten.wortanzahl + " Eintraege"; }
+    }).catch(function(){
+      ladenAus();
+      fehlerZeigen("Der lokale Server ist nicht erreichbar.",
+        "Laeuft server.py noch? Im Terminal mit python3 server.py neu starten.");
+    }).then(function(){
+      laeuft = false;
+      el("pruefen").disabled = false;
+      el("pruefen").textContent = "Text pruefen";
+    });
+  }
+
+  // ---------------------------------------------------------------- Ereignisse
+  el("kurswahl").addEventListener("change", kursUebernehmen);
+  el("text").addEventListener("input", zeichenZaehlen);
+  el("pruefen").addEventListener("click", pruefen);
+  el("leeren").addEventListener("click", function(){
+    el("kurswahl").value = ""; el("titel").value = ""; el("nummer").value = "";
+    el("text").value = ""; el("niveau").selectedIndex = 0; el("bereich").selectedIndex = 0;
+    zeichenZaehlen();
+    letzterRohtext = ""; letzteBefunde = null;
+    el("rohKnopf").style.display = "none";
+    el("laufinfo").textContent = "";
+    el("ausgabe").innerHTML = '<div class="leer"><b>Noch keine Pruefung.</b>'
+      + 'Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen, dann '
+      + '&bdquo;Text pruefen&ldquo;.</div>';
+  });
+  el("rohKnopf").addEventListener("click", function(){
+    rohSichtbar = !rohSichtbar;
+    el("rohKnopf").textContent = rohSichtbar ? "Befunde" : "Rohtext";
+    neuZeichnen();
+  });
+  document.addEventListener("keydown", function(e){
+    if((e.metaKey || e.ctrlKey) && e.key === "Enter"){ e.preventDefault(); pruefen(); }
+  });
+
+  statusHolen();
+  kurseHolen();
+  zeichenZaehlen();
+})();
+</script>
+</body>
+</html>
