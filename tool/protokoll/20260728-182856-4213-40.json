@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T18:28:56",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v3 · 28.07.2026",
+  "promptPruefsumme": "f6ae770f61bddd60",
+  "promptZeichen": 18395,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 11.89,
+  "eingabe": {
+    "titel": "Englisch A1.1  (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1  (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene ohne Englischkenntnisse, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · SATZ\n    Stelle:      \"Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden.\"\n    Grund:       Der Satz hat 23 Wörter und ist damit für einen Einstiegskurs zu lang.\n    Vorschlag:   \"Auf dem Kursniveau A1 lernen Sie alltägliche Ausdrücke und einfache Sätze. Sie lernen, diese zu verstehen und zu verwenden.\"\n\n[2] EMPFEHLUNG · ABK\n    Stelle:      \"A1 (A1.1 - A1.2)\"\n    Grund:       Die Unterteilung in A1.1 und A1.2 wird nicht erklärt, obwohl sie für Anfängerinnen nicht selbstverständlich ist.\n    Vorschlag:   \"A1 (Teilstufen A1.1 bis A1.2)\" oder \"A1 (erste und zweite Hälfte)\"\n\n[3] EMPFEHLUNG · SATZ\n    Stelle:      \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.\"\n    Grund:       Der Satz hat 26 Wörter und enthält mehrere Bedingungen, die schwer zu überblicken sind.\n    Vorschlag:   \"Die Zahl der Termine hängt von den Anmeldungen ab: 8 Personen = 11 Termine, 7 Personen = 9 Termine, 6 Personen = 7 Termine.\"\n\n[4] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe zum Lehrbuch, obwohl im letzten Absatz darauf verwiesen wird.\n    Vorschlag:   \"Lehrbuch: [Titel, Verlag, ISBN] – bitte erst kaufen, wenn der Kurs stattfindet.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, NIVEAU, AMTSDEUTSCH, ANREDE\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist verständlich geschrieben. Die Empfehlungen betreffen vor allem die Satzlänge und würden die Lesbarkeit für die Zielgruppe weiter verbessern.",
+  "verbrauch": {
+    "prompt_tokens": 7832,
+    "completion_tokens": 727,
+    "total_tokens": 8559,
+    "cost": 0.034401,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.034401,
+      "upstream_inference_prompt_cost": 0.023496,
+      "upstream_inference_completions_cost": 0.010905
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

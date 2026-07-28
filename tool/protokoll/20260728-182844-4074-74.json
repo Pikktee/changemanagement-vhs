@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T18:28:44",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v3 · 28.07.2026",
+  "promptPruefsumme": "f6ae770f61bddd60",
+  "promptZeichen": 18395,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 17.92,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2  (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2  (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende, die Deutsch auf A1-Niveau lesen, also mit Grundwortschatz und einfachen Sätzen.\n\nBEFUNDE\n[1] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie hier ablegen.\"\n    Grund:       Linktext lautet „hier\". Ohne den Satz davor ist nicht erkennbar, wohin der Link führt.\n    Vorschlag:   \"Den Online-Test können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>auf dieser Seite ablegen</a>.\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"idealerweise\"\n    Grund:       Das Wort „idealerweise\" steht nicht im A1-Wortschatz und ist eine gehobene Verwaltungswendung.\n    Vorschlag:   \"Am besten melden Sie sich nach einem Termin bei der Sprachberatung DaF an.\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Selbsteinschätzung\"\n    Grund:       Das Wort „Selbsteinschätzung\" steht nicht im A1-Wortschatz und ist eine Zusammensetzung, die sich nicht erschließt.\n    Vorschlag:   \"Sie können sich auch selbst anmelden, wenn Sie Ihr Niveau kennen.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Fehleinschätzung\"\n    Grund:       Das Wort „Fehleinschätzung\" steht nicht im A1-Wortschatz und ist eine Zusammensetzung, die sich nicht erschließt.\n    Vorschlag:   \"Wenn Sie das falsche Niveau wählen, können wir eine Umbuchung allerdings nicht garantieren.\"\n\n[5] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Umbuchung\"\n    Grund:       Das Wort „Umbuchung\" steht nicht im A1-Wortschatz und ist eine Verwaltungswendung.\n    Vorschlag:   \"Wenn Sie das falsche Niveau wählen, können wir nicht garantieren, dass Sie in einen anderen Kurs wechseln können.\"\n\n[6] EMPFEHLUNG · NIVEAU\n    Stelle:      \"allerdings\"\n    Grund:       Das Wort „allerdings\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Wenn Sie das falsche Niveau wählen, können wir aber nicht garantieren, dass Sie in einen anderen Kurs wechseln können.\"\n\n[7] EMPFEHLUNG · NIVEAU\n    Stelle:      \"oft gebrauchte Ausdrücke\"\n    Grund:       Die Wendung „oft gebrauchte\" (gebrauchen) steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Sie lernen in den Kursen der Niveaustufe A2 Wörter und Sätze für Alltagssituationen verstehen\"\n\n[8] EMPFEHLUNG · NIVEAU\n    Stelle:      \"austauschen\"\n    Grund:       Das Wort „austauschen\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Sie können in einfachen Situationen Informationen geben und bekommen\"\n\n[9] EMPFEHLUNG · NIVEAU\n    Stelle:      \"umfasst\"\n    Grund:       Das Wort „umfasst\" (umfassen) steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Die Niveaustufe A2 hat die Teilstufen A2.1 und A2.2.\"\n\n[10] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc.\"\n    Grund:       Der Satz hat 24 Wörter und liegt damit über der Grenze von 15 Wörtern für A1-Leser.\n    Vorschlag:   \"Sie lernen in den Kursen der Niveaustufe A2 Wörter und Sätze für Alltagssituationen verstehen. Zum Beispiel: Informationen zur Person, Familie, Einkaufen, Arbeit.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, ABK, ANREDE, LEER\n\nGESAMT\n10 Befunde, davon 1 Pflicht.\nDer Text enthält einen Pflichtbefund zur Barrierefreiheit und mehrere Wörter, die über dem Leseniveau A1 liegen. Der Anmeldehinweis ist ein Textbaustein und sollte für alle DaF-Kurse vereinfacht werden.",
+  "verbrauch": {
+    "prompt_tokens": 7739,
+    "completion_tokens": 1263,
+    "total_tokens": 9002,
+    "cost": 0.042162,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.042162,
+      "upstream_inference_prompt_cost": 0.023217,
+      "upstream_inference_completions_cost": 0.018945
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

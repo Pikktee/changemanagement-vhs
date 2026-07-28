@@ -134,12 +134,63 @@ ergänzt, weil das Inventar im Original dort ausdrücklich offen gehalten ist.
 
 ---
 
+## v3 · 28.07.2026, 21:15 · Korrekturen aus dem ersten Echtbetrieb
+
+**Anlass.** Der Prototyp lief. Damit konnte der Prompt zum ersten Mal an
+echten Texten arbeiten statt an meiner Vorstellung davon. Geprueft wurden zwei
+Faelle bewusst gegensaetzlicher Art: Kurs 4074-74, DaF Deutsch A2.2, und Kurs
+4213-40, Englisch A1.1.
+
+**Das Wichtigste zuerst: die Kernregel funktioniert.** Derselbe Prompf, zwei
+Kurse, zwei verschiedene Massstaebe. Beim Deutschkurs bestimmte das Modell die
+Zielgruppe als "Lernende, die Deutsch auf A1-Niveau lesen" und meldete sieben
+Niveau-Befunde. Beim Englischkurs bestimmte es "Deutsch als Erst- oder starke
+Zweitsprache" und meldete keinen einzigen. Das ist der Beleg fuer die These
+des Projekts, erbracht an echten Daten.
+
+Auch die Ausnahmeregeln aus v2 greifen: kein einziger Fehlalarm auf gebeugte
+Formen oder Funktionswoerter. Und der Textbaustein wurde selbstaendig als
+solcher erkannt und mit dem Hinweis versehen, er muesse hauseinheitlich
+ueberarbeitet werden.
+
+**Drei Fehler, die nur der Echtbetrieb zeigen konnte.**
+
+*Erstens, unlesbare Zitate.* Die Ausgabe zitierte rohes Markup:
+`"Diesen koennen Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen."`
+Fuer eine Redakteurin ist das unbrauchbar. Behoben durch eine Regel, den
+sichtbaren Text zu zitieren und den Linktext getrennt zu benennen. Im
+Vorschlag bleibt Auszeichnung erlaubt, weil sie dort zur Verbesserung gehoert.
+
+*Zweitens, ein Fehlalarm bei der falschen Zielgruppe.* Beim Englischkurs
+beanstandete das Modell das Wort "entscheidend" als Amtsdeutsch. Fuer
+deutschsprachige Leser ist das gehobenes Standarddeutsch und kein Problem. Die
+Regel AMTSDEUTSCH gilt jetzt ausdruecklich nur im strengen Fall, also bei
+Kursen, die Deutsch vermitteln.
+
+*Drittens, eine eigenmaechtige Einstufung.* Das Modell stufte einen
+STRUKTUR-Befund als HINWEIS ein, obwohl die Regeltabelle dafuer PFLICHT
+vorsieht. Es hat die Schwere selbst bewertet, statt die Tabelle anzuwenden.
+Neue Regel: Die Einstufung steht in der Tabelle und ist nicht Sache des
+Modells, weder nach oben noch nach unten.
+
+**Gegentest nach der Aenderung.** Beide Faelle erneut geprueft. Zitate
+enthalten kein Markup mehr. AMTSDEUTSCH erscheint beim Englischkurs jetzt
+unter "KEIN BEFUND ZU", wurde also geprueft und korrekt nicht gemeldet.
+
+**Beobachtung zur Reproduzierbarkeit.** Bei wiederholter Pruefung desselben
+Textes schwankt die Zahl der Befunde um ein bis zwei, die Pflichtbefunde
+blieben stabil. Das ist fuer ein vorschlagendes Werkzeug vertretbar und ein
+weiteres Argument dafuer, dass ein Mensch entscheidet. Fuer die Praesentation
+ist es die ehrliche Antwort auf die Frage nach der Verlaesslichkeit.
+
+---
+
 ## Offen für die nächsten Fassungen
 
 Erprobung an echten Texten steht aus. Erwartete Prüfpunkte:
 
-- Erkennt der Prompt Textbausteine zuverlässig, oder braucht es dafür einen
-  eigenen Eingabemodus?
+- Erkennt der Prompt Textbausteine zuverlässig? Im ersten Lauf ja, das ist
+  aber ein Einzelfall und keine Messung.
 - Ist die Grenze von 25 beziehungsweise 15 Wörtern je Satz brauchbar, oder
   erzeugt sie zu viele Befunde bei ohnehin verständlichen Sätzen?
 - Wie verhält sich das Modell bei Kursen ohne Niveauangabe?

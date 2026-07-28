@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T18:27:26",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v2 · 28.07.2026",
+  "promptPruefsumme": "95fb9183282af2d0",
+  "promptZeichen": 17548,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 16.92,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2  (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2  (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende, die Deutsch auf Niveau A1 beherrschen und A2 anstreben. Sie lesen Deutsch auf A1-Niveau.\n\nBEFUNDE\n[1] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen.\"\n    Grund:       Der Linktext \"hier\" erklärt nicht, wohin der Link führt, ohne den Satz davor zu lesen.\n    Vorschlag:   \"Den Online-Test können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>auf dieser Seite machen</a>.\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"idealerweise\"\n    Grund:       Das Wort \"idealerweise\" steht nicht im A1-Wortschatz und ist für A1-Lernende zu schwer.\n    Vorschlag:   \"am besten\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Selbsteinschätzung\"\n    Grund:       Das zusammengesetzte Wort \"Selbsteinschätzung\" ist für A1-Lernende zu komplex.\n    Vorschlag:   \"Sie können auch selbst entscheiden, welcher Kurs für Sie passt.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Fehleinschätzung\"\n    Grund:       Das Wort \"Fehleinschätzung\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Wenn der Kurs nicht passt\"\n\n[5] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Umbuchung\"\n    Grund:       Das Wort \"Umbuchung\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"einen Wechsel in einen anderen Kurs\"\n\n[6] EMPFEHLUNG · NIVEAU\n    Stelle:      \"garantieren\"\n    Grund:       Das Wort \"garantieren\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"sicher machen\"\n\n[7] EMPFEHLUNG · NIVEAU\n    Stelle:      \"oft gebrauchte Ausdrücke\"\n    Grund:       \"gebrauchte\" (im Sinne von \"verwendete\") steht nicht im A1-Wortschatz.\n    Vorschlag:   \"Wörter und Sätze, die man oft braucht\"\n\n[8] EMPFEHLUNG · NIVEAU\n    Stelle:      \"umfasst\"\n    Grund:       Das Wort \"umfasst\" steht nicht im A1-Wortschatz.\n    Vorschlag:   \"hat\"\n\n[9] EMPFEHLUNG · SATZ, NIVEAU\n    Stelle:      \"Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF.\"\n    Grund:       Der Satz hat 15 Wörter und enthält mit \"erfolgt\" und \"idealerweise\" schwere Wörter für A1.\n    Vorschlag:   \"Am besten machen Sie einen Termin bei der Sprachberatung DaF. Dann melden Sie sich für den Kurs an.\"\n\n[10] EMPFEHLUNG · SATZ\n    Stelle:      \"Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\"\n    Grund:       Der Satz hat 11 Wörter, aber die Struktur mit \"nach\" + Nominalisierungen ist für A1 zu komplex.\n    Vorschlag:   \"Sie können sich auch selbst anmelden. Machen Sie vorher den Online-Test.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, ABK, ANREDE, LEER\n\nGESAMT\n10 Befunde, davon 1 Pflicht.\nDer Text enthält viele Wörter und Wendungen, die über A1-Niveau liegen. Für die Zielgruppe ist er schwer verständlich. Ich empfehle eine grundlegende Überarbeitung des Textbausteins zur Anmeldung, da dieser in vielen A2-Kursen verwendet wird.",
+  "verbrauch": {
+    "prompt_tokens": 7434,
+    "completion_tokens": 1118,
+    "total_tokens": 8552,
+    "cost": 0.039072,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.039072,
+      "upstream_inference_prompt_cost": 0.022302,
+      "upstream_inference_completions_cost": 0.01677
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
