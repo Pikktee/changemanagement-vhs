@@ -146,6 +146,13 @@ def h1(f):
     return out
 
 
+def callout(f):
+    if not f.get("callout"):
+        return ""
+    kl = f'<span class="kl">{e(f["calloutsub"])}</span>' if f.get("calloutsub") else ""
+    return f'<div class="callout">{e(f["callout"])}{kl}</div>'
+
+
 def quellen(f):
     if not f.get("quellen"):
         return ""
@@ -198,10 +205,7 @@ def t_punkte(f, seite, gesamt):
             inner = e(p)
         items.append(f'<div class="pkt"><div class="bar"></div>'
                      f'<div class="ptxt">{inner}</div></div>')
-    call = ""
-    if f.get("callout"):
-        kl = f'<span class="kl">{e(f["calloutsub"])}</span>' if f.get("calloutsub") else ""
-        call = f'<div class="callout">{e(f["callout"])}{kl}</div>'
+    call = callout(f)
     return f"""<div class="stage">
   {kopf(f, seite, gesamt)}
   {h1(f)}
@@ -231,10 +235,7 @@ def t_zahlen(f, seite, gesamt):
         kl = (" " + " ".join(klassen)) if klassen else ""
         zs.append(f'<div class="z"><div class="znum{kl}">{e(wert)}</div>'
                   f'<div class="zlab">{e(lab)}</div></div>')
-    call = ""
-    if f.get("callout"):
-        kl = f'<span class="kl">{e(f["calloutsub"])}</span>' if f.get("calloutsub") else ""
-        call = f'<div class="callout">{e(f["callout"])}{kl}</div>'
+    call = callout(f)
     return f"""<div class="stage">
   {kopf(f, seite, gesamt)}
   {h1(f)}
@@ -256,9 +257,7 @@ def t_zweispalt(f, seite, gesamt):
         lis = "".join(f"<li>{e(p)}</li>" for p in punkte)
         sp.append(f'<div class="sp"><span class="spkopf{alt}">{e(kopfz)}</span>'
                   f'<ul>{lis}</ul></div>')
-    call = ""
-    if f.get("callout"):
-        call = f'<div class="callout">{e(f["callout"])}</div>'
+    call = callout(f)
     return f"""<div class="stage">
   {kopf(f, seite, gesamt)}
   {h1(f)}
@@ -292,6 +291,7 @@ def t_tabelle(f, seite, gesamt):
   {h1(f)}
   <div class="body">
     <table><thead><tr>{ths}</tr></thead><tbody>{''.join(trs)}</tbody></table>
+    {callout(f)}
   </div>
   {quellen(f)}
   {fuss(f)}
@@ -304,6 +304,7 @@ def t_zitat(f, seite, gesamt):
   {kopf(f, seite, gesamt)}
   <div class="body" style="justify-content:center">
     <div class="zitat"><div class="q">{e(f.get('zitat',''))}</div>{quelle}</div>
+    {callout(f)}
   </div>
   {quellen(f)}
   {fuss(f)}
@@ -313,9 +314,7 @@ def t_zitat(f, seite, gesamt):
 def t_text(f, seite, gesamt):
     abs_ = "".join(f'<p class="lede" style="font-size:19px;color:var(--ink);'
                    f'max-width:960px">{e(a)}</p>' for a in f.get("absaetze", []))
-    call = ""
-    if f.get("callout"):
-        call = f'<div class="callout">{e(f["callout"])}</div>'
+    call = callout(f)
     return f"""<div class="stage">
   {kopf(f, seite, gesamt)}
   {h1(f)}
