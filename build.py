@@ -36,6 +36,15 @@ WPM = 125
 # Parser
 # --------------------------------------------------------------------------
 
+def entkleide(wert):
+    """Umschliessende Anfuehrungszeichen entfernen. Sie sind optional und
+    dienen nur dazu, Werte mit Doppelpunkt eindeutig zu machen."""
+    w = wert.strip()
+    if len(w) >= 2 and w[0] == w[-1] and w[0] in ('"', "'"):
+        return w[1:-1].strip()
+    return w
+
+
 def parse(text):
     """Zerlegt folien.md in eine Liste von Folien-Dicts."""
     folien = []
@@ -72,12 +81,12 @@ def parse(text):
             continue
 
         if roh.lstrip().startswith("- ") and liste_key:
-            aktuell[liste_key].append(roh.lstrip()[2:].strip())
+            aktuell[liste_key].append(entkleide(roh.lstrip()[2:]))
             continue
 
         m = re.match(r"^([a-zA-ZäöüÄÖÜ_][\w\-äöüÄÖÜß]*)\s*:\s*(.*)$", roh)
         if m:
-            key, wert = m.group(1).strip(), m.group(2).strip()
+            key, wert = m.group(1).strip(), entkleide(m.group(2))
             if wert == "":
                 aktuell[key] = []
                 liste_key = key
@@ -211,8 +220,16 @@ def t_zahlen(f, seite, gesamt):
         teile = [x.strip() for x in z.split("||")]
         wert = teile[0]
         lab = teile[1] if len(teile) > 1 else ""
-        warn = " warn" if len(teile) > 2 and teile[2] == "warn" else ""
-        zs.append(f'<div class="z"><div class="znum{warn}">{e(wert)}</div>'
+        klassen = []
+        if len(teile) > 2 and teile[2] == "warn":
+            klassen.append("warn")
+        # lange Werte wie "154 T€" wuerden sonst umbrechen
+        if len(wert) > 8:
+            klassen.append("sehrlang")
+        elif len(wert) > 5:
+            klassen.append("lang")
+        kl = (" " + " ".join(klassen)) if klassen else ""
+        zs.append(f'<div class="z"><div class="znum{kl}">{e(wert)}</div>'
                   f'<div class="zlab">{e(lab)}</div></div>')
     call = ""
     if f.get("callout"):

@@ -110,7 +110,9 @@ h1.klein{ font-size:44px; letter-spacing:-1px; }
 .z{ flex:1; padding:0 28px; border-left:1px solid var(--hair); }
 .z:first-child{ padding-left:0; border-left:none; }
 .znum{ font-size:88px; font-weight:700; line-height:0.9; color:var(--brand);
-       letter-spacing:-3.4px; }
+       letter-spacing:-3.4px; white-space:nowrap; }
+.znum.lang{ font-size:64px; letter-spacing:-2.2px; }
+.znum.sehrlang{ font-size:48px; letter-spacing:-1.4px; }
 .znum.warn{ color:var(--warn); }
 .zlab{ font-size:15px; line-height:1.4; color:var(--mut); margin-top:12px;
        max-width:250px; }
