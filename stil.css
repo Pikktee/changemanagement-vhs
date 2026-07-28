@@ -109,8 +109,11 @@ h1.klein{ font-size:44px; letter-spacing:-1px; }
 .zahlen{ display:flex; gap:0; align-items:stretch; }
 .z{ flex:1; padding:0 28px; border-left:1px solid var(--hair); }
 .z:first-child{ padding-left:0; border-left:none; }
+/* feste Hoehe, damit die Beschriftungen trotz unterschiedlich grosser
+   Zahlen auf einer gemeinsamen Linie sitzen */
 .znum{ font-size:88px; font-weight:700; line-height:0.9; color:var(--brand);
-       letter-spacing:-3.4px; white-space:nowrap; }
+       letter-spacing:-3.4px; white-space:nowrap;
+       height:84px; display:flex; align-items:flex-end; }
 .znum.lang{ font-size:64px; letter-spacing:-2.2px; }
 .znum.sehrlang{ font-size:48px; letter-spacing:-1.4px; }
 .znum.warn{ color:var(--warn); }

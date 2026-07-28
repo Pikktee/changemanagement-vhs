@@ -1,0 +1,158 @@
+# So bearbeitest du die Präsentation
+
+Du änderst **nur `folien.md`**. Nichts anderes.
+
+```bash
+python3 watch.py
+```
+
+Laufen lassen, `folien.md` bearbeiten, speichern. Nach jedem Speichern entsteht
+`ausgabe/Praesentation-KLARTEXT.pptx` neu, samt Referentennotizen und
+Zeitschätzung. Beenden mit Strg+C.
+
+Einmalig bauen ohne Watcher:
+
+```bash
+python3 build.py
+```
+
+Nur bestimmte Folien neu schießen, wenn es schnell gehen soll:
+
+```bash
+python3 build.py --nur 3,7
+```
+
+Nur das HTML prüfen, ohne Chrome zu starten:
+
+```bash
+python3 build.py --schnell
+```
+
+**Wichtig:** Änderungen in der PowerPoint-Datei selbst gehen beim nächsten Build
+verloren. Die Folien liegen dort als Bilder, damit das Layout exakt stimmt.
+
+---
+
+## Aufbau einer Folie
+
+```
+## 5 — Die Messung          ← nur ein Merkzettel für dich, erscheint nirgends
+
+typ: zahlen
+kapitel: 01 · POTENZIAL
+titel: Neun von zehn Texten
+akzent: haben einen Befund.
+
+### NOTIZ
+
+Der Sprechtext. Alles bis zur nächsten Folie landet in der
+Referentenansicht.
+```
+
+Regeln:
+
+- `## ` beginnt eine neue Folie.
+- `schlüssel: wert` setzt ein Feld.
+- `schlüssel:` allein, gefolgt von `- ` Zeilen, ergibt eine Liste.
+- `### NOTIZ` leitet den Sprechtext ein.
+- `**fett**` funktioniert in allen Texten.
+- Anführungszeichen um einen Wert sind erlaubt und werden entfernt. Nötig
+  sind sie nur, wenn der Wert selbst einen Doppelpunkt enthält.
+
+**Folien umsortieren:** Den ganzen Block von `## ` bis zur nächsten `## `
+ausschneiden und woanders einfügen. Die Nummern im Merkzettel sind egal, die
+Reihenfolge in der Datei zählt.
+
+---
+
+## Felder, die überall gehen
+
+| Feld | Wirkung |
+|---|---|
+| `typ` | Folientyp, siehe unten. Ohne Angabe: `punkte` |
+| `kapitel` | Kopfzeile rechts, z. B. `01 · UNTERNEHMEN` |
+| `titel` | Überschrift, schwarz |
+| `akzent` | Fortsetzung der Überschrift in Petrol |
+| `lede` | Ein grauer Satz unter der Überschrift |
+| `klein: ja` | kleinere Überschrift, wenn sie sonst zu viel Platz frisst |
+| `callout` | Petrolfarbener Balken unten |
+| `calloutsub` | Zweite Zeile im Balken, kleiner |
+| `quellen` | Kleine Quellenzeile über der Fußzeile |
+| `fussl`, `fussr` | Fußzeile links und rechts überschreiben |
+
+---
+
+## Folientypen
+
+### `titel` und `schluss`
+Vollflächiges Petrol-Panel. Nutzt `titel`, `akzent`, `untertitel`, `fussl`, `fussr`.
+
+### `punkte`
+Aufzählung mit Balken. Ein Punkt kann zweiteilig sein:
+
+```
+punkte:
+  - "**Befund** || Erklärender Satz darunter in grau."
+  - Einfacher Punkt ohne Untertext.
+```
+
+### `zahlen`
+Zwei bis vier große Kennzahlen nebeneinander.
+
+```
+zahlen:
+  - "90 % || der Texte mit Befund || warn"
+  - "5.800 || Veranstaltungen im Jahr"
+```
+
+Das dritte Feld `warn` färbt die Zahl orange. Weglassen für Petrol.
+
+### `zweispalt`
+Zwei Spalten mit Kopfzeile, gut für Gegenüberstellungen.
+
+```
+spalte1: DETERMINISTISCH
+punkte1:
+  - Erster Punkt
+spalte2: URTEILEND
+punkte2:
+  - Erster Punkt
+```
+
+### `tabelle`
+
+```
+spalten: Kriterium | Stufe | verbindlich
+zeilen:
+  - "1.3.1 Struktur | A | + ja"
+  - "3.1.4 Abkürzungen | AAA | ! nein"
+```
+
+`+` am Zellenanfang färbt petrol, `!` färbt orange. Reine Zahlen werden
+automatisch hervorgehoben.
+
+### `zitat`
+Großes Zitat mit Balken links. Felder `zitat` und `quelle`.
+
+### `text`
+Fließtext in Absätzen.
+
+```
+absaetze:
+  - Erster Absatz.
+  - Zweiter Absatz.
+```
+
+### `kapitel`
+Trennfolie mit großer Nummer. Feld `nummer`.
+
+---
+
+## Wenn etwas schiefgeht
+
+Das Build-Skript sagt dir die Zeilennummer und was es erwartet hat. Häufigste
+Ursachen: ein Doppelpunkt im Wert ohne Anführungszeichen, oder eine Listenzeile
+ohne vorangehenden `schlüssel:`.
+
+Die Zeitschätzung rechnet mit 125 Wörtern pro Minute. Folien über 90 Sekunden
+werden mit `!` markiert.
