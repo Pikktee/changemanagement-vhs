@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T18:22:54",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v2 · 28.07.2026",
+  "promptPruefsumme": "95fb9183282af2d0",
+  "promptZeichen": 17548,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 12.06,
+  "eingabe": {
+    "titel": "Hatha Yoga",
+    "nummer": "3504-48",
+    "programmbereich": "Gesundheit",
+    "niveau": "kein Sprachniveau",
+    "text": "Sie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag."
+  },
+  "benutzernachricht": "KURSTITEL:        Hatha Yoga\nKURSNUMMER:       3504-48\nPROGRAMMBEREICH:  Gesundheit\nNIVEAU:           kein Sprachniveau\nTEXT:\nSie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene, die sich für einen Gesundheitskurs interessieren. Sie lesen Deutsch als Erst- oder starke Zweitsprache auf dem Niveau verständlicher Gebrauchstexte.\n\nBEFUNDE\n[1] EMPFEHLUNG · ABK\n    Stelle:      \"grundlegende Asanas kennen\"\n    Grund:       Der Fachbegriff \"Asanas\" wird erst im zweiten Absatz erklärt, hier aber schon verwendet.\n    Vorschlag:   \"grundlegende Yoga-Haltungen kennen\" oder \"Sie lernen grundlegende Körperhaltungen (Asanas) kennen\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"moderate Bewegungsform\"\n    Grund:       \"moderat\" ist ein gehobenes Wort, \"sanft\" oder \"ruhig\" wären alltäglicher.\n    Vorschlag:   \"Geeignet für alle, die eine sanfte Bewegungsform bevorzugen.\"\n\n[3] EMPFEHLUNG · SATZ\n    Stelle:      \"Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level.\"\n    Grund:       Der Satz hat 26 Wörter und enthält mehrere Einschübe, was das Verstehen erschwert.\n    Vorschlag:   \"Eine typische Yogastunde beginnt mit Entspannung und Atemübungen. Danach folgen klar angeleitete Yoga-Haltungen (Asanas) mit Variationen für jedes Fitness-Level.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"ganzheitlichen Stressabbau\"\n    Grund:       \"ganzheitlich\" ist ein Fachwort aus dem Wellness-Bereich, das nicht jeder kennt.\n    Vorschlag:   \"unterstützt den Stressabbau für Körper und Geist\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, AMTSDEUTSCH, ANREDE, LEER\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist verständlich geschrieben. Die Empfehlungen würden ihn noch zugänglicher machen, besonders für Menschen mit geringerer Leseerfahrung im Gesundheitsbereich.",
+  "verbrauch": {
+    "prompt_tokens": 7372,
+    "completion_tokens": 642,
+    "total_tokens": 8014,
+    "cost": 0.031746,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.031746,
+      "upstream_inference_prompt_cost": 0.022116,
+      "upstream_inference_completions_cost": 0.00963
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

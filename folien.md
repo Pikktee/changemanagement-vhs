@@ -593,7 +593,7 @@ punkte2:
   - "Zuhören, bevor geschult wird. Der Prompt prüft Texte, nie Personen."
   - "Keine Auswertung nach Urheber, keine Rangliste. Schriftlich zusichern und dem Personalrat vorlegen."
   - "Nicht das Schreiben ändern, nur einen Schritt danach ergänzen."
-  - "Quick Win zuerst: die gemeinsamen Textbausteine. Sichtbare Wirkung ohne Mehrarbeit."
+  - "Quick Win zuerst: ein Textbaustein steht in 36 Kursen. Einmal überarbeiten, 36 Texte besser."
 callout: Betroffene zu Beteiligten machen. Der Pilotbereich wählt selbst, welche Regeln zuerst gelten.
 
 ### NOTIZ
@@ -691,3 +691,54 @@ was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
 schreiben, das Werkzeug nicht als Kontrolle erleben.
 
 Vielen Dank. Gerne eure Fragen.
+
+
+## 16 — BACKUP · Wirtschaftlichkeit
+
+typ: tabelle
+kapitel: BACKUP · NICHT TEIL DER 15
+bild: bilder/17-waage.jpg
+bu: Der Einwand und die Gegenrechnung.
+bildprompt: Geometrische Waage, Balken auf dreieckigem Drehpunkt, Kreis und Quadrat als Gewichte. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Rechnet sich das
+akzent: überhaupt?
+klein: ja
+lede: Erhebung an 489 Kursen über die Portalschnittstelle. Annahme durchgehend drei Minuten Prüfzeit je Text.
+spalten: Szenario | Texte im Jahr | Aufwand
+zeilen:
+  - "! Einwand: jede Veranstaltung einzeln | 5.800 | 290 Std."
+  - "Nur eindeutige Texte | 4.390 | 220 Std."
+  - "Bausteine nur einmal geprüft | | 162 Std."
+  - "+ Nur neue Angebote | 586 | 29 Std."
+  - "+ Pilot in einem Programmbereich | 73 | 4 Std."
+callout: Nur jeder vierte Text ist neu. Auf Absatzebene sind nur 51 Prozent verschieden.
+calloutsub: Die vhs weist für Frühjahr/Sommer 2026 selbst 2.835 Kurse aus, davon 293 neu. Das sind 10,3 Prozent.
+quellen: eigene Erhebung 28.07.2026, 489 Kurse, daten/wirtschaftlichkeit.md
+
+### NOTIZ
+
+Diese Folie zeige ich nur, wenn jemand nachrechnet. Und jemand rechnet nach.
+
+Der Einwand geht so: 5.800 Veranstaltungen mal drei Minuten Prüfung sind 290
+Stunden im Jahr. Das klingt nach einem Werkzeug, das Arbeit schafft statt
+spart.
+
+Ich habe deshalb 489 Kurse über die Portalschnittstelle erhoben und
+ausgewertet, wie viele Texte überhaupt verschieden sind. Ergebnis: Nur rund
+drei Viertel der Volltexte sind eindeutig, und auf Absatzebene sind es nur
+51 Prozent. Die Volkshochschule arbeitet also längst mit Bausteinen, sie
+weiß es nur nicht systematisch.
+
+Entscheidend ist die vierte Zeile. Die vhs veröffentlicht selbst, dass im
+Semester Frühjahr/Sommer 2026 von 2.835 Kursen 293 neu waren, also gut zehn
+Prozent. Geprüft werden muss nur, was neu geschrieben wird. Das sind rund 586
+Texte im Jahr und damit 29 Stunden, verteilt auf acht Programmbereiche. Etwa
+vier Minuten pro Bereich und Woche.
+
+Der Pilot in einem Programmbereich liegt bei vier Stunden im Jahr.
+
+Zwei Unsicherheiten nenne ich offen. Erstens definiert die Quelle nicht, was
+neu heißt. Wenn auch überarbeitete Texte erneut geprüft werden, liegt der Wert
+höher, irgendwo zwischen 29 und 220 Stunden. Zweitens sind die drei Minuten
+gesetzt und nicht gemessen. Beides steht so in der Auswertung, die der Arbeit
+beiliegt.

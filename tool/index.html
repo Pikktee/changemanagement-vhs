@@ -18,20 +18,19 @@
   --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
-html,body{ height:100%; }
 body{
   font-family:var(--sans);
   background:var(--paper);
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
   display:flex; flex-direction:column;
-  min-height:100%;
+  min-height:100vh;
 }
 button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inherit; border-radius:0; }
 
 /* ---------- Kopf ---------- */
 .kopf{ padding:20px 30px 0; flex:none; }
-.kopfzeile{ display:flex; align-items:center; gap:18px; }
+.kopfzeile{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 .mark{ display:flex; align-items:center; gap:9px; }
 .sq{ width:14px; height:14px; background:var(--brand); flex:none; }
 .wortmarke{ font-size:15px; font-weight:700; letter-spacing:4px; color:var(--brand); }
@@ -45,12 +44,13 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
 .balken.warn{ background:var(--warn); color:#fff; font-weight:700; }
 .balken.fehl{ background:var(--ink); color:#fff; font-weight:700; }
 .balken b{ letter-spacing:1.4px; text-transform:uppercase; font-size:11px; margin-right:8px; }
+.balken code{ font-family:inherit; font-weight:400; }
 
 /* ---------- Bühne ---------- */
 .buehne{ flex:1; display:flex; align-items:stretch; min-height:0; padding:0 30px; }
 .spalte{ display:flex; flex-direction:column; min-width:0; padding:22px 0 26px; }
-.links{ flex:0 0 38%; padding-right:28px; overflow-y:auto; }
-.rechts{ flex:1; padding-left:28px; border-left:1px solid var(--hair); overflow-y:auto; }
+.links{ flex:0 0 38%; padding-right:28px; }
+.rechts{ flex:1; padding-left:28px; border-left:1px solid var(--hair); }
 
 .spkopf{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
 .spkopf h2{ font-size:11px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
@@ -162,10 +162,25 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
 .fuss span b{ color:var(--ink); font-weight:700; }
 .fuss .warnton b{ color:var(--warn); }
 
+/* Ab dieser Breite bleiben Kopf und Fuss stehen, beide Spalten scrollen
+   einzeln. Darunter scrollt die Seite als Ganzes, damit nichts ueberlappt. */
+@media (min-width:981px){
+  html,body{ height:100%; }
+  body{ overflow:hidden; }
+  .links, .rechts{ overflow-y:auto; }
+}
 @media (max-width:980px){
   .buehne{ flex-direction:column; }
-  .links{ flex:none; padding-right:0; }
+  .links{ flex:none; width:100%; padding-right:0; }
   .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--hair); }
+  textarea{ min-height:200px; }
+}
+@media (max-width:640px){
+  .kopfsub{ display:none; }
+  .buehne, .kopf, .fuss{ margin-left:0; margin-right:0; }
+  .buehne{ padding:0 18px; }
+  .kopf{ padding:16px 18px 0; }
+  .fuss{ margin:0 18px; }
 }
 </style>
 </head>
