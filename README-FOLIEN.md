@@ -79,6 +79,39 @@ Reihenfolge in der Datei zählt.
 | `calloutsub` | Zweite Zeile im Balken, kleiner |
 | `quellen` | Kleine Quellenzeile über der Fußzeile |
 | `fussl`, `fussr` | Fußzeile links und rechts überschreiben |
+| `bild` | Pfad zu einem Bild, z. B. `bilder/05-raster.jpg` |
+| `bu` | Bildunterschrift unter dem Bild |
+| `bildprompt` | Dokumentation, wie das Bild entstanden ist. Erscheint nicht auf der Folie |
+
+---
+
+## Bilder ändern
+
+Jede Folie kann ein Bild bekommen. Auf normalen Folien erscheint es als
+quadratische Spalte rechts, der Text rückt automatisch nach links und wird
+kompakter gesetzt. Auf `titel` und `schluss` liegt es vollflächig hinter dem
+Petrol-Verlauf.
+
+Du hast drei Möglichkeiten:
+
+**Bild austauschen.** Leg eine eigene Datei in `bilder/` ab und ändere den Pfad
+im Feld `bild`. Jedes gängige Format geht, quadratisch sieht am besten aus.
+Beim nächsten Speichern ist es drin.
+
+**Bild weglassen.** Zeile `bild:` löschen. Die Folie nutzt dann die volle
+Breite und setzt den Text wieder größer.
+
+**Neues Bild generieren lassen.** Ändere den Text in `bildprompt` und sag mir
+Bescheid. Das Feld ist die Dokumentation dessen, was generiert wurde, damit
+später nachvollziehbar bleibt, wie ein Bild zustande kam.
+
+Fehlt eine Bilddatei, meldet der Build das als `! Bild fehlt: …` und baut die
+Folie trotzdem, nur ohne Bild. Nichts geht kaputt.
+
+Alle Bilder sind flach-geometrisch im Bauhaus-Stil gehalten, in den vier Farben
+Petrol, Papier, Mint und Orange, und enthalten bewusst **keine Schrift**. In
+einer Präsentation über Textqualität wären erfundene Buchstaben im Bild ein
+Eigentor.
 
 ---
 
