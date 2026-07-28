@@ -165,28 +165,70 @@ def quellen(f):
 # Folientypen
 # --------------------------------------------------------------------------
 
-def t_panel(f, seite, gesamt, schluss=False):
+def bildspalte(f):
+    """Rechte Spalte mit Bild, nur wenn das Feld 'bild' gesetzt ist."""
+    if not f.get("bild"):
+        return ""
+    pfad = WURZEL / f["bild"]
+    if not pfad.exists():
+        print(f"  ! Bild fehlt: {f['bild']}")
+        return ""
+    bu = f'<div class="bu">{e(f["bu"])}</div>' if f.get("bu") else ""
+    return (f'<div class="bildspalte"><div class="rahmen">'
+            f'<img src="../{f["bild"]}" alt=""></div>{bu}</div>')
+
+
+def seite(f, s, g, inhalt):
+    """Gemeinsamer Rahmen fuer alle Textfolien, mit oder ohne Bildspalte."""
+    bild = bildspalte(f)
+    if bild:
+        body = f'<div class="body"><div class="inhalt">{inhalt}</div>{bild}</div>'
+        kl = " mitbild"
+    else:
+        body = f'<div class="body">{inhalt}</div>'
+        kl = ""
+    return f"""<div class="stage{kl}">
+  {kopf(f, s, g)}
+  {h1(f)}
+  {body}
+  {quellen(f)}
+  {fuss(f)}
+</div>"""
+
+
+def t_panel(f, seite_, gesamt, schluss=False):
     sub = f'<p class="sub">{e(f["untertitel"])}</p>' if f.get("untertitel") else ""
     titel = e(f.get("titel", ""))
     if f.get("akzent"):
         titel += f' <span class="g">{e(f["akzent"])}</span>'
-    return f"""<div class="panel">
-  <div class="mark"><span class="sq"></span><span class="w">KLARTEXT</span></div>
-  <div class="spacer"></div>
-  <div class="rule"></div>
-  <h1>{titel}</h1>
-  {sub}
-  <div class="spacer"></div>
-  <div class="pfoot">
-    <span>{e(f.get('fussl','ABSCHLUSSPROJEKT · CHANGE UND KI'))}</span>
-    <span>{e(f.get('fussr','CIMDATA · HENRIK HEIL · 2026'))}</span>
+
+    hero, kl = "", ""
+    if f.get("bild") and (WURZEL / f["bild"]).exists():
+        hero = f'<div class="hero"><img src="../{f["bild"]}" alt=""></div>'
+        kl = " mitbild"
+    elif f.get("bild"):
+        print(f"  ! Bild fehlt: {f['bild']}")
+
+    return f"""<div class="panel{kl}">
+  {hero}
+  <div class="inhalt">
+    <div class="mark"><span class="sq"></span><span class="w">KLARTEXT</span></div>
+    <div class="spacer"></div>
+    <div class="rule"></div>
+    <h1>{titel}</h1>
+    {sub}
+    <div class="spacer"></div>
+    <div class="pfoot">
+      <span>{e(f.get('fussl','ABSCHLUSSPROJEKT · CHANGE UND KI'))}</span>
+      <span>{e(f.get('fussr','CIMDATA · HENRIK HEIL · 2026'))}</span>
+    </div>
   </div>
 </div>"""
 
 
-def t_kapitel(f, seite, gesamt):
+def t_kapitel(f, seite_, gesamt):
     return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
+  {kopf(f, seite_, gesamt)}
   <div class="kap">
     <div class="kapnum">{e(f.get('nummer','01'))}</div>
     <div class="kaptxt">{h1(f)}</div>
@@ -195,7 +237,7 @@ def t_kapitel(f, seite, gesamt):
 </div>"""
 
 
-def t_punkte(f, seite, gesamt):
+def t_punkte(f, seite_, gesamt):
     items = []
     for p in f.get("punkte", []):
         if "||" in p:
@@ -205,20 +247,11 @@ def t_punkte(f, seite, gesamt):
             inner = e(p)
         items.append(f'<div class="pkt"><div class="bar"></div>'
                      f'<div class="ptxt">{inner}</div></div>')
-    call = callout(f)
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  {h1(f)}
-  <div class="body">
-    <div class="punkte">{''.join(items)}</div>
-    {call}
-  </div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    return seite(f, seite_, gesamt,
+                 f'<div class="punkte">{"".join(items)}</div>{callout(f)}')
 
 
-def t_zahlen(f, seite, gesamt):
+def t_zahlen(f, seite_, gesamt):
     zs = []
     for z in f.get("zahlen", []):
         teile = [x.strip() for x in z.split("||")]
@@ -235,20 +268,11 @@ def t_zahlen(f, seite, gesamt):
         kl = (" " + " ".join(klassen)) if klassen else ""
         zs.append(f'<div class="z"><div class="znum{kl}">{e(wert)}</div>'
                   f'<div class="zlab">{e(lab)}</div></div>')
-    call = callout(f)
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  {h1(f)}
-  <div class="body">
-    <div class="zahlen">{''.join(zs)}</div>
-    {call}
-  </div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    return seite(f, seite_, gesamt,
+                 f'<div class="zahlen">{"".join(zs)}</div>{callout(f)}')
 
 
-def t_zweispalt(f, seite, gesamt):
+def t_zweispalt(f, seite_, gesamt):
     sp = []
     for i in (1, 2):
         kopfz = f.get(f"spalte{i}", "")
@@ -257,20 +281,11 @@ def t_zweispalt(f, seite, gesamt):
         lis = "".join(f"<li>{e(p)}</li>" for p in punkte)
         sp.append(f'<div class="sp"><span class="spkopf{alt}">{e(kopfz)}</span>'
                   f'<ul>{lis}</ul></div>')
-    call = callout(f)
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  {h1(f)}
-  <div class="body">
-    <div class="spalten">{''.join(sp)}</div>
-    {call}
-  </div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    return seite(f, seite_, gesamt,
+                 f'<div class="spalten">{"".join(sp)}</div>{callout(f)}')
 
 
-def t_tabelle(f, seite, gesamt):
+def t_tabelle(f, seite_, gesamt):
     kopfz = [x.strip() for x in f.get("spalten", "").split("|")]
     ths = "".join(f"<th>{e(k)}</th>" for k in kopfz)
     trs = []
@@ -286,32 +301,17 @@ def t_tabelle(f, seite, gesamt):
                 kl = ' class="num"'
             tds.append(f"<td{kl}>{e(z)}</td>")
         trs.append(f"<tr>{''.join(tds)}</tr>")
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  {h1(f)}
-  <div class="body">
-    <table><thead><tr>{ths}</tr></thead><tbody>{''.join(trs)}</tbody></table>
-    {callout(f)}
-  </div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    tab = f'<table><thead><tr>{ths}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
+    return seite(f, seite_, gesamt, tab + callout(f))
 
 
-def t_zitat(f, seite, gesamt):
+def t_zitat(f, seite_, gesamt):
     quelle = f'<div class="quelle">{e(f["quelle"])}</div>' if f.get("quelle") else ""
-    return f"""<div class="stage">
-  {kopf(f, seite, gesamt)}
-  <div class="body" style="justify-content:center">
-    <div class="zitat"><div class="q">{e(f.get('zitat',''))}</div>{quelle}</div>
-    {callout(f)}
-  </div>
-  {quellen(f)}
-  {fuss(f)}
-</div>"""
+    z = f'<div class="zitat"><div class="q">{e(f.get("zitat",""))}</div>{quelle}</div>'
+    return seite(f, seite_, gesamt, z + callout(f))
 
 
-def t_text(f, seite, gesamt):
+def t_text(f, seite_, gesamt):
     abs_ = "".join(f'<p class="lede" style="font-size:19px;color:var(--ink);'
                    f'max-width:960px">{e(a)}</p>' for a in f.get("absaetze", []))
     call = callout(f)

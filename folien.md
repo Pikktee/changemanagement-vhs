@@ -25,6 +25,8 @@ akzent: muss erst Deutsch können.
 untertitel: Ein KI-gestützter Prüfassistent für die Kursbeschreibungen der Volkshochschule Frankfurt am Main.
 fussl: ABSCHLUSSPROJEKT · CHANGE UND KI
 fussr: CIMDATA · HENRIK HEIL · JULI 2026
+bild: bilder/01-titel-wand.jpg
+bildprompt: Kleine Figur vor einer Wand aus dichten horizontalen Balken, ein schmaler Durchgang. Flach-geometrisch, Bauhaus, Palette Petrol/Papier/Mint/Orange, keine Schrift.
 
 ### NOTIZ
 
@@ -85,6 +87,9 @@ entscheidet.
 
 typ: zahlen
 kapitel: 01 · UNTERNEHMEN
+bild: bilder/03-unternehmen.jpg
+bu: Ein Haus, das allen offensteht. So steht es in der Betriebssatzung.
+bildprompt: Gebaeude aus einfachen Bloecken, davor kleine Figuren, die hineingehen. Flach-geometrisch, Bauhaus, Palette Petrol/Papier/Mint/Orange, keine Schrift.
 titel: Ein Eigenbetrieb mit
 akzent: kommunalem Auftrag.
 lede: Volkshochschule Frankfurt am Main, gegründet 1890, größte öffentliche Weiterbildungseinrichtung Hessens.
@@ -123,6 +128,9 @@ Haus im Folgenden. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
 typ: punkte
 kapitel: 01 · IST-ANALYSE
+bild: bilder/04-prozess-luecke.jpg
+bu: Vier Schritte, eine fehlende Verbindung.
+bildprompt: Vier Kreise in einer Reihe, verbunden durch Linien, die Verbindung zwischen drittem und viertem Kreis fehlt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Wie ein Kurstext
 akzent: heute entsteht.
 punkte:
@@ -161,6 +169,9 @@ Annahme, keine Messung.
 
 typ: zahlen
 kapitel: 01 · POTENZIAL
+bild: bilder/05-raster.jpg
+bu: 60 geprüfte Texte. Die wenigen hellen Felder sind die ohne Befund.
+bildprompt: Dichtes Raster kleiner Quadrate, die grosse Mehrheit orange, nur wenige in einer Ecke petrol. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Neun von zehn Texten
 akzent: haben einen Befund.
 lede: Stichprobe von 60 Kursbeschreibungen über sieben der acht Programmbereiche, gezogen über die öffentliche Schnittstelle des Kursportals am 28. Juli 2026.
@@ -197,6 +208,9 @@ Rechtsverstößen. Warum, zeige ich auf der übernächsten Folie.
 
 typ: tabelle
 kapitel: 01 · POTENZIAL
+bild: bilder/06-zwei-blicke.jpg
+bu: Zwei Leserschaften, ein Text.
+bildprompt: Zwei Figuren betrachten dasselbe Rechteck, links offen und klar, rechts durch dichte Streifen verdeckt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Dieselbe Zahl bedeutet
 akzent: zweimal etwas anderes.
 spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
@@ -239,6 +253,9 @@ Standardwerkzeug nicht kann.
 
 typ: tabelle
 kapitel: 01 · EINORDNUNG
+bild: bilder/07-stufen.jpg
+bu: Zwei Stufen sind gebaut. Die dritte ist nur gedacht.
+bildprompt: Treppe aus drei Stufen, die unteren zwei massiv petrol, die oberste nur als duenner Umriss. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Was Pflicht ist,
 akzent: und was nicht.
 klein: ja
@@ -289,6 +306,9 @@ Ich argumentiere deshalb nicht mit dem Gesetz, sondern mit dem Auftrag.
 
 typ: zweispalt
 kapitel: 02 · LÖSUNG
+bild: bilder/08-zahnrad-auge.jpg
+bu: Das Regelhafte und das Urteilende.
+bildprompt: Komposition geteilt durch eine vertikale Linie, links ein praezises Zahnrad, rechts ein stilisiertes Auge. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Zwei Werkzeuge,
 akzent: zwei Zuständigkeiten.
 spalte1: DETERMINISTISCH · axe-core
