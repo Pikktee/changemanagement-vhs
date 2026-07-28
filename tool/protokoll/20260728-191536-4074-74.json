@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:15:36",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v3 · 28.07.2026",
+  "promptPruefsumme": "0f0987e703fe08a4",
+  "promptZeichen": 11450,
+  "wortlisteVorhanden": false,
+  "wortanzahl": 0,
+  "dauerSekunden": 10.03,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Der Kurs umfasst zwei Teilstufen. Idealerweise nehmen Sie vorab an einer Selbsteinschaetzung teil, um eine Fehleinschaetzung des eigenen Niveaus zu vermeiden. Eine Umbuchung ist gegebenenfalls moeglich."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nDer Kurs umfasst zwei Teilstufen. Idealerweise nehmen Sie vorab an einer Selbsteinschaetzung teil, um eine Fehleinschaetzung des eigenen Niveaus zu vermeiden. Eine Umbuchung ist gegebenenfalls moeglich.",
+  "antwort": "ZIELGRUPPE\nLernende, die Deutsch als Fremdsprache auf Niveau A1 beherrschen und A2 anstreben. Sie lesen Deutsch auf A1-Niveau.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"umfasst\"\n    Grund:       Das Wort \"umfasst\" steht nicht im A1-Wortschatz und lässt sich nicht aus Listenwörtern herleiten.\n    Vorschlag:   \"Der Kurs hat zwei Teilstufen.\"\n\n[2] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Idealerweise nehmen Sie vorab an einer Selbsteinschätzung teil\"\n    Grund:       \"Idealerweise\" und \"Selbsteinschätzung\" sind Verwaltungssprache und liegen über A1-Niveau.\n    Vorschlag:   \"Am besten machen Sie vorher einen Test.\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Teilstufen\"\n    Grund:       Das Wort \"Teilstufen\" steht nicht im A1-Wortschatz und ist für A1-Lernende nicht erschließbar.\n    Vorschlag:   \"Der Kurs hat zwei Teile.\"\n\n[4] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Fehleinschätzung des eigenen Niveaus zu vermeiden\"\n    Grund:       \"Fehleinschätzung\", \"vermeiden\" und \"Niveau\" liegen über A1-Niveau und sind Verwaltungssprache.\n    Vorschlag:   \"So finden Sie den richtigen Kurs.\"\n\n[5] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Eine Umbuchung ist gegebenenfalls möglich.\"\n    Grund:       \"Umbuchung\" und \"gegebenenfalls\" sind Verwaltungssprache und liegen über A1-Niveau.\n    Vorschlag:   \"Sie können dann vielleicht in einen anderen Kurs wechseln.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, SATZ, ANREDE, LEER\n\nGESAMT\n5 Befunde, davon 0 Pflicht.\nDer Text verwendet durchgehend Verwaltungssprache und Wörter über A1-Niveau. Für die Zielgruppe ist er schwer verständlich und sollte grundlegend vereinfacht werden.",
+  "verbrauch": {
+    "prompt_tokens": 4555,
+    "completion_tokens": 660,
+    "total_tokens": 5215,
+    "cost": 0.023565,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.023565,
+      "upstream_inference_prompt_cost": 0.013665,
+      "upstream_inference_completions_cost": 0.0099
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

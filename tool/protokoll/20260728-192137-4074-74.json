@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:21:37",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v4 · 28.07.2026",
+  "promptPruefsumme": "038e936f9fae8ae7",
+  "promptZeichen": 19350,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 17.23,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2  (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2  (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende mit Deutschkenntnissen auf A1-Niveau, die einen A2.2-Kurs suchen und Deutsch als Fremdsprache lernen.\n\nBEFUNDE\n[1] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie hier ablegen.\"\n    Grund:       Linktext lautet „hier\". Ohne den vorherigen Satz ist nicht erkennbar, wohin der Link führt.\n    Vorschlag:   \"Den <a href=https://vhs-frankfurt.eurotest.me/de/register>Online-Test können Sie hier ablegen</a>.\"\n\n[2] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin\"\n    Grund:       „idealerweise\" ist Verwaltungsdeutsch, wo eine alltägliche Formulierung möglich ist.\n    Vorschlag:   \"Am besten melden Sie sich über einen Termin bei der Sprachberatung DaF an.\"\n\n[3] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\"\n    Grund:       „Fehleinschätzung\" und „Umbuchung\" sind Verwaltungsdeutsch, wo alltägliche Formulierungen möglich sind.\n    Vorschlag:   \"Wenn Sie das falsche Niveau wählen, können wir einen Kurswechsel allerdings nicht garantieren.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\"\n    Grund:       „Selbsteinschätzung\" steht nicht auf der A1-Wortliste und lässt sich nicht aus Listenwörtern herleiten.\n    Vorschlag:   \"Sie können sich auch selbst anmelden: Schätzen Sie Ihr Niveau ein und machen Sie den Online-Test.\"\n\n[5] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.\"\n    Grund:       „Niveaustufe\", „umfasst\" und „Teilstufen\" stehen nicht auf der A1-Wortliste.\n    Vorschlag:   \"A2 hat zwei Teile: A2.1 und A2.2.\"\n\n[6] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc.\"\n    Grund:       Der Satz hat 26 Wörter, für A1-Leserinnen sind höchstens 15 empfohlen.\n    Vorschlag:   \"Sie lernen in A2-Kursen oft gebrauchte Ausdrücke verstehen. Zum Beispiel: Informationen zur Person, Familie, Einkaufen, Arbeit.\"\n\n[7] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben.\"\n    Grund:       Der Satz hat 16 Wörter, für A1-Leserinnen sind höchstens 15 empfohlen.\n    Vorschlag:   \"Sie können in einfachen Situationen Informationen austauschen. Sie können Dinge des Alltags beschreiben.\"\n\n[8] HINWEIS · BAUSTEIN\n    Stelle:      \"Hinweis zur Anmeldung: Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF.\"\n    Grund:       Dies ist ein Textbaustein, der in vielen DaF-Kursen erscheint und für alle Niveaus verständlich sein muss.\n    Vorschlag:   \"So melden Sie sich an: Am besten vereinbaren Sie einen Termin bei der Sprachberatung DaF.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, ABK, ANREDE, LEER\n\nGESAMT\n8 Befunde, davon 1 Pflicht.\nDer Text enthält einen Pflichtbefund zur Barrierefreiheit und mehrere Formulierungen, die für A1-Leserinnen zu anspruchsvoll sind. Besonders der Anmeldehinweis sollte überarbeitet werden, da er als Baustein in vielen Kursen erscheint.",
+  "verbrauch": {
+    "prompt_tokens": 8097,
+    "completion_tokens": 1226,
+    "total_tokens": 9323,
+    "cost": 0.042681,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.042681,
+      "upstream_inference_prompt_cost": 0.024291,
+      "upstream_inference_completions_cost": 0.01839
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:17:03",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v4 · 28.07.2026",
+  "promptPruefsumme": "bf30b45f763cc9c2",
+  "promptZeichen": 25829,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 9.39,
+  "eingabe": {
+    "titel": "Aquarellmalerei am Wochenende",
+    "nummer": "2140-07",
+    "programmbereich": "Kunst/Kultur/Kreativitaet",
+    "niveau": "kein Sprachniveau",
+    "text": "Kursleitung ist Frau Dr. Annegret Ostermann-Villinger, die seit vielen Jahren an der vhs unterrichtet. Sie fuehrt Sie in die Lasurtechnik ein.\nBitte beachten Sie: Die Anmeldung ist verbindlich, eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn moeglich."
+  },
+  "benutzernachricht": "KURSTITEL:        Aquarellmalerei am Wochenende\nKURSNUMMER:       2140-07\nPROGRAMMBEREICH:  Kunst/Kultur/Kreativitaet\nNIVEAU:           kein Sprachniveau\nTEXT:\nKursleitung ist Frau Dr. Annegret Ostermann-Villinger, die seit vielen Jahren an der vhs unterrichtet. Sie fuehrt Sie in die Lasurtechnik ein.\nBitte beachten Sie: Die Anmeldung ist verbindlich, eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn moeglich.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Aquarellmalerei, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn möglich\"\n    Grund:       \"Umbuchung\" und \"gegebenenfalls\" sind Verwaltungssprache, wo Alltagssprache möglich wäre.\n    Vorschlag:   \"Sie können sich bis 14 Tage vor Kursbeginn noch ummelden.\"\n\n[2] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlen Angaben zu mitzubringendem Material (Aquarellfarben, Pinsel, Papier etc.).\n    Vorschlag:   Ergänzen Sie eine Liste der benötigten Materialien oder den Hinweis, dass diese gestellt werden.\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, SATZ, ANREDE\n\nGESAMT\n2 Befunde, davon 0 Pflicht.\nDie Verwaltungssprache im Anmeldehinweis lässt sich vereinfachen. Wichtiger ist die fehlende Materialangabe – bei einem Malkurs eine zentrale Information für die Teilnehmenden.",
+  "verbrauch": {
+    "prompt_tokens": 10766,
+    "completion_tokens": 375,
+    "total_tokens": 11141,
+    "cost": 0.037923,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.037923,
+      "upstream_inference_prompt_cost": 0.032298,
+      "upstream_inference_completions_cost": 0.005625
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

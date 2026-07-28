@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:14:53",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v3 · 28.07.2026",
+  "promptPruefsumme": "f6ae770f61bddd60",
+  "promptZeichen": 18395,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 10.94,
+  "eingabe": {
+    "titel": "Aquarellmalerei am Wochenende",
+    "nummer": "2140-07",
+    "programmbereich": "Kunst/Kultur/Kreativitaet",
+    "niveau": "kein Sprachniveau",
+    "text": "Kursleitung ist Frau Dr. Annegret Ostermann-Villinger, die seit vielen Jahren an der vhs unterrichtet. Sie fuehrt Sie in die Lasurtechnik ein.\nBitte beachten Sie: Die Anmeldung ist verbindlich, eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn moeglich."
+  },
+  "benutzernachricht": "KURSTITEL:        Aquarellmalerei am Wochenende\nKURSNUMMER:       2140-07\nPROGRAMMBEREICH:  Kunst/Kultur/Kreativitaet\nNIVEAU:           kein Sprachniveau\nTEXT:\nKursleitung ist Frau Dr. Annegret Ostermann-Villinger, die seit vielen Jahren an der vhs unterrichtet. Sie fuehrt Sie in die Lasurtechnik ein.\nBitte beachten Sie: Die Anmeldung ist verbindlich, eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn moeglich.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Aquarellmalerei, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"eine Umbuchung ist gegebenenfalls bis 14 Tage vor Kursbeginn möglich\"\n    Grund:       \"Gegebenenfalls\" und \"Umbuchung\" sind Verwaltungssprache, wo Alltagssprache möglich wäre.\n    Vorschlag:   \"Sie können bis 14 Tage vor Kursbeginn in einen anderen Kurs wechseln.\"\n\n[2] HINWEIS · LEER\n    Stelle:      <gesamter Text>\n    Grund:       Es fehlen Angaben zu mitzubringendem Material (Aquarellfarben, Pinsel, Papier) oder ob Material gestellt wird.\n    Vorschlag:   Ergänzen Sie eine Passage wie: \"Bitte bringen Sie mit: Aquarellfarben, Pinsel und Aquarellpapier.\" oder \"Material wird gestellt.\"\n\n[3] HINWEIS · LEER\n    Stelle:      <gesamter Text>\n    Grund:       Es fehlt eine Angabe zur Zielgruppe: Ist der Kurs für Anfängerinnen geeignet oder werden Vorkenntnisse vorausgesetzt?\n    Vorschlag:   Ergänzen Sie einen Satz wie: \"Der Kurs ist für Anfängerinnen und Anfänger geeignet.\" oder \"Grundkenntnisse in Aquarellmalerei sind hilfreich.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, SATZ, ANREDE\n\nGESAMT\n3 Befunde, davon 0 Pflicht.\nDer Text ist sprachlich verständlich, aber unvollständig. Die fehlenden Angaben zu Material und Vorkenntnissen sollten vor Veröffentlichung ergänzt werden.",
+  "verbrauch": {
+    "prompt_tokens": 7589,
+    "completion_tokens": 531,
+    "total_tokens": 8120,
+    "cost": 0.030732,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.030732,
+      "upstream_inference_prompt_cost": 0.022767,
+      "upstream_inference_completions_cost": 0.007965
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

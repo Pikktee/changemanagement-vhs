@@ -45,6 +45,10 @@ MAX_TOKENS = 4000
 TIMEOUT = 240
 
 PLATZHALTER = "{{WORTLISTE_A1}}"
+# Fehlt die Wortliste, wird der Platzhalter nicht durch nichts ersetzt, sondern
+# durch diese Marke. Ein leerer Codeblock uebersieht sich zu leicht; der Test
+# T7 hat genau das gezeigt. Der Prompt kennt die Marke und schaltet darauf um.
+FEHLT_MARKE = "KEINE WORTLISTE GELADEN"
 
 BEREICHE = [
     "Gesellschaft/Politik/Psychologie",
@@ -174,7 +178,7 @@ def prompt_bauen(erzwingen=False):
         koerper = "\n".join(zeilen[start:]).strip("\n")
 
         wortliste, anzahl = _wortliste_lesen()
-        prompt = koerper.replace(PLATZHALTER, wortliste)
+        prompt = koerper.replace(PLATZHALTER, wortliste if anzahl else FEHLT_MARKE)
 
         daten = {
             "prompt": prompt,
@@ -357,6 +361,28 @@ def modell_aufrufen(modell, system_prompt, benutzer_text):
     return inhalt, daten.get("usage") or {}
 
 
+EHRLICHKEITSSATZ = (
+    "Ohne Referenzwortschatz geprüft, die Niveau-Befunde sind "
+    "Schätzungen. Begründungen, die auf eine Wortliste verweisen, "
+    "sind in diesem Lauf unbelegt.")
+
+
+def ehrlichkeitshinweis(inhalt, wortliste_vorhanden):
+    """Setzt den Vorbehalt vor die Ausgabe, wenn die Wortliste fehlt.
+
+    Der Prompt fordert diesen Satz zwar selbst ein, aber Test T7 hat gezeigt,
+    dass das Modell ihn zuverlaessig vergisst: Es behauptet dann sogar, ein
+    Wort stehe nicht auf einer Liste, die es gar nicht hatte. Ob eine Liste
+    geladen ist, weiss der Server sicher. Eine Aussage ueber die Belastbarkeit
+    der eigenen Befunde darf deshalb nicht davon abhaengen, ob ein
+    Sprachmodell an sie denkt. Sie wird hier gesetzt, nicht erbeten.
+    """
+    if wortliste_vorhanden:
+        return inhalt
+    kopf = "HINWEIS DES SYSTEMS\n" + EHRLICHKEITSSATZ + "\n\n"
+    return kopf + inhalt
+
+
 def eingabe_bauen(feld):
     return (
         "KURSTITEL:        %s\n"
@@ -488,6 +514,7 @@ class Handler(BaseHTTPRequestHandler):
                 break
             dauer = round(time.time() - beginn, 2)
             log("Antwort von %s nach %.1fs (Kurs %s)" % (modell, dauer, feld["nummer"] or "ohne Nummer"))
+            inhalt = ehrlichkeitshinweis(inhalt, p["wortlisteVorhanden"])
 
             eintrag = {
                 "zeitpunkt": datetime.now().isoformat(timespec="seconds"),

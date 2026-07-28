@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:20:37",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v4 · 28.07.2026",
+  "promptPruefsumme": "038e936f9fae8ae7",
+  "promptZeichen": 19350,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 8.11,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2  (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "",
+    "niveau": "",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2  (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  nicht angegeben\nNIVEAU:           kein Sprachniveau\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nnicht bestimmbar\n\nBEFUNDE\n[1] HINWEIS · LEER\n    Stelle:      \"PROGRAMMBEREICH: nicht angegeben\"\n    Grund:       Ohne Programmbereich kann ich nicht bestimmen, ob der Kurs Deutsch vermittelt oder etwas anderes, und damit nicht das Leseniveau der Zielgruppe einordnen.\n    Vorschlag:   \"Bitte Programmbereich ergänzen, vermutlich: Deutsch als Fremdsprache\"\n\n[2] HINWEIS · LEER\n    Stelle:      \"NIVEAU: kein Sprachniveau\"\n    Grund:       Der Kurstitel nennt A2.2, aber das Feld NIVEAU sagt \"kein Sprachniveau\". Diese Angabe ist widersprüchlich und verhindert die Prüfung.\n    Vorschlag:   \"Bitte Niveau auf A2 setzen, entsprechend dem Kurstitel\"\n\nKEIN BEFUND ZU\nSTRUKTUR, ANREDE\n\nGESAMT\n2 Befunde, davon 0 Pflicht.\nOhne die fehlenden Angaben kann ich den Text nicht prüfen. Nach Ergänzung von Programmbereich und Niveau kann ich eine vollständige Prüfung durchführen.",
+  "verbrauch": {
+    "prompt_tokens": 8098,
+    "completion_tokens": 336,
+    "total_tokens": 8434,
+    "cost": 0.029334,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.029334,
+      "upstream_inference_prompt_cost": 0.024294,
+      "upstream_inference_completions_cost": 0.00504
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

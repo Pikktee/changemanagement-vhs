@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:21:49",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v4 · 28.07.2026",
+  "promptPruefsumme": "038e936f9fae8ae7",
+  "promptZeichen": 19350,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 12.4,
+  "eingabe": {
+    "titel": "Englisch A1.1  (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1  (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Deutsch als Erstsprache oder starker Zweitsprache, die Englisch auf Niveau A1 lernen möchten.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"vertraute, alltägliche Ausdrücke\"\n    Grund:       \"vertraut\" ist für diese Zielgruppe gehoben; einfacher wäre \"bekannt\"\n    Vorschlag:   \"bekannte, alltägliche Ausdrücke\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"insbesondere\"\n    Grund:       Gehobenes Wort, das in Alltagstexten selten vorkommt\n    Vorschlag:   \"besonders\" oder \"vor allem\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Familienangehörige\"\n    Grund:       Zusammengesetztes Amtswort; einfacher wäre die Alltagssprache\n    Vorschlag:   \"Familienmitglieder\" oder \"Menschen aus Ihrer Familie\"\n\n[4] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe zum Lehrbuch, obwohl im letzten Absatz darauf verwiesen wird\n    Vorschlag:   Ergänzen Sie die Lehrbuchangabe, z. B. \"Lehrbuch: [Titel, Verlag, ISBN]\"\n\n[5] HINWEIS · STRUKTUR\n    Stelle:      \"*sich und jemanden vorzustellen [...] *über Familie zu sprechen\"\n    Grund:       Die Aufzählungspunkte sind nur durch Sternchen markiert, aber nicht als Liste ausgezeichnet\n    Vorschlag:   Formatieren Sie die vier Punkte als echte Aufzählungsliste (HTML: <ul><li>)\n\nKEIN BEFUND ZU\nLINKTEXT, SPRACHE, ABK, SATZ, AMTSDEUTSCH, ANREDE, FREMDANWEISUNG\n\nGESAMT\n5 Befunde, davon 0 Pflicht.\nDer Text ist weitgehend verständlich. Die Niveau-Befunde betreffen einzelne Wörter, die durch gebräuchlichere ersetzt werden können. Die Strukturauszeichnung sollte ergänzt werden.",
+  "verbrauch": {
+    "prompt_tokens": 8190,
+    "completion_tokens": 611,
+    "total_tokens": 8801,
+    "cost": 0.033735,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.033735,
+      "upstream_inference_prompt_cost": 0.02457,
+      "upstream_inference_completions_cost": 0.009165
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

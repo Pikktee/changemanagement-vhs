@@ -1,0 +1,45 @@
+{
+  "zeitpunkt": "2026-07-28T19:14:59",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v3 · 28.07.2026",
+  "promptPruefsumme": "f6ae770f61bddd60",
+  "promptZeichen": 18395,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "dauerSekunden": 6.12,
+  "eingabe": {
+    "titel": "",
+    "nummer": "",
+    "programmbereich": "",
+    "niveau": "",
+    "text": "Termine nach Absprache. Weitere Angaben folgen."
+  },
+  "benutzernachricht": "KURSTITEL:        nicht angegeben\nKURSNUMMER:       nicht angegeben\nPROGRAMMBEREICH:  nicht angegeben\nNIVEAU:           kein Sprachniveau\nTEXT:\nTermine nach Absprache. Weitere Angaben folgen.",
+  "antwort": "ZIELGRUPPE\nnicht bestimmbar\n\nBEFUNDE\n[1] HINWEIS · LEER\n    Stelle:      \"Termine nach Absprache. Weitere Angaben folgen.\"\n    Grund:       Kurstitel, Programmbereich und inhaltliche Angaben fehlen vollständig, sodass die Zielgruppe nicht bestimmt werden kann.\n    Vorschlag:   \"Bitte ergänzen Sie: Kurstitel, Programmbereich, Kursbeschreibung mit Zielgruppe, Vorkenntnissen und Inhalten.\"\n\nKEIN BEFUND ZU\n–\n\nGESAMT\n1 Befund, davon 0 Pflicht.\nOhne die fehlenden Angaben kann der Text nicht geprüft werden.",
+  "verbrauch": {
+    "prompt_tokens": 7491,
+    "completion_tokens": 197,
+    "total_tokens": 7688,
+    "cost": 0.025428,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.025428,
+      "upstream_inference_prompt_cost": 0.022473,
+      "upstream_inference_completions_cost": 0.002955
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
