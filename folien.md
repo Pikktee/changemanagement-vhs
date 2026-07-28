@@ -131,7 +131,7 @@ Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
 Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
-Haus im Folgenden. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
+Haus. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
 Rechts steht, wie ein Kurstext heute entsteht. Vier Schritte, von der Planung
 bis zur Veröffentlichung in Portal, Programmheft und Newsletter.
@@ -242,10 +242,8 @@ Wer das verwechselt, prüft am falschen Maßstab.
 Und jetzt der Punkt, an dem ich beim Recherchieren selbst falsch lag. Struktur
 und ausgezeichnete Fremdsprachen sind Pflicht. Aber dass Abkürzungen erklärt
 werden und dass das Leseniveau zur Zielgruppe passt, ist beides dreifach A und
-damit nicht verbindlich.
-
-Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
-und es wäre falsch.
+damit nicht verbindlich. Ich könnte jetzt mit einem drohenden Bußgeld
+argumentieren. Das wäre bequem, und es wäre falsch.
 
 Wichtig ist der letzte Absatz. Paragraph drei Absatz eins der hessischen
 Verordnung verlangt eigenständig, dass Angebote verständlich sind. Die
@@ -419,12 +417,11 @@ legt deshalb zwei verschiedene Maßstäbe an.
 Zwei Dinge sage ich offen dazu. Der Prompt hat selbst vermerkt, dass er
 weitere Wörter weggelassen hat, weil er auf zehn Befunde begrenzt ist. Er
 verschweigt die Kürzung also nicht. Und die Zahl der Befunde schwankt zwischen
-zwei Läufen um ein bis zwei. Die Pflichtbefunde blieben in allen Läufen
-stabil.
+zwei Läufen um ein bis zwei. Die Pflichtbefunde blieben stabil.
 
-In mehreren Läufen hat der Prompt diese Passage zusätzlich als Textbaustein
-erkannt. Dieser Baustein ist mein Quick Win, denn ich habe nachgezählt: Er
-steht wortgleich über sechsunddreißig Kursen.
+Diese Passage hat der Prompt in mehreren Läufen zusätzlich als Textbaustein
+erkannt. Der ist mein Quick Win, denn ich habe nachgezählt: Er steht wortgleich
+über sechsunddreißig Kursen.
 
 
 ## 9 — Stakeholder
@@ -588,25 +585,25 @@ quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschn
 
 Zum Schluss die Frage, woran man merken würde, ob das Projekt gewirkt hat.
 
-Oben stehen die ersten dreißig Tage: Personalrat einbinden, einen Pilotbereich
+Oben die ersten dreißig Tage: Personalrat einbinden, einen Pilotbereich
 gewinnen, die Textbausteine überarbeiten.
 
 Zu den Ressourcen. Der häufigste Einwand lautet, das koste zu viel Zeit. Ich
 habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede Veranstaltung
 einzeln zu prüfen wären rund zweihundertneunzig Stunden im Jahr. Das muss man
 aber nicht, denn von rund zweitausendachthundert Kursen im Semester sind nur
-zweihundertdreiundneunzig neu. Prüft man nur die neuen Texte, sind es
-neunundzwanzig Stunden im Jahr. Im Pilot vier Stunden in drei Monaten.
+zweihundertdreiundneunzig neu. Prüft man nur diese, sind es neunundzwanzig
+Stunden im Jahr. Im Pilot vier Stunden in drei Monaten.
 
-In der Mitte die drei Kennzahlen, jeweils mit Ausgangswert und Ziel. Die
-Befundquote soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
+In der Mitte die drei Kennzahlen mit Ausgangswert und Ziel. Die Befundquote
+soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
 Pilotbereich sollen geprüft sein. Und die Deutschkurse mit C1-Vokabular sollen
 von neun von dreizehn auf höchstens zwei sinken.
 
 Der wichtigste Punkt steht in der letzten Spalte. Die Ausgangsmessung liegt
 bereits vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben
-Skript. Ich muss für die Erfolgskontrolle also nichts Neues aufbauen, und
-niemand kann später über die Messmethode streiten.
+Skript. Ich muss für die Erfolgskontrolle nichts Neues aufbauen, und niemand
+kann später über die Messmethode streiten.
 
 Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur, die Zusage
 schriftlich und vorher zu geben. Misstraut die Redaktion den schwankenden
