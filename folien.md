@@ -133,10 +133,8 @@ Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
 Haus im Folgenden. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
-Rechts steht, wie ein Kurstext heute entsteht. Die Programmbereichsleitung
-plant den Kurs. Der Text wird geschrieben, häufig von der Kursleitung
-zugeliefert. Er wird ins Kursverwaltungssystem eingepflegt. Und dann erscheint
-er unverändert im Portal, im Programmheft und im Newsletter.
+Rechts steht, wie ein Kurstext heute entsteht. Vier Schritte, von der Planung
+bis zur Veröffentlichung in Portal, Programmheft und Newsletter.
 
 Zwischen dem dritten und dem vierten Schritt passiert nichts. Es gibt keine
 Prüfstufe für Verständlichkeit. Das ist kein Vorwurf, denn dieser
@@ -149,8 +147,8 @@ entschieden wird weiterhin von Menschen.
 
 Eine Einschränkung lege ich offen. Den genauen Redaktionsablauf konnte ich
 nicht belegen, dazu gibt es keine öffentliche Dokumentation. Rechts steht die
-branchenübliche Rollenverteilung aus Stellenausschreibungen von
-Volkshochschulverbänden. Das ist eine begründete Annahme, keine Messung.
+branchenübliche Rollenverteilung. Das ist eine begründete Annahme, keine
+Messung.
 
 
 ## 4 — Messung und eigentlicher Befund
@@ -180,16 +178,15 @@ gemessen.
 Das Kursportal hat eine offene Schnittstelle. Darüber habe ich sechzig
 Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und
 automatisch ausgewertet. Neunzig Prozent der Texte haben mindestens einen
-Befund. Sechs von sechzig blieben ohne. Der längste gemessene Satz hat
-vierundsiebzig Wörter.
+Befund. Sechs von sechzig blieben ohne.
 
 Der eigentliche Befund steht aber in der Tabelle, und er sieht auf den ersten
 Blick unscheinbar aus.
 
 Oben ein Englischkurs auf Stufe A1, unten ein Deutschkurs auf Stufe A2. Der
 Englischkurs hat durchschnittlich einundzwanzig Wörter pro Satz, der längste
-Satz hat einundvierzig. Der Deutschkurs hat knapp elf Wörter pro Satz, der
-längste sechzehn.
+hat einundvierzig. Der Deutschkurs hat knapp elf Wörter pro Satz, der längste
+sechzehn.
 
 Ein Lesbarkeitsindex oder ein Standard-KI-Assistent würde jetzt den
 Englischkurs beanstanden und den Deutschkurs durchwinken. Das ist genau falsch
@@ -299,8 +296,7 @@ Werkzeuge.
 
 Links das Regelhafte: Markup, Struktur, Kontraste. Dafür gibt es etablierte
 Prüfprogramme wie axe-core. Die sind kostenlos, laufen automatisch und liefern
-bei gleicher Eingabe immer dasselbe Ergebnis. Sie decken dreißig bis vierzig
-Prozent der Kriterien ab. Zuständig ist die städtische IT.
+bei gleicher Eingabe immer dasselbe Ergebnis. Zuständig ist die städtische IT.
 
 Rechts das Urteilende: Ob ein Lernender auf A1 diesen Satz versteht. Ob dieser
 Linktext etwas aussagt. Dafür gibt es kein Regelwerk, das braucht Urteil.
@@ -312,15 +308,15 @@ langsamer, teurer und liefert nicht immer dasselbe Ergebnis. Wer behauptet,
 eine KI ersetze axe-core, hat entweder das eine oder das andere nicht
 verstanden.
 
-Diese Trennung hat sich beim Bauen übrigens zweimal selbst bestätigt. Zwei
-Zusagen, die ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht
-zuverlässig eingehalten. Beide stehen jetzt im Programmcode, weil sie
-feststehen und kein Urteil verlangen. Darauf komme ich zurück.
+Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
+ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig
+eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und kein
+Urteil verlangen.
 
 Zu den technischen Voraussetzungen: Es braucht den KI-Rahmen, den der
 Volkshochschul-Verband ohnehin bereitstellt, einen dort hinterlegten
-Assistenten und die Wortliste als Datei. Kein neuer Vertrag, keine
-Schnittstelle, kein Eingriff ins Kursverwaltungssystem.
+Assistenten und die Wortliste als Datei. Kein neuer Vertrag, kein Eingriff ins
+Kursverwaltungssystem.
 
 
 ## 7 — Der Prompt in sechs Bausteinen
@@ -463,9 +459,8 @@ der zwei Sitze in der Betriebskommission hat.
 
 Oben links, zu beobachten: die städtische IT, der Portaldienstleister und die
 hessische Durchsetzungsstelle. Hoher Einfluss, aber geringe Betroffenheit,
-weil mein Projekt ihre Arbeit nicht verändert.
-
-Unten links nur informieren: die Betriebskommission und die Kämmerei.
+weil mein Projekt ihre Arbeit nicht verändert. Unten links nur informieren:
+die Betriebskommission und die Kämmerei.
 
 Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
 Kursleitungen sind maximal betroffen, denn sie schreiben viele dieser Texte.
@@ -476,8 +471,8 @@ Genau deshalb steht unten der Satz: Beteiligung ist hier kein guter Stil,
 sondern das einzige Instrument, das überhaupt zur Verfügung steht.
 
 Ein Hinweis zur Matrix selbst. Ich verwende die Achsen aus dem Aufgabenblatt,
-also Einfluss und Betroffenheit. In der Change Toolbox ist sie als
-Einfluss-Interesse-Matrix geführt. Ich halte Betroffenheit hier für
+Einfluss und Betroffenheit. In der Change Toolbox ist sie als
+Einfluss-Interesse-Matrix geführt. Betroffenheit halte ich hier für
 trennschärfer, weil die Kursleitungen sehr betroffen sind, ohne besonderes
 Interesse an dem Thema zu haben.
 
@@ -526,9 +521,8 @@ beginnt und nicht danach.
 
 Gewohnheit und fehlende Perspektive begegne ich mit dem Zuschnitt selbst. Ich
 ändere nicht, wie jemand schreibt, sondern ergänze einen Schritt danach. Und
-ich fange mit den Textbausteinen an, weil dort eine einzige Überarbeitung
-sechsunddreißig Kurse gleichzeitig verbessert. Das ist sichtbare Wirkung, für
-die niemand seine Arbeitsweise ändern muss.
+ich fange mit den Textbausteinen an, weil eine einzige Überarbeitung dort
+sechsunddreißig Kurse gleichzeitig verbessert.
 
 Der Satz unten ist der Kern jeder Widerstandsarbeit. Betroffene zu Beteiligten
 machen. Konkret heißt das, dass der Pilotbereich selbst entscheidet, welche
@@ -602,10 +596,9 @@ gewinnen, die Textbausteine überarbeiten.
 Zu den Ressourcen. Der häufigste Einwand lautet, das koste zu viel Zeit. Ich
 habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede Veranstaltung
 einzeln zu prüfen wären rund zweihundertneunzig Stunden im Jahr. Das muss man
-aber nicht, denn die vhs veröffentlicht selbst, dass von rund
-zweitausendachthundert Kursen im Semester nur zweihundertdreiundneunzig neu
-waren. Prüft man nur die neuen Texte, sind es neunundzwanzig Stunden im Jahr.
-Im Pilot vier Stunden in drei Monaten.
+aber nicht, denn von rund zweitausendachthundert Kursen im Semester sind nur
+zweihundertdreiundneunzig neu. Prüft man nur die neuen Texte, sind es
+neunundzwanzig Stunden im Jahr. Im Pilot vier Stunden in drei Monaten.
 
 In der Mitte die drei Kennzahlen, jeweils mit Ausgangswert und Ziel. Die
 Befundquote soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
