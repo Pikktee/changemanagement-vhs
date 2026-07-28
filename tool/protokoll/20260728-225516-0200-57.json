@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-28T22:55:16",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 14.33,
+  "eingabe": {
+    "titel": "Migrationsgeschichte in Frankfurt am Beispiel der Italiener",
+    "nummer": "0200-57",
+    "programmbereich": "Frankfurt/Region/Umwelt",
+    "niveau": "kein Sprachniveau",
+    "text": "Der Anwerbevertrag zwischen Deutschland und Italien 1955 markiert das Datum der italienischen Einwanderung nach Deutschland, also auch nach Frankfurt. Das glauben die meisten. Frankfurt war aber von Anfang an ein Ort der Einwanderung. Die Stadt wuchs und entwickelte sich immer Dank der Menschen, die sich hier niederließen und sie gestalteten. Somit ist Einwanderung kein zeitliches Phänomen, sondern vielmehr die natürliche Geschichte der Menschen. Auf diesem Spaziergang zwischen dem Hauptbahnhof und der Frankfurter Altstadt wollen wir uns sowohl der jüngeren Einwanderungsgeschichte von Italienern nach Frankfurt widmen, als auch einen Rückblick in die Frankfurter Geschichte wagen: Es wird die Rede sein von Kaufleuten, Tabakhändlern, Stuckateuren und Perückenmachern und nicht zu vergessen den alten Römern…"
+  },
+  "benutzernachricht": "KURSTITEL:        Migrationsgeschichte in Frankfurt am Beispiel der Italiener\nKURSNUMMER:       0200-57\nPROGRAMMBEREICH:  Frankfurt/Region/Umwelt\nNIVEAU:           kein Sprachniveau\nTEXT:\nDer Anwerbevertrag zwischen Deutschland und Italien 1955 markiert das Datum der italienischen Einwanderung nach Deutschland, also auch nach Frankfurt. Das glauben die meisten. Frankfurt war aber von Anfang an ein Ort der Einwanderung. Die Stadt wuchs und entwickelte sich immer Dank der Menschen, die sich hier niederließen und sie gestalteten. Somit ist Einwanderung kein zeitliches Phänomen, sondern vielmehr die natürliche Geschichte der Menschen. Auf diesem Spaziergang zwischen dem Hauptbahnhof und der Frankfurter Altstadt wollen wir uns sowohl der jüngeren Einwanderungsgeschichte von Italienern nach Frankfurt widmen, als auch einen Rückblick in die Frankfurter Geschichte wagen: Es wird die Rede sein von Kaufleuten, Tabakhändlern, Stuckateuren und Perückenmachern und nicht zu vergessen den alten Römern…",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Stadtgeschichte, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · SATZ\n    Stelle:      \"Die Stadt wuchs und entwickelte sich immer Dank der Menschen, die sich hier niederließen und sie gestalteten.\"\n    Grund:       Der Satz hat 19 Wörter und enthält zwei Nebensätze, was die Verarbeitung erschwert.\n    Vorschlag:   \"Die Stadt wuchs und entwickelte sich durch die Menschen, die sich hier niederließen. Sie gestalteten die Stadt mit.\"\n\n[2] EMPFEHLUNG · SATZ\n    Grund:       Der Satz hat 27 Wörter mit mehreren eingeschobenen Elementen, was die Lesbarkeit beeinträchtigt.\n    Stelle:      \"Auf diesem Spaziergang zwischen dem Hauptbahnhof und der Frankfurter Altstadt wollen wir uns sowohl der jüngeren Einwanderungsgeschichte von Italienern nach Frankfurt widmen, als auch einen Rückblick in die Frankfurter Geschichte wagen\"\n    Vorschlag:   \"Auf diesem Spaziergang zwischen Hauptbahnhof und Altstadt beschäftigen wir uns mit der italienischen Einwanderung nach Frankfurt. Wir werfen auch einen Blick in die ältere Frankfurter Geschichte.\"\n\n[3] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Somit ist Einwanderung kein zeitliches Phänomen\"\n    Grund:       \"Zeitliches Phänomen\" ist eine abstrakte Verwaltungsformulierung, wo eine konkretere Aussage möglich wäre.\n    Vorschlag:   \"Einwanderung gab es also schon immer\"\n\n[4] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe, ob der Spaziergang für Menschen mit eingeschränkter Mobilität geeignet ist und wie lang die Strecke ist.\n    Vorschlag:   Ergänzung: \"Länge des Spaziergangs: ca. [X] km, Dauer: ca. [X] Stunden. Der Weg ist [barrierefrei/nicht barrierefrei].\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, ANREDE\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist inhaltlich gut verständlich und vermittelt das Thema anschaulich. Die Satzkomplexität an zwei Stellen und eine abstrakte Formulierung könnten vereinfacht werden. Nach Überarbeitung dieser Punkte ist der Text aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8216,
+    "completion_tokens": 745,
+    "total_tokens": 8961,
+    "cost": 0.035823,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.035823,
+      "upstream_inference_prompt_cost": 0.024648,
+      "upstream_inference_completions_cost": 0.011175
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

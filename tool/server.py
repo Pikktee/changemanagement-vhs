@@ -23,6 +23,7 @@ import urllib.error
 from datetime import datetime
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
+from urllib.parse import urlparse, parse_qs
 
 PORT = 8799
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -31,18 +32,42 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJEKT_DIR = BASE_DIR.parent
 PROMPT_DATEI = PROJEKT_DIR / "system-prompt.md"
 WORTLISTE_DATEI = PROJEKT_DIR / "daten" / "wortliste-goethe-a1.txt"
-KURSE_DATEI = PROJEKT_DIR / "daten" / "vhs-stichprobe-60.json"
+# Der vollstaendige Kursplan, erzeugt von daten/kursplan-holen.py. Fehlt er,
+# faellt der Server auf die alte Stichprobe zurueck, damit das Tool auch ohne
+# Abruf lauffaehig bleibt.
+KURSE_DATEI = PROJEKT_DIR / "daten" / "vhs-kursplan.json"
+KURSE_ERSATZ = PROJEKT_DIR / "daten" / "vhs-stichprobe-60.json"
 PROTOKOLL_DIR = BASE_DIR / "protokoll"
 INDEX_DATEI = BASE_DIR / "index.html"
 
 # Erstwahl, danach der Ersatz. Welches Modell geantwortet hat, steht im
-# Protokoll und in der Fusszeile der Oberflaeche.
-MODELLE = ["anthropic/claude-sonnet-4.5", "anthropic/claude-3.7-sonnet"]
+# Protokoll und im Panel der Oberflaeche. Die Erstwahl ist die Fassung, mit der
+# alle Belege der Abgabe entstanden sind; sie bleibt der Standard, auch wenn im
+# Panel andere Modelle waehlbar sind.
+MODELL_STANDARD = "anthropic/claude-sonnet-4.5"
+MODELL_ERSATZ = "anthropic/claude-sonnet-4"
+
+# Waehlbar im Panel. Weiter reicht die Liste bewusst nicht: Was der Browser
+# schickt, geht sonst ungeprueft als Modellname an OpenRouter.
+MODELLE_WAHL = [
+    {"id": "anthropic/claude-sonnet-4.5", "name": "Claude Sonnet 4.5", "hinweis": "Standard der Abgabe"},
+    {"id": "anthropic/claude-sonnet-5", "name": "Claude Sonnet 5", "hinweis": ""},
+    {"id": "anthropic/claude-opus-5", "name": "Claude Opus 5", "hinweis": ""},
+    {"id": "anthropic/claude-haiku-4.5", "name": "Claude Haiku 4.5", "hinweis": "schnell, günstig"},
+    {"id": "openai/gpt-5.1", "name": "GPT-5.1", "hinweis": ""},
+    {"id": "google/gemini-3.5-flash", "name": "Gemini 3.5 Flash", "hinweis": ""},
+    {"id": "meta-llama/llama-3.3-70b-instruct", "name": "Llama 3.3 70B", "hinweis": "offenes Modell"},
+]
+MODELL_IDS = {m["id"] for m in MODELLE_WAHL} | {MODELL_ERSATZ}
+
 # Niedrig, weil es um Reproduzierbarkeit geht: derselbe Text soll in der
 # Vorfuehrung dieselben Befunde ergeben wie im Test.
 TEMPERATUR = 0.1
 MAX_TOKENS = 4000
 TIMEOUT = 240
+# Ein angepasster Prompt darf lang sein, aber nicht beliebig. Der Wert liegt
+# rund fuenfmal ueber dem ausgelieferten Prompt.
+PROMPT_MAX = 60000
 
 PLATZHALTER = "{{WORTLISTE_A1}}"
 # Fehlt die Wortliste, wird der Platzhalter nicht durch nichts ersetzt, sondern
@@ -50,16 +75,20 @@ PLATZHALTER = "{{WORTLISTE_A1}}"
 # T7 hat genau das gezeigt. Der Prompt kennt die Marke und schaltet darauf um.
 FEHLT_MARKE = "KEINE WORTLISTE GELADEN"
 
+# Schreibweise wie im System-Prompt, Abschnitt Programmbereiche.
 BEREICHE = [
     "Gesellschaft/Politik/Psychologie",
     "Frankfurt/Region/Umwelt",
-    "Kunst/Kultur/Kreativitaet",
+    "Kunst/Kultur/Kreativität",
     "Gesundheit",
     "Deutsch als Fremdsprache",
     "Sprachen",
     "Beruf/Karriere/Computer/Internet",
     "Grundbildung/Schule",
 ]
+
+NIVEAUS = ["A1", "A2", "B1", "B2", "C1", "C2"]
+OHNE_NIVEAU = "kein Sprachniveau"
 
 
 # --------------------------------------------------------------------------
@@ -199,6 +228,13 @@ def prompt_bauen(erzwingen=False):
 # --------------------------------------------------------------------------
 
 def bereich_raten(nummer, titel):
+    """Ersatz fuer Kurse, denen das Portal keinen Programmbereich mitgibt.
+
+    Betrifft rund jeden zwoelften Kurs, vor allem die junge vhs und die
+    Stadtteilangebote. Geraten wird nur fuer die Vorbelegung des Formulars;
+    im Filter erscheinen diese Kurse als „ohne Angabe", damit die Luecke
+    sichtbar bleibt und nicht als Portalangabe durchgeht.
+    """
     nummer = (nummer or "").strip()
     titel = (titel or "").strip()
     unten = titel.lower()
@@ -210,7 +246,7 @@ def bereich_raten(nummer, titel):
     if ziffer == "1":
         return "Gesellschaft/Politik/Psychologie"
     if ziffer == "2":
-        return "Kunst/Kultur/Kreativitaet"
+        return "Kunst/Kultur/Kreativität"
     if ziffer == "3":
         return "Gesundheit"
     if ziffer == "4":
@@ -233,32 +269,215 @@ def niveau_raten(titel):
     treffer = re.search(r"\b([ABC][12])\b", titel or "")
     if treffer:
         return treffer.group(1)
-    return "kein Sprachniveau"
+    return OHNE_NIVEAU
+
+
+UMLAUT_LANG = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
+UMLAUT_KURZ = str.maketrans({"ä": "a", "ö": "o", "ü": "u", "ß": "ss"})
+
+
+def falten(text):
+    """Kleinschreibung, Umlaute in der Ersatzschreibung: „Französisch" wird
+    zu „franzoesisch"."""
+    return (text or "").lower().translate(UMLAUT_LANG)
+
+
+def such_text(text):
+    """Beide Umlautformen nebeneinander.
+
+    Wer eine Umlauttaste nicht trifft, tippt entweder „franzoesisch" oder
+    „franzosisch". Eine einzige Normalform kann nur eines von beiden finden,
+    deshalb steht im Index beides. Der Suchbegriff wird nur in der langen Form
+    gefaltet; ohne Umlaut geschrieben bleibt er unveraendert und trifft dann
+    die kurze Haelfte.
+    """
+    unten = (text or "").lower()
+    return unten.translate(UMLAUT_LANG) + "\n" + unten.translate(UMLAUT_KURZ)
+
+
+_kurse_cache = {"stempel": None, "liste": [], "quelle": ""}
+_kurse_lock = threading.Lock()
+
+
+def _kurse_aus_datei():
+    """Liest den Kursplan, sonst die alte Stichprobe. Gibt (Liste, Quelle)."""
+    if KURSE_DATEI.is_file():
+        try:
+            daten = json.loads(KURSE_DATEI.read_text(encoding="utf-8"))
+            return daten.get("kurse") or [], KURSE_DATEI.name
+        except (OSError, ValueError):
+            pass
+    try:
+        return json.loads(KURSE_ERSATZ.read_text(encoding="utf-8")), KURSE_ERSATZ.name
+    except (OSError, ValueError):
+        return [], ""
 
 
 def kurse_laden():
-    try:
-        daten = json.loads(KURSE_DATEI.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return []
-    liste = []
-    for eintrag in daten:
-        if not isinstance(eintrag, dict):
-            continue
-        nummer = str(eintrag.get("nummer") or "").strip()
-        titel = str(eintrag.get("titel") or "").strip()
-        liste.append({
-            "id": eintrag.get("id"),
-            "nummer": nummer,
-            "titel": titel,
-            "text": eintrag.get("text") or "",
-            "kursleiter": eintrag.get("kursleiter") or "",
-            "preis": eintrag.get("preis"),
-            "programmbereich": bereich_raten(nummer, titel),
-            "niveau": niveau_raten(titel),
-        })
-    liste.sort(key=lambda k: k["nummer"])
-    return liste
+    """Baut die Kursliste einmal auf und haelt sie im Speicher.
+
+    Der Suchtext wird hier vorbereitet, nicht bei jeder Anfrage: Die Suche
+    laeuft ueber gut dreitausend Kurse, und der Aufbau des gefalteten
+    Suchtextes kostet mehr als der Vergleich.
+    """
+    with _kurse_lock:
+        try:
+            st = KURSE_DATEI.stat() if KURSE_DATEI.is_file() else KURSE_ERSATZ.stat()
+            aktuell = (st.st_mtime, st.st_size)
+        except OSError:
+            aktuell = None
+        if _kurse_cache["stempel"] == aktuell and _kurse_cache["liste"]:
+            return _kurse_cache["liste"]
+
+        roh, quelle = _kurse_aus_datei()
+        liste = []
+        for eintrag in roh:
+            if not isinstance(eintrag, dict):
+                continue
+            nummer = str(eintrag.get("nummer") or "").strip()
+            titel = re.sub(r"\s+", " ", str(eintrag.get("titel") or "").strip())
+            untertitel = re.sub(r"\s+", " ", str(eintrag.get("untertitel") or "").strip())
+            text = str(eintrag.get("text") or "")
+            # Der Kursplan bringt den Bereich mit, die alte Stichprobe nicht.
+            bereich = str(eintrag.get("bereich") or "").strip()
+            niveau = str(eintrag.get("niveau") or "").strip() or niveau_raten(titel)
+            kurs = {
+                "id": eintrag.get("id"),
+                "nummer": nummer,
+                "titel": titel,
+                "untertitel": untertitel,
+                "text": text,
+                "bereich": bereich,
+                "bereichVorschlag": bereich or bereich_raten(nummer, titel),
+                "niveau": niveau,
+                "ort": str(eintrag.get("ort") or eintrag.get("kursOrt") or "").strip(),
+                "preis": eintrag.get("preis"),
+                "termin": str(eintrag.get("termin") or "").strip(),
+                "zeit": str(eintrag.get("zeit") or "").strip(),
+                "zeichen": len(text),
+            }
+            kurs["_such"] = such_text(" ".join(
+                (nummer, titel, untertitel, kurs["ort"], bereich, text)))
+            liste.append(kurs)
+        liste.sort(key=lambda k: (k["nummer"], k["id"] or 0))
+        _kurse_cache["stempel"] = aktuell
+        _kurse_cache["liste"] = liste
+        _kurse_cache["quelle"] = quelle
+        return liste
+
+
+AUSZUG_LAENGE = 150
+AUSZUG_VORLAUF = 55
+
+
+def auszug_bauen(text, begriffe):
+    """Schneidet den Auszug um die erste Fundstelle statt am Textanfang.
+
+    Wer nach einem Wort sucht, das im Beschreibungstext weit hinten steht,
+    sieht sonst einen Anfang, in dem der Suchbegriff nicht vorkommt, und kann
+    nicht erkennen, warum der Kurs ein Treffer ist. Die Faltung verschiebt die
+    Position um ein Zeichen je Umlaut; bei diesem Vorlauf faellt das nicht ins
+    Gewicht, die Fundstelle liegt in jedem Fall im Fenster.
+    """
+    flach = re.sub(r"\s+", " ", text)
+    if not begriffe:
+        return flach[:AUSZUG_LAENGE]
+
+    unten = flach.lower()
+    treffer = []
+    for gefaltet in (unten.translate(UMLAUT_LANG), unten.translate(UMLAUT_KURZ)):
+        for b in begriffe:
+            pos = gefaltet.find(b)
+            if pos >= 0:
+                treffer.append(pos)
+    if not treffer:
+        return flach[:AUSZUG_LAENGE]
+
+    start = max(0, min(treffer) - AUSZUG_VORLAUF)
+    if start:
+        # Nicht mitten im Wort anfangen.
+        leer = flach.find(" ", start)
+        start = leer + 1 if 0 <= leer < start + 20 else start
+    stueck = flach[start:start + AUSZUG_LAENGE]
+    return ("… " + stueck) if start else stueck
+
+
+def kurs_knapp(kurs, begriffe=()):
+    """Fassung fuer die Trefferliste: alles ausser dem vollen Text."""
+    knapp = {s: kurs[s] for s in (
+        "id", "nummer", "titel", "untertitel", "bereich", "bereichVorschlag",
+        "niveau", "ort", "preis", "termin", "zeit", "zeichen")}
+    knapp["auszug"] = auszug_bauen(kurs["text"], begriffe)
+    return knapp
+
+
+def kurse_suchen(q, bereich, niveau, ort, seite, pro_seite):
+    """Sucht und filtert. Die Zaehler je Filterwert beruecksichtigen jeweils
+    die uebrigen Filter, damit im Modal keine Auswahl angeboten wird, die
+    null Treffer ergibt."""
+    alle = kurse_laden()
+
+    begriffe = [t for t in falten(q).split() if t]
+
+    def passt_text(k):
+        return all(t in k["_such"] for t in begriffe)
+
+    def passt_bereich(k):
+        if not bereich:
+            return True
+        if bereich == "ohne":
+            return not k["bereich"]
+        return k["bereich"] == bereich
+
+    def passt_niveau(k):
+        if not niveau:
+            return True
+        if niveau == OHNE_NIVEAU:
+            return k["niveau"] == OHNE_NIVEAU
+        return k["niveau"] == niveau
+
+    def passt_ort(k):
+        if not ort:
+            return True
+        if ort == "ohne":
+            return not k["ort"]
+        return k["ort"] == ort
+
+    vor_text = [k for k in alle if passt_text(k)]
+
+    def zaehlen(schluessel, ohne_filter):
+        zaehler = {}
+        for k in vor_text:
+            if ohne_filter != "bereich" and not passt_bereich(k):
+                continue
+            if ohne_filter != "niveau" and not passt_niveau(k):
+                continue
+            if ohne_filter != "ort" and not passt_ort(k):
+                continue
+            # Leere Angaben bekommen einen eigenen Eintrag, damit sie im Modal
+            # waehlbar bleiben statt unsichtbar zu verschwinden.
+            wert = k[schluessel] or "ohne"
+            zaehler[wert] = zaehler.get(wert, 0) + 1
+        return zaehler
+
+    treffer = [k for k in vor_text
+               if passt_bereich(k) and passt_niveau(k) and passt_ort(k)]
+
+    von = max(0, (seite - 1) * pro_seite)
+    ausschnitt = treffer[von:von + pro_seite]
+
+    return {
+        "gesamt": len(alle),
+        "treffer": len(treffer),
+        "seite": seite,
+        "proSeite": pro_seite,
+        "kurse": [kurs_knapp(k, begriffe) for k in ausschnitt],
+        "facetten": {
+            "bereich": zaehlen("bereich", "bereich"),
+            "niveau": zaehlen("niveau", "niveau"),
+            "ort": zaehlen("ort", "ort"),
+        },
+    }
 
 
 # --------------------------------------------------------------------------
@@ -303,14 +522,14 @@ class ApiFehler(Exception):
         self.wiederholbar = wiederholbar
 
 
-def modell_aufrufen(modell, system_prompt, benutzer_text):
+def modell_aufrufen(modell, system_prompt, benutzer_text, temperatur):
     body = json.dumps({
         "model": modell,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": benutzer_text},
         ],
-        "temperature": TEMPERATUR,
+        "temperature": temperatur,
         "max_tokens": MAX_TOKENS,
     }).encode("utf-8")
 
@@ -345,7 +564,7 @@ def modell_aufrufen(modell, system_prompt, benutzer_text):
     try:
         daten = json.loads(roh)
     except ValueError:
-        raise ApiFehler(502, "OpenRouter hat keine gueltige Antwort geliefert.", True)
+        raise ApiFehler(502, "OpenRouter hat keine gültige Antwort geliefert.", True)
 
     if isinstance(daten.get("error"), dict):
         meldung = str(daten["error"].get("message", "unbekannter Fehler"))[:400]
@@ -467,17 +686,74 @@ class Handler(BaseHTTPRequestHandler):
 
     # -- GET ---------------------------------------------------------------
     def do_GET(self):
-        pfad = self.path.split("?", 1)[0]
+        zerlegt = urlparse(self.path)
+        pfad = zerlegt.path
         if pfad in ("/", "/index.html"):
             self.seite_ausliefern()
             return
         if pfad == "/api/status":
             self.status_ausliefern()
             return
+        if pfad == "/api/prompt":
+            self.prompt_ausliefern()
+            return
         if pfad == "/api/kurse":
-            self.send_json(200, {"kurse": kurse_laden()})
+            self.kurse_ausliefern(parse_qs(zerlegt.query))
+            return
+        if pfad.startswith("/api/kurs/"):
+            self.kurs_ausliefern(pfad[len("/api/kurs/"):])
             return
         self.send_json(404, {"error": "Unbekannter Pfad."})
+
+    def kurse_ausliefern(self, felder):
+        def wert(name, ersatz=""):
+            return (felder.get(name) or [ersatz])[0].strip()
+
+        def zahl(name, ersatz, klein, gross):
+            try:
+                n = int(wert(name) or ersatz)
+            except ValueError:
+                n = ersatz
+            return min(gross, max(klein, n))
+
+        self.send_json(200, kurse_suchen(
+            q=wert("q"),
+            bereich=wert("bereich"),
+            niveau=wert("niveau"),
+            ort=wert("ort"),
+            seite=zahl("seite", 1, 1, 500),
+            pro_seite=zahl("proSeite", 40, 5, 200),
+        ))
+
+    def kurs_ausliefern(self, roh_id):
+        try:
+            gesucht = int(roh_id)
+        except ValueError:
+            self.send_json(400, {"error": "Ungültige Kurskennung."})
+            return
+        for kurs in kurse_laden():
+            if kurs["id"] == gesucht:
+                voll = dict(kurs)
+                voll.pop("_such", None)
+                self.send_json(200, {"kurs": voll})
+                return
+        self.send_json(404, {"error": "Kurs nicht gefunden."})
+
+    def prompt_ausliefern(self):
+        """Liefert den Prompt so, wie er an das Modell geht: mit eingesetzter
+        Wortliste. Das Panel zeigt genau den Text, mit dem geprüft wird."""
+        p = prompt_bauen()
+        self.send_json(200, {
+            "prompt": p["prompt"] or "",
+            "fehler": p["fehler"],
+            "fassung": p["fassung"],
+            "zeichen": p["zeichen"],
+            "pruefsumme": p["pruefsumme"],
+            "wortlisteVorhanden": p["wortlisteVorhanden"],
+            "wortanzahl": p["wortanzahl"],
+            "wortlisteDatei": WORTLISTE_DATEI.name,
+            "promptDatei": PROMPT_DATEI.name,
+        })
 
     def seite_ausliefern(self):
         try:
@@ -494,18 +770,26 @@ class Handler(BaseHTTPRequestHandler):
 
     def status_ausliefern(self):
         p = prompt_bauen()
+        kurse = kurse_laden()
         self.send_json(200, {
             "ok": True,
             "hatKey": bool(API_KEY),
             "promptFehler": p["fehler"],
             "fassung": p["fassung"],
             "promptZeichen": p["zeichen"],
+            "promptPruefsumme": p["pruefsumme"],
             "wortlisteVorhanden": p["wortlisteVorhanden"],
             "wortanzahl": p["wortanzahl"],
-            "modell": MODELLE[0],
-            "modellErsatz": MODELLE[1],
+            "wortlisteDatei": WORTLISTE_DATEI.name,
+            "modell": MODELL_STANDARD,
+            "modellErsatz": MODELL_ERSATZ,
+            "modelle": MODELLE_WAHL,
             "temperatur": TEMPERATUR,
             "bereiche": BEREICHE,
+            "niveaus": NIVEAUS,
+            "ohneNiveau": OHNE_NIVEAU,
+            "kursanzahl": len(kurse),
+            "kursquelle": _kurse_cache.get("quelle") or "",
         })
 
     # -- POST --------------------------------------------------------------
@@ -523,7 +807,7 @@ class Handler(BaseHTTPRequestHandler):
     def pruefen(self):
         if not API_KEY:
             self.send_json(500, {"error":
-                "Kein OPENROUTER_API_KEY gefunden. Bitte die .env im Projektordner pruefen."})
+                "Kein OPENROUTER_API_KEY gefunden. Bitte die .env im Projektordner prüfen."})
             return
 
         try:
@@ -532,7 +816,7 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(payload, dict):
                 raise ValueError
         except Exception:
-            self.send_json(400, {"error": "Ungueltige Anfrage."})
+            self.send_json(400, {"error": "Ungültige Anfrage."})
             return
 
         feld = {
@@ -546,7 +830,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(400, {"error": "Kein Kurstext eingegeben. Bitte links einen Text einsetzen."})
             return
         if len(feld["text"]) > 20000:
-            self.send_json(400, {"error": "Der Text ist zu lang (hoechstens 20.000 Zeichen)."})
+            self.send_json(400, {"error": "Der Text ist zu lang (höchstens 20.000 Zeichen)."})
             return
 
         p = prompt_bauen()
@@ -554,17 +838,53 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(500, {"error": p["fehler"] or "System-Prompt konnte nicht geladen werden."})
             return
 
+        # Prompt, Modell und Temperatur duerfen aus dem Panel kommen. Was davon
+        # vom Standard abweicht, steht in der Antwort und im Protokoll: ein
+        # Lauf mit veraendertem Prompt darf nicht aussehen wie ein Standardlauf.
+        prompt_text = p["prompt"]
+        prompt_angepasst = False
+        roh_prompt = payload.get("prompt")
+        if isinstance(roh_prompt, str) and roh_prompt.strip():
+            if len(roh_prompt) > PROMPT_MAX:
+                self.send_json(400, {"error":
+                    "Der angepasste Prompt ist zu lang (höchstens %s Zeichen)."
+                    % format(PROMPT_MAX, ",d").replace(",", ".")})
+                return
+            if roh_prompt.strip() != prompt_text.strip():
+                prompt_text = roh_prompt
+                prompt_angepasst = True
+
+        pruefsumme = hashlib.sha256(prompt_text.encode("utf-8")).hexdigest()[:16]
+
+        gewaehlt = str(payload.get("modell") or "").strip()
+        if gewaehlt and gewaehlt not in MODELL_IDS:
+            self.send_json(400, {"error": "Unbekanntes Modell: %s" % gewaehlt[:80]})
+            return
+        erstwahl = gewaehlt or MODELL_STANDARD
+        kette = [erstwahl] + ([MODELL_ERSATZ] if erstwahl != MODELL_ERSATZ else [])
+
+        temperatur = TEMPERATUR
+        if payload.get("temperatur") is not None:
+            try:
+                temperatur = min(1.0, max(0.0, float(payload["temperatur"])))
+            except (TypeError, ValueError):
+                temperatur = TEMPERATUR
+
+        abweichung = (prompt_angepasst
+                      or erstwahl != MODELL_STANDARD
+                      or abs(temperatur - TEMPERATUR) > 1e-9)
+
         benutzer_text = eingabe_bauen(feld)
         beginn = time.time()
         letzter = None
-        for i, modell in enumerate(MODELLE):
+        for i, modell in enumerate(kette):
             try:
-                inhalt, usage = modell_aufrufen(modell, p["prompt"], benutzer_text)
+                inhalt, usage = modell_aufrufen(modell, prompt_text, benutzer_text, temperatur)
             except ApiFehler as err:
                 letzter = err
                 log("Modell %s fehlgeschlagen: %s" % (modell, err.meldung))
-                if err.wiederholbar and i + 1 < len(MODELLE):
-                    log("Versuche Ersatzmodell %s" % MODELLE[i + 1])
+                if err.wiederholbar and i + 1 < len(kette):
+                    log("Versuche Ersatzmodell %s" % kette[i + 1])
                     continue
                 break
             dauer = round(time.time() - beginn, 2)
@@ -577,12 +897,17 @@ class Handler(BaseHTTPRequestHandler):
             eintrag = {
                 "zeitpunkt": datetime.now().isoformat(timespec="seconds"),
                 "modell": modell,
-                "modellErstwahl": MODELLE[0],
-                "ersatzmodellGenutzt": modell != MODELLE[0],
-                "temperatur": TEMPERATUR,
+                "modellErstwahl": erstwahl,
+                "modellStandard": MODELL_STANDARD,
+                "ersatzmodellGenutzt": modell != erstwahl,
+                "temperatur": temperatur,
+                "temperaturStandard": TEMPERATUR,
                 "promptFassung": p["fassung"],
-                "promptPruefsumme": p["pruefsumme"],
-                "promptZeichen": p["zeichen"],
+                "promptPruefsumme": pruefsumme,
+                "promptPruefsummeStandard": p["pruefsumme"],
+                "promptAngepasst": prompt_angepasst,
+                "promptZeichen": len(prompt_text),
+                "abweichungVomStandard": abweichung,
                 "wortlisteVorhanden": p["wortlisteVorhanden"],
                 "wortanzahl": p["wortanzahl"],
                 "einstufungKorrigiert": korrekturen,
@@ -592,15 +917,23 @@ class Handler(BaseHTTPRequestHandler):
                 "antwort": inhalt,
                 "verbrauch": usage,
             }
+            # Ein angepasster Prompt wird mitgeschrieben. Ohne ihn liesse sich
+            # der Lauf spaeter nicht nachvollziehen, und die Protokolle sind
+            # der Beleg der Abgabe.
+            if prompt_angepasst:
+                eintrag["promptText"] = prompt_text
             name = protokoll_schreiben(eintrag, feld["nummer"])
 
             self.send_json(200, {
                 "ok": True,
                 "inhalt": inhalt,
                 "modell": modell,
-                "ersatzmodellGenutzt": modell != MODELLE[0],
-                "temperatur": TEMPERATUR,
+                "ersatzmodellGenutzt": modell != erstwahl,
+                "temperatur": temperatur,
                 "fassung": p["fassung"],
+                "promptAngepasst": prompt_angepasst,
+                "promptPruefsumme": pruefsumme,
+                "abweichungVomStandard": abweichung,
                 "wortlisteVorhanden": p["wortlisteVorhanden"],
                 "wortanzahl": p["wortanzahl"],
                 "einstufungKorrigiert": korrekturen,
@@ -641,7 +974,15 @@ def main():
     else:
         print("  Referenzwortschatz: NICHT vorhanden (%s). Die Pruefung laeuft ohne Referenz."
               % WORTLISTE_DATEI.name)
-    print("  Kursdaten: %d Kurse" % len(kurse_laden()))
+    anzahl = len(kurse_laden())
+    quelle = _kurse_cache.get("quelle") or "keine Datei"
+    print("  Kursdaten: %d Kurse aus %s" % (anzahl, quelle))
+    if quelle == KURSE_ERSATZ.name:
+        print("  Hinweis: %s fehlt. Vollstaendigen Kursplan holen mit"
+              % KURSE_DATEI.name)
+        print("           python3 ../daten/kursplan-holen.py")
+    print("  Modell: %s (Ersatz %s), Temperatur %s"
+          % (MODELL_STANDARD, MODELL_ERSATZ, TEMPERATUR))
     if not API_KEY:
         print("  ACHTUNG: kein OPENROUTER_API_KEY gefunden.")
         print("  Gesucht in: Umgebungsvariable, %s/.env, %s/.env, %s/.env"

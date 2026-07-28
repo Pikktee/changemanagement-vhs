@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-28T22:28:36",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 15.76,
+  "eingabe": {
+    "titel": "Gustav Stresemann – Kanzler ohne Vertrauen",
+    "nummer": "0107-18",
+    "programmbereich": "Gesellschaft/Politik/Psychologie",
+    "niveau": "kein Sprachniveau",
+    "text": "Vor 100 Jahren erhielt Gustav Stresemann gemeinsam mit Aristide Briand den Friedensnobelpreis – für ihren Einsatz zur deutsch-französischen Verständigung. Nur drei Jahre zuvor war er nach gut 100 Tagen als Reichskanzler gescheitert: Inmitten von Ruhrbesetzung, Hyperinflation und Putschversuchen beendete er den „passiven Widerstand“ gegen Frankreich. Dieser Kurswechsel brachte ihm den Zorn nationalistischer Kräfte ein, zugleich zerbrach seine Koalition von SPD bis DVP. Trotz des Vertrauensentzugs blieb er von 1923 bis zu seinem frühen Tod 1929 Außenminister und einer der prägenden Politiker der Weimarer Republik. Im Gespräch: Prof. Dr. Ewald Grothe, Mitherausgeber von „Vernunftrepublikaner, Reichskanzler, liberaler Außenminister“.\n\nIn Kooperation mit der Friedrich-Naumann-Stiftung\n\nWeitere Kurse der Reihe:\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/181922\"_blank\">Konrad Adenauer – Kanzler ohne Kompromisse</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/182398\" target=\"_blank\">Hermann Müller – Kanzler ohne Mehrheit</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/182361\" target=\"_blank\">Wilhelm Cuno – Kanzler ohne Partei</a>"
+  },
+  "benutzernachricht": "KURSTITEL:        Gustav Stresemann – Kanzler ohne Vertrauen\nKURSNUMMER:       0107-18\nPROGRAMMBEREICH:  Gesellschaft/Politik/Psychologie\nNIVEAU:           kein Sprachniveau\nTEXT:\nVor 100 Jahren erhielt Gustav Stresemann gemeinsam mit Aristide Briand den Friedensnobelpreis – für ihren Einsatz zur deutsch-französischen Verständigung. Nur drei Jahre zuvor war er nach gut 100 Tagen als Reichskanzler gescheitert: Inmitten von Ruhrbesetzung, Hyperinflation und Putschversuchen beendete er den „passiven Widerstand“ gegen Frankreich. Dieser Kurswechsel brachte ihm den Zorn nationalistischer Kräfte ein, zugleich zerbrach seine Koalition von SPD bis DVP. Trotz des Vertrauensentzugs blieb er von 1923 bis zu seinem frühen Tod 1929 Außenminister und einer der prägenden Politiker der Weimarer Republik. Im Gespräch: Prof. Dr. Ewald Grothe, Mitherausgeber von „Vernunftrepublikaner, Reichskanzler, liberaler Außenminister“.\n\nIn Kooperation mit der Friedrich-Naumann-Stiftung\n\nWeitere Kurse der Reihe:\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/181922\"_blank\">Konrad Adenauer – Kanzler ohne Kompromisse</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/182398\" target=\"_blank\">Hermann Müller – Kanzler ohne Mehrheit</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/182361\" target=\"_blank\">Wilhelm Cuno – Kanzler ohne Partei</a>",
+  "antwort": "ZIELGRUPPE\nErwachsene mit allgemeinem Interesse an Geschichte und Politik, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] PFLICHT · LINKTEXT\n    Stelle:      \"Konrad Adenauer – Kanzler ohne Kompromisse\"\n    Grund:       Der Linktext nennt nur den Titel, nicht das Ziel. Ohne den Satz davor ist unklar, dass es sich um einen weiteren Kurs derselben Reihe handelt.\n    Vorschlag:   \"Weiterer Kurs der Reihe: <a href=\"...\">Konrad Adenauer – Kanzler ohne Kompromisse</a>\"\n\n[2] PFLICHT · LINKTEXT\n    Stelle:      \"Hermann Müller – Kanzler ohne Mehrheit\"\n    Grund:       Der Linktext nennt nur den Titel, nicht das Ziel. Ohne den Satz davor ist unklar, dass es sich um einen weiteren Kurs derselben Reihe handelt.\n    Vorschlag:   \"Weiterer Kurs der Reihe: <a href=\"...\">Hermann Müller – Kanzler ohne Mehrheit</a>\"\n\n[3] PFLICHT · LINKTEXT\n    Stelle:      \"Wilhelm Cuno – Kanzler ohne Partei\"\n    Grund:       Der Linktext nennt nur den Titel, nicht das Ziel. Ohne den Satz davor ist unklar, dass es sich um einen weiteren Kurs derselben Reihe handelt.\n    Vorschlag:   \"Weiterer Kurs der Reihe: <a href=\"...\">Wilhelm Cuno – Kanzler ohne Partei</a>\"\n\n[4] EMPFEHLUNG · ABK\n    Stelle:      \"seine Koalition von SPD bis DVP\"\n    Grund:       Die Abkürzungen SPD und DVP werden nicht aufgelöst. Nicht alle Interessierten kennen historische Parteinamen.\n    Vorschlag:   \"seine Koalition von SPD (Sozialdemokratische Partei Deutschlands) bis DVP (Deutsche Volkspartei)\"\n\n[5] EMPFEHLUNG · SATZ\n    Stelle:      \"Nur drei Jahre zuvor war er nach gut 100 Tagen als Reichskanzler gescheitert: Inmitten von Ruhrbesetzung, Hyperinflation und Putschversuchen beendete er den „passiven Widerstand\" gegen Frankreich.\"\n    Grund:       Der Satz hat 27 Wörter und ist damit über der Empfehlung von 25 Wörtern.\n    Vorschlag:   \"Nur drei Jahre zuvor war er nach gut 100 Tagen als Reichskanzler gescheitert. Inmitten von Ruhrbesetzung, Hyperinflation und Putschversuchen beendete er den „passiven Widerstand\" gegen Frankreich.\"\n\n[6] EMPFEHLUNG · SATZ\n    Stelle:      \"Trotz des Vertrauensentzugs blieb er von 1923 bis zu seinem frühen Tod 1929 Außenminister und einer der prägenden Politiker der Weimarer Republik.\"\n    Grund:       Der Satz hat 26 Wörter und ist damit über der Empfehlung von 25 Wörtern.\n    Vorschlag:   \"Trotz des Vertrauensentzugs blieb er von 1923 bis zu seinem frühen Tod 1929 Außenminister. Er war einer der prägenden Politiker der Weimarer Republik.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, NIVEAU, AMTSDEUTSCH, ANREDE, LEER\n\nGESAMT\n6 Befunde, davon 3 Pflicht.\nDie drei Linktext-Befunde sind technisch identisch und ließen sich durch eine einmalige Umformulierung beheben. Die Abkürzungen und Satzlängen sind Empfehlungen zur besseren Lesbarkeit. Nach Behebung der Linktext-Befunde ist der Text aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8401,
+    "completion_tokens": 1078,
+    "total_tokens": 9479,
+    "cost": 0.041373,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.041373,
+      "upstream_inference_prompt_cost": 0.025203,
+      "upstream_inference_completions_cost": 0.01617
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

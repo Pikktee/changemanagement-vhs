@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-28T22:46:19",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 15.75,
+  "eingabe": {
+    "titel": "Englisch A1.1 (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1 (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene ohne Englischkenntnisse, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · SATZ\n    Stelle:      \"Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden.\"\n    Grund:       Der Satz hat 26 Wörter und ist damit schwer zu überblicken.\n    Vorschlag:   \"Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie vertraute, alltägliche Ausdrücke. Sie lernen auch, ganz einfache Sätze zu verstehen und zu verwenden.\"\n\n[2] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"insbesondere\"\n    Grund:       Gehobenes Verwaltungsdeutsch, wo \"zum Beispiel\" oder \"vor allem\" verständlicher wäre.\n    Vorschlag:   \"Sie lernen dabei vor allem:\"\n\n[3] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Familienangehörige\"\n    Grund:       Verwaltungswort, wo \"Familienmitglieder\" oder \"Ihre Familie\" alltäglicher wäre.\n    Vorschlag:   \"über Familie zu sprechen und Familienmitglieder und Freunde vorzustellen\"\n\n[4] EMPFEHLUNG · SATZ\n    Stelle:      \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.\"\n    Grund:       Der Satz hat 27 Wörter und enthält viele Zahlen, die schwer zu verarbeiten sind.\n    Vorschlag:   \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine. Bei 7 Anmeldungen läuft er über 9 Termine. Bei 6 Anmeldungen läuft er über 7 Termine.\"\n\n[5] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Entscheidend ist die Zahl der Anmeldungen\"\n    Grund:       \"Entscheidend\" ist Verwaltungssprache, wo \"wichtig\" oder eine aktivere Formulierung klarer wäre.\n    Vorschlag:   \"Die Zahl der Anmeldungen am 2. Kurstermin bestimmt die Kurslänge.\"\n\n[6] EMPFEHLUNG · SATZ\n    Stelle:      \"Bitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.\"\n    Grund:       Der Satz hat 21 Wörter und enthält eine verschachtelte Bedingung.\n    Vorschlag:   \"Kaufen Sie die Lehrbücher erst, wenn der Kurs sicher stattfindet.\"\n\n[7] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe zum Lehrbuch, obwohl im Text darauf verwiesen wird (\"die angegebenen Lehrbücher\").\n    Vorschlag:   Ergänzen Sie die Lehrbuchangabe mit Titel, Verlag und ISBN.\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, ANREDE\n\nGESAMT\n7 Befunde, davon 0 Pflicht.\nDer Text ist sprachlich verständlich, enthält aber mehrere Stellen mit Verwaltungssprache und langen Sätzen, die vereinfacht werden sollten. Die fehlende Lehrbuchangabe sollte ergänzt werden.",
+  "verbrauch": {
+    "prompt_tokens": 8314,
+    "completion_tokens": 1041,
+    "total_tokens": 9355,
+    "cost": 0.040557,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.040557,
+      "upstream_inference_prompt_cost": 0.024942,
+      "upstream_inference_completions_cost": 0.015615
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

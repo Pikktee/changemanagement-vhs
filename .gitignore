@@ -3,3 +3,4 @@ __pycache__/
 .DS_Store
 .env
 ausgabe-dokument/*.png
+daten/.kursplan-texte.json

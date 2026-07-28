@@ -16,6 +16,7 @@
   --mint:#6fd0c0;
   --warn:#c4622d;
   --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
+  --mono:"SFMono-Regular",Menlo,Consolas,monospace;
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
 body{
@@ -27,6 +28,7 @@ body{
   min-height:100vh;
 }
 button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inherit; border-radius:0; }
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
 
 /* ---------- Kopf ---------- */
 .kopf{ padding:20px 30px 0; flex:none; }
@@ -35,8 +37,19 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
 .sq{ width:14px; height:14px; background:var(--brand); flex:none; }
 .wortmarke{ font-size:15px; font-weight:700; letter-spacing:4px; color:var(--brand); }
 .kopfsub{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
-          color:var(--mut); margin-left:auto; text-align:right; }
+          color:var(--mut); }
+.kopfaktion{ margin-left:auto; display:flex; align-items:center; gap:10px; }
 .kopfregel{ height:3px; background:var(--brand); margin-top:10px; }
+
+.knopf-klein{
+  background:none; border:1px solid var(--hair); color:var(--brand); cursor:pointer;
+  padding:8px 13px; font-size:11px; font-weight:700; letter-spacing:1.7px; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.knopf-klein:hover{ background:var(--grey); border-color:var(--brand); }
+.knopf-klein .punkt{ width:7px; height:7px; background:var(--warn); display:none; flex:none; }
+.knopf-klein.abweichend{ border-color:var(--warn); color:var(--warn); }
+.knopf-klein.abweichend .punkt{ display:block; }
 
 /* ---------- Warnbalken ---------- */
 .balken{ display:none; padding:9px 30px; font-size:12.5px; letter-spacing:.4px; flex:none; }
@@ -44,7 +57,7 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
 .balken.warn{ background:var(--warn); color:#fff; font-weight:700; }
 .balken.fehl{ background:var(--ink); color:#fff; font-weight:700; }
 .balken b{ letter-spacing:1.4px; text-transform:uppercase; font-size:11px; margin-right:8px; }
-.balken code{ font-family:inherit; font-weight:400; }
+.balken code{ font-family:var(--mono); font-weight:400; font-size:12px; }
 
 /* ---------- Bühne ---------- */
 .buehne{ flex:1; display:flex; align-items:stretch; min-height:0; padding:0 30px; }
@@ -55,9 +68,10 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
 .spkopf{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
 .spkopf h2{ font-size:11px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
             color:#fff; background:var(--brand); padding:5px 11px; }
-.spkopf .zusatz{ font-size:11.5px; color:var(--mut); letter-spacing:.3px; margin-left:auto; }
+.spkopf .zusatz{ font-size:11.5px; color:var(--mut); letter-spacing:.3px; margin-left:auto;
+                 display:flex; align-items:baseline; gap:14px; }
 .spkopf .zusatz button{ background:none; border:none; color:var(--brand); font-size:11px;
-  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; padding:0 0 0 14px; }
+  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; padding:0; }
 .spkopf .zusatz button:hover{ color:var(--warn); }
 
 /* ---------- Formular ---------- */
@@ -68,16 +82,35 @@ input[type=text], select, textarea{
   font-size:14px; line-height:1.4; color:var(--ink); outline:none;
 }
 input[type=text]:focus, select:focus, textarea:focus{ border-color:var(--brand); box-shadow:inset 0 0 0 1px var(--brand); }
-select{ appearance:none; background-image:none; cursor:pointer; }
-textarea{ min-height:270px; resize:vertical; line-height:1.55; }
+select{ appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M1 1l3.5 3.5L8 1' fill='none' stroke='%236d6d67' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
+textarea{ min-height:250px; resize:vertical; line-height:1.55; }
 .feld{ margin-bottom:14px; }
 .paar{ display:flex; gap:12px; }
 .paar .feld{ flex:1; min-width:0; }
-.kurswahl{ background:var(--grey); padding:13px 14px; margin-bottom:18px; }
-.kurswahl label{ margin-bottom:6px; }
-.kurswahl .hint{ font-size:11.5px; color:var(--mut); margin-top:7px; line-height:1.4; }
 .zeichen{ font-size:11px; color:var(--mut); margin-top:5px; text-align:right; letter-spacing:.4px; }
 
+/* ---------- Kurswahl ---------- */
+.kurswahl{ background:var(--grey); padding:13px 14px; margin-bottom:18px; }
+.kurswahl .hint{ font-size:11.5px; color:var(--mut); margin-top:9px; line-height:1.45; }
+.waehlknopf{
+  width:100%; display:flex; align-items:center; gap:12px; text-align:left; cursor:pointer;
+  background:#fff; border:1px solid var(--brand); padding:11px 13px; color:var(--ink);
+}
+.waehlknopf:hover{ background:#fff; box-shadow:inset 0 0 0 1px var(--brand); }
+.waehlknopf .lupe{ flex:none; }
+.waehlknopf .wtext{ flex:1; min-width:0; display:block; }
+/* display:block ist noetig, sonst greift das Abschneiden nicht und ein langer
+   Kurstitel schiebt sich unter das Wort „Wählen". */
+.waehlknopf .wt1{ display:block; font-size:14px; font-weight:700; letter-spacing:-.2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.waehlknopf .wt2{ display:block; font-size:11.5px; color:var(--mut); margin-top:3px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.waehlknopf .wpfeil{ flex:none; color:var(--brand); font-size:11px; font-weight:700;
+  letter-spacing:1.6px; text-transform:uppercase; }
+
+/* ---------- Knöpfe ---------- */
 .knopfreihe{ display:flex; gap:10px; margin-top:6px; align-items:stretch; }
 .knopf{
   background:var(--brand); color:#fff; border:1px solid var(--brand); cursor:pointer;
@@ -87,7 +120,6 @@ textarea{ min-height:270px; resize:vertical; line-height:1.55; }
 .knopf:disabled{ background:var(--grey); border-color:var(--hair); color:var(--mut); cursor:default; }
 .knopf.leise{ background:none; color:var(--brand); border-color:var(--hair); }
 .knopf.leise:hover{ background:var(--grey); color:var(--brand-dk); border-color:var(--hair); }
-.tastenhinweis{ font-size:11px; color:var(--mut); margin-top:10px; letter-spacing:.3px; }
 
 /* ---------- Ausgabe ---------- */
 .leer{ border:1px solid var(--hair); padding:26px; color:var(--mut); font-size:14px; line-height:1.55; }
@@ -152,18 +184,188 @@ textarea{ min-height:270px; resize:vertical; line-height:1.55; }
 .gesamt.ohne{ background:var(--warn); }
 
 pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:12.5px; line-height:1.55;
-  white-space:pre-wrap; word-wrap:break-word; font-family:"SFMono-Regular",Menlo,Consolas,monospace; }
+  white-space:pre-wrap; word-wrap:break-word; font-family:var(--mono); }
 .rohnote{ font-size:12px; color:var(--warn); font-weight:700; margin-bottom:9px; letter-spacing:.3px; }
 
-/* ---------- Fuß ---------- */
-.fuss{ flex:none; margin:0 30px; border-top:1px solid var(--hair); padding:10px 0 14px;
-  display:flex; gap:22px; flex-wrap:wrap; font-size:10.5px; letter-spacing:1.5px;
-  text-transform:uppercase; color:var(--mut); }
-.fuss span b{ color:var(--ink); font-weight:700; }
-.fuss .warnton b{ color:var(--warn); }
+/* Herkunft eines Laufes, direkt am Ergebnis statt in der Fusszeile. */
+.laufband{ display:flex; flex-wrap:wrap; gap:6px 18px; border:1px solid var(--hair);
+  background:#fff; padding:9px 13px; margin-bottom:18px;
+  font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--mut); }
+.laufband b{ color:var(--ink); font-weight:700; }
+.laufband .warnton b, .laufband .warnton{ color:var(--warn); }
 
-/* Ab dieser Breite bleiben Kopf und Fuss stehen, beide Spalten scrollen
-   einzeln. Darunter scrollt die Seite als Ganzes, damit nichts ueberlappt. */
+/* ---------- Fuß ---------- */
+.fuss{ flex:none; margin:0 30px; border-top:1px solid var(--hair); padding:11px 0 15px;
+  display:flex; gap:20px; flex-wrap:wrap; align-items:baseline;
+  font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--mut); }
+.fuss button{ background:none; border:none; color:var(--brand); cursor:pointer; padding:0;
+  font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+.fuss button:hover{ color:var(--warn); text-decoration:underline; }
+
+/* ================= Überlagerungen ================= */
+.schleier{
+  position:fixed; inset:0; background:rgba(25,25,23,.42); z-index:40;
+  opacity:0; pointer-events:none; transition:opacity .22s;
+}
+.schleier.an{ opacity:1; pointer-events:auto; }
+
+/* ---------- Modal ---------- */
+/* visibility, nicht nur opacity: Sonst bleiben Suchfeld, Filter und Treffer
+   eines geschlossenen Modals mit der Tabulatortaste erreichbar, und der Fokus
+   verschwindet für den Bedienenden ins Nichts. */
+.modal{
+  position:fixed; inset:0; z-index:50; display:flex; align-items:center; justify-content:center;
+  padding:28px; pointer-events:none;
+  visibility:hidden; transition:visibility 0s .22s;
+}
+.modal.an{ pointer-events:auto; visibility:visible; transition-delay:0s; }
+.modalkarte{
+  background:var(--paper); border:1px solid var(--ink);
+  width:100%; max-width:960px; max-height:min(86vh,840px);
+  display:flex; flex-direction:column; min-height:0;
+  box-shadow:0 22px 60px rgba(25,25,23,.28);
+  opacity:0; transform:translateY(12px); transition:opacity .2s, transform .2s;
+}
+.modal.an .modalkarte{ opacity:1; transform:none; }
+.modalkopf{ flex:none; display:flex; align-items:center; gap:14px; padding:16px 20px;
+  background:var(--brand); color:#fff; }
+.modalkopf h2{ font-size:12px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; }
+.modalkopf .mzahl{ font-size:11.5px; letter-spacing:1.2px; color:rgba(255,255,255,.78); }
+.schliessen{
+  margin-left:auto; flex:none; background:none; border:1px solid rgba(255,255,255,.4); color:#fff;
+  width:30px; height:30px; cursor:pointer; font-size:15px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.schliessen:hover{ background:rgba(255,255,255,.16); border-color:#fff; }
+
+.modalsuche{ flex:none; padding:16px 20px 0; }
+.suchfeld{ position:relative; }
+.suchfeld input{
+  width:100%; background:#fff; border:1px solid var(--hair); padding:12px 40px 12px 38px;
+  font-size:15.5px; outline:none;
+}
+.suchfeld input:focus{ border-color:var(--brand); box-shadow:inset 0 0 0 1px var(--brand); }
+.suchfeld .sicon{ position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--mut); }
+.suchfeld .sleer{ position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  background:none; border:none; color:var(--mut); cursor:pointer; font-size:16px; padding:5px 8px; display:none; }
+.suchfeld .sleer.an{ display:block; }
+.suchfeld .sleer:hover{ color:var(--warn); }
+
+.filterzeile{ display:flex; gap:10px; margin-top:11px; flex-wrap:wrap; }
+.filterzeile .fgrp{ flex:1 1 190px; min-width:0; }
+.filterzeile label{ margin-bottom:4px; font-size:9.5px; letter-spacing:1.6px; }
+.filterzeile select{ padding:8px 26px 8px 9px; font-size:13px; background-color:#fff; }
+.filterstatus{ display:flex; align-items:center; gap:14px; margin-top:11px; padding-bottom:12px;
+  border-bottom:1px solid var(--hair); font-size:11.5px; color:var(--mut); letter-spacing:.3px; }
+.filterstatus b{ color:var(--ink); }
+.filterstatus .fs-text{ margin-right:auto; }
+.filterstatus button{ background:none; border:none; color:var(--brand);
+  font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; padding:0; }
+.filterstatus button:hover{ color:var(--warn); }
+.filterstatus button[hidden]{ display:none; }
+/* Der Umschalter erscheint nur auf schmalen Schirmen, siehe unten. */
+#filterAuf{ display:none; align-items:center; gap:6px; }
+#filterAuf .fzahl{ background:var(--brand); color:#fff; padding:1px 6px; font-size:10px; }
+
+/* min-height haelt die Liste in kurzen Fenstern offen: Ohne sie druecken Kopf,
+   Suchfeld und Filter sie auf wenige Pixel zusammen, und das Modal sieht leer
+   aus, obwohl Treffer da sind. */
+.trefferliste{ flex:1 1 auto; overflow-y:auto; min-height:120px; padding:4px 20px 18px;
+  overscroll-behavior:contain; -webkit-overflow-scrolling:touch; }
+.treffer{
+  display:block; width:100%; text-align:left; cursor:pointer;
+  background:#fff; border:1px solid var(--hair); border-left:4px solid var(--grey);
+  padding:11px 13px; margin-top:9px;
+}
+.treffer:hover, .treffer.aktiv{ border-color:var(--brand); border-left-color:var(--brand); background:#fff;
+  box-shadow:inset 0 0 0 1px var(--brand); }
+.treffer .tkopf{ display:flex; align-items:baseline; gap:10px; }
+.treffer .tnr{ font-family:var(--mono); font-size:11.5px; font-weight:600; color:var(--brand); flex:none; }
+.treffer .ttitel{ font-size:14.5px; font-weight:700; letter-spacing:-.2px; line-height:1.3; min-width:0; }
+.treffer .tsub{ font-size:12.5px; color:var(--mut); margin-top:3px; line-height:1.35; }
+.treffer .tmeta{ display:flex; flex-wrap:wrap; gap:5px 7px; margin-top:8px; }
+.treffer .tm{ font-size:9.5px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase;
+  background:var(--grey); color:var(--mut); padding:3px 7px; }
+.treffer .tm.stark{ background:var(--brand); color:#fff; }
+.treffer .tm.leer{ background:var(--warn); color:#fff; }
+.treffer .tausz{ font-size:12.5px; color:var(--mut); line-height:1.45; margin-top:8px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.treffer mark{ background:var(--mint); color:var(--ink); padding:0 1px; }
+
+.listenhinweis{ text-align:center; font-size:12px; color:var(--mut); padding:18px 0 6px; letter-spacing:.3px; }
+.listenleer{ border:1px solid var(--hair); padding:24px; margin-top:14px; color:var(--mut);
+  font-size:14px; line-height:1.55; }
+.listenleer b{ display:block; color:var(--ink); font-size:15.5px; margin-bottom:6px; }
+
+.modalfuss{ flex:none; border-top:1px solid var(--hair); padding:11px 20px 13px;
+  display:flex; align-items:center; gap:14px; font-size:11px; color:var(--mut); letter-spacing:.4px; }
+.tastenhilfe{ display:flex; gap:12px; flex-wrap:wrap; }
+.tastenhilfe span{ display:inline-flex; align-items:center; gap:5px; }
+kbd{ font-family:var(--mono); font-size:10.5px; background:#fff; border:1px solid var(--hair);
+  padding:2px 5px; color:var(--ink); }
+
+/* ---------- Panel (Prompt und Parameter) ---------- */
+.panel{
+  position:fixed; top:0; right:0; bottom:0; width:min(660px,100vw); z-index:50;
+  background:var(--paper); border-left:1px solid var(--ink);
+  display:flex; flex-direction:column;
+  transform:translateX(103%);
+  visibility:hidden;
+  transition:transform .28s cubic-bezier(.32,.72,.28,1), visibility 0s .28s;
+  box-shadow:-16px 0 48px rgba(25,25,23,.2);
+}
+.panel.an{ transform:translateX(0); visibility:visible; transition-delay:0s; }
+.panelkopf{ flex:none; display:flex; align-items:center; gap:12px; padding:16px 20px;
+  background:var(--brand); color:#fff; }
+.panelkopf h2{ font-size:12px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; }
+.marke{ font-size:9.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+  padding:4px 9px; background:rgba(255,255,255,.18); color:#fff; }
+.marke.geaendert{ background:var(--warn); color:#fff; }
+
+.panelkoerper{ flex:1; display:flex; flex-direction:column; min-height:0; overflow-y:auto; padding:16px 20px; }
+.parameter{ display:flex; gap:20px; flex-wrap:wrap; padding-bottom:15px; margin-bottom:14px;
+  border-bottom:1px solid var(--hair); }
+.par{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+.par.breit{ flex:1 1 250px; }
+.parkopf{ display:flex; align-items:baseline; gap:8px; font-size:10px; font-weight:700;
+  letter-spacing:1.8px; text-transform:uppercase; color:var(--mut); }
+.parwert{ font-family:var(--mono); font-size:12px; letter-spacing:0; text-transform:none;
+  color:var(--brand); font-weight:600; }
+.par input[type=range]{ width:200px; accent-color:var(--brand); cursor:pointer; height:20px; }
+.parhinweis{ font-size:11px; color:var(--mut); line-height:1.4; }
+
+.kennzahlen{ display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--hair); background:#fff;
+  margin-bottom:14px; }
+.kennzahlen div{ flex:1 1 130px; padding:9px 12px; border-left:1px solid var(--hair); min-width:0; }
+.kennzahlen div:first-child{ border-left:none; }
+.kennzahlen .kl{ font-size:9.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--mut); }
+.kennzahlen .kw{ font-size:14px; font-weight:700; margin-top:4px; letter-spacing:-.2px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.kennzahlen .kw.mono{ font-family:var(--mono); font-size:12.5px; font-weight:500; }
+.kennzahlen .kw.warnton{ color:var(--warn); }
+
+.prompthinweis{ font-size:11.5px; color:var(--mut); line-height:1.45; margin-bottom:9px; }
+.prompthinweis code{ font-family:var(--mono); font-size:11px; background:var(--grey);
+  color:var(--ink); padding:1px 4px; }
+#promptText{
+  flex:1; min-height:280px; font-family:var(--mono); font-size:12px; line-height:1.6;
+  background:#fff; resize:none;
+}
+.panelfuss{ flex:none; border-top:1px solid var(--hair); padding:12px 20px 16px;
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.panelfuss .zahl{ font-family:var(--mono); font-size:11px; color:var(--mut); margin-right:auto; }
+.panelfuss .knopf{ padding:10px 16px; font-size:11px; letter-spacing:1.8px; }
+
+/* Kleines Modal für das Impressum, gleiche Mechanik wie die Kursauswahl. */
+.impressum .modalkarte{ max-width:460px; }
+.impresstext{ padding:20px; font-size:14.5px; line-height:1.65; }
+.impresstext .zeile2{ margin-top:12px; }
+.impresstext a{ color:var(--brand); }
+.impresstext .klein{ font-size:12px; color:var(--mut); line-height:1.5; margin-top:16px;
+  border-top:1px solid var(--hair); padding-top:12px; }
+
+/* ---------- Wechsel der Breiten ---------- */
 @media (min-width:981px){
   html,body{ height:100%; }
   body{ overflow:hidden; }
@@ -175,12 +377,41 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
   .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--hair); }
   textarea{ min-height:200px; }
 }
-@media (max-width:640px){
+@media (max-width:700px){
   .kopfsub{ display:none; }
-  .buehne, .kopf, .fuss{ margin-left:0; margin-right:0; }
   .buehne{ padding:0 18px; }
   .kopf{ padding:16px 18px 0; }
   .fuss{ margin:0 18px; }
+  .balken{ padding:9px 18px; }
+
+  /* Auf dem Telefon füllen Modal und Panel die Fläche, mit Rand nach oben,
+     damit der Kopf der Seite noch sichtbar bleibt und der Daumen unten
+     alles erreicht. */
+  .modal{ padding:0; align-items:flex-end; }
+  .modalkarte{ max-width:none; max-height:calc(100vh - 34px); height:calc(100vh - 34px);
+    border-left:none; border-right:none; border-bottom:none; }
+  .modalsuche{ padding:14px 15px 0; }
+  .trefferliste{ padding:4px 15px 18px; }
+  .modalkopf{ padding-left:15px; padding-right:15px; }
+  .modalfuss{ display:none; }
+  .impressum .modalkarte{ height:auto; max-height:calc(100vh - 34px); }
+
+  /* Auf dem Telefon zaehlt jede Zeile: Drei Auswahlfelder untereinander
+     schieben die Treffer aus dem Bild. Sie sind deshalb eingeklappt, bis
+     jemand sie braucht. */
+  .filterzeile{ display:none; margin-top:0; }
+  .modalkarte.filter-offen .filterzeile{ display:flex; margin-top:11px; }
+  .filterzeile .fgrp{ flex:1 1 100%; }
+  #filterAuf{ display:inline-flex; }
+
+  .panel{ width:100vw; border-left:none; }
+  .panelkoerper{ padding:14px 15px; }
+  .panelkopf, .panelfuss{ padding-left:15px; padding-right:15px; }
+  .par input[type=range]{ width:100%; }
+  .par.breit{ flex:1 1 100%; }
+}
+@media (prefers-reduced-motion:reduce){
+  *{ transition:none !important; animation:none !important; }
 }
 </style>
 </head>
@@ -190,11 +421,17 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
   <div class="kopfzeile">
     <div class="mark"><span class="sq"></span><span class="wortmarke">KLARTEXT</span></div>
     <div class="kopfsub">Redaktionsassistenz &middot; Volkshochschule Frankfurt am Main</div>
+    <div class="kopfaktion">
+      <button class="knopf-klein" id="panelKnopf" aria-haspopup="dialog">
+        <span class="punkt" aria-hidden="true"></span>System-Prompt
+      </button>
+    </div>
   </div>
   <div class="kopfregel"></div>
 </header>
 
-<div id="balkenWort" class="balken warn"><b>Ohne Referenzwortschatz</b>Die Datei <code>daten/wortliste-goethe-a1.txt</code> fehlt oder ist leer. Niveau-Befunde sind Schaetzungen, nicht am Goethe-A1-Wortschatz belegt.</div>
+<div id="balkenWort" class="balken warn"><b>Ohne Referenzwortschatz</b>Die Datei <code>daten/wortliste-goethe-a1.txt</code> fehlt oder ist leer. Niveau-Befunde sind Schätzungen, nicht am Goethe-A1-Wortschatz belegt.</div>
+<div id="balkenAbw" class="balken warn"><b>Vom Standard abweichend</b><span id="abwText"></span></div>
 <div id="balkenFehl" class="balken fehl"></div>
 
 <main class="buehne">
@@ -202,15 +439,22 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
   <section class="spalte links">
     <div class="spkopf">
       <h2>Eingabe</h2>
-      <div class="zusatz"><span id="kursZahl">Kurse werden geladen</span></div>
+      <div class="zusatz"><span id="kursZahl">Kursplan wird geladen</span></div>
     </div>
 
     <div class="kurswahl">
-      <label for="kurswahl">Kurs aus der Stichprobe laden</label>
-      <select id="kurswahl">
-        <option value="">Bitte waehlen, oder unten frei eingeben</option>
-      </select>
-      <div class="hint" id="kursHint">60 echte Kursbeschreibungen der VHS Frankfurt. Programmbereich und Niveau werden aus Kursnummer und Titel vorbelegt und lassen sich aendern.</div>
+      <button class="waehlknopf" id="kursKnopf" aria-haspopup="dialog">
+        <svg class="lupe" width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.6" stroke="#124a53" stroke-width="1.6"/>
+          <path d="M10.4 10.4L14 14" stroke="#124a53" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="wtext">
+          <span class="wt1" id="kursGewaehltTitel">Kurs aus dem Kursplan wählen</span>
+          <span class="wt2" id="kursGewaehltMeta">Suchen und filtern nach Programmbereich, Niveau und Ort</span>
+        </span>
+        <span class="wpfeil" aria-hidden="true">Wählen</span>
+      </button>
+      <div class="hint" id="kursHint">Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern. Ein eigener Text lässt sich auch direkt unten einsetzen.</div>
     </div>
 
     <div class="feld">
@@ -239,16 +483,15 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     </div>
 
     <div class="feld">
-      <label for="text">Ankuendigungstext</label>
-      <textarea id="text" placeholder="Den zu pruefenden Kurstext hier einsetzen."></textarea>
+      <label for="text">Ankündigungstext</label>
+      <textarea id="text" placeholder="Den zu prüfenden Kurstext hier einsetzen."></textarea>
       <div class="zeichen" id="zeichen">0 Zeichen</div>
     </div>
 
     <div class="knopfreihe">
-      <button class="knopf" id="pruefen">Text pruefen</button>
+      <button class="knopf" id="pruefen">Text prüfen</button>
       <button class="knopf leise" id="leeren">Leeren</button>
     </div>
-    <div class="tastenhinweis">Cmd + Return startet die Pruefung.</div>
   </section>
 
   <section class="spalte rechts">
@@ -261,9 +504,9 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     </div>
     <div id="ausgabe">
       <div class="leer">
-        <b>Noch keine Pruefung.</b>
-        Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen, dann
-        &bdquo;Text pruefen&ldquo;. Die Befunde erscheinen hier, sortiert nach Einstufung:
+        <b>Noch keine Prüfung.</b>
+        Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen, dann
+        &bdquo;Text prüfen&ldquo;. Die Befunde erscheinen hier, sortiert nach Einstufung:
         Pflicht, Empfehlung, Hinweis.
       </div>
     </div>
@@ -271,24 +514,145 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
 
 </main>
 
-<footer class="fuss" id="fuss">
-  <span>Promptfassung <b id="fFassung">wird geladen</b></span>
-  <span>Modell <b id="fModell">&ndash;</b></span>
-  <span>Temperatur <b id="fTemp">&ndash;</b></span>
-  <span id="fWortWrap">Referenzwortschatz <b id="fWort">&ndash;</b></span>
-  <span id="fProtokoll"></span>
+<footer class="fuss">
+  <span>KLARTEXT &middot; Prototyp zum Abschlussprojekt Change und KI</span>
+  <button id="impressumKnopf" aria-haspopup="dialog">Impressum</button>
 </footer>
+
+<div class="schleier" id="schleier"></div>
+
+<!-- ============ Kursauswahl ============ -->
+<div class="modal" id="kursModal" role="dialog" aria-modal="true" aria-labelledby="kursModalTitel">
+  <div class="modalkarte">
+    <div class="modalkopf">
+      <h2 id="kursModalTitel">Kurs wählen</h2>
+      <span class="mzahl" id="modalZahl"></span>
+      <button class="schliessen" id="kursModalZu" aria-label="Kursauswahl schließen">&times;</button>
+    </div>
+
+    <div class="modalsuche">
+      <div class="suchfeld">
+        <svg class="sicon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.4 10.4L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="suche" placeholder="Titel, Kursnummer oder Wort aus dem Text"
+               autocomplete="off" spellcheck="false" aria-label="Kurse durchsuchen">
+        <button class="sleer" id="sucheLeer" aria-label="Suche zurücksetzen">&times;</button>
+      </div>
+
+      <div class="filterzeile" id="filterzeile">
+        <div class="fgrp">
+          <label for="fBereich">Programmbereich</label>
+          <select id="fBereich"></select>
+        </div>
+        <div class="fgrp">
+          <label for="fNiveau">Sprachniveau</label>
+          <select id="fNiveau"></select>
+        </div>
+        <div class="fgrp">
+          <label for="fOrt">Kursort</label>
+          <select id="fOrt"></select>
+        </div>
+      </div>
+
+      <div class="filterstatus">
+        <span class="fs-text" id="trefferText" aria-live="polite">Kursplan wird geladen</span>
+        <button id="filterZurueck" hidden>Zurücksetzen</button>
+        <button id="filterAuf" aria-expanded="false" aria-controls="filterzeile">
+          Filter<span class="fzahl" id="filterZahl" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="trefferliste" id="trefferliste" tabindex="-1"></div>
+
+    <div class="modalfuss">
+      <div class="tastenhilfe">
+        <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> auswählen</span>
+        <span><kbd>Enter</kbd> übernehmen</span>
+        <span><kbd>Esc</kbd> schließen</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Impressum ============ -->
+<div class="modal impressum" id="impModal" role="dialog" aria-modal="true" aria-labelledby="impTitel">
+  <div class="modalkarte">
+    <div class="modalkopf">
+      <h2 id="impTitel">Impressum</h2>
+      <button class="schliessen" id="impModalZu" aria-label="Impressum schließen">&times;</button>
+    </div>
+    <div class="impresstext">
+      Henrik Heil<br>
+      Westendstr. 100<br>
+      60325 Frankfurt
+      <div class="zeile2"><a href="mailto:contact@henrikheil.net">contact@henrikheil.net</a></div>
+      <div class="klein">
+        KLARTEXT ist ein Prototyp aus dem Abschlussprojekt „Change und KI“ und kein
+        Angebot der Volkshochschule Frankfurt am Main. Die angezeigten Kursdaten
+        stammen aus dem öffentlichen Kursportal der vhs Frankfurt.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Prompt und Parameter ============ -->
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitel">
+  <div class="panelkopf">
+    <h2 id="panelTitel">Prompt &amp; Parameter</h2>
+    <span class="marke" id="panelMarke">Standard</span>
+    <button class="schliessen" id="panelZu" aria-label="Panel schließen">&times;</button>
+  </div>
+
+  <div class="panelkoerper">
+    <div class="parameter">
+      <div class="par breit">
+        <span class="parkopf">Modell</span>
+        <select id="modellWahl" aria-label="Modell wählen"></select>
+        <span class="parhinweis" id="modellHinweis"></span>
+      </div>
+      <div class="par">
+        <span class="parkopf">Temperatur <span class="parwert" id="tempWert">0,10</span></span>
+        <input type="range" id="tempRegler" min="0" max="1" step="0.05" aria-label="Temperatur">
+        <span class="parhinweis">Niedrig heißt reproduzierbar, nicht richtiger.</span>
+      </div>
+    </div>
+
+    <div class="kennzahlen">
+      <div><div class="kl">Promptfassung</div><div class="kw" id="kFassung">–</div></div>
+      <div><div class="kl">Referenzwortschatz</div><div class="kw" id="kWort">–</div></div>
+      <div><div class="kl">Prüfsumme</div><div class="kw mono" id="kSumme">–</div></div>
+    </div>
+
+    <div class="prompthinweis" id="promptHinweis">
+      Der Text unten geht so an das Modell, mit bereits eingesetztem Referenzwortschatz.
+      Änderungen gelten nur in diesem Browsertab und verändern
+      <code>system-prompt.md</code> nicht. Jeder Lauf mit angepasstem Prompt wird im
+      Protokoll als solcher vermerkt.
+    </div>
+    <textarea id="promptText" spellcheck="false" aria-label="System-Prompt"></textarea>
+  </div>
+
+  <div class="panelfuss">
+    <span class="zahl" id="promptZahl"></span>
+    <button class="knopf leise" id="promptZurueck">Auf Standard</button>
+    <button class="knopf" id="promptUebernehmen" disabled>Übernehmen</button>
+  </div>
+</aside>
 
 <script>
 (function(){
   "use strict";
 
   var el = function(id){ return document.getElementById(id); };
-  var kurse = [];
   var status = null;
+  var standardPrompt = "";
   var letzterRohtext = "";
   var rohSichtbar = false;
   var letzteBefunde = null;
+  var letzterLauf = null;
   var laeuft = false;
   var uhr = null;
 
@@ -297,8 +661,46 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
       .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
       .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
   }
+  function zahl(n){ return Number(n || 0).toLocaleString("de-DE"); }
+  function komma(n){ return String(n).replace(".", ","); }
 
-  // ---------------------------------------------------------------- Aufbau
+  // ================================================================ Zustand
+  // Bewusst sessionStorage: Eine Anpassung soll einen Seitenwechsel ueberleben,
+  // aber nicht den naechsten Tag. Was im Panel steht, muss zu dem passen, was
+  // die Vorfuehrung zeigt.
+  var merker = {
+    hole: function(name, ersatz){
+      try{ var v = sessionStorage.getItem("klartext." + name); return v === null ? ersatz : v; }
+      catch(e){ return ersatz; }
+    },
+    setze: function(name, wert){
+      try{
+        if(wert === null) sessionStorage.removeItem("klartext." + name);
+        else sessionStorage.setItem("klartext." + name, String(wert));
+      }catch(e){}
+    }
+  };
+
+  function promptJetzt(){ return merker.hole("prompt", null) || standardPrompt; }
+  function modellJetzt(){ return merker.hole("modell", null) || (status && status.modell) || ""; }
+  function temperaturJetzt(){
+    var v = parseFloat(merker.hole("temperatur", ""));
+    if(isNaN(v)) return status ? status.temperatur : 0.1;
+    return Math.min(1, Math.max(0, v));
+  }
+  function abweichungen(){
+    var liste = [];
+    if(merker.hole("prompt", null) !== null && merker.hole("prompt", "") !== standardPrompt){
+      liste.push("System-Prompt angepasst");
+    }
+    if(status && modellJetzt() !== status.modell){ liste.push("Modell " + modellJetzt()); }
+    if(status && Math.abs(temperaturJetzt() - status.temperatur) > 1e-9){
+      liste.push("Temperatur " + komma(temperaturJetzt().toFixed(2)));
+    }
+    return liste;
+  }
+
+  // ================================================================== Aufbau
   function bereicheFuellen(liste){
     var sel = el("bereich");
     sel.innerHTML = "";
@@ -312,26 +714,29 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     return fetch("/api/status").then(function(r){ return r.json(); }).then(function(s){
       status = s;
       bereicheFuellen(s.bereiche || []);
-      el("fFassung").textContent = s.fassung || "unbekannt";
-      el("fModell").textContent = s.modell || "-";
-      el("fTemp").textContent = String(s.temperatur).replace(".", ",");
+      modelleFuellen(s.modelle || []);
       if(s.wortlisteVorhanden){
-        el("fWort").textContent = s.wortanzahl + " Eintraege";
-        el("fWortWrap").classList.remove("warnton");
         el("balkenWort").classList.remove("an");
       } else {
-        el("fWort").textContent = "fehlt";
-        el("fWortWrap").classList.add("warnton");
         el("balkenWort").classList.add("an");
       }
       if(!s.hatKey){
-        zeigeBalkenFehler("Kein API-Key gefunden. Bitte OPENROUTER_API_KEY in der .env pruefen. Pruefungen sind bis dahin nicht moeglich.");
+        zeigeBalkenFehler("Kein API-Key gefunden. Bitte OPENROUTER_API_KEY in der .env prüfen. Prüfungen sind bis dahin nicht möglich.");
       } else if(s.promptFehler){
         zeigeBalkenFehler(s.promptFehler);
       }
+      el("kursZahl").textContent = zahl(s.kursanzahl) + " Kurse im Kursplan";
+      panelZeichnen();
     }).catch(function(){
-      zeigeBalkenFehler("Der lokale Server antwortet nicht. Laeuft server.py noch?");
+      zeigeBalkenFehler("Der lokale Server antwortet nicht. Läuft server.py noch?");
     });
+  }
+
+  function promptHolen(){
+    return fetch("/api/prompt").then(function(r){ return r.json(); }).then(function(p){
+      standardPrompt = p.prompt || "";
+      panelZeichnen();
+    }).catch(function(){});
   }
 
   function zeigeBalkenFehler(text){
@@ -340,49 +745,368 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     b.classList.add("an");
   }
 
-  function kurseHolen(){
-    return fetch("/api/kurse").then(function(r){ return r.json(); }).then(function(d){
-      kurse = d.kurse || [];
-      var sel = el("kurswahl");
-      kurse.forEach(function(k, i){
-        var o = document.createElement("option");
-        o.value = String(i);
-        o.textContent = k.nummer + "  ·  " + k.titel.replace(/\s+/g," ").trim();
-        sel.appendChild(o);
-      });
-      el("kursZahl").textContent = kurse.length + " Kurse in der Stichprobe";
-    }).catch(function(){
-      el("kursZahl").textContent = "Kursdaten nicht ladbar";
+  // ============================================================ Kursauswahl
+  var kursSeite = 1, kursTreffer = [], kursGesamt = 0, kursGeladen = 0;
+  var kursLaeuft = false, kursAlleGeladen = false, aktivIndex = -1;
+  var suchAbbruch = null, suchTakt = null;
+
+  function filterWerte(){
+    return {
+      q: el("suche").value.trim(),
+      bereich: el("fBereich").value,
+      niveau: el("fNiveau").value,
+      ort: el("fOrt").value
+    };
+  }
+
+  function filterAktiv(){
+    var f = filterWerte();
+    return !!(f.q || f.bereich || f.niveau || f.ort);
+  }
+
+  function gesetzteFilter(){
+    var f = filterWerte();
+    return [f.bereich, f.niveau, f.ort].filter(Boolean).length;
+  }
+
+  function filterStandZeichnen(){
+    var n = gesetzteFilter();
+    var marke = el("filterZahl");
+    marke.hidden = n === 0;
+    marke.textContent = String(n);
+    el("filterZurueck").hidden = !filterAktiv();
+  }
+
+  function auswahlFuellen(sel, eintraege, platzhalter){
+    var vorher = sel.value;
+    sel.innerHTML = "";
+    var o = document.createElement("option");
+    o.value = ""; o.textContent = platzhalter;
+    sel.appendChild(o);
+    eintraege.forEach(function(e){
+      var opt = document.createElement("option");
+      opt.value = e.wert;
+      opt.textContent = e.text + (e.anzahl != null ? "  (" + zahl(e.anzahl) + ")" : "");
+      sel.appendChild(opt);
     });
+    // Ein gewaehlter Wert bleibt in der Liste, auch wenn die Facette ihn nach
+    // einer Sucheingabe nicht mehr enthaelt. Sonst springt der Filter beim
+    // Tippen unbemerkt auf „alle" zurueck.
+    if(vorher && !Array.prototype.some.call(sel.options, function(x){ return x.value === vorher; })){
+      var rest = document.createElement("option");
+      rest.value = vorher;
+      rest.textContent = (vorher === "ohne" ? "ohne Angabe" : vorher) + "  (0)";
+      sel.appendChild(rest);
+    }
+    sel.value = vorher;
   }
 
-  function kursUebernehmen(){
-    var i = el("kurswahl").value;
-    if(i === "") return;
-    var k = kurse[Number(i)];
-    if(!k) return;
-    el("titel").value = k.titel.replace(/\s+/g," ").trim();
-    el("nummer").value = k.nummer;
-    setzeAuswahl(el("bereich"), k.programmbereich);
-    setzeAuswahl(el("niveau"), k.niveau);
-    el("text").value = k.text;
-    zeichenZaehlen();
+  function facettenZeichnen(f){
+    if(!status) return;
+    var b = (status.bereiche || []).map(function(name){
+      return { wert:name, text:name, anzahl:(f.bereich[name] || 0) };
+    }).filter(function(e){ return e.anzahl > 0 || el("fBereich").value === e.wert; });
+    if(f.bereich["ohne"]) b.push({ wert:"ohne", text:"ohne Angabe", anzahl:f.bereich["ohne"] });
+    auswahlFuellen(el("fBereich"), b, "Alle Bereiche");
+
+    var n = (status.niveaus || []).map(function(name){
+      return { wert:name, text:name, anzahl:(f.niveau[name] || 0) };
+    }).filter(function(e){ return e.anzahl > 0 || el("fNiveau").value === e.wert; });
+    var ohneN = status.ohneNiveau || "kein Sprachniveau";
+    if(f.niveau[ohneN]) n.push({ wert:ohneN, text:"ohne Sprachniveau", anzahl:f.niveau[ohneN] });
+    auswahlFuellen(el("fNiveau"), n, "Alle Niveaus");
+
+    var orte = Object.keys(f.ort).map(function(name){
+      return { wert:name, text:(name === "ohne" ? "ohne Angabe" : name), anzahl:f.ort[name] };
+    }).sort(function(a,b2){
+      if(a.wert === "ohne") return 1;
+      if(b2.wert === "ohne") return -1;
+      return b2.anzahl - a.anzahl || a.text.localeCompare(b2.text, "de");
+    });
+    auswahlFuellen(el("fOrt"), orte, "Alle Orte");
   }
 
-  function setzeAuswahl(sel, wert){
-    for(var i=0;i<sel.options.length;i++){
-      if(sel.options[i].textContent === wert || sel.options[i].value === wert){
-        sel.selectedIndex = i; return;
+  // Erst markieren, dann escapen. Andersherum trifft die Suche nach „amp" die
+  // Zeichenfolge in einem bereits escapten &amp; und zerlegt es.
+  var MARK_AUF = "\u0001", MARK_ZU = "\u0002";
+
+  function marker(text, begriffe){
+    var h = String(text == null ? "" : text);
+    begriffe.forEach(function(b){
+      if(b.length < 2) return;
+      var re = new RegExp("(" + b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+      h = h.replace(re, MARK_AUF + "$1" + MARK_ZU);
+    });
+    return esc(h).split(MARK_AUF).join("<mark>").split(MARK_ZU).join("</mark>");
+  }
+
+  function trefferZeichnen(kurse, anhaengen, begriffe){
+    var liste = el("trefferliste");
+    if(!anhaengen){ liste.innerHTML = ""; aktivIndex = -1; }
+
+    kurse.forEach(function(k){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "treffer";
+      b.setAttribute("data-id", k.id);
+
+      var meta = [];
+      meta.push('<span class="tm' + (k.bereich ? " stark" : "") + '">'
+        + esc(k.bereich || "Bereich offen") + "</span>");
+      if(k.niveau && k.niveau !== "kein Sprachniveau"){
+        meta.push('<span class="tm stark">' + esc(k.niveau) + "</span>");
       }
+      if(k.ort){ meta.push('<span class="tm">' + esc(k.ort) + "</span>"); }
+      meta.push('<span class="tm' + (k.zeichen ? "" : " leer") + '">'
+        + (k.zeichen ? zahl(k.zeichen) + " Zeichen" : "ohne Text") + "</span>");
+
+      b.innerHTML =
+        '<span class="tkopf"><span class="tnr">' + marker(k.nummer, begriffe) + "</span>"
+        + '<span class="ttitel">' + marker(k.titel, begriffe) + "</span></span>"
+        + (k.untertitel ? '<span class="tsub">' + marker(k.untertitel, begriffe) + "</span>" : "")
+        + '<span class="tmeta">' + meta.join("") + "</span>"
+        + (k.auszug ? '<span class="tausz">' + marker(k.auszug, begriffe) + "</span>" : "");
+
+      b.addEventListener("click", function(){ kursUebernehmen(k.id); });
+      liste.appendChild(b);
+    });
+
+    var alt = liste.querySelector(".listenhinweis, .listenleer");
+    if(alt) alt.remove();
+
+    if(!kursGeladen){
+      var leer = document.createElement("div");
+      leer.className = "listenleer";
+      leer.innerHTML = "<b>Kein Kurs gefunden.</b>Andere Schreibweise versuchen oder einen Filter zurücknehmen. "
+        + "Die Suche geht über Kursnummer, Titel, Untertitel, Ort und den ganzen Beschreibungstext.";
+      liste.appendChild(leer);
+    } else if(kursAlleGeladen){
+      var fertig = document.createElement("div");
+      fertig.className = "listenhinweis";
+      fertig.textContent = "Alle " + zahl(kursTreffer)
+        + (kursTreffer === 1 ? " Treffer" : " Treffer") + " angezeigt";
+      liste.appendChild(fertig);
+    } else {
+      // Nachgeladen wird beim Scrollen. Der Knopf bleibt trotzdem: Wer mit der
+      // Tastatur durch die Liste geht, scrollt nicht selbst, und ein sichtbarer
+      // Weg zum Rest der Treffer ist ohnehin ehrlicher als eine Liste, die
+      // scheinbar zu Ende ist.
+      var mehr = document.createElement("div");
+      mehr.className = "listenhinweis";
+      mehr.id = "mehrMarke";
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "knopf leise";
+      b.id = "mehrKnopf";
+      b.textContent = "Weitere " + zahl(Math.min(40, kursTreffer - kursGeladen)) + " laden";
+      b.addEventListener("click", function(){ kurseSuchen(true); });
+      mehr.appendChild(b);
+      liste.appendChild(mehr);
     }
   }
 
-  function zeichenZaehlen(){
-    var n = el("text").value.length;
-    el("zeichen").textContent = n.toLocaleString("de-DE") + " Zeichen";
+  // Der IntersectionObserver war hier die naheliegende Wahl und hat sich als
+  // unzuverlaessig erwiesen: In einem Fenster ohne sichtbares Rendering feuert
+  // er gar nicht, und die Liste bleibt stumm bei vierzig Treffern stehen. Ein
+  // Scroll-Ereignis mit Abstandsrechnung tut dasselbe und tut es immer.
+  el("trefferliste").addEventListener("scroll", function(){
+    var l = el("trefferliste");
+    if(kursLaeuft || kursAlleGeladen) return;
+    if(l.scrollTop + l.clientHeight >= l.scrollHeight - 320){ kurseSuchen(true); }
+  });
+
+  function kurseSuchen(anhaengen){
+    // Nur das Nachladen darf sich selbst blockieren. Eine neue Suche muss die
+    // laufende abbrechen duerfen, sonst verschluckt ein schnell getippter
+    // Begriff die Eingabe und die Liste bleibt auf dem alten Stand stehen.
+    if(anhaengen && kursLaeuft) return;
+    if(suchAbbruch) suchAbbruch.abort();
+    kursLaeuft = true;
+    if(!anhaengen){ kursSeite = 1; kursGeladen = 0; kursAlleGeladen = false; }
+
+    var f = filterWerte();
+    var abfrage = "?q=" + encodeURIComponent(f.q)
+      + "&bereich=" + encodeURIComponent(f.bereich)
+      + "&niveau=" + encodeURIComponent(f.niveau)
+      + "&ort=" + encodeURIComponent(f.ort)
+      + "&seite=" + kursSeite + "&proSeite=40";
+
+    suchAbbruch = ("AbortController" in window) ? new AbortController() : null;
+
+    fetch("/api/kurse" + abfrage, suchAbbruch ? { signal: suchAbbruch.signal } : undefined)
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        kursTreffer = d.treffer;
+        kursGesamt = d.gesamt;
+        kursGeladen += d.kurse.length;
+        kursAlleGeladen = kursGeladen >= d.treffer || d.kurse.length === 0;
+        kursSeite += 1;
+
+        var begriffe = f.q.split(/\s+/).filter(function(t){ return t.length > 1; });
+        trefferZeichnen(d.kurse, anhaengen, begriffe);
+        if(!anhaengen) facettenZeichnen(d.facetten);
+
+        el("trefferText").innerHTML = d.treffer === d.gesamt
+          ? "<b>" + zahl(d.gesamt) + "</b> Kurse im Kursplan"
+          : "<b>" + zahl(d.treffer) + "</b> von " + zahl(d.gesamt) + " Kursen";
+        el("modalZahl").textContent = zahl(d.treffer) + " Treffer";
+        filterStandZeichnen();
+        kursLaeuft = false;
+      })
+      .catch(function(err){
+        // Bei einem Abbruch laeuft bereits die naechste Anfrage. Wer hier
+        // kursLaeuft zuruecksetzt, gibt den Platz fuer eine dritte frei.
+        if(err && err.name === "AbortError") return;
+        kursLaeuft = false;
+        el("trefferText").textContent = "Kursdaten sind nicht ladbar.";
+      });
   }
 
-  // ---------------------------------------------------------------- Parser
+  function kursUebernehmen(id){
+    fetch("/api/kurs/" + id).then(function(r){ return r.json(); }).then(function(d){
+      var k = d.kurs;
+      if(!k) return;
+      el("titel").value = k.titel;
+      el("nummer").value = k.nummer;
+      setzeAuswahl(el("bereich"), k.bereichVorschlag || k.bereich);
+      setzeAuswahl(el("niveau"), k.niveau);
+      el("text").value = k.text;
+      zeichenZaehlen();
+
+      el("kursGewaehltTitel").textContent = k.nummer + "  ·  " + k.titel;
+      var teile = [k.bereich || (k.bereichVorschlag + " (geraten)")];
+      if(k.niveau && k.niveau !== "kein Sprachniveau") teile.push(k.niveau);
+      if(k.ort) teile.push(k.ort);
+      teile.push(zahl(k.zeichen) + " Zeichen");
+      el("kursGewaehltMeta").textContent = teile.join("  ·  ");
+      el("kursHint").textContent = k.bereich
+        ? "Programmbereich und Niveau stammen aus den Portaldaten und lassen sich unten ändern."
+        : "Für diesen Kurs führt das Portal keinen Programmbereich. Der Vorschlag unten ist aus der Kursnummer abgeleitet, bitte prüfen.";
+      // Fokus geht auf den Wahlknopf zurueck, nicht auf „Text pruefen": Sonst
+      // scrollt die Spalte nach unten und die eben getroffene Auswahl ist
+      // nicht mehr zu sehen.
+      modalSchliessen(kursModal);
+    }).catch(function(){
+      zeigeBalkenFehler("Der gewählte Kurs ließ sich nicht laden.");
+    });
+  }
+
+  function aktivSetzen(richtung){
+    var knoepfe = el("trefferliste").querySelectorAll(".treffer");
+    if(!knoepfe.length) return;
+    aktivIndex += richtung;
+    if(aktivIndex < 0) aktivIndex = 0;
+    if(aktivIndex > knoepfe.length - 1) aktivIndex = knoepfe.length - 1;
+    Array.prototype.forEach.call(knoepfe, function(k){ k.classList.remove("aktiv"); });
+    var ziel = knoepfe[aktivIndex];
+    ziel.classList.add("aktiv");
+    ziel.scrollIntoView({ block:"nearest" });
+  }
+
+  // ================================================== Überlagerungen allgemein
+  var kursModal = el("kursModal"), impModal = el("impModal"), panel = el("panel");
+  var offenes = null, rueckFokus = null;
+
+  function schleierAn(an){ el("schleier").classList.toggle("an", an); }
+
+  function modalOeffnen(knoten, fokusZiel){
+    rueckFokus = document.activeElement;
+    offenes = knoten;
+    knoten.classList.add("an");
+    schleierAn(true);
+    document.body.style.overflow = "hidden";
+    if(fokusZiel) setTimeout(function(){ fokusZiel.focus(); }, 60);
+  }
+
+  function modalSchliessen(knoten){
+    knoten.classList.remove("an");
+    if(offenes === knoten) offenes = null;
+    if(!offenes){
+      schleierAn(false);
+      document.body.style.overflow = "";
+    }
+    if(rueckFokus && rueckFokus.focus) rueckFokus.focus();
+  }
+
+  // Fokus bleibt in der geoeffneten Ebene, sonst laesst sich mit der Tabulator-
+  // Taste unbemerkt die Seite dahinter bedienen.
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Tab" || !offenes) return;
+    var felder = offenes.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    var sichtbar = Array.prototype.filter.call(felder, function(f){
+      return !f.disabled && f.offsetParent !== null;
+    });
+    if(!sichtbar.length) return;
+    var erst = sichtbar[0], letzt = sichtbar[sichtbar.length - 1];
+    if(e.shiftKey && document.activeElement === erst){ e.preventDefault(); letzt.focus(); }
+    else if(!e.shiftKey && document.activeElement === letzt){ e.preventDefault(); erst.focus(); }
+  });
+
+  el("schleier").addEventListener("click", function(){
+    if(offenes) modalSchliessen(offenes);
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && offenes){ e.preventDefault(); modalSchliessen(offenes); }
+  });
+
+  // ================================================================== Panel
+  function modelleFuellen(liste){
+    var sel = el("modellWahl");
+    sel.innerHTML = "";
+    liste.forEach(function(m){
+      var o = document.createElement("option");
+      o.value = m.id;
+      o.textContent = m.name + (m.hinweis ? " — " + m.hinweis : "");
+      sel.appendChild(o);
+    });
+    sel.value = modellJetzt();
+  }
+
+  function panelZeichnen(){
+    if(!status) return;
+    var abw = abweichungen();
+    el("panelMarke").textContent = abw.length ? "Angepasst" : "Standard";
+    el("panelMarke").className = "marke" + (abw.length ? " geaendert" : "");
+    el("panelKnopf").classList.toggle("abweichend", abw.length > 0);
+
+    if(abw.length){
+      el("abwText").textContent = abw.join(" · ")
+        + ". Die Läufe entsprechen nicht dem dokumentierten Stand der Abgabe.";
+      el("balkenAbw").classList.add("an");
+    } else {
+      el("balkenAbw").classList.remove("an");
+    }
+
+    el("kFassung").textContent = status.fassung || "unbekannt";
+    var kw = el("kWort");
+    if(status.wortlisteVorhanden){
+      kw.textContent = zahl(status.wortanzahl) + " Einträge";
+      kw.classList.remove("warnton");
+    } else {
+      kw.textContent = "fehlt";
+      kw.classList.add("warnton");
+    }
+    el("kSumme").textContent = status.promptPruefsumme || "–";
+
+    el("modellWahl").value = modellJetzt();
+    var gewaehlt = (status.modelle || []).filter(function(m){ return m.id === modellJetzt(); })[0];
+    el("modellHinweis").textContent = gewaehlt
+      ? gewaehlt.id + (modellJetzt() === status.modell ? "" : " · weicht vom Standard ab")
+      : "";
+
+    var t = temperaturJetzt();
+    el("tempRegler").value = String(t);
+    el("tempWert").textContent = komma(t.toFixed(2));
+
+    var feld = el("promptText");
+    if(document.activeElement !== feld){ feld.value = promptJetzt(); }
+    el("promptZahl").textContent = zahl(feld.value.length) + " Zeichen";
+    el("promptUebernehmen").disabled = feld.value === promptJetzt();
+  }
+
+  // ================================================================ Parser
   function parseAntwort(roh){
     var text = String(roh || "").replace(/\r\n/g,"\n").trim();
     text = text.replace(/^```[a-zA-Z]*\s*\n/, "").replace(/\n```\s*$/, "");
@@ -441,7 +1165,7 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     return liste;
   }
 
-  // ------------------------------------------------------------- Darstellung
+  // =========================================================== Darstellung
   function stufenKlasse(s){
     if(/PFLICHT/i.test(s)) return "pflicht";
     if(/EMPFEHLUNG/i.test(s)) return "empfehlung";
@@ -454,8 +1178,27 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
          + esc(wert) + "</dd></div>";
   }
 
-  function darstellen(daten, meta){
-    var h = "";
+  function laufbandBauen(){
+    if(!letzterLauf) return "";
+    var d = letzterLauf, teile = [];
+    teile.push("<span>Modell <b>" + esc(d.modell) + "</b>"
+      + (d.ersatzmodellGenutzt ? " (Ersatzmodell)" : "") + "</span>");
+    teile.push("<span>Temperatur <b>" + komma(String(d.temperatur)) + "</b></span>");
+    teile.push("<span>Fassung <b>" + esc(d.fassung || "unbekannt") + "</b></span>");
+    if(d.promptAngepasst){
+      teile.push('<span class="warnton">Prompt <b>angepasst</b></span>');
+    }
+    if(!d.wortlisteVorhanden){
+      teile.push('<span class="warnton">Referenzwortschatz <b>fehlt</b></span>');
+    } else {
+      teile.push("<span>Wortschatz <b>" + zahl(d.wortanzahl) + "</b></span>");
+    }
+    if(d.protokoll){ teile.push("<span>Protokoll <b>" + esc(d.protokoll) + "</b></span>"); }
+    return '<div class="laufband">' + teile.join("") + "</div>";
+  }
+
+  function darstellen(daten){
+    var h = laufbandBauen();
 
     if(daten.zielgruppe){
       h += '<div class="block"><div class="blockkopf">Zielgruppe</div>'
@@ -513,14 +1256,14 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     }
 
     if(!h){
-      return rohDarstellen("Die Antwort liess sich nicht in Abschnitte zerlegen.");
+      return rohDarstellen("Die Antwort ließ sich nicht in Abschnitte zerlegen.");
     }
     return h;
   }
 
   function rohDarstellen(grund){
-    return '<div class="block">'
-      + (grund ? '<div class="rohnote">' + esc(grund) + " Unten steht die unveraenderte Modellantwort.</div>" : "")
+    return laufbandBauen() + '<div class="block">'
+      + (grund ? '<div class="rohnote">' + esc(grund) + " Unten steht die unveränderte Modellantwort.</div>" : "")
       + '<pre class="roh">' + esc(letzterRohtext) + "</pre></div>";
   }
 
@@ -533,13 +1276,13 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     }
   }
 
-  // ---------------------------------------------------------------- Ablauf
+  // ================================================================ Ablauf
   function ladenZeigen(){
     var start = Date.now();
     el("ausgabe").innerHTML =
-      '<div class="laden"><div class="lt">Pruefung laeuft</div>'
-      + '<div class="ls">Der Text geht mit dem System-Prompt an ' + esc(status && status.modell ? status.modell : "das Modell")
-      + '. Das dauert ueblicherweise 20 bis 60 Sekunden.</div>'
+      '<div class="laden"><div class="lt">Prüfung läuft</div>'
+      + '<div class="ls">Der Text geht mit dem System-Prompt an ' + esc(modellJetzt() || "das Modell")
+      + '. Das dauert üblicherweise 20 bis 60 Sekunden.</div>'
       + '<div class="ladebalken"><i></i></div>'
       + '<div class="ls" id="ladeUhr">0 Sekunden</div></div>';
     uhr = setInterval(function(){
@@ -555,7 +1298,7 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
 
   function fehlerZeigen(meldung, hinweis){
     el("ausgabe").innerHTML =
-      '<div class="fehler"><div class="ft">Pruefung nicht moeglich</div>'
+      '<div class="fehler"><div class="ft">Prüfung nicht möglich</div>'
       + '<div class="fm">' + esc(meldung) + "</div>"
       + (hinweis ? '<div class="fh">' + esc(hinweis) + "</div>" : "")
       + "</div>";
@@ -566,7 +1309,7 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     var text = el("text").value.trim();
     if(!text){
       fehlerZeigen("Kein Kurstext eingegeben.",
-        "Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen.");
+        "Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen.");
       el("text").focus();
       return;
     }
@@ -575,67 +1318,176 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     el("pruefen").textContent = "Bitte warten";
     el("rohKnopf").style.display = "none";
     el("laufinfo").textContent = "";
-    el("fProtokoll").textContent = "";
     rohSichtbar = false;
     ladenZeigen();
+
+    var koerper = {
+      titel: el("titel").value,
+      nummer: el("nummer").value,
+      programmbereich: el("bereich").value || (el("bereich").selectedOptions[0]
+        && el("bereich").selectedOptions[0].textContent),
+      niveau: el("niveau").selectedOptions[0] ? el("niveau").selectedOptions[0].textContent : "",
+      text: text,
+      modell: modellJetzt(),
+      temperatur: temperaturJetzt()
+    };
+    var eigener = merker.hole("prompt", null);
+    if(eigener !== null && eigener !== standardPrompt){ koerper.prompt = eigener; }
 
     fetch("/api/pruefen", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        titel: el("titel").value,
-        nummer: el("nummer").value,
-        programmbereich: el("bereich").value || el("bereich").selectedOptions[0] && el("bereich").selectedOptions[0].textContent,
-        niveau: el("niveau").selectedOptions[0] ? el("niveau").selectedOptions[0].textContent : "",
-        text: text
-      })
+      body: JSON.stringify(koerper)
     }).then(function(r){
       return r.json().then(function(d){ return { ok:r.ok, daten:d }; });
     }).then(function(res){
       ladenAus();
       if(!res.ok || res.daten.error){
         fehlerZeigen(res.daten.error || "Die Anfrage ist fehlgeschlagen.",
-          "Der Server laeuft weiter. Netzverbindung und .env pruefen, dann erneut versuchen.");
+          "Der Server läuft weiter. Netzverbindung und .env prüfen, dann erneut versuchen.");
         return;
       }
       letzterRohtext = res.daten.inhalt || "";
       letzteBefunde = parseAntwort(letzterRohtext);
+      letzterLauf = res.daten;
       neuZeichnen();
       el("rohKnopf").style.display = "inline";
       el("rohKnopf").textContent = "Rohtext";
-      el("laufinfo").textContent = String(res.daten.dauerSekunden).replace(".", ",") + " s";
-      el("fModell").textContent = res.daten.modell + (res.daten.ersatzmodellGenutzt ? " (Ersatzmodell)" : "");
-      el("fFassung").textContent = res.daten.fassung || "unbekannt";
-      if(res.daten.protokoll){
-        el("fProtokoll").innerHTML = "Protokoll <b>" + esc(res.daten.protokoll) + "</b>";
-      }
+      el("laufinfo").textContent = komma(String(res.daten.dauerSekunden)) + " s";
       if(!res.daten.wortlisteVorhanden){ el("balkenWort").classList.add("an"); }
-      else { el("balkenWort").classList.remove("an"); el("fWort").textContent = res.daten.wortanzahl + " Eintraege"; }
+      else { el("balkenWort").classList.remove("an"); }
     }).catch(function(){
       ladenAus();
       fehlerZeigen("Der lokale Server ist nicht erreichbar.",
-        "Laeuft server.py noch? Im Terminal mit python3 server.py neu starten.");
+        "Läuft server.py noch? Im Terminal mit python3 server.py neu starten.");
     }).then(function(){
       laeuft = false;
       el("pruefen").disabled = false;
-      el("pruefen").textContent = "Text pruefen";
+      el("pruefen").textContent = "Text prüfen";
     });
   }
 
-  // ---------------------------------------------------------------- Ereignisse
-  el("kurswahl").addEventListener("change", kursUebernehmen);
+  function setzeAuswahl(sel, wert){
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].textContent === wert || sel.options[i].value === wert){
+        sel.selectedIndex = i; return;
+      }
+    }
+  }
+
+  function zeichenZaehlen(){
+    var n = el("text").value.length;
+    el("zeichen").textContent = zahl(n) + " Zeichen";
+  }
+
+  // ============================================================= Ereignisse
+  el("kursKnopf").addEventListener("click", function(){
+    modalOeffnen(kursModal, el("suche"));
+    if(!el("trefferliste").children.length) kurseSuchen(false);
+  });
+  el("kursModalZu").addEventListener("click", function(){ modalSchliessen(kursModal); });
+
+  el("suche").addEventListener("input", function(){
+    el("sucheLeer").classList.toggle("an", el("suche").value.length > 0);
+    clearTimeout(suchTakt);
+    suchTakt = setTimeout(function(){ kurseSuchen(false); }, 220);
+  });
+  el("sucheLeer").addEventListener("click", function(){
+    el("suche").value = "";
+    el("sucheLeer").classList.remove("an");
+    el("suche").focus();
+    kurseSuchen(false);
+  });
+  ["fBereich","fNiveau","fOrt"].forEach(function(id){
+    el(id).addEventListener("change", function(){ kurseSuchen(false); });
+  });
+  el("filterZurueck").addEventListener("click", function(){
+    el("suche").value = "";
+    el("sucheLeer").classList.remove("an");
+    el("fBereich").value = ""; el("fNiveau").value = ""; el("fOrt").value = "";
+    kurseSuchen(false);
+    el("suche").focus();
+  });
+  el("filterAuf").addEventListener("click", function(){
+    var karte = kursModal.querySelector(".modalkarte");
+    var offen = karte.classList.toggle("filter-offen");
+    el("filterAuf").setAttribute("aria-expanded", offen ? "true" : "false");
+    if(offen) el("fBereich").focus();
+  });
+
+  kursModal.addEventListener("keydown", function(e){
+    if(e.key === "ArrowDown"){ e.preventDefault(); aktivSetzen(1); }
+    else if(e.key === "ArrowUp"){ e.preventDefault(); aktivSetzen(-1); }
+    else if(e.key === "Enter"){
+      var aktiv = el("trefferliste").querySelector(".treffer.aktiv");
+      if(aktiv){ e.preventDefault(); aktiv.click(); }
+      else {
+        var erster = el("trefferliste").querySelector(".treffer");
+        if(erster && document.activeElement === el("suche")){ e.preventDefault(); erster.click(); }
+      }
+    }
+  });
+
+  el("impressumKnopf").addEventListener("click", function(){
+    modalOeffnen(impModal, el("impModalZu"));
+  });
+  el("impModalZu").addEventListener("click", function(){ modalSchliessen(impModal); });
+
+  el("panelKnopf").addEventListener("click", function(){
+    el("promptText").value = promptJetzt();
+    panelZeichnen();
+    modalOeffnen(panel, el("promptText"));
+    setTimeout(function(){
+      var f = el("promptText");
+      if(f.setSelectionRange) f.setSelectionRange(0, 0);
+      f.scrollTop = 0;
+    }, 80);
+  });
+  el("panelZu").addEventListener("click", function(){ modalSchliessen(panel); });
+
+  el("promptText").addEventListener("input", function(){
+    el("promptZahl").textContent = zahl(el("promptText").value.length) + " Zeichen";
+    el("promptUebernehmen").disabled = el("promptText").value === promptJetzt();
+  });
+  el("promptUebernehmen").addEventListener("click", function(){
+    var neu = el("promptText").value;
+    merker.setze("prompt", neu === standardPrompt ? null : neu);
+    panelZeichnen();
+  });
+  el("promptZurueck").addEventListener("click", function(){
+    merker.setze("prompt", null);
+    merker.setze("modell", null);
+    merker.setze("temperatur", null);
+    el("promptText").value = standardPrompt;
+    if(status) el("modellWahl").value = status.modell;
+    panelZeichnen();
+  });
+  el("modellWahl").addEventListener("change", function(){
+    var wert = el("modellWahl").value;
+    merker.setze("modell", (status && wert === status.modell) ? null : wert);
+    panelZeichnen();
+  });
+  el("tempRegler").addEventListener("input", function(){
+    var wert = parseFloat(el("tempRegler").value);
+    merker.setze("temperatur", (status && Math.abs(wert - status.temperatur) < 1e-9) ? null : wert);
+    panelZeichnen();
+  });
+
   el("text").addEventListener("input", zeichenZaehlen);
   el("pruefen").addEventListener("click", pruefen);
   el("leeren").addEventListener("click", function(){
-    el("kurswahl").value = ""; el("titel").value = ""; el("nummer").value = "";
+    el("titel").value = ""; el("nummer").value = "";
     el("text").value = ""; el("niveau").selectedIndex = 0; el("bereich").selectedIndex = 0;
     zeichenZaehlen();
-    letzterRohtext = ""; letzteBefunde = null;
+    letzterRohtext = ""; letzteBefunde = null; letzterLauf = null;
     el("rohKnopf").style.display = "none";
     el("laufinfo").textContent = "";
-    el("ausgabe").innerHTML = '<div class="leer"><b>Noch keine Pruefung.</b>'
-      + 'Links einen Kurs aus der Stichprobe waehlen oder einen eigenen Text einsetzen, dann '
-      + '&bdquo;Text pruefen&ldquo;.</div>';
+    el("kursGewaehltTitel").textContent = "Kurs aus dem Kursplan wählen";
+    el("kursGewaehltMeta").textContent = "Suchen und filtern nach Programmbereich, Niveau und Ort";
+    el("kursHint").textContent = "Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern. Ein eigener Text lässt sich auch direkt unten einsetzen.";
+    el("ausgabe").innerHTML = '<div class="leer"><b>Noch keine Prüfung.</b>'
+      + 'Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen, dann '
+      + '&bdquo;Text prüfen&ldquo;.</div>';
   });
   el("rohKnopf").addEventListener("click", function(){
     rohSichtbar = !rohSichtbar;
@@ -643,11 +1495,10 @@ pre.roh{ background:#fff; border:1px solid var(--hair); padding:16px; font-size:
     neuZeichnen();
   });
   document.addEventListener("keydown", function(e){
-    if((e.metaKey || e.ctrlKey) && e.key === "Enter"){ e.preventDefault(); pruefen(); }
+    if((e.metaKey || e.ctrlKey) && e.key === "Enter" && !offenes){ e.preventDefault(); pruefen(); }
   });
 
-  statusHolen();
-  kurseHolen();
+  statusHolen().then(promptHolen);
   zeichenZaehlen();
 })();
 </script>
