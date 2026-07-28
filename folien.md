@@ -99,10 +99,10 @@ kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
 bild: bilder/04-prozess-luecke.jpg
 bu: Vier Schritte, eine fehlende Verbindung.
 bildprompt: Vier Kreise in einer Reihe, verbunden durch Linien, die Verbindung zwischen drittem und viertem Kreis fehlt. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Ein Haus mit Auftrag,
-akzent: ein Prozess mit Lücke.
+titel: Ein Auftrag,
+akzent: eine Lücke im Prozess.
 klein: ja
-lede: Volkshochschule Frankfurt am Main, gegründet 1890, größte öffentliche Weiterbildungseinrichtung Hessens. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
+lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 spalte1: DAS HAUS
 punkte1:
   - "Eigenbetrieb der Stadt, kaufmännisch geführt, 154 T€ Stammkapital"
@@ -116,8 +116,8 @@ punkte2:
   - "Der Text wird in das Kursverwaltungssystem eingepflegt"
   - "Er erscheint unverändert im Portal, im Programmheft und im Newsletter"
 callout: Zwischen Einpflegen und Veröffentlichen prüft niemand, ob die Zielgruppe den Text versteht.
-calloutsub: Soll-Zustand: An genau dieser Stelle steht künftig ein Prüfschritt, der meldet und nicht ändert. Die Entscheidung bleibt bei der Programmbereichsleitung.
-quellen: Betriebssatzung der vhs Frankfurt, Impressum, Selbstdarstellung
+calloutsub: Soll-Zustand: Hier steht künftig ein Prüfschritt, der meldet und nicht ändert.
+quellen: Betriebssatzung der vhs Frankfurt, Impressum
 
 ### NOTIZ
 
