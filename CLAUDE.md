@@ -96,6 +96,13 @@ daneben behauptet weiter sieben Niveaubefunde, während das Modell beim nächste
 Mal fünf meldet. Läufe, die nicht in die Abgabe sollen, gehören nach
 `tool/protokoll/pruefung-kursplan/`; der Unterordner wird nicht durchsucht.
 
+**Farben und Schriften stehen in `DESIGN.md`, nicht im Ermessen.** Die Werte
+liegen deckungsgleich in `stil.css`, `dokument.css` und `tool/index.html`.
+Nach jeder Änderung daran `python3 pruefe-design.py` — das Skript rechnet alle
+Kontrastpaare nach und meldet, wenn die drei Dateien auseinanderdriften. Das
+System hält WCAG AAA freiwillig ein; genau das ist das Argument, und es
+zerfällt, sobald eine Folie es reißt.
+
 **Server beenden mit `pkill -f "server.py"`.** Das Muster `python3 server.py`
 greift nicht, weil der Prozess als `Python server.py` läuft. Ein übersehener
 alter Server nimmt den Port und man testet unbemerkt gegen alten Code.
@@ -115,16 +122,19 @@ Messgrundlage der Abgaben und werden nicht überschrieben.
 ```
 folien.md          Quelle der Präsentation, 13 Folien
 build.py           Folien → HTML → PNG → PPTX + PDF, rechnet Sprechzeit
-stil.css           Bauhaus-Foliendesign
+stil.css           Foliendesign, Farbwerte nach DESIGN.md
 watch.py           baut neu, sobald folien.md oder stil.css sich ändern
 dokumentation.md   Quelle der Abgabe 2, mit Platzhaltern
 dokument.py        Dokument → HTML → PNG → PDF
 dokument.css       Dokumentsatz
 system-prompt.md   der Prompt, 6 Komponenten, Platzhalter {{WORTLISTE_A1}}
 iterationen.md     Fassungshistorie mit Anlass und Begründung
+DESIGN.md          Schrift, Farbe, Größen — verbindlich für alle drei Ausgaben
+pruefe-design.py   rechnet die Kontraste nach und prüft die Dateien auf Gleichstand
+schriften/         mitgelieferte Schriften samt Lizenztexten, kein CDN-Abruf
 daten/             Kursplan, Stichproben, Wortliste, Wirtschaftlichkeit
 tool/              Prototyp: server.py, index.html, protokoll/
-bilder/            flach-geometrische JPGs, bewusst ohne Schrift
+bilder/            flach-geometrische JPGs; umfaerben.py, Originale in original-petrol/
 ```
 
 Belegte Ports: **8791** build.py, **8793** dokument.py, **8799** Prototyp.
