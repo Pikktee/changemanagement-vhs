@@ -124,12 +124,10 @@ quellen: Betriebssatzung der vhs Frankfurt, Impressum, Selbstdarstellung
 Zunächst das Unternehmen und der Prozess, um den es geht.
 
 Die Volkshochschule Frankfurt ist kein Amt, sondern ein Eigenbetrieb der
-Stadt. Sie wird kaufmännisch geführt, hat ein Stammkapital und einen
-Wirtschaftsplan. Geleitet wird sie von einem Direktor, der laut Impressum auch
+Stadt. Geleitet wird sie von einem Direktor, der laut Impressum auch
 persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
-Darüber steht eine Betriebskommission mit sechzehn Mitgliedern, darunter zwei
-Vertretungen des Personalrats. Diese zwei Sitze spielen später noch eine
-Rolle.
+Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
+Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
 Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
@@ -138,23 +136,21 @@ Haus im Folgenden. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 Rechts steht, wie ein Kurstext heute entsteht. Die Programmbereichsleitung
 plant den Kurs. Der Text wird geschrieben, häufig von der Kursleitung
 zugeliefert. Er wird ins Kursverwaltungssystem eingepflegt. Und dann erscheint
-er unverändert im Portal, im zweihundertvierzig Seiten starken Programmheft
-und im Newsletter.
+er unverändert im Portal, im Programmheft und im Newsletter.
 
 Zwischen dem dritten und dem vierten Schritt passiert nichts. Es gibt keine
-Prüfstufe für Verständlichkeit. Das ist ausdrücklich kein Vorwurf, denn dieser
+Prüfstufe für Verständlichkeit. Das ist kein Vorwurf, denn dieser
 Arbeitsschritt ist nirgends vorgesehen. Genau deshalb ist es ein Fall für
 Prozessgestaltung und nicht für einen Appell, sich mehr Mühe zu geben.
 
-Der Soll-Zustand steht darunter, und er ist bewusst klein gehalten. An genau
+Der Soll-Zustand steht darunter und ist bewusst klein gehalten. An genau
 dieser Stelle kommt ein Prüfschritt hinzu. Er meldet, er ändert nichts, und
 entschieden wird weiterhin von Menschen.
 
-Eine Einschränkung lege ich offen. Den genauen Redaktionsablauf der vhs
-Frankfurt konnte ich nicht belegen, dazu gibt es keine öffentliche
-Dokumentation. Was ihr rechts seht, ist die branchenübliche Rollenverteilung
-aus Stellenausschreibungen von Volkshochschulverbänden. Das ist eine begründete
-Annahme, keine Messung.
+Eine Einschränkung lege ich offen. Den genauen Redaktionsablauf konnte ich
+nicht belegen, dazu gibt es keine öffentliche Dokumentation. Rechts steht die
+branchenübliche Rollenverteilung aus Stellenausschreibungen von
+Volkshochschulverbänden. Das ist eine begründete Annahme, keine Messung.
 
 
 ## 4 — Messung und eigentlicher Befund
@@ -234,42 +230,37 @@ quellen: HessBGG, BITV HE 2019, WCAG 2.1, EN 301 549, Landesfachstelle Barrieref
 
 ### NOTIZ
 
-Bevor ich zur Lösung komme, kurz die Rechtslage. Ohne sie fehlt der Rahmen.
+Bevor ich zur Lösung komme, kurz die Rechtslage.
 
 Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit
-Behinderung nutzbar sein muss. Der technische Maßstab sind die WCAG, eine
-internationale Richtlinie mit drei Stufen: A, doppel A und dreifach A.
+Behinderung nutzbar sein muss. Der Maßstab sind die WCAG, mit drei Stufen: A,
+doppel A und dreifach A.
 
-Die Rechtskette beginnt zweitausendneun mit der UN-Behindertenrechtskonvention,
-führt über die EU-Richtlinie für öffentliche Stellen und mündet im
-Barrierefreiheitsstärkungsgesetz für Unternehmen. Für die vhs gilt keines davon
-unmittelbar. Sie ist eine kommunale Einrichtung in Hessen, und damit greift
-Landesrecht: Paragraph vierzehn des Hessischen
-Behindertengleichstellungsgesetzes und die hessische Verordnung von
-zweitausendneunzehn. Gefordert wird Stufe doppel A. Sehr viele kommunale
-Stellen berufen sich stattdessen auf die BITV zwei null des Bundes. Die gilt
-für Bundesbehörden. Wer das verwechselt, prüft am falschen Maßstab.
+Für die vhs gilt weder die EU-Richtlinie noch das
+Barrierefreiheitsstärkungsgesetz unmittelbar. Sie ist eine kommunale
+Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
+Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung von
+zweitausendneunzehn. Gefordert wird Stufe doppel A. Viele kommunale Stellen
+berufen sich stattdessen auf die BITV zwei null des Bundes. Die gilt für
+Bundesbehörden. Wer das verwechselt, prüft am falschen Maßstab.
 
-Und jetzt der Punkt, an dem ich beim Recherchieren selbst falsch lag. Dass
-Struktur programmatisch bestimmbar sein muss, ist Stufe A, also Pflicht. Dass
-Textteile in anderen Sprachen ausgezeichnet werden, ist doppel A, also
-Pflicht. Aber dass Abkürzungen erklärt werden und dass das Leseniveau zur
-Zielgruppe passt, ist beides dreifach A. Beides ist damit nicht verbindlich.
+Und jetzt der Punkt, an dem ich beim Recherchieren selbst falsch lag. Struktur
+und ausgezeichnete Fremdsprachen sind Pflicht. Aber dass Abkürzungen erklärt
+werden und dass das Leseniveau zur Zielgruppe passt, ist beides dreifach A und
+damit nicht verbindlich.
 
 Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
 und es wäre falsch.
 
-Wichtig ist aber der letzte Absatz. Nicht Teil der doppel-A-Konformität heißt
-nicht rechtlich belanglos. Paragraph drei Absatz eins der hessischen
+Wichtig ist der letzte Absatz. Paragraph drei Absatz eins der hessischen
 Verordnung verlangt eigenständig, dass Angebote verständlich sind. Die
-Konformitätsstufe begründet nur eine Vermutung, keine Obergrenze der Pflicht.
-Ich argumentiere also nicht gegen das Recht, sondern in einer Lücke, die das
-Recht selbst offenlässt.
+Konformitätsstufe begründet eine Vermutung, keine Obergrenze der Pflicht. Ich
+argumentiere also nicht gegen das Recht, sondern in einer Lücke, die es selbst
+offenlässt.
 
-Der ehrliche Satz steht unten. Ausgerechnet die Kriterien, die den Zugang für
-Menschen mit geringer Vorbildung regeln, sind optional. Für die meisten
-Websites ist das vertretbar. Für ein Haus, dessen Satzung sagt, die Angebote
-stünden allen offen ohne Rücksicht auf Vorbildung, ist es das nicht.
+Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind optional.
+Für ein Haus, dessen Satzung sagt, die Angebote stünden allen offen ohne
+Rücksicht auf Vorbildung, ist das nicht vertretbar.
 
 
 ## 6 — Die Arbeitsteilung
@@ -370,22 +361,19 @@ achthundertzwanzig Wörter des Prüfungswortschatzes für das Goethe-Zertifikat
 A1. Diese Liste steht vollständig im Prompt. Er schätzt das Sprachniveau also
 nicht frei, sondern begründet es am tatsächlichen Prüfungswortschatz.
 
-Dass dort die vollständige Liste steht und nicht nur ein Verweis darauf, ist
+Dass die Liste dort vollständig steht und nicht nur ein Verweis darauf, ist
 das Ergebnis der ersten Überarbeitung. In meiner ersten Fassung behauptete der
 Prompt, gegen die Wortlisten zu prüfen, hatte sie aber gar nicht. Er schätzte
 weiter frei und klang dabei nach Beleg. Das ist derselbe Fehler, den ich
-anderen Werkzeugen vorwerfe.
-
-Eine schöne Fußnote: Der Grundstock dieser Wortlisten stammt laut
-Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale des Deutschen
-Volkshochschulverbands in Frankfurt.
+anderen Werkzeugen vorwerfe. Eine schöne Fußnote dazu: Der Grundstock dieser
+Wortlisten stammt laut Goethe-Institut aus einer Veröffentlichung der
+Prüfungszentrale des Deutschen Volkshochschulverbands in Frankfurt.
 
 Und jetzt zur Zeile GRENZEN. Dort steht: bewertet Texte, niemals Personen.
 Dieser eine Satz leistet zweierlei. Er hält das Projekt aus dem
 Hochrisikobereich der KI-Verordnung heraus, denn Anhang III setzt überall eine
 Bewertung natürlicher Personen voraus. Und er ist die Antwort auf die Frage
-des Personalrats, ob hier Leistung kontrolliert wird. Ein Satz, zwei
-Wirkungen.
+des Personalrats, ob hier Leistung kontrolliert wird.
 
 
 ## 8 — Ein Durchlauf am echten Text
@@ -612,31 +600,29 @@ Oben stehen die ersten dreißig Tage: Personalrat einbinden, einen Pilotbereich
 gewinnen, die Textbausteine überarbeiten.
 
 Zu den Ressourcen. Der häufigste Einwand lautet, das koste zu viel Zeit. Ich
-habe das an vierhundertneunundachtzig Kursen nachgerechnet. Würde man jede
-Veranstaltung einzeln prüfen, wären es rund zweihundertneunzig Stunden im
-Jahr. Das muss man aber nicht, denn die vhs veröffentlicht selbst, dass von
-zweitausendachthundertfünfunddreißig Kursen im Semester nur
-zweihundertdreiundneunzig neu waren. Prüft man nur die neuen Texte, sind es
-neunundzwanzig Stunden im Jahr. Im Pilot sind es vier Stunden in drei Monaten.
+habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede Veranstaltung
+einzeln zu prüfen wären rund zweihundertneunzig Stunden im Jahr. Das muss man
+aber nicht, denn die vhs veröffentlicht selbst, dass von rund
+zweitausendachthundert Kursen im Semester nur zweihundertdreiundneunzig neu
+waren. Prüft man nur die neuen Texte, sind es neunundzwanzig Stunden im Jahr.
+Im Pilot vier Stunden in drei Monaten.
 
 In der Mitte die drei Kennzahlen, jeweils mit Ausgangswert und Ziel. Die
 Befundquote soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
-Pilotbereich sollen geprüft sein. Und die Zahl der Deutschkurse mit
-C1-Vokabular soll von neun von dreizehn auf höchstens zwei von dreizehn
-sinken.
+Pilotbereich sollen geprüft sein. Und die Deutschkurse mit C1-Vokabular sollen
+von neun von dreizehn auf höchstens zwei sinken.
 
-Der wichtigste Punkt daran steht in der letzten Spalte. Die Ausgangsmessung
-liegt bereits vor, erhoben mit einem Skript. Die Nachmessung läuft mit
-demselben Skript. Ich muss für die Erfolgskontrolle also nichts Neues
-aufbauen, und niemand kann später über die Messmethode streiten.
+Der wichtigste Punkt steht in der letzten Spalte. Die Ausgangsmessung liegt
+bereits vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben
+Skript. Ich muss für die Erfolgskontrolle also nichts Neues aufbauen, und
+niemand kann später über die Messmethode streiten.
 
-Unten die drei Risiken. Wenn die Mitbestimmung stockt, hilft nur, die Zusage
-schriftlich und vorher zu geben. Wenn die Redaktion den schwankenden Befunden
-misstraut, ist die Antwort, dass die Pflichtbefunde stabil sind und der
-Pilotbereich selbst festlegt, welche Regeln scharf gestellt werden. Und falls
-der KI-Rahmen des Verbands für Frankfurt doch nicht bereitsteht, läuft der
-Prompt auch außerhalb. Das kläre ich im ersten Monat, bevor irgendjemand
-darauf baut.
+Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur, die Zusage
+schriftlich und vorher zu geben. Misstraut die Redaktion den schwankenden
+Befunden, ist die Antwort, dass die Pflichtbefunde stabil sind und der
+Pilotbereich selbst festlegt, welche Regeln scharf gestellt werden. Und sollte
+der KI-Rahmen des Verbands für Frankfurt doch nicht bereitstehen, läuft der
+Prompt auch außerhalb. Das kläre ich im ersten Monat.
 
 
 ## 13 — Schlussfolie

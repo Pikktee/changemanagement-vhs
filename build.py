@@ -30,6 +30,9 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # Sprechtempo fuer die Zeitschaetzung: Woerter pro Minute, ruhiger Vortrag
 WPM = 125
+# Gesamtfenster 22 Minuten: 18 fuer die Folien, 4 fuer die Vorfuehrung.
+TOOL_MIN = 4
+ZIEL_SEK = 18 * 60
 
 
 # --------------------------------------------------------------------------
@@ -464,12 +467,19 @@ def zeit(folien):
         sek = round(w / WPM * 60)
         if not f.get("backup"):
             ges += sek
-        marke = "  " if sek <= 90 else " !"
+        marke = "  " if sek <= 110 else " !"
         print(f"   {marke} Folie {i:02d}  {w:>4} W.  {sek//60}:{sek%60:02d}"
               f"   {f.get('_titel_kommentar','')[:40]}")
     print(f"      GESAMT      {ges//60}:{ges%60:02d} Minuten")
-    if ges > 15 * 60:
-        print("      ! ueber 15 Minuten, das ist zu lang")
+    # Vortragsfenster 22 Minuten, davon 4 fuer die Vorfuehrung des Werkzeugs.
+    if ges > ZIEL_SEK:
+        fehl = ges - ZIEL_SEK
+        print(f"      ! {fehl//60}:{fehl%60:02d} ueber dem Ziel von "
+              f"{ZIEL_SEK//60} Minuten Folienzeit")
+    else:
+        rest = ZIEL_SEK - ges
+        print(f"      Puffer {rest//60}:{rest%60:02d} bis zum Ziel von "
+              f"{ZIEL_SEK//60} Minuten, danach {TOOL_MIN} Minuten Werkzeug")
 
 
 def commit(folien):
