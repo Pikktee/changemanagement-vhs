@@ -696,6 +696,7 @@ Vielen Dank. Gerne eure Fragen.
 ## 16 — BACKUP · Wirtschaftlichkeit
 
 typ: tabelle
+backup: ja
 kapitel: BACKUP · NICHT TEIL DER 15
 bild: bilder/17-waage.jpg
 bu: Der Einwand und die Gegenrechnung.

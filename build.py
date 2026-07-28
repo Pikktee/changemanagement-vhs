@@ -121,10 +121,12 @@ def e(s):
 
 
 def kopf(f, seite, gesamt):
+    # Backup-Folien zaehlen nicht zum Hauptteil und tragen keine Seitenzahl
+    pg = "BACKUP" if f.get("backup") else f"{seite:02d} / {gesamt:02d}"
     return f"""<div class="head">
   <div class="mark"><span class="sq"></span><span class="w">KLARTEXT</span></div>
   <div class="sec">{e(f.get('kapitel',''))}</div>
-  <div class="pg">{seite:02d} / {gesamt:02d}</div>
+  <div class="pg">{pg}</div>
 </div>
 <div class="headrule"></div>"""
 
@@ -460,7 +462,8 @@ def zeit(folien):
     for i, f in enumerate(folien, 1):
         w = len((f.get("notiz") or "").split())
         sek = round(w / WPM * 60)
-        ges += sek
+        if not f.get("backup"):
+            ges += sek
         marke = "  " if sek <= 90 else " !"
         print(f"   {marke} Folie {i:02d}  {w:>4} W.  {sek//60}:{sek%60:02d}"
               f"   {f.get('_titel_kommentar','')[:40]}")
@@ -505,15 +508,23 @@ def main():
     AUS.mkdir(exist_ok=True)
     print(f"\nKLARTEXT — {len(folien)} Folien\n")
 
+    gesamt_haupt = len([x for x in folien if not x.get("backup")])
+    lauf = 0
     for i, f in enumerate(folien, 1):
+        if not f.get("backup"):
+            lauf += 1
         try:
             (AUS / f"folie-{i:02d}.html").write_text(
-                rendere(f, i, len(folien)), encoding="utf-8")
+                rendere(f, lauf, gesamt_haupt), encoding="utf-8")
         except ValueError as ex:
             sys.exit(f"\nFEHLER: {ex}\n")
 
-    if len(folien) > 15:
-        print(f"  ! {len(folien)} Folien, die Aufgabe erlaubt hoechstens 15\n")
+    haupt = [f for f in folien if not f.get("backup")]
+    n_backup = len(folien) - len(haupt)
+    if len(haupt) > 15:
+        print(f"  ! {len(haupt)} Folien im Hauptteil, die Aufgabe erlaubt hoechstens 15\n")
+    elif n_backup:
+        print(f"  {len(haupt)} Folien plus {n_backup} Backup\n")
 
     if schnell:
         print("  HTML geschrieben (--schnell, keine Bilder)")
