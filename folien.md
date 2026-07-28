@@ -200,10 +200,8 @@ jedes Wort oberhalb dieses Niveaus eine Hürde.
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
 wen der Text ist. Neun von dreizehn Kursen für Deutschlernende enthalten
 Wörter wie Selbsteinschätzung, Fehleinschätzung und Umbuchung. Das ist
-C1-Vokabular über einem Kurs, den man mit A1 beginnt.
-
-Genau hier kann ein fachlich eingestellter Prompt etwas, was ein
-Standardwerkzeug nicht kann.
+C1-Vokabular über einem Kurs, den man mit A1 beginnt. Genau hier kann ein
+fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 
 
 ## 5 — Rechtslage
@@ -236,10 +234,10 @@ doppel A und dreifach A.
 Für die vhs gilt weder die EU-Richtlinie noch das
 Barrierefreiheitsstärkungsgesetz unmittelbar. Sie ist eine kommunale
 Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
-Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung von
-zweitausendneunzehn. Gefordert wird Stufe doppel A. Viele kommunale Stellen
-berufen sich stattdessen auf die BITV zwei null des Bundes. Die gilt für
-Bundesbehörden. Wer das verwechselt, prüft am falschen Maßstab.
+Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
+Gefordert wird Stufe doppel A. Viele kommunale Stellen berufen sich
+stattdessen auf die BITV zwei null des Bundes. Die gilt für Bundesbehörden.
+Wer das verwechselt, prüft am falschen Maßstab.
 
 Und jetzt der Punkt, an dem ich beim Recherchieren selbst falsch lag. Struktur
 und ausgezeichnete Fremdsprachen sind Pflicht. Aber dass Abkürzungen erklärt
@@ -354,16 +352,16 @@ einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
 Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die
 Abkürzungen des Hauses, neun Prüfregeln und, das ist der wichtigste Teil,
 achthundertzwanzig Wörter des Prüfungswortschatzes für das Goethe-Zertifikat
-A1. Diese Liste steht vollständig im Prompt. Er schätzt das Sprachniveau also
-nicht frei, sondern begründet es am tatsächlichen Prüfungswortschatz.
+A1. Diese Liste steht vollständig im Prompt, nicht als Verweis. Er schätzt das
+Sprachniveau also nicht, sondern begründet es.
 
-Dass die Liste dort vollständig steht und nicht nur ein Verweis darauf, ist
-das Ergebnis der ersten Überarbeitung. In meiner ersten Fassung behauptete der
-Prompt, gegen die Wortlisten zu prüfen, hatte sie aber gar nicht. Er schätzte
-weiter frei und klang dabei nach Beleg. Das ist derselbe Fehler, den ich
-anderen Werkzeugen vorwerfe. Eine schöne Fußnote dazu: Der Grundstock dieser
-Wortlisten stammt laut Goethe-Institut aus einer Veröffentlichung der
-Prüfungszentrale des Deutschen Volkshochschulverbands in Frankfurt.
+Das ist das Ergebnis der ersten Überarbeitung. In meiner ersten Fassung
+behauptete der Prompt, gegen die Wortlisten zu prüfen, hatte sie aber gar
+nicht. Er schätzte weiter frei und klang dabei nach Beleg. Das ist derselbe
+Fehler, den ich anderen Werkzeugen vorwerfe. Eine schöne Fußnote: Der
+Grundstock dieser Listen stammt laut Goethe-Institut aus einer
+Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschulverbands in
+Frankfurt.
 
 Und jetzt zur Zeile GRENZEN. Dort steht: bewertet Texte, niemals Personen.
 Dieser eine Satz leistet zweierlei. Er hält das Projekt aus dem
@@ -612,10 +610,9 @@ niemand kann später über die Messmethode streiten.
 
 Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur, die Zusage
 schriftlich und vorher zu geben. Misstraut die Redaktion den schwankenden
-Befunden, ist die Antwort, dass die Pflichtbefunde stabil sind und der
-Pilotbereich selbst festlegt, welche Regeln scharf gestellt werden. Und sollte
-der KI-Rahmen des Verbands für Frankfurt doch nicht bereitstehen, läuft der
-Prompt auch außerhalb. Das kläre ich im ersten Monat.
+Befunden, sind die Pflichtbefunde das Gegenargument, denn die waren stabil.
+Und sollte der KI-Rahmen des Verbands für Frankfurt doch nicht bereitstehen,
+läuft der Prompt auch außerhalb. Das kläre ich im ersten Monat.
 
 
 ## 13 — Schlussfolie
