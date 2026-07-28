@@ -212,13 +212,12 @@ bild: bilder/07-stufen.jpg
 bu: Zwei Stufen sind gebaut. Die dritte ist nur gedacht.
 bildprompt: Treppe aus drei Stufen, die unteren zwei massiv petrol, die oberste nur als duenner Umriss. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Welches Recht gilt,
-akzent: und was es nicht verlangt.
+akzent: und was nicht.
 klein: ja
 absaetze:
-  - "Digitale Barrierefreiheit heißt: Websites müssen so gebaut sein, dass auch Menschen mit Behinderung sie nutzen können. Der technische Maßstab sind die **WCAG** mit drei Stufen, A, AA und AAA."
-  - "Die Rechtskette beginnt 2009 mit der **UN-Behindertenrechtskonvention** und führt über die EU-Richtlinie 2016/2102 bis zum Barrierefreiheitsstärkungsgesetz 2025. Für die vhs gilt keines davon direkt: Als kommunale Einrichtung in Hessen greift **Landesrecht**, § 14 HessBGG und die **BITV HE** von 2019. Gefordert ist Stufe **AA**. Nicht die BITV 2.0 des Bundes, das ist der häufigste Zitierfehler kommunaler Stellen."
-  - "**Pflicht auf Stufe AA:** Struktur programmatisch bestimmbar (1.3.1), aussagekräftiger Seitentitel (2.4.2), Sprache von Textteilen ausgezeichnet (3.1.2). **Nicht Pflicht:** Abkürzungen erklärt (3.1.4) und Leseniveau der Zielgruppe angemessen (3.1.5). Beides ist Stufe AAA."
-  - "Nicht Teil der AA-Konformität heißt aber nicht rechtlich belanglos. **§ 3 Abs. 1 BITV HE** verlangt eigenständig, dass Angebote verständlich sind. Die Konformitätsstufe begründet eine Vermutung, keine Obergrenze der Pflicht."
+  - "Digitale Barrierefreiheit heißt: Websites müssen so gebaut sein, dass auch Menschen mit Behinderung sie nutzen können. Der Maßstab sind die **WCAG** mit den Stufen A, AA und AAA."
+  - "Für die vhs gilt weder die EU-Richtlinie noch das Barrierefreiheitsstärkungsgesetz direkt. Als kommunale Einrichtung in Hessen greift **Landesrecht**: § 14 HessBGG und die **BITV HE**. Gefordert ist Stufe **AA** — nicht die BITV 2.0 des Bundes, der häufigste Zitierfehler kommunaler Stellen."
+  - "**Pflicht auf AA:** Struktur (1.3.1), Seitentitel (2.4.2), Sprache von Textteilen (3.1.2). **Nicht Pflicht:** Abkürzungen erklärt (3.1.4) und Leseniveau der Zielgruppe (3.1.5), beides Stufe AAA. Nicht Teil der AA-Konformität heißt aber nicht belanglos: **§ 3 Abs. 1 BITV HE** verlangt eigenständig, dass Angebote verständlich sind."
 callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind optional.
 calloutsub: Ich argumentiere deshalb nicht mit einem drohenden Bußgeld, sondern mit dem Auftrag aus der Betriebssatzung.
 quellen: HessBGG, BITV HE 2019, WCAG 2.1, EN 301 549, Landesfachstelle Barrierefreie IT Hessen
@@ -378,10 +377,10 @@ bildprompt: Eine bestehende Struktur mit einer Luecke, ein passendes kleines Tei
 titel: Ein Durchlauf,
 akzent: an einem echten Text.
 klein: ja
-lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Der Prompt bestimmt die Zielgruppe selbst: liest Deutsch auf A1, strebt A2 an.
+lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Der Prompt bestimmt die Zielgruppe selbst: liest Deutsch auf A1.
 spalte1: EINGABE · ORIGINALTEXT
 punkte1:
-  - "Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF."
+  - "Eine Anmeldung erfolgt idealerweise über einen Termin bei der Sprachberatung DaF."
   - "Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich."
   - "Diesen können Sie hier ablegen."
   - "Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren."
@@ -389,8 +388,7 @@ spalte2: AUSGABE · BEFUNDE
 punkte2:
   - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
   - "EMPFEHLUNG · AMTSDEUTSCH: „idealerweise" statt „am besten"."
-  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung" stehen nicht auf der A1-Liste."
-  - "EMPFEHLUNG · NIVEAU: „Niveaustufe", „Teilstufen", „umfasst", „austauschen" ebenso."
+  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung", „Niveaustufe", „Teilstufen" fehlen auf der A1-Liste."
   - "EMPFEHLUNG · SATZ: 25 Wörter. Für diese Zielgruppe sind 15 die Grenze."
 callout: Derselbe Prompt meldet beim Englischkurs null Niveau-Befunde und hier sieben.
 quellen: eigene Erhebung, Kurs 4074-74, Portalabruf vom 28.07.2026

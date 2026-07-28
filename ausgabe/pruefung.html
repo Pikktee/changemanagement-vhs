@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Ueberlaufpruefung Folien</title>
+<style>
+ body{font:13px/1.5 -apple-system,Helvetica,sans-serif;padding:20px;background:#fff}
+ table{border-collapse:collapse;font-size:13px}
+ td,th{padding:3px 14px 3px 0;text-align:left;border-bottom:1px solid #ddd}
+ .ok{color:#128a3a} .bad{color:#c00;font-weight:700}
+ #buehne{position:absolute;left:-9999px;top:0}
+</style></head>
+<body>
+<h2>Ueberlaufpruefung der Folien</h2>
+<p id="stand">messe …</p>
+<table id="tab"><thead><tr><th>Folie</th><th>Unterkante Inhalt</th><th>Oberkante Fuss</th><th>Rest</th><th>Status</th></tr></thead><tbody></tbody></table>
+<div id="buehne"></div>
+<script>
+(async function(){
+  const buehne = document.getElementById('buehne');
+  const tbody  = document.querySelector('#tab tbody');
+  let schlecht = 0;
+  for (let i = 1; i <= 13; i++) {
+    const nr = String(i).padStart(2,'0');
+    const rahmen = document.createElement('iframe');
+    rahmen.style.width = '1280px';
+    rahmen.style.height = '720px';
+    rahmen.style.border = '0';
+    rahmen.src = 'folie-' + nr + '.html';
+    buehne.appendChild(rahmen);
+    await new Promise(r => rahmen.onload = r);
+    const d = rahmen.contentDocument;
+    const body = d.querySelector('.body');
+    // Titel- und Schlussfolie nutzen .panel und haben keinen .body
+    if (!body) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + nr + '</td><td colspan="3">Panel-Folie</td>' +
+                     '<td class="ok">ok</td>';
+      tbody.appendChild(tr);
+      rahmen.remove();
+      continue;
+    }
+    // Tiefste sichtbare Unterkante im Inhaltsbereich suchen
+    let unten = 0;
+    for (const el of body.querySelectorAll('*')) {
+      const r = el.getBoundingClientRect();
+      if (r.height > 0 && r.bottom > unten) unten = r.bottom;
+    }
+    // Der Fuss und die Quellenzeile begrenzen den Platz nach unten
+    const marke = d.querySelector('.quellen') || d.querySelector('.foot');
+    const grenze = marke ? marke.getBoundingClientRect().top : 720;
+    const rest = Math.round(grenze - unten);
+    const ok = rest >= 0;
+    if (!ok) schlecht++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + nr + '</td><td>' + Math.round(unten) +
+      '</td><td>' + Math.round(grenze) + '</td><td>' + rest +
+      '</td><td class="' + (ok ? 'ok' : 'bad') + '">' +
+      (ok ? 'ok' : 'LAEUFT UEBER') + '</td>';
+    tbody.appendChild(tr);
+    rahmen.remove();
+  }
+  document.getElementById('stand').textContent =
+    schlecht === 0 ? 'Alle Folien passen.' : schlecht + ' Folie(n) laufen ueber.';
+  document.title = 'FERTIG ' + schlecht;
+})();
+</script>
+</body></html>
