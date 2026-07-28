@@ -247,8 +247,9 @@ def t_punkte(f, seite_, gesamt):
             inner = e(p)
         items.append(f'<div class="pkt"><div class="bar"></div>'
                      f'<div class="ptxt">{inner}</div></div>')
+    eng = " eng" if len(items) >= 6 else ""
     return seite(f, seite_, gesamt,
-                 f'<div class="punkte">{"".join(items)}</div>{callout(f)}')
+                 f'<div class="punkte{eng}">{"".join(items)}</div>{callout(f)}')
 
 
 def t_zahlen(f, seite_, gesamt):
