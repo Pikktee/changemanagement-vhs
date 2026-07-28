@@ -482,7 +482,7 @@ bildprompt: Eine bestehende Struktur mit einer Luecke, ein passendes kleines Tei
 titel: Ein Durchlauf,
 akzent: an einem echten Text.
 klein: ja
-lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Zielgruppe liest Deutsch auf A2-Niveau.
+lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Der Prompt bestimmt die Zielgruppe selbst: liest Deutsch auf A1, strebt A2 an.
 spalte1: EINGABE · ORIGINALTEXT
 punkte1:
   - "Eine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF."
@@ -492,10 +492,10 @@ punkte1:
 spalte2: AUSGABE · BEFUNDE
 punkte2:
   - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
-  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung" stehen nicht im A2-Wortschatz."
   - "EMPFEHLUNG · AMTSDEUTSCH: „idealerweise" statt „am besten"."
-  - "EMPFEHLUNG · ABK: „DaF" wird nicht aufgelöst."
-  - "HINWEIS · BAUSTEIN: Passage steht wortgleich über weiteren Kursen, auch über A1."
+  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung" stehen nicht auf der A1-Liste."
+  - "EMPFEHLUNG · NIVEAU: „Niveaustufe", „Teilstufen", „umfasst", „austauschen" ebenso."
+  - "EMPFEHLUNG · SATZ: 25 Wörter. Für diese Zielgruppe sind 15 die Grenze."
 callout: Der Prüfschritt sitzt genau dort, wo auf Folie 4 die Lücke war.
 quellen: eigene Erhebung, Kurs 4074-74, Portalabruf vom 28.07.2026
 
@@ -508,15 +508,22 @@ Stufe A2. Rechts steht, was der Prompt daraus macht.
 Der erste Befund ist Pflicht: Der Link heißt schlicht „hier". Wer sich die
 Seite vorlesen lässt und von Link zu Link springt, hört nur „hier".
 
-Die nächsten drei sind Empfehlungen, und sie sind für diese Zielgruppe die
-eigentlich wichtigen. Selbsteinschätzung, Fehleinschätzung, Umbuchung. Diese
-Wörter stehen nicht im A2-Wortschatz. Sie stehen über einem Kurs, der A2 erst
-vermittelt.
+Die übrigen sind Empfehlungen, und sie sind für diese Zielgruppe die
+eigentlich wichtigen. Selbsteinschätzung, Fehleinschätzung, Umbuchung,
+Niveaustufe, Teilstufen. Keines dieser Wörter steht auf der A1-Liste, die der
+Prompt als Anker mitbekommt. Sie stehen über einem Kurs, den man mit A1
+beginnt.
 
-Der letzte Befund ist der ergiebigste. Diese Passage ist ein Textbaustein. Sie
-steht wortgleich über mehreren Kursen, auch über Kursen auf A1. Ein einziger
-Baustein, einmal überarbeitet, verbessert viele Texte gleichzeitig. Das ist
-mein Quick Win.
+Zwei Dinge, die ich hier offen sagen möchte. Erstens hat der Prompt selbst
+vermerkt, dass er weitere Wörter weggelassen hat, weil er auf zehn Befunde
+begrenzt ist. Er verschweigt die Kürzung also nicht. Zweitens schwankt die
+Zahl der Befunde zwischen zwei Läufen um ein bis zwei. Die Pflichtbefunde
+blieben in allen Läufen stabil.
+
+In mehreren Läufen hat der Prompt diese Passage zusätzlich als Textbaustein
+erkannt, wenn auch nicht in jedem. Auf den Baustein komme ich zurück, denn er
+ist mein Quick Win: Ich habe nachgezählt, er steht wortgleich über
+sechsunddreißig Kursen.
 
 Und damit ist die Lücke von Folie 4 geschlossen. Der Prüfschritt sitzt
 zwischen Einpflegen und Veröffentlichen. Er meldet, er ändert nicht. Die

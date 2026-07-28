@@ -383,6 +383,61 @@ def ehrlichkeitshinweis(inhalt, wortliste_vorhanden):
     return kopf + inhalt
 
 
+# Die Zuordnung Regelkuerzel zu Einstufung ist eine Tabelle, kein Urteil.
+# Sie steht auch im Prompt, aber das Modell hielt sich nicht zuverlaessig
+# daran: derselbe Text ergab einmal PFLICHT, einmal HINWEIS. Woran haengt, ob
+# ein Befund rechtlich gefordert oder eine Stilfrage ist, gehoert nicht in ein
+# Ermessen. BAUSTEIN und FREMDANWEISUNG sind Kennzeichnungen, keine Regeln;
+# sie stehen hier mit ihrer Einstufung, damit die Zeile vollstaendig bleibt.
+EINSTUFUNGEN = {
+    "STRUKTUR": "PFLICHT",
+    "LINKTEXT": "PFLICHT",
+    "SPRACHE": "PFLICHT",
+    "ABK": "EMPFEHLUNG",
+    "NIVEAU": "EMPFEHLUNG",
+    "SATZ": "EMPFEHLUNG",
+    "AMTSDEUTSCH": "EMPFEHLUNG",
+    "ANREDE": "HINWEIS",
+    "LEER": "HINWEIS",
+    "FREMDANWEISUNG": "HINWEIS",
+    "BAUSTEIN": "HINWEIS",
+}
+RANG = {"PFLICHT": 3, "EMPFEHLUNG": 2, "HINWEIS": 1}
+
+# [1] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH
+BEFUNDZEILE = re.compile(
+    r"^(\s*\[\d+\]\s+)(PFLICHT|EMPFEHLUNG|HINWEIS)(\s*[·.]\s*)(.+)$")
+
+
+def einstufung_normieren(inhalt):
+    """Setzt die Einstufung jeder Befundzeile aus der Tabelle.
+
+    Nach Regel 3 des Prompts gilt bei mehreren Kuerzeln in einer Zeile die
+    strengste Einstufung. Kuerzel, die die Tabelle nicht kennt, bleiben ohne
+    Wirkung; steht in einer Zeile kein bekanntes Kuerzel, bleibt die Zeile
+    unveraendert. Gibt (Text, Zahl der Korrekturen) zurueck.
+    """
+    korrekturen = 0
+    zeilen = []
+    for zeile in inhalt.split("\n"):
+        treffer = BEFUNDZEILE.match(zeile)
+        if not treffer:
+            zeilen.append(zeile)
+            continue
+        vorne, gesetzt, trenner, rest = treffer.groups()
+        kuerzel = [k.strip().upper() for k in re.split(r"[,\s]+", rest) if k.strip()]
+        bekannt = [EINSTUFUNGEN[k] for k in kuerzel if k in EINSTUFUNGEN]
+        if not bekannt:
+            zeilen.append(zeile)
+            continue
+        soll = max(bekannt, key=lambda e: RANG[e])
+        if soll != gesetzt:
+            korrekturen += 1
+            zeile = "%s%s%s%s" % (vorne, soll, trenner, rest)
+        zeilen.append(zeile)
+    return "\n".join(zeilen), korrekturen
+
+
 def eingabe_bauen(feld):
     return (
         "KURSTITEL:        %s\n"
@@ -514,6 +569,9 @@ class Handler(BaseHTTPRequestHandler):
                 break
             dauer = round(time.time() - beginn, 2)
             log("Antwort von %s nach %.1fs (Kurs %s)" % (modell, dauer, feld["nummer"] or "ohne Nummer"))
+            inhalt, korrekturen = einstufung_normieren(inhalt)
+            if korrekturen:
+                log("Einstufung korrigiert: %d Zeile(n)" % korrekturen)
             inhalt = ehrlichkeitshinweis(inhalt, p["wortlisteVorhanden"])
 
             eintrag = {
@@ -527,6 +585,7 @@ class Handler(BaseHTTPRequestHandler):
                 "promptZeichen": p["zeichen"],
                 "wortlisteVorhanden": p["wortlisteVorhanden"],
                 "wortanzahl": p["wortanzahl"],
+                "einstufungKorrigiert": korrekturen,
                 "dauerSekunden": dauer,
                 "eingabe": feld,
                 "benutzernachricht": benutzer_text,
@@ -544,6 +603,7 @@ class Handler(BaseHTTPRequestHandler):
                 "fassung": p["fassung"],
                 "wortlisteVorhanden": p["wortlisteVorhanden"],
                 "wortanzahl": p["wortanzahl"],
+                "einstufungKorrigiert": korrekturen,
                 "dauerSekunden": dauer,
                 "protokoll": name,
             })
