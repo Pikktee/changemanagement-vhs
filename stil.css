@@ -167,4 +167,4 @@ td.nein{ color:var(--warn); font-weight:700; }
 
 /* ---------- Quellenzeile ---------- */
 .quellen{ font-size:11px; color:var(--mut); line-height:1.45; margin-top:auto;
-          padding-top:10px; }
+          padding-top:16px; }
