@@ -1,0 +1,165 @@
+/* KLARTEXT — Foliensystem, Bauhaus/Swiss
+   Bühne fest 1280x720, gerendert mit device-scale-factor 2 */
+
+:root{
+  --brand:#124a53;
+  --brand-dk:#0e3b42;
+  --ink:#191917;
+  --mut:#6d6d67;
+  --paper:#f4f1ea;
+  --hair:#d3cec2;
+  --grey:#e7e2d5;
+  --lime:#6fd0c0;
+  --warn:#c4622d;
+  --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html,body{ width:1280px; height:720px; overflow:hidden; }
+
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+.stage{
+  width:1280px; height:720px;
+  padding:44px 64px 40px;
+  display:flex; flex-direction:column;
+  position:relative;
+}
+
+/* ---------- Kopfzeile ---------- */
+.head{ display:flex; align-items:center; gap:18px; }
+.mark{ display:flex; align-items:center; gap:8px; }
+.sq{ width:13px; height:13px; background:var(--brand); }
+.w{ font-size:13px; font-weight:700; letter-spacing:3px; color:var(--brand); }
+.sec{ margin-left:auto; font-size:11px; font-weight:700; letter-spacing:2.4px;
+      color:var(--mut); text-transform:uppercase; }
+.pg{ font-size:11px; font-weight:700; letter-spacing:1.6px; color:var(--mut);
+     min-width:52px; text-align:right; }
+.headrule{ height:3px; background:var(--brand); margin:9px 0 0; }
+
+/* ---------- Titel ---------- */
+h1{
+  font-size:54px; line-height:1.03; font-weight:700; letter-spacing:-1.4px;
+  margin:26px 0 0; max-width:1000px;
+}
+h1 .g{ color:var(--brand); }
+h1.klein{ font-size:44px; letter-spacing:-1px; }
+
+.lede{
+  font-size:17px; line-height:1.5; color:var(--mut);
+  max-width:820px; margin:14px 0 0;
+}
+
+.body{ flex:1; display:flex; flex-direction:column; justify-content:flex-start;
+       gap:22px; padding:26px 0 0; min-height:0; }
+
+/* ---------- Fußzeile ---------- */
+.foot{
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid var(--hair); padding-top:9px; margin-top:auto;
+  font-size:10.5px; letter-spacing:1.8px; text-transform:uppercase; color:var(--mut);
+  white-space:nowrap;
+}
+
+/* ---------- Typ: titel / schluss (Vollfläche) ---------- */
+.panel{
+  width:1280px; height:720px; background:var(--brand); color:#fff;
+  padding:60px 72px; display:flex; flex-direction:column; position:relative;
+}
+.panel .mark .sq{ background:var(--lime); }
+.panel .mark .w{ color:#fff; }
+.panel .rule{ height:4px; background:var(--lime); width:132px; margin:0 0 30px; }
+.panel h1{ color:#fff; font-size:74px; letter-spacing:-2.2px; line-height:0.99;
+           max-width:1010px; margin:0; }
+.panel h1 .g{ color:var(--lime); }
+.panel .sub{ font-size:20px; line-height:1.45; color:rgba(255,255,255,.82);
+             max-width:700px; margin:26px 0 0; }
+.panel .spacer{ flex:1; }
+.panel .pfoot{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  border-top:1px solid rgba(255,255,255,.26); padding-top:14px;
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.72); white-space:nowrap;
+}
+
+/* ---------- Typ: kapitel ---------- */
+.kap{ display:flex; align-items:center; gap:40px; flex:1; }
+.kapnum{ font-size:196px; font-weight:700; line-height:0.82; color:var(--brand);
+         letter-spacing:-8px; }
+.kaptxt h1{ margin:0; font-size:50px; }
+.kaptxt .lede{ margin-top:12px; }
+
+/* ---------- Typ: punkte ---------- */
+.punkte{ display:flex; flex-direction:column; gap:15px; }
+.pkt{ display:flex; gap:16px; align-items:flex-start; }
+.pkt .bar{ width:5px; align-self:stretch; background:var(--brand); flex:none;
+           min-height:26px; }
+.pkt .ptxt{ font-size:20px; line-height:1.42; max-width:1010px; }
+.pkt .ptxt b{ color:var(--brand); font-weight:700; }
+.pkt .psub{ display:block; font-size:15px; color:var(--mut); margin-top:3px;
+            line-height:1.4; }
+
+/* ---------- Typ: zahlen ---------- */
+.zahlen{ display:flex; gap:0; align-items:stretch; }
+.z{ flex:1; padding:0 28px; border-left:1px solid var(--hair); }
+.z:first-child{ padding-left:0; border-left:none; }
+.znum{ font-size:88px; font-weight:700; line-height:0.9; color:var(--brand);
+       letter-spacing:-3.4px; }
+.znum.warn{ color:var(--warn); }
+.zlab{ font-size:15px; line-height:1.4; color:var(--mut); margin-top:12px;
+       max-width:250px; }
+
+/* ---------- Typ: zweispalt ---------- */
+.spalten{ display:flex; gap:0; flex:1; align-items:stretch; }
+.sp{ flex:1; padding:0 30px; border-left:1px solid var(--hair); }
+.sp:first-child{ padding-left:0; border-left:none; }
+.sp .spkopf{ font-size:11px; font-weight:700; letter-spacing:2.2px;
+             text-transform:uppercase; color:#fff; background:var(--brand);
+             display:inline-block; padding:5px 11px; margin-bottom:16px; }
+.sp .spkopf.alt{ background:var(--ink); }
+.sp ul{ list-style:none; }
+.sp li{ font-size:16.5px; line-height:1.42; margin-bottom:11px; padding-left:16px;
+        position:relative; }
+.sp li::before{ content:""; position:absolute; left:0; top:9px; width:7px;
+                height:2px; background:var(--brand); }
+
+/* ---------- Typ: tabelle ---------- */
+table{ width:100%; border-collapse:collapse; }
+th{ font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mut); text-align:left; padding:0 14px 8px 0;
+    border-bottom:2px solid var(--brand); }
+th:last-child, td:last-child{ padding-right:0; }
+td{ font-size:16.5px; line-height:1.4; padding:11px 14px 11px 0;
+    border-bottom:1px solid var(--hair); vertical-align:top; }
+td.num{ font-weight:700; color:var(--brand); white-space:nowrap; }
+td.ja{ color:var(--brand); font-weight:700; }
+td.nein{ color:var(--warn); font-weight:700; }
+
+/* ---------- Typ: zitat ---------- */
+.zitat{ border-left:6px solid var(--brand); padding:6px 0 6px 26px; }
+.zitat .q{ font-size:31px; line-height:1.32; font-weight:700; letter-spacing:-0.7px;
+           max-width:1000px; }
+.zitat .quelle{ font-size:14px; color:var(--mut); margin-top:14px;
+                letter-spacing:1.2px; text-transform:uppercase; }
+
+/* ---------- Callout-Balken ---------- */
+.callout{ background:var(--brand); color:#fff; padding:16px 22px;
+          font-size:19px; line-height:1.4; font-weight:700; }
+.callout.grau{ background:var(--grey); color:var(--ink); font-weight:400; }
+.callout .kl{ display:block; font-size:14px; font-weight:400;
+              color:rgba(255,255,255,.78); margin-top:5px; }
+
+/* ---------- Bild ---------- */
+.photo{ position:relative; overflow:hidden; background:var(--grey); }
+.photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.bu{ font-size:12.5px; color:var(--mut); margin-top:8px; line-height:1.4; }
+
+/* ---------- Quellenzeile ---------- */
+.quellen{ font-size:11px; color:var(--mut); line-height:1.45; margin-top:auto;
+          padding-top:10px; }
