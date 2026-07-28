@@ -108,10 +108,15 @@ später nachvollziehbar bleibt, wie ein Bild zustande kam.
 Fehlt eine Bilddatei, meldet der Build das als `! Bild fehlt: …` und baut die
 Folie trotzdem, nur ohne Bild. Nichts geht kaputt.
 
-Alle Bilder sind flach-geometrisch im Bauhaus-Stil gehalten, in den vier Farben
-Petrol, Papier, Mint und Orange, und enthalten bewusst **keine Schrift**. In
-einer Präsentation über Textqualität wären erfundene Buchstaben im Bild ein
-Eigentor.
+Alle Bilder sind flach-geometrisch im Bauhaus-Stil gehalten und enthalten
+bewusst **keine Schrift**. In einer Präsentation über Textqualität wären
+erfundene Buchstaben im Bild ein Eigentor.
+
+Erzeugt wurden sie in den vier Farben Petrol, Papier, Mint und Orange. Die
+Originale liegen in `bilder/original-petrol/`; was in `bilder/` liegt, hat
+`bilder/umfaerben.py` daraus auf die Palette aus `DESIGN.md` abgebildet. Wer
+die Palette ändert, ändert die Zieltabelle im Skript mit und lässt es erneut
+laufen — es färbt immer aus dem Original.
 
 ---
 
