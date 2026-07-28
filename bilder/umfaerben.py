@@ -31,15 +31,21 @@ ORIGINAL = HIER / "original-petrol"
 # alter Anker -> neuer Wert. Die Anker sind die Farben, aus denen die Bilder
 # erzeugt wurden, die Ziele die Rollen aus stil.css.
 ABBILDUNG = [
-    ("#F4F1EA", "#F7F5F0"),  # Papier
-    ("#E7E2D5", "#E8E5DE"),  # ruhige Flaeche
+    ("#F4F1EA", "#F5F6F8"),  # Papier      -> hellster Neutralton
+    ("#E7E2D5", "#EEF0F3"),  # ruhige Flaeche
     ("#124A53", "#14459E"),  # Petrol      -> Marke
     ("#0E3B42", "#0E3378"),  # dunkles Petrol -> Marke dunkel
     ("#6FD0C0", "#B9DFFA"),  # Mint        -> Akzent auf Marke
-    ("#C4622D", "#8F1829"),  # Orange      -> Befund
-    ("#191917", "#15181C"),  # Tinte
+    ("#C4622D", "#A4162B"),  # Orange      -> Pflicht, das einzige Rot
+    ("#191917", "#14171C"),  # Tinte
     ("#FFFFFF", "#FFFFFF"),  # Weiss bleibt
 ]
+
+# Warum das alte Papier auf --grund geht und nicht auf --papier: --papier ist
+# jetzt reines Weiss, und Weiss ist bereits der letzte Anker. Beide Anker auf
+# denselben Wert zu legen presst die hellen Verlaeufe gegen die Obergrenze und
+# erzeugt genau die Stufen, die dieses Skript vermeiden soll. --grund liegt
+# eine Spur darunter, laesst den Lichtern Luft und gehoert zur Palette.
 
 
 def rgb(wert):

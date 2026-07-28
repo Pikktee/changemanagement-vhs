@@ -31,8 +31,8 @@ mitgeliefert werden.
 
 | Rolle | Familie | Schnitte |
 |---|---|---|
-| Alles außer Kennungen | Atkinson Hyperlegible Next | 400, 600, 700, dazu 400 und 700 kursiv |
-| Kursnummern, Prüfsummen, Messwerte, Code | IBM Plex Mono | 400, 600 |
+| Alles, was gelesen oder geschrieben wird | Atkinson Hyperlegible Next | 400, 600, 700, dazu 400 und 700 kursiv |
+| Angezeigte Messwerte, Prüfsummen, Zähler und wörtlich wiedergegebener Maschinentext | IBM Plex Mono | 400, 600 |
 
 **Warum Atkinson Hyperlegible Next.** Entworfen im Auftrag des Braille
 Institute mit dem erklärten Ziel, Buchstaben auch dann unterscheidbar zu
@@ -45,10 +45,25 @@ Argument eine Ebene tiefer.
 verwechseln — bei Kursnummern wie `4074-74` der eigentliche Zweck. Sie fällt
 im Fließtext auf. Das ist der Preis und er ist bewusst bezahlt.
 
-**Warum IBM Plex Mono daneben.** Kursnummern, Prüfsummen und Messwerte sind
-keine Wörter. Sie stehen untereinander und werden verglichen, nicht gelesen.
-Eine Schreibmaschinenschrift markiert diesen Unterschied und hält die Ziffern
-auf gleicher Breite.
+**Warum IBM Plex Mono daneben.** Prüfsummen, Messwerte und Zähler sind keine
+Wörter. Sie stehen untereinander und werden verglichen, nicht gelesen. Eine
+Schreibmaschinenschrift markiert diesen Unterschied und hält die Ziffern auf
+gleicher Breite.
+
+**Mono ist eine Anzeigeschrift und keine Eingabeschrift.** Eingabefelder
+laufen immer in Atkinson — auch das Feld, in dem der System-Prompt steht. Der
+Prompt ist deutscher Fließtext, kein Quelltext; er wird geschrieben, nicht
+verglichen.
+
+**Kennungen sind keine Messwerte.** Die Kursnummer stand einmal in Mono neben
+dem Niveau in Atkinson. Beides sind Kennungen; der Schriftwechsel markierte
+einen Unterschied, den es nicht gibt. Er fiel auf, ohne zu helfen. Kursnummern
+laufen deshalb im Fließtext, in Listen und in Feldern in Atkinson mit — die
+geschlitzte Null hält `4074-74` ohnehin eindeutig.
+
+Mono bleibt damit an drei Stellen: gemessene Zahlen (`.parwert`, Zeichen- und
+Trefferzähler), Prüfsummen — und wörtlich wiedergegebener Maschinentext, also
+die Rohantwort des Modells im Werkzeug und die Prompt-Auszüge im Dokument.
 
 ### Einbindung
 
@@ -144,23 +159,58 @@ Dann `ausgabe/pruefung.html` und `ausgabe-dokument/pruefung.html` öffnen.
 
 ## Farbe
 
-Die Namen bezeichnen **Rollen, keine Farben**. `--befund` ist rot, weil
+Die Namen bezeichnen **Rollen, keine Farben**. `--pflicht` ist rot, weil
 Beanstandungen rot sind — nicht umgekehrt. Wer eine Rolle braucht, die es
 nicht gibt, legt sie hier an, statt einen Wert danebenzuschreiben.
 
 | Rolle | Wert | Verwendung |
 |---|---|---|
-| `--papier` | `#F7F5F0` | Grundfläche |
-| `--flaeche` | `#E8E5DE` | ruhige Füllung: Quadranten, Befundkarte, Bildkasten |
-| `--linie` | `#D2CEC6` | dekorative Trennstriche, **nie Text, nie Bedienelement** |
-| `--rahmen` | `#8C867E` | Rahmen von Eingabefeldern und Knöpfen |
-| `--tinte` | `#15181C` | Fließtext |
-| `--leise` | `#42464C` | Nebentext, Beschriftungen, Quellenzeile |
+| `--papier` | `#FFFFFF` | Folienfläche, Karten und Felder im Werkzeug |
+| `--grund` | `#F5F6F8` | Seitengrund hinter den Karten, **nur im Werkzeug** |
+| `--flaeche` | `#EEF0F3` | ruhige Füllung: Quadranten, Zeitleiste, Bildkasten |
+| `--linie` | `#E4E6EB` | dekorative Trennstriche, **nie Text, nie Bedienelement** |
+| `--rahmen` | `#848B96` | Rahmen von Eingabefeldern und Knöpfen |
+| `--tinte` | `#14171C` | Fließtext |
+| `--leise` | `#4C535E` | Nebentext, Beschriftungen, Quellenzeile |
 | `--marke` | `#14459E` | Markenflächen, Auszeichnung, Aktion |
 | `--marke-dunkel` | `#0E3378` | gedrückter Knopf, Text auf `--auf-marke` |
 | `--auf-marke` | `#B9DFFA` | einzige Akzentfarbe **auf** Markenfläche |
-| `--befund` | `#8F1829` | Beanstandung |
+| `--pflicht` | `#A4162B` | Befund der Stufe PFLICHT |
+| `--empfehlung` | `#6E4600` | Befund der Stufe EMPFEHLUNG |
+| `--hinweis` | `#4C535E` | Befund der Stufe HINWEIS |
 | `--geprueft` | `#155739` | ohne Beanstandung |
+
+### Warum der Grund neutral ist und nicht creme
+
+Der warme Grund `#F7F5F0` sah auf Papier gut aus und im Werkzeug nach Papier,
+das keines ist. Ein Prüfwerkzeug, das neben dem Kursportal im Browser steht,
+soll nicht so tun, als läge dort ein Bogen. Entscheidend war aber, dass die
+Entscheidung **für alle drei Ausgaben zugleich** fällt: Im Vortrag folgt der
+Vorführung des Werkzeugs unmittelbar die nächste Folie. Zwei Grundtöne in
+derselben Viertelstunde fallen auf und wirken wie ein Versehen.
+
+Die Folie ist damit weiß. Das Werkzeug setzt seine Karten und Felder in Weiß
+auf `--grund` — die einzige Stelle, an der zwei helle Töne gebraucht werden,
+weil dort Flächen übereinanderliegen. Eine Folie hat nichts, worauf sie liegen
+könnte, und braucht den zweiten Ton nicht.
+
+### Drei Stufen statt einer Befundfarbe
+
+Der Prompt stuft jeden Befund als PFLICHT, EMPFEHLUNG oder HINWEIS ein; die
+Zuordnung trifft die Regeltabelle in `tool/server.py`, nicht das Modell. Eine
+einzige Befundfarbe warf alle drei in denselben Topf und zwang die Oberfläche,
+die Stufe allein über das Wort zu tragen.
+
+`--hinweis` trägt **absichtlich denselben Wert wie `--leise`**. Die schwächste
+Stufe ist kein Signal, sondern eine Randbemerkung; sie bekommt die Farbe des
+Nebentexts, nicht eine dritte Warnfarbe. Doppelt gepflegt wird der Wert
+trotzdem nicht — es sind zwei Rollen, die derselbe Ton bedient, und das Skript
+rechnet beide nach.
+
+`--pflicht` ist das **einzige Rot im System**. Fehlermeldungen, der Warnbalken
+bei abweichendem Prompt und der Vorbehalt bei fehlender Wortliste laufen
+deshalb ebenfalls darauf. Das ist bewusst so entschieden: Ein zweites Rot
+daneben wäre nicht unterscheidbar, aber es behauptete einen Unterschied.
 
 ### Warum `--auf-marke` getrennt geführt wird
 
@@ -181,24 +231,43 @@ Entwurf tatsächlich vorkommt:
 
 | Vordergrund | Grund | Ist | Soll |
 |---|---|---:|---:|
-| `--tinte` | `--papier` | 16,34:1 | 7,0 |
-| `--leise` | `--papier` | 8,71:1 | 7,0 |
-| `--marke` | `--papier` | 8,12:1 | 7,0 |
-| `--befund` | `--papier` | 8,27:1 | 7,0 |
-| `--geprueft` | `--papier` | 7,85:1 | 7,0 |
-| `--tinte` | `--flaeche` | 14,16:1 | 7,0 |
-| `--leise` | `--flaeche` | 7,55:1 | 7,0 |
-| `--befund` | `--flaeche` | 7,16:1 | 7,0 |
+| `--tinte` | `--papier` | 17,96:1 | 7,0 |
+| `--leise` | `--papier` | 7,76:1 | 7,0 |
+| `--marke` | `--papier` | 8,84:1 | 7,0 |
+| `--pflicht` | `--papier` | 7,70:1 | 7,0 |
+| `--empfehlung` | `--papier` | 8,27:1 | 7,0 |
+| `--hinweis` | `--papier` | 7,76:1 | 7,0 |
+| `--geprueft` | `--papier` | 8,56:1 | 7,0 |
+| `--tinte` | `--grund` | 16,61:1 | 7,0 |
+| `--leise` | `--grund` | 7,18:1 | 7,0 |
+| `--marke` | `--grund` | 8,18:1 | 7,0 |
+| `--pflicht` | `--grund` | 7,12:1 | 7,0 |
+| `--empfehlung` | `--grund` | 7,65:1 | 7,0 |
+| `--hinweis` | `--grund` | 7,18:1 | 7,0 |
+| `--geprueft` | `--grund` | 7,91:1 | 7,0 |
+| `--tinte` | `--flaeche` | 15,73:1 | 7,0 |
+| `--marke` | `--flaeche` | 7,75:1 | 7,0 |
+| `--marke-dunkel` | `--flaeche` | 10,43:1 | 7,0 |
 | Weiß | `--marke` | 8,84:1 | 7,0 |
 | Weiß | `--marke-dunkel` | 11,91:1 | 7,0 |
-| Weiß | `--befund` | 9,01:1 | 7,0 |
+| Weiß | `--pflicht` | 7,70:1 | 7,0 |
+| Weiß | `--empfehlung` | 8,27:1 | 7,0 |
+| Weiß | `--hinweis` | 7,76:1 | 7,0 |
 | Weiß | `--geprueft` | 8,56:1 | 7,0 |
 | `--auf-marke` | `--marke` | 6,32:1 | 4,5 |
 | `--marke-dunkel` | `--auf-marke` | 8,51:1 | 7,0 |
-| `--rahmen` | `--papier` | 3,31:1 | 3,0 |
+| `--tinte` | `--auf-marke` | 12,83:1 | 7,0 |
+| `--rahmen` | `--papier` | 3,43:1 | 3,0 |
+| `--rahmen` | `--grund` | 3,18:1 | 3,0 |
+| `--rahmen` | `--flaeche` | 3,01:1 | 3,0 |
 
 7,0 ist AAA für Fließtext, 4,5 ist AAA für großen Text (ab 24px, fett ab
 18,66px), 3,0 ist die Anforderung an Bedienelemente aus WCAG 1.4.11.
+
+**`--rahmen` auf `--flaeche` hält 3,01:1.** Das ist kein Spielraum, sondern
+der Rand. Wer an `--rahmen` oder `--flaeche` auch nur eine Stufe dreht, reißt
+dieses Paar — deshalb steht es in der Liste, obwohl derzeit kein
+Bedienelement auf einer Füllfläche sitzt.
 
 Das Skript prüft zusätzlich, ob `dokument.css` und `tool/index.html`
 dieselben Werte führen. Driften sie auseinander, sieht man das sonst erst im
@@ -218,22 +287,40 @@ Tabellen bleibt deshalb das führende `+` beziehungsweise `!` vor dem Text
 stehen; die Einfärbung kommt hinzu, sie ersetzt nichts. Wer eine neue
 Auszeichnung einführt, gibt ihr ein Zeichen, ein Wort oder eine Form.
 
-**`--linie` ist nie ein Bedienelement.** Der Wert hält 1,44:1 und ist für
-Tabellenstriche gedacht, die keine Information tragen. Alles, was man
-anklicken oder beschreiben kann, bekommt `--rahmen`.
+**`--linie` ist nie ein Bedienelement und nie Text.** Der Wert hält 1,25:1 und
+ist für Striche gedacht, die keine Information tragen. Alles, was man
+anklicken oder beschreiben kann, bekommt `--rahmen`; alles, was man lesen
+soll, mindestens `--leise`.
+
+**Auf `--flaeche` steht `--tinte`.** Solange das Papier creme war, hielt
+`--leise` dort 7,55:1. Auf dem neutralen System sind es 6,80:1, und damit ist
+die Füllfläche für Nebentext verbraucht. Sie trägt weiterhin `--tinte`,
+`--marke` und `--marke-dunkel` — Beschriftungen in `--leise` gehören auf
+`--papier` oder `--grund`. Das betraf drei Stellen im Werkzeug: den Hinweis
+unter der Kurswahl, die Merkmalsplaketten in der Trefferliste und die
+Schwebefläche des kleinen Knopfes.
 
 **Auf Markenfläche gilt Weiß oder `--auf-marke`, sonst nichts.** Keine
 Signalfarbe auf Blau.
 
 **Keine neuen Grautöne.** Es gibt `--linie`, `--rahmen`, `--leise`,
-`--flaeche`. Wer einen fünften braucht, braucht in Wirklichkeit einen der
-vier.
+`--flaeche` und `--grund`. Der fünfte kam mit dem weißen Papier hinzu und ist
+begründet: Karten brauchen etwas, worauf sie liegen. Wer einen sechsten
+braucht, braucht in Wirklichkeit einen der fünf.
 
 **Die Bilder gehören zur Palette.** `bilder/*.jpg` sind flach-geometrisch und
 auf genau diese Farben abgebildet. Ein neues Bild in anderen Farben bricht
 den Foliensatz sichtbar. `bilder/umfaerben.py` bildet von der alten
 Petrol-Palette ab und legt die Originale in `bilder/original-petrol/`; das
-Skript färbt immer aus dem Original, nie aus dem Ergebnis.
+Skript färbt immer aus dem Original, nie aus dem Ergebnis. Ein zweiter Lauf
+ist deshalb gefahrlos, und genau den brauchte der Wechsel auf die neutrale
+Palette.
+
+Das alte Bildpapier `#F4F1EA` geht dabei auf `--grund` und **nicht** auf
+`--papier`. Weiß ist bereits der letzte Anker der Tabelle; beide Anker auf
+denselben Wert zu legen presst die hellen Verläufe gegen die Obergrenze und
+erzeugt sichtbare Stufen — dieselben, die das Skript mit seiner
+Helligkeitsverschiebung gerade vermeidet.
 
 **Farbwerte stehen an einer Stelle.** `stil.css` ist die Quelle,
 `pruefe-design.py` liest von dort. Deckkraftvarianten bekommen eine eigene

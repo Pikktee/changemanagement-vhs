@@ -9,10 +9,12 @@
 @import url('schriften/schriften.css');
 
 :root{
-  --papier:#F7F5F0; --flaeche:#E8E5DE; --linie:#D2CEC6; --rahmen:#8C867E;
-  --tinte:#15181C; --leise:#42464C;
+  --papier:#FFFFFF; --grund:#F5F6F8; --flaeche:#EEF0F3; --linie:#E4E6EB;
+  --rahmen:#848B96;
+  --tinte:#14171C; --leise:#4C535E;
   --marke:#14459E; --marke-dunkel:#0E3378; --auf-marke:#B9DFFA;
-  --befund:#8F1829; --geprueft:#155739;
+  --pflicht:#A4162B; --empfehlung:#6E4600; --hinweis:#4C535E;
+  --geprueft:#155739;
   --auf-marke-50:rgba(185,223,250,.5);
   --schrift:"Atkinson Hyperlegible Next","Helvetica Neue",Arial,sans-serif;
   --schrift-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
@@ -22,7 +24,10 @@
 
 body{
   font-family:var(--schrift);
-  background:#fff;
+  /* Der Seitengrund liegt hinter .seite und wird nie mitgeschossen: das
+     Fenster ist genau so gross wie eine Seite. Er trennt im Vorschau-HTML
+     die Blaetter voneinander, seit .seite selbst weiss ist. */
+  background:var(--grund);
   color:var(--tinte);
   -webkit-font-smoothing:antialiased;
 }
@@ -93,7 +98,10 @@ code{
 
 pre{
   font-family:var(--schrift-mono); font-size:9.4px; line-height:1.5;
-  background:#fff; border-left:3px solid var(--marke);
+  /* Solange die Seite creme war, hob sich der weisse Block von selbst ab.
+     Auf weissem Papier braucht der gezeigte Ein- und Ausgabetext eine
+     eigene Flaeche, sonst traegt ihn nur noch der Balken links. */
+  background:var(--grund); border-left:3px solid var(--marke);
   padding:11px 14px; margin:0 0 11px;
   white-space:pre-wrap; word-break:break-word;
 }

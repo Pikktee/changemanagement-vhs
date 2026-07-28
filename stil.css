@@ -11,16 +11,22 @@
 :root{
   /* Rollen, keine Farbnamen. Alle Werte halten WCAG AAA (7:1) gegen jede
      Fläche, auf der sie vorkommen — nachgewiesen in DESIGN.md. */
-  --papier:#F7F5F0;        /* Grundfläche der Folie */
-  --flaeche:#E8E5DE;       /* ruhige Füllfläche, Quadranten, Bildkasten */
-  --linie:#D2CEC6;         /* dekorative Trennlinien, nie Text */
-  --rahmen:#8C867E;        /* Rahmen von Bedienelementen, 3:1 nach 1.4.11 */
-  --tinte:#15181C;         /* Fließtext */
-  --leise:#42464C;         /* Nebentext, Beschriftungen, Quellenzeile */
+  --papier:#FFFFFF;        /* Grundfläche der Folie, Karten im Werkzeug */
+  --grund:#F5F6F8;         /* Seitengrund hinter den Karten, nur im Werkzeug */
+  --flaeche:#EEF0F3;       /* ruhige Füllfläche, Quadranten, Bildkasten */
+  --linie:#E4E6EB;         /* dekorative Trennlinien, nie Text */
+  --rahmen:#848B96;        /* Rahmen von Bedienelementen, 3:1 nach 1.4.11 */
+  --tinte:#14171C;         /* Fließtext */
+  --leise:#4C535E;         /* Nebentext, Beschriftungen, Quellenzeile */
   --marke:#14459E;         /* Markenblau: Flächen, Auszeichnung, Aktion */
   --marke-dunkel:#0E3378;  /* Tiefe, Text auf --auf-marke */
   --auf-marke:#B9DFFA;     /* einzige Akzentfarbe AUF Markenfläche */
-  --befund:#8F1829;        /* Beanstandung */
+  /* Die drei Stufen, in die der Prompt einordnet, dazu der Freispruch.
+     --hinweis trägt bewusst denselben Wert wie --leise: die schwächste
+     Stufe ist kein Signal. */
+  --pflicht:#A4162B;       /* Beanstandung Stufe PFLICHT, einziges Rot */
+  --empfehlung:#6E4600;    /* Stufe EMPFEHLUNG */
+  --hinweis:#4C535E;       /* Stufe HINWEIS */
   --geprueft:#155739;      /* ohne Beanstandung */
 
   /* Der Verlauf auf der Titelfolie braucht die Marke mit Deckkraft. Als
@@ -134,7 +140,7 @@ h1.klein{ font-size:41px; letter-spacing:-0.6px; }
        height:84px; display:flex; align-items:flex-end; }
 .znum.lang{ font-size:59.5px; letter-spacing:-1.4px; }
 .znum.sehrlang{ font-size:44.5px; letter-spacing:-0.5px; }
-.znum.warn{ color:var(--befund); }
+.znum.warn{ color:var(--pflicht); }
 .zlab{ font-size:14px; line-height:1.4; color:var(--leise); margin-top:12px;
        max-width:250px; }
 
@@ -163,7 +169,7 @@ td{ font-size:15.5px; line-height:1.4; padding:11px 14px 11px 0;
 td.num{ font-weight:700; color:var(--marke); white-space:nowrap;
         font-variant-numeric:tabular-nums; }
 td.ja{ color:var(--geprueft); font-weight:700; }
-td.nein{ color:var(--befund); font-weight:700; }
+td.nein{ color:var(--pflicht); font-weight:700; }
 
 /* ---------- Typ: zitat ---------- */
 .zitat{ border-left:6px solid var(--marke); padding:6px 0 6px 26px; }

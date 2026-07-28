@@ -25,22 +25,42 @@ WEITERE = [WURZEL / "dokument.css", WURZEL / "tool" / "index.html"]
 #   7.0  AAA fuer Fliesstext
 #   4.5  AAA fuer grossen Text (ab 24px, oder ab 18.66px fett)
 #   3.0  Rahmen und Bedienelemente, WCAG 1.4.11
+#
+# Drei Gruende dienen als Grund: --papier (weiss, Folie und Karte), --grund
+# (Seitengrund des Werkzeugs) und --flaeche (ruhige Fuellung). Auf --flaeche
+# steht nur noch --tinte und die Marke: seit --papier weiss ist, haelt
+# --leise dort 6.80:1 und damit kein AAA mehr. Das ist eine Regel in
+# DESIGN.md, kein weggelassenes Paar.
 PAARE = [
-    ("tinte", "papier", 7.0, "Fliesstext auf der Folie"),
+    ("tinte", "papier", 7.0, "Fliesstext auf Folie und Karte"),
     ("leise", "papier", 7.0, "Nebentext, Beschriftungen, Quellenzeile"),
     ("marke", "papier", 7.0, "Auszeichnung im Text, Kennzahlen"),
-    ("befund", "papier", 7.0, "Beanstandung im Text"),
+    ("pflicht", "papier", 7.0, "Befund der Stufe PFLICHT, Fehlertext"),
+    ("empfehlung", "papier", 7.0, "Befund der Stufe EMPFEHLUNG"),
+    ("hinweis", "papier", 7.0, "Befund der Stufe HINWEIS"),
     ("geprueft", "papier", 7.0, "Bestaetigung im Text"),
+    ("tinte", "grund", 7.0, "Fliesstext auf dem Seitengrund"),
+    ("leise", "grund", 7.0, "Beschriftung auf dem Seitengrund"),
+    ("marke", "grund", 7.0, "Aktion auf dem Seitengrund"),
+    ("pflicht", "grund", 7.0, "Abweichungsknopf, Warnton auf Seitengrund"),
+    ("empfehlung", "grund", 7.0, "Stufe EMPFEHLUNG auf Seitengrund"),
+    ("hinweis", "grund", 7.0, "Stufe HINWEIS auf Seitengrund"),
+    ("geprueft", "grund", 7.0, "Bestaetigung auf Seitengrund"),
     ("tinte", "flaeche", 7.0, "Text auf ruhiger Fuellflaeche"),
-    ("leise", "flaeche", 7.0, "Beschriftung auf Fuellflaeche"),
-    ("befund", "flaeche", 7.0, "Befundtext auf der Befundkarte"),
+    ("marke", "flaeche", 7.0, "Quadrantenkopf der Stakeholder-Matrix"),
+    ("marke-dunkel", "flaeche", 7.0, "leiser Knopf, gedrueckt"),
     ("weiss", "marke", 7.0, "Text auf Markenflaeche, Callout, Knopf"),
     ("weiss", "marke-dunkel", 7.0, "Text auf gedruecktem Knopf"),
-    ("weiss", "befund", 7.0, "Stufenmarke Beanstandung"),
+    ("weiss", "pflicht", 7.0, "Stufenmarke PFLICHT, Warnbalken"),
+    ("weiss", "empfehlung", 7.0, "Stufenmarke EMPFEHLUNG"),
+    ("weiss", "hinweis", 7.0, "Stufenmarke HINWEIS"),
     ("weiss", "geprueft", 7.0, "Stufenmarke ohne Beanstandung"),
     ("auf-marke", "marke", 4.5, "Titelakzent auf Markenflaeche, nur gross"),
     ("marke-dunkel", "auf-marke", 7.0, "Text auf hellblauer Flaeche"),
+    ("tinte", "auf-marke", 7.0, "Suchtreffer, hellblau unterlegt"),
     ("rahmen", "papier", 3.0, "Rahmen von Bedienelementen, WCAG 1.4.11"),
+    ("rahmen", "grund", 3.0, "Rahmen auf dem Seitengrund, WCAG 1.4.11"),
+    ("rahmen", "flaeche", 3.0, "Rahmen auf Fuellflaeche, WCAG 1.4.11"),
 ]
 
 ZUSATZ = {"weiss": "#FFFFFF"}

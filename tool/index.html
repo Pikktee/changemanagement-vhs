@@ -11,16 +11,19 @@
 @import url('/schriften/schriften.css');
 
 :root{
-  --papier:#F7F5F0;        /* Grundfläche */
-  --flaeche:#E8E5DE;       /* Befundkarte, ruhige Füllung */
-  --linie:#D2CEC6;         /* dekorative Trennlinien, nie Text */
-  --rahmen:#8C867E;        /* Rahmen von Bedienelementen, 3:1 */
-  --tinte:#15181C;         /* Fließtext */
-  --leise:#42464C;         /* Beschriftungen, Hinweise */
+  --papier:#FFFFFF;        /* Karten, Felder, Modalfläche */
+  --grund:#F5F6F8;         /* Seitengrund hinter den Karten */
+  --flaeche:#EEF0F3;       /* ruhige Füllung, trägt nur --tinte */
+  --linie:#E4E6EB;         /* dekorative Trennlinien, nie Text */
+  --rahmen:#848B96;        /* Rahmen von Bedienelementen, 3:1 */
+  --tinte:#14171C;         /* Fließtext */
+  --leise:#4C535E;         /* Beschriftungen, Hinweise */
   --marke:#14459E;         /* Aktion, Kopfleiste, Zähler */
   --marke-dunkel:#0E3378;  /* gedrückter Knopf */
   --auf-marke:#B9DFFA;     /* Akzent auf Markenfläche */
-  --befund:#8F1829;        /* Beanstandung */
+  --pflicht:#A4162B;       /* Stufe PFLICHT; einziges Rot, daher auch Fehler */
+  --empfehlung:#6E4600;    /* Stufe EMPFEHLUNG */
+  --hinweis:#4C535E;       /* Stufe HINWEIS */
   --geprueft:#155739;      /* ohne Beanstandung */
   --schrift:"Atkinson Hyperlegible Next","Helvetica Neue",Arial,sans-serif;
   --schrift-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
@@ -28,7 +31,9 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 body{
   font-family:var(--schrift);
-  background:var(--papier);
+  /* Der Seitengrund ist nicht weiss, damit Felder, Karten und Modale sich
+     als Flaeche davon abheben, ohne dass jede einen Rahmen braucht. */
+  background:var(--grund);
   color:var(--tinte);
   -webkit-font-smoothing:antialiased;
   display:flex; flex-direction:column;
@@ -53,15 +58,15 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
   padding:8px 13px; font-size:11px; font-weight:700; letter-spacing:1.7px; text-transform:uppercase;
   display:inline-flex; align-items:center; gap:8px;
 }
-.knopf-klein:hover{ background:var(--flaeche); border-color:var(--marke); }
-.knopf-klein .punkt{ width:7px; height:7px; background:var(--befund); display:none; flex:none; }
-.knopf-klein.abweichend{ border-color:var(--befund); color:var(--befund); }
+.knopf-klein:hover{ background:var(--grund); border-color:var(--marke); }
+.knopf-klein .punkt{ width:7px; height:7px; background:var(--pflicht); display:none; flex:none; }
+.knopf-klein.abweichend{ border-color:var(--pflicht); color:var(--pflicht); }
 .knopf-klein.abweichend .punkt{ display:block; }
 
 /* ---------- Warnbalken ---------- */
 .balken{ display:none; padding:9px 30px; font-size:12.5px; letter-spacing:.4px; flex:none; }
 .balken.an{ display:block; }
-.balken.warn{ background:var(--befund); color:#fff; font-weight:700; }
+.balken.warn{ background:var(--pflicht); color:#fff; font-weight:700; }
 .balken.fehl{ background:var(--tinte); color:#fff; font-weight:700; }
 .balken b{ letter-spacing:1.4px; text-transform:uppercase; font-size:11px; margin-right:8px; }
 .balken code{ font-family:var(--schrift-mono); font-weight:400; font-size:12px; }
@@ -79,7 +84,7 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
                  display:flex; align-items:baseline; gap:14px; }
 .spkopf .zusatz button{ background:none; border:none; color:var(--marke); font-size:11px;
   font-weight:700; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; padding:0; }
-.spkopf .zusatz button:hover{ color:var(--befund); }
+.spkopf .zusatz button:hover{ color:var(--pflicht); }
 
 /* ---------- Formular ---------- */
 label{ display:block; font-size:10.5px; font-weight:700; letter-spacing:1.9px;
@@ -90,7 +95,7 @@ input[type=text], select, textarea{
 }
 input[type=text]:focus, select:focus, textarea:focus{ border-color:var(--marke); box-shadow:inset 0 0 0 1px var(--marke); }
 select{ appearance:none; cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M1 1l3.5 3.5L8 1' fill='none' stroke='%236d6d67' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M1 1l3.5 3.5L8 1' fill='none' stroke='%23848B96' stroke-width='1.4'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
 textarea{ min-height:250px; resize:vertical; line-height:1.55; }
 .feld{ margin-bottom:14px; }
@@ -100,7 +105,7 @@ textarea{ min-height:250px; resize:vertical; line-height:1.55; }
 
 /* ---------- Kurswahl ---------- */
 .kurswahl{ background:var(--flaeche); padding:13px 14px; margin-bottom:18px; }
-.kurswahl .hint{ font-size:11.5px; color:var(--leise); margin-top:9px; line-height:1.45; }
+.kurswahl .hint{ font-size:11.5px; color:var(--tinte); margin-top:9px; line-height:1.45; }
 .waehlknopf{
   width:100%; display:flex; align-items:center; gap:12px; text-align:left; cursor:pointer;
   background:#fff; border:1px solid var(--marke); padding:11px 13px; color:var(--tinte);
@@ -124,7 +129,7 @@ textarea{ min-height:250px; resize:vertical; line-height:1.55; }
   padding:13px 22px; font-size:12px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
 }
 .knopf:hover{ background:var(--marke-dunkel); border-color:var(--marke-dunkel); }
-.knopf:disabled{ background:var(--flaeche); border-color:var(--linie); color:var(--leise); cursor:default; }
+.knopf:disabled{ background:var(--grund); border-color:var(--linie); color:var(--leise); cursor:default; }
 .knopf.leise{ background:none; color:var(--marke); border-color:var(--rahmen); }
 .knopf.leise:hover{ background:var(--flaeche); color:var(--marke-dunkel); border-color:var(--linie); }
 
@@ -140,9 +145,9 @@ textarea{ min-height:250px; resize:vertical; line-height:1.55; }
   animation:wandern 1.15s linear infinite; }
 @keyframes wandern{ 0%{ left:-34%; } 100%{ left:100%; } }
 
-.fehler{ border:1px solid var(--befund); border-left:6px solid var(--befund); padding:18px 20px; }
+.fehler{ border:1px solid var(--pflicht); border-left:6px solid var(--pflicht); padding:18px 20px; }
 .fehler .ft{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
-             color:var(--befund); margin-bottom:8px; }
+             color:var(--pflicht); margin-bottom:8px; }
 .fehler .fm{ font-size:14.5px; line-height:1.5; }
 .fehler .fh{ font-size:12.5px; color:var(--leise); margin-top:10px; line-height:1.5; }
 
@@ -156,27 +161,27 @@ textarea{ min-height:250px; resize:vertical; line-height:1.55; }
 .zaehler div{ flex:1; padding:11px 14px; border-left:1px solid var(--linie); }
 .zaehler div:first-child{ border-left:none; }
 .zaehler .zn{ font-size:30px; font-weight:700; line-height:1; letter-spacing:-1.4px; color:var(--marke); }
-.zaehler .zn.warn{ color:var(--befund); }
+.zaehler .zn.warn{ color:var(--pflicht); }
 .zaehler .zn.grau{ color:var(--leise); }
 .zaehler .zl{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
               color:var(--leise); margin-top:7px; }
 
-.befund{ border:1px solid var(--linie); border-left:6px solid var(--flaeche); margin-bottom:12px; background:#fff; }
-.befund.pflicht{ border-left-color:var(--marke); }
-.befund.empfehlung{ border-left-color:var(--befund); }
-.befund.hinweis{ border-left-color:var(--flaeche); }
+.befund{ border:1px solid var(--linie); border-left:6px solid var(--linie); margin-bottom:12px; background:var(--papier); }
+.befund.pflicht{ border-left-color:var(--pflicht); }
+.befund.empfehlung{ border-left-color:var(--empfehlung); }
+.befund.hinweis{ border-left-color:var(--hinweis); }
 .bkopf{ display:flex; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--linie);
-        background:var(--papier); }
+        background:var(--grund); }
 .stufe{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
         padding:4px 9px; background:var(--flaeche); color:var(--tinte); }
-.befund.pflicht .stufe{ background:var(--marke); color:#fff; }
-.befund.empfehlung .stufe{ background:var(--befund); color:#fff; }
-.befund.hinweis .stufe{ background:var(--flaeche); color:var(--tinte); }
+.befund.pflicht .stufe{ background:var(--pflicht); color:#fff; }
+.befund.empfehlung .stufe{ background:var(--empfehlung); color:#fff; }
+.befund.hinweis .stufe{ background:var(--hinweis); color:#fff; }
 .regel{ font-size:11.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--leise); }
-.bnr{ margin-left:auto; font-size:11.5px; font-weight:700; color:var(--linie); letter-spacing:1px; }
+.bnr{ margin-left:auto; font-size:11.5px; font-weight:700; color:var(--leise); letter-spacing:1px; }
 .bkoerper{ padding:12px 14px 13px; }
 .zeile{ display:flex; gap:14px; padding:6px 0; align-items:flex-start; }
-.zeile + .zeile{ border-top:1px solid var(--papier); }
+.zeile + .zeile{ border-top:1px solid var(--linie); }
 .zeile dt{ flex:0 0 74px; font-size:10px; font-weight:700; letter-spacing:1.7px;
            text-transform:uppercase; color:var(--leise); padding-top:3px; }
 .zeile dd{ flex:1; font-size:14.5px; line-height:1.5; min-width:0; }
@@ -188,18 +193,18 @@ textarea{ min-height:250px; resize:vertical; line-height:1.55; }
 .kbz span{ display:inline-block; background:var(--flaeche); color:var(--tinte); font-size:11px;
   font-weight:700; letter-spacing:1.4px; text-transform:uppercase; padding:4px 9px; margin:0 6px 6px 0; }
 .gesamt{ background:var(--marke); color:#fff; padding:15px 18px; font-size:15.5px; line-height:1.45; }
-.gesamt.ohne{ background:var(--befund); }
+.gesamt.ohne{ background:var(--pflicht); }
 
 pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size:12.5px; line-height:1.55;
   white-space:pre-wrap; word-wrap:break-word; font-family:var(--schrift-mono); }
-.rohnote{ font-size:12px; color:var(--befund); font-weight:700; margin-bottom:9px; letter-spacing:.3px; }
+.rohnote{ font-size:12px; color:var(--pflicht); font-weight:700; margin-bottom:9px; letter-spacing:.3px; }
 
 /* Herkunft eines Laufes, direkt am Ergebnis statt in der Fusszeile. */
 .laufband{ display:flex; flex-wrap:wrap; gap:6px 18px; border:1px solid var(--linie);
   background:#fff; padding:9px 13px; margin-bottom:18px;
   font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--leise); }
 .laufband b{ color:var(--tinte); font-weight:700; }
-.laufband .warnton b, .laufband .warnton{ color:var(--befund); }
+.laufband .warnton b, .laufband .warnton{ color:var(--pflicht); }
 
 /* ---------- Fuß ---------- */
 .fuss{ flex:none; margin:0 30px; border-top:1px solid var(--linie); padding:11px 0 15px;
@@ -207,11 +212,11 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
   font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--leise); }
 .fuss button{ background:none; border:none; color:var(--marke); cursor:pointer; padding:0;
   font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
-.fuss button:hover{ color:var(--befund); text-decoration:underline; }
+.fuss button:hover{ color:var(--pflicht); text-decoration:underline; }
 
 /* ================= Überlagerungen ================= */
 .schleier{
-  position:fixed; inset:0; background:rgba(25,25,23,.42); z-index:40;
+  position:fixed; inset:0; background:rgba(20,23,28,.42); z-index:40;
   opacity:0; pointer-events:none; transition:opacity .22s;
 }
 .schleier.an{ opacity:1; pointer-events:auto; }
@@ -230,7 +235,7 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
   background:var(--papier); border:1px solid var(--tinte);
   width:100%; max-width:960px; max-height:min(86vh,840px);
   display:flex; flex-direction:column; min-height:0;
-  box-shadow:0 22px 60px rgba(25,25,23,.28);
+  box-shadow:0 22px 60px rgba(20,23,28,.28);
   opacity:0; transform:translateY(12px); transition:opacity .2s, transform .2s;
 }
 .modal.an .modalkarte{ opacity:1; transform:none; }
@@ -256,7 +261,7 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 .suchfeld .sleer{ position:absolute; right:8px; top:50%; transform:translateY(-50%);
   background:none; border:none; color:var(--leise); cursor:pointer; font-size:16px; padding:5px 8px; display:none; }
 .suchfeld .sleer.an{ display:block; }
-.suchfeld .sleer:hover{ color:var(--befund); }
+.suchfeld .sleer:hover{ color:var(--pflicht); }
 
 .filterzeile{ display:flex; gap:10px; margin-top:11px; flex-wrap:wrap; }
 .filterzeile .fgrp{ flex:1 1 190px; min-width:0; }
@@ -268,7 +273,7 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 .filterstatus .fs-text{ margin-right:auto; }
 .filterstatus button{ background:none; border:none; color:var(--marke);
   font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; padding:0; }
-.filterstatus button:hover{ color:var(--befund); }
+.filterstatus button:hover{ color:var(--pflicht); }
 .filterstatus button[hidden]{ display:none; }
 /* Der Umschalter erscheint nur auf schmalen Schirmen, siehe unten. */
 #filterAuf{ display:none; align-items:center; gap:6px; }
@@ -287,14 +292,14 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 .treffer:hover, .treffer.aktiv{ border-color:var(--marke); border-left-color:var(--marke); background:#fff;
   box-shadow:inset 0 0 0 1px var(--marke); }
 .treffer .tkopf{ display:flex; align-items:baseline; gap:10px; }
-.treffer .tnr{ font-family:var(--schrift-mono); font-size:11.5px; font-weight:600; color:var(--marke); flex:none; }
+.treffer .tnr{ font-size:11.5px; font-weight:700; color:var(--marke); flex:none; }
 .treffer .ttitel{ font-size:14.5px; font-weight:700; letter-spacing:-.2px; line-height:1.3; min-width:0; }
 .treffer .tsub{ font-size:12.5px; color:var(--leise); margin-top:3px; line-height:1.35; }
 .treffer .tmeta{ display:flex; flex-wrap:wrap; gap:5px 7px; margin-top:8px; }
 .treffer .tm{ font-size:9.5px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase;
-  background:var(--flaeche); color:var(--leise); padding:3px 7px; }
+  background:var(--flaeche); color:var(--tinte); padding:3px 7px; }
 .treffer .tm.stark{ background:var(--marke); color:#fff; }
-.treffer .tm.leer{ background:var(--befund); color:#fff; }
+.treffer .tm.leer{ background:var(--pflicht); color:#fff; }
 .treffer .tausz{ font-size:12.5px; color:var(--leise); line-height:1.45; margin-top:8px;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 .treffer mark{ background:var(--auf-marke); color:var(--tinte); padding:0 1px; }
@@ -319,7 +324,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   transform:translateX(103%);
   visibility:hidden;
   transition:transform .28s cubic-bezier(.32,.72,.28,1), visibility 0s .28s;
-  box-shadow:-16px 0 48px rgba(25,25,23,.2);
+  box-shadow:-16px 0 48px rgba(20,23,28,.2);
 }
 .panel.an{ transform:translateX(0); visibility:visible; transition-delay:0s; }
 .panelkopf{ flex:none; display:flex; align-items:center; gap:12px; padding:16px 20px;
@@ -327,7 +332,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 .panelkopf h2{ font-size:12px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; }
 .marke{ font-size:9.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
   padding:4px 9px; background:rgba(255,255,255,.18); color:#fff; }
-.marke.geaendert{ background:var(--befund); color:#fff; }
+.marke.geaendert{ background:var(--pflicht); color:#fff; }
 
 .panelkoerper{ flex:1; display:flex; flex-direction:column; min-height:0; overflow-y:auto; padding:16px 20px; }
 .parameter{ display:flex; gap:20px; flex-wrap:wrap; padding-bottom:15px; margin-bottom:14px;
@@ -350,13 +355,13 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 .kennzahlen .kw{ font-size:14px; font-weight:700; margin-top:4px; letter-spacing:-.2px;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .kennzahlen .kw.mono{ font-family:var(--schrift-mono); font-size:12.5px; font-weight:500; }
-.kennzahlen .kw.warnton{ color:var(--befund); }
+.kennzahlen .kw.warnton{ color:var(--pflicht); }
 
 .prompthinweis{ font-size:11.5px; color:var(--leise); line-height:1.45; margin-bottom:9px; }
 .prompthinweis code{ font-family:var(--schrift-mono); font-size:11px; background:var(--flaeche);
   color:var(--tinte); padding:1px 4px; }
 #promptText{
-  flex:1; min-height:280px; font-family:var(--schrift-mono); font-size:12px; line-height:1.6;
+  flex:1; min-height:280px; font-size:12.5px; line-height:1.65;
   background:#fff; resize:none;
 }
 .panelfuss{ flex:none; border-top:1px solid var(--linie); padding:12px 20px 16px;
