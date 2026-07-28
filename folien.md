@@ -48,7 +48,7 @@ Website, am 28. Juli. Der Datensatz liegt der Arbeit bei.
 typ: punkte
 kapitel: ÜBERBLICK
 bild: bilder/02-teile-ganzes.jpg
-bu: Fünf Teile, ein Bild.
+bu: Sechs Teile, ein Bild.
 bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Das Ganze
 akzent: in sechs Sätzen.
@@ -334,11 +334,27 @@ ausgezeichnet werden, ist AA, also Pflicht.
 Aber: Dass Abkürzungen erklärt werden, ist Stufe AAA. Und dass das Leseniveau
 zur Zielgruppe passt, ist ebenfalls AAA. Beides ist also **nicht** verbindlich.
 
-Zwei Dinge lege ich offen. Erstens: Leichte Sprache ist für Kommunen in Hessen
-nicht verpflichtend, die Landesfachstelle sagt das ausdrücklich. Die vhs bietet
-ihre Rubrik Einfache Sprache freiwillig an. Zweitens: Das oft zitierte
-B2-Sprachniveau aus dem Barrierefreiheitsstärkungsgesetz gilt ausschließlich
-für Bankdienstleistungen.
+Drei Dinge lege ich offen, bewusst genau formuliert.
+
+Erstens: Für Websites von Kommunen in Hessen besteht keine Pflicht zu Leichter
+Sprache oder Gebärdensprache, die hessische Verordnung adressiert dort nur
+Landesstellen. Aber Paragraph zwölf a des Hessischen
+Behindertengleichstellungsgesetzes enthält eine Soll-Vorschrift: Träger
+öffentlicher Gewalt sollen mit Menschen mit geistigen oder seelischen
+Behinderungen in leicht verständlicher Sprache kommunizieren, und das gilt auch
+für Kommunen. Die vhs bietet ihre Rubrik Einfache Sprache also freiwillig an,
+bewegt sich damit aber nicht im luftleeren Raum.
+
+Zweitens, und das ist für meine Argumentation der wichtigste Punkt: Nicht Teil
+der doppel-A-Konformität heißt nicht rechtlich irrelevant. Paragraph drei
+Absatz eins der hessischen Verordnung verlangt eigenständig, dass Angebote
+verständlich sind. Die Konformitätsstufe begründet nur eine Vermutung, keine
+Obergrenze der Pflicht. Ich argumentiere also nicht gegen das Recht, sondern in
+einer Lücke, die das Recht selbst offenlässt.
+
+Drittens: Das oft zitierte B2-Sprachniveau aus dem
+Barrierefreiheitsstärkungsgesetz steht in Paragraph siebzehn der zugehörigen
+Verordnung und gilt ausschließlich für Bankdienstleistungen.
 
 Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem und
 es wäre falsch.
