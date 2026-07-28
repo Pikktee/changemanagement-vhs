@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>KLARTEXT · System-Prompt-Dokumentation — 13</title>
+<link rel="stylesheet" href="../dokument.css"></head>
+<body><div class="seite"><header><span class="marke">KLARTEXT</span><span>Teil B · Durchläufe</span></header><main><h1>Was die beiden Durchläufe zeigen</h1>
+<h2>Der Kernbeleg</h2>
+<p>Derselbe Prompt, dieselben Regeln, zwei Kurse. Das Ergebnis:</p>
+<table><thead><tr><th></th><th>Deutschkurs A2.2</th><th>Englischkurs A1.1</th></tr></thead><tbody><tr><td>Zielgruppe, vom Prompt bestimmt</td><td>liest Deutsch auf A1</td><td>liest Deutsch als Erst- oder starke Zweitsprache</td></tr><tr><td>Befunde gesamt</td><td>10</td><td>5</td></tr><tr><td>davon Pflicht</td><td>1</td><td>0</td></tr><tr><td>davon zum Sprachniveau</td><td>7</td><td><strong>0</strong></td></tr></tbody></table>
+<p>Der Englischkurs hat die <strong>längeren</strong> Sätze und die <strong>längere</strong> Beschreibung. Ein Lesbarkeitsindex hätte ihn strenger beurteilt als den Deutschkurs. Der Prompt tut das Gegenteil, und zwar aus dem richtigen Grund: Er hat vorher bestimmt, wer liest.</p>
+<h2>Was die Ausgaben sonst noch belegen</h2>
+<p><strong>Die Ausnahmeregeln greifen.</strong> In keinem der Läufe wurde eine gebeugte Form oder ein Funktionswort als Niveaubefund gemeldet, obwohl rund die Hälfte aller Wörter nicht wörtlich auf der A1-Liste steht. Ohne die vier Ausnahmen aus v2 wäre das Werkzeug in der Praxis unbrauchbar.</p>
+<p><strong>Der Prompt verschweigt seine eigene Kürzung nicht.</strong> Regel 4 begrenzt die Ausgabe auf zehn Befunde. Beim Deutschkurs war die Grenze erreicht, und unter GESAMT steht ausdrücklich, welche weiteren Wörter weggelassen wurden.</p>
+<p><strong>Die Pflichtbefunde sind belastbar.</strong> Der Linktext „hier" verstößt gegen WCAG 2.4.4 auf Stufe A. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier". Das ist nach BITV HE über EN 301 549 gefordert, nicht Geschmackssache. Der Prompt trennt diesen Befund deshalb sichtbar von den Empfehlungen.</p>
+<p><strong>Die Ausgabe schwankt.</strong> Bei wiederholter Prüfung desselben Textes ändert sich die Zahl der Befunde um ein bis zwei. Die Pflichtbefunde blieben in allen Läufen stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar. Es ist zugleich ein Grund mehr, warum ein Mensch entscheidet.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil B · Durchläufe</span><span>13 / 23</span></footer></div></body></html>

@@ -1,0 +1,46 @@
+{
+  "zeitpunkt": "2026-07-28T19:31:00",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptZeichen": 19698,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 10.88,
+  "eingabe": {
+    "titel": "Hatha Yoga",
+    "nummer": "3504-48",
+    "programmbereich": "Gesundheit",
+    "niveau": "kein Sprachniveau",
+    "text": "Sie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag."
+  },
+  "benutzernachricht": "KURSTITEL:        Hatha Yoga\nKURSNUMMER:       3504-48\nPROGRAMMBEREICH:  Gesundheit\nNIVEAU:           kein Sprachniveau\nTEXT:\nSie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Yoga, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"grundlegende Asanas\"\n    Grund:       Das Fachwort „Asanas\" wird hier verwendet, bevor es im zweiten Absatz erklärt wird.\n    Vorschlag:   \"grundlegende Yoga-Haltungen\" oder \"grundlegende Übungen\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"moderate Bewegungsform\"\n    Grund:       Das Wort „moderat\" ist gehoben; „sanft\" oder „ruhig\" wären alltäglicher.\n    Vorschlag:   \"sanfte Bewegungsform\" oder \"ruhige Bewegungsform\"\n\n[3] EMPFEHLUNG · SATZ\n    Stelle:      \"Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level.\"\n    Grund:       Der Satz hat 26 Wörter und überschreitet damit die Empfehlung von 25 Wörtern.\n    Vorschlag:   \"Eine typische Yogastunde beginnt mit Entspannung und Atemübungen. Danach folgen klar angeleitete Yoga-Haltungen (Asanas) mit Variationen für jedes Fitness-Level.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"ganzheitlichen Stressabbau\"\n    Grund:       Das Fachwort „ganzheitlich\" stammt aus der Gesundheits- und Wellnesssprache.\n    Vorschlag:   \"Stressabbau für Körper und Geist\" oder \"umfassenden Stressabbau\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, AMTSDEUTSCH, ANREDE, LEER\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist verständlich aufgebaut und erklärt das Angebot gut. Die Verbesserungen würden die Zugänglichkeit für alle Interessierten erhöhen.",
+  "verbrauch": {
+    "prompt_tokens": 8159,
+    "completion_tokens": 600,
+    "total_tokens": 8759,
+    "cost": 0.033477,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.033477,
+      "upstream_inference_prompt_cost": 0.024477,
+      "upstream_inference_completions_cost": 0.009
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

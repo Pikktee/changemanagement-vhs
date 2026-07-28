@@ -359,3 +359,6 @@ hätte weniger gebracht als eine ehrliche Zeile in dieser Datei.
 - Die Streuung von ein bis zwei Befunden je Lauf ist beschrieben, aber nicht
   über eine größere Zahl von Läufen quantifiziert.
 - Die Begründungen im Betrieb ohne Wortliste bleiben unsauber, siehe v4.
+- Regel 3 verlangt einen Befund je Stelle. Tatsächlich zerlegt das Modell
+  einen Satz mit drei schweren Wörtern in drei Befunde. Das verbraucht die
+  Grenze von zehn Befunden schneller, als es müsste.
