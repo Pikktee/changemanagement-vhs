@@ -39,6 +39,11 @@ KURSE_DATEI = PROJEKT_DIR / "daten" / "vhs-kursplan.json"
 KURSE_ERSATZ = PROJEKT_DIR / "daten" / "vhs-stichprobe-60.json"
 PROTOKOLL_DIR = BASE_DIR / "protokoll"
 INDEX_DATEI = BASE_DIR / "index.html"
+# Die Schriften liegen ausserhalb von tool/, weil Folien und Dokument sie
+# ebenso brauchen. Sie werden mitgeliefert statt vom Google-CDN geladen: das
+# haelt das Tool offline lauffaehig und uebermittelt keine Besucher-IP an
+# Dritte, was fuer einen staedtischen Eigenbetrieb der springende Punkt ist.
+SCHRIFTEN_DIR = PROJEKT_DIR / "schriften"
 
 # Erstwahl, danach der Ersatz. Welches Modell geantwortet hat, steht im
 # Protokoll und im Panel der Oberflaeche. Die Erstwahl ist die Fassung, mit der
@@ -703,7 +708,31 @@ class Handler(BaseHTTPRequestHandler):
         if pfad.startswith("/api/kurs/"):
             self.kurs_ausliefern(pfad[len("/api/kurs/"):])
             return
+        if pfad.startswith("/schriften/"):
+            self.schrift_ausliefern(pfad[len("/schriften/"):])
+            return
         self.send_json(404, {"error": "Unbekannter Pfad."})
+
+    def schrift_ausliefern(self, name):
+        """Liefert eine Datei aus schriften/. Nur die beiden gebrauchten
+        Endungen, und der aufgeloeste Pfad muss im Ordner liegen — sonst
+        koennte ein Aufruf mit ../ jede Datei des Rechners abholen."""
+        if not name.endswith((".woff2", ".css")):
+            self.send_json(404, {"error": "Unbekannter Pfad."})
+            return
+        ziel = (SCHRIFTEN_DIR / name).resolve()
+        if not ziel.is_file() or SCHRIFTEN_DIR.resolve() not in ziel.parents:
+            self.send_json(404, {"error": "Unbekannter Pfad."})
+            return
+        typ = ("font/woff2" if name.endswith(".woff2")
+               else "text/css; charset=utf-8")
+        inhalt = ziel.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", typ)
+        self.send_header("Content-Length", str(len(inhalt)))
+        self.send_header("Cache-Control", "max-age=86400")
+        self.end_headers()
+        self.wfile.write(inhalt)
 
     def kurse_ausliefern(self, felder):
         def wert(name, ersatz=""):

@@ -1,17 +1,35 @@
-/* KLARTEXT — Foliensystem, Bauhaus/Swiss
-   Bühne fest 1280x720, gerendert mit device-scale-factor 2 */
+/* KLARTEXT — Foliensystem.
+   Bühne fest 1280x720, gerendert mit device-scale-factor 2.
+
+   Schrift, Farbe und Skala sind in DESIGN.md festgelegt und begründet.
+   Diese Datei ist die maßgebliche Quelle der Farbwerte: pruefe-design.py
+   liest den :root-Block hier aus und rechnet die Kontraste nach. Wer eine
+   Farbe ändert, ändert sie hier und lässt das Skript laufen. */
+
+@import url('schriften/schriften.css');
 
 :root{
-  --brand:#124a53;
-  --brand-dk:#0e3b42;
-  --ink:#191917;
-  --mut:#6d6d67;
-  --paper:#f4f1ea;
-  --hair:#d3cec2;
-  --grey:#e7e2d5;
-  --lime:#6fd0c0;
-  --warn:#c4622d;
-  --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
+  /* Rollen, keine Farbnamen. Alle Werte halten WCAG AAA (7:1) gegen jede
+     Fläche, auf der sie vorkommen — nachgewiesen in DESIGN.md. */
+  --papier:#F7F5F0;        /* Grundfläche der Folie */
+  --flaeche:#E8E5DE;       /* ruhige Füllfläche, Quadranten, Bildkasten */
+  --linie:#D2CEC6;         /* dekorative Trennlinien, nie Text */
+  --rahmen:#8C867E;        /* Rahmen von Bedienelementen, 3:1 nach 1.4.11 */
+  --tinte:#15181C;         /* Fließtext */
+  --leise:#42464C;         /* Nebentext, Beschriftungen, Quellenzeile */
+  --marke:#14459E;         /* Markenblau: Flächen, Auszeichnung, Aktion */
+  --marke-dunkel:#0E3378;  /* Tiefe, Text auf --auf-marke */
+  --auf-marke:#B9DFFA;     /* einzige Akzentfarbe AUF Markenfläche */
+  --befund:#8F1829;        /* Beanstandung */
+  --geprueft:#155739;      /* ohne Beanstandung */
+
+  /* Der Verlauf auf der Titelfolie braucht die Marke mit Deckkraft. Als
+     eigene Werte, damit kein Farbwert doppelt gepflegt werden muss. */
+  --marke-90:rgba(20,69,158,.90);
+  --marke-62:rgba(20,69,158,.62);
+
+  --schrift:"Atkinson Hyperlegible Next","Helvetica Neue",Arial,sans-serif;
+  --schrift-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -19,9 +37,9 @@
 html,body{ width:1280px; height:720px; overflow:hidden; }
 
 body{
-  font-family:var(--sans);
-  background:var(--paper);
-  color:var(--ink);
+  font-family:var(--schrift);
+  background:var(--papier);
+  color:var(--tinte);
   -webkit-font-smoothing:antialiased;
 }
 
@@ -35,24 +53,24 @@ body{
 /* ---------- Kopfzeile ---------- */
 .head{ display:flex; align-items:center; gap:18px; }
 .mark{ display:flex; align-items:center; gap:8px; }
-.sq{ width:13px; height:13px; background:var(--brand); }
-.w{ font-size:13px; font-weight:700; letter-spacing:3px; color:var(--brand); }
+.sq{ width:13px; height:13px; background:var(--marke); }
+.w{ font-size:13px; font-weight:700; letter-spacing:3px; color:var(--marke); }
 .sec{ margin-left:auto; font-size:11px; font-weight:700; letter-spacing:2.4px;
-      color:var(--mut); text-transform:uppercase; }
-.pg{ font-size:11px; font-weight:700; letter-spacing:1.6px; color:var(--mut);
+      color:var(--leise); text-transform:uppercase; }
+.pg{ font-size:11px; font-weight:700; letter-spacing:1.6px; color:var(--leise);
      min-width:52px; text-align:right; }
-.headrule{ height:3px; background:var(--brand); margin:9px 0 0; }
+.headrule{ height:3px; background:var(--marke); margin:9px 0 0; }
 
 /* ---------- Titel ---------- */
 h1{
-  font-size:54px; line-height:1.03; font-weight:700; letter-spacing:-1.4px;
+  font-size:50px; line-height:1.03; font-weight:700; letter-spacing:-0.8px;
   margin:26px 0 0; max-width:1000px;
 }
-h1 .g{ color:var(--brand); }
-h1.klein{ font-size:44px; letter-spacing:-1px; }
+h1 .g{ color:var(--marke); }
+h1.klein{ font-size:41px; letter-spacing:-0.6px; }
 
 .lede{
-  font-size:17px; line-height:1.5; color:var(--mut);
+  font-size:16px; line-height:1.5; color:var(--leise);
   max-width:820px; margin:14px 0 0;
 }
 
@@ -62,23 +80,23 @@ h1.klein{ font-size:44px; letter-spacing:-1px; }
 /* ---------- Fußzeile ---------- */
 .foot{
   display:flex; justify-content:space-between; align-items:center;
-  border-top:1px solid var(--hair); padding-top:9px; margin-top:auto;
-  font-size:10.5px; letter-spacing:1.8px; text-transform:uppercase; color:var(--mut);
+  border-top:1px solid var(--linie); padding-top:9px; margin-top:auto;
+  font-size:10.5px; letter-spacing:1.8px; text-transform:uppercase; color:var(--leise);
   white-space:nowrap;
 }
 
 /* ---------- Typ: titel / schluss (Vollfläche) ---------- */
 .panel{
-  width:1280px; height:720px; background:var(--brand); color:#fff;
+  width:1280px; height:720px; background:var(--marke); color:#fff;
   padding:60px 72px; display:flex; flex-direction:column; position:relative;
 }
-.panel .mark .sq{ background:var(--lime); }
+.panel .mark .sq{ background:var(--auf-marke); }
 .panel .mark .w{ color:#fff; }
-.panel .rule{ height:4px; background:var(--lime); width:132px; margin:0 0 30px; }
-.panel h1{ color:#fff; font-size:74px; letter-spacing:-2.2px; line-height:0.99;
+.panel .rule{ height:4px; background:var(--auf-marke); width:132px; margin:0 0 30px; }
+.panel h1{ color:#fff; font-size:69px; letter-spacing:-1.4px; line-height:0.99;
            max-width:1010px; margin:0; }
-.panel h1 .g{ color:var(--lime); }
-.panel .sub{ font-size:20px; line-height:1.45; color:rgba(255,255,255,.82);
+.panel h1 .g{ color:var(--auf-marke); }
+.panel .sub{ font-size:18.5px; line-height:1.45; color:rgba(255,255,255,.82);
              max-width:700px; margin:26px 0 0; }
 .panel .spacer{ flex:1; }
 .panel .pfoot{
@@ -90,74 +108,75 @@ h1.klein{ font-size:44px; letter-spacing:-1px; }
 
 /* ---------- Typ: kapitel ---------- */
 .kap{ display:flex; align-items:center; gap:40px; flex:1; }
-.kapnum{ font-size:196px; font-weight:700; line-height:0.82; color:var(--brand);
-         letter-spacing:-8px; }
-.kaptxt h1{ margin:0; font-size:50px; }
+.kapnum{ font-size:182.5px; font-weight:700; line-height:0.82; color:var(--marke);
+         letter-spacing:-5px; }
+.kaptxt h1{ margin:0; font-size:46.5px; }
 .kaptxt .lede{ margin-top:12px; }
 
 /* ---------- Typ: punkte ---------- */
 .punkte{ display:flex; flex-direction:column; gap:15px; }
 .pkt{ display:flex; gap:16px; align-items:flex-start; }
-.pkt .bar{ width:5px; align-self:stretch; background:var(--brand); flex:none;
+.pkt .bar{ width:5px; align-self:stretch; background:var(--marke); flex:none;
            min-height:26px; }
-.pkt .ptxt{ font-size:20px; line-height:1.42; max-width:1010px; }
-.pkt .ptxt b{ color:var(--brand); font-weight:700; }
-.pkt .psub{ display:block; font-size:15px; color:var(--mut); margin-top:3px;
+.pkt .ptxt{ font-size:18.5px; line-height:1.42; max-width:1010px; }
+.pkt .ptxt b{ color:var(--marke); font-weight:700; }
+.pkt .psub{ display:block; font-size:14px; color:var(--leise); margin-top:3px;
             line-height:1.4; }
 
 /* ---------- Typ: zahlen ---------- */
 .zahlen{ display:flex; gap:0; align-items:stretch; }
-.z{ flex:1; padding:0 28px; border-left:1px solid var(--hair); }
+.z{ flex:1; padding:0 28px; border-left:1px solid var(--linie); }
 .z:first-child{ padding-left:0; border-left:none; }
 /* feste Hoehe, damit die Beschriftungen trotz unterschiedlich grosser
    Zahlen auf einer gemeinsamen Linie sitzen */
-.znum{ font-size:88px; font-weight:700; line-height:0.9; color:var(--brand);
-       letter-spacing:-3.4px; white-space:nowrap;
+.znum{ font-variant-numeric:tabular-nums; font-size:82px; font-weight:700; line-height:0.9; color:var(--marke);
+       letter-spacing:-2px; white-space:nowrap;
        height:84px; display:flex; align-items:flex-end; }
-.znum.lang{ font-size:64px; letter-spacing:-2.2px; }
-.znum.sehrlang{ font-size:48px; letter-spacing:-1.4px; }
-.znum.warn{ color:var(--warn); }
-.zlab{ font-size:15px; line-height:1.4; color:var(--mut); margin-top:12px;
+.znum.lang{ font-size:59.5px; letter-spacing:-1.4px; }
+.znum.sehrlang{ font-size:44.5px; letter-spacing:-0.5px; }
+.znum.warn{ color:var(--befund); }
+.zlab{ font-size:14px; line-height:1.4; color:var(--leise); margin-top:12px;
        max-width:250px; }
 
 /* ---------- Typ: zweispalt ---------- */
 .spalten{ display:flex; gap:0; flex:1; align-items:stretch; }
-.sp{ flex:1; padding:0 30px; border-left:1px solid var(--hair); }
+.sp{ flex:1; padding:0 30px; border-left:1px solid var(--linie); }
 .sp:first-child{ padding-left:0; border-left:none; }
 .sp .spkopf{ font-size:11px; font-weight:700; letter-spacing:2.2px;
-             text-transform:uppercase; color:#fff; background:var(--brand);
+             text-transform:uppercase; color:#fff; background:var(--marke);
              display:inline-block; padding:5px 11px; margin-bottom:16px; }
-.sp .spkopf.alt{ background:var(--ink); }
+.sp .spkopf.alt{ background:var(--tinte); }
 .sp ul{ list-style:none; }
-.sp li{ font-size:16.5px; line-height:1.42; margin-bottom:11px; padding-left:16px;
+.sp li{ font-size:15.5px; line-height:1.42; margin-bottom:11px; padding-left:16px;
         position:relative; }
 .sp li::before{ content:""; position:absolute; left:0; top:9px; width:7px;
-                height:2px; background:var(--brand); }
+                height:2px; background:var(--marke); }
 
 /* ---------- Typ: tabelle ---------- */
 table{ width:100%; border-collapse:collapse; }
 th{ font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    color:var(--mut); text-align:left; padding:0 14px 8px 0;
-    border-bottom:2px solid var(--brand); }
+    color:var(--leise); text-align:left; padding:0 14px 8px 0;
+    border-bottom:2px solid var(--marke); }
 th:last-child, td:last-child{ padding-right:0; }
-td{ font-size:16.5px; line-height:1.4; padding:11px 14px 11px 0;
-    border-bottom:1px solid var(--hair); vertical-align:top; }
-td.num{ font-weight:700; color:var(--brand); white-space:nowrap; }
-td.ja{ color:var(--brand); font-weight:700; }
-td.nein{ color:var(--warn); font-weight:700; }
+td{ font-size:15.5px; line-height:1.4; padding:11px 14px 11px 0;
+    border-bottom:1px solid var(--linie); vertical-align:top; }
+td.num{ font-weight:700; color:var(--marke); white-space:nowrap;
+        font-variant-numeric:tabular-nums; }
+td.ja{ color:var(--geprueft); font-weight:700; }
+td.nein{ color:var(--befund); font-weight:700; }
 
 /* ---------- Typ: zitat ---------- */
-.zitat{ border-left:6px solid var(--brand); padding:6px 0 6px 26px; }
-.zitat .q{ font-size:31px; line-height:1.32; font-weight:700; letter-spacing:-0.7px;
+.zitat{ border-left:6px solid var(--marke); padding:6px 0 6px 26px; }
+.zitat .q{ font-size:29px; line-height:1.32; font-weight:700; letter-spacing:-0.4px;
            max-width:1000px; }
-.zitat .quelle{ font-size:14px; color:var(--mut); margin-top:14px;
+.zitat .quelle{ font-size:13px; color:var(--leise); margin-top:14px;
                 letter-spacing:1.2px; text-transform:uppercase; }
 
 /* ---------- Callout-Balken ---------- */
-.callout{ background:var(--brand); color:#fff; padding:16px 22px;
-          font-size:19px; line-height:1.4; font-weight:700; }
-.callout.grau{ background:var(--grey); color:var(--ink); font-weight:400; }
-.callout .kl{ display:block; font-size:14px; font-weight:400;
+.callout{ background:var(--marke); color:#fff; padding:16px 22px;
+          font-size:17.5px; line-height:1.4; font-weight:700; }
+.callout.grau{ background:var(--flaeche); color:var(--tinte); font-weight:400; }
+.callout .kl{ display:block; font-size:13px; font-weight:400;
               color:rgba(255,255,255,.78); margin-top:5px; }
 
 /* ---------- Bild ----------
@@ -172,36 +191,36 @@ td.nein{ color:var(--warn); font-weight:700; }
 .bildspalte{ width:322px; flex:none; display:flex; flex-direction:column;
              min-height:0; }
 .bildspalte .rahmen{ width:322px; flex:1 1 auto; min-height:0; max-height:334px;
-                     overflow:hidden; background:var(--grey); }
+                     overflow:hidden; background:var(--flaeche); }
 .bildspalte .rahmen img{ width:100%; height:100%; object-fit:cover; display:block; }
-.bu{ font-size:11.5px; color:var(--mut); margin-top:9px; line-height:1.4;
+.bu{ font-size:11.5px; color:var(--leise); margin-top:9px; line-height:1.4;
      flex:none; }
 
 /* Neben einem Bild ist weniger Platz: Kennzahlen und Spalten kompakter */
 .mitbild .zahlen{ min-width:0; }
 .mitbild .z{ padding:0 16px; min-width:0; }
-.mitbild .znum{ font-size:52px; letter-spacing:-1.9px; height:54px; }
-.mitbild .znum.lang{ font-size:40px; letter-spacing:-1.3px; }
-.mitbild .znum.sehrlang{ font-size:31px; letter-spacing:-0.8px; }
+.mitbild .znum{ font-variant-numeric:tabular-nums; font-size:48.5px; letter-spacing:-1.2px; height:54px; }
+.mitbild .znum.lang{ font-size:37px; letter-spacing:-0.9px; }
+.mitbild .znum.sehrlang{ font-size:29px; letter-spacing:-0.5px; }
 .mitbild .zlab{ font-size:13px; margin-top:9px; }
 .mitbild .sp{ padding:0 18px; min-width:0; }
-.mitbild .sp li{ font-size:15px; }
-.mitbild .pkt .ptxt{ font-size:18px; }
-.mitbild td{ font-size:15px; padding:9px 12px 9px 0; }
-.mitbild .callout{ font-size:17px; padding:13px 18px; }
+.mitbild .sp li{ font-size:14px; }
+.mitbild .pkt .ptxt{ font-size:16.5px; }
+.mitbild td{ font-size:14px; padding:9px 12px 9px 0; }
+.mitbild .callout{ font-size:16px; padding:13px 18px; }
 
 /* Vollflaechiges Bild auf Titel- und Schlussfolie */
 .panel.mitbild{ padding:0; }
 .panel .hero{ position:absolute; inset:0; overflow:hidden; }
 .panel .hero img{ width:100%; height:100%; object-fit:cover; display:block; }
 .panel .hero::after{ content:""; position:absolute; inset:0;
-  background:linear-gradient(100deg, var(--brand) 0%, var(--brand) 46%,
-                             rgba(18,74,83,.90) 60%, rgba(18,74,83,.62) 100%); }
+  background:linear-gradient(100deg, var(--marke) 0%, var(--marke) 46%,
+                             var(--marke-90) 60%, var(--marke-62) 100%); }
 .panel .inhalt{ position:relative; z-index:2; padding:60px 72px;
                 display:flex; flex-direction:column; height:100%; }
 
 /* ---------- Quellenzeile ---------- */
-.quellen{ font-size:11px; color:var(--mut); line-height:1.45; margin-top:auto;
+.quellen{ font-size:11px; color:var(--leise); line-height:1.45; margin-top:auto;
           padding-top:16px; }
 
 /* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
@@ -210,43 +229,43 @@ td.nein{ color:var(--warn); font-weight:700; }
 .yachse{ writing-mode:vertical-rl;
          display:flex; justify-content:space-between; align-items:center;
          font-size:10.5px; font-weight:700; letter-spacing:2px;
-         text-transform:uppercase; color:var(--mut); padding:4px 0; }
+         text-transform:uppercase; color:var(--leise); padding:4px 0; }
 .matrixcol{ flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
 .matrix{ flex:1; display:grid; grid-template-columns:1fr 1fr;
          grid-template-rows:1fr 1fr; gap:8px; min-height:0; }
-.quad{ background:var(--grey); padding:12px 14px; display:flex;
+.quad{ background:var(--flaeche); padding:12px 14px; display:flex;
        flex-direction:column; min-height:0; }
-.quad.stark{ background:var(--brand); color:#fff; }
+.quad.stark{ background:var(--marke); color:#fff; }
 .quad .qt{ font-size:12px; font-weight:700; letter-spacing:1.8px;
-           text-transform:uppercase; margin-bottom:8px; color:var(--brand); }
-.quad.stark .qt{ color:var(--lime); }
+           text-transform:uppercase; margin-bottom:8px; color:var(--marke); }
+.quad.stark .qt{ color:var(--auf-marke); }
 .quad ul{ list-style:none; }
-.quad li{ font-size:14.5px; line-height:1.35; margin-bottom:4px;
+.quad li{ font-size:13.5px; line-height:1.35; margin-bottom:4px;
           padding-left:12px; position:relative; }
 .quad li::before{ content:""; position:absolute; left:0; top:8px;
-                  width:5px; height:2px; background:var(--brand); }
-.quad.stark li::before{ background:var(--lime); }
+                  width:5px; height:2px; background:var(--marke); }
+.quad.stark li::before{ background:var(--auf-marke); }
 .xachse{ display:flex; justify-content:space-between;
          font-size:10.5px; font-weight:700; letter-spacing:2px;
-         text-transform:uppercase; color:var(--mut); }
+         text-transform:uppercase; color:var(--leise); }
 
 /* ---------- Typ: timeline (drei Straenge ueber drei Monate) ---------- */
 .tl{ display:flex; flex-direction:column; gap:11px; }
 .tlkopf{ display:flex; gap:6px; padding-left:186px; }
 .tlkopf span{ flex:1; font-size:10.5px; font-weight:700; letter-spacing:2px;
-              text-transform:uppercase; color:var(--mut);
-              border-bottom:2px solid var(--brand); padding-bottom:5px; }
+              text-transform:uppercase; color:var(--leise);
+              border-bottom:2px solid var(--marke); padding-bottom:5px; }
 .tlzeile{ display:flex; gap:6px; align-items:stretch; }
 .tlname{ width:180px; flex:none; font-size:13.5px; font-weight:700;
-         line-height:1.3; display:flex; align-items:center; color:var(--ink); }
-.tlfeld{ flex:1; background:var(--grey); padding:11px 13px;
-         font-size:14px; line-height:1.3; min-width:0; }
-.tlfeld.aktiv{ background:var(--brand); color:#fff; font-weight:700; }
-.tlfeld.mint{ background:var(--lime); color:var(--brand-dk); font-weight:700; }
+         line-height:1.3; display:flex; align-items:center; color:var(--tinte); }
+.tlfeld{ flex:1; background:var(--flaeche); padding:11px 13px;
+         font-size:13px; line-height:1.3; min-width:0; }
+.tlfeld.aktiv{ background:var(--marke); color:#fff; font-weight:700; }
+.tlfeld.mint{ background:var(--auf-marke); color:var(--marke-dunkel); font-weight:700; }
 
 /* Ab sechs Aufzaehlungspunkten kompakter, sonst laeuft der Callout heraus */
 .punkte.eng{ gap:9px; }
-.punkte.eng .pkt .ptxt{ font-size:17px; line-height:1.32; }
+.punkte.eng .pkt .ptxt{ font-size:16px; line-height:1.32; }
 .punkte.eng .pkt .psub{ font-size:13.5px; margin-top:2px; line-height:1.32; }
-.mitbild .punkte.eng .pkt .ptxt{ font-size:15.5px; }
+.mitbild .punkte.eng .pkt .ptxt{ font-size:14.5px; }
 .mitbild .punkte.eng .pkt .psub{ font-size:12.5px; }

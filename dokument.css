@@ -3,26 +3,33 @@
    engere Zeilen, ruhigere Auszeichnung, keine Flaechen ausser dort, wo eine
    Ein- oder Ausgabe gezeigt wird. */
 
+/* Farben und Schriften sind mit stil.css identisch und in DESIGN.md
+   begründet. Werte hier nicht einzeln ändern — sonst driftet das Dokument
+   von den Folien weg. */
+@import url('schriften/schriften.css');
+
 :root{
-  --brand:#124a53; --brand-dk:#0e3b42; --ink:#191917; --mut:#6d6d67;
-  --paper:#f4f1ea; --hair:#d3cec2; --grey:#e7e2d5; --lime:#6fd0c0;
-  --warn:#c4622d;
-  --sans:"Helvetica Neue","Helvetica","Arial",sans-serif;
-  --mono:"SF Mono","Menlo","Consolas",monospace;
+  --papier:#F7F5F0; --flaeche:#E8E5DE; --linie:#D2CEC6; --rahmen:#8C867E;
+  --tinte:#15181C; --leise:#42464C;
+  --marke:#14459E; --marke-dunkel:#0E3378; --auf-marke:#B9DFFA;
+  --befund:#8F1829; --geprueft:#155739;
+  --auf-marke-50:rgba(185,223,250,.5);
+  --schrift:"Atkinson Hyperlegible Next","Helvetica Neue",Arial,sans-serif;
+  --schrift-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 body{
-  font-family:var(--sans);
+  font-family:var(--schrift);
   background:#fff;
-  color:var(--ink);
+  color:var(--tinte);
   -webkit-font-smoothing:antialiased;
 }
 
 .seite{
   width:794px; height:1123px;
-  background:var(--paper);
+  background:var(--papier);
   padding:46px 62px 40px;
   display:flex; flex-direction:column;
   position:relative; overflow:hidden;
@@ -32,25 +39,25 @@ body{
 
 header{
   display:flex; justify-content:space-between; align-items:baseline;
-  border-bottom:2px solid var(--brand);
+  border-bottom:2px solid var(--marke);
   padding-bottom:8px; margin-bottom:24px;
   font-size:8.5px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--mut); flex:none;
+  color:var(--leise); flex:none;
 }
 header .marke{
-  color:var(--brand); font-weight:700; letter-spacing:.22em;
+  color:var(--marke); font-weight:700; letter-spacing:.22em;
 }
 header .marke::before{
   content:""; display:inline-block; width:8px; height:8px;
-  background:var(--brand); margin-right:7px; vertical-align:baseline;
+  background:var(--marke); margin-right:7px; vertical-align:baseline;
 }
 
 footer{
   display:flex; justify-content:space-between; align-items:baseline;
-  border-top:1px solid var(--hair);
+  border-top:1px solid var(--linie);
   padding-top:8px; margin-top:auto;
   font-size:8px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--mut); flex:none;
+  color:var(--leise); flex:none;
 }
 
 main{ flex:1 1 auto; min-height:0; }
@@ -62,13 +69,13 @@ h1{
   letter-spacing:-.018em; margin:0 0 14px;
 }
 h2{
-  font-size:16px; line-height:1.2; font-weight:700; color:var(--brand);
+  font-size:16px; line-height:1.2; font-weight:700; color:var(--marke);
   letter-spacing:-.006em; margin:22px 0 9px;
 }
 h2:first-child{ margin-top:0; }
 h3{
   font-size:11px; font-weight:700; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--mut); margin:17px 0 7px;
+  text-transform:uppercase; color:var(--leise); margin:17px 0 7px;
 }
 h4{ font-size:11.5px; font-weight:700; margin:13px 0 5px; }
 
@@ -79,25 +86,25 @@ strong{ font-weight:700; }
 em{ font-style:italic; }
 
 code{
-  font-family:var(--mono); font-size:10px;
-  background:var(--grey); padding:1px 4px; border-radius:2px;
+  font-family:var(--schrift-mono); font-size:10px;
+  background:var(--flaeche); padding:1px 4px; border-radius:2px;
   white-space:nowrap;
 }
 
 pre{
-  font-family:var(--mono); font-size:9.4px; line-height:1.5;
-  background:#fff; border-left:3px solid var(--brand);
+  font-family:var(--schrift-mono); font-size:9.4px; line-height:1.5;
+  background:#fff; border-left:3px solid var(--marke);
   padding:11px 14px; margin:0 0 11px;
   white-space:pre-wrap; word-break:break-word;
 }
 
 blockquote{
-  font-size:11px; line-height:1.5; color:var(--mut);
-  border-left:2px solid var(--hair); padding-left:13px; margin:0 0 10px;
+  font-size:11px; line-height:1.5; color:var(--leise);
+  border-left:2px solid var(--linie); padding-left:13px; margin:0 0 10px;
 }
 
 hr{
-  border:0; border-top:1px solid var(--hair); margin:16px 0;
+  border:0; border-top:1px solid var(--linie); margin:16px 0;
 }
 
 ul,ol{ margin:0 0 10px; padding-left:0; list-style:none; counter-reset:n; }
@@ -107,12 +114,12 @@ li{
 }
 ul li::before{
   content:""; position:absolute; left:0; top:.56em;
-  width:8px; height:2px; background:var(--brand);
+  width:8px; height:2px; background:var(--marke);
 }
 ol li{ counter-increment:n; }
 ol li::before{
   content:counter(n); position:absolute; left:0; top:0;
-  font-size:9.5px; font-weight:700; color:var(--brand);
+  font-size:9.5px; font-weight:700; color:var(--marke);
   line-height:1.75;
 }
 
@@ -124,12 +131,13 @@ table{
 }
 thead th{
   text-align:left; font-size:8.5px; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--mut); font-weight:700;
-  border-bottom:1.5px solid var(--brand); padding:0 9px 5px 0;
+  text-transform:uppercase; color:var(--leise); font-weight:700;
+  border-bottom:1.5px solid var(--marke); padding:0 9px 5px 0;
 }
 tbody td{
   padding:6px 9px 6px 0; vertical-align:top;
-  border-bottom:1px solid var(--hair);
+  font-variant-numeric:tabular-nums;
+  border-bottom:1px solid var(--linie);
 }
 tbody tr:last-child td{ border-bottom:0; }
 th:last-child, td:last-child{ padding-right:0; }
@@ -150,7 +158,7 @@ th:last-child, td:last-child{ padding-right:0; }
 /* -- Titelblatt --------------------------------------------------------- */
 
 .seite.titel{
-  background:var(--brand); color:var(--paper);
+  background:var(--marke); color:var(--papier);
   padding:0;
 }
 /* main ist sonst ein Block. Ohne Flex hier hat .titelblatt nur
@@ -165,29 +173,29 @@ th:last-child, td:last-child{ padding-right:0; }
   margin:0 0 20px; color:#fff;
 }
 .titelblatt h2{
-  color:var(--lime); font-size:17.5px; font-weight:400;
+  color:var(--auf-marke); font-size:17.5px; font-weight:400;
   letter-spacing:0; margin:0 0 26px; line-height:1.4; max-width:34ch;
 }
 .titelblatt h3{
-  color:var(--lime); margin:0 0 14px;
+  color:var(--auf-marke); margin:0 0 14px;
 }
 .titelblatt p{
-  color:var(--paper); font-size:11.5px; line-height:1.62;
+  color:var(--papier); font-size:11.5px; line-height:1.62;
   margin:0 0 9px; max-width:60ch;
 }
-.titelblatt p + p{ color:rgba(244,241,234,.78); }
+.titelblatt p + p{ color:rgba(255,255,255,.78); }
 /* Der Trennstrich schiebt die Kenndaten an den Fuss der Seite. */
 .titelblatt hr{
-  border-top:1px solid rgba(244,241,234,.32);
+  border-top:1px solid rgba(255,255,255,.32);
   margin:auto 0 22px;
 }
-.titelblatt table{ color:var(--paper); font-size:10.5px; }
+.titelblatt table{ color:var(--papier); font-size:10.5px; }
 .titelblatt thead th{
-  color:var(--lime); border-bottom-color:rgba(111,208,192,.5);
+  color:var(--auf-marke); border-bottom-color:var(--auf-marke-50);
 }
-.titelblatt tbody td{ border-bottom-color:rgba(244,241,234,.2); }
+.titelblatt tbody td{ border-bottom-color:rgba(255,255,255,.2); }
 .titelblatt code{
-  background:rgba(244,241,234,.15); color:var(--paper);
+  background:rgba(255,255,255,.15); color:#fff;
 }
 
 /* -- Ein- und Ausgabe --------------------------------------------------- */
