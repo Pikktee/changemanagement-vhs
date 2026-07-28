@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KLARTEXT — Entwurf der Werkzeugoberfläche</title>
+<style>
+@import url('../schriften/schriften.css');
+:root{
+  --linie:#E4E6EB; --rahmen:#848B96;
+  --tinte:#14171C; --leise:#4C535E;
+  --marke:#14459E; --marke-tint:#EDF2FD;
+  --pflicht:#A4162B; --pflicht-tint:#FBEBED;
+  --empfehlung:#6E4600;
+  --hinweis:#4C535E;
+  --geprueft:#155739;
+  --s:"Atkinson Hyperlegible Next",system-ui,sans-serif;
+  --m:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:var(--s); color:var(--tinte); background:#fff;
+      -webkit-font-smoothing:antialiased; }
+button{ font:inherit; cursor:pointer; }
+:focus-visible{ outline:2px solid var(--marke); outline-offset:2px; border-radius:3px; }
+
+.kopf{ display:flex; align-items:center; gap:14px; padding:0 24px; height:58px;
+       border-bottom:1px solid var(--linie); position:sticky; top:0;
+       background:#fff; z-index:20; }
+.marke{ display:flex; align-items:center; gap:10px; }
+.marke b{ font-size:17px; letter-spacing:-0.3px; }
+.kopfsub{ font-size:13px; color:var(--leise); }
+.kopf .knopf{ margin-left:auto; }
+.knopf{ font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:7px;
+        border:1px solid var(--rahmen); background:none; color:var(--tinte); }
+.knopf.stark{ background:var(--marke); border-color:var(--marke); color:#fff;
+              font-size:15px; padding:12px 24px; }
+
+/* -------------------------------------------------- Ansicht 1: Eingabe */
+.eingabe{ max-width:620px; margin:0 auto; padding:44px 24px 60px; }
+.eingabe h1{ font-size:25px; letter-spacing:-0.5px; }
+.eingabe .vor{ font-size:15px; line-height:1.6; color:var(--leise); margin-top:8px; }
+.block{ margin-top:26px; }
+label{ display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+.feld{ width:100%; border:1px solid var(--rahmen); border-radius:8px;
+       padding:11px 13px; font-size:15px; font-family:var(--s);
+       color:var(--tinte); background:none; }
+textarea.feld{ height:172px; line-height:1.65; resize:vertical; }
+.zwei{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.waehler{ display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+          border:1px solid var(--marke); background:var(--marke-tint);
+          border-radius:9px; padding:13px 15px; }
+.waehler .t1{ display:block; font-size:14px; font-weight:700; color:var(--marke); }
+.waehler .t2{ display:block; font-size:12.5px; color:var(--leise); margin-top:2px; }
+.oder{ display:flex; align-items:center; gap:14px; margin:20px 0;
+       font-size:12.5px; color:var(--leise); }
+.oder::before,.oder::after{ content:""; flex:1; height:1px; background:var(--linie); }
+.tun{ display:flex; align-items:center; gap:14px; margin-top:26px; }
+.tun .zeichen{ font-size:12.5px; color:var(--leise); }
+
+/* ------------------------------------------------- Ansicht 2: Ergebnis */
+.ergebnis{ max-width:1180px; margin:0 auto; padding:26px 24px 56px; }
+.zurueck{ display:inline-flex; align-items:center; gap:7px; font-size:13.5px;
+          font-weight:600; color:var(--marke); background:none; border:none; padding:0; }
+.verdikt{ display:flex; align-items:flex-start; gap:16px; margin-top:16px;
+          background:var(--pflicht-tint); border-radius:12px; padding:20px 22px 21px; }
+.verdikt .zeichen{ width:32px; height:32px; border-radius:50%; flex:none;
+                   background:var(--pflicht); color:#fff; display:flex;
+                   align-items:center; justify-content:center; font-size:18px;
+                   font-weight:700; }
+.verdikt h1{ font-size:24px; letter-spacing:-0.6px; line-height:1.22; }
+.verdikt .ziel{ font-size:14.5px; line-height:1.55; color:var(--leise);
+                margin-top:8px; max-width:70ch; }
+.verdikt .ziel b{ color:var(--tinte); }
+.messung{ display:flex; align-items:stretch; margin:14px 0 0;
+          border:1px solid var(--linie); border-radius:12px; overflow:hidden;
+          flex-wrap:wrap; }
+.wert{ display:flex; align-items:baseline; gap:9px; padding:14px 20px;
+       border-right:1px solid var(--linie); flex:0 0 auto; }
+.wert .z{ font-family:var(--m); font-size:22px; font-weight:600; line-height:1;
+          font-variant-numeric:tabular-nums; }
+.wert .b{ font-size:13px; color:var(--leise); display:flex; align-items:center; gap:6px; }
+.punkt{ width:9px; height:9px; border-radius:2px; flex:none; }
+.messung .rest{ flex:1; min-width:260px; font-size:13px; color:var(--leise);
+                display:flex; align-items:center; gap:9px; padding:14px 20px; }
+.hk{ width:18px; height:18px; border-radius:50%; background:var(--geprueft);
+     color:#fff; display:inline-flex; align-items:center; justify-content:center;
+     font-size:10px; font-weight:700; flex:none; }
+
+.paar{ display:grid; grid-template-columns:minmax(0,1fr) 356px; gap:0;
+       margin-top:30px; align-items:start; }
+.paar > .links{ padding-right:36px; }
+/* Der Text bleibt stehen, waehrend die Befundliste laeuft. Kursbeschreibungen
+   sind kurz (Kernfall 331 Zeichen), die Liste waechst mit jedem Fund. */
+.paar > .links .haft{ position:sticky; top:74px; }
+.paar > .rechts{ padding-left:36px; border-left:1px solid var(--linie); }
+h2{ font-size:14px; font-weight:700; color:var(--tinte); margin-bottom:16px;
+    padding-bottom:11px; border-bottom:2px solid var(--tinte);
+    display:flex; align-items:center; gap:7px; }
+.tip{ position:relative; display:inline-flex; align-items:center;
+      justify-content:center; width:15px; height:15px; border-radius:50%;
+      border:1px solid var(--rahmen); color:var(--leise); font-size:10px;
+      font-weight:700; cursor:help; }
+.tip .bl{ position:absolute; left:calc(100% + 10px); top:50%;
+          transform:translateY(-50%); width:236px; background:var(--tinte);
+          color:#fff; font-size:12.5px; font-weight:400; line-height:1.45;
+          padding:9px 11px; border-radius:7px; opacity:0; visibility:hidden;
+          transition:opacity .12s; z-index:10; }
+.tip:hover .bl, .tip:focus-visible .bl{ opacity:1; visibility:visible; }
+.tip .bl::after{ content:""; position:absolute; right:100%; top:50%;
+                 transform:translateY(-50%); border:6px solid transparent;
+                 border-right-color:var(--tinte); }
+
+.pruftext{ font-size:17.5px; line-height:2; }
+mark{ background:none; color:inherit; padding:1px 0 3px; border-bottom:2px solid;
+      cursor:pointer; }
+mark.p{ border-color:var(--pflicht); }
+mark.e{ border-color:var(--empfehlung); }
+mark.h{ border-color:var(--hinweis); }
+mark.aktiv{ background:var(--marke-tint); border-color:var(--marke);
+            border-bottom-width:3px; border-radius:3px 3px 0 0; padding:2px 4px 3px; }
+.nr{ display:inline-flex; align-items:center; justify-content:center; width:15px;
+     height:15px; border-radius:50%; font-family:var(--m); font-size:9px;
+     font-weight:600; color:#fff; margin-left:4px; vertical-align:3px; opacity:.9; }
+.nr.p{ background:var(--pflicht); } .nr.e{ background:var(--empfehlung); }
+.nr.h{ background:var(--hinweis); }
+.legende{ display:flex; gap:16px; margin-top:20px; padding-top:13px;
+          border-top:1px solid var(--linie); font-size:12.5px; color:var(--leise);
+          flex-wrap:wrap; }
+.legende span{ display:flex; align-items:center; gap:6px; }
+
+.befund{ padding:15px 0; border-top:1px solid var(--linie); cursor:pointer; }
+.befund:first-of-type{ border-top:none; padding-top:4px; }
+.befund.aktiv{ background:var(--marke-tint); border-radius:8px; padding:13px 14px;
+               margin:6px -14px; border-top:none; }
+.befund.aktiv + .befund{ border-top:none; }
+.bkopf{ display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+.stufe{ font-size:12px; font-weight:700; }
+.stufe.p{ color:var(--pflicht); } .stufe.e{ color:var(--empfehlung); }
+.stufe.h{ color:var(--hinweis); }
+.regel{ font-size:11.5px; color:var(--leise); }
+.bnr{ margin-left:auto; display:inline-flex; align-items:center;
+      justify-content:center; width:17px; height:17px; border-radius:50%;
+      font-family:var(--m); font-size:9.5px; font-weight:600; color:#fff; }
+.bnr.p{ background:var(--pflicht); } .bnr.e{ background:var(--empfehlung); }
+.bnr.h{ background:var(--hinweis); }
+.stelle{ font-size:15px; font-weight:700; }
+.grund{ font-size:13.5px; line-height:1.55; color:var(--leise); margin-top:4px; }
+.vor2{ display:flex; gap:8px; font-size:14px; line-height:1.5; margin-top:9px; }
+.vor2::before{ content:"→"; color:var(--marke); font-weight:700; flex:none; }
+
+/* Auf schmalen Schirmen erscheint der Befund direkt unter dem Text,
+   statt ans Seitenende zu springen. */
+#inline{ display:none; }
+#inline .befund{ background:var(--marke-tint); border-radius:10px; padding:14px 16px;
+                 border-top:none; margin-top:18px; cursor:default; }
+
+@media (max-width:980px){
+  .paar{ grid-template-columns:1fr; gap:30px; }
+  .paar > .links{ padding-right:0; }
+  .paar > .links .haft{ position:static; }
+  .paar > .rechts{ padding-left:0; border-left:none;
+                   border-top:1px solid var(--linie); padding-top:26px; }
+  #inline{ display:block; }
+  .verdikt h1{ font-size:21px; }
+  .pruftext{ font-size:16.5px; line-height:1.9; }
+}
+@media (max-width:620px){
+  .kopf{ padding:0 16px; height:54px; gap:10px; } .kopfsub{ display:none; }
+  .eingabe{ padding:28px 16px 40px; } .eingabe h1{ font-size:21px; }
+  .ergebnis{ padding:20px 16px 40px; }
+  .zwei{ grid-template-columns:1fr; gap:14px; }
+  .verdikt{ gap:12px; padding:16px; } .verdikt h1{ font-size:19px; }
+  .messung .rest{ min-width:100%; border-top:1px solid var(--linie); }
+  .pruftext{ font-size:16px; line-height:1.85; }
+  .tun{ flex-direction:column; align-items:stretch; } .knopf.stark{ width:100%; }
+  .tip .bl{ left:auto; right:0; top:calc(100% + 9px); transform:none; width:220px; }
+  .tip .bl::after{ right:9px; top:auto; bottom:100%; transform:none;
+                   border-right-color:transparent; border-bottom-color:var(--tinte); }
+}
+[hidden]{ display:none !important; }
+</style></head>
+<body>
+
+<div class="kopf">
+  <div class="marke">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+      <rect x="3" y="4"  width="20" height="3" fill="#14459E"/>
+      <rect x="3" y="9"  width="20" height="3" fill="#14459E" opacity=".4"/>
+      <rect x="3" y="14" width="13" height="3" fill="#14459E" opacity=".4"/>
+      <rect x="3" y="19" width="20" height="3" fill="#14459E"/></svg>
+    <b>Klartext</b></div>
+  <span class="kopfsub">Redaktionsassistenz der vhs Frankfurt am Main</span>
+  <button class="knopf">System-Prompt</button>
+</div>
+
+<!-- ------------------------------------------------ Ansicht 1: Eingabe -->
+<div class="eingabe" id="ansichtEingabe">
+  <h1>Welchen Text sollen wir prüfen?</h1>
+  <p class="vor">Klartext prüft, ob die Zielgruppe genau dieses Kurses den Text
+    versteht. Nicht, ob er allgemein gut lesbar ist.</p>
+  <div class="block">
+    <button class="waehler">
+      <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.6" stroke="#14459E" stroke-width="1.6"/>
+        <path d="M10.4 10.4L14 14" stroke="#14459E" stroke-width="1.6"
+              stroke-linecap="round"/></svg>
+      <span><span class="t1">Kurs aus dem Kursplan wählen</span>
+        <span class="t2">3.141 Kurse, mit Programmbereich und Niveau</span></span>
+    </button>
+  </div>
+  <div class="oder">oder Text selbst einsetzen</div>
+  <div class="block">
+    <label for="t">Ankündigungstext</label>
+    <textarea class="feld" id="t">Sie haben bereits Grundkenntnisse der deutschen Sprache und möchten diese vertiefen. Nach einer Selbsteinschätzung Ihres Sprachstandes erfolgt gegebenenfalls eine Umbuchung in einen passenderen Kurs. Der Unterricht findet in Präsenz statt.</textarea>
+  </div>
+  <div class="block zwei">
+    <div><label for="kn">Kursnummer</label>
+      <input class="feld" id="kn" value="4074-74"></div>
+    <div><label for="nv">Niveau der Zielgruppe</label>
+      <input class="feld" id="nv" value="A2.2"></div>
+  </div>
+  <div class="tun">
+    <button class="knopf stark" id="pruefen">Text prüfen</button>
+    <span class="zeichen">331 Zeichen · 4 Sätze</span>
+  </div>
+</div>
+
+<!-- ----------------------------------------------- Ansicht 2: Ergebnis -->
+<div class="ergebnis" id="ansichtErgebnis" hidden>
+  <button class="zurueck" id="zurueck">← Anderen Text prüfen</button>
+
+  <div class="verdikt">
+    <span class="zeichen">!</span>
+    <div><h1>Für diese Zielgruppe ist der Text zu schwer.</h1>
+      <p class="ziel">Geprüft für <b>Erwachsene, die Deutsch auf Niveau A2.2
+        lernen</b> und den Text vor der Anmeldung ohne Hilfe verstehen müssen.
+        Ein Lesbarkeitsindex würde denselben Text durchwinken — er kennt die
+        Leserschaft nicht.</p></div>
+  </div>
+
+  <div class="messung">
+    <span class="wert"><span class="z" style="color:#A4162B">5</span>
+      <span class="b"><span class="punkt" style="background:#A4162B"></span>Pflicht</span></span>
+    <span class="wert"><span class="z" style="color:#6E4600">2</span>
+      <span class="b"><span class="punkt" style="background:#6E4600"></span>Empfehlung</span></span>
+    <span class="wert"><span class="z" style="color:#4C535E">2</span>
+      <span class="b"><span class="punkt" style="background:#4C535E"></span>Hinweis</span></span>
+    <span class="rest"><span class="hk">✓</span>Vier Regeln sind erfüllt:
+      Linktexte, Textbausteine, Sprachauszeichnung, Abkürzungen</span>
+  </div>
+
+  <div class="paar">
+    <div class="links">
+      <div class="haft">
+        <h2>Text mit Fundstellen<span class="tip" tabindex="0">?<span class="bl">
+          Jede unterstrichene Stelle ist ein Befund. Klicken Sie darauf, dann
+          öffnet sich die Erklärung.</span></span></h2>
+        <p class="pruftext">Sie haben bereits Grundkenntnisse der deutschen
+          Sprache und möchten diese <mark class="e" data-nr="6" tabindex="0"
+          role="button">vertiefen<span class="nr e">6</span></mark>. Nach einer
+          <mark class="p" data-nr="1" tabindex="0" role="button">Selbsteinschätzung<span class="nr p">1</span></mark>
+          Ihres <mark class="p" data-nr="2" tabindex="0" role="button">Sprachstandes<span class="nr p">2</span></mark>
+          erfolgt <mark class="e" data-nr="7" tabindex="0" role="button">gegebenenfalls<span class="nr e">7</span></mark>
+          eine <mark class="p" data-nr="3" tabindex="0" role="button">Umbuchung<span class="nr p">3</span></mark>
+          in einen passenderen Kurs. Der Unterricht findet in
+          <mark class="h" data-nr="8" tabindex="0" role="button">Präsenz<span class="nr h">8</span></mark>
+          statt. Weitere Informationen finden Sie
+          <mark class="h" data-nr="9" tabindex="0" role="button">hier<span class="nr h">9</span></mark>.
+          Bei <mark class="p" data-nr="4" tabindex="0" role="button">Nichtinanspruchnahme<span class="nr p">4</span></mark>
+          des Platzes ist eine
+          <mark class="p" data-nr="5" tabindex="0" role="button">Stornierungsgebühr<span class="nr p">5</span></mark>
+          zu entrichten.</p>
+        <div class="legende">
+          <span><span class="punkt" style="background:#A4162B"></span>Pflicht</span>
+          <span><span class="punkt" style="background:#6E4600"></span>Empfehlung</span>
+          <span><span class="punkt" style="background:#4C535E"></span>Hinweis</span>
+        </div>
+        <div id="inline" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="rechts">
+      <h2>Befunde · 9</h2>
+      <div id="liste">
+        <article class="befund" data-nr="1" tabindex="0">
+          <div class="bkopf"><span class="stufe p">Pflicht</span>
+            <span class="regel">Niveau</span><span class="bnr p">1</span></div>
+          <div class="stelle">„Selbsteinschätzung“</div>
+          <div class="grund">Kompositum aus zwei Wörtern, die auf A2.2 beide noch
+            nicht eingeführt sind.</div>
+          <div class="vor2">„Wir fragen Sie, wie gut Sie schon Deutsch sprechen.“</div>
+        </article>
+        <article class="befund" data-nr="2" tabindex="0">
+          <div class="bkopf"><span class="stufe p">Pflicht</span>
+            <span class="regel">Niveau</span><span class="bnr p">2</span></div>
+          <div class="stelle">„Sprachstandes“</div>
+          <div class="grund">Verwaltungssprache im Genitiv, im Lehrwerk dieser
+            Stufe nicht vorgesehen.</div>
+          <div class="vor2">„… wie gut Sie Deutsch können“</div>
+        </article>
+        <article class="befund" data-nr="3" tabindex="0">
+          <div class="bkopf"><span class="stufe p">Pflicht</span>
+            <span class="regel">Amtsdeutsch</span><span class="bnr p">3</span></div>
+          <div class="stelle">„Umbuchung“</div>
+          <div class="grund">Verwaltungswort für einen Vorgang, den der Text nicht
+            erklärt.</div>
+          <div class="vor2">„Dann suchen wir zusammen einen anderen Kurs.“</div>
+        </article>
+        <article class="befund" data-nr="4" tabindex="0">
+          <div class="bkopf"><span class="stufe p">Pflicht</span>
+            <span class="regel">Niveau</span><span class="bnr p">4</span></div>
+          <div class="stelle">„Nichtinanspruchnahme“</div>
+          <div class="grund">Substantivierte Verneinung aus vier Bestandteilen.
+            Auf keiner Stufe der Grundstufe erschließbar.</div>
+          <div class="vor2">„Wenn Sie nicht kommen“</div>
+        </article>
+        <article class="befund" data-nr="5" tabindex="0">
+          <div class="bkopf"><span class="stufe p">Pflicht</span>
+            <span class="regel">Niveau</span><span class="bnr p">5</span></div>
+          <div class="stelle">„Stornierungsgebühr“</div>
+          <div class="grund">Kompositum mit Fremdwort. Betrifft eine Zahlung und
+            muss deshalb sicher verstanden werden.</div>
+          <div class="vor2">„… müssen Sie trotzdem bezahlen“</div>
+        </article>
+        <article class="befund" data-nr="6" tabindex="0">
+          <div class="bkopf"><span class="stufe e">Empfehlung</span>
+            <span class="regel">Niveau</span><span class="bnr e">6</span></div>
+          <div class="stelle">„vertiefen“</div>
+          <div class="grund">Übertragene Bedeutung. Auf A2.2 nur wörtlich bekannt.</div>
+          <div class="vor2">„besser werden“</div>
+        </article>
+        <article class="befund" data-nr="7" tabindex="0">
+          <div class="bkopf"><span class="stufe e">Empfehlung</span>
+            <span class="regel">Amtsdeutsch</span><span class="bnr e">7</span></div>
+          <div class="stelle">„gegebenenfalls“</div>
+          <div class="grund">Behördensprache. Auf A2.2 nicht eingeführt.</div>
+          <div class="vor2">„vielleicht“</div>
+        </article>
+        <article class="befund" data-nr="8" tabindex="0">
+          <div class="bkopf"><span class="stufe h">Hinweis</span>
+            <span class="regel">Fremdwort</span><span class="bnr h">8</span></div>
+          <div class="stelle">„Präsenz“</div>
+          <div class="grund">Seit 2020 verbreitet, aber im Lehrwerk dieser Stufe
+            nicht enthalten.</div>
+          <div class="vor2">„Der Kurs findet in der vhs statt.“</div>
+        </article>
+        <article class="befund" data-nr="9" tabindex="0">
+          <div class="bkopf"><span class="stufe h">Hinweis</span>
+            <span class="regel">Linktext</span><span class="bnr h">9</span></div>
+          <div class="stelle">„hier“</div>
+          <div class="grund">Linktext ohne Ziel. Sagt nicht, wohin er führt.</div>
+          <div class="vor2">„Informationen zur Anmeldung“</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var eingabe = document.getElementById("ansichtEingabe");
+  var ergebnis = document.getElementById("ansichtErgebnis");
+  var inline = document.getElementById("inline");
+  var marken = [].slice.call(document.querySelectorAll("mark[data-nr]"));
+  var befunde = [].slice.call(document.querySelectorAll(".befund[data-nr]"));
+  var aktiv = null;
+
+  function schmal(){ return window.matchMedia("(max-width:980px)").matches; }
+
+  function sichtbarMachen(el){
+    // block:"nearest" scrollt nur so weit wie noetig. Ein zentrierendes
+    // Scrollen wuerde bei jedem Klick die ganze Seite verschieben.
+    if (el && el.scrollIntoView) el.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+
+  function waehlen(nr){
+    if (aktiv === nr) { loesen(); return; }
+    aktiv = nr;
+    marken.forEach(function(m){
+      var an = m.getAttribute("data-nr") === nr;
+      m.classList.toggle("aktiv", an);
+      m.setAttribute("aria-current", an ? "true" : "false");
+    });
+    var ziel = null;
+    befunde.forEach(function(b){
+      var an = b.getAttribute("data-nr") === nr;
+      b.classList.toggle("aktiv", an);
+      if (an) ziel = b;
+    });
+    if (!ziel) return;
+    if (schmal()){
+      // Auf schmalen Schirmen den Befund unter den Text spiegeln, statt ans
+      // Seitenende zu springen. Kopie, damit die Liste unangetastet bleibt.
+      inline.innerHTML = ziel.outerHTML;
+      var k = inline.firstElementChild;
+      if (k){ k.classList.add("aktiv"); k.removeAttribute("tabindex"); }
+      sichtbarMachen(inline);
+    } else {
+      inline.innerHTML = "";
+      sichtbarMachen(ziel);
+    }
+  }
+
+  function loesen(){
+    aktiv = null;
+    marken.forEach(function(m){ m.classList.remove("aktiv");
+                                m.setAttribute("aria-current","false"); });
+    befunde.forEach(function(b){ b.classList.remove("aktiv"); });
+    inline.innerHTML = "";
+  }
+
+  function anbinden(el){
+    var nr = el.getAttribute("data-nr");
+    el.addEventListener("click", function(){ waehlen(nr); });
+    el.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); waehlen(nr); }
+    });
+  }
+  marken.forEach(anbinden);
+  befunde.forEach(anbinden);
+
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") loesen();
+  });
+
+  // Wechselt die Breite, muss die Anzeige des aktiven Befunds mitwandern.
+  var breit = !schmal();
+  window.addEventListener("resize", function(){
+    var jetzt = !schmal();
+    if (jetzt !== breit){ breit = jetzt; if (aktiv){ var n = aktiv; aktiv = null; waehlen(n); } }
+  });
+
+  document.getElementById("pruefen").addEventListener("click", function(){
+    eingabe.hidden = true; ergebnis.hidden = false; window.scrollTo(0,0);
+  });
+  document.getElementById("zurueck").addEventListener("click", function(){
+    ergebnis.hidden = true; eingabe.hidden = false; loesen(); window.scrollTo(0,0);
+  });
+})();
+</script>
+</body></html>
