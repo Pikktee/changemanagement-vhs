@@ -340,7 +340,10 @@ td.nein{ color:var(--pflicht); font-weight:700; }
             border-bottom:1px solid var(--marke-62); }
 
 /* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
-.matrixwrap{ display:flex; gap:12px; flex:1; min-height:0; }
+/* Die Matrix bekommt eine Obergrenze statt der ganzen Folienhoehe. Vorher
+   fuellte sie alles und stand ohne Luft zwischen Titel und Fusszeile. */
+.matrixwrap{ display:flex; gap:12px; flex:0 1 auto; min-height:0;
+             max-height:440px; }
 .yachse{ display:flex; gap:6px; align-items:stretch; }
 /* writing-mode ohne Rotation: erster Eintrag steht oben */
 .ylabels{ writing-mode:vertical-rl;
@@ -360,17 +363,17 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .matrixcol{ flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
 .matrix{ flex:1; display:grid; grid-template-columns:1fr 1fr;
          grid-template-rows:1fr 1fr; gap:8px; min-height:0; }
-.quad{ background:var(--flaeche); padding:12px 14px; display:flex;
+.quad{ background:var(--flaeche); padding:15px 18px; display:flex;
        flex-direction:column; min-height:0; }
 .quad.stark{ background:var(--marke); color:#fff; }
-.quad .qt{ font-size:12px; font-weight:700; letter-spacing:1.8px;
-           text-transform:uppercase; margin-bottom:8px; color:var(--marke); }
+.quad .qt{ font-size:12.5px; font-weight:700; letter-spacing:1.8px;
+           text-transform:uppercase; margin-bottom:11px; color:var(--marke); }
 .quad.stark .qt{ color:var(--auf-marke); }
 .quad ul{ list-style:none; }
-.quad li{ font-size:13.5px; line-height:1.35; margin-bottom:4px;
-          padding-left:12px; position:relative; }
-.quad li::before{ content:""; position:absolute; left:0; top:8px;
-                  width:5px; height:2px; background:var(--marke); }
+.quad li{ font-size:15.5px; line-height:1.4; margin-bottom:7px;
+          padding-left:14px; position:relative; }
+.quad li::before{ content:""; position:absolute; left:0; top:10px;
+                  width:6px; height:2px; background:var(--marke); }
 .quad.stark li::before{ background:var(--auf-marke); }
 .xachse{ display:flex; flex-direction:column; gap:5px; }
 .xlinie{ height:9px; }

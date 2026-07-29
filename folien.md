@@ -620,8 +620,8 @@ yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
 oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium
-oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Vier Fachbereiche, acht Programmbereiche || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
-unten_links: Informieren || Volkshochschul-Verband, stellt den KI-Rahmen
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
+unten_links: Informieren || Die sieben übrigen Programmbereiche || Volkshochschul-Verband, stellt den KI-Rahmen
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
 
 ### NOTIZ
