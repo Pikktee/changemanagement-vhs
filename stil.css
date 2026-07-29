@@ -233,8 +233,17 @@ td.nein{ color:var(--pflicht); font-weight:700; }
                 display:flex; flex-direction:column; height:100%; }
 
 /* ---------- Quellenzeile ---------- */
-.quellen{ font-size:11px; color:var(--leise); line-height:1.45; margin-top:auto;
-          padding-top:16px; }
+.quellen{ font-size:11px; color:var(--leise); line-height:1.5; margin-top:auto;
+          padding-top:14px; display:flex; flex-wrap:wrap; align-items:baseline; }
+.quellen .qlabel{ font-size:9px; font-weight:700; letter-spacing:1.6px;
+                  text-transform:uppercase; margin-right:13px; }
+/* Trennpunkt zwischen den Eintraegen, nicht hinter dem letzten */
+.quellen > span:not(.qlabel):not(:last-child)::after,
+.quellen > a:not(:last-child)::after{
+  content:"·"; margin:0 9px; color:var(--linie); font-weight:700;
+}
+.quellen a{ color:var(--marke); text-decoration:none;
+            border-bottom:1px solid var(--marke-62); }
 
 /* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
 .matrixwrap{ display:flex; gap:12px; flex:1; min-height:0; }

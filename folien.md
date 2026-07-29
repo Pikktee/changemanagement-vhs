@@ -65,7 +65,10 @@ zahlen:
   - "90 % || haben mindestens einen Befund || warn"
   - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
 callout: Neun von zehn Texten haben einen Befund. Die Frage ist, für wen sie zu schwer sind.
-quellen: eigene Erhebung an 60 Kursen · vhs.frankfurt.de/KundenportalApi, Abruf 28.07.2026 · Erklärung zur Barrierefreiheit der vhs vom 23.09.2025
+quellen:
+  - "eigene Erhebung an 60 Kursen, 28.07.2026"
+  - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
+  - "Erklärung zur Barrierefreiheit der vhs, 23.09.2025 | https://vhs.frankfurt.de/de/special-pages/support/barrierefreiheit"
 
 ### NOTIZ
 
@@ -155,7 +158,9 @@ punkte2:
   - "Er erscheint unverändert im Portal, im Programmheft und im Newsletter"
 callout: Zwischen Einpflegen und Veröffentlichen prüft niemand, ob die Zielgruppe den Text versteht.
 calloutsub: Soll-Zustand: Hier steht künftig ein Prüfschritt, der meldet und nicht ändert.
-quellen: Betriebssatzung der vhs Frankfurt, Impressum
+quellen:
+  - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
+  - "Impressum, Verantwortung für die Inhalte | https://vhs.frankfurt.de/de/special-pages/important/impressum"
 
 ### NOTIZ
 
@@ -206,7 +211,9 @@ zeilen:
   - "DaF Deutsch 4 A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
 callout: Ein Lesbarkeitswerkzeug würde hier den falschen Kurs beanstanden.
 calloutsub: 9 von 13 Kursen für Deutschlernende enthalten C1-Vokabular: Selbsteinschätzung, Fehleinschätzung, Umbuchung.
-quellen: eigene Erhebung, Datensatz liegt der Arbeit bei
+quellen:
+  - "eigene Erhebung an 60 Kursen, Datensatz liegt der Arbeit bei"
+  - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
 
 ### NOTIZ
 
@@ -258,7 +265,11 @@ absaetze:
   - "**Pflicht auf AA:** Struktur (1.3.1), Seitentitel (2.4.2), Sprache von Textteilen (3.1.2). **Nicht Pflicht:** Abkürzungen erklärt (3.1.4) und Leseniveau der Zielgruppe (3.1.5), beides Stufe AAA. Nicht Teil der AA-Konformität heißt aber nicht belanglos: **§ 3 Abs. 1 BITV HE** verlangt eigenständig, dass Angebote verständlich sind."
 callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind optional.
 calloutsub: Ich argumentiere deshalb nicht mit einem drohenden Bußgeld, sondern mit dem Auftrag aus der Betriebssatzung.
-quellen: HessBGG, BITV HE 2019, WCAG 2.1, EN 301 549, Landesfachstelle Barrierefreie IT Hessen
+quellen:
+  - "HessBGG, BITV HE 2019, EN 301 549"
+  - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
+  - "Landesfachstelle Barrierefreie IT Hessen | https://lbit.hessen.de/oeffentliche-stellen/allgemeine-anforderungen-der-barrierefreien-it"
+  - "Erklärung zur Barrierefreiheit der vhs | https://vhs.frankfurt.de/de/special-pages/support/barrierefreiheit"
 
 ### NOTIZ
 
@@ -317,7 +328,10 @@ punkte2:
   - "Adressat: Programmbereiche und Redaktion"
 callout: Für alles Regelhafte ist ein Sprachmodell das schlechtere Werkzeug.
 calloutsub: Technische Voraussetzungen: der vorhandene KI-Rahmen des Volkshochschul-Verbands, ein hinterlegter Assistent, die Wortliste als Datei. Keine Beschaffung, kein Eingriff ins Kursverwaltungssystem.
-quellen: WCAG 2.1, Deque axe-core, Erhebungen zur Abdeckung automatischer Prüfung
+quellen:
+  - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
+  - "Deque axe-core | https://github.com/dequelabs/axe-core"
+  - "Erhebungen zur Abdeckung automatischer Prüfung"
 
 ### NOTIZ
 
@@ -372,7 +386,9 @@ zeilen:
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens zehn Befunde, Pflicht vor Empfehlung."
 callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
 calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
-quellen: system-prompt.md, Fassung v6 vom 28.07.2026, sechs Fassungen in der Versionsverwaltung
+quellen:
+  - "system-prompt.md, Fassung v9 vom 29.07.2026, neun Fassungen in der Versionsverwaltung"
+  - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
 
@@ -573,6 +589,8 @@ strang2: Kommunikation || Ankündigung, Personalrat einbeziehen || Schulung nach
 strang3: Change || Betroffene befragen, Bausteine sichten || Quick Win Textbausteine || Nachmessung und Entscheidung
 callout: Der Kommunikationsstrang beginnt vor dem technischen.
 calloutsub: Die Schulung im zweiten Monat ist keine Kür: Artikel 4 der KI-Verordnung verpflichtet Betreiber seit Februar 2025 zu ausreichender KI-Kompetenz ihres Personals.
+quellen:
+  - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
 

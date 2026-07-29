@@ -159,11 +159,29 @@ def callout(f):
 
 
 def quellen(f):
+    """Quellenzeile. Ein Eintrag der Form 'Text | URL' wird zum Link.
+
+    Als Liste geschrieben ist jeder Listenpunkt ein Eintrag; als einzelne
+    Zeile trennt ' · ' die Eintraege. Ohne URL bleibt der Eintrag Text.
+    """
     if not f.get("quellen"):
         return ""
     q = f["quellen"]
-    q = " · ".join(q) if isinstance(q, list) else q
-    return f'<div class="quellen">Quellen: {e(q)}</div>'
+    teile = q if isinstance(q, list) else str(q).split(" · ")
+    stuecke = []
+    for t in teile:
+        t = str(t).strip()
+        if not t:
+            continue
+        if "|" in t:
+            text, url = (x.strip() for x in t.split("|", 1))
+            stuecke.append(f'<a href="{e(url)}">{e(text)}</a>')
+        else:
+            stuecke.append(f"<span>{e(t)}</span>")
+    if not stuecke:
+        return ""
+    return ('<div class="quellen"><span class="qlabel">Quellen</span>'
+            + "".join(stuecke) + "</div>")
 
 
 # --------------------------------------------------------------------------
