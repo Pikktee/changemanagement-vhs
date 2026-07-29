@@ -108,9 +108,9 @@ bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Kompositi
 titel: Der Vorschlag,
 akzent: und was er bringt.
 punkte:
-  - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses Kurses geprüft."
+  - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung geprüft: ob die Zielgruppe genau dieses Kurses ihn versteht, und ob ihn ein Vorleseprogramm sinnvoll wiedergeben kann."
   - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
-  - "**Abgrenzung** || Technische Barrierefreiheit prüft weiterhin ein deterministisches Werkzeug. Die KI übernimmt nur, was Urteil verlangt."
+  - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
@@ -124,11 +124,16 @@ Kurses geprüft. Dafür genügt ein System-Prompt in dem KI-Rahmen, den der
 Volkshochschul-Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss
 nichts beschafft werden.
 
-Die Abgrenzung darunter zieht sich durch das ganze Konzept. Für die technische
-Barrierefreiheit bleibt ein normales Prüfwerkzeug zuständig, die KI übernimmt
-nur den Teil, der Urteil verlangt.
+Geprüft wird dabei zweierlei. Ob die Zielgruppe den Text versteht, und ob ein
+Vorleseprogramm etwas damit anfangen kann. Eine fett gesetzte Zeile, die als
+Überschrift gemeint ist, aber keine ist, wird beim Vorlesen nicht als
+Sprungmarke angeboten.
 
-Unten steht, worum ich bitte: ein Pilot in einem Programmbereich, drei Monate.
+Die Abgrenzung darunter zieht sich durch das ganze Konzept. Für die technische
+Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
+zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+
+Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei Monate.
 Der Prompt schlägt vor, der Mensch entscheidet.
 
 
@@ -311,14 +316,14 @@ akzent: zwei Zuständigkeiten.
 klein: ja
 spalte1: DETERMINISTISCH · axe-core
 punkte1:
-  - "Markup, Struktur, Kontraste"
+  - "Markup, Kontraste, Tastaturbedienung, Seitengerüst"
   - "Reproduzierbar, kostenlos, läuft bei jeder Änderung"
   - "Deckt 30 bis 40 Prozent der Kriterien ab"
   - "Adressat: städtische IT und Portaldienstleister"
 spalte2: URTEILEND · System-Prompt
 punkte2:
   - "Verständlichkeit gegen die Zielgruppe"
-  - "Abkürzungen, Aussagekraft von Linktexten"
+  - "Überschriften, die keine sind, und Linktexte ohne Aussage"
   - "Braucht Gegenlesen durch einen Menschen"
   - "Adressat: Programmbereiche und Redaktion"
 callout: Für alles Regelhafte ist ein Sprachmodell das schlechtere Werkzeug.
@@ -336,13 +341,22 @@ wichtigsten Teil meines Konzepts halte.
 Es gibt zwei Sorten von Problemen, und sie brauchen zwei verschiedene
 Werkzeuge.
 
-Links das Regelhafte: Markup, Struktur, Kontraste. Dafür gibt es etablierte
-Prüfprogramme wie axe-core. Die sind kostenlos, laufen automatisch und liefern
-bei gleicher Eingabe immer dasselbe Ergebnis. Zuständig ist die städtische IT.
+Links das Regelhafte: Markup, Kontraste, Tastaturbedienung, das Gerüst der
+Seite. Dafür gibt es etablierte Prüfprogramme wie axe-core. Die sind
+kostenlos, laufen automatisch und liefern bei gleicher Eingabe immer dasselbe
+Ergebnis. Zuständig ist die städtische IT.
 
 Rechts das Urteilende: Ob ein Lernender auf A1 diesen Satz versteht. Ob dieser
 Linktext etwas aussagt. Dafür gibt es kein Regelwerk, das braucht Urteil.
 Zuständig sind die Programmbereiche.
+
+Die Trennlinie verläuft dabei nicht zwischen Sprache und Technik. Zwei meiner
+sechs Regeln sind selbst Pflichtkriterien der Barrierefreiheit. Ein Beispiel:
+Eine fett gesetzte Zeile, die als Überschrift gemeint ist, aber technisch
+keine ist. Das Prüfprogramm sieht dort nur fetten Text und meldet nichts. Ob
+diese Zeile eine Überschrift sein sollte, kann man dem Text nicht ansehen,
+sondern nur verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium auf
+der rechten Seite.
 
 Der Satz in der Mitte ist mir wichtig genug, ihn so deutlich hinzuschreiben.
 Für alles Regelhafte ist ein Sprachmodell das schlechtere Werkzeug. Es ist
