@@ -231,12 +231,12 @@ kapitel: 01 · POTENZIALERMITTLUNG
 titel: Kurze Sätze sind
 akzent: noch nicht verständlich.
 klein: ja
-lede: Stichprobe von 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. 35 von 60 Texten haben mindestens einen Befund.
+lede: 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. 35 davon haben mindestens einen Befund.
 spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
 zeilen:
   - "Englisch A1.1 | 21,3 Wörter | 41 Wörter | + fließend"
   - "Deutsch als Fremdsprache A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
-regelntitel: Wonach gemessen wurde — die sechs Befundarten
+regelntitel: Wonach gemessen wurde
 regeln:
   - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
   - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
@@ -245,7 +245,7 @@ regeln:
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Abkürzung nicht aufgelöst"
 callout: Ein Lesbarkeitsindex beanstandet hier den falschen Kurs.
-calloutsub: Er misst Satz- und Wortlänge, nicht den Leser. Alle 6 Deutschkurse auf A1 und A2 enthalten Wörter über dem Niveau ihrer Zielgruppe — dort meldet er nichts.
+calloutsub: Er misst Satz- und Wortlänge, nicht den Leser. Alle 6 Deutschkurse auf A1 und A2 enthalten zu schwere Wörter — dort meldet er nichts.
 quellen:
   - "eigene Messung mit daten/messung.py, Skript und Datensatz liegen der Arbeit bei"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
