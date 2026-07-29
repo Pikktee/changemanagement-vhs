@@ -567,9 +567,26 @@ def t_matrix(f, seite_, gesamt):
 
 
 def t_timeline(f, seite_, gesamt):
-    """Integrierte Timeline: drei Straenge ueber drei Monate."""
-    kopf_ = "".join(f"<span>{e(x.strip())}</span>"
-                    for x in f.get("monate", "Monat 1|Monat 2|Monat 3").split("|"))
+    """Integrierte Timeline: drei Straenge ueber drei Monate.
+
+    Jede Zelle traegt zwei Zeilen: den Phasennamen aus der Aufgabenstellung
+    (Setup, Pilot, Rollout / Ankuendigung, Training, Support / Vorbereitung,
+    Einbindung, Begleitung) und darunter, was er hier konkret bedeutet. Ohne
+    den Namen ist die Folie eine Tabelle, mit ihm eine Phasenplanung.
+
+    Feld 'strangN', je Zelle: Phasenname > was passiert. Zellen mit ||
+    getrennt, davor der Name des Strangs.
+
+    Optional 'tor' und 'tortitel': eine Spalte vor Monat 1, die alle drei
+    Straenge ueberspannt. Sie steht fuer eine Bedingung, die vor allem anderen
+    erfuellt sein muss — hier die Zustimmung des Personalrats. Als Zelle in
+    einer der Monatsspalten wuerde sie so aussehen, als koenne parallel schon
+    etwas anderes laufen.
+    """
+    monate = [x.strip() for x in
+              f.get("monate", "Monat 1|Monat 2|Monat 3").split("|")]
+    kopf_ = "".join(f"<span>{e(m)}</span>" for m in monate)
+
     zeilen = []
     for i in (1, 2, 3):
         roh = f.get(f"strang{i}")
@@ -578,17 +595,26 @@ def t_timeline(f, seite_, gesamt):
         teile = [x.strip() for x in roh.split("||")]
         name, felder = teile[0], teile[1:]
         fs = []
-        for j, feld in enumerate(felder):
-            kl = ""
-            if feld.startswith("+"):
-                kl, feld = " aktiv", feld[1:].strip()
-            elif feld.startswith("~"):
-                kl, feld = " mint", feld[1:].strip()
-            fs.append(f'<div class="tlfeld{kl}">{e(feld)}</div>')
+        for feld in felder:
+            phase, _, was = feld.partition(">")
+            kopfz = (f'<span class="tlphase">{e(phase.strip())}</span>'
+                     if was else "")
+            txt = e((was or phase).strip())
+            fs.append(f'<div class="tlfeld">{kopfz}'
+                      f'<span class="tlwas">{txt}</span></div>')
         zeilen.append(f'<div class="tlzeile"><div class="tlname">{e(name)}</div>'
-                      f'{"".join(fs)}</div>')
+                      f'<div class="tlfelder">{"".join(fs)}</div></div>')
+
+    gitter = f'<div class="tlgitter">{"".join(zeilen)}</div>'
+    if f.get("tor"):
+        tor = (f'<div class="tltor"><span class="tltitel">'
+               f'{e(f.get("tortitel", "Vorher"))}</span>'
+               f'<span class="tltext">{e(f["tor"])}</span>'
+               f'<span class="tlspitze" aria-hidden="true">&rarr;</span></div>')
+        gitter = f'<div class="tlmittor">{tor}{gitter}</div>'
+
     inhalt = (f'<div class="tl"><div class="tlkopf">{kopf_}</div>'
-              f'{"".join(zeilen)}</div>{callout(f)}')
+              f'{gitter}</div>{callout(f, " unten")}')
     return seite(f, seite_, gesamt, inhalt)
 
 

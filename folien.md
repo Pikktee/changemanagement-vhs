@@ -799,35 +799,62 @@ titel: Drei Monate,
 akzent: drei Stränge.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-strang1: Technische Implementation || Assistent im vorhandenen Rahmen anlegen, Regeln schärfen || +Pilot in einem Programmbereich || Ausweitung auf alle acht
-strang2: Kommunikation || Ankündigung, Personalrat einbeziehen || Schulung nach Artikel 4 KI-Verordnung || ~Sprechstunde und Support
-strang3: Change || Betroffene befragen, Bausteine sichten || Quick Win Textbausteine || Nachmessung und Entscheidung
-callout: Der Kommunikationsstrang beginnt vor dem technischen.
-calloutsub: Die Schulung im zweiten Monat ist keine Kür: Artikel 4 der KI-Verordnung verpflichtet Betreiber seit Februar 2025 zu ausreichender KI-Kompetenz ihres Personals.
+tortitel: Vorher
+tor: Zustimmung des Personalrats, als Dienstvereinbarung
+strang1: Technische Implementation || Setup > Assistent im vorhandenen KI-Rahmen anlegen, Regeln an echten Texten schärfen || Pilot > Ein Programmbereich, und nur die Texte, die neu entstehen || Rollout > Vorbereitet, freigegeben aber erst nach der Nachmessung
+strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Bereich || Training > Schulung nach Artikel 4 KI-Verordnung, für alle, die das System bedienen || Support > Feste Sprechstunde im Pilotbereich, nicht auf Zuruf
+strang3: Change || Vorbereitung > Betroffene befragen, Freigabe der Textbausteine klären || Einbindung > Der Bereich wählt, welche Regeln scharf gestellt werden, dazu der Quick Win || Begleitung > Nachmessung mit demselben Skript, dann Entscheidung
+callout: Der Kommunikationsstrang beginnt nicht aus Höflichkeit vor dem technischen, sondern weil er muss.
+calloutsub: Die Einführung ist mitbestimmungspflichtig. Ohne Zustimmung des Personalrats darf der Assistent nicht angelegt werden — deshalb steht sie links vor Monat 1 und nicht in ihm.
 quellen:
+  - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
   - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
 
-Der Zeitplan, drei Monate, drei Stränge.
+Der Zeitplan, drei Monate, drei Stränge. Die Aufgabenstellung gibt für jeden
+Strang drei Phasen vor, und Sie finden sie hier als Überschrift jeder Zelle
+wieder: Setup, Pilot, Rollout, dann Ankündigung, Training, Support, dann
+Vorbereitung, Einbindung, Begleitung. Darunter steht jeweils, was das hier
+konkret heißt.
 
-Technisch ist wenig zu tun, und das ist ein Vorteil dieses Projekts. Im ersten
-Monat wird der Assistent im vorhandenen Rahmen angelegt und an echten Texten
-nachgeschärft. Im zweiten läuft der Pilot in einem Programmbereich. Im dritten
-folgt die Ausweitung.
+Links, blau, sehen Sie etwas, das in keinem der drei Monate steht, sondern
+davor. Das ist die Zustimmung des Personalrats als Dienstvereinbarung, und sie
+steht dort, weil sie ein Tor ist und keine Parallelaufgabe. Hätte ich sie in
+den ersten Monat gesetzt, sähe es aus, als könne daneben schon der Assistent
+angelegt werden. Das darf er nicht.
 
-Der Kommunikationsstrang beginnt bewusst vor dem technischen. Ankündigung und
-Einbeziehung des Personalrats stehen im ersten Monat, also bevor irgendetwas
-läuft.
+Damit zum ersten Strang. Technisch ist wenig zu tun, und das ist ein Vorteil
+dieses Projekts. Im ersten Monat wird der Assistent im vorhandenen KI-Rahmen
+angelegt und an echten Texten nachgeschärft. Im zweiten läuft der Pilot, in
+einem Programmbereich und nur an den Texten, die neu entstehen — das sind, wie
+gerechnet, ungefähr dreiundsiebzig im Jahr. Im dritten wird die Ausweitung
+vorbereitet, aber nicht freigegeben. Freigegeben wird sie erst, wenn die
+Nachmessung sie trägt, und die liegt am Ende desselben Monats. Vorher wäre die
+Entscheidung ein Vorgriff.
 
-Die Schulung im zweiten Monat ist übrigens keine Kür. Artikel vier der
-KI-Verordnung verpflichtet Betreiber seit Februar zweitausendfünfundzwanzig,
-für ausreichende KI-Kompetenz ihres Personals zu sorgen. Mein
-Qualifizierungsbaustein erfüllt damit eine Rechtspflicht.
+Der Kommunikationsstrang. Ankündigung heißt hier: erst die Dienstvereinbarung,
+dann die Bekanntgabe. In dieser Reihenfolge, denn eine Ankündigung vor der
+Mitbestimmung erzeugt genau den Ärger, den man vermeiden wollte. Das Training
+im zweiten Monat ist keine Kür. Artikel vier der KI-Verordnung verpflichtet
+Betreiber seit Februar zweitausendfünfundzwanzig zu ausreichender KI-Kompetenz,
+und zwar wörtlich für ihr Personal und für andere Personen, die in ihrem
+Auftrag mit dem Betrieb und der Nutzung befasst sind. Deshalb steht in der
+Zelle nicht das Wort Personal, sondern alle, die das System bedienen. Wer es
+nicht bedient, braucht die Schulung nicht — das betrifft die Kursleitungen, und
+es ist der Grund, warum wir sie aus dieser Kette heraushalten.
 
-Der Change-Strang folgt einer einfachen Reihenfolge: erst fragen, dann
-handeln. Der Quick Win mit den Textbausteinen liegt im zweiten Monat, weil er
-dann auf eine schon geweckte Erwartung trifft.
+Support im dritten Monat heißt: eine feste Sprechstunde, nicht auf Zuruf. Eine
+Zusage, jederzeit ansprechbar zu sein, ist in einem Haus mit
+fünftausendachthundert Veranstaltungen keine Zusage.
+
+Der Change-Strang folgt einer einfachen Reihenfolge: erst fragen, dann handeln.
+In der Vorbereitung werden die Betroffenen befragt, und die Freigabe der
+Textbausteine wird geklärt — das ist die offene Frage vom Widerstandsteil, und
+sie gehört in den ersten Monat, weil der Quick Win sonst im zweiten auf eine
+Zuständigkeit läuft, die niemand hat. In der Einbindung wählt der Bereich
+selbst, welche der sechs Regeln scharf gestellt werden. Und die Begleitung
+endet mit der Nachmessung, mit demselben Skript wie die Ausgangsmessung.
 
 
 ## 13 — Die ersten 30 Tage und die Ressourcen
