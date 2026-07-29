@@ -219,6 +219,54 @@ Kursverwaltungssystem" erweitert.
 
 ---
 
+## 7. Der KI-Rahmen des Volkshochschul-Verbands
+
+**Befund: Der Zugang besteht bereits und erlaubt eigene Assistenten.**
+
+Die Präsentation berief sich an drei Stellen auf „den vorhandenen KI-Rahmen des
+Volkshochschul-Verbands", ohne Beleg. Der liegt jetzt vor.
+
+Der Deutsche Volkshochschul-Verband hat am 05.05.2025 eine Rahmenvereinbarung
+mit dem Anbieter fobizz geschlossen. Sie ermöglicht
+
+> „einen datenschutzkonformen Zugang zu zahlreichen KI-Anwendungen"
+
+für
+
+> „Mitarbeitende aller Volkshochschulen in Deutschland".
+
+Quelle: <https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php>
+
+Entscheidend für dieses Projekt ist, dass sich dort eigene Assistenten anlegen
+lassen. Das Angebot für Volkshochschulen nennt ausdrücklich:
+
+> „Erstellen Sie eigene Chatbots mit spezifischem Hintergrundwissen und genauen
+> Instruktionen"
+
+Quelle: <https://fobizz.com/de/volkshochschulen/>
+
+Damit ist der erste Weg auf Folie 9 belegt: Der Prompt kann ohne jede eigene
+Technik hinterlegt werden, und niemand außerhalb des Pilotbereichs muss
+zustimmen.
+
+Daneben betreibt der Verband einen Assistenten in der vhs.cloud. Nach eigener
+Angabe werden Chats nicht zum Training verwendet, und der Betrieb folgt den
+Datenschutzrichtlinien von OpenAI.
+
+Quelle: <https://www.volkshochschule.de/service-fuer-vhs/vhs-cloud/index.php>
+
+**Nicht belegbar:** welches Sprachmodell hinter fobizz steht. Der Anbieter
+veröffentlicht es nicht. Für die Arbeit ist das kein Mangel, sondern ein Punkt
+für die Risikobetrachtung — das Haus wählt das Modell nicht selbst.
+
+**Falsche Fährte, die auszuschließen ist:** Eine Suche nach der
+Kursverwaltung der „vhs Frankfurt" führt zuverlässig auf Kufer Software als
+Dienstleister. Das betrifft die **Volkshochschule Frankfurt (Oder)**, nicht
+Frankfurt am Main. Für Frankfurt am Main gilt der Befund aus Abschnitt 6:
+Advellence Solutions AG, Kentico CMS.
+
+---
+
 ## Was offen bleibt
 
 Nicht belegbar und weiterhin Annahme:
