@@ -534,6 +534,9 @@ def baue_pdf_links(folien):
     try:
         subprocess.run([
             CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+            # ohne Zeitbudget druckt Chrome, bevor die Schriften geladen sind:
+            # der Text bleibt dann unsichtbar und das PDF enthaelt nur Flaechen
+            "--virtual-time-budget=20000",
             f"--print-to-pdf={ziel}",
             f"http://localhost:{PORT}/ausgabe/alle.html",
         ], check=True, capture_output=True)
