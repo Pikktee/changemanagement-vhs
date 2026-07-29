@@ -236,11 +236,11 @@ regelntitel: Wonach gemessen wurde
 regeln:
   - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
   - "| LINKTEXT | Linktext nennt sein Ziel nicht"
-  - "EMPFEHLUNG · freiwillig | NIVEAU | Wort über dem Sprachniveau der Zielgruppe"
+  - "EMPFEHLUNG | NIVEAU | Wort über dem Sprachniveau der Zielgruppe"
   - "| AMTSDEUTSCH | Behördenwort, wo ein Alltagswort reicht"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Kürzel ohne Auflösung, etwa DTZ"
-tabellentitel: Was das an zwei Kursen heißt
+tabellentitel: Zwei Kurse im Vergleich
 spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
 zeilen:
   - "Englisch A1.1 | + liest Deutsch fließend | 0 | 1"
