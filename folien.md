@@ -114,20 +114,26 @@ punkte:
   - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
+quellen:
+  - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
 
 ### NOTIZ
 
 Daraus folgt mein Vorschlag.
 
-Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses
-Kurses geprüft. Dafür genügt ein System-Prompt in dem KI-Rahmen, den der
-Volkshochschul-Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss
-nichts beschafft werden.
+Das Ziel oben ist bewusst von den Lesenden her formuliert. Wer einen Kurs
+sucht, soll die Beschreibung verstehen, ob er sie liest oder vorgelesen
+bekommt. Die Betriebssatzung sagt, die Angebote stehen allen offen. Mein Punkt
+ist: Dann muss das auch für die Texte gelten, mit denen wir sie ankündigen.
 
-Geprüft wird dabei zweierlei. Ob die Zielgruppe den Text versteht, und ob ein
+Geprüft wird deshalb zweierlei. Ob die Zielgruppe den Text versteht, und ob ein
 Vorleseprogramm etwas damit anfangen kann. Eine fett gesetzte Zeile, die als
-Überschrift gemeint ist, aber keine ist, wird beim Vorlesen nicht als
+Überschrift gemeint ist, aber technisch keine ist, wird beim Vorlesen nicht als
 Sprungmarke angeboten.
+
+Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-Verband
+ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts beschafft
+werden.
 
 Die Abgrenzung darunter zieht sich durch das ganze Konzept. Für die technische
 Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
