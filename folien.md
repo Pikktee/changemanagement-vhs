@@ -108,8 +108,8 @@ bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Kompositi
 titel: Der Vorschlag,
 akzent: und was er bringt.
 punkte:
-  - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung geprüft: ob die Zielgruppe genau dieses Kurses ihn versteht, und ob ihn ein Vorleseprogramm sinnvoll wiedergeben kann."
-  - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
+  - "**Ziel** || Wer einen Kurs sucht, versteht die Beschreibung, ob gelesen oder vorgelesen. Laut Betriebssatzung stehen die Angebote allen offen — das soll auch für die Texte gelten."
+  - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
@@ -674,12 +674,13 @@ bildprompt: Geometrische Waage, Balken auf dreieckigem Drehpunkt, Kreis und Quad
 titel: Woran man merkt,
 akzent: ob es gewirkt hat.
 klein: ja
-lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben Skript — für die Erfolgskontrolle muss nichts Neues aufgebaut werden.
+lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben Skript. Die vierte Zeile misst nicht den Text, sondern die Wirkung — dafür werden die Teilnehmenden selbst gefragt.
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
   - "Texte mit mindestens einem Befund | 90 % | ! unter 40 % | demselben Skript wie die Ausgangsmessung"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
   - "DaF-Texte mit C1-Vokabular | 9 von 13 | ! höchstens 2 von 13 | Nachmessung, identisches Verfahren"
+  - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, durch die Kursleitung"
 callout: Drei Risiken, drei Gegenmaßnahmen.
 calloutsub: Mitbestimmung stockt → Zusicherung schriftlich, vor dem Pilot. Redaktion misstraut schwankenden Befunden → Pflichtbefunde sind stabil, der Pilotbereich wählt die scharfen Regeln selbst. KI-Rahmen doch nicht verfügbar → der Prompt läuft auch außerhalb, geklärt wird das im ersten Monat.
 quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschnittstelle
@@ -688,10 +689,19 @@ quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschn
 
 Und woran würde man merken, ob es gewirkt hat?
 
-Drei Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von neunzig
+Vier Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von neunzig
 Prozent unter vierzig fallen. Alle neuen Texte im Pilotbereich sollen geprüft
 sein. Und die Deutschkurse mit C1-Vokabular sollen von neun von dreizehn auf
 höchstens zwei sinken.
+
+Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
+nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über einen
+Fragebogen auf der Website, denn den füllt genau die Zielgruppe nicht aus, um
+die es geht. Sondern im Kurs, am Ende einer Stunde, durch die Kursleitung, in
+einfacher Sprache. Das erreicht die Menschen wirklich, und es bindet die
+Kursleitungen ein, die sonst in keinem Gremium sitzen. Ergänzend führt die
+Anmeldung im Pilotbereich eine Strichliste, wie oft jemand nachfragen muss, was
+in einer Beschreibung stand.
 
 Wichtig ist die letzte Spalte. Die Nachmessung läuft mit demselben Skript wie
 die Ausgangsmessung. Niemand kann später über die Messmethode streiten.
