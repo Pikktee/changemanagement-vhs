@@ -277,9 +277,9 @@ Seite vorlesen zu lassen, um gezielt dorthin zu springen. Was technisch keine
 sichtbar vorhanden und für das Vorleseprogramm nicht da.
 
 Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
-ist ein Link, der schlicht „hier" heißt. Der Grund ist derselbe wie eben:
+ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe wie eben:
 Screenreader lesen auf Wunsch nur die Links einer Seite vor, ohne den Text
-drumherum. Eine Liste aus fünfmal „hier" hilft niemandem weiter.
+drumherum. Eine Liste aus fünfmal „hier“ hilft niemandem weiter.
 
 Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
 der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und nicht
@@ -491,7 +491,7 @@ zeilen:
   - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
-calloutfolge: „Bewertet Texte, niemals Personen." Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
+calloutfolge: „Bewertet Texte, niemals Personen.“ Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
 quellen:
   - "system-prompt.md, Fassung v11 vom 29.07.2026, zwölf Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -545,9 +545,9 @@ punkte1:
   - "Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren."
 spalte2: AUSGABE · BEFUNDE
 punkte2:
-  - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
-  - "EMPFEHLUNG · NIVEAU: „idealerweise", „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung"."
-  - "EMPFEHLUNG · NIVEAU: „Niveaustufe", „umfasst", „Teilstufen" — keines steht auf der A1-Liste."
+  - "PFLICHT · LINKTEXT: „hier“ sagt allein nicht, wohin der Link führt."
+  - "EMPFEHLUNG · NIVEAU: „idealerweise“, „Selbsteinschätzung“, „Fehleinschätzung“, „Umbuchung“."
+  - "EMPFEHLUNG · NIVEAU: „Niveaustufe“, „umfasst“, „Teilstufen“ — keines steht auf der A1-Liste."
   - "In diesem Lauf neun Befunde, acht davon zum Sprachniveau, einer Pflicht."
 callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Hier jedes Mal mehrere.
 quellen:
@@ -560,8 +560,8 @@ Damit das nicht abstrakt bleibt, ein echter Durchlauf. Links steht ein
 Originaltext aus dem Portal, die Anmeldehinweise über einem Deutschkurs auf
 Stufe A2. Rechts steht, was der Prompt daraus macht.
 
-Der erste Befund ist Pflicht. Der Link heißt schlicht „hier". Wer sich die
-Seite vorlesen lässt und von Link zu Link springt, hört nur „hier".
+Der erste Befund ist Pflicht. Der Link heißt schlicht „hier“. Wer sich die
+Seite vorlesen lässt und von Link zu Link springt, hört nur „hier“.
 
 Die übrigen sind Empfehlungen, und sie sind für diese Zielgruppe die
 eigentlich wichtigen. Selbsteinschätzung, Fehleinschätzung, Umbuchung,
@@ -642,10 +642,10 @@ akzent: und was hilft.
 klein: ja
 spalte1: URSACHE · WAS ICH HÖREN WERDE
 punkte1:
-  - "Verlustangst: „Jetzt korrigiert mich eine Maschine."
-  - "Unsicherheit: „Wird damit meine Arbeit bewertet?"
-  - "Gewohnheit: „Wir schreiben das seit fünfzehn Jahren so."
-  - "Fehlende Perspektive: „Noch eine Aufgabe, für die ich keine Zeit habe."
+  - "Verlustangst: „Jetzt korrigiert mich eine Maschine.“"
+  - "Unsicherheit: „Wird damit meine Arbeit bewertet?“"
+  - "Gewohnheit: „Wir schreiben das seit fünfzehn Jahren so.“"
+  - "Fehlende Perspektive: „Noch eine Aufgabe, für die ich keine Zeit habe.“"
 spalte2: INTERVENTION
 punkte2:
   - "Zuhören, bevor geschult wird. Der Prompt prüft Texte, nie Personen."
