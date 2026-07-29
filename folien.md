@@ -411,8 +411,8 @@ typ: zweispalt
 kapitel: 02 · LÖSUNG
 bild: bilder/08-zahnrad-auge.jpg
 bildprompt: Komposition geteilt durch eine vertikale Linie, links ein praezises Zahnrad, rechts ein stilisiertes Auge. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Warum ein Prüfprogramm
-akzent: hier nicht reicht.
+titel: Was die Technik prüft,
+akzent: und was nur ein Mensch sieht.
 klein: ja
 spalte1: DAS SEITENGERÜST · städtische IT
 punkte1:
@@ -427,7 +427,7 @@ punkte2:
   - "Nicht prüfbar, ohne zu wissen, wer liest"
   - "Vorschlag der KI, Entscheidung beim Fachbereich"
 callout: Ob ein Text zu seinen Lesern passt, steht in keinem Regelwerk.
-calloutfolge: Die Technik bleibt bei der städtischen IT. Neu ist allein der Schritt, der Urteil verlangt.
+calloutfolge: Die Technik bleibt bei der städtischen IT. Neu ist allein der Schritt, der die Zielgruppe kennen muss.
 calloutsub: Technische Voraussetzungen: der vorhandene KI-Rahmen des Volkshochschul-Verbands, ein hinterlegter Assistent, die Wortliste als Datei. Keine Beschaffung, kein Eingriff ins Kursverwaltungssystem.
 quellen:
   - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
@@ -464,12 +464,12 @@ im Spiel wäre — die Hersteller solcher Prüfprogramme bauen selbst KI ein, um
 schneller zu werden. Sondern weil dort keine nötig ist. Für alles, was
 feststeht, ist ein Sprachmodell das schlechtere Werkzeug: langsamer, teurer,
 und es liefert nicht immer dasselbe Ergebnis. Ein Kontrastwert ist eine
-Rechnung, kein Urteil.
+Rechnung, keine Einschätzung.
 
 Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
 ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig
-eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und kein
-Urteil verlangen.
+eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und keine
+Einschätzung verlangen.
 
 Zu den technischen Voraussetzungen: Es braucht den KI-Rahmen, den der
 Volkshochschul-Verband ohnehin bereitstellt, einen dort hinterlegten
@@ -495,7 +495,7 @@ zeilen:
 callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
 calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
 quellen:
-  - "system-prompt.md, Fassung v10 vom 29.07.2026, elf Fassungen in der Versionsverwaltung"
+  - "system-prompt.md, Fassung v11 vom 29.07.2026, zwölf Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
