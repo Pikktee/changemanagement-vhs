@@ -347,6 +347,11 @@ def t_zweispalt(f, seite_, gesamt):
 
 
 def _tabelle_html(f):
+    # 'kompakt: ja' nimmt Zeilenhoehe und Schriftgrad zurueck. Gebraucht wird
+    # das, wenn unter der Tabelle noch ein Block steht — auf Folie 14 die
+    # Risikokarten.
+    eng = ' class="kompakt"' if str(f.get("kompakt", "")).lower() in (
+        "ja", "true", "1") else ""
     kopfz = [x.strip() for x in f.get("spalten", "").split("|")]
     ths = "".join(f"<th>{e(k)}</th>" for k in kopfz)
     trs = []
@@ -366,7 +371,8 @@ def _tabelle_html(f):
                 kl = ' class="num"'
             tds.append(f"<td{kl}>{e(z)}</td>")
         trs.append(f"<tr>{''.join(tds)}</tr>")
-    return f'<table><thead><tr>{ths}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
+    return (f'<table{eng}><thead><tr>{ths}</tr></thead>'
+            f'<tbody>{"".join(trs)}</tbody></table>')
 
 
 def t_tabelle(f, seite_, gesamt):

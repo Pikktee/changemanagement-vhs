@@ -866,17 +866,17 @@ akzent: und was sie kosten.
 klein: ja
 schrittetitel: ERSTE 30 TAGE · IN DIESER REIHENFOLGE
 schritte:
-  - "Dienstvereinbarung mit dem Personalrat schließen > Zweckbindung, Zugriffskreis, Löschfrist. Vorher darf nichts angelegt werden."
-  - "Einen Programmbereich als Pilotbereich gewinnen > Freiwillig. Ein zugewiesener Pilotbereich liefert kein belastbares Ergebnis."
-  - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win im zweiten Monat auf eine Zuständigkeit, die niemand hat."
-  - "Assistent im vorhandenen KI-Rahmen anlegen > Keine Beschaffung, kein neuer Vertrag, keine zusätzliche Stelle."
+  - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
+  - "Einen Programmbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert kein belastbares Ergebnis."
+  - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win auf niemanden."
+  - "Assistent im vorhandenen KI-Rahmen anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 kennzahlentitel: PRÜFAUFWAND IM JAHR
 kennzahlen:
   - "290 Std. || so lautet der Einwand: jede der 5.800 Veranstaltungen einzeln geprüft || einwand"
   - "29 Std. || gemessen: nur die rund 600 Texte, die im Jahr wirklich neu entstehen"
   - "4 Std. || im Pilot, ein Programmbereich, rund 73 neue Texte"
 callout: Der Einwand rechnet mit 5.800 Texten. Es sind rund 600, weil 54 Prozent der Kurse ihren Text teilen.
-calloutsub: Gemessen an 489 Kursen über die Portalschnittstelle. Offen bleibt, was die vhs als „neu“ zählt — würden zusätzlich bestehende Texte überarbeitet, liegt der Aufwand höher, im Grenzfall bei 220 Stunden. Das gehört im Pilot erhoben, nicht geschätzt.
+calloutsub: Gemessen an 489 Kursen. Offen bleibt, was die vhs als „neu“ zählt — im Grenzfall wären es 220 Stunden. Auch das liegt unter dem Einwand, gehört aber im Pilot gemessen.
 quellen: eigene Erhebung, daten/wirtschaftlichkeit.md mit allen Szenarien und Einschränkungen
 
 ### NOTIZ
@@ -924,7 +924,7 @@ kapitel: 03 · ERFOLGSMESSUNG
 titel: Woran man merkt,
 akzent: ob es gewirkt hat.
 klein: ja
-lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript, das dafür eingefroren ist. Die Nachmessung läuft mit demselben. Die vierte Zeile misst nicht den Text, sondern die Wirkung — dafür werden die Teilnehmenden selbst gefragt.
+kompakt: ja
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
   - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | daten/messung.py, unverändert"
@@ -932,9 +932,9 @@ zeilen:
   - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | daten/messung.py, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
-  - "Die Mitbestimmung stockt und der Pilot verschiebt sich. > Die Dienstvereinbarung ist Schritt eins der ersten 30 Tage, nicht der letzte. Ein Entwurf liegt dem Personalrat vor, bevor er gefragt wird."
-  - "Die Protokolle werden gegen das Unternehmen verwendet — belegt, datiert, zitierbar. > Deshalb gehören sie in die Dienstvereinbarung: Zweckbindung, Zugriffskreis, Löschfrist. Ein dokumentierter Mangel mit Abstellplan steht besser da als ungeprüfter Bestand."
-  - "Die Textbausteine werden nicht freigegeben und der Pilot meldet Befunde ohne Adressat. > Die Freigabe ist Schritt drei und damit vor dem Quick Win. Bleibt sie aus, wird der Pilot auf kursindividuelle Texte begrenzt und das offen benannt."
+  - "Die Mitbestimmung stockt, der Pilot verschiebt sich. > Die Dienstvereinbarung ist Schritt eins, nicht der letzte. Der Entwurf liegt vor, bevor gefragt wird."
+  - "Die Protokolle werden gegen das Unternehmen verwendet. > Zweckbindung, Zugriffskreis, Löschfrist in dieselbe Dienstvereinbarung — dazu ein Abstellplan mit Datum."
+  - "Die Bausteine werden nicht freigegeben, Befunde ohne Adressat. > Die Freigabe ist Schritt drei, also vor dem Quick Win. Sonst wird der Pilot begrenzt, offen benannt."
 callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
 quellen: Ausgangsmessung mit daten/messung.py, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
