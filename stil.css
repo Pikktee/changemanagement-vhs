@@ -191,8 +191,12 @@ td.nein{ color:var(--pflicht); font-weight:700; }
    die Ueberschrift darueber ebenfalls eine, stehen zwei blaue Linien mit
    wenigen Pixeln Abstand uebereinander. */
 .tblock .rtitel{ border-bottom:none; padding-bottom:0; margin-bottom:9px; }
-/* Derselbe Stufenblock auf einer Textfolie, dort mit Abstand zum Fliesstext */
-.kblock{ margin-top:22px; }
+/* Derselbe Stufenblock auf einer Textfolie. Den Abstand nach oben liefert
+   schon der gap des .body, hier kommt nur eine Kleinigkeit dazu. */
+.kblock{ margin-top:6px; }
+/* Fliesstext-Absaetze stehen enger beieinander als die Bloecke der Folie */
+.absaetze{ display:flex; flex-direction:column; gap:6px; }
+.absaetze .lede{ margin:0; }
 .rspalten{ display:flex; gap:34px; align-items:flex-start; }
 .rgruppe{ flex:1; min-width:0; padding:2px 0 2px 14px;
           border-left:4px solid var(--linie); }
@@ -228,6 +232,9 @@ td.nein{ color:var(--pflicht); font-weight:700; }
                  color:#fff; margin-top:11px; padding-top:11px;
                  border-top:1px solid rgba(255,255,255,.38); }
 .callout .folge .pfeil{ flex:0 0 auto; font-weight:700; }
+/* Auf Textfolien sammelt sich der freie Platz ueber dem Callout, nicht
+   darunter — sonst haengt er mitten in der Folie */
+.callout.unten{ margin-top:auto; }
 
 /* ---------- Bild ----------
    Eine Folie mit "bild:" bekommt eine rechte Spalte. Der Textbereich

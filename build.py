@@ -151,7 +151,7 @@ def h1(f):
     return out
 
 
-def callout(f):
+def callout(f, kl=""):
     """Hervorgehobener Schlusssatz, wahlweise mit Zusatz oder mit Folgerung.
 
     'calloutsub' setzt eine leise Nebenzeile darunter. 'calloutfolge' setzt
@@ -168,7 +168,7 @@ def callout(f):
         zusatz = (f'<span class="folge">'
                   f'<span class="pfeil" aria-hidden="true">→</span>'
                   f'<span>{e(f["calloutfolge"])}</span></span>')
-    return f'<div class="callout">{e(f["callout"])}{zusatz}</div>'
+    return f'<div class="callout{kl}">{e(f["callout"])}{zusatz}</div>'
 
 
 def quellen(f):
@@ -446,14 +446,21 @@ def t_text(f, seite_, gesamt):
     # Ohne Bildspalte steht die ganze Folienbreite zur Verfuegung. Die Zeile
     # bleibt trotzdem begrenzt, sonst wird sie zum Lesen zu lang.
     breite = 960 if f.get("bild") else 1080
+    # Die Absaetze stehen in einem eigenen Container mit engem Abstand. Ohne
+    # ihn addieren sich der gap des .body und der Rand der Absaetze zu einer
+    # Luecke, die groesser ist als die zwischen den Bloecken der Folie.
     abs_ = "".join(f'<p class="lede" style="font-size:18px;color:var(--ink);'
                    f'max-width:{breite}px">{e(a)}</p>' for a in f.get("absaetze", []))
+    if abs_:
+        abs_ = f'<div class="absaetze">{abs_}</div>'
     block = ""
     if f.get("kriterien"):
         block = ('<div class="kblock">'
                  + _stufenblock(f["kriterien"], f.get("kriterientitel", ""))
                  + "</div>")
-    return seite(f, seite_, gesamt, abs_ + block + callout(f))
+    # 'unten' drueckt den Callout an den Fuss der Folie: der freie Platz
+    # sammelt sich ueber ihm statt unter ihm
+    return seite(f, seite_, gesamt, abs_ + block + callout(f, " unten"))
 
 
 

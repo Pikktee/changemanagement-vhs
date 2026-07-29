@@ -348,8 +348,7 @@ absaetze:
 kriterientitel: Was das für Kursbeschreibungen bedeutet
 kriterien:
   - "PFLICHT · bis Stufe AA | 1.3.1 | Struktur ausgezeichnet"
-  - "| 2.4.2 | Seitentitel"
-  - "| 3.1.2 | Sprache von Textteilen"
+  - "| 2.4.4 | Linktext nennt sein Ziel"
   - "FREIWILLIG · Stufe AAA | 3.1.4 | Abkürzungen erklärt"
   - "| 3.1.5 | Leseniveau der Zielgruppe"
 callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind freiwillig.
@@ -377,10 +376,15 @@ stattdessen auf die BITV zwei null des Bundes. Die gilt für Bundesbehörden.
 Wer das verwechselt, prüft am falschen Maßstab.
 
 Und jetzt der Block in der Mitte, der Punkt, an dem ich beim Recherchieren
-selbst falsch lag. Links steht, was verbindlich ist: dass die Struktur
-technisch ausgezeichnet wird, dass die Seite einen aussagekräftigen Titel hat,
-dass fremdsprachige Textteile als solche gekennzeichnet sind. Das sind
-Kriterien für Vorleseprogramme, und sie sind Pflicht.
+selbst falsch lag. Er zeigt nur die Kriterien, die am Text der
+Kursbeschreibung selbst hängen. Die Seite hat weitere Pflichten — Kontraste,
+Seitentitel, Tastaturbedienung. Die gehören einem anderen Werkzeug, dazu
+komme ich auf der nächsten Folie.
+
+Links steht, was am Text verbindlich ist: dass eine Zeile, die eine
+Gliederungsebene eröffnet, auch technisch als Überschrift ausgezeichnet wird.
+Und dass ein Linktext sagt, wohin er führt. Beides sind die Pflichtregeln von
+eben.
 
 Rechts steht, was freiwillig ist. Dass Abkürzungen erklärt werden. Und dass
 das Leseniveau zur Zielgruppe passt. Beides ist dreifach A und damit nicht
