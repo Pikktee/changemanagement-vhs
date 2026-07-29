@@ -343,7 +343,7 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* Die Matrix bekommt eine Obergrenze statt der ganzen Folienhoehe. Vorher
    fuellte sie alles und stand ohne Luft zwischen Titel und Fusszeile. */
 .matrixwrap{ display:flex; gap:12px; flex:0 1 auto; min-height:0;
-             max-height:440px; }
+             max-height:440px; margin:auto 0; }
 .yachse{ display:flex; gap:6px; align-items:stretch; }
 /* writing-mode ohne Rotation: erster Eintrag steht oben */
 .ylabels{ writing-mode:vertical-rl;
