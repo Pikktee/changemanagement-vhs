@@ -330,8 +330,10 @@ def t_zweispalt(f, seite_, gesamt):
         lis = "".join(f"<li>{e(p)}</li>" for p in punkte)
         sp.append(f'<div class="sp"><span class="spkopf{alt}">{e(kopfz)}</span>'
                   f'<ul>{lis}</ul></div>')
+    # 'unten' verteilt den freien Platz auf die Luecken ueber und unter dem
+    # Callout, statt ihn ganz ueber ihm zu sammeln. Ohne Freiraum wirkungslos.
     return seite(f, seite_, gesamt,
-                 f'<div class="spalten">{"".join(sp)}</div>{callout(f)}')
+                 f'<div class="spalten">{"".join(sp)}</div>{callout(f, " unten")}')
 
 
 def _tabelle_html(f):
