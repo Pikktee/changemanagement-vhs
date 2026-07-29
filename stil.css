@@ -191,6 +191,8 @@ td.nein{ color:var(--pflicht); font-weight:700; }
    die Ueberschrift darueber ebenfalls eine, stehen zwei blaue Linien mit
    wenigen Pixeln Abstand uebereinander. */
 .tblock .rtitel{ border-bottom:none; padding-bottom:0; margin-bottom:9px; }
+/* Derselbe Stufenblock auf einer Textfolie, dort mit Abstand zum Fliesstext */
+.kblock{ margin-top:22px; }
 .rspalten{ display:flex; gap:34px; align-items:flex-start; }
 .rgruppe{ flex:1; min-width:0; padding:2px 0 2px 14px;
           border-left:4px solid var(--linie); }
@@ -220,6 +222,12 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .callout.grau{ background:var(--flaeche); color:var(--tinte); font-weight:400; }
 .callout .kl{ display:block; font-size:13px; font-weight:400;
               color:rgba(255,255,255,.78); margin-top:5px; }
+/* Folgerung statt Nebenzeile: abgesetzt, in voller Helligkeit, weil sie
+   die eigentliche Aussage traegt und nicht die Fussnote dazu ist. */
+.callout .folge{ display:flex; gap:11px; font-size:15px; font-weight:400;
+                 color:#fff; margin-top:11px; padding-top:11px;
+                 border-top:1px solid rgba(255,255,255,.38); }
+.callout .folge .pfeil{ flex:0 0 auto; font-weight:700; }
 
 /* ---------- Bild ----------
    Eine Folie mit "bild:" bekommt eine rechte Spalte. Der Textbereich

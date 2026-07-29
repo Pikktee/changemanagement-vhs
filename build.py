@@ -152,10 +152,23 @@ def h1(f):
 
 
 def callout(f):
+    """Hervorgehobener Schlusssatz, wahlweise mit Zusatz oder mit Folgerung.
+
+    'calloutsub' setzt eine leise Nebenzeile darunter. 'calloutfolge' setzt
+    stattdessen die Folgerung aus dem Befund, abgesetzt und mit Pfeil. Der
+    Pfeil ist reine Optik und deshalb 'aria-hidden' — sonst liest ein
+    Screenreader an dieser Stelle 'Pfeil nach rechts' vor.
+    """
     if not f.get("callout"):
         return ""
-    kl = f'<span class="kl">{e(f["calloutsub"])}</span>' if f.get("calloutsub") else ""
-    return f'<div class="callout">{e(f["callout"])}{kl}</div>'
+    zusatz = ""
+    if f.get("calloutsub"):
+        zusatz = f'<span class="kl">{e(f["calloutsub"])}</span>'
+    elif f.get("calloutfolge"):
+        zusatz = (f'<span class="folge">'
+                  f'<span class="pfeil" aria-hidden="true">→</span>'
+                  f'<span>{e(f["calloutfolge"])}</span></span>')
+    return f'<div class="callout">{e(f["callout"])}{zusatz}</div>'
 
 
 def quellen(f):
@@ -347,6 +360,53 @@ def t_tabelle(f, seite_, gesamt):
     return seite(f, seite_, gesamt, _tabelle_html(f) + callout(f))
 
 
+def _stufenblock(zeilen, titel=""):
+    """Nach Einstufung gruppierte Liste, die Gruppen nebeneinander.
+
+    Geschrieben wird jede Zeile als 'Stufe | Kuerzel | Erklaerung'; bleibt die
+    erste Zelle leer, gehoert die Zeile zur Gruppe darueber:
+
+        - "PFLICHT · verbindlich | STRUKTUR | Ueberschrift, die keine ist"
+        - "| LINKTEXT | sagt nicht, wohin der Link fuehrt"
+
+    Ein ' · ' in der Stufe trennt Bezeichnung und Einordnung. Die Stufe steht
+    als Wort da und nicht nur als Farbe — die Unterscheidung darf nach
+    WCAG 1.4.1 nicht allein an der Farbe haengen.
+
+    Genutzt von 'tabelle2' fuer die Pruefregeln und von 'text' fuer die
+    Gegenueberstellung von Pflicht- und Kann-Kriterien.
+    """
+    gruppen = []
+    for zeile in zeilen:
+        teile = [x.strip() for x in str(zeile).split("|")]
+        teile += [""] * (3 - len(teile))
+        stufe, kuerzel, text = teile[0], teile[1], teile[2]
+        if stufe or not gruppen:
+            kl = "pflicht" if stufe.upper().startswith("PFLICHT") else "empfehlung"
+            gruppen.append({"stufe": stufe, "kl": kl, "zeilen": []})
+        gruppen[-1]["zeilen"].append((kuerzel, text))
+
+    bloecke = []
+    for g in gruppen:
+        zs = "".join(
+            f'<div class="rzeile"><span class="rk">{e(k)}</span>'
+            f'<span class="rt">{e(t)}</span></div>'
+            for k, t in g["zeilen"])
+        haupt, _, unter = g["stufe"].partition(" · ")
+        stufe = f'<span class="rs1">{e(haupt)}</span>'
+        if unter:
+            stufe += f'<span class="rs2">{e(unter)}</span>'
+        bloecke.append(
+            f'<div class="rgruppe {g["kl"]}">'
+            f'<div class="rstufe">{stufe}</div>'
+            f'<div class="rliste">{zs}</div></div>')
+
+    kopf = f'<div class="rtitel">{e(titel)}</div>' if titel else ""
+    # Die Gruppen stehen nebeneinander, damit die Folie in die Breite geht
+    return (f'<div class="regeln">{kopf}'
+            f'<div class="rspalten">{"".join(bloecke)}</div></div>')
+
+
 def t_tabelle2(f, seite_, gesamt):
     """Regelblock, darunter eine kompakte Tabelle.
 
@@ -366,37 +426,7 @@ def t_tabelle2(f, seite_, gesamt):
     Die Stufe steht als Wort da und nicht nur als Farbe — die Unterscheidung
     darf nach WCAG 1.4.1 nicht allein an der Farbe haengen.
     """
-    gruppen = []
-    for zeile in f.get("regeln", []):
-        teile = [x.strip() for x in str(zeile).split("|")]
-        teile += [""] * (3 - len(teile))
-        stufe, kuerzel, text = teile[0], teile[1], teile[2]
-        if stufe or not gruppen:
-            kl = "pflicht" if stufe.upper().startswith("PFLICHT") else "empfehlung"
-            gruppen.append({"stufe": stufe, "kl": kl, "zeilen": []})
-        gruppen[-1]["zeilen"].append((kuerzel, text))
-
-    bloecke = []
-    for g in gruppen:
-        zs = "".join(
-            f'<div class="rzeile"><span class="rk">{e(k)}</span>'
-            f'<span class="rt">{e(t)}</span></div>'
-            for k, t in g["zeilen"])
-        # Ein " · " in der Stufe trennt Bezeichnung und Einordnung darunter
-        haupt, _, unter = g["stufe"].partition(" · ")
-        stufe = f'<span class="rs1">{e(haupt)}</span>'
-        if unter:
-            stufe += f'<span class="rs2">{e(unter)}</span>'
-        bloecke.append(
-            f'<div class="rgruppe {g["kl"]}">'
-            f'<div class="rstufe">{stufe}</div>'
-            f'<div class="rliste">{zs}</div></div>')
-
-    titel = f.get("regelntitel", "")
-    kopf = f'<div class="rtitel">{e(titel)}</div>' if titel else ""
-    # Die Gruppen stehen nebeneinander, damit die Folie in die Breite geht
-    block = (f'<div class="regeln">{kopf}'
-             f'<div class="rspalten">{"".join(bloecke)}</div></div>')
+    block = _stufenblock(f.get("regeln", []), f.get("regelntitel", ""))
     # Zwei Bloecke auf einer Folie: die Tabelle muss enger gesetzt werden,
     # sonst schiebt der zweite Block Quellen- und Fusszeile aus der Folie
     ttitel = f.get("tabellentitel", "")
@@ -413,9 +443,17 @@ def t_zitat(f, seite_, gesamt):
 
 
 def t_text(f, seite_, gesamt):
+    # Ohne Bildspalte steht die ganze Folienbreite zur Verfuegung. Die Zeile
+    # bleibt trotzdem begrenzt, sonst wird sie zum Lesen zu lang.
+    breite = 960 if f.get("bild") else 1080
     abs_ = "".join(f'<p class="lede" style="font-size:18px;color:var(--ink);'
-                   f'max-width:960px">{e(a)}</p>' for a in f.get("absaetze", []))
-    return seite(f, seite_, gesamt, abs_ + callout(f))
+                   f'max-width:{breite}px">{e(a)}</p>' for a in f.get("absaetze", []))
+    block = ""
+    if f.get("kriterien"):
+        block = ('<div class="kblock">'
+                 + _stufenblock(f["kriterien"], f.get("kriterientitel", ""))
+                 + "</div>")
+    return seite(f, seite_, gesamt, abs_ + block + callout(f))
 
 
 

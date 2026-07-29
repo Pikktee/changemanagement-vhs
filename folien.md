@@ -338,18 +338,22 @@ entscheiden. Ich messe also bewusst zu niedrig statt zu hoch.
 ## 6 — Rechtslage
 
 typ: text
-kapitel: 01 · EINORDNUNG
-bild: bilder/07-stufen.jpg
-bildprompt: Treppe aus drei Stufen, die unteren zwei massiv petrol, die oberste nur als duenner Umriss. Flach-geometrisch, Bauhaus, keine Schrift.
+kapitel: 01 · RECHTLICHER RAHMEN
 titel: Welches Recht gilt,
 akzent: und was nicht.
 klein: ja
 absaetze:
   - "Digitale Barrierefreiheit heißt: Websites müssen so gebaut sein, dass auch Menschen mit Behinderung sie nutzen können. Der Maßstab sind die **WCAG** mit den Stufen A, AA und AAA."
-  - "Für die vhs gilt weder die EU-Richtlinie noch das Barrierefreiheitsstärkungsgesetz direkt. Als kommunale Einrichtung in Hessen greift **Landesrecht**: § 14 HessBGG und die **BITV HE**. Gefordert ist Stufe **AA** — nicht die BITV 2.0 des Bundes, der häufigste Zitierfehler kommunaler Stellen."
-  - "**Pflicht auf AA:** Struktur (1.3.1), Seitentitel (2.4.2), Sprache von Textteilen (3.1.2). **Nicht Pflicht:** Abkürzungen erklärt (3.1.4) und Leseniveau der Zielgruppe (3.1.5), beides Stufe AAA. Nicht Teil der AA-Konformität heißt aber nicht belanglos: **§ 3 Abs. 1 BITV HE** verlangt eigenständig, dass Angebote verständlich sind."
-callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind optional.
-calloutsub: Ich argumentiere deshalb nicht mit einem drohenden Bußgeld, sondern mit dem Auftrag aus der Betriebssatzung.
+  - "Für die vhs als kommunale Einrichtung in Hessen gilt **Landesrecht**: § 14 HessBGG und die **BITV HE**. Gefordert ist Stufe **AA**."
+kriterientitel: Was das für Kursbeschreibungen bedeutet
+kriterien:
+  - "PFLICHT · bis Stufe AA | 1.3.1 | Struktur ausgezeichnet"
+  - "| 2.4.2 | Seitentitel"
+  - "| 3.1.2 | Sprache von Textteilen"
+  - "FREIWILLIG · Stufe AAA | 3.1.4 | Abkürzungen erklärt"
+  - "| 3.1.5 | Leseniveau der Zielgruppe"
+callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind freiwillig.
+calloutfolge: Freiwillig heißt nicht belanglos. § 3 Abs. 1 BITV HE verlangt eigenständig, dass Angebote verständlich sind — und die Betriebssatzung, dass sie allen offenstehen, ohne Rücksicht auf Vorbildung.
 quellen:
   - "HessBGG, BITV HE 2019, EN 301 549"
   - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
@@ -372,21 +376,29 @@ Gefordert wird Stufe doppel A. Viele kommunale Stellen berufen sich
 stattdessen auf die BITV zwei null des Bundes. Die gilt für Bundesbehörden.
 Wer das verwechselt, prüft am falschen Maßstab.
 
-Und jetzt der Punkt, an dem ich beim Recherchieren selbst falsch lag. Struktur
-und ausgezeichnete Fremdsprachen sind Pflicht. Aber dass Abkürzungen erklärt
-werden und dass das Leseniveau zur Zielgruppe passt, ist beides dreifach A und
-damit nicht verbindlich. Ich könnte jetzt mit einem drohenden Bußgeld
-argumentieren. Das wäre bequem, und es wäre falsch.
+Und jetzt der Block in der Mitte, der Punkt, an dem ich beim Recherchieren
+selbst falsch lag. Links steht, was verbindlich ist: dass die Struktur
+technisch ausgezeichnet wird, dass die Seite einen aussagekräftigen Titel hat,
+dass fremdsprachige Textteile als solche gekennzeichnet sind. Das sind
+Kriterien für Vorleseprogramme, und sie sind Pflicht.
 
-Wichtig ist der letzte Absatz. Paragraph drei Absatz eins der hessischen
-Verordnung verlangt eigenständig, dass Angebote verständlich sind. Die
-Konformitätsstufe begründet eine Vermutung, keine Obergrenze der Pflicht. Ich
-argumentiere also nicht gegen das Recht, sondern in einer Lücke, die es selbst
-offenlässt.
+Rechts steht, was freiwillig ist. Dass Abkürzungen erklärt werden. Und dass
+das Leseniveau zur Zielgruppe passt. Beides ist dreifach A und damit nicht
+gefordert. Genau die beiden Kriterien also, um die es in diesem Projekt geht.
 
-Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind optional.
-Für ein Haus, dessen Satzung sagt, die Angebote stünden allen offen ohne
-Rücksicht auf Vorbildung, ist das nicht vertretbar.
+Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
+und es wäre falsch.
+
+Freiwillig heißt aber nicht belanglos, und das ist der Kern dieser Folie.
+Paragraph drei Absatz eins der hessischen Verordnung verlangt eigenständig,
+dass Angebote verständlich sind. Die Konformitätsstufe begründet eine
+Vermutung, keine Obergrenze der Pflicht. Ich argumentiere also nicht gegen das
+Recht, sondern in einer Lücke, die es selbst offenlässt.
+
+Und den eigentlichen Auftrag gibt ohnehin das Haus sich selbst. Die
+Betriebssatzung sagt, die Angebote stünden allen offen, ohne Rücksicht auf
+Vorbildung. Für ein solches Haus ist es nicht vertretbar, dass ausgerechnet
+die Kriterien für Menschen mit geringer Vorbildung die freiwilligen sind.
 
 
 ## 7 — Die Arbeitsteilung
