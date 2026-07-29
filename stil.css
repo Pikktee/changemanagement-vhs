@@ -194,7 +194,9 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* Derselbe Stufenblock auf einer Textfolie. Dort traegt er die Folie und hat
    nur wenige Zeilen, deshalb steht er groesser und luftiger als neben einer
    Tabelle. Den Abstand nach oben liefert schon der gap des .body. */
-.kblock{ margin-top:6px; }
+/* 'auto' hier und am Callout teilt den freien Platz auf die beiden Luecken
+   auf, statt ihn ganz ueber dem Callout zu sammeln */
+.kblock{ margin-top:auto; }
 .kblock .rzeile{ font-size:16.5px; }
 .kblock .rliste{ gap:11px; }
 .kblock .rstufe{ margin-bottom:12px; }
