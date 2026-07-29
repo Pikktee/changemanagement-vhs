@@ -203,6 +203,13 @@ def seite(f, s, g, inhalt):
 
 def t_panel(f, seite_, gesamt, schluss=False):
     sub = f'<p class="sub">{e(f["untertitel"])}</p>' if f.get("untertitel") else ""
+    # meta: mit | getrennte Angaben, gesetzt als Versalienzeile mit Trennstrichen
+    meta = ""
+    if f.get("meta"):
+        teile = [t.strip() for t in str(f["meta"]).split("|") if t.strip()]
+        meta = ('<div class="meta">'
+                + "".join(f"<span>{e(t)}</span>" for t in teile)
+                + "</div>")
     titel = e(f.get("titel", ""))
     if f.get("akzent"):
         titel += f' <span class="g">{e(f["akzent"])}</span>'
@@ -222,6 +229,7 @@ def t_panel(f, seite_, gesamt, schluss=False):
     <div class="rule"></div>
     <h1>{titel}</h1>
     {sub}
+    {meta}
     <div class="spacer"></div>
     <div class="pfoot">
       <span>{e(f.get('fussl','ABSCHLUSSPROJEKT · CHANGE UND KI'))}</span>

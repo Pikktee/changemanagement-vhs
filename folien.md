@@ -22,7 +22,8 @@
 typ: titel
 titel: KLARTEXT — Kursbeschreibungen
 akzent: barrierefrei prüfen.
-untertitel: Ein KI-gestützter Prüfschritt vor der Veröffentlichung. Volkshochschule Frankfurt am Main, acht Programmbereiche, 5.800 Texte im Jahr.
+untertitel: Ein KI-gestützter Prüfschritt vor der Veröffentlichung.
+meta: Volkshochschule Frankfurt am Main | Acht Programmbereiche | 5.800 Texte im Jahr
 fussl: ABSCHLUSSPROJEKT · CHANGE UND KI
 fussr: CIMDATA · HENRIK HEIL · JULI 2026
 bild: bilder/01-titel-wand.jpg
