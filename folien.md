@@ -411,58 +411,60 @@ typ: zweispalt
 kapitel: 02 · LÖSUNG
 bild: bilder/08-zahnrad-auge.jpg
 bildprompt: Komposition geteilt durch eine vertikale Linie, links ein praezises Zahnrad, rechts ein stilisiertes Auge. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Zwei Werkzeuge,
-akzent: zwei Zuständigkeiten.
+titel: Warum ein Prüfprogramm
+akzent: hier nicht reicht.
 klein: ja
-spalte1: DETERMINISTISCH · axe-core
+spalte1: DAS SEITENGERÜST · städtische IT
 punkte1:
-  - "Markup, Kontraste, Tastaturbedienung, Seitengerüst"
-  - "Reproduzierbar, kostenlos, läuft bei jeder Änderung"
-  - "Deckt 30 bis 40 Prozent der Kriterien ab"
-  - "Adressat: städtische IT und Portaldienstleister"
-spalte2: URTEILEND · System-Prompt
+  - "Kontraste, Tastaturbedienung, Seitentitel, Navigation"
+  - "Prüfbar, ohne den einzelnen Kurs zu kennen"
+  - "Etablierte Programme wie axe-core, kostenlos, bei jeder Änderung"
+  - "Gilt für alle 5.800 Texte gleich"
+spalte2: DER EINZELNE TEXT · Programmbereiche
 punkte2:
-  - "Verständlichkeit gegen die Zielgruppe"
-  - "Überschriften, die keine sind, und Linktexte ohne Aussage"
-  - "Braucht Gegenlesen durch einen Menschen"
-  - "Adressat: Programmbereiche und Redaktion"
-callout: Für alles Regelhafte ist ein Sprachmodell das schlechtere Werkzeug.
+  - "Versteht die Zielgruppe genau dieses Kurses ihn?"
+  - "Auch Überschriften, die keine sind, und Linktexte ohne Aussage"
+  - "Nicht prüfbar, ohne zu wissen, wer liest"
+  - "Vorschlag der KI, Entscheidung beim Fachbereich"
+callout: Ob ein Text zu seinen Lesern passt, steht in keinem Regelwerk.
+calloutfolge: Die Technik bleibt bei der städtischen IT. Neu ist allein der Schritt, der Urteil verlangt.
 calloutsub: Technische Voraussetzungen: der vorhandene KI-Rahmen des Volkshochschul-Verbands, ein hinterlegter Assistent, die Wortliste als Datei. Keine Beschaffung, kein Eingriff ins Kursverwaltungssystem.
 quellen:
   - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
   - "Deque axe-core | https://github.com/dequelabs/axe-core"
-  - "Erhebungen zur Abdeckung automatischer Prüfung"
 
 ### NOTIZ
 
 Damit zur Lösung. Sie beginnt mit einer Abgrenzung, die ich für den
 wichtigsten Teil meines Konzepts halte.
 
-Es gibt zwei Sorten von Problemen, und sie brauchen zwei verschiedene
-Werkzeuge.
+Auf der vorigen Folie habe ich nur die Kriterien gezeigt, die am Text der
+Kursbeschreibung hängen. Die Seite hat weitere Pflichten, und die Frage ist,
+warum dafür nicht dasselbe Werkzeug reicht.
 
-Links das Regelhafte: Markup, Kontraste, Tastaturbedienung, das Gerüst der
-Seite. Dafür gibt es etablierte Prüfprogramme wie axe-core. Die sind
-kostenlos, laufen automatisch und liefern bei gleicher Eingabe immer dasselbe
-Ergebnis. Zuständig ist die städtische IT.
+Links steht, was am Gerüst der Seite hängt: Kontraste, Tastaturbedienung,
+Seitentitel, Navigation. Das kann man prüfen, ohne einen einzigen Kurs zu
+kennen. Es gilt für alle fünftausendachthundert Texte gleich, dafür gibt es
+etablierte Programme wie axe-core, und zuständig ist die städtische IT.
 
-Rechts das Urteilende: Ob ein Lernender auf A1 diesen Satz versteht. Ob dieser
-Linktext etwas aussagt. Dafür gibt es kein Regelwerk, das braucht Urteil.
-Zuständig sind die Programmbereiche.
+Rechts steht, was am einzelnen Text hängt. Versteht die Zielgruppe genau
+dieses Kurses ihn? Diese Frage lässt sich nicht beantworten, ohne zu wissen,
+wer liest. Zuständig sind die Programmbereiche.
 
-Die Trennlinie verläuft dabei nicht zwischen Sprache und Technik. Zwei meiner
-sechs Regeln sind selbst Pflichtkriterien der Barrierefreiheit. Ein Beispiel:
-Eine fett gesetzte Zeile, die als Überschrift gemeint ist, aber technisch
-keine ist. Das Prüfprogramm sieht dort nur fetten Text und meldet nichts. Ob
-diese Zeile eine Überschrift sein sollte, kann man dem Text nicht ansehen,
-sondern nur verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium auf
-der rechten Seite.
+Und jetzt der Punkt, auf den es mir ankommt. Die Trennlinie verläuft nicht
+zwischen Sprache und Technik. Zwei meiner sechs Regeln sind selbst
+Pflichtkriterien der Barrierefreiheit. Ein Beispiel: eine hervorgehobene
+Zeile, die als Überschrift gemeint ist, aber im Quelltext keine ist. Das
+Prüfprogramm sieht dort nur Fließtext und meldet nichts. Ob diese Zeile eine
+Überschrift sein sollte, kann man dem Text nicht ansehen, sondern nur
+verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium rechts.
 
-Der Satz in der Mitte ist mir wichtig genug, ihn so deutlich hinzuschreiben.
-Für alles Regelhafte ist ein Sprachmodell das schlechtere Werkzeug. Es ist
-langsamer, teurer und liefert nicht immer dasselbe Ergebnis. Wer behauptet,
-eine KI ersetze axe-core, hat entweder das eine oder das andere nicht
-verstanden.
+Ein Wort dazu, warum links kein Sprachmodell steht. Nicht, weil dort keine KI
+im Spiel wäre — die Hersteller solcher Prüfprogramme bauen selbst KI ein, um
+schneller zu werden. Sondern weil dort keine nötig ist. Für alles, was
+feststeht, ist ein Sprachmodell das schlechtere Werkzeug: langsamer, teurer,
+und es liefert nicht immer dasselbe Ergebnis. Ein Kontrastwert ist eine
+Rechnung, kein Urteil.
 
 Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
 ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig

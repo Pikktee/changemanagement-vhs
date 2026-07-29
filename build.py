@@ -154,20 +154,21 @@ def h1(f):
 def callout(f, kl=""):
     """Hervorgehobener Schlusssatz, wahlweise mit Zusatz oder mit Folgerung.
 
-    'calloutsub' setzt eine leise Nebenzeile darunter. 'calloutfolge' setzt
-    stattdessen die Folgerung aus dem Befund, abgesetzt und mit Pfeil. Der
-    Pfeil ist reine Optik und deshalb 'aria-hidden' — sonst liest ein
-    Screenreader an dieser Stelle 'Pfeil nach rechts' vor.
+    'calloutfolge' setzt die Folgerung aus dem Befund, abgesetzt und mit Pfeil.
+    'calloutsub' setzt eine leise Nebenzeile. Beides zusammen ist erlaubt: erst
+    die Folgerung, dann die Nebenbemerkung. Der Pfeil ist reine Optik und
+    deshalb 'aria-hidden' — sonst liest ein Screenreader an dieser Stelle
+    'Pfeil nach rechts' vor.
     """
     if not f.get("callout"):
         return ""
     zusatz = ""
+    if f.get("calloutfolge"):
+        zusatz += (f'<span class="folge">'
+                   f'<span class="pfeil" aria-hidden="true">→</span>'
+                   f'<span>{e(f["calloutfolge"])}</span></span>')
     if f.get("calloutsub"):
-        zusatz = f'<span class="kl">{e(f["calloutsub"])}</span>'
-    elif f.get("calloutfolge"):
-        zusatz = (f'<span class="folge">'
-                  f'<span class="pfeil" aria-hidden="true">→</span>'
-                  f'<span>{e(f["calloutfolge"])}</span></span>')
+        zusatz += f'<span class="kl">{e(f["calloutsub"])}</span>'
     return f'<div class="callout{kl}">{e(f["callout"])}{zusatz}</div>'
 
 
