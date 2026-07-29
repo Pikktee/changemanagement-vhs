@@ -479,7 +479,7 @@ Kursverwaltungssystem.
 
 typ: tabelle
 kapitel: 02 · SYSTEM-PROMPT
-titel: Der Prompt in
+titel: Der System-Prompt in
 akzent: sechs Bausteinen.
 klein: ja
 spalten: Baustein | Was darin steht
@@ -487,11 +487,11 @@ zeilen:
   - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, entscheidet nichts."
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
-  - "GRENZEN | ! Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
+  - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
-callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
-calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
+callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
+calloutfolge: „Bewertet Texte, niemals Personen." Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
 quellen:
   - "system-prompt.md, Fassung v11 vom 29.07.2026, zwölf Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"

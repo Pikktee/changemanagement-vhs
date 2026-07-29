@@ -360,7 +360,7 @@ def _tabelle_html(f):
 
 
 def t_tabelle(f, seite_, gesamt):
-    return seite(f, seite_, gesamt, _tabelle_html(f) + callout(f))
+    return seite(f, seite_, gesamt, _tabelle_html(f) + callout(f, " unten"))
 
 
 def _stufenblock(zeilen, titel=""):
