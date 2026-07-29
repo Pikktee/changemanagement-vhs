@@ -521,13 +521,21 @@ def t_matrix(f, seite_, gesamt):
 
     matrix = (q("oben_links") + q("oben_rechts", stark=True)
               + q("unten_links") + q("unten_rechts"))
+    # Die Achsenlinien mit Pfeilspitze sind reine Grafik und deshalb
+    # 'aria-hidden'. Die Richtung steht ohnehin in den Beschriftungen.
     inhalt = f"""<div class="matrixwrap">
-  <div class="yachse"><span>{e(f.get('yhoch','Einfluss hoch'))}</span>
-                      <span>{e(f.get('yniedrig','niedrig'))}</span></div>
+  <div class="yachse">
+    <div class="alinie ylinie" aria-hidden="true"></div>
+    <div class="ylabels"><span>{e(f.get('yhoch','Einfluss hoch'))}</span>
+                         <span>{e(f.get('yniedrig','niedrig'))}</span></div>
+  </div>
   <div class="matrixcol">
     <div class="matrix">{matrix}</div>
-    <div class="xachse"><span>{e(f.get('xniedrig','Betroffenheit niedrig'))}</span>
-                        <span>{e(f.get('xhoch','hoch'))}</span></div>
+    <div class="xachse">
+      <div class="alinie xlinie" aria-hidden="true"></div>
+      <div class="xlabels"><span>{e(f.get('xniedrig','Betroffenheit niedrig'))}</span>
+                           <span>{e(f.get('xhoch','hoch'))}</span></div>
+    </div>
   </div>
 </div>{callout(f)}"""
     return seite(f, seite_, gesamt, inhalt)

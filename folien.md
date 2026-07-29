@@ -537,7 +537,6 @@ bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Tex
 titel: Der System-Prompt
 akzent: im Einsatz.
 klein: ja
-lede: Dieselben sechs Regeln, zwei Umgebungen. Die Nachbearbeitung im Code läuft nur beim zweiten.
 wege:
   - "Als KI-Assistent bei fobizz || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
   - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein eigener Server, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Hier laufen Namensschutz und Korrektur der Einstufung im Code mit."

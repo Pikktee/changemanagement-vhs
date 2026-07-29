@@ -341,11 +341,22 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 
 /* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
 .matrixwrap{ display:flex; gap:12px; flex:1; min-height:0; }
+.yachse{ display:flex; gap:6px; align-items:stretch; }
 /* writing-mode ohne Rotation: erster Eintrag steht oben */
-.yachse{ writing-mode:vertical-rl;
-         display:flex; justify-content:space-between; align-items:center;
-         font-size:10.5px; font-weight:700; letter-spacing:2px;
-         text-transform:uppercase; color:var(--leise); padding:4px 0; }
+.ylabels{ writing-mode:vertical-rl;
+          display:flex; justify-content:space-between; align-items:center;
+          font-size:10.5px; font-weight:700; letter-spacing:2px;
+          text-transform:uppercase; color:var(--leise); padding:4px 0; }
+/* Achsenlinie mit Pfeilspitze: sie zeigt in die Richtung, in der die Groesse
+   zunimmt. Ohne sie sind die beiden Beschriftungen nur zwei Woerter. */
+.alinie{ position:relative; flex:0 0 auto; }
+.ylinie{ width:9px; }
+.ylinie::before{ content:""; position:absolute; left:3.5px; top:8px; bottom:2px;
+                 width:2px; background:var(--marke); }
+.ylinie::after{ content:""; position:absolute; left:0; top:0;
+                border-left:4.5px solid transparent;
+                border-right:4.5px solid transparent;
+                border-bottom:8px solid var(--marke); }
 .matrixcol{ flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
 .matrix{ flex:1; display:grid; grid-template-columns:1fr 1fr;
          grid-template-rows:1fr 1fr; gap:8px; min-height:0; }
@@ -361,9 +372,17 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .quad li::before{ content:""; position:absolute; left:0; top:8px;
                   width:5px; height:2px; background:var(--marke); }
 .quad.stark li::before{ background:var(--auf-marke); }
-.xachse{ display:flex; justify-content:space-between;
-         font-size:10.5px; font-weight:700; letter-spacing:2px;
-         text-transform:uppercase; color:var(--leise); }
+.xachse{ display:flex; flex-direction:column; gap:5px; }
+.xlinie{ height:9px; }
+.xlinie::before{ content:""; position:absolute; left:2px; right:8px; top:3.5px;
+                 height:2px; background:var(--marke); }
+.xlinie::after{ content:""; position:absolute; right:0; top:0;
+                border-top:4.5px solid transparent;
+                border-bottom:4.5px solid transparent;
+                border-left:8px solid var(--marke); }
+.xlabels{ display:flex; justify-content:space-between;
+          font-size:10.5px; font-weight:700; letter-spacing:2px;
+          text-transform:uppercase; color:var(--leise); }
 
 /* ---------- Typ: timeline (drei Straenge ueber drei Monate) ---------- */
 .tl{ display:flex; flex-direction:column; gap:11px; }
