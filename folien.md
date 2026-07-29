@@ -106,8 +106,8 @@ kapitel: ÜBERBLICK
 bild: bilder/02-teile-ganzes.jpg
 bu: Einzelne Teile, ein Konzept.
 bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Was ich vorschlage,
-akzent: und was dabei herauskommt.
+titel: Der Vorschlag,
+akzent: und was er bringt.
 punkte:
   - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses Kurses geprüft."
   - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."

@@ -188,6 +188,22 @@ zeilen:
 `+` am Zellenanfang färbt petrol, `!` färbt orange. Reine Zahlen werden
 automatisch hervorgehoben.
 
+### `tabelle2`
+Wie `tabelle`, aber mit einem zweiten Block darunter, gruppiert nach
+Einstufung. Die Gruppe wechselt, sobald die erste Zelle gefüllt ist.
+
+```
+regelntitel: Die sechs Befundarten
+regeln:
+  - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
+  - "| LINKTEXT | sagt nicht, wohin der Link führt"
+  - "EMPFEHLUNG | NIVEAU | Wort zu schwer für diese Zielgruppe"
+```
+
+Enthält die Stufe das Wort `PFLICHT`, wird die Gruppe rot markiert, sonst
+gelbbraun. Die Stufe steht als Wort da und nicht nur als Farbe. Zwei Blöcke
+plus Callout passen nicht auf eine Folie — im Zweifel den Callout weglassen.
+
 ### `zitat`
 Großes Zitat mit Balken links. Felder `zitat` und `quelle`.
 
