@@ -77,11 +77,30 @@ Reihenfolge in der Datei zählt.
 | `klein: ja` | kleinere Überschrift, wenn sie sonst zu viel Platz frisst |
 | `callout` | Petrolfarbener Balken unten |
 | `calloutsub` | Zweite Zeile im Balken, kleiner |
-| `quellen` | Kleine Quellenzeile über der Fußzeile |
+| `quellen` | Kleine Quellenzeile über der Fußzeile, siehe unten |
+| `meta` | Nur auf `titel` und `schluss`: Angaben in Versalien, mit `\|` getrennt |
 | `fussl`, `fussr` | Fußzeile links und rechts überschreiben |
 | `bild` | Pfad zu einem Bild, z. B. `bilder/05-raster.jpg` |
 | `bu` | Bildunterschrift unter dem Bild |
 | `bildprompt` | Dokumentation, wie das Bild entstanden ist. Erscheint nicht auf der Folie |
+
+---
+
+## Quellen verlinken
+
+Schreib die Quellen als Liste. Ein Eintrag der Form `Text | URL` wird zum
+anklickbaren Link, alles ohne `|` bleibt einfacher Text.
+
+```
+quellen:
+  - "eigene Erhebung an 60 Kursen, 28.07.2026"
+  - "Betriebssatzung der vhs | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
+```
+
+Auf der Folie steht die URL nicht, nur der Text — anklickbar ist sie im PDF.
+Das funktioniert, weil das PDF direkt aus dem HTML gedruckt wird und nicht aus
+den Bildern besteht. Deshalb ist der Text darin auch durchsuchbar und für
+Vorleseprogramme lesbar.
 
 ---
 

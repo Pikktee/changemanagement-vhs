@@ -475,20 +475,6 @@ def baue_pptx(folien):
     return ziel
 
 
-def baue_pdf(folien):
-    from PIL import Image
-    seiten = []
-    for i, _ in enumerate(folien, 1):
-        p = AUS / f"folie-{i:02d}.png"
-        if p.exists():
-            seiten.append(Image.open(p).convert("RGB"))
-    if not seiten:
-        return None
-    ziel = AUS / "Praesentation-KLARTEXT.pdf"
-    seiten[0].save(ziel, save_all=True, append_images=seiten[1:])
-    return ziel
-
-
 def baue_pdf_links(folien):
     """PDF direkt aus dem HTML drucken statt aus den PNGs.
 
