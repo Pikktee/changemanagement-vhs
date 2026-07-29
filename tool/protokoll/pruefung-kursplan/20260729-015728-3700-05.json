@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T01:57:28",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 15.05,
+  "eingabe": {
+    "titel": "Achtsames Rückentraining",
+    "nummer": "3700-05",
+    "programmbereich": "Gesundheit",
+    "niveau": "kein Sprachniveau",
+    "text": "Es erwarten Sie gezielte, langsame Bewegungsabläufe, die die Wirbelsäule mobilisieren, die Muskulatur entspannen und die Atmung vertiefen. Kräftigende Übungen stärken besonders den Rumpf- und Bauchbereich, während Dehnübungen Beine und Rumpf flexibel halten. So werden Beweglichkeit, Körperwahrnehmung und Haltung gefördert. Der Unterricht kombiniert bewährte Methoden aus Wirbelsäulengymnastik, Rückenschule, Eutonie, Yoga, Pilates und der Atemlehre nach Middendorf und bietet ein ausgewogenes, praxisnahes Training für den gesamten Rücken. \n\nDer Kurs ersetzt keine krankengymnastische Behandlung. Bei akuten Beschwerden empfehlen wir Ihnen ärztliche Rücksprache."
+  },
+  "benutzernachricht": "KURSTITEL:        Achtsames Rückentraining\nKURSNUMMER:       3700-05\nPROGRAMMBEREICH:  Gesundheit\nNIVEAU:           kein Sprachniveau\nTEXT:\nEs erwarten Sie gezielte, langsame Bewegungsabläufe, die die Wirbelsäule mobilisieren, die Muskulatur entspannen und die Atmung vertiefen. Kräftigende Übungen stärken besonders den Rumpf- und Bauchbereich, während Dehnübungen Beine und Rumpf flexibel halten. So werden Beweglichkeit, Körperwahrnehmung und Haltung gefördert. Der Unterricht kombiniert bewährte Methoden aus Wirbelsäulengymnastik, Rückenschule, Eutonie, Yoga, Pilates und der Atemlehre nach Middendorf und bietet ein ausgewogenes, praxisnahes Training für den gesamten Rücken. \n\nDer Kurs ersetzt keine krankengymnastische Behandlung. Bei akuten Beschwerden empfehlen wir Ihnen ärztliche Rücksprache.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit Interesse an Gesundheit und Bewegung, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Eutonie\"\n    Grund:       Fachwort aus der Körpertherapie, das ohne Vorkenntnisse nicht verständlich ist.\n    Vorschlag:   \"Eutonie (Körperwahrnehmungslehre)\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Atemlehre nach Middendorf\"\n    Grund:       Fachbezeichnung einer spezifischen Methode, die ohne Erläuterung nicht einzuordnen ist.\n    Vorschlag:   \"Atemarbeit nach Middendorf\"\n\n[3] EMPFEHLUNG · SATZ\n    Stelle:      \"Es erwarten Sie gezielte, langsame Bewegungsabläufe, die die Wirbelsäule mobilisieren, die Muskulatur entspannen und die Atmung vertiefen.\"\n    Grund:       Satz mit 20 Wörtern, drei Relativsätzen und mehreren Fachbegriffen erschwert das Verständnis.\n    Vorschlag:   \"Sie lernen gezielte, langsame Bewegungen kennen. Diese mobilisieren die Wirbelsäule, entspannen die Muskulatur und vertiefen die Atmung.\"\n\n[4] EMPFEHLUNG · SATZ\n    Stelle:      \"Der Unterricht kombiniert bewährte Methoden aus Wirbelsäulengymnastik, Rückenschule, Eutonie, Yoga, Pilates und der Atemlehre nach Middendorf und bietet ein ausgewogenes, praxisnahes Training für den gesamten Rücken.\"\n    Grund:       Satz mit 27 Wörtern und langer Aufzählung erschwert das Erfassen der Gesamtaussage.\n    Vorschlag:   \"Der Unterricht kombiniert bewährte Methoden aus Wirbelsäulengymnastik, Rückenschule, Eutonie (Körperwahrnehmungslehre), Yoga, Pilates und Atemarbeit nach Middendorf. So erhalten Sie ein ausgewogenes, praxisnahes Training für den gesamten Rücken.\"\n\n[5] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe, ob Vorkenntnisse erforderlich sind und welches Material mitzubringen ist (z. B. Matte, bequeme Kleidung).\n    Vorschlag:   Ergänzen Sie: \"Vorkenntnisse sind nicht erforderlich. Bitte bringen Sie bequeme Kleidung, eine Matte und eventuell eine Decke mit.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, AMTSDEUTSCH, ANREDE\n\nGESAMT\n5 Befunde, davon 0 Pflicht.\nDer Text ist fachlich fundiert und weitgehend verständlich. Die Fachbegriffe Eutonie und Atemlehre nach Middendorf sollten kurz erläutert werden. Die beiden langen Sätze lassen sich durch Teilung leichter erfassen. Eine Ergänzung zu Vorkenntnissen und mitzubringendem Material würde die Orientierung für Interessierte verbessern.",
+  "verbrauch": {
+    "prompt_tokens": 8207,
+    "completion_tokens": 917,
+    "total_tokens": 9124,
+    "cost": 0.038376,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.038376,
+      "upstream_inference_prompt_cost": 0.024621,
+      "upstream_inference_completions_cost": 0.013755
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

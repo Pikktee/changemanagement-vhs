@@ -41,21 +41,24 @@ body{
 }
 button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inherit; border-radius:0; }
 :focus-visible{ outline:2px solid var(--marke); outline-offset:2px; }
+[hidden]{ display:none !important; }
 
 /* ---------- Kopf ---------- */
-.kopf{ padding:20px 30px 0; flex:none; }
-.kopfzeile{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-.mark{ display:flex; align-items:center; gap:9px; }
+/* Der Kopf bleibt stehen. Die Ergebnisansicht scrollt unter ihm weg, und die
+   beiden Spalten haengen mit ihrem sticky-Abstand an seiner Hoehe. */
+.kopf{ flex:none; position:sticky; top:0; z-index:20; background:var(--papier);
+       border-bottom:1px solid var(--linie); }
+.kopfzeile{ display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+            padding:0 30px; min-height:58px; }
+.mark{ display:flex; align-items:center; gap:10px; }
 .sq{ width:14px; height:14px; background:var(--marke); flex:none; }
-.wortmarke{ font-size:15px; font-weight:700; letter-spacing:4px; color:var(--marke); }
-.kopfsub{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
-          color:var(--leise); }
+.wortmarke{ font-size:17px; font-weight:700; letter-spacing:.5px; color:var(--marke); }
+.kopfsub{ font-size:13px; color:var(--leise); }
 .kopfaktion{ margin-left:auto; display:flex; align-items:center; gap:10px; }
-.kopfregel{ height:3px; background:var(--marke); margin-top:10px; }
 
 .knopf-klein{
   background:none; border:1px solid var(--rahmen); color:var(--marke); cursor:pointer;
-  padding:8px 13px; font-size:11px; font-weight:700; letter-spacing:1.7px; text-transform:uppercase;
+  padding:8px 14px; font-size:13.5px; font-weight:600;
   display:inline-flex; align-items:center; gap:8px;
 }
 .knopf-klein:hover{ background:var(--grund); border-color:var(--marke); }
@@ -64,155 +67,274 @@ button,input,select,textarea{ font-family:inherit; font-size:inherit; color:inhe
 .knopf-klein.abweichend .punkt{ display:block; }
 
 /* ---------- Warnbalken ---------- */
-.balken{ display:none; padding:9px 30px; font-size:12.5px; letter-spacing:.4px; flex:none; }
+.balken{ display:none; padding:10px 30px; font-size:13.5px; line-height:1.45; flex:none; }
 .balken.an{ display:block; }
-.balken.warn{ background:var(--pflicht); color:#fff; font-weight:700; }
-.balken.fehl{ background:var(--tinte); color:#fff; font-weight:700; }
-.balken b{ letter-spacing:1.4px; text-transform:uppercase; font-size:11px; margin-right:8px; }
-.balken code{ font-family:var(--schrift-mono); font-weight:400; font-size:12px; }
+.balken.warn{ background:var(--pflicht); color:#fff; }
+.balken.fehl{ background:var(--tinte); color:#fff; }
+.balken b{ font-weight:700; margin-right:8px; }
+.balken code{ font-family:var(--schrift-mono); font-size:12.5px; }
 
 /* ---------- Bühne ---------- */
-.buehne{ flex:1; display:flex; align-items:stretch; min-height:0; padding:0 30px; }
-.spalte{ display:flex; flex-direction:column; min-width:0; padding:22px 0 26px; }
-.links{ flex:0 0 38%; padding-right:28px; }
-.rechts{ flex:1; padding-left:28px; border-left:1px solid var(--linie); }
+.buehne{ flex:1; min-height:0; }
 
-.spkopf{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
-.spkopf h2{ font-size:11px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
-            color:#fff; background:var(--marke); padding:5px 11px; }
-.spkopf .zusatz{ font-size:11.5px; color:var(--leise); letter-spacing:.3px; margin-left:auto;
-                 display:flex; align-items:baseline; gap:14px; }
-.spkopf .zusatz button{ background:none; border:none; color:var(--marke); font-size:11px;
-  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; padding:0; }
-.spkopf .zusatz button:hover{ color:var(--pflicht); }
+/* ============================================ Ansicht 1: Eingabe */
+/* Vor der Pruefung nur die Eingabe. Ein zweispaltiges Layout mit leerer
+   Ergebnisflaeche verspricht eine Anordnung, die nach dem Pruefen nicht
+   kommt: dort steht der Text links und breit, nicht das Formular. */
+.eingabe{ max-width:620px; margin:0 auto; padding:40px 24px 60px; }
+.eingabe h1{ font-size:25px; font-weight:700; letter-spacing:-.5px; }
+.eingabe .vor{ font-size:15px; line-height:1.6; color:var(--leise); margin-top:8px; }
 
-/* ---------- Formular ---------- */
-label{ display:block; font-size:10.5px; font-weight:700; letter-spacing:1.9px;
-       text-transform:uppercase; color:var(--leise); margin-bottom:5px; }
+label{ display:block; font-size:13px; font-weight:600; color:var(--leise); margin-bottom:6px; }
 input[type=text], select, textarea{
-  width:100%; background:#fff; border:1px solid var(--rahmen); padding:9px 10px;
-  font-size:14px; line-height:1.4; color:var(--tinte); outline:none;
+  width:100%; background:var(--papier); border:1px solid var(--rahmen); padding:11px 13px;
+  font-size:15px; line-height:1.45; color:var(--tinte); outline:none;
 }
-input[type=text]:focus, select:focus, textarea:focus{ border-color:var(--marke); box-shadow:inset 0 0 0 1px var(--marke); }
+input[type=text]:focus, select:focus, textarea:focus{
+  border-color:var(--marke); box-shadow:inset 0 0 0 1px var(--marke); }
 select{ appearance:none; cursor:pointer;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M1 1l3.5 3.5L8 1' fill='none' stroke='%23848B96' stroke-width='1.4'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 10px center; padding-right:28px; }
-textarea{ min-height:250px; resize:vertical; line-height:1.55; }
-.feld{ margin-bottom:14px; }
-.paar{ display:flex; gap:12px; }
-.paar .feld{ flex:1; min-width:0; }
-.zeichen{ font-size:11px; color:var(--leise); margin-top:5px; text-align:right; letter-spacing:.4px; }
+  background-repeat:no-repeat; background-position:right 12px center; padding-right:30px; }
+textarea{ min-height:190px; resize:vertical; line-height:1.6; }
+.feld{ margin-bottom:16px; }
+.raster{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+.zeichen{ font-size:12.5px; color:var(--leise); margin-top:6px; text-align:right; }
 
-/* ---------- Kurswahl ---------- */
-.kurswahl{ background:var(--flaeche); padding:13px 14px; margin-bottom:18px; }
-.kurswahl .hint{ font-size:11.5px; color:var(--tinte); margin-top:9px; line-height:1.45; }
+.kurswahl{ margin-top:26px; }
 .waehlknopf{
   width:100%; display:flex; align-items:center; gap:12px; text-align:left; cursor:pointer;
-  background:#fff; border:1px solid var(--marke); padding:11px 13px; color:var(--tinte);
+  background:var(--papier); border:1px solid var(--marke); padding:13px 15px; color:var(--tinte);
 }
-.waehlknopf:hover{ background:#fff; box-shadow:inset 0 0 0 1px var(--marke); }
+.waehlknopf:hover{ box-shadow:inset 0 0 0 1px var(--marke); }
 .waehlknopf .lupe{ flex:none; color:var(--marke); }
-.waehlknopf .wtext{ flex:1; min-width:0; display:block; }
 /* display:block ist noetig, sonst greift das Abschneiden nicht und ein langer
    Kurstitel schiebt sich unter das Wort „Wählen". */
-.waehlknopf .wt1{ display:block; font-size:14px; font-weight:700; letter-spacing:-.2px;
+.waehlknopf .wtext{ flex:1; min-width:0; display:block; }
+.waehlknopf .wt1{ display:block; font-size:14.5px; font-weight:700; color:var(--marke);
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.waehlknopf .wt2{ display:block; font-size:11.5px; color:var(--leise); margin-top:3px;
+.waehlknopf .wt2{ display:block; font-size:12.5px; color:var(--leise); margin-top:3px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.waehlknopf .wpfeil{ flex:none; color:var(--marke); font-size:11px; font-weight:700;
-  letter-spacing:1.6px; text-transform:uppercase; }
+.waehlknopf .wpfeil{ flex:none; color:var(--marke); font-size:13px; font-weight:600; }
+/* Der Hinweis steht auf dem Seitengrund, nicht auf --flaeche: --leise haelt
+   dort seit dem weissen Papier kein AAA mehr, siehe DESIGN.md. */
+.kurshint{ font-size:12.5px; color:var(--leise); margin-top:9px; line-height:1.5; }
 
-/* ---------- Knöpfe ---------- */
-.knopfreihe{ display:flex; gap:10px; margin-top:6px; align-items:stretch; }
+.oder{ display:flex; align-items:center; gap:14px; margin:24px 0 20px;
+       font-size:13px; color:var(--leise); }
+.oder::before, .oder::after{ content:""; flex:1; height:1px; background:var(--linie); }
+
+.knopfreihe{ display:flex; gap:12px; margin-top:22px; align-items:center; flex-wrap:wrap; }
 .knopf{
   background:var(--marke); color:#fff; border:1px solid var(--marke); cursor:pointer;
-  padding:13px 22px; font-size:12px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
+  padding:12px 24px; font-size:15px; font-weight:600;
 }
 .knopf:hover{ background:var(--marke-dunkel); border-color:var(--marke-dunkel); }
 .knopf:disabled{ background:var(--grund); border-color:var(--linie); color:var(--leise); cursor:default; }
-.knopf.leise{ background:none; color:var(--marke); border-color:var(--rahmen); }
+.knopf.leise{ background:none; color:var(--marke); border-color:var(--rahmen);
+              font-size:13.5px; padding:11px 16px; }
 .knopf.leise:hover{ background:var(--flaeche); color:var(--marke-dunkel); border-color:var(--linie); }
+.knopfreihe .zaehlwort{ font-size:12.5px; color:var(--leise); margin-left:auto; }
+/* Ein leeres Textfeld ist kein Fehlschlag der Pruefung, sondern eine fehlende
+   Eingabe. Die Meldung bleibt deshalb im Formular stehen, statt die Ansicht zu
+   wechseln und den eben eingegebenen Rest aus dem Bild zu nehmen. */
+.eingabefehler{ margin-top:14px; padding:11px 14px; background:var(--papier);
+  border-left:4px solid var(--pflicht); font-size:14px; line-height:1.5;
+  color:var(--tinte); }
 
-/* ---------- Ausgabe ---------- */
-.leer{ border:1px solid var(--linie); padding:26px; color:var(--leise); font-size:14px; line-height:1.55; }
-.leer b{ color:var(--tinte); display:block; font-size:16px; letter-spacing:-.3px; margin-bottom:8px; }
-
-.laden{ border:1px solid var(--marke); padding:24px 26px; }
-.laden .lt{ font-size:20px; font-weight:700; letter-spacing:-.5px; color:var(--marke); }
-.laden .ls{ font-size:12.5px; color:var(--leise); margin-top:6px; line-height:1.5; }
+/* ============================================ Zwischenzustände */
+.mitte{ max-width:620px; margin:0 auto; padding:40px 24px 60px; }
+.laden{ border:1px solid var(--marke); border-left:6px solid var(--marke);
+        background:var(--papier); padding:22px 24px; }
+.laden .lt{ font-size:20px; font-weight:700; letter-spacing:-.4px; color:var(--marke); }
+.laden .ls{ font-size:13.5px; color:var(--leise); margin-top:7px; line-height:1.5; }
 .ladebalken{ height:5px; background:var(--flaeche); margin-top:16px; overflow:hidden; position:relative; }
 .ladebalken i{ position:absolute; top:0; left:0; height:100%; width:34%; background:var(--marke);
   animation:wandern 1.15s linear infinite; }
 @keyframes wandern{ 0%{ left:-34%; } 100%{ left:100%; } }
+.laden .uhr{ font-family:var(--schrift-mono); font-size:13px; color:var(--leise); margin-top:12px;
+             font-variant-numeric:tabular-nums; }
 
-.fehler{ border:1px solid var(--pflicht); border-left:6px solid var(--pflicht); padding:18px 20px; }
-.fehler .ft{ font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase;
-             color:var(--pflicht); margin-bottom:8px; }
-.fehler .fm{ font-size:14.5px; line-height:1.5; }
-.fehler .fh{ font-size:12.5px; color:var(--leise); margin-top:10px; line-height:1.5; }
+.fehler{ border:1px solid var(--pflicht); border-left:6px solid var(--pflicht);
+         background:var(--papier); padding:20px 22px; }
+.fehler .ft{ font-size:13px; font-weight:700; color:var(--pflicht); margin-bottom:8px; }
+.fehler .fm{ font-size:16px; line-height:1.45; font-weight:700; letter-spacing:-.3px; }
+.fehler .fh{ font-size:13.5px; color:var(--leise); margin-top:10px; line-height:1.55; }
 
-.block{ margin-bottom:20px; }
-.blockkopf{ font-size:10.5px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase;
-            color:var(--leise); border-bottom:2px solid var(--marke); padding-bottom:6px; margin-bottom:11px; }
-.zielgruppe{ font-size:18px; line-height:1.42; font-weight:700; letter-spacing:-.4px;
-             border-left:6px solid var(--auf-marke); padding:3px 0 3px 18px; }
-
-.zaehler{ display:flex; gap:0; border:1px solid var(--linie); margin-bottom:20px; }
-.zaehler div{ flex:1; padding:11px 14px; border-left:1px solid var(--linie); }
-.zaehler div:first-child{ border-left:none; }
-.zaehler .zn{ font-size:30px; font-weight:700; line-height:1; letter-spacing:-1.4px; color:var(--marke); }
-.zaehler .zn.warn{ color:var(--pflicht); }
-.zaehler .zn.grau{ color:var(--leise); }
-.zaehler .zl{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
-              color:var(--leise); margin-top:7px; }
-
-.befund{ border:1px solid var(--linie); border-left:6px solid var(--linie); margin-bottom:12px; background:var(--papier); }
-.befund.pflicht{ border-left-color:var(--pflicht); }
-.befund.empfehlung{ border-left-color:var(--empfehlung); }
-.befund.hinweis{ border-left-color:var(--hinweis); }
-.bkopf{ display:flex; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--linie);
-        background:var(--grund); }
-.stufe{ font-size:10px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
-        padding:4px 9px; background:var(--flaeche); color:var(--tinte); }
-.befund.pflicht .stufe{ background:var(--pflicht); color:#fff; }
-.befund.empfehlung .stufe{ background:var(--empfehlung); color:#fff; }
-.befund.hinweis .stufe{ background:var(--hinweis); color:#fff; }
-.regel{ font-size:11.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--leise); }
-.bnr{ margin-left:auto; font-size:11.5px; font-weight:700; color:var(--leise); letter-spacing:1px; }
-.bkoerper{ padding:12px 14px 13px; }
-.zeile{ display:flex; gap:14px; padding:6px 0; align-items:flex-start; }
-.zeile + .zeile{ border-top:1px solid var(--linie); }
-.zeile dt{ flex:0 0 74px; font-size:10px; font-weight:700; letter-spacing:1.7px;
-           text-transform:uppercase; color:var(--leise); padding-top:3px; }
-.zeile dd{ flex:1; font-size:14.5px; line-height:1.5; min-width:0; }
-.zeile dd.zitat{ font-weight:700; color:var(--marke); }
-.zeile dd.vorschlag{ background:var(--flaeche); padding:7px 10px; }
-.extra{ font-size:13px; color:var(--leise); line-height:1.5; padding:6px 0 0; }
-
-.kbz{ font-size:14px; line-height:1.55; color:var(--leise); }
-.kbz span{ display:inline-block; background:var(--flaeche); color:var(--tinte); font-size:11px;
-  font-weight:700; letter-spacing:1.4px; text-transform:uppercase; padding:4px 9px; margin:0 6px 6px 0; }
-.gesamt{ background:var(--marke); color:#fff; padding:15px 18px; font-size:15.5px; line-height:1.45; }
-.gesamt.ohne{ background:var(--pflicht); }
-
-pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size:12.5px; line-height:1.55;
-  white-space:pre-wrap; word-wrap:break-word; font-family:var(--schrift-mono); }
-.rohnote{ font-size:12px; color:var(--pflicht); font-weight:700; margin-bottom:9px; letter-spacing:.3px; }
+/* ============================================ Ansicht 2: Ergebnis */
+.ergebnis{ max-width:1180px; margin:0 auto; padding:22px 24px 40px; }
+.zurueck{ display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:600;
+          color:var(--marke); background:none; border:none; padding:4px 0; cursor:pointer; }
+.zurueck:hover{ color:var(--marke-dunkel); text-decoration:underline; }
 
 /* Herkunft eines Laufes, direkt am Ergebnis statt in der Fusszeile. */
-.laufband{ display:flex; flex-wrap:wrap; gap:6px 18px; border:1px solid var(--linie);
-  background:#fff; padding:9px 13px; margin-bottom:18px;
-  font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--leise); }
-.laufband b{ color:var(--tinte); font-weight:700; }
-.laufband .warnton b, .laufband .warnton{ color:var(--pflicht); }
+.laufband{ display:flex; flex-wrap:wrap; gap:5px 18px; border:1px solid var(--linie);
+  background:var(--papier); padding:9px 14px; margin-top:12px;
+  font-size:12.5px; color:var(--leise); }
+.laufband b{ color:var(--tinte); font-weight:600; }
+.laufband .warnton, .laufband .warnton b{ color:var(--pflicht); }
+.laufband .mono{ font-family:var(--schrift-mono); font-variant-numeric:tabular-nums; }
+
+/* Das Urteil steht oben, nicht unter der Befundliste. Es ist die Antwort auf
+   die Frage, die jemand gestellt hat; alles Weitere ist Beleg. */
+.verdikt{ display:flex; align-items:flex-start; gap:16px; margin-top:14px;
+          background:var(--papier); border:1px solid var(--linie);
+          border-left:6px solid var(--linie); padding:20px 22px; }
+.verdikt.pflicht{ border-left-color:var(--pflicht); }
+.verdikt.empfehlung{ border-left-color:var(--empfehlung); }
+.verdikt.hinweis{ border-left-color:var(--hinweis); }
+.verdikt.geprueft{ border-left-color:var(--geprueft); }
+.verdikt .zeichen{ width:32px; height:32px; flex:none; color:#fff; display:flex;
+  align-items:center; justify-content:center; font-size:18px; font-weight:700; }
+.verdikt.pflicht .zeichen{ background:var(--pflicht); }
+.verdikt.empfehlung .zeichen{ background:var(--empfehlung); }
+.verdikt.hinweis .zeichen{ background:var(--hinweis); }
+.verdikt.geprueft .zeichen{ background:var(--geprueft); }
+.verdikt h1{ font-size:24px; font-weight:700; letter-spacing:-.6px; line-height:1.22; }
+.verdikt .satz{ font-size:15px; line-height:1.55; margin-top:9px; max-width:74ch; }
+.verdikt .ziel{ font-size:14.5px; line-height:1.55; color:var(--leise); margin-top:10px;
+                max-width:74ch; }
+.verdikt .ziel b{ color:var(--tinte); font-weight:600; }
+.verdikt .vorbehalt{ font-size:13.5px; line-height:1.5; color:var(--pflicht); font-weight:600;
+                     margin-top:10px; }
+
+.messung{ display:flex; align-items:stretch; flex-wrap:wrap; margin-top:14px;
+          border:1px solid var(--linie); background:var(--papier); }
+.wert{ display:flex; align-items:baseline; gap:9px; padding:14px 20px;
+       border-right:1px solid var(--linie); flex:0 0 auto; }
+.wert .z{ font-family:var(--schrift-mono); font-size:22px; font-weight:600; line-height:1;
+          font-variant-numeric:tabular-nums; }
+.wert .b{ font-size:13px; color:var(--leise); display:flex; align-items:center; gap:7px; }
+.wert.p .z{ color:var(--pflicht); } .wert.e .z{ color:var(--empfehlung); }
+.wert.h .z{ color:var(--hinweis); }
+.punkt-p, .punkt-e, .punkt-h{ width:9px; height:9px; flex:none; }
+.punkt-p{ background:var(--pflicht); } .punkt-e{ background:var(--empfehlung); }
+.punkt-h{ background:var(--hinweis); }
+.messung .rest{ flex:1; min-width:280px; font-size:13px; color:var(--leise);
+                display:flex; align-items:center; gap:10px; padding:14px 20px; line-height:1.45; }
+.hk{ width:19px; height:19px; background:var(--geprueft); color:#fff; flex:none;
+     display:inline-flex; align-items:center; justify-content:center; font-size:11px;
+     font-weight:700; }
+
+/* Kein align-items:start. Ein Grid-Element, das nur so hoch ist wie sein
+   Inhalt, hat keinen Bereich, in dem es kleben koennte — position:sticky
+   bliebe wirkungslos. Beide Spalten nehmen deshalb die volle Zeilenhoehe,
+   und die Zeile ist so hoch wie die Befundliste. */
+.paar{ display:grid; grid-template-columns:minmax(0,1fr) 366px; margin-top:26px; }
+.paar > .links{ padding-right:34px; }
+/* Der Text bleibt stehen, waehrend die Befundliste laeuft. Kursbeschreibungen
+   sind kurz (Kernfall 710 Zeichen mit Bausteinen), die Liste waechst dagegen
+   mit jedem Fund. Ein sehr langer Text bekommt seinen eigenen Scrollbereich,
+   damit er das Fenster nicht ueberlaeuft und das Kleben aufhebt. */
+.paar > .links .haft{ position:sticky; top:74px;
+                      max-height:calc(100vh - 92px); overflow-y:auto;
+                      overscroll-behavior:contain; }
+.paar > .rechts{ padding-left:34px; border-left:1px solid var(--linie); }
+h2{ font-size:14px; font-weight:700; color:var(--tinte); margin-bottom:14px;
+    padding-bottom:10px; border-bottom:2px solid var(--tinte);
+    display:flex; align-items:center; gap:8px; }
+h2 .anzahl{ margin-left:auto; font-family:var(--schrift-mono); font-weight:600;
+            color:var(--leise); font-variant-numeric:tabular-nums; }
+
+/* ---------- Prüftext mit Fundstellen ---------- */
+/* pre-wrap haelt Absaetze und Zeilenumbrueche des eingegebenen Textes. Die
+   Regel STRUKTUR beanstandet gerade eine Zeile, die wie eine Ueberschrift
+   aussieht — wer die Umbrueche glattzieht, macht den Befund unsichtbar. */
+.anleitung{ font-size:12.5px; color:var(--leise); line-height:1.5; margin:-6px 0 14px; }
+.pruftext{ font-size:17.5px; line-height:2; overflow-wrap:anywhere;
+           white-space:pre-wrap; }
+.pruftext .tag{ font-family:var(--schrift-mono); font-size:13px; color:var(--leise); }
+mark{ background:none; color:inherit; padding:1px 0 3px; cursor:pointer;
+      border-bottom:2px solid; }
+/* Die Stufe haengt nicht allein an der Farbe: WCAG 1.4.1 ist Stufe A und damit
+   verbindlich, anders als die Kriterien, um die es im Vortrag geht. Jede Stufe
+   bekommt deshalb eine eigene Strichart und eine Nummer, die auf den Befund
+   zeigt, wo die Stufe als Wort steht. */
+mark.p{ border-color:var(--pflicht); border-bottom-style:solid; }
+mark.e{ border-color:var(--empfehlung); border-bottom-style:dashed; }
+mark.h{ border-color:var(--hinweis); border-bottom-style:dotted; }
+mark.aktiv{ background:var(--flaeche); border-color:var(--marke);
+            border-bottom-style:solid; border-bottom-width:3px; padding:2px 4px 3px; }
+/* Auf --flaeche steht --tinte. Umschliesst eine Fundstelle Markup, stuende
+   dessen --leise sonst auf der Fuellflaeche und hielte nur 6,80:1 — die Regel
+   aus DESIGN.md. Auf der gerade betrachteten Stelle darf das Markup ohnehin
+   mitlesbar sein. */
+mark.aktiv .tag{ color:var(--tinte); }
+.nr{ display:inline-flex; align-items:center; justify-content:center; min-width:16px;
+     height:16px; padding:0 3px; font-family:var(--schrift-mono); font-size:10px;
+     font-weight:600; color:#fff; margin-left:4px; vertical-align:3px; }
+.nr.p{ background:var(--pflicht); } .nr.e{ background:var(--empfehlung); }
+.nr.h{ background:var(--hinweis); }
+.legende{ display:flex; gap:18px; margin-top:18px; padding-top:12px;
+          border-top:1px solid var(--linie); font-size:12.5px; color:var(--leise);
+          flex-wrap:wrap; }
+.legende span{ display:flex; align-items:center; gap:7px; }
+.legende i{ width:22px; height:0; border-bottom:2px solid; display:inline-block; }
+.legende i.p{ border-color:var(--pflicht); border-bottom-style:solid; }
+.legende i.e{ border-color:var(--empfehlung); border-bottom-style:dashed; }
+.legende i.h{ border-color:var(--hinweis); border-bottom-style:dotted; }
+.ohnestelle{ font-size:12.5px; color:var(--leise); line-height:1.5; margin-top:12px;
+             border-top:1px solid var(--linie); padding-top:12px; }
+
+/* ---------- Befundliste ---------- */
+/* Der Sprung zu einem Befund scrollt nur so weit wie noetig. Am Dokumentende
+   geht das nicht mehr auf: Ein hoher letzter Befund bliebe angeschnitten
+   stehen. Der Auslauf unter der Liste gibt ihm den fehlenden Weg — knapp
+   bemessen, damit am Seitenende kein leerer Schirm steht. */
+.liste{ padding-bottom:40px; }
+/* anywhere, nicht break-word: Ein Vorschlag kann eine vollstaendige URL
+   enthalten. break-word laesst die kleinstmoegliche Breite bei der Wortlaenge
+   stehen, und die Spalte laeuft seitlich aus dem Bild. */
+.befund{ padding:14px 0; border-top:1px solid var(--linie); cursor:pointer;
+         background:none; border-left:none; border-right:none; border-bottom:none;
+         width:100%; text-align:left; display:block; overflow-wrap:anywhere; }
+.befund:first-child{ border-top:none; padding-top:2px; }
+.befund.aktiv{ background:var(--papier); border:1px solid var(--linie);
+               border-left:4px solid var(--marke); padding:13px 14px; margin:6px 0; }
+.befund.aktiv + .befund{ border-top:none; }
+/* Der Befund ist ein Knopf, damit er mit der Tabulatortaste erreichbar ist.
+   Seine Zeilen sind deshalb span und brauchen ihr display ausdruecklich. */
+.bkopf{ display:flex; align-items:center; gap:9px; margin-bottom:5px; }
+.stufe{ font-size:12.5px; font-weight:700; }
+.stufe.p{ color:var(--pflicht); } .stufe.e{ color:var(--empfehlung); }
+.stufe.h{ color:var(--hinweis); }
+.regel{ font-size:12px; color:var(--leise); }
+.bnr{ margin-left:auto; display:inline-flex; align-items:center; justify-content:center;
+      min-width:18px; height:18px; padding:0 3px; font-family:var(--schrift-mono);
+      font-size:10.5px; font-weight:600; color:#fff; }
+.bnr.p{ background:var(--pflicht); } .bnr.e{ background:var(--empfehlung); }
+.bnr.h{ background:var(--hinweis); }
+.stelle{ display:block; font-size:15px; font-weight:700; line-height:1.4; }
+.grund{ display:block; font-size:13.5px; line-height:1.55; color:var(--leise); margin-top:5px; }
+/* Der Vorschlagstext liegt in einem eigenen Element, nicht direkt im Flex-
+   Container: Die Auszeichnung darin wuerde sonst zu eigenen Flex-Elementen
+   und der Satz bräche in schmale Säulen auseinander. */
+.vorschlag{ display:flex; gap:9px; font-size:14px; line-height:1.5; margin-top:9px; }
+.vorschlag::before{ content:"→"; color:var(--marke); font-weight:700; flex:none; }
+.vorschlag .vtext{ min-width:0; }
+.nichtgefunden{ display:block; font-size:12.5px; color:var(--leise); margin-top:7px;
+                font-style:italic; }
+.extra{ display:block; font-size:13px; color:var(--leise); line-height:1.5; margin-top:7px; }
+
+.kbz{ font-size:14px; line-height:1.6; color:var(--leise); }
+pre.roh{ background:var(--papier); border:1px solid var(--linie); padding:16px; font-size:13px;
+  line-height:1.6; white-space:pre-wrap; word-wrap:break-word; font-family:var(--schrift-mono); }
+.rohnote{ font-size:13px; color:var(--pflicht); font-weight:600; margin-bottom:10px; }
+.rohschalter{ display:flex; justify-content:flex-end; margin-top:16px; }
+
+/* Auf schmalen Schirmen erscheint der Befund direkt unter dem Text, statt ans
+   Seitenende zu springen. */
+#inline{ display:none; }
+#inline .befund{ background:var(--papier); border:1px solid var(--linie);
+                 border-left:4px solid var(--marke); padding:14px 16px;
+                 margin-top:16px; cursor:default; }
 
 /* ---------- Fuß ---------- */
-.fuss{ flex:none; margin:0 30px; border-top:1px solid var(--linie); padding:11px 0 15px;
+.fuss{ flex:none; margin:0 30px; border-top:1px solid var(--linie); padding:14px 0 18px;
   display:flex; gap:20px; flex-wrap:wrap; align-items:baseline;
-  font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--leise); }
+  font-size:12.5px; color:var(--leise); }
 .fuss button{ background:none; border:none; color:var(--marke); cursor:pointer; padding:0;
-  font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
-.fuss button:hover{ color:var(--pflicht); text-decoration:underline; }
+  font-size:12.5px; font-weight:600; }
+.fuss button:hover{ color:var(--marke-dunkel); text-decoration:underline; }
 
 /* ================= Überlagerungen ================= */
 .schleier{
@@ -222,13 +344,15 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 .schleier.an{ opacity:1; pointer-events:auto; }
 
 /* ---------- Modal ---------- */
-/* visibility, nicht nur opacity: Sonst bleiben Suchfeld, Filter und Treffer
+/* opacity allein genuegt nicht: Sonst bleiben Suchfeld, Filter und Treffer
    eines geschlossenen Modals mit der Tabulatortaste erreichbar, und der Fokus
-   verschwindet für den Bedienenden ins Nichts. */
+   verschwindet für den Bedienenden ins Nichts. Die verlaessliche Sperre setzt
+   `ebeneSperren` weiter unten über das inert-Attribut; die Regel hier haelt
+   die Flaeche zusaetzlich aus dem Bild. */
 .modal{
   position:fixed; inset:0; z-index:50; display:flex; align-items:center; justify-content:center;
   padding:28px; pointer-events:none;
-  visibility:hidden; transition:visibility 0s .22s;
+  visibility:hidden; transition:visibility 0s linear .22s;
 }
 .modal.an{ pointer-events:auto; visibility:visible; transition-delay:0s; }
 .modalkarte{
@@ -239,10 +363,12 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
   opacity:0; transform:translateY(12px); transition:opacity .2s, transform .2s;
 }
 .modal.an .modalkarte{ opacity:1; transform:none; }
-.modalkopf{ flex:none; display:flex; align-items:center; gap:14px; padding:16px 20px;
+.modalkopf{ flex:none; display:flex; align-items:center; gap:14px; padding:15px 20px;
   background:var(--marke); color:#fff; }
-.modalkopf h2{ font-size:12px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; }
-.modalkopf .mzahl{ font-size:11.5px; letter-spacing:1.2px; color:rgba(255,255,255,.78); }
+.modalkopf h2{ font-size:15px; font-weight:700; color:#fff; border:none;
+               margin:0; padding:0; display:block; }
+.modalkopf .mzahl{ font-size:13px; color:rgba(255,255,255,.82);
+                   font-family:var(--schrift-mono); font-variant-numeric:tabular-nums; }
 .schliessen{
   margin-left:auto; flex:none; background:none; border:1px solid rgba(255,255,255,.4); color:#fff;
   width:30px; height:30px; cursor:pointer; font-size:15px; line-height:1;
@@ -253,8 +379,8 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 .modalsuche{ flex:none; padding:16px 20px 0; }
 .suchfeld{ position:relative; }
 .suchfeld input{
-  width:100%; background:#fff; border:1px solid var(--rahmen); padding:12px 40px 12px 38px;
-  font-size:15.5px; outline:none;
+  width:100%; background:var(--papier); border:1px solid var(--rahmen);
+  padding:12px 40px 12px 38px; font-size:15.5px; outline:none;
 }
 .suchfeld input:focus{ border-color:var(--marke); box-shadow:inset 0 0 0 1px var(--marke); }
 .suchfeld .sicon{ position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--leise); }
@@ -265,19 +391,20 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
 
 .filterzeile{ display:flex; gap:10px; margin-top:11px; flex-wrap:wrap; }
 .filterzeile .fgrp{ flex:1 1 190px; min-width:0; }
-.filterzeile label{ margin-bottom:4px; font-size:9.5px; letter-spacing:1.6px; }
-.filterzeile select{ padding:8px 26px 8px 9px; font-size:13px; background-color:#fff; }
-.filterstatus{ display:flex; align-items:center; gap:14px; margin-top:11px; padding-bottom:12px;
-  border-bottom:1px solid var(--linie); font-size:11.5px; color:var(--leise); letter-spacing:.3px; }
-.filterstatus b{ color:var(--tinte); }
+.filterzeile label{ margin-bottom:4px; font-size:12px; }
+.filterzeile select{ padding:9px 28px 9px 10px; font-size:13.5px; }
+.filterstatus{ display:flex; align-items:center; gap:14px; margin-top:12px; padding-bottom:12px;
+  border-bottom:1px solid var(--linie); font-size:13px; color:var(--leise); }
+.filterstatus b{ color:var(--tinte); font-weight:700; }
 .filterstatus .fs-text{ margin-right:auto; }
 .filterstatus button{ background:none; border:none; color:var(--marke);
-  font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; padding:0; }
-.filterstatus button:hover{ color:var(--pflicht); }
+  font-size:13px; font-weight:600; cursor:pointer; padding:0; }
+.filterstatus button:hover{ color:var(--marke-dunkel); text-decoration:underline; }
 .filterstatus button[hidden]{ display:none; }
 /* Der Umschalter erscheint nur auf schmalen Schirmen, siehe unten. */
 #filterAuf{ display:none; align-items:center; gap:6px; }
-#filterAuf .fzahl{ background:var(--marke); color:#fff; padding:1px 6px; font-size:10px; }
+#filterAuf .fzahl{ background:var(--marke); color:#fff; padding:1px 6px; font-size:11.5px;
+                   font-family:var(--schrift-mono); }
 
 /* min-height haelt die Liste in kurzen Fenstern offen: Ohne sie druecken Kopf,
    Suchfeld und Filter sie auf wenige Pixel zusammen, und das Modal sieht leer
@@ -286,35 +413,37 @@ pre.roh{ background:#fff; border:1px solid var(--linie); padding:16px; font-size
   overscroll-behavior:contain; -webkit-overflow-scrolling:touch; }
 .treffer{
   display:block; width:100%; text-align:left; cursor:pointer;
-  background:#fff; border:1px solid var(--linie); border-left:4px solid var(--flaeche);
+  background:var(--papier); border:1px solid var(--linie); border-left:4px solid var(--flaeche);
   padding:11px 13px; margin-top:9px;
 }
-.treffer:hover, .treffer.aktiv{ border-color:var(--marke); border-left-color:var(--marke); background:#fff;
+.treffer:hover, .treffer.aktiv{ border-color:var(--marke); border-left-color:var(--marke);
   box-shadow:inset 0 0 0 1px var(--marke); }
-.treffer .tkopf{ display:flex; align-items:baseline; gap:10px; }
-.treffer .tnr{ font-size:11.5px; font-weight:700; color:var(--marke); flex:none; }
+.treffer .tkopf{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.treffer .tnr{ font-size:13px; font-weight:700; color:var(--marke); flex:none; }
 .treffer .ttitel{ font-size:14.5px; font-weight:700; letter-spacing:-.2px; line-height:1.3; min-width:0; }
 .treffer .tsub{ font-size:12.5px; color:var(--leise); margin-top:3px; line-height:1.35; }
 .treffer .tmeta{ display:flex; flex-wrap:wrap; gap:5px 7px; margin-top:8px; }
-.treffer .tm{ font-size:9.5px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase;
-  background:var(--flaeche); color:var(--tinte); padding:3px 7px; }
+/* Die Plaketten liegen auf --flaeche und tragen deshalb --tinte, nicht --leise. */
+.treffer .tm{ font-size:11.5px; font-weight:600; background:var(--flaeche); color:var(--tinte);
+  padding:3px 8px; }
 .treffer .tm.stark{ background:var(--marke); color:#fff; }
 .treffer .tm.leer{ background:var(--pflicht); color:#fff; }
 .treffer .tausz{ font-size:12.5px; color:var(--leise); line-height:1.45; margin-top:8px;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.treffer mark{ background:var(--auf-marke); color:var(--tinte); padding:0 1px; }
+.treffer mark{ background:var(--auf-marke); color:var(--tinte); padding:0 1px;
+  border-bottom:none; cursor:inherit; }
 
-.listenhinweis{ text-align:center; font-size:12px; color:var(--leise); padding:18px 0 6px; letter-spacing:.3px; }
+.listenhinweis{ text-align:center; font-size:13px; color:var(--leise); padding:18px 0 6px; }
 .listenleer{ border:1px solid var(--linie); padding:24px; margin-top:14px; color:var(--leise);
   font-size:14px; line-height:1.55; }
 .listenleer b{ display:block; color:var(--tinte); font-size:15.5px; margin-bottom:6px; }
 
 .modalfuss{ flex:none; border-top:1px solid var(--linie); padding:11px 20px 13px;
-  display:flex; align-items:center; gap:14px; font-size:11px; color:var(--leise); letter-spacing:.4px; }
-.tastenhilfe{ display:flex; gap:12px; flex-wrap:wrap; }
+  display:flex; align-items:center; gap:14px; font-size:12.5px; color:var(--leise); }
+.tastenhilfe{ display:flex; gap:14px; flex-wrap:wrap; }
 .tastenhilfe span{ display:inline-flex; align-items:center; gap:5px; }
-kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:1px solid var(--linie);
-  padding:2px 5px; color:var(--tinte); }
+kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier);
+  border:1px solid var(--linie); padding:2px 6px; color:var(--tinte); }
 
 /* ---------- Panel (Prompt und Parameter) ---------- */
 .panel{
@@ -323,78 +452,85 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   display:flex; flex-direction:column;
   transform:translateX(103%);
   visibility:hidden;
-  transition:transform .28s cubic-bezier(.32,.72,.28,1), visibility 0s .28s;
+  transition:transform .28s cubic-bezier(.32,.72,.28,1), visibility 0s linear .28s;
   box-shadow:-16px 0 48px rgba(20,23,28,.2);
 }
 .panel.an{ transform:translateX(0); visibility:visible; transition-delay:0s; }
-.panelkopf{ flex:none; display:flex; align-items:center; gap:12px; padding:16px 20px;
+.panelkopf{ flex:none; display:flex; align-items:center; gap:12px; padding:15px 20px;
   background:var(--marke); color:#fff; }
-.panelkopf h2{ font-size:12px; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; }
-.marke{ font-size:9.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
-  padding:4px 9px; background:rgba(255,255,255,.18); color:#fff; }
+.panelkopf h2{ font-size:15px; font-weight:700; color:#fff; border:none; margin:0;
+               padding:0; display:block; }
+.marke{ font-size:12.5px; font-weight:600; padding:4px 10px;
+  background:rgba(255,255,255,.18); color:#fff; }
 .marke.geaendert{ background:var(--pflicht); color:#fff; }
 
 .panelkoerper{ flex:1; display:flex; flex-direction:column; min-height:0; overflow-y:auto; padding:16px 20px; }
-.parameter{ display:flex; gap:20px; flex-wrap:wrap; padding-bottom:15px; margin-bottom:14px;
+.parameter{ display:flex; gap:22px; flex-wrap:wrap; padding-bottom:16px; margin-bottom:15px;
   border-bottom:1px solid var(--linie); }
 .par{ display:flex; flex-direction:column; gap:6px; min-width:0; }
 .par.breit{ flex:1 1 250px; }
-.parkopf{ display:flex; align-items:baseline; gap:8px; font-size:10px; font-weight:700;
-  letter-spacing:1.8px; text-transform:uppercase; color:var(--leise); }
-.parwert{ font-family:var(--schrift-mono); font-size:12px; letter-spacing:0; text-transform:none;
-  color:var(--marke); font-weight:600; }
-.par input[type=range]{ width:200px; accent-color:var(--marke); cursor:pointer; height:20px; }
-.parhinweis{ font-size:11px; color:var(--leise); line-height:1.4; }
-
-.kennzahlen{ display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--linie); background:#fff;
-  margin-bottom:14px; }
-.kennzahlen div{ flex:1 1 130px; padding:9px 12px; border-left:1px solid var(--linie); min-width:0; }
-.kennzahlen div:first-child{ border-left:none; }
-.kennzahlen .kl{ font-size:9.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+.parkopf{ display:flex; align-items:baseline; gap:8px; font-size:13px; font-weight:600;
   color:var(--leise); }
-.kennzahlen .kw{ font-size:14px; font-weight:700; margin-top:4px; letter-spacing:-.2px;
+.parwert{ font-family:var(--schrift-mono); font-size:13px; color:var(--marke); font-weight:600;
+          font-variant-numeric:tabular-nums; }
+.par input[type=range]{ width:200px; accent-color:var(--marke); cursor:pointer; height:20px; }
+.parhinweis{ font-size:12.5px; color:var(--leise); line-height:1.45; }
+
+.kennzahlen{ display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--linie);
+  background:var(--papier); margin-bottom:15px; }
+.kennzahlen div{ flex:1 1 130px; padding:10px 13px; border-left:1px solid var(--linie); min-width:0; }
+.kennzahlen div:first-child{ border-left:none; }
+.kennzahlen .kl{ font-size:12px; color:var(--leise); }
+.kennzahlen .kw{ font-size:14.5px; font-weight:700; margin-top:4px;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.kennzahlen .kw.mono{ font-family:var(--schrift-mono); font-size:12.5px; font-weight:500; }
+.kennzahlen .kw.mono{ font-family:var(--schrift-mono); font-size:13px; font-weight:500; }
 .kennzahlen .kw.warnton{ color:var(--pflicht); }
 
-.prompthinweis{ font-size:11.5px; color:var(--leise); line-height:1.45; margin-bottom:9px; }
-.prompthinweis code{ font-family:var(--schrift-mono); font-size:11px; background:var(--flaeche);
+.prompthinweis{ font-size:12.5px; color:var(--leise); line-height:1.5; margin-bottom:10px; }
+.prompthinweis code{ font-family:var(--schrift-mono); font-size:12px; background:var(--flaeche);
   color:var(--tinte); padding:1px 4px; }
-#promptText{
-  flex:1; min-height:280px; font-size:12.5px; line-height:1.65;
-  background:#fff; resize:none;
-}
+/* Der Prompt ist deutscher Fliesstext, kein Quelltext: Er laeuft in Atkinson,
+   nicht in Mono. Siehe DESIGN.md, „Mono ist eine Anzeigeschrift". */
+#promptText{ flex:1; min-height:280px; font-size:13.5px; line-height:1.65; resize:none; }
 .panelfuss{ flex:none; border-top:1px solid var(--linie); padding:12px 20px 16px;
   display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.panelfuss .zahl{ font-family:var(--schrift-mono); font-size:11px; color:var(--leise); margin-right:auto; }
-.panelfuss .knopf{ padding:10px 16px; font-size:11px; letter-spacing:1.8px; }
+.panelfuss .zahl{ font-family:var(--schrift-mono); font-size:12.5px; color:var(--leise);
+                  margin-right:auto; font-variant-numeric:tabular-nums; }
+.panelfuss .knopf{ padding:10px 18px; font-size:13.5px; }
 
 /* Kleines Modal für das Impressum, gleiche Mechanik wie die Kursauswahl. */
 .impressum .modalkarte{ max-width:460px; }
 .impresstext{ padding:20px; font-size:14.5px; line-height:1.65; }
 .impresstext .zeile2{ margin-top:12px; }
 .impresstext a{ color:var(--marke); }
-.impresstext .klein{ font-size:12px; color:var(--leise); line-height:1.5; margin-top:16px;
+.impresstext .klein{ font-size:12.5px; color:var(--leise); line-height:1.55; margin-top:16px;
   border-top:1px solid var(--linie); padding-top:12px; }
 
 /* ---------- Wechsel der Breiten ---------- */
-@media (min-width:981px){
-  html,body{ height:100%; }
-  body{ overflow:hidden; }
-  .links, .rechts{ overflow-y:auto; }
-}
 @media (max-width:980px){
-  .buehne{ flex-direction:column; }
-  .links{ flex:none; width:100%; padding-right:0; }
-  .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--linie); }
-  textarea{ min-height:200px; }
+  .paar{ grid-template-columns:1fr; gap:28px; }
+  .paar > .links{ padding-right:0; }
+  .paar > .links .haft{ position:static; max-height:none; overflow:visible; }
+  .paar > .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--linie);
+                   padding-top:24px; }
+  .liste{ padding-bottom:0; }
+  #inline{ display:block; }
+  .verdikt h1{ font-size:21px; }
+  .pruftext{ font-size:16.5px; line-height:1.9; }
 }
 @media (max-width:700px){
   .kopfsub{ display:none; }
-  .buehne{ padding:0 18px; }
-  .kopf{ padding:16px 18px 0; }
+  .kopfzeile{ padding:0 18px; }
+  .balken{ padding:10px 18px; }
+  .eingabe, .mitte{ padding:26px 18px 40px; }
+  .eingabe h1{ font-size:21px; }
+  .ergebnis{ padding:18px 18px 36px; }
+  .raster{ grid-template-columns:1fr; }
   .fuss{ margin:0 18px; }
-  .balken{ padding:9px 18px; }
+  .verdikt{ gap:12px; padding:16px; } .verdikt h1{ font-size:19px; }
+  .messung .rest{ min-width:100%; border-top:1px solid var(--linie); }
+  .pruftext{ font-size:16px; line-height:1.85; }
+  .knopfreihe .zaehlwort{ margin-left:0; flex:1 1 100%; }
 
   /* Auf dem Telefon füllen Modal und Panel die Fläche, mit Rand nach oben,
      damit der Kopf der Seite noch sichtbar bleibt und der Daumen unten
@@ -423,7 +559,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   .par.breit{ flex:1 1 100%; }
 }
 @media (prefers-reduced-motion:reduce){
-  *{ transition:none !important; animation:none !important; }
+  *{ transition:none !important; animation:none !important; scroll-behavior:auto !important; }
 }
 </style>
 </head>
@@ -439,7 +575,6 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
       </button>
     </div>
   </div>
-  <div class="kopfregel"></div>
 </header>
 
 <div id="balkenWort" class="balken warn"><b>Ohne Referenzwortschatz</b>Die Datei <code>daten/wortliste-goethe-a1.txt</code> fehlt oder ist leer. Niveau-Befunde sind Schätzungen, nicht am Goethe-A1-Wortschatz belegt.</div>
@@ -448,11 +583,11 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 
 <main class="buehne">
 
-  <section class="spalte links">
-    <div class="spkopf">
-      <h2>Eingabe</h2>
-      <div class="zusatz"><span id="kursZahl">Kursplan wird geladen</span></div>
-    </div>
+  <!-- ================================================ Ansicht 1: Eingabe -->
+  <section class="eingabe" id="ansichtEingabe">
+    <h1>Welchen Text sollen wir prüfen?</h1>
+    <p class="vor">KLARTEXT prüft, ob die Zielgruppe genau dieses Kurses den Text
+      versteht. Nicht, ob er allgemein gut lesbar ist.</p>
 
     <div class="kurswahl">
       <button class="waehlknopf" id="kursKnopf" aria-haspopup="dialog">
@@ -466,7 +601,15 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
         </span>
         <span class="wpfeil" aria-hidden="true">Wählen</span>
       </button>
-      <div class="hint" id="kursHint">Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern. Ein eigener Text lässt sich auch direkt unten einsetzen.</div>
+      <div class="kurshint" id="kursHint">Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern.</div>
+    </div>
+
+    <div class="oder">oder Text selbst einsetzen</div>
+
+    <div class="feld">
+      <label for="text">Ankündigungstext</label>
+      <textarea id="text" placeholder="Den zu prüfenden Kurstext hier einsetzen."></textarea>
+      <div class="zeichen" id="zeichen">0 Zeichen</div>
     </div>
 
     <div class="feld">
@@ -474,13 +617,13 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
       <input type="text" id="titel" placeholder="z. B. DaF Deutsch 4 A2.2 (A2)">
     </div>
 
-    <div class="paar">
+    <div class="raster">
       <div class="feld">
         <label for="nummer">Kursnummer</label>
         <input type="text" id="nummer" placeholder="z. B. 4074-74">
       </div>
       <div class="feld">
-        <label for="niveau">Niveau</label>
+        <label for="niveau">Niveau der Zielgruppe</label>
         <select id="niveau">
           <option>kein Sprachniveau</option>
           <option>A1</option><option>A2</option><option>B1</option>
@@ -494,34 +637,22 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
       <select id="bereich"></select>
     </div>
 
-    <div class="feld">
-      <label for="text">Ankündigungstext</label>
-      <textarea id="text" placeholder="Den zu prüfenden Kurstext hier einsetzen."></textarea>
-      <div class="zeichen" id="zeichen">0 Zeichen</div>
-    </div>
-
     <div class="knopfreihe">
       <button class="knopf" id="pruefen">Text prüfen</button>
       <button class="knopf leise" id="leeren">Leeren</button>
+      <span class="zaehlwort" id="kursZahl">Kursplan wird geladen</span>
     </div>
+    <p class="eingabefehler" id="eingabeFehler" role="alert" hidden></p>
   </section>
 
-  <section class="spalte rechts">
-    <div class="spkopf">
-      <h2>Befunde</h2>
-      <div class="zusatz">
-        <span id="laufinfo"></span>
-        <button id="rohKnopf" style="display:none">Rohtext</button>
-      </div>
-    </div>
-    <div id="ausgabe">
-      <div class="leer">
-        <b>Noch keine Prüfung.</b>
-        Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen, dann
-        &bdquo;Text prüfen&ldquo;. Die Befunde erscheinen hier, sortiert nach Einstufung:
-        Pflicht, Empfehlung, Hinweis.
-      </div>
-    </div>
+  <!-- ========================================= Zwischenzustand: Laden -->
+  <section class="mitte" id="ansichtLauf" hidden></section>
+
+  <!-- =============================================== Ansicht 2: Ergebnis -->
+  <section class="ergebnis" id="ansichtErgebnis" hidden>
+    <button class="zurueck" id="zurueck">&larr; Anderen Text prüfen</button>
+    <div id="ergebnisKopf"></div>
+    <div id="ergebnisPaar"></div>
   </section>
 
 </main>
@@ -613,7 +744,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 <!-- ============ Prompt und Parameter ============ -->
 <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitel">
   <div class="panelkopf">
-    <h2 id="panelTitel">Prompt &amp; Parameter</h2>
+    <h2 id="panelTitel">Prompt und Parameter</h2>
     <span class="marke" id="panelMarke">Standard</span>
     <button class="schliessen" id="panelZu" aria-label="Panel schließen">&times;</button>
   </div>
@@ -665,6 +796,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   var rohSichtbar = false;
   var letzteBefunde = null;
   var letzterLauf = null;
+  var letzterPruftext = "";
   var laeuft = false;
   var uhr = null;
 
@@ -1021,9 +1153,20 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 
   function schleierAn(an){ el("schleier").classList.toggle("an", an); }
 
+  // Der CSS-Weg ueber visibility haengt an einer Uebergangsverzoegerung und hat
+  // sich als unzuverlaessig erwiesen: Nach dem Schliessen waren Suchfeld,
+  // Filter und alle Treffer weiterhin mit der Tabulatortaste erreichbar.
+  // inert nimmt den ganzen Teilbaum aus Fokus und Vorleseordnung, sofort und
+  // ohne Zeitverhalten.
+  function ebeneSperren(knoten, gesperrt){
+    if("inert" in HTMLElement.prototype){ knoten.inert = gesperrt; }
+    else { knoten.style.visibility = gesperrt ? "hidden" : "visible"; }
+  }
+
   function modalOeffnen(knoten, fokusZiel){
     rueckFokus = document.activeElement;
     offenes = knoten;
+    ebeneSperren(knoten, false);
     knoten.classList.add("an");
     schleierAn(true);
     document.body.style.overflow = "hidden";
@@ -1032,6 +1175,7 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 
   function modalSchliessen(knoten){
     knoten.classList.remove("an");
+    ebeneSperren(knoten, true);
     if(offenes === knoten) offenes = null;
     if(!offenes){
       schleierAn(false);
@@ -1039,6 +1183,8 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
     }
     if(rueckFokus && rueckFokus.focus) rueckFokus.focus();
   }
+
+  [kursModal, impModal, panel].forEach(function(k){ ebeneSperren(k, true); });
 
   // Fokus bleibt in der geoeffneten Ebene, sonst laesst sich mit der Tabulator-
   // Taste unbemerkt die Seite dahinter bedienen.
@@ -1057,10 +1203,6 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 
   el("schleier").addEventListener("click", function(){
     if(offenes) modalSchliessen(offenes);
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && offenes){ e.preventDefault(); modalSchliessen(offenes); }
   });
 
   // ================================================================== Panel
@@ -1177,17 +1319,246 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
     return liste;
   }
 
-  // =========================================================== Darstellung
+  // ===================================================== Wörter statt Kürzel
+  // Die Ausgabe des Modells ist in Versalien gehalten, weil der Prompt es so
+  // verlangt. Auf dem Schirm gelesen wird sie von Menschen, nicht von einem
+  // Parser: Aus NIVEAU wird deshalb „Niveau".
+  var REGELWORT = {
+    STRUKTUR:"Gliederung", LINKTEXT:"Linktext", SPRACHE:"Sprachauszeichnung",
+    ABK:"Abkürzung", NIVEAU:"Niveau", SATZ:"Satzlänge", AMTSDEUTSCH:"Amtsdeutsch",
+    ANREDE:"Anrede", LEER:"Fehlende Angabe", FREMDANWEISUNG:"Fremdanweisung",
+    BAUSTEIN:"Textbaustein"
+  };
+  var STUFENWORT = { PFLICHT:"Pflicht", EMPFEHLUNG:"Empfehlung", HINWEIS:"Hinweis" };
+
+  function regelWorte(roh){
+    var teile = String(roh || "").split(/[,\s·]+/).filter(Boolean);
+    var worte = teile.map(function(k){
+      var gross = k.toUpperCase().replace(/[^A-ZÄÖÜ]/g,"");
+      return REGELWORT[gross] || k;
+    });
+    return worte.join(", ");
+  }
+
   function stufenKlasse(s){
     if(/PFLICHT/i.test(s)) return "pflicht";
     if(/EMPFEHLUNG/i.test(s)) return "empfehlung";
     return "hinweis";
   }
+  function stufenKurz(s){ return stufenKlasse(s).charAt(0); }
+  function stufenWort(s){
+    var k = stufenKlasse(s);
+    return k === "pflicht" ? "Pflicht" : (k === "empfehlung" ? "Empfehlung" : "Hinweis");
+  }
 
-  function zeile(label, wert, klasse){
-    if(!wert) return "";
-    return '<div class="zeile"><dt>' + label + '</dt><dd class="' + (klasse||"") + '">'
-         + esc(wert) + "</dd></div>";
+  // ================================================ Fundstellen im Prüftext
+  // Der Prompt liefert jede Stelle woertlich, aber ohne Markup und mit den
+  // Anfuehrungszeichen des Modells. Der eingegebene Text enthaelt dagegen
+  // HTML, Zeilenumbrueche und geschuetzte Leerzeichen. Beides zur Deckung zu
+  // bringen ist eine Suche, kein Urteil — deshalb steht sie hier im Code und
+  // nicht im Prompt.
+
+  function zeichenNormal(z){
+    if(z === "„" || z === "“" || z === "”"
+       || z === "«" || z === "»") return '"';
+    if(z === "‘" || z === "’" || z === "‚") return "'";
+    if(z === "–" || z === "—") return "-";
+    return z;
+  }
+
+  // Baut den Vergleichstext und merkt sich zu jeder Position, wo sie im
+  // Original steht. Ohne diese Abbildung liesse sich ein Treffer nicht mehr
+  // auf die Stelle im eingegebenen Text zurueckrechnen.
+  function normalisieren(text, mitAbbildung){
+    var n = [], abb = [], imTag = false, letztesLeer = true;
+    for(var i = 0; i < text.length; i++){
+      var z = text.charAt(i);
+      if(z === "\u00AD") continue;                  // weiches Trennzeichen
+      if(z === "<"){ imTag = true; continue; }
+      if(imTag){ if(z === ">") imTag = false; continue; }
+      if(/\s/.test(z)){
+        if(letztesLeer) continue;
+        n.push(" "); if(mitAbbildung) abb.push(i);
+        letztesLeer = true; continue;
+      }
+      letztesLeer = false;
+      n.push(zeichenNormal(z)); if(mitAbbildung) abb.push(i);
+    }
+    while(n.length && n[n.length-1] === " "){ n.pop(); if(mitAbbildung) abb.pop(); }
+    return { text:n.join(""), abb:abb };
+  }
+
+  function anfuehrungWeg(roh){
+    return String(roh || "").trim()
+      .replace(/^["'„“”«»\s]+/, "")
+      .replace(/["'“”«»\s]+$/, "");
+  }
+
+  function zitatSaeubern(roh){
+    return normalisieren(anfuehrungWeg(roh), false).text;
+  }
+
+  // Die Woerter, die eine Begruendung in Anfuehrungszeichen nennt. Das Modell
+  // mischt dabei die Formen: „Umbuchung" steht mit deutschem Anfuehrungs-
+  // zeichen vorn und geradem hinten.
+  function grundWoerter(grund){
+    var treffer = [], re = /[„"“]([^„"“”\n]{2,60})["“”]/g, m;
+    while((m = re.exec(String(grund || "")))){ treffer.push(zitatSaeubern(m[1])); }
+    return treffer;
+  }
+
+  function wortgrenze(text, von, bis){
+    var vor = von > 0 ? text.charAt(von - 1) : " ";
+    var nach = bis < text.length ? text.charAt(bis) : " ";
+    return !/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(vor) && !/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(nach);
+  }
+
+  function sucheWortgenau(heu, nadel){
+    var h = heu.toLowerCase(), n = nadel.toLowerCase(), ab = 0, i;
+    while((i = h.indexOf(n, ab)) !== -1){
+      if(wortgrenze(heu, i, i + n.length)) return i;
+      ab = i + 1;
+    }
+    return -1;
+  }
+
+  // Findet das Zitat, notfalls über seinen Anfang: Das Modell kürzt gelegentlich
+  // am Ende oder setzt ein Satzzeichen anders.
+  function zitatFinden(normText, zitat){
+    if(zitat.length < 3) return null;
+    var i = normText.toLowerCase().indexOf(zitat.toLowerCase());
+    if(i !== -1) return { von:i, bis:i + zitat.length };
+    var worte = zitat.split(" ");
+    for(var n = Math.min(worte.length, 12); n >= 4; n--){
+      var teil = worte.slice(0, n).join(" ");
+      i = normText.toLowerCase().indexOf(teil.toLowerCase());
+      if(i !== -1) return { von:i, bis:i + teil.length };
+    }
+    return null;
+  }
+
+  function fundstellenBauen(pruftext, befunde){
+    var norm = normalisieren(pruftext, true);
+    return befunde.map(function(b){
+      var zitat = zitatSaeubern(b.stelle);
+      var bereich = zitat ? zitatFinden(norm.text, zitat) : null;
+      if(!bereich) return { nr:b.nr, stufe:b.stufe, gefunden:false };
+
+      // Nennt die Begruendung genau ein Wort aus dem Zitat, markiere nur
+      // dieses: Sonst liegen bei sechs Niveau-Befunden im selben Satz sechs
+      // Markierungen uebereinander und keine zeigt mehr, worum es geht.
+      // Nennt sie mehrere, ist der Satz gemeint und nicht ein Wort daraus —
+      // dann bleibt das ganze Zitat markiert. Sich fuer eines davon zu
+      // entscheiden waere geraten, nicht gelesen.
+      var innen = norm.text.slice(bereich.von, bereich.bis);
+      var treffer = [];
+      grundWoerter(b.grund).forEach(function(wort){
+        var pos = sucheWortgenau(innen, wort);
+        if(pos !== -1) treffer.push({ pos:pos, laenge:wort.length });
+      });
+      if(treffer.length === 1){
+        bereich = { von:bereich.von + treffer[0].pos,
+                    bis:bereich.von + treffer[0].pos + treffer[0].laenge };
+      }
+      return {
+        nr:b.nr, stufe:b.stufe, gefunden:true,
+        von:norm.abb[bereich.von],
+        bis:norm.abb[bereich.bis - 1] + 1
+      };
+    });
+  }
+
+  // Zeichnet den Text mit den Fundstellen. Ueberlappen zwei Befunde dieselben
+  // Zeichen, traegt die Markierung beide Nummern; ausgezeichnet wird sie nach
+  // der strengsten beteiligten Stufe.
+  function pruftextZeichnen(text, stellen){
+    var belegt = new Array(text.length);
+    stellen.forEach(function(s){
+      if(!s.gefunden) return;
+      for(var i = s.von; i < s.bis && i < text.length; i++){
+        if(!belegt[i]) belegt[i] = [];
+        belegt[i].push(s);
+      }
+    });
+
+    var rang = { pflicht:3, empfehlung:2, hinweis:1 };
+    var h = "", i = 0;
+    while(i < text.length){
+      var hier = belegt[i];
+      if(!hier){
+        var j = i;
+        while(j < text.length && !belegt[j]) j++;
+        h += tagfaerben(text.slice(i, j));
+        i = j;
+        continue;
+      }
+      // Lauf gleicher Belegung zusammenfassen
+      var k = i, schluessel = hier.map(function(s){ return s.nr; }).join(" ");
+      while(k < text.length && belegt[k]
+            && belegt[k].map(function(s){ return s.nr; }).join(" ") === schluessel) k++;
+
+      var streng = hier.slice().sort(function(a,b){
+        return rang[stufenKlasse(b.stufe)] - rang[stufenKlasse(a.stufe)];
+      })[0];
+      var kl = stufenKurz(streng.stufe);
+      var nummern = hier.map(function(s){
+        return '<span class="nr ' + stufenKurz(s.stufe) + '">' + esc(s.nr) + "</span>";
+      }).join("");
+      h += '<mark class="' + kl + '" data-nrs="' + esc(schluessel) + '" tabindex="0"'
+         + ' role="button" aria-label="Befund ' + esc(schluessel.split(" ").join(", ")) + '">'
+         + tagfaerben(text.slice(i, k)) + nummern + "</mark>";
+      i = k;
+    }
+    return h;
+  }
+
+  // Markup bleibt sichtbar, aber leise: Wer den Text ueberarbeitet, muss den
+  // Link sehen, um den Befund LINKTEXT ueberhaupt beheben zu koennen. Aus
+  // demselben Grund bleibt die Auszeichnung auch im Vorschlag stehen — der
+  // Prompt erlaubt sie dort ausdruecklich, wenn sie zur Verbesserung gehoert.
+  function tagfaerben(stueck){
+    return esc(stueck).replace(/&lt;[\s\S]*?&gt;/g, function(t){
+      return '<span class="tag">' + t + "</span>";
+    });
+  }
+
+  // =========================================================== Darstellung
+  function urteilBauen(zahlen, ohneBefunde){
+    if(ohneBefunde){
+      return { klasse:"geprueft", zeichen:"✓",
+               titel:"Kein Befund. Der Text passt zu dieser Zielgruppe." };
+    }
+    if(zahlen.pflicht){
+      return { klasse:"pflicht", zeichen:"!",
+               titel:zahlen.pflicht === 1
+                 ? "Eine Stelle ist verbindlich zu ändern."
+                 : zahlen.pflicht + " Stellen sind verbindlich zu ändern." };
+    }
+    if(zahlen.empfehlung){
+      return { klasse:"empfehlung", zeichen:"!",
+               titel:zahlen.empfehlung === 1
+                 ? "Eine Stelle sollte für diese Zielgruppe geändert werden."
+                 : zahlen.empfehlung + " Stellen sollten für diese Zielgruppe geändert werden." };
+    }
+    return { klasse:"hinweis", zeichen:"i",
+             titel:zahlen.hinweis === 1
+               ? "Eine Anmerkung, nichts Verbindliches."
+               : zahlen.hinweis + " Anmerkungen, nichts Verbindliches." };
+  }
+
+  // Die erste Zeile des GESAMT-Blocks zaehlt nur, was die Messwerte daneben
+  // ohnehin zeigen. Uebrig bleibt die Einschaetzung — und die gehoert nach
+  // oben, nicht unter die Befundliste.
+  function gesamtTeilen(gesamt){
+    var zeilen = String(gesamt || "").split("\n").map(function(z){ return z.trim(); })
+                 .filter(Boolean);
+    var vorbehalt = "", satz = [];
+    zeilen.forEach(function(z){
+      if(/^Ohne Referenzwortschatz/i.test(z)){ vorbehalt = z; return; }
+      if(/^\d+\s+Befunde?\b/i.test(z) && /Pflicht/i.test(z)) return;
+      satz.push(z);
+    });
+    return { vorbehalt:vorbehalt, satz:satz.join(" ") };
   }
 
   function laufbandBauen(){
@@ -1195,108 +1566,257 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
     var d = letzterLauf, teile = [];
     teile.push("<span>Modell <b>" + esc(d.modell) + "</b>"
       + (d.ersatzmodellGenutzt ? " (Ersatzmodell)" : "") + "</span>");
-    teile.push("<span>Temperatur <b>" + komma(String(d.temperatur)) + "</b></span>");
+    teile.push('<span>Temperatur <b class="mono">' + komma(String(d.temperatur)) + "</b></span>");
     teile.push("<span>Fassung <b>" + esc(d.fassung || "unbekannt") + "</b></span>");
+    if(d.dauerSekunden != null){
+      teile.push('<span>Dauer <b class="mono">' + komma(String(d.dauerSekunden)) + " s</b></span>");
+    }
     if(d.promptAngepasst){
       teile.push('<span class="warnton">Prompt <b>angepasst</b></span>');
     }
     if(!d.wortlisteVorhanden){
       teile.push('<span class="warnton">Referenzwortschatz <b>fehlt</b></span>');
     } else {
-      teile.push("<span>Wortschatz <b>" + zahl(d.wortanzahl) + "</b></span>");
+      teile.push('<span>Wortschatz <b class="mono">' + zahl(d.wortanzahl) + "</b></span>");
     }
     if(d.protokoll){ teile.push("<span>Protokoll <b>" + esc(d.protokoll) + "</b></span>"); }
     return '<div class="laufband">' + teile.join("") + "</div>";
   }
 
-  function darstellen(daten){
-    var h = laufbandBauen();
-
-    if(daten.zielgruppe){
-      h += '<div class="block"><div class="blockkopf">Zielgruppe</div>'
-         + '<div class="zielgruppe">' + esc(daten.zielgruppe) + "</div></div>";
-    }
-
+  function kopfZeichnen(daten){
     var b = daten.befunde || [];
-    var pflicht = 0, empf = 0, hinw = 0;
-    b.forEach(function(x){
-      var k = stufenKlasse(x.stufe);
-      if(k === "pflicht") pflicht++; else if(k === "empfehlung") empf++; else hinw++;
-    });
+    var z = { pflicht:0, empfehlung:0, hinweis:0 };
+    b.forEach(function(x){ z[stufenKlasse(x.stufe)]++; });
+    var g = gesamtTeilen(daten.gesamt);
+    var u = urteilBauen(z, b.length === 0);
+
+    var h = laufbandBauen();
+    h += '<div class="verdikt ' + u.klasse + '">'
+       + '<span class="zeichen" aria-hidden="true">' + u.zeichen + "</span><div>"
+       + "<h1>" + esc(u.titel) + "</h1>";
+    if(g.satz){ h += '<p class="satz">' + esc(g.satz) + "</p>"; }
+    if(daten.zielgruppe){
+      h += '<p class="ziel">Geprüft für <b>' + esc(daten.zielgruppe) + "</b></p>";
+    }
+    if(g.vorbehalt){ h += '<p class="vorbehalt">' + esc(g.vorbehalt) + "</p>"; }
+    h += "</div></div>";
 
     if(b.length){
-      h += '<div class="zaehler">'
-        + '<div><div class="zn">' + pflicht + '</div><div class="zl">Pflicht</div></div>'
-        + '<div><div class="zn warn">' + empf + '</div><div class="zl">Empfehlung</div></div>'
-        + '<div><div class="zn grau">' + hinw + '</div><div class="zl">Hinweis</div></div>'
-        + '<div><div class="zn">' + b.length + '</div><div class="zl">Befunde gesamt</div></div>'
-        + "</div>";
-
-      h += '<div class="block"><div class="blockkopf">Befunde</div>';
-      b.forEach(function(x){
-        var k = stufenKlasse(x.stufe);
-        h += '<article class="befund ' + k + '">'
-           + '<div class="bkopf"><span class="stufe">' + esc(x.stufe || "Befund") + "</span>"
-           + (x.regel ? '<span class="regel">' + esc(x.regel) + "</span>" : "")
-           + '<span class="bnr">' + esc(x.nr) + "</span></div>"
-           + '<div class="bkoerper"><dl>'
-           + zeile("Stelle", x.stelle, "zitat")
-           + zeile("Grund", x.grund, "")
-           + zeile("Vorschlag", x.vorschlag, "vorschlag")
-           + "</dl>"
-           + (x.extra && x.extra.length ? '<div class="extra">' + esc(x.extra.join(" ")) + "</div>" : "")
-           + "</div></article>";
-      });
+      h += '<div class="messung">'
+        + '<span class="wert p"><span class="z">' + z.pflicht + "</span>"
+        + '<span class="b"><span class="punkt-p"></span>Pflicht</span></span>'
+        + '<span class="wert e"><span class="z">' + z.empfehlung + "</span>"
+        + '<span class="b"><span class="punkt-e"></span>Empfehlung</span></span>'
+        + '<span class="wert h"><span class="z">' + z.hinweis + "</span>"
+        + '<span class="b"><span class="punkt-h"></span>Hinweis</span></span>';
+      if(daten.keinBefund){
+        h += '<span class="rest"><span class="hk" aria-hidden="true">✓</span>Ohne Beanstandung: '
+           + esc(regelWorte(daten.keinBefund)) + "</span>";
+      }
       h += "</div>";
-    } else if(daten.befundeRoh){
-      h += '<div class="block"><div class="blockkopf">Befunde</div>'
-         + '<div class="kbz">' + esc(daten.befundeRoh) + "</div></div>";
-    }
-
-    if(daten.keinBefund){
-      var kuerzel = daten.keinBefund.split(/[,;]/).map(function(s){ return s.trim(); })
-                    .filter(function(s){ return s.length > 0; });
-      h += '<div class="block"><div class="blockkopf">Kein Befund zu</div><div class="kbz">'
-         + kuerzel.map(function(s){ return "<span>" + esc(s) + "</span>"; }).join("")
-         + "</div></div>";
-    }
-
-    if(daten.gesamt){
-      var ohne = /ohne referenzwortschatz/i.test(daten.gesamt);
-      h += '<div class="block"><div class="blockkopf">Gesamt</div>'
-         + '<div class="gesamt' + (ohne ? " ohne" : "") + '">' + esc(daten.gesamt) + "</div></div>";
-    }
-
-    if(!h){
-      return rohDarstellen("Die Antwort ließ sich nicht in Abschnitte zerlegen.");
+    } else if(daten.keinBefund){
+      h += '<div class="messung"><span class="rest">'
+         + '<span class="hk" aria-hidden="true">✓</span>Geprüft und ohne Beanstandung: '
+         + esc(regelWorte(daten.keinBefund)) + "</span></div>";
     }
     return h;
   }
 
+  function befundZeichnen(x, stelleGefunden, alsKopie){
+    var k = stufenKlasse(x.stufe), kurz = stufenKurz(x.stufe);
+    var h = "<" + (alsKopie ? "div" : "button type=\"button\"")
+      + ' class="befund" data-nr="' + esc(x.nr) + '">'
+      + '<span class="bkopf"><span class="stufe ' + kurz + '">' + esc(stufenWort(x.stufe)) + "</span>"
+      + (x.regel ? '<span class="regel">' + esc(regelWorte(x.regel)) + "</span>" : "")
+      + '<span class="bnr ' + kurz + '">' + esc(x.nr) + "</span></span>";
+    if(x.stelle){ h += '<span class="stelle">„' + esc(zitatSaeubern(x.stelle)) + "“</span>"; }
+    if(x.grund){ h += '<span class="grund">' + esc(x.grund) + "</span>"; }
+    if(x.vorschlag){
+      h += '<span class="vorschlag"><span class="vtext">'
+         + tagfaerben(anfuehrungWeg(x.vorschlag)) + "</span></span>";
+    }
+    if(x.extra && x.extra.length){ h += '<span class="extra">' + esc(x.extra.join(" ")) + "</span>"; }
+    if(!stelleGefunden){
+      h += '<span class="nichtgefunden">Diese Stelle war im Text nicht wiederzufinden '
+         + "und ist deshalb oben nicht markiert.</span>";
+    }
+    return h + "</" + (alsKopie ? "div" : "button") + ">";
+  }
+
+  function paarZeichnen(daten){
+    var b = daten.befunde || [];
+    if(!b.length && !letzterPruftext) return "";
+
+    var stellen = fundstellenBauen(letzterPruftext, b);
+    var nichtGefunden = stellen.filter(function(s){ return !s.gefunden; }).length;
+
+    var h = '<div class="paar"><div class="links"><div class="haft">'
+      + "<h2>Text mit Fundstellen</h2>";
+    if(b.length){
+      h += '<p class="anleitung">Jede unterstrichene Stelle ist ein Befund. '
+         + "Ein Klick darauf öffnet die Erklärung daneben.</p>";
+    }
+    h += '<p class="pruftext">' + pruftextZeichnen(letzterPruftext, stellen) + "</p>";
+    if(b.length){
+      h += '<div class="legende">'
+        + '<span><i class="p"></i>Pflicht</span>'
+        + '<span><i class="e"></i>Empfehlung</span>'
+        + '<span><i class="h"></i>Hinweis</span></div>';
+    }
+    if(nichtGefunden){
+      h += '<p class="ohnestelle">' + (nichtGefunden === 1
+        ? "Ein Befund ließ sich nicht im Text verorten und ist unten ohne Markierung aufgeführt."
+        : nichtGefunden + " Befunde ließen sich nicht im Text verorten und sind unten ohne "
+          + "Markierung aufgeführt.") + "</p>";
+    }
+    h += '<div id="inline" aria-live="polite"></div></div></div>';
+
+    h += '<div class="rechts"><h2>Befunde<span class="anzahl">' + b.length + "</span></h2>"
+       + '<div class="liste" id="liste">';
+    if(b.length){
+      b.forEach(function(x, i){
+        h += befundZeichnen(x, stellen[i].gefunden, false);
+      });
+    } else if(daten.befundeRoh){
+      h += '<div class="kbz">' + esc(daten.befundeRoh) + "</div>";
+    } else {
+      h += '<div class="kbz">Keine Beanstandung.</div>';
+    }
+    h += "</div></div></div>";
+    return h;
+  }
+
+  // ------------------------------------------------ Kopplung Text ↔ Befund
+  var aktiv = null;
+
+  function schmal(){ return window.matchMedia("(max-width:980px)").matches; }
+
+  function sichtbarMachen(knoten){
+    // block:"nearest" scrollt nur so weit wie noetig. Ein zentrierendes
+    // Scrollen wuerde bei jedem Klick die ganze Seite verschieben.
+    if(knoten && knoten.scrollIntoView) knoten.scrollIntoView({ block:"nearest", behavior:"smooth" });
+  }
+
+  function nummern(knoten){
+    return (knoten.getAttribute("data-nrs") || knoten.getAttribute("data-nr") || "").split(" ");
+  }
+
+  function auswahlLoesen(){
+    aktiv = null;
+    var w = el("ergebnisPaar");
+    Array.prototype.forEach.call(w.querySelectorAll("mark[data-nrs], .befund"), function(k){
+      k.classList.remove("aktiv");
+      if(k.tagName === "MARK") k.setAttribute("aria-current", "false");
+    });
+    var i = el("inline");
+    if(i) i.innerHTML = "";
+  }
+
+  function auswaehlen(nr){
+    if(aktiv === nr){ auswahlLoesen(); return; }
+    aktiv = nr;
+    var w = el("ergebnisPaar");
+    Array.prototype.forEach.call(w.querySelectorAll("mark[data-nrs]"), function(m){
+      var an = nummern(m).indexOf(nr) !== -1;
+      m.classList.toggle("aktiv", an);
+      m.setAttribute("aria-current", an ? "true" : "false");
+    });
+    var ziel = null;
+    Array.prototype.forEach.call(w.querySelectorAll(".liste .befund"), function(b){
+      var an = b.getAttribute("data-nr") === nr;
+      b.classList.toggle("aktiv", an);
+      if(an) ziel = b;
+    });
+    if(!ziel) return;
+    var i = el("inline");
+    if(schmal()){
+      // Auf schmalen Schirmen den Befund unter den Text spiegeln, statt ans
+      // Seitenende zu springen. Kopie, damit die Liste unangetastet bleibt.
+      i.innerHTML = "<div class=\"befund aktiv\">" + ziel.innerHTML + "</div>";
+      sichtbarMachen(i);
+    } else {
+      i.innerHTML = "";
+      sichtbarMachen(ziel);
+    }
+  }
+
+  function kopplungBinden(){
+    var w = el("ergebnisPaar");
+    Array.prototype.forEach.call(w.querySelectorAll("mark[data-nrs]"), function(m){
+      m.addEventListener("click", function(){ auswaehlen(nummern(m)[0]); });
+      m.addEventListener("keydown", function(e){
+        if(e.key === "Enter" || e.key === " "){ e.preventDefault(); auswaehlen(nummern(m)[0]); }
+      });
+    });
+    Array.prototype.forEach.call(w.querySelectorAll(".liste .befund"), function(b){
+      b.addEventListener("click", function(){ auswaehlen(b.getAttribute("data-nr")); });
+    });
+  }
+
+  // Wechselt die Breite, muss die Anzeige des aktiven Befunds mitwandern.
+  var breit = !schmal();
+  window.addEventListener("resize", function(){
+    var jetzt = !schmal();
+    if(jetzt !== breit){
+      breit = jetzt;
+      if(aktiv){ var n = aktiv; aktiv = null; auswaehlen(n); }
+    }
+  });
+
+  // ============================================================== Rohtext
   function rohDarstellen(grund){
-    return laufbandBauen() + '<div class="block">'
+    return '<div class="mitte" style="max-width:none;padding:0">'
       + (grund ? '<div class="rohnote">' + esc(grund) + " Unten steht die unveränderte Modellantwort.</div>" : "")
       + '<pre class="roh">' + esc(letzterRohtext) + "</pre></div>";
   }
 
-  function neuZeichnen(){
-    if(!letzterRohtext){ return; }
+  function rohSchalter(){
+    return '<div class="rohschalter"><button class="knopf leise" id="rohKnopf">'
+      + (rohSichtbar ? "Befunde zeigen" : "Rohtext des Modells") + "</button></div>";
+  }
+
+  function ergebnisZeichnen(){
+    if(!letzterRohtext) return;
+    ansicht("ergebnis");
+    auswahlLoesen();
     if(rohSichtbar || !letzteBefunde){
-      el("ausgabe").innerHTML = rohDarstellen(letzteBefunde ? "" : "Die Antwort folgt nicht dem erwarteten Format.");
+      el("ergebnisKopf").innerHTML = letzteBefunde ? laufbandBauen() : "";
+      el("ergebnisPaar").innerHTML =
+        rohDarstellen(letzteBefunde ? "" : "Die Antwort folgt nicht dem erwarteten Format.")
+        + rohSchalter();
     } else {
-      el("ausgabe").innerHTML = darstellen(letzteBefunde);
+      el("ergebnisKopf").innerHTML = kopfZeichnen(letzteBefunde);
+      el("ergebnisPaar").innerHTML = paarZeichnen(letzteBefunde) + rohSchalter();
+      kopplungBinden();
     }
+    var r = el("rohKnopf");
+    if(r) r.addEventListener("click", function(){
+      rohSichtbar = !rohSichtbar;
+      ergebnisZeichnen();
+    });
   }
 
   // ================================================================ Ablauf
+  var ansichtJetzt = "eingabe";
+
+  function ansicht(name){
+    el("ansichtEingabe").hidden = name !== "eingabe";
+    el("ansichtLauf").hidden = name !== "lauf";
+    el("ansichtErgebnis").hidden = name !== "ergebnis";
+    // Nur beim echten Wechsel nach oben springen. Wer unten im Ergebnis den
+    // Rohtext aufklappt, will nicht wieder am Seitenkopf stehen.
+    if(name !== ansichtJetzt){ window.scrollTo(0, 0); ansichtJetzt = name; }
+  }
+
   function ladenZeigen(){
     var start = Date.now();
-    el("ausgabe").innerHTML =
+    ansicht("lauf");
+    el("ansichtLauf").innerHTML =
       '<div class="laden"><div class="lt">Prüfung läuft</div>'
       + '<div class="ls">Der Text geht mit dem System-Prompt an ' + esc(modellJetzt() || "das Modell")
       + '. Das dauert üblicherweise 20 bis 60 Sekunden.</div>'
       + '<div class="ladebalken"><i></i></div>'
-      + '<div class="ls" id="ladeUhr">0 Sekunden</div></div>';
+      + '<div class="uhr" id="ladeUhr">0 Sekunden</div></div>';
     uhr = setInterval(function(){
       var s = Math.round((Date.now() - start)/1000);
       var u = el("ladeUhr");
@@ -1309,27 +1829,33 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   }
 
   function fehlerZeigen(meldung, hinweis){
-    el("ausgabe").innerHTML =
+    ansicht("lauf");
+    el("ansichtLauf").innerHTML =
       '<div class="fehler"><div class="ft">Prüfung nicht möglich</div>'
       + '<div class="fm">' + esc(meldung) + "</div>"
       + (hinweis ? '<div class="fh">' + esc(hinweis) + "</div>" : "")
-      + "</div>";
+      + '</div><div class="knopfreihe">'
+      + '<button class="knopf leise" id="fehlerZurueck">← Zurück zur Eingabe</button></div>';
+    var z = el("fehlerZurueck");
+    if(z) z.addEventListener("click", function(){ ansicht("eingabe"); });
   }
 
   function pruefen(){
     if(laeuft) return;
     var text = el("text").value.trim();
+    var meldung = el("eingabeFehler");
     if(!text){
-      fehlerZeigen("Kein Kurstext eingegeben.",
-        "Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen.");
+      ansicht("eingabe");
+      meldung.textContent = "Es steht kein Text im Feld. Oben einen Kurs aus dem "
+        + "Kursplan wählen oder den Ankündigungstext einsetzen.";
+      meldung.hidden = false;
       el("text").focus();
       return;
     }
+    meldung.hidden = true;
     laeuft = true;
     el("pruefen").disabled = true;
     el("pruefen").textContent = "Bitte warten";
-    el("rohKnopf").style.display = "none";
-    el("laufinfo").textContent = "";
     rohSichtbar = false;
     ladenZeigen();
 
@@ -1362,10 +1888,8 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
       letzterRohtext = res.daten.inhalt || "";
       letzteBefunde = parseAntwort(letzterRohtext);
       letzterLauf = res.daten;
-      neuZeichnen();
-      el("rohKnopf").style.display = "inline";
-      el("rohKnopf").textContent = "Rohtext";
-      el("laufinfo").textContent = komma(String(res.daten.dauerSekunden)) + " s";
+      letzterPruftext = text;
+      ergebnisZeichnen();
       if(!res.daten.wortlisteVorhanden){ el("balkenWort").classList.add("an"); }
       else { el("balkenWort").classList.remove("an"); }
     }).catch(function(){
@@ -1388,8 +1912,10 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
   }
 
   function zeichenZaehlen(){
-    var n = el("text").value.length;
-    el("zeichen").textContent = zahl(n) + " Zeichen";
+    var t = el("text").value;
+    var saetze = (t.match(/[.!?](\s|$)/g) || []).length;
+    el("zeichen").textContent = zahl(t.length) + " Zeichen"
+      + (saetze ? " · " + saetze + (saetze === 1 ? " Satz" : " Sätze") : "");
   }
 
   // ============================================================= Ereignisse
@@ -1431,8 +1957,8 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
     if(e.key === "ArrowDown"){ e.preventDefault(); aktivSetzen(1); }
     else if(e.key === "ArrowUp"){ e.preventDefault(); aktivSetzen(-1); }
     else if(e.key === "Enter"){
-      var aktiv = el("trefferliste").querySelector(".treffer.aktiv");
-      if(aktiv){ e.preventDefault(); aktiv.click(); }
+      var gewaehlt = el("trefferliste").querySelector(".treffer.aktiv");
+      if(gewaehlt){ e.preventDefault(); gewaehlt.click(); }
       else {
         var erster = el("trefferliste").querySelector(".treffer");
         if(erster && document.activeElement === el("suche")){ e.preventDefault(); erster.click(); }
@@ -1487,26 +2013,25 @@ kbd{ font-family:var(--schrift-mono); font-size:10.5px; background:#fff; border:
 
   el("text").addEventListener("input", zeichenZaehlen);
   el("pruefen").addEventListener("click", pruefen);
+  el("zurueck").addEventListener("click", function(){ ansicht("eingabe"); });
   el("leeren").addEventListener("click", function(){
     el("titel").value = ""; el("nummer").value = "";
     el("text").value = ""; el("niveau").selectedIndex = 0; el("bereich").selectedIndex = 0;
     zeichenZaehlen();
-    letzterRohtext = ""; letzteBefunde = null; letzterLauf = null;
-    el("rohKnopf").style.display = "none";
-    el("laufinfo").textContent = "";
+    letzterRohtext = ""; letzteBefunde = null; letzterLauf = null; letzterPruftext = "";
     el("kursGewaehltTitel").textContent = "Kurs aus dem Kursplan wählen";
     el("kursGewaehltMeta").textContent = "Suchen und filtern nach Programmbereich, Niveau und Ort";
-    el("kursHint").textContent = "Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern. Ein eigener Text lässt sich auch direkt unten einsetzen.";
-    el("ausgabe").innerHTML = '<div class="leer"><b>Noch keine Prüfung.</b>'
-      + 'Links einen Kurs aus dem Kursplan wählen oder einen eigenen Text einsetzen, dann '
-      + '&bdquo;Text prüfen&ldquo;.</div>';
+    el("kursHint").textContent = "Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern.";
+    el("eingabeFehler").hidden = true;
+    ansicht("eingabe");
+    el("text").focus();
   });
-  el("rohKnopf").addEventListener("click", function(){
-    rohSichtbar = !rohSichtbar;
-    el("rohKnopf").textContent = rohSichtbar ? "Befunde" : "Rohtext";
-    neuZeichnen();
-  });
+
   document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      if(offenes){ e.preventDefault(); modalSchliessen(offenes); }
+      else if(aktiv){ e.preventDefault(); auswahlLoesen(); }
+    }
     if((e.metaKey || e.ctrlKey) && e.key === "Enter" && !offenes){ e.preventDefault(); pruefen(); }
   });
 

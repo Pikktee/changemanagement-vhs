@@ -91,6 +91,38 @@ sollten:
   Zeichensätze, die eine Seite wirklich braucht — im Prototyp vier Dateien
   statt vierzehn.
 
+### Versalien nur auf der Folie, nicht im Werkzeug
+
+Auf den Folien tragen `th` und `.foot` Versalien mit gesperrtem Zeichenabstand.
+Das sind kurze Etiketten, die aus zwei Metern Entfernung erkannt und nicht
+gelesen werden.
+
+Im Werkzeug ist **`text-transform:uppercase` ersatzlos entfallen.** Es stand
+dort auf jeder Beschriftung, jedem Knopf, jeder Plakette und jeder Stufe. Ein
+Text, der neben einem Prüfbericht über Verständlichkeit steht, sollte nicht
+selbst die Wortbilder zerstören: Versalien nehmen der Schrift die Ober- und
+Unterlängen, an denen das Auge Wörter erkennt — genau die Eigenschaft, wegen
+der Atkinson gewählt wurde. Bei einer Oberfläche, die auch fachfremde
+Kursleitungen bedienen sollen, wiegt das schwerer als die Anmutung.
+
+**Der Projektname bleibt KLARTEXT.** Er ist als Name in Versalien geschrieben
+und nicht per `text-transform` erzeugt. Die Sperrung von 4px ist auf 0,5px
+zurückgenommen; weites Tracking arbeitet gegen Atkinson.
+
+**Regelkürzel und Stufen erscheinen als Wörter.** Das Modell antwortet mit
+`NIVEAU`, `AMTSDEUTSCH`, `PFLICHT` — die Oberfläche zeigt „Niveau",
+„Amtsdeutsch", „Pflicht". Die Übersetzung steht als Tabelle in
+`tool/index.html`. Wörtlich wiedergegebene Modellantwort bleibt davon
+unberührt: Was im Einschätzungssatz des Modells steht, wird nicht umgeschrieben.
+
+### Drei Stricharten für drei Stufen
+
+Die Fundstellen im geprüften Text sind unterstrichen: PFLICHT durchgezogen,
+EMPFEHLUNG gestrichelt, HINWEIS gepunktet. Die Farbe kommt hinzu, sie trägt
+nicht allein — WCAG 1.4.1 ist Stufe A und damit verbindlich. Zusätzlich hängt
+an jeder Markierung die Befundnummer, und im Befund daneben steht die Stufe
+als Wort.
+
 ### Zur Präsentation im Besonderen
 
 `build.py` rendert jede Folie als PNG und legt die Bilder in PPTX und PDF ab.
