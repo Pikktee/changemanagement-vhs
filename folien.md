@@ -619,33 +619,49 @@ yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
-oben_links: Beobachten || Städtische IT || Advellence, Portal- und Kursverwaltungssystem || Hessische Durchsetzungsstelle
+oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Vier Fachbereiche, acht Programmbereiche || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
-unten_links: Informieren || Betriebskommission || Stadtkämmerei
-unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Inklusionsbeauftragte || Teilnehmende, besonders in DaF und Grundbildung
+unten_links: Informieren || Volkshochschul-Verband, stellt den KI-Rahmen
+unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
 callout: Die Kursleitungen sind hoch betroffen und haben keinen formalen Einfluss.
 calloutsub: Sie sind nicht weisungsgebunden. Beteiligung ist hier kein guter Stil, sondern das einzige verfügbare Instrument.
 
 ### NOTIZ
 
 Damit komme ich zum Change-Teil. Er beginnt mit der Frage, wer eigentlich
-betroffen ist. Die Achsen sind Einfluss und Betroffenheit.
+betroffen ist. Die beiden Achsen sind Einfluss und Betroffenheit, und die Pfeile
+zeigen jeweils dorthin, wo sie zunehmen.
 
-Oben rechts, eng einzubinden: der Direktor, der laut Impressum persönlich für
-die redaktionellen Inhalte verantwortlich ist. Die vier Fachbereiche, die die
-acht Programmbereiche und damit die Texte verantworten. Die Redaktion des
-Programmhefts, die es für den Druck bereits gibt. Und der Personalrat, der
-zwei Sitze in der Betriebskommission hat.
+Oben rechts stehen die vier, die eng eingebunden werden müssen. Der Direktor,
+der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
+ist. Die vier Fachbereiche, die die acht Programmbereiche organisieren und
+damit die Texte verantworten. Die Redaktion des Programmhefts, die es für den
+Druck bereits gibt und die deshalb schon weiß, wie Textprüfung geht. Und der
+Personalrat, der zwei Sitze in der Betriebskommission hat.
 
-Oben links, zu beobachten: die städtische IT, der Portaldienstleister und die
-hessische Durchsetzungsstelle. Hoher Einfluss, aber geringe Betroffenheit,
-weil mein Projekt ihre Arbeit nicht verändert. Unten links nur informieren:
-die Betriebskommission und die Kämmerei.
+Oben links stehen drei mit hohem Einfluss, aber geringer Betroffenheit, weil
+mein Projekt ihre Arbeit nicht verändert. Die städtische IT, die für die
+technische Seite zuständig bleibt. Advellence, die Schweizer Firma, die laut
+Impressum das Portal programmiert — sie wird erst wichtig, wenn die Prüfung
+später ins Redaktionssystem soll. Und die Betriebskommission, das
+Aufsichtsgremium eines städtischen Eigenbetriebs.
+
+Unten links steht einer, der nur informiert wird: der Deutsche
+Volkshochschul-Verband. Er stellt den KI-Rahmen bereit, den ich nutze, ist
+davon aber nicht betroffen. Dieser Quadrant ist der leerste, und das ist kein
+Versehen. Ich hatte hier zuerst mehr eingetragen, unter anderem die Kämmerei
+und die hessische Durchsetzungsstelle. Beide habe ich gestrichen. Es fließt
+kein Geld, also ist die Kämmerei nicht beteiligt. Und mit einer
+Aufsichtsbehörde zu drohen wäre unredlich, wenn die Kriterien, um die es geht,
+ausdrücklich freiwillig sind.
 
 Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
-Kursleitungen sind maximal betroffen, denn sie schreiben viele dieser Texte.
-Und sie haben keinen formalen Einfluss, weil sie in keinem Gremium sitzen. Sie
-sind Honorarkräfte, man kann ihnen nichts vorschreiben.
+Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
+schreiben sie viele dieser Texte. Und sie haben keinen formalen Einfluss, weil
+sie in keinem Gremium sitzen. Sie sind Honorarkräfte, man kann ihnen nichts
+vorschreiben. Darunter stehen die Teilnehmenden selbst, besonders in den
+Deutschkursen und in der Grundbildung. Sie sind diejenigen, für die das ganze
+Projekt gemacht ist, und sie haben in keinem Gremium eine Stimme.
 
 Genau deshalb steht unten der Satz: Beteiligung ist hier kein guter Stil,
 sondern das einzige Instrument, das überhaupt zur Verfügung steht.
