@@ -537,10 +537,10 @@ bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Tex
 titel: Der System-Prompt
 akzent: im Einsatz.
 klein: ja
-lede: Beide Wege setzen denselben Prompt ein. Der erste ist ohne Vorlauf verfügbar, der zweite hält die Zusagen zuverlässiger und schafft auch den vorhandenen Bestand.
+lede: Beide Wege setzen denselben Prompt ein. Der erste ist sofort verfügbar, der zweite zuverlässiger.
 wege:
-  - "Als KI-Assistent beim Verband || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Volkshochschul-Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
-  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: Die Kursportal-Schnittstelle ist öffentlich. Nur dieser Weg entfernt Personennamen zuverlässig, rechnet die Einstufung nach und prüft den Bestand in Serie."
+  - "Als KI-Assistent beim Verband || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
+  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Nur hier werden Personennamen zuverlässig entfernt und die Einstufung nachgerechnet."
 callout: Später möglich: die Prüfung im Redaktionssystem selbst, dort wo der Text entsteht.
 calloutnotiz: ja
 calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Ob die Prüfung dann freiwillig bleibt oder verbindlich wird, entscheidet das Haus und nicht die Technik.
