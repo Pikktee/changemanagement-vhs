@@ -153,6 +153,8 @@ DESIGN.md          Schrift, Farbe, Größen — verbindlich für alle drei Ausga
 pruefe-design.py   rechnet die Kontraste nach und prüft die Dateien auf Gleichstand
 schriften/         mitgelieferte Schriften samt Lizenztexten, kein CDN-Abruf
 daten/             Kursplan, Stichproben, Wortliste, Wirtschaftlichkeit
+                   recherche-redaktionsablauf.md: was am Ablauf des Hauses
+                   belegt ist und was Annahme bleibt, mit Quellen
 tool/              Prototyp: server.py, index.html, protokoll/
 bilder/            flach-geometrische JPGs; umfaerben.py, Originale in original-petrol/
 ```
