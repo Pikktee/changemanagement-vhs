@@ -529,23 +529,20 @@ des Personalrats, ob hier Leistung kontrolliert wird.
 
 ## 9 — Wie es praktisch laeuft
 
-typ: tabelle2
+typ: tabelle
 kapitel: 02 · SYSTEM-PROMPT
 bild: bilder/09-befunde-prototyp.png
+bildganz: ja
+bu: Ausschnitt aus einem echten Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
 titel: Wie der Prüfschritt
 akzent: in den Alltag kommt.
 klein: ja
-lede: Zwei Wege stehen vom ersten Tag an offen. Sie unterscheiden sich darin, wie viel Technik dahinter nötig ist — nicht darin, was geprüft wird.
-regelntitel: Zwei Wege, ein Prompt
-regeln:
-  - "PFLICHT · ohne eigene Technik | ASSISTENT | Prompt bei fobizz hinterlegt, Text hinein, Befunde heraus"
-  - "EMPFEHLUNG · mit eigener Technik | PRÜFWERKZEUG | Kursnummer eingeben, holt den Text aus dem Portal"
-tabellentitel: Was wofür nötig ist
+lede: Derselbe Prompt, zwei Wege. Sie unterscheiden sich darin, wie viel Technik dahinter nötig ist — nicht darin, was geprüft wird.
 spalten: Weg | Voraussetzung | Wer mitmachen muss | Stand
 zeilen:
   - "Assistent bei fobizz | + Zugang besteht bereits | niemand außerhalb des Bereichs | einsatzbereit"
-  - "Eigenes Prüfwerkzeug | + ein Server, ein API-Zugang | städtische IT | + gebaut, gleich zu sehen"
-  - "Im Redaktionssystem | ! Erweiterung durch Advellence | Vertrag, Budget, Vorlauf | nach dem Pilot"
+  - "Eigenes Prüfwerkzeug | ein Server, ein API-Zugang | städtische IT | + gebaut, gleich zu sehen"
+  - "Im Redaktionssystem | ! Erweiterung durch Advellence | Vertrag, Budget, Vorlauf | erst nach dem Pilot"
 callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Beim Deutschkurs jedes Mal mehrere.
 quellen:
   - "Rahmenvereinbarung DVV und fobizz, 05.05.2025 | https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php"

@@ -206,7 +206,12 @@ def quellen(f):
 # --------------------------------------------------------------------------
 
 def bildspalte(f):
-    """Rechte Spalte mit Bild, nur wenn das Feld 'bild' gesetzt ist."""
+    """Rechte Spalte mit Bild, nur wenn das Feld 'bild' gesetzt ist.
+
+    Dekobilder werden formatfuellend beschnitten. 'bildganz: ja' schaltet auf
+    vollstaendiges Einpassen um — noetig bei Bildschirmfotos, die Text tragen
+    und nicht angeschnitten werden duerfen.
+    """
     if not f.get("bild"):
         return ""
     pfad = WURZEL / f["bild"]
@@ -214,7 +219,8 @@ def bildspalte(f):
         print(f"  ! Bild fehlt: {f['bild']}")
         return ""
     bu = f'<div class="bu">{e(f["bu"])}</div>' if f.get("bu") else ""
-    return (f'<div class="bildspalte"><div class="rahmen">'
+    kl = " ganz" if str(f.get("bildganz", "")).lower() in ("ja", "true", "1") else ""
+    return (f'<div class="bildspalte"><div class="rahmen{kl}">'
             f'<img src="../{f["bild"]}" alt=""></div>{bu}</div>')
 
 
