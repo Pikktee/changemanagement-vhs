@@ -66,7 +66,7 @@ zahlen:
   - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
 callout: Mehr als jeder zweite Text hat einen Befund. Die Frage ist, für wen er zu schwer ist.
 quellen:
-  - "eigene Erhebung an 60 Kursen, 28.07.2026"
+  - "Eigene Auswertung von 60 Kursbeschreibungen, 29.07.2026"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
   - "Erklärung zur Barrierefreiheit der vhs, 23.09.2025 | https://vhs.frankfurt.de/de/special-pages/support/barrierefreiheit"
 
@@ -532,8 +532,8 @@ punkte2:
   - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
   - "EMPFEHLUNG · NIVEAU: „idealerweise", „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung"."
   - "EMPFEHLUNG · NIVEAU: „Niveaustufe", „umfasst", „Teilstufen" — keines steht auf der A1-Liste."
-  - "Zusammen zwölf Befunde, elf davon zum Sprachniveau, einer Pflicht."
-callout: Derselbe Prompt meldet beim Englischkurs null Niveau-Befunde und hier elf.
+  - "In diesem Lauf neun Befunde, acht davon zum Sprachniveau, einer Pflicht."
+callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Hier jedes Mal mehrere.
 quellen:
   - "eigene Erhebung, Kurs 4074-74, vier Läufe am 29.07.2026"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
@@ -553,9 +553,13 @@ Niveaustufe, Teilstufen. Keines dieser Wörter steht auf der A1-Liste, die der
 Prompt als Anker mitbekommt.
 
 Der Satz unten ist der Beleg für die These vom Anfang. Ich habe denselben
-Prompt auf einen Englischkurs auf Stufe A1 angesetzt. Dort meldet er null
-Befunde zum Sprachniveau, hier elf. Er hat vorher bestimmt, wer liest, und
-legt deshalb zwei verschiedene Maßstäbe an.
+Prompt auf einen Englischkurs auf Stufe A1 angesetzt und beide Kurse je
+viermal laufen lassen. Beim Englischkurs meldet er jedes Mal null Befunde zum
+Sprachniveau, hier jedes Mal mehrere, zwischen acht und zehn. Die genaue Zahl
+schwankt, weil das Modell mal ein Wort und mal einen ganzen Satz als eine
+Stelle behandelt. Der Unterschied zwischen den beiden Kursen schwankt nicht.
+Er hat vorher bestimmt, wer liest, und legt deshalb zwei verschiedene
+Maßstäbe an.
 
 Ich habe das viermal je Kurs laufen lassen. Beim Deutschkurs elf bis zwölf
 Niveau-Befunde, beim Englischkurs jedes Mal null. Ein einzelner Lauf wäre
