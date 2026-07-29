@@ -183,12 +183,12 @@ persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
 Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
-Wichtig ist der dritte Punkt. Das Haus ist seit zweitausendfünf nach L Q W
-testiert, das ist ein Qualitätsverfahren der Weiterbildung mit regelmäßiger
-externer Prüfung, inzwischen in der sechsten Runde. Dazu kommt eine
-Zertifizierung nach der Zulassungsverordnung für Arbeitsförderung. Das ist mir
-wichtig zu betonen: Hier fehlt keine Qualitätskultur. Es fehlt genau ein
-Schritt darin.
+Wichtig ist der erste Punkt, ganz am Ende. Das Haus ist seit zweitausendfünf
+nach L Q W testiert. Das steht für Lernerorientierte Qualitätstestierung in
+der Weiterbildung, ein Verfahren mit regelmäßiger externer Prüfung, inzwischen
+in der sechsten Runde. Dazu kommt eine Zertifizierung nach der Akkreditierungs-
+und Zulassungsverordnung Arbeitsförderung. Das ist mir wichtig zu betonen: Hier
+fehlt keine Qualitätskultur. Es fehlt genau ein Schritt darin.
 
 Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
