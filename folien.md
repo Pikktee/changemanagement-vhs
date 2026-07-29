@@ -149,27 +149,30 @@ typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
 bild: bilder/04-prozess-luecke.jpg
 bildprompt: Vier Kreise in einer Reihe, verbunden durch Linien, die Verbindung zwischen drittem und viertem Kreis fehlt. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Ein Auftrag,
-akzent: eine Lücke im Prozess.
+titel: Die vhs Frankfurt,
+akzent: und wie ein Kurstext entsteht.
 klein: ja
 lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
-spalte1: DAS HAUS
+spalte1: DAS UNTERNEHMEN
 punkte1:
   - "Eigenbetrieb der Stadt, kaufmännisch geführt, 154 T€ Stammkapital"
-  - "5.800 Veranstaltungen im Jahr in acht Programmbereichen"
+  - "5.800 Veranstaltungen im Jahr in acht Programmbereichen, organisiert von vier Fachbereichen"
   - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
+  - "Seit 2005 qualitätstestiert nach LQW, zusätzlich AZAV-zertifiziert"
   - "Der Direktor ist laut Impressum persönlich für die Inhalte verantwortlich"
-spalte2: SO ENTSTEHT EIN KURSTEXT
+spalte2: SO ENTSTEHT EIN KURSTEXT · ANGENOMMENER ABLAUF
 punkte2:
-  - "Die Programmbereichsleitung plant den Kurs und gewinnt eine Kursleitung"
-  - "Der Beschreibungstext wird geschrieben, oft von der Kursleitung zugeliefert"
+  - "Die Teams der vier Fachbereiche planen das Programm halbjährlich"
+  - "Der Text wird geschrieben, branchenüblich von der Kursleitung zugeliefert — in den Sprachkursen aus Bausteinen zusammengesetzt"
   - "Der Text wird in das Kursverwaltungssystem eingepflegt"
-  - "Er erscheint unverändert im Portal, im Programmheft und im Newsletter"
+  - "Er erscheint unverändert im Portal und, teils wortgleich, im Programmheft"
 callout: Zwischen Einpflegen und Veröffentlichen ist kein Prüfschritt auf Verständlichkeit vorgesehen.
 calloutsub: Soll-Zustand: Hier steht künftig ein Prüfschritt, der meldet und nicht ändert.
 quellen:
   - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
-  - "Impressum, Verantwortung für die Inhalte | https://vhs.frankfurt.de/de/special-pages/important/impressum"
+  - "Impressum | https://vhs.frankfurt.de/de/special-pages/important/impressum"
+  - "Fachbereiche und Qualitätstestierung | https://vhs.frankfurt.de/de/about/featured/fachbereiche-an-der-vhs"
+  - "Ablauf: eigene Recherche, daten/recherche-redaktionsablauf.md"
 
 ### NOTIZ
 
@@ -181,26 +184,43 @@ persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
 Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
+Wichtig ist der dritte Punkt. Das Haus ist seit zweitausendfünf nach L Q W
+testiert, das ist ein Qualitätsverfahren der Weiterbildung mit regelmäßiger
+externer Prüfung, inzwischen in der sechsten Runde. Dazu kommt eine
+Zertifizierung nach der Zulassungsverordnung für Arbeitsförderung. Das ist mir
+wichtig zu betonen: Hier fehlt keine Qualitätskultur. Es fehlt genau ein
+Schritt darin.
+
 Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
 Haus. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
-Rechts steht, wie ein Kurstext heute entsteht. Vier Schritte, von der Planung
-bis zur Veröffentlichung in Portal, Programmheft und Newsletter.
+Rechts steht, wie ein Kurstext entsteht. Geplant wird halbjährlich, von den
+Teams der vier Fachbereiche. Der Text wird geschrieben und ins
+Kursverwaltungssystem eingepflegt, und dann erscheint er.
 
-Zwischen dem dritten und dem vierten Schritt passiert nichts. Es gibt keine
-Prüfstufe für Verständlichkeit. Das ist kein Vorwurf, denn dieser
-Arbeitsschritt ist nirgends vorgesehen. Genau deshalb ist es ein Fall für
-Prozessgestaltung und nicht für einen Appell, sich mehr Mühe zu geben.
+Zwischen dem Einpflegen und dem Erscheinen ist kein Prüfschritt auf
+Verständlichkeit vorgesehen. Das ist kein Vorwurf, denn dieser Arbeitsschritt
+ist nirgends vorgesehen. Genau deshalb ist es ein Fall für Prozessgestaltung
+und nicht für einen Appell, sich mehr Mühe zu geben.
 
-Der Soll-Zustand steht darunter und ist bewusst klein gehalten. An genau
-dieser Stelle kommt ein Prüfschritt hinzu. Er meldet, er ändert nichts, und
-entschieden wird weiterhin von Menschen.
+Eine Einschränkung sage ich offen dazu. Für das gedruckte Programmheft gibt es
+sehr wohl eine Redaktion, das Impressum nennt sie mit Namen. Für das Portal
+gibt es sie nicht, und dort stehen die Texte, um die es hier geht.
 
-Eine Einschränkung lege ich offen. Den genauen Redaktionsablauf konnte ich
-nicht belegen, dazu gibt es keine öffentliche Dokumentation. Rechts steht die
-branchenübliche Rollenverteilung. Das ist eine begründete Annahme, keine
-Messung.
+Und noch eine Einschränkung. Über der rechten Spalte steht nicht ohne Grund
+das Wort angenommen. Wer bei der vhs Frankfurt die Texte schreibt, ist nicht
+öffentlich dokumentiert. Für die Branche ist es gut belegt: Das Standardwerk
+des Deutschen Instituts für Erwachsenenbildung führt die fristgerechte Abgabe
+von Ankündigungstexten unter den Pflichten der Kursleitung. Bei den
+Sprachkursen hier spricht der Befund allerdings dagegen. Beide Kurse, die ich
+gleich zeige, sind im Programmheft mit N. N. als Kursleitung gedruckt. Da war
+noch niemand gewonnen, der einen Text hätte liefern können. Diese Texte
+bestehen vollständig aus Bausteinen.
+
+Das ist übrigens kein Randbefund. Ich habe nachgezählt: Vierundfünfzig Prozent
+aller Kurse teilen sich ihren Text mit mindestens einem anderen Kurs. Ein
+schlecht formulierter Text ist hier nie ein Einzelfall.
 
 
 ## 5 — Messung und eigentlicher Befund
@@ -405,7 +425,7 @@ regeln:
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Abkürzung nicht aufgelöst"
 quellen:
-  - "system-prompt.md, Fassung v9 vom 29.07.2026, zehn Fassungen in der Versionsverwaltung"
+  - "system-prompt.md, Fassung v10 vom 29.07.2026, elf Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
@@ -506,8 +526,8 @@ yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
-oben_links: Beobachten || Städtische IT || Advellence, Portaldienstleister || Hessische Durchsetzungsstelle
-oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Acht Programmbereichsleitungen || Personalrat, zwei Sitze in der Betriebskommission
+oben_links: Beobachten || Städtische IT || Advellence, Portal- und Kursverwaltungssystem || Hessische Durchsetzungsstelle
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Vier Fachbereiche, acht Programmbereiche || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
 unten_links: Informieren || Betriebskommission || Stadtkämmerei
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Inklusionsbeauftragte || Teilnehmende, besonders in DaF und Grundbildung
 callout: Die Kursleitungen sind hoch betroffen und haben keinen formalen Einfluss.
@@ -519,9 +539,10 @@ Damit komme ich zum Change-Teil. Er beginnt mit der Frage, wer eigentlich
 betroffen ist. Die Achsen sind Einfluss und Betroffenheit.
 
 Oben rechts, eng einzubinden: der Direktor, der laut Impressum persönlich für
-die redaktionellen Inhalte verantwortlich ist. Die acht
-Programmbereichsleitungen, die die Texte verantworten. Und der Personalrat,
-der zwei Sitze in der Betriebskommission hat.
+die redaktionellen Inhalte verantwortlich ist. Die vier Fachbereiche, die die
+acht Programmbereiche und damit die Texte verantworten. Die Redaktion des
+Programmhefts, die es für den Druck bereits gibt. Und der Personalrat, der
+zwei Sitze in der Betriebskommission hat.
 
 Oben links, zu beobachten: die städtische IT, der Portaldienstleister und die
 hessische Durchsetzungsstelle. Hoher Einfluss, aber geringe Betroffenheit,

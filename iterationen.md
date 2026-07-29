@@ -531,6 +531,55 @@ auch nicht.
 
 ---
 
+## v10 · 29.07.2026, 13:20 · Eine Rolle, die es im Haus nicht gibt
+
+**Anlass.** Beim Gegenprüfen der Unternehmensfolie fiel auf, dass die
+Präsentation durchgehend von „Programmbereichsleitungen" sprach. Eine
+Recherche an den öffentlichen Quellen des Hauses sollte den behaupteten
+Redaktionsablauf belegen und förderte stattdessen einen Begriffsfehler zutage.
+
+**Befund.** Die vhs Frankfurt kennt keine Programmbereichsleitung. Sie
+gliedert ihr Angebot in **acht Programmbereiche** (thematisch), die
+organisatorisch von **vier Fachbereichen** verantwortet werden — Allgemeine
+Bildung, Arbeit und Beruf, Sprachen, Sozialer Zusammenhalt. Geleitet wird auf
+Fachbereichsebene. Im Gesamtprogramm Frühjahr/Sommer 2026, 240 Seiten, kommt
+„Programmbereichsleitung" null Mal vor, „Fachbereichsleitung" viermal mit
+namentlicher Zuordnung.
+
+Der Prompt nannte diese Rolle in der Zeile GRENZEN als diejenige, die
+entscheidet. Er benannte damit eine Instanz, die es im Haus nicht gibt.
+
+**Änderung.** Zwei Stellen. In GRENZEN entscheidet jetzt „der zuständige
+Fachbereich". Unter KONTEXT wurde die Aufbauorganisation ergänzt: acht
+Programmbereiche, organisiert von vier namentlich genannten Fachbereichen, mit
+halbjährlicher Planung.
+
+**Begründung.** Der Prompt beschreibt sich selbst als Redaktionsassistenz
+eines bestimmten Hauses und trägt dessen Hauswissen im KONTEXT. Ein falsch
+benannter Adressat der Entscheidung ist derselbe Fehlertyp wie eine erfundene
+Abkürzung: Er klingt plausibel und ist es nicht. Wer den Prompt im Haus
+vorlegt, verliert an dieser Stelle Vertrauen, bevor der erste Befund gelesen
+wird.
+
+**Ohne neuen Lauf.** Beide Änderungen betreffen Text, der nicht in die Ausgabe
+eingeht — die Rollenbezeichnung steht in einer Grenze, die Aufbauorganisation
+im Hauswissen. Das Ausgabeformat, die Prüfregeln und der Referenzwortschatz
+sind unberührt. Ein Lauf gegen die Kernfälle hätte die v9-Protokolle in der
+Abgabe-Dokumentation ersetzt, ohne dass ein inhaltlicher Unterschied zu
+erwarten wäre. Die Belege der Recherche stehen in
+`daten/recherche-redaktionsablauf.md`.
+
+**Was die Recherche sonst ergab**, ohne Folgen für den Prompt, aber mit Folgen
+für die Präsentation: Für das gedruckte Programmheft existiert eine benannte
+Redaktion, für das Portal nicht. Die Zulieferung der Texte durch Kursleitungen
+ist für die Branche gut belegt, für dieses Haus nicht — und in den
+Sprachkursen spricht der Befund dagegen, weil beide Kernfälle mit „N. N." als
+Kursleitung gedruckt sind und ihre Texte vollständig aus Bausteinen bestehen.
+54 Prozent aller Kurse teilen sich ihren Text mit mindestens einem anderen
+Kurs.
+
+---
+
 ## Offen für die nächsten Fassungen
 
 - Ist die Grenze von 25 beziehungsweise 15 Wörtern je Satz brauchbar, oder
