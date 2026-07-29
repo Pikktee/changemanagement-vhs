@@ -17,7 +17,11 @@
   const buehne = document.getElementById('buehne');
   const tbody  = document.querySelector('#tab tbody');
   let schlecht = 0;
-  for (let i = 1; i <= 13; i++) {
+  // Folienzahl aus folien.md lesen, nicht aus dem Ordner: dort koennen
+  // verwaiste folie-NN.html frueherer Staende liegen
+  const quelle = await (await fetch('../folien.md')).text();
+  const anzahl = (quelle.match(/^## /gm) || []).length;
+  for (let i = 1; i <= anzahl; i++) {
     const nr = String(i).padStart(2,'0');
     const rahmen = document.createElement('iframe');
     rahmen.style.width = '1280px';
