@@ -49,6 +49,17 @@ Ein Text ist nie an sich verständlich, sondern nur für bestimmte Leser. Lesbar
 
 Verpflichtet ist die vhs dazu nicht — die maßgeblichen WCAG-Kriterien sind AAA. Das Argument liefert die Betriebssatzung: Angebote „für alle, ohne Rücksicht auf Vorbildung“.
 
+## Welcher Maßstab gilt
+
+Das ist eine **Kursabgabe, keine Verteidigung.** Es gibt kein Kolloquium, in dem
+einzelne Zahlen angegriffen werden. Maßstab ist deshalb **innere Konsistenz**,
+nicht die Beweisbarkeit jeder einzelnen Angabe.
+
+Eine Zahl darf auf einer begründeten Annahme beruhen. Zu melden ist, wenn zwei
+Folien einander widersprechen — oder wenn eine Folie etwas als „gemessen"
+ausweist, das nirgends hergeleitet ist. Nicht zu melden ist die bloße
+Abwesenheit eines Belegs.
+
 ## Der wichtigste Grundsatz der Umsetzung
 
 **Was feststeht, gehört in den Code. Was Urteil verlangt, bleibt beim Modell.**

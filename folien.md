@@ -58,15 +58,14 @@ Am Ende zeige ich das Werkzeug live an einem echten Kurstext.
 typ: zahlen
 kapitel: ÜBERBLICK
 titel: 5.800 Texte im Jahr,
-akzent: keiner wird geprüft.
-lede: Die vhs Frankfurt veröffentlicht rund 5.800 Kursbeschreibungen im Jahr. Sie entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter.
+akzent: geprüft wird die Technik.
+lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Haus an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
   - "90 % || haben mindestens einen Befund || warn"
-  - "0 || Prüfschritte auf Verständlichkeit || warn"
-callout: Ein Text ist nicht an sich verständlich, sondern immer nur für bestimmte Leser.
-calloutsub: Geprüft wird deshalb nicht der Text allein, sondern der Text gegen die Zielgruppe genau dieses Kurses.
-quellen: eigene Erhebung an 60 Kursen, Portalabruf vom 28.07.2026
+  - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
+callout: Neun von zehn Texten haben einen Befund. Die Frage ist, für wen sie zu schwer sind.
+quellen: eigene Erhebung an 60 Kursen · vhs.frankfurt.de/KundenportalApi, Abruf 28.07.2026 · Erklärung zur Barrierefreiheit der vhs vom 23.09.2025
 
 ### NOTIZ
 
@@ -74,11 +73,27 @@ Zuerst das Ganze in drei Zahlen.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
 Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben neun
-von zehn Texten mindestens einen Befund. Und es gibt null Prüfschritte, an
-denen jemand fragt, ob die Zielgruppe den Text versteht.
+von zehn Texten mindestens einen Befund.
 
-Unten steht die These, um die es heute geht. Ein Text ist nicht an sich
-verständlich, sondern immer nur für bestimmte Leser.
+Die dritte Zahl stammt aus dem Haus selbst. In der Erklärung zur
+Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
+ersten Juli zweitausendeinundzwanzig. Das ist heute auf den Tag genau fünf
+Jahre her. Seitdem bewertet sich das Haus selbst. Ich habe die Seite mit einem
+gängigen Prüfprogramm laufen lassen, und sie erfüllt die Anforderungen heute
+nicht mehr, da kommen etliche Verstöße zusammen.
+
+Das ist aber ausdrücklich nicht mein Thema. Dafür ist die städtische IT
+zuständig, und ich komme darauf noch einmal zurück.
+
+Denn dieselbe Erklärung enthält den Satz, der mich auf dieses Projekt gebracht
+hat. Die wichtigsten Informationen zu Betrieb und Kursgeschäft, heißt es dort,
+seien in einfacher Sprache verfügbar. Das Haus hat die Frage nach der
+Verständlichkeit also längst gestellt und für einen Bereich beantwortet. Nur
+für die Kursbeschreibungen selbst, den mit Abstand größten Textbestand, gilt
+das nicht.
+
+Genau da setze ich an. Und unten steht die Frage, um die es dabei geht: Neun
+von zehn Texten haben einen Befund. Für wen sind sie eigentlich zu schwer?
 
 
 ## 3 — Executive Summary II: Der Vorschlag
