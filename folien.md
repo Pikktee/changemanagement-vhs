@@ -623,8 +623,6 @@ oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister |
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Vier Fachbereiche, acht Programmbereiche || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
 unten_links: Informieren || Volkshochschul-Verband, stellt den KI-Rahmen
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
-callout: Die Kursleitungen sind hoch betroffen und haben keinen formalen Einfluss.
-calloutsub: Sie sind nicht weisungsgebunden. Beteiligung ist hier kein guter Stil, sondern das einzige verfügbare Instrument.
 
 ### NOTIZ
 
@@ -659,12 +657,19 @@ Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
 Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
 schreiben sie viele dieser Texte. Und sie haben keinen formalen Einfluss, weil
 sie in keinem Gremium sitzen. Sie sind Honorarkräfte, man kann ihnen nichts
-vorschreiben. Darunter stehen die Teilnehmenden selbst, besonders in den
-Deutschkursen und in der Grundbildung. Sie sind diejenigen, für die das ganze
-Projekt gemacht ist, und sie haben in keinem Gremium eine Stimme.
+vorschreiben. Ob das hier tatsächlich so ist, kann ich nicht belegen: Für die
+Branche ist die Zulieferung durch Kursleitungen gut dokumentiert, für dieses
+Unternehmen nicht. Meine beiden Beispielkurse sprechen sogar dagegen, sie sind
+mit N. N. als Kursleitung gedruckt und bestehen aus Textbausteinen.
 
-Genau deshalb steht unten der Satz: Beteiligung ist hier kein guter Stil,
-sondern das einzige Instrument, das überhaupt zur Verfügung steht.
+Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und in
+der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht ist,
+und sie haben in keinem Gremium eine Stimme.
+
+Für diesen ganzen unteren rechten Quadranten gilt dasselbe: hoch betroffen,
+kein formaler Einfluss. Beteiligung ist dort kein guter Stil, sondern das
+einzige Instrument, das überhaupt zur Verfügung steht. Was das praktisch heißt,
+steht auf der nächsten Folie.
 
 Ein Hinweis zur Matrix selbst. Ich verwende die Achsen aus dem Aufgabenblatt,
 Einfluss und Betroffenheit. In der Change Toolbox ist sie als
