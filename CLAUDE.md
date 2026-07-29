@@ -105,6 +105,18 @@ Seite die Unterkante des Inhalts gegen den verfügbaren Platz. So wurde
 gefunden, dass Folie 5 einmal 185 Pixel überlief und ihr Callout unsichtbar
 war.
 
+**Die Prüfseite im Browser zeigt altes CSS.** `ausgabe/pruefung.html` lädt die
+Folien in iframes, und die laden `../stil.css` ohne Cache-Buster. Nach einer
+Änderung an `stil.css` meldet die Seite deshalb weiter die alten Werte — auch
+nach einem Reload der Prüfseite selbst. Das kostet sonst eine Stunde Suche nach
+einem Überlauf, den es nicht gibt. Zuverlässig misst nur ein frischer Chrome:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --disable-gpu --virtual-time-budget=15000 --window-size=900,900 \
+  --screenshot=/tmp/pruef.png http://localhost:8795/ausgabe/pruefung.html
+```
+
 **Die Abgabe-2-Doku zieht ihre Inhalte zur Bauzeit.** `dokumentation.md`
 enthält Platzhalter wie `{{PROMPT:GRENZEN}}`, `{{ITER:v4}}` und
 `{{PROTOKOLL:4074-74:antwort}}`. Prompt-Abschnitte, Iterationshistorie und
