@@ -246,6 +246,54 @@ td.nein{ color:var(--pflicht); font-weight:700; }
          text-transform:uppercase; font-size:10.5px; color:var(--marke);
          padding-top:2px; }
 
+/* ---------- Risikokarten (Zusatzblock, derzeit Typ tabelle) ----------
+   Die Gegenmassnahme steht unter einer Trennlinie und nicht in Grau: Auf
+   --papier haelt --leise zwar AAA, aber der Absatz ist die Antwort und keine
+   Nebenbemerkung. */
+.gefahren{ display:flex; gap:15px; margin-top:20px; }
+.gefahr{ flex:1 1 0; min-width:0; background:var(--flaeche);
+         padding:13px 16px 14px; border-top:3px solid var(--pflicht);
+         display:flex; flex-direction:column; }
+.glabel{ font-size:10px; font-weight:700; letter-spacing:1.2px;
+         text-transform:uppercase; color:var(--pflicht); }
+/* Auf --flaeche steht --tinte, nicht --leise — 6,80:1 verfehlt AAA. */
+.gtext{ font-size:14px; font-weight:700; line-height:1.35; color:var(--tinte);
+        margin-top:5px; }
+.gmass{ font-size:13px; line-height:1.4; color:var(--tinte); margin-top:9px;
+        padding-top:9px; border-top:1px solid var(--linie); }
+
+/* ---------- Typ: plan (Schritte links, Kennzahlen rechts) ----------
+   Die Ziffer ordnet eine Reihenfolge, sie wertet nicht — deshalb Markenfarbe
+   und nicht eine der Stufenfarben. Dasselbe Quadrat wie in der Wortmarke. */
+.plan{ display:flex; gap:46px; align-items:stretch;
+       margin-top:auto; margin-bottom:auto; }
+.planspalte{ flex:1 1 0; display:flex; flex-direction:column; min-width:0; }
+.planspalte.kz{ flex:0 0 452px; }
+.pschritte{ display:flex; flex-direction:column; gap:15px; margin-top:19px; }
+.pschritt{ display:flex; gap:14px; align-items:flex-start; }
+.psnr{ flex:0 0 auto; width:25px; height:25px; background:var(--marke);
+       color:#fff; display:flex; align-items:center; justify-content:center;
+       font-size:13.5px; font-weight:700; font-variant-numeric:tabular-nums;
+       margin-top:1px; }
+.pstxt{ display:flex; flex-direction:column; min-width:0; }
+.pswas{ font-size:16.5px; font-weight:700; line-height:1.32;
+        letter-spacing:-0.2px; }
+.pssub{ font-size:13.5px; color:var(--leise); line-height:1.4; margin-top:3px; }
+
+.pkzs{ display:flex; flex-direction:column; gap:11px; margin-top:19px; }
+.pkz{ display:flex; gap:18px; align-items:center; background:var(--flaeche);
+      padding:13px 18px; border-left:4px solid var(--marke); }
+.pkzwert{ flex:0 0 118px; font-size:33px; font-weight:700; color:var(--marke);
+          font-variant-numeric:tabular-nums; letter-spacing:-1px;
+          line-height:1.05; text-align:right; }
+/* Auf --flaeche steht --tinte, nicht --leise: 6,80:1 verfehlt AAA. */
+.pkzerkl{ font-size:13.5px; line-height:1.4; color:var(--tinte); min-width:0; }
+/* Die Zahl des Einwands ist keine Kennzahl des Vorhabens. Sie bleibt in
+   Fliesstextfarbe und verliert den Markenstreifen — die Unterscheidung haengt
+   damit nicht an der Farbe allein, sondern auch an der Form. */
+.pkz.einwand{ border-left:4px solid var(--rahmen); }
+.pkz.einwand .pkzwert{ color:var(--tinte); }
+
 /* ---------- Typ: einwaende ----------
    Einwand links, Antwort rechts, in derselben Zeile. Der Pfeil sitzt auf der
    Trennlinie und ist reine Optik ('aria-hidden'); die Zuordnung traegt die

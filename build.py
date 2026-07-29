@@ -370,7 +370,8 @@ def _tabelle_html(f):
 
 
 def t_tabelle(f, seite_, gesamt):
-    return seite(f, seite_, gesamt, _tabelle_html(f) + callout(f, " unten"))
+    return seite(f, seite_, gesamt,
+                 _tabelle_html(f) + gefahren(f) + callout(f, " unten"))
 
 
 def _stufenblock(zeilen, titel=""):
@@ -534,6 +535,70 @@ def t_einwaende(f, seite_, gesamt):
     return seite(f, seite_, gesamt, block + callout(f, " unten"))
 
 
+def gefahren(f):
+    """Risiko und Gegenmassnahme als Karten nebeneinander.
+
+    Vorher standen drei Risiken mit Pfeilen in einer einzigen Zeile unter dem
+    Callout. Lesbar war das, ueberschaubar nicht: Wer im Vortrag auf ein
+    einzelnes Risiko zeigen will, findet die Stelle in einem Fliesstextblock
+    nicht wieder.
+
+    Feld 'risiken', je Karte: Risiko > Gegenmassnahme
+    """
+    karten = []
+    for roh in f.get("risiken", []):
+        risiko, _, gegen = str(roh).partition(">")
+        karten.append(
+            f'<div class="gefahr"><span class="glabel">Risiko</span>'
+            f'<span class="gtext">{e(risiko.strip())}</span>'
+            f'<span class="gmass">{e(gegen.strip())}</span></div>')
+    return f'<div class="gefahren">{"".join(karten)}</div>' if karten else ""
+
+
+def t_plan(f, seite_, gesamt):
+    """Nummerierte Schritte links, Kennzahlen rechts.
+
+    Die ersten Schritte sind eine Reihenfolge und keine Liste — der erste
+    bedingt den zweiten. Deshalb tragen sie Ziffern. Rechts stehen die
+    Kennzahlen als Zahlen und nicht als Satz: Der Sprung von 290 auf 29 ist
+    das Argument, und in einem Aufzaehlungspunkt sieht man ihn nicht.
+
+    Feld 'schritte', je Zeile: Schritt > Begruendung
+    Feld 'kennzahlen', je Zeile: Wert || Erklaerung || (einwand)
+    """
+    schritte = []
+    for i, roh in enumerate(f.get("schritte", []), 1):
+        was, _, warum = str(roh).partition(">")
+        sub = (f'<span class="pssub">{e(warum.strip())}</span>'
+               if warum.strip() else "")
+        schritte.append(
+            f'<div class="pschritt"><span class="psnr">{i}</span>'
+            f'<span class="pstxt"><span class="pswas">{e(was.strip())}</span>'
+            f'{sub}</span></div>')
+    links = ""
+    if schritte:
+        links = (f'<div class="planspalte"><span class="spkopf">'
+                 f'{e(f.get("schrittetitel", ""))}</span>'
+                 f'<div class="pschritte">{"".join(schritte)}</div></div>')
+
+    kzs = []
+    for roh in f.get("kennzahlen", []):
+        teile = [x.strip() for x in str(roh).split("||")]
+        teile += [""] * (3 - len(teile))
+        wert, erkl, art = teile[0], teile[1], teile[2].lower()
+        kl = " einwand" if art == "einwand" else ""
+        kzs.append(f'<div class="pkz{kl}"><span class="pkzwert">{e(wert)}</span>'
+                   f'<span class="pkzerkl">{e(erkl)}</span></div>')
+    rechts = ""
+    if kzs:
+        rechts = (f'<div class="planspalte kz"><span class="spkopf alt">'
+                  f'{e(f.get("kennzahlentitel", ""))}</span>'
+                  f'<div class="pkzs">{"".join(kzs)}</div></div>')
+
+    return seite(f, seite_, gesamt,
+                 f'<div class="plan">{links}{rechts}</div>{callout(f, " unten")}')
+
+
 def t_matrix(f, seite_, gesamt):
     """Stakeholder-Matrix Einfluss x Betroffenheit, Quadrantennamen laut Aufgabenblatt."""
     def q(key, stark=False):
@@ -629,6 +694,7 @@ TYPEN = {
     "tabelle2":  t_tabelle2,
     "wege":      t_wege,
     "einwaende": t_einwaende,
+    "plan":      t_plan,
     "zitat":     t_zitat,
     "text":      t_text,
     "matrix":    t_matrix,

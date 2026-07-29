@@ -859,60 +859,83 @@ endet mit der Nachmessung, mit demselben Skript wie die Ausgangsmessung.
 
 ## 13 — Die ersten 30 Tage und die Ressourcen
 
-typ: zweispalt
+typ: plan
 kapitel: 03 · ZEITPLAN UND RESSOURCEN
-bild: bilder/11-zeitleiste.jpg
-bildprompt: Waagerechte Zeitleiste als dicker Balken mit unterschiedlich hohen Markierungen. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Die ersten 30 Tage,
 akzent: und was sie kosten.
 klein: ja
-spalte1: ERSTE 30 TAGE
-punkte1:
-  - "Personalrat einbinden, Zusicherung schriftlich vorlegen"
-  - "Einen Programmbereich als Pilotbereich gewinnen"
-  - "Assistent im vorhandenen KI-Rahmen anlegen"
-  - "Textbausteine sichten, den Quick Win vorbereiten"
-spalte2: RESSOURCEN
-punkte2:
-  - "Pilot: rund 4 Stunden in drei Monaten"
-  - "Regelbetrieb: 29 Stunden im Jahr für alle neuen Texte"
-  - "Von rund 2.800 Kursen im Semester sind nur 293 neu"
-  - "Keine Beschaffung, keine zusätzliche Stelle"
-callout: Alle Veranstaltungen einzeln zu prüfen wären 290 Stunden im Jahr. Nur die neuen zu prüfen sind 29.
-calloutsub: Nachgerechnet an 489 Kursen über die Portalschnittstelle, nicht geschätzt.
-quellen: eigene Erhebung, Wirtschaftlichkeitsrechnung liegt der Arbeit bei
+schrittetitel: ERSTE 30 TAGE · IN DIESER REIHENFOLGE
+schritte:
+  - "Dienstvereinbarung mit dem Personalrat schließen > Zweckbindung, Zugriffskreis, Löschfrist. Vorher darf nichts angelegt werden."
+  - "Einen Programmbereich als Pilotbereich gewinnen > Freiwillig. Ein zugewiesener Pilotbereich liefert kein belastbares Ergebnis."
+  - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win im zweiten Monat auf eine Zuständigkeit, die niemand hat."
+  - "Assistent im vorhandenen KI-Rahmen anlegen > Keine Beschaffung, kein neuer Vertrag, keine zusätzliche Stelle."
+kennzahlentitel: PRÜFAUFWAND IM JAHR
+kennzahlen:
+  - "290 Std. || so lautet der Einwand: jede der 5.800 Veranstaltungen einzeln geprüft || einwand"
+  - "29 Std. || gemessen: nur die rund 600 Texte, die im Jahr wirklich neu entstehen"
+  - "4 Std. || im Pilot, ein Programmbereich, rund 73 neue Texte"
+callout: Der Einwand rechnet mit 5.800 Texten. Es sind rund 600, weil 54 Prozent der Kurse ihren Text teilen.
+calloutsub: Gemessen an 489 Kursen über die Portalschnittstelle. Offen bleibt, was die vhs als „neu“ zählt — würden zusätzlich bestehende Texte überarbeitet, liegt der Aufwand höher, im Grenzfall bei 220 Stunden. Das gehört im Pilot erhoben, nicht geschätzt.
+quellen: eigene Erhebung, daten/wirtschaftlichkeit.md mit allen Szenarien und Einschränkungen
 
 ### NOTIZ
 
-Damit zu den nächsten Schritten. Links die ersten dreißig Tage: Personalrat
-einbinden, einen Pilotbereich gewinnen, den Assistenten anlegen, die
-Textbausteine sichten.
+Damit zu den nächsten Schritten. Links stehen die ersten dreißig Tage, und die
+Nummern sind keine Zierde: Das ist eine Reihenfolge, in der jeder Schritt den
+nächsten bedingt.
 
-Rechts die Ressourcen, denn der häufigste Einwand lautet, das koste zu viel
-Zeit. Jede Veranstaltung einzeln zu prüfen wären rund zweihundertneunzig
-Stunden im Jahr. Von zweitausendachthundert Kursen im Semester sind aber nur
-zweihundertdreiundneunzig neu. Prüft man nur diese, sind es neunundzwanzig
-Stunden im Jahr, im Pilot vier.
+Zuerst die Dienstvereinbarung mit dem Personalrat. In sie gehören
+Zweckbindung, Zugriffskreis und Löschfrist der Protokolle. Sie steht an erster
+Stelle, weil vorher nichts angelegt werden darf.
+
+Zweitens einen Programmbereich als Pilotbereich gewinnen, und zwar freiwillig.
+Ein zugewiesener Pilotbereich liefert kein belastbares Ergebnis, sondern nur
+Erfüllung.
+
+Drittens die Freigabe der Textbausteine klären. Das ist der Punkt vom
+Widerstandsteil. Bleibt er offen, läuft der Quick Win im zweiten Monat auf eine
+Zuständigkeit, die niemand hat.
+
+Und erst viertens das Technische: den Assistenten im vorhandenen KI-Rahmen
+anlegen. Keine Beschaffung, kein neuer Vertrag, keine zusätzliche Stelle.
+
+Rechts die Zahlen, denn der häufigste Einwand lautet, das koste zu viel Zeit.
+Er rechnet so: fünftausendachthundert Veranstaltungen, drei Minuten pro Text,
+das sind zweihundertneunzig Stunden im Jahr. Diese Rechnung unterstellt, dass
+jede Veranstaltung einen eigenen Text hat. Das ist nicht so. Vierundfünfzig
+Prozent der Kurse teilen ihren Text mit mindestens einem anderen, und nur rund
+zehn Prozent der Angebote sind je Semester neu. Übrig bleiben ungefähr
+sechshundert Texte im Jahr und damit neunundzwanzig Stunden. Im Pilot, in einem
+von acht Bereichen, sind es vier.
+
+Eine Einschränkung sage ich dazu, weil sie die größte der ganzen Rechnung ist.
+Was die vhs als neues Angebot zählt, ist nicht dokumentiert. Wenn zusätzlich
+bestehende Texte überarbeitet werden, steigt die Zahl, im Grenzfall auf
+zweihundertzwanzig Stunden. Selbst das liegt noch unter dem Einwand. Aber die
+Zahl gehört im Pilot gemessen und nicht geschätzt, und deshalb steht sie unten
+auf der Folie und nicht nur in meinen Unterlagen.
 
 
 ## 14 — Erfolgsmessung und Risiken
 
 typ: tabelle
 kapitel: 03 · ERFOLGSMESSUNG
-bild: bilder/17-waage.jpg
-bildprompt: Geometrische Waage, Balken auf dreieckigem Drehpunkt, Kreis und Quadrat als Gewichte. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Woran man merkt,
 akzent: ob es gewirkt hat.
 klein: ja
-lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben Skript. Die vierte Zeile misst nicht den Text, sondern die Wirkung — dafür werden die Teilnehmenden selbst gefragt.
+lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript, das dafür eingefroren ist. Die Nachmessung läuft mit demselben. Die vierte Zeile misst nicht den Text, sondern die Wirkung — dafür werden die Teilnehmenden selbst gefragt.
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
   - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | daten/messung.py, unverändert"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
   - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | daten/messung.py, unverändert"
-  - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, durch die Kursleitung"
-callout: Drei Risiken, drei Gegenmaßnahmen.
-calloutsub: Mitbestimmung stockt → Zusicherung schriftlich, vor dem Pilot. Redaktion misstraut schwankenden Befunden → Pflichtbefunde sind stabil, der Pilotbereich wählt die scharfen Regeln selbst. KI-Rahmen doch nicht verfügbar → der Prompt läuft auch außerhalb, geklärt wird das im ersten Monat.
+  - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
+risiken:
+  - "Die Mitbestimmung stockt und der Pilot verschiebt sich. > Die Dienstvereinbarung ist Schritt eins der ersten 30 Tage, nicht der letzte. Ein Entwurf liegt dem Personalrat vor, bevor er gefragt wird."
+  - "Die Protokolle werden gegen das Unternehmen verwendet — belegt, datiert, zitierbar. > Deshalb gehören sie in die Dienstvereinbarung: Zweckbindung, Zugriffskreis, Löschfrist. Ein dokumentierter Mangel mit Abstellplan steht besser da als ungeprüfter Bestand."
+  - "Die Textbausteine werden nicht freigegeben und der Pilot meldet Befunde ohne Adressat. > Die Freigabe ist Schritt drei und damit vor dem Quick Win. Bleibt sie aus, wird der Pilot auf kursindividuelle Texte begrenzt und das offen benannt."
+callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
 quellen: Ausgangsmessung mit daten/messung.py, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
 ### NOTIZ
@@ -928,19 +951,43 @@ höchstens noch zwei betroffen sein.
 Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
 nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über einen
 Fragebogen auf der Website, denn den füllt genau die Zielgruppe nicht aus, um
-die es geht. Sondern im Kurs, am Ende einer Stunde, durch die Kursleitung, in
-einfacher Sprache. Das erreicht die Menschen wirklich, und es bindet die
-Kursleitungen ein, die sonst in keinem Gremium sitzen. Ergänzend führt die
-Anmeldung im Pilotbereich eine Strichliste, wie oft jemand nachfragen muss, was
-in einer Beschreibung stand.
+die es geht. Sondern im Kurs, am Ende einer Stunde, in einfacher Sprache. Das
+erreicht die Menschen wirklich.
+
+Dazu ein Punkt, an dem ich mich selbst korrigiert habe. Hier stand vorher, die
+Befragung erledige die Kursleitung. Das widerspricht der Zusage von der
+Widerstandsfolie, dass für die Kursleitungen keine neue Pflicht entsteht. Eine
+Befragung ist eine Aufgabe, und Aufgaben ohne Vergütung sind bei
+Honorarkräften genau das Problem. Sie ist deshalb freiwillig und wird vergütet.
+Das ist keine neue Stelle und keine Beschaffung, sondern ein Zusatzhonorar für
+eine begrenzte Zahl von Kursen im Pilotbereich.
 
 Wichtig ist die letzte Spalte. Die Nachmessung läuft mit demselben Skript wie
-die Ausgangsmessung. Niemand kann später über die Messmethode streiten.
+die Ausgangsmessung, und das Skript ist dafür eingefroren. Wäre es zwischendurch
+verbessert worden, wüsste man hinterher nicht, ob die Texte besser geworden sind
+oder nur die Messung anders. Über die Methode kann später niemand streiten.
 
-Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur die schriftliche
-Zusage vorher. Misstraut die Redaktion den schwankenden Befunden, sind die
-stabilen Pflichtbefunde das Gegenargument. Und sollte der KI-Rahmen nicht
-bereitstehen, läuft der Prompt auch außerhalb.
+Unten drei Risiken. Das erste ist, dass die Mitbestimmung stockt und sich der
+Pilot verschiebt. Dagegen hilft nur, sie an den Anfang zu stellen und dem
+Personalrat einen Entwurf vorzulegen, bevor man ihn fragt.
+
+Das zweite Risiko habe ich zuerst übersehen, und es ist das unangenehmste: Die
+Protokolle können gegen das Unternehmen verwendet werden. Sie belegen datiert
+und zitierbar, dass Texte Kriterien verletzen, die das Haus sich freiwillig
+gibt. Wer laut Impressum persönlich für die Inhalte verantwortlich ist, hat nach
+dem Pilot eine Kenntnis, die er vorher nicht hatte. Deshalb gehören die
+Protokolle in die Dienstvereinbarung, mit Zweckbindung, Zugriffskreis und
+Löschfrist. Und deshalb gehört zu jedem Befundstand ein Abstellplan mit Datum.
+Ein dokumentierter Mangel mit Plan steht besser da als ungeprüfter Bestand — aber
+das gilt nur, wenn der Plan wirklich existiert.
+
+Das dritte Risiko ist die Bausteinfreigabe. Bleibt sie aus, meldet der Pilot
+Befunde, für die niemand zuständig ist. Dann wird der Pilot auf
+kursindividuelle Texte begrenzt, und ich sage das offen statt es zu verschweigen.
+
+Ein viertes nenne ich nur kurz, weil es auf der Folie keinen Platz mehr hatte:
+Sollte der KI-Rahmen des Verbands nicht bereitstehen, läuft der Prompt auch
+außerhalb. Das ist der Grund, warum ich vorhin zwei Wege gezeigt habe.
 
 
 ## 15 — Schlussfolie
