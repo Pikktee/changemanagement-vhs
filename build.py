@@ -162,6 +162,8 @@ def callout(f, kl=""):
     """
     if not f.get("callout"):
         return ""
+    if str(f.get("calloutgrau", "")).lower() in ("ja", "true", "1"):
+        kl += " grau"
     zusatz = ""
     if f.get("calloutfolge"):
         zusatz += (f'<span class="folge">'
@@ -445,6 +447,38 @@ def t_tabelle2(f, seite_, gesamt):
     return seite(f, seite_, gesamt, block + tab + callout(f))
 
 
+def t_wege(f, seite_, gesamt):
+    """Gleichrangige Moeglichkeiten als gestapelte Karten.
+
+    Fuer zwei bis drei Optionen, die nebeneinander bestehen und nicht
+    gegeneinander abgewogen werden. Eine Tabelle waere hier falsch: Sie legt
+    Spalten fest, die es nur bei einer der Optionen zu fuellen gibt, und sie
+    suggeriert eine Rangfolge, wo keine ist.
+
+    Geschrieben als 'Titel || Was man tut || Was es braucht':
+
+        wege:
+          - "Assistent | Text einsetzen, Befunde lesen | Zugang besteht"
+
+    Bewusst ohne Farbcodierung. Gruen und Rot sind in diesem System fuer
+    bestanden/beanstandet und fuer PFLICHT vergeben; hier gibt es weder
+    das eine noch das andere.
+    """
+    karten = []
+    for i, roh in enumerate(f.get("wege", []), 1):
+        teile = [x.strip() for x in str(roh).split("||")]
+        teile += [""] * (3 - len(teile))
+        titel, tut, braucht = teile[0], teile[1], teile[2]
+        vor = (f'<span class="wvor"><span class="wlabel">Voraussetzung</span>'
+               f'<span>{e(braucht)}</span></span>') if braucht else ""
+        karten.append(
+            f'<div class="weg"><span class="wnr">{i}</span>'
+            f'<div class="wtxt"><span class="wtitel">{e(titel)}</span>'
+            f'<span class="wtut">{e(tut)}</span>{vor}</div></div>')
+    block = f'<div class="wege">{"".join(karten)}</div>' if karten else ""
+    return seite(f, seite_, gesamt, block + callout(f, " unten"))
+
+
 def t_zitat(f, seite_, gesamt):
     quelle = f'<div class="quelle">{e(f["quelle"])}</div>' if f.get("quelle") else ""
     z = f'<div class="zitat"><div class="q">{e(f.get("zitat",""))}</div>{quelle}</div>'
@@ -532,6 +566,7 @@ TYPEN = {
     "zweispalt": t_zweispalt,
     "tabelle":   t_tabelle,
     "tabelle2":  t_tabelle2,
+    "wege":      t_wege,
     "zitat":     t_zitat,
     "text":      t_text,
     "matrix":    t_matrix,

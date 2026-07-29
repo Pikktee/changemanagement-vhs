@@ -529,21 +529,21 @@ des Personalrats, ob hier Leistung kontrolliert wird.
 
 ## 9 — Wie es praktisch laeuft
 
-typ: tabelle
+typ: wege
 kapitel: 02 · SYSTEM-PROMPT
 bild: bilder/09-befunde-prototyp.png
 bildganz: ja
-bu: Ausschnitt aus einem echten Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
-titel: Wie der Prüfschritt
-akzent: in den Alltag kommt.
+bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
+titel: Wo der Prompt läuft,
+akzent: und was er dafür braucht.
 klein: ja
-lede: Derselbe Prompt, zwei Wege. Sie unterscheiden sich darin, wie viel Technik dahinter nötig ist — nicht darin, was geprüft wird.
-spalten: Weg | Voraussetzung | Wer mitmachen muss | Stand
-zeilen:
-  - "Assistent bei fobizz | + Zugang besteht bereits | niemand außerhalb des Bereichs | einsatzbereit"
-  - "Eigenes Prüfwerkzeug | ein Server, ein API-Zugang | städtische IT | + gebaut, gleich zu sehen"
-  - "Im Redaktionssystem | ! Erweiterung durch Advellence | Vertrag, Budget, Vorlauf | erst nach dem Pilot"
-callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Beim Deutschkurs jedes Mal mehrere.
+lede: Beide Wege benutzen denselben Prompt und liefern dieselben Befunde. Der Unterschied liegt allein darin, wie der Kurstext hineinkommt.
+wege:
+  - "Als Assistent beim Verband || Prompt einmal hinterlegen, dann Text einfügen und Befunde lesen || Der Rahmenvertrag des Volkshochschul-Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
+  - "Als eigenes Prüfwerkzeug || Kursnummer eingeben, den Text holt es selbst aus dem Portal || Ein Server im Haus und ein Zugang zur Kursportal-Schnittstelle, also die städtische IT. Der Prototyp rechts zeigt, wie das aussieht."
+callout: Später möglich: die Prüfung direkt im Redaktionssystem, ausgelöst beim Speichern.
+calloutgrau: ja
+calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Diese Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang.
 quellen:
   - "Rahmenvereinbarung DVV und fobizz, 05.05.2025 | https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php"
   - "fobizz für Volkshochschulen | https://fobizz.com/de/volkshochschulen/"
@@ -567,27 +567,22 @@ gibt man nur die Kursnummer ein, den Text holt es sich selbst über die
 Schnittstelle des Portals. Das ist bequemer, braucht aber einen Server und
 einen Zugang, also die städtische IT.
 
-Rechts sehen Sie, was dabei herauskommt. Das ist ein Ausschnitt aus einem
-echten Durchlauf, dem Deutschkurs auf A2 von eben. Jeder Befund hat dieselben
-vier Teile: die Einstufung, die Regel, die wörtliche Stelle aus dem Text und
-einen konkreten Vorschlag. Der erste ist Pflicht: Der Link heißt schlicht
-„hier“. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört
-nur „hier“. Die beiden darunter sind Empfehlungen, und sie sind für diese
-Zielgruppe die wichtigeren.
+Rechts sehen Sie, was dabei herauskommt. Ein Befund aus einem echten
+Durchlauf, dem Deutschkurs auf A2. Jeder Befund hat dieselben vier Teile: die
+Einstufung, die Regel, die wörtliche Stelle aus dem Text und einen konkreten
+Vorschlag. Dieser hier ist Pflicht: Der Link heißt schlicht „hier“. Wer sich
+die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der
+Vorschlag daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
 
-Die dritte Zeile in der Tabelle ist bewusst kein Teil des Pilotprojekts. Man
-könnte die Prüfung direkt ins Redaktionssystem einbauen, sodass sie beim
-Speichern anspringt. Das Portal wird von einer Schweizer Firma betreut, also
-hieße das: Auftrag, Budget, Vorlauf. Diese Entscheidung gehört ans Ende des
-Pilotprojekts, nicht an den Anfang. Man kauft nichts, bevor man weiß, ob es
-wirkt.
+Ein Wort zur Einordnung: Das ist ein Prototyp, den ich für diese Arbeit gebaut
+habe. Er belegt, dass der Weg funktioniert, er ist keine fertige Anwendung.
 
-Der Satz unten ist der Beleg für die These vom Anfang. Ich habe denselben
-Prompt auf einen Englischkurs auf Stufe A1 angesetzt und beide Kurse je viermal
-laufen lassen. Beim Englischkurs meldet er jedes Mal null Befunde zum
-Sprachniveau, beim Deutschkurs jedes Mal mehrere. Die genaue Zahl schwankt,
-weil das Modell mal ein Wort und mal einen ganzen Satz als eine Stelle
-behandelt. Der Unterschied zwischen den beiden Kursen schwankt nicht.
+Der graue Kasten unten ist bewusst kein Teil des Pilotprojekts. Man könnte die
+Prüfung direkt ins Redaktionssystem einbauen, sodass sie beim Speichern
+anspringt. Das wäre für die Beteiligten am bequemsten. Nur wird das Portal von
+einem externen Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf.
+Diese Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang. Man
+kauft nichts, bevor man weiß, ob es wirkt.
 
 
 ## 10 — Stakeholder
