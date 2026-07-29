@@ -527,59 +527,70 @@ Bewertung natürlicher Personen voraus. Und er ist die Antwort auf die Frage
 des Personalrats, ob hier Leistung kontrolliert wird.
 
 
-## 9 — Ein Durchlauf am echten Text
+## 9 — Wie es praktisch laeuft
 
-typ: zweispalt
+typ: tabelle2
 kapitel: 02 · SYSTEM-PROMPT
-bild: bilder/12-passstueck.jpg
-bildprompt: Eine bestehende Struktur mit einer Luecke, ein passendes kleines Teil wird eingesetzt. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Ein Durchlauf,
-akzent: an einem echten Text.
+bild: bilder/09-befunde-prototyp.png
+titel: Wie der Prüfschritt
+akzent: in den Alltag kommt.
 klein: ja
-lede: Kurs 4074-74, DaF Deutsch 4 A2.2. Der Prompt bestimmt die Zielgruppe selbst: liest Deutsch auf A1.
-spalte1: EINGABE · ORIGINALTEXT
-punkte1:
-  - "Eine Anmeldung erfolgt idealerweise über einen Termin bei der Sprachberatung DaF."
-  - "Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich."
-  - "Diesen können Sie hier ablegen."
-  - "Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren."
-spalte2: AUSGABE · BEFUNDE
-punkte2:
-  - "PFLICHT · LINKTEXT: „hier“ sagt allein nicht, wohin der Link führt."
-  - "EMPFEHLUNG · NIVEAU: „idealerweise“, „Selbsteinschätzung“, „Fehleinschätzung“, „Umbuchung“."
-  - "EMPFEHLUNG · NIVEAU: „Niveaustufe“, „umfasst“, „Teilstufen“ — keines steht auf der A1-Liste."
-  - "In diesem Lauf neun Befunde, acht davon zum Sprachniveau, einer Pflicht."
-callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Hier jedes Mal mehrere.
+lede: Zwei Wege stehen vom ersten Tag an offen. Sie unterscheiden sich darin, wie viel Technik dahinter nötig ist — nicht darin, was geprüft wird.
+regelntitel: Zwei Wege, ein Prompt
+regeln:
+  - "PFLICHT · ohne eigene Technik | ASSISTENT | Prompt bei fobizz hinterlegt, Text hinein, Befunde heraus"
+  - "EMPFEHLUNG · mit eigener Technik | PRÜFWERKZEUG | Kursnummer eingeben, holt den Text aus dem Portal"
+tabellentitel: Was wofür nötig ist
+spalten: Weg | Voraussetzung | Wer mitmachen muss | Stand
+zeilen:
+  - "Assistent bei fobizz | + Zugang besteht bereits | niemand außerhalb des Bereichs | einsatzbereit"
+  - "Eigenes Prüfwerkzeug | + ein Server, ein API-Zugang | städtische IT | + gebaut, gleich zu sehen"
+  - "Im Redaktionssystem | ! Erweiterung durch Advellence | Vertrag, Budget, Vorlauf | nach dem Pilot"
+callout: Beim Englischkurs meldet derselbe Prompt in vier Läufen null Niveau-Befunde. Beim Deutschkurs jedes Mal mehrere.
 quellen:
-  - "eigene Erhebung, Kurs 4074-74, vier Läufe am 29.07.2026"
-  - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
+  - "Rahmenvereinbarung DVV und fobizz, 05.05.2025 | https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php"
+  - "fobizz für Volkshochschulen | https://fobizz.com/de/volkshochschulen/"
+  - "Impressum der vhs Frankfurt, Advellence Solutions AG | https://vhs.frankfurt.de/de/special-pages/important/impressum"
 
 ### NOTIZ
 
-Damit das nicht abstrakt bleibt, ein echter Durchlauf. Links steht ein
-Originaltext aus dem Portal, die Anmeldehinweise über einem Deutschkurs auf
-Stufe A2. Rechts steht, was der Prompt daraus macht.
+Bleibt die Frage, wie so ein Prüfschritt praktisch in den Alltag kommt. Dafür
+gibt es zwei Wege, und beide stehen vom ersten Tag an offen.
 
-Der erste Befund ist Pflicht. Der Link heißt schlicht „hier“. Wer sich die
-Seite vorlesen lässt und von Link zu Link springt, hört nur „hier“.
+Der erste Weg braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband
+hat im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem Anbieter
+namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in Deutschland
+haben darüber datenschutzkonformen Zugang zu KI-Anwendungen, und man kann dort
+eigene Assistenten mit eigenen Anweisungen anlegen. Genau das ist mein Prompt.
+Der Zugang besteht bereits, es muss niemand außerhalb des Pilotbereichs
+zustimmen.
 
-Die übrigen sind Empfehlungen, und sie sind für diese Zielgruppe die
-eigentlich wichtigen. Selbsteinschätzung, Fehleinschätzung, Umbuchung,
-Niveaustufe, Teilstufen. Keines dieser Wörter steht auf der A1-Liste, die der
-Prompt als Anker mitbekommt.
+Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe und gleich zeige. Dort
+gibt man nur die Kursnummer ein, den Text holt es sich selbst über die
+Schnittstelle des Portals. Das ist bequemer, braucht aber einen Server und
+einen Zugang, also die städtische IT.
+
+Rechts sehen Sie, was dabei herauskommt. Das ist ein Ausschnitt aus einem
+echten Durchlauf, dem Deutschkurs auf A2 von eben. Jeder Befund hat dieselben
+vier Teile: die Einstufung, die Regel, die wörtliche Stelle aus dem Text und
+einen konkreten Vorschlag. Der erste ist Pflicht: Der Link heißt schlicht
+„hier“. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört
+nur „hier“. Die beiden darunter sind Empfehlungen, und sie sind für diese
+Zielgruppe die wichtigeren.
+
+Die dritte Zeile in der Tabelle ist bewusst kein Teil des Pilotprojekts. Man
+könnte die Prüfung direkt ins Redaktionssystem einbauen, sodass sie beim
+Speichern anspringt. Das Portal wird von einer Schweizer Firma betreut, also
+hieße das: Auftrag, Budget, Vorlauf. Diese Entscheidung gehört ans Ende des
+Pilotprojekts, nicht an den Anfang. Man kauft nichts, bevor man weiß, ob es
+wirkt.
 
 Der Satz unten ist der Beleg für die These vom Anfang. Ich habe denselben
-Prompt auf einen Englischkurs auf Stufe A1 angesetzt und beide Kurse je
-viermal laufen lassen. Beim Englischkurs meldet er jedes Mal null Befunde zum
-Sprachniveau, hier jedes Mal mehrere, zwischen acht und zehn. Die genaue Zahl
-schwankt, weil das Modell mal ein Wort und mal einen ganzen Satz als eine
-Stelle behandelt. Der Unterschied zwischen den beiden Kursen schwankt nicht.
-Er hat vorher bestimmt, wer liest, und legt deshalb zwei verschiedene
-Maßstäbe an.
-
-Ich habe das viermal je Kurs laufen lassen. Beim Deutschkurs elf bis zwölf
-Niveau-Befunde, beim Englischkurs jedes Mal null. Ein einzelner Lauf wäre
-keine Messung gewesen, und genau das war die Zahl vorher.
+Prompt auf einen Englischkurs auf Stufe A1 angesetzt und beide Kurse je viermal
+laufen lassen. Beim Englischkurs meldet er jedes Mal null Befunde zum
+Sprachniveau, beim Deutschkurs jedes Mal mehrere. Die genaue Zahl schwankt,
+weil das Modell mal ein Wort und mal einen ganzen Satz als eine Stelle
+behandelt. Der Unterschied zwischen den beiden Kursen schwankt nicht.
 
 
 ## 10 — Stakeholder
