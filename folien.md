@@ -113,7 +113,7 @@ punkte:
   - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Technische Barrierefreiheit prüft weiterhin ein deterministisches Werkzeug. Die KI übernimmt nur, was Urteil verlangt."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Aufwand im Regelbetrieb 29 Stunden im Jahr."
-callout: Ich bitte um Freigabe eines Pilotprojekts in einem Programmbereich, drei Monate, ohne Beschaffung.
+callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 
 ### NOTIZ
@@ -156,7 +156,7 @@ punkte2:
   - "Der Beschreibungstext wird geschrieben, oft von der Kursleitung zugeliefert"
   - "Der Text wird in das Kursverwaltungssystem eingepflegt"
   - "Er erscheint unverändert im Portal, im Programmheft und im Newsletter"
-callout: Zwischen Einpflegen und Veröffentlichen prüft niemand, ob die Zielgruppe den Text versteht.
+callout: Zwischen Einpflegen und Veröffentlichen ist kein Prüfschritt auf Verständlichkeit vorgesehen.
 calloutsub: Soll-Zustand: Hier steht künftig ein Prüfschritt, der meldet und nicht ändert.
 quellen:
   - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
