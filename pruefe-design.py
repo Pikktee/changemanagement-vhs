@@ -47,6 +47,7 @@ PAARE = [
     ("hinweis", "grund", 7.0, "Stufe HINWEIS auf Seitengrund"),
     ("geprueft", "grund", 7.0, "Bestaetigung auf Seitengrund"),
     ("tinte", "flaeche", 7.0, "Text auf ruhiger Fuellflaeche"),
+    ("leise", "flaeche", 7.0, "Nebenzeile im grauen Callout"),
     ("marke", "flaeche", 7.0, "Quadrantenkopf der Stakeholder-Matrix"),
     ("marke-dunkel", "flaeche", 7.0, "leiser Knopf, gedrueckt"),
     ("weiss", "marke", 7.0, "Text auf Markenflaeche, Callout, Knopf"),

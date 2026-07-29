@@ -535,7 +535,7 @@ bild: bilder/09-befunde-prototyp.png
 bildganz: ja
 bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
 titel: Wo der Prompt läuft,
-akzent: und was er dafür braucht.
+akzent: und was er braucht.
 klein: ja
 lede: Beide Wege benutzen denselben Prompt und liefern dieselben Befunde. Der Unterschied liegt allein darin, wie der Kurstext hineinkommt.
 wege:
