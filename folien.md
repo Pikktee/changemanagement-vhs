@@ -155,10 +155,9 @@ klein: ja
 lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 spalte1: DAS UNTERNEHMEN
 punkte1:
-  - "Eigenbetrieb der Stadt, kaufmännisch geführt, 154 T€ Stammkapital"
+  - "Eigenbetrieb der Stadt, 154 T€ Stammkapital, seit 2005 nach LQW testiert"
   - "5.800 Veranstaltungen im Jahr, acht Programmbereiche in vier Fachbereichen"
   - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
-  - "Seit 2005 qualitätstestiert nach LQW, zusätzlich AZAV-zertifiziert"
   - "Der Direktor ist laut Impressum persönlich für die Inhalte verantwortlich"
 spalte2: SO ENTSTEHT EIN KURSTEXT · ANGENOMMENER ABLAUF
 punkte2:
