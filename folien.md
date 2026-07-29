@@ -537,10 +537,10 @@ bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Tex
 titel: Der System-Prompt
 akzent: im Einsatz.
 klein: ja
-lede: Beide Wege setzen denselben Prompt ein. Der erste ist sofort verfügbar, der zweite zuverlässiger.
+lede: Dieselben sechs Regeln, zwei Umgebungen. Nur im zweiten Weg läuft die Nachbearbeitung aus dem Programmcode mit.
 wege:
   - "Als KI-Assistent beim Verband || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
-  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Nur hier werden Personennamen zuverlässig entfernt und die Einstufung nachgerechnet."
+  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Hier laufen Namensschutz und Korrektur der Einstufung im Code mit."
 callout: Später möglich: die Prüfung im Redaktionssystem selbst, dort wo der Text entsteht.
 calloutnotiz: ja
 calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Ob die Prüfung dann freiwillig bleibt oder verbindlich wird, entscheidet das Haus und nicht die Technik.
@@ -562,15 +562,21 @@ eigene Assistenten mit eigenen Anweisungen anlegen. Genau das ist mein Prompt.
 Der Zugang besteht bereits, niemand außerhalb des Pilotbereichs muss
 zustimmen.
 
-Zwei Einschränkungen gehören dazu, und ich nenne sie lieber selbst. Mein Prompt
-ist mit der Wortliste rund einundzwanzigtausend Zeichen lang. Ob der Anbieter
-Anweisungen dieser Länge annimmt, veröffentlicht er nicht — das muss man
-ausprobieren. Und wichtiger: Mein Prüfwerkzeug bearbeitet jede Antwort nach. Es
-rechnet die Einstufung anhand einer Tabelle nach und entfernt Personennamen.
-Beides stand ursprünglich im Prompt, und beides hielt das Modell nicht
-zuverlässig ein. Deshalb steht es heute im Programmcode. In einem fremden
-Assistenten gibt es diesen Code nicht. Der erste Weg ist also schneller
-verfügbar, aber der weniger zuverlässige.
+Zwei Einschränkungen gehören dazu, und ich nenne sie lieber selbst, weil ich
+sie nicht ausprobiert habe.
+
+Die erste: Mein Prompt ist mit der Wortliste rund einundzwanzigtausend Zeichen
+lang. Ob der Anbieter Anweisungen dieser Länge annimmt, veröffentlicht er
+nicht. Es ist gut möglich, dass der Prompt für diese Umgebung angepasst werden
+muss. Das gehört zu den ersten Aufgaben im Pilotprojekt.
+
+Die zweite, und die ist wichtiger: Mein Prüfwerkzeug bearbeitet jede Antwort
+nach. Es rechnet die Einstufung anhand einer Tabelle nach und entfernt
+Personennamen. Beides stand ursprünglich im Prompt, und beides hielt das Modell
+nicht zuverlässig ein — deshalb steht es heute im Programmcode. In einem
+fremden Assistenten gibt es diesen Code nicht. Was das praktisch bedeutet, muss
+der Pilot zeigen. Ich behaupte hier nicht, der eine Weg sei besser als der
+andere, sondern nur: Sie sind nicht identisch.
 
 Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe. Dort fügt man den
 Entwurf ein — oder gibt bei einem vorhandenen Kurs nur die Nummer ein, dann
