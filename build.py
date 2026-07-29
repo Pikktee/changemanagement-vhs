@@ -180,8 +180,11 @@ def quellen(f):
             stuecke.append(f"<span>{e(t)}</span>")
     if not stuecke:
         return ""
+    # Trenner als eigenes Element, nicht als ::after im Link: sonst zieht
+    # die Unterlinie des Links ueber den Punkt bis zum naechsten Eintrag
+    inhalt = '<span class="qsep">·</span>'.join(stuecke)
     return ('<div class="quellen"><span class="qlabel">Quellen</span>'
-            + "".join(stuecke) + "</div>")
+            + inhalt + "</div>")
 
 
 # --------------------------------------------------------------------------
