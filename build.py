@@ -513,7 +513,9 @@ def baue_pdf_links(folien):
         '<title>KLARTEXT</title>'
         '<link rel="stylesheet" href="../stil.css">'
         "<style>"
-        "@page{ size:1280px 720px; margin:0; }"
+        # Chrome nimmt in @page size keine px: 1280x720 bei 96 dpi sind
+        # 13.3333 x 7.5 Zoll. Mit px bleibt es bei einer einzigen A4-Seite.
+        "@page{ size:13.3333in 7.5in; margin:0; }"
         "html,body{ margin:0; padding:0; background:#fff; }"
         ".blatt{ width:1280px; height:720px; overflow:hidden;"
         " page-break-after:always; break-after:page; }"
