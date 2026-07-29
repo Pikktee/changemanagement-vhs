@@ -489,6 +489,54 @@ def baue_pdf(folien):
     return ziel
 
 
+def baue_pdf_links(folien):
+    """PDF direkt aus dem HTML drucken statt aus den PNGs.
+
+    Damit bleiben Text und Links erhalten: die Quellenzeilen sind anklickbar,
+    der Inhalt ist durchsuchbar und fuer Vorleseprogramme lesbar. Das
+    Bild-PDF aus baue_pdf() kann beides nicht.
+    """
+    teile = []
+    for i, _ in enumerate(folien, 1):
+        p = AUS / f"folie-{i:02d}.html"
+        if not p.exists():
+            continue
+        h = p.read_text(encoding="utf-8")
+        inner = h.split("<body>", 1)[1].rsplit("</body>", 1)[0]
+        teile.append(f'<div class="blatt">{inner}</div>')
+    if not teile:
+        return None
+
+    sammel = AUS / "alle.html"
+    sammel.write_text(
+        '<!doctype html><html lang="de"><head><meta charset="utf-8">'
+        '<title>KLARTEXT</title>'
+        '<link rel="stylesheet" href="../stil.css">'
+        "<style>"
+        "@page{ size:1280px 720px; margin:0; }"
+        "html,body{ margin:0; padding:0; background:#fff; }"
+        ".blatt{ width:1280px; height:720px; overflow:hidden;"
+        " page-break-after:always; break-after:page; }"
+        ".blatt:last-child{ page-break-after:auto; break-after:auto; }"
+        "</style></head><body>" + "".join(teile) + "</body></html>",
+        encoding="utf-8")
+
+    ziel = AUS / "Praesentation-KLARTEXT.pdf"
+    server = subprocess.Popen(
+        [sys.executable, "-m", "http.server", str(PORT)],
+        cwd=WURZEL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    time.sleep(1.0)
+    try:
+        subprocess.run([
+            CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+            f"--print-to-pdf={ziel}",
+            f"http://localhost:{PORT}/ausgabe/alle.html",
+        ], check=True, capture_output=True)
+    finally:
+        server.terminate()
+    return ziel
+
+
 def zeit(folien):
     print("\n  Sprechzeit")
     ges = 0
@@ -576,7 +624,7 @@ def main():
 
     schiesse_pngs(folien, nur)
     p = baue_pptx(folien)
-    d = baue_pdf(folien)
+    d = baue_pdf_links(folien)
     print(f"\n  {p.name}")
     print(f"  {d.name}")
     zeit(folien)
