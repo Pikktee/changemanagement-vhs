@@ -164,6 +164,8 @@ def callout(f, kl=""):
         return ""
     if str(f.get("calloutgrau", "")).lower() in ("ja", "true", "1"):
         kl += " grau"
+    if str(f.get("calloutnotiz", "")).lower() in ("ja", "true", "1"):
+        kl += " notiz"
     zusatz = ""
     if f.get("calloutfolge"):
         zusatz += (f'<span class="folge">'

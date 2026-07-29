@@ -530,20 +530,20 @@ des Personalrats, ob hier Leistung kontrolliert wird.
 ## 9 — Wie es praktisch laeuft
 
 typ: wege
-kapitel: 02 · SYSTEM-PROMPT
+kapitel: 02 · TECHNISCHE IMPLEMENTIERUNG
 bild: bilder/09-befunde-prototyp.png
 bildganz: ja
 bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
-titel: Zwei Wege,
-akzent: einer sofort verfügbar.
+titel: Der System-Prompt
+akzent: im Einsatz.
 klein: ja
-lede: Beide Wege benutzen denselben Prompt und liefern dieselben Befunde. Der Unterschied liegt allein darin, wie der Kurstext hineinkommt.
+lede: Beide Wege setzen denselben Prompt ein. Der erste ist ohne Vorlauf verfügbar, der zweite hält die Zusagen zuverlässiger und schafft auch den vorhandenen Bestand.
 wege:
-  - "Als Assistent beim Verband || Prompt einmal hinterlegen, dann Text einfügen und Befunde lesen || Der Rahmenvertrag des Volkshochschul-Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
-  - "Als eigenes Prüfwerkzeug || Kursnummer eingeben, den Text holt es selbst aus dem Portal || Ein Server im Haus und ein Zugang zur Kursportal-Schnittstelle, also die städtische IT. Der Prototyp rechts zeigt, wie das aussieht."
-callout: Später möglich: die Prüfung direkt im Redaktionssystem, ausgelöst beim Speichern.
-calloutgrau: ja
-calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Diese Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang.
+  - "Als KI-Assistent beim Verband || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Volkshochschul-Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
+  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: Die Kursportal-Schnittstelle ist öffentlich. Nur dieser Weg entfernt Personennamen zuverlässig, rechnet die Einstufung nach und prüft den Bestand in Serie."
+callout: Später möglich: die Prüfung im Redaktionssystem selbst, dort wo der Text entsteht.
+calloutnotiz: ja
+calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Ob die Prüfung dann freiwillig bleibt oder verbindlich wird, entscheidet das Haus und nicht die Technik.
 quellen:
   - "Rahmenvereinbarung DVV und fobizz, 05.05.2025 | https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php"
   - "fobizz für Volkshochschulen | https://fobizz.com/de/volkshochschulen/"
@@ -551,38 +551,56 @@ quellen:
 
 ### NOTIZ
 
-Bleibt die Frage, wie so ein Prüfschritt praktisch in den Alltag kommt. Dafür
-gibt es zwei Wege, und beide stehen vom ersten Tag an offen.
+Bleibt die Frage, wie das praktisch in den Alltag kommt. Dafür gibt es zwei
+Wege, und beide stehen vom ersten Tag an offen.
 
-Der erste Weg braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband
-hat im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem Anbieter
+Der erste braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband hat
+im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem Anbieter
 namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in Deutschland
 haben darüber datenschutzkonformen Zugang zu KI-Anwendungen, und man kann dort
 eigene Assistenten mit eigenen Anweisungen anlegen. Genau das ist mein Prompt.
-Der Zugang besteht bereits, es muss niemand außerhalb des Pilotbereichs
+Der Zugang besteht bereits, niemand außerhalb des Pilotbereichs muss
 zustimmen.
 
-Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe und gleich zeige. Dort
-gibt man nur die Kursnummer ein, den Text holt es sich selbst über die
-Schnittstelle des Portals. Das ist bequemer, braucht aber einen Server und
-einen Zugang, also die städtische IT.
+Zwei Einschränkungen gehören dazu, und ich nenne sie lieber selbst. Mein Prompt
+ist mit der Wortliste rund einundzwanzigtausend Zeichen lang. Ob der Anbieter
+Anweisungen dieser Länge annimmt, veröffentlicht er nicht — das muss man
+ausprobieren. Und wichtiger: Mein Prüfwerkzeug bearbeitet jede Antwort nach. Es
+rechnet die Einstufung anhand einer Tabelle nach und entfernt Personennamen.
+Beides stand ursprünglich im Prompt, und beides hielt das Modell nicht
+zuverlässig ein. Deshalb steht es heute im Programmcode. In einem fremden
+Assistenten gibt es diesen Code nicht. Der erste Weg ist also schneller
+verfügbar, aber der weniger zuverlässige.
 
-Rechts sehen Sie, was dabei herauskommt. Ein Befund aus einem echten
-Durchlauf, dem Deutschkurs auf A2. Jeder Befund hat dieselben vier Teile: die
-Einstufung, die Regel, die wörtliche Stelle aus dem Text und einen konkreten
-Vorschlag. Dieser hier ist Pflicht: Der Link heißt schlicht „hier“. Wer sich
-die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der
-Vorschlag daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
+Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe. Dort fügt man den
+Entwurf ein — oder gibt bei einem vorhandenen Kurs nur die Nummer ein, dann
+holt es den Text selbst. Die Schnittstelle des Kursportals ist öffentlich, das
+kostet keinen Zugang. Es braucht nur einen Server im Haus.
 
-Ein Wort zur Einordnung: Das ist ein Prototyp, den ich für diese Arbeit gebaut
-habe. Er belegt, dass der Weg funktioniert, er ist keine fertige Anwendung.
+Ein Hinweis dazu, warum das Einfügen der wichtigere Fall ist: Über die
+Schnittstelle kommen nur Kurse, die schon veröffentlicht sind. Der Prüfschritt
+soll aber vorher greifen. Der Kursnummer-Abruf ist deshalb vor allem dafür da,
+den vorhandenen Bestand nachzuprüfen — fünftausendachthundert Texte, die
+niemand einzeln durchgehen kann.
 
-Der graue Kasten unten ist bewusst kein Teil des Pilotprojekts. Man könnte die
-Prüfung direkt ins Redaktionssystem einbauen, sodass sie beim Speichern
-anspringt. Das wäre für die Beteiligten am bequemsten. Nur wird das Portal von
-einem externen Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf.
-Diese Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang. Man
-kauft nichts, bevor man weiß, ob es wirkt.
+Rechts sehen Sie, was dabei herauskommt. Ein Befund aus einem echten Durchlauf,
+dem Deutschkurs auf A2. Jeder Befund hat dieselben vier Teile: die Einstufung,
+die Regel, die wörtliche Stelle aus dem Text und einen konkreten Vorschlag.
+Dieser hier ist Pflicht: Der Link heißt schlicht „hier“. Wer sich die Seite
+vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der Vorschlag
+daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
+
+Zur Einordnung: Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er
+belegt, dass der Weg funktioniert, er ist keine fertige Anwendung.
+
+Die Nachbemerkung unten ist bewusst kein Teil des Pilotprojekts. Man könnte die
+Prüfung ins Redaktionssystem selbst einbauen, dort wo der Text entsteht. Das
+wäre für die Beteiligten am bequemsten. Nur wird das Portal von einem externen
+Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf. Und ob die
+Prüfung dann freiwillig bleibt oder verbindlich wird, ist keine technische
+Frage, sondern eine, die das Haus entscheiden muss. Beides gehört ans Ende des
+Pilotprojekts, nicht an den Anfang. Man kauft nichts, bevor man weiß, ob es
+wirkt.
 
 
 ## 10 — Stakeholder
