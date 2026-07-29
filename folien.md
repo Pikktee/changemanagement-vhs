@@ -382,12 +382,12 @@ zeilen:
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
   - "GRENZEN | ! Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
-  - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, neun Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
-  - "REGELN | Namen entfernen, wörtlich zitieren, höchstens zehn Befunde, Pflicht vor Empfehlung."
-callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
-calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
+  - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
+  - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
+callout: Sechs Befundarten, zwei davon Pflicht.
+calloutsub: PFLICHT — STRUKTUR: Überschrift, die keine ist · LINKTEXT: „hier" sagt nicht, wohin der Link führt. EMPFEHLUNG — NIVEAU: Wort zu schwer für diese Zielgruppe · AMTSDEUTSCH: Verwaltungssprache statt Alltagssprache · SATZ: über 25 Wörter, bei Deutschkursen über 15 · ABK: Abkürzung nicht aufgelöst.
 quellen:
-  - "system-prompt.md, Fassung v9 vom 29.07.2026, neun Fassungen in der Versionsverwaltung"
+  - "system-prompt.md, Fassung v9 vom 29.07.2026, zehn Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
@@ -401,7 +401,7 @@ FORMAT erzwingt zu jedem Befund ein wörtliches Zitat, eine Begründung und
 einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
 
 Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die
-Abkürzungen des Hauses, neun Prüfregeln und, das ist der wichtigste Teil,
+Abkürzungen des Hauses, sechs Prüfregeln und, das ist der wichtigste Teil,
 achthundertzwanzig Wörter des Prüfungswortschatzes für das Goethe-Zertifikat
 A1. Diese Liste steht vollständig im Prompt, nicht als Verweis. Er schätzt das
 Sprachniveau also nicht, sondern begründet es.
@@ -413,6 +413,11 @@ Fehler, den ich anderen Werkzeugen vorwerfe. Eine schöne Fußnote: Der
 Grundstock dieser Listen stammt laut Goethe-Institut aus einer
 Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschulverbands in
 Frankfurt.
+
+Unten stehen die sechs Befundarten, die er kennt. Pflicht sind genau zwei:
+eine Zeile, die wie eine Überschrift aussieht, aber keine ist, und ein
+Linktext, der nicht sagt, wohin er führt. Beides ist Stufe A und damit
+verbindlich. Die übrigen vier sind Empfehlungen.
 
 Und jetzt zur Zeile GRENZEN. Dort steht: bewertet Texte, niemals Personen.
 Dieser eine Satz leistet zweierlei. Er hält das Projekt aus dem
@@ -441,11 +446,13 @@ punkte1:
 spalte2: AUSGABE · BEFUNDE
 punkte2:
   - "PFLICHT · LINKTEXT: „hier" sagt allein nicht, wohin der Link führt."
-  - "EMPFEHLUNG · AMTSDEUTSCH: „idealerweise" statt „am besten"."
-  - "EMPFEHLUNG · NIVEAU: „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung", „Niveaustufe", „Teilstufen" fehlen auf der A1-Liste."
-  - "EMPFEHLUNG · SATZ: 25 Wörter. Für diese Zielgruppe sind 15 die Grenze."
-callout: Derselbe Prompt meldet beim Englischkurs null Niveau-Befunde und hier sieben.
-quellen: eigene Erhebung, Kurs 4074-74, Portalabruf vom 28.07.2026
+  - "EMPFEHLUNG · NIVEAU: „idealerweise", „Selbsteinschätzung", „Fehleinschätzung", „Umbuchung"."
+  - "EMPFEHLUNG · NIVEAU: „Niveaustufe", „umfasst", „Teilstufen" — keines steht auf der A1-Liste."
+  - "Zusammen zwölf Befunde, elf davon zum Sprachniveau, einer Pflicht."
+callout: Derselbe Prompt meldet beim Englischkurs null Niveau-Befunde und hier elf.
+quellen:
+  - "eigene Erhebung, Kurs 4074-74, vier Läufe am 29.07.2026"
+  - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
 
 ### NOTIZ
 
@@ -463,17 +470,12 @@ Prompt als Anker mitbekommt.
 
 Der Satz unten ist der Beleg für die These vom Anfang. Ich habe denselben
 Prompt auf einen Englischkurs auf Stufe A1 angesetzt. Dort meldet er null
-Befunde zum Sprachniveau, hier sieben. Er hat vorher bestimmt, wer liest, und
+Befunde zum Sprachniveau, hier elf. Er hat vorher bestimmt, wer liest, und
 legt deshalb zwei verschiedene Maßstäbe an.
 
-Zwei Dinge sage ich offen dazu. Der Prompt hat selbst vermerkt, dass er
-weitere Wörter weggelassen hat, weil er auf zehn Befunde begrenzt ist. Er
-verschweigt die Kürzung also nicht. Und die Zahl der Befunde schwankt zwischen
-zwei Läufen um ein bis zwei. Die Pflichtbefunde blieben stabil.
-
-Diese Passage hat der Prompt in mehreren Läufen zusätzlich als Textbaustein
-erkannt. Der ist mein Quick Win, denn ich habe nachgezählt: Er steht wortgleich
-über sechsunddreißig Kursen.
+Ich habe das viermal je Kurs laufen lassen. Beim Deutschkurs elf bis zwölf
+Niveau-Befunde, beim Englischkurs jedes Mal null. Ein einzelner Lauf wäre
+keine Messung gewesen, und genau das war die Zahl vorher.
 
 
 ## 10 — Stakeholder
@@ -573,7 +575,7 @@ sechsunddreißig Kurse gleichzeitig verbessert.
 
 Der Satz unten ist der Kern jeder Widerstandsarbeit. Betroffene zu Beteiligten
 machen. Konkret heißt das, dass der Pilotbereich selbst entscheidet, welche
-der neun Prüfregeln zuerst scharf gestellt werden.
+der sechs Prüfregeln zuerst scharf gestellt werden.
 
 
 ## 12 — Timeline
