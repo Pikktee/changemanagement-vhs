@@ -260,7 +260,7 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* Nachbemerkung statt Kasten: keine Flaeche, nur eine Linie darueber. Neben
    Karten auf --flaeche wuerde ein grauer Kasten wie eine weitere Karte
    wirken — genau die Verwechslung, die er nicht ausloesen soll. */
-.callout.notiz{ background:none; color:var(--tinte); font-weight:400;
+.callout.notiz{ background:none; color:var(--tinte); font-weight:700;
                 padding:13px 0 0; border-top:2px solid var(--marke); }
 .callout.notiz .kl{ color:var(--tinte); }
 /* Neben- und Folgezeile sind auf den blauen Grund hin gebaut. Auf hellem

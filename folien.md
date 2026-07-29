@@ -37,7 +37,7 @@ die Kursbeschreibungen der Volkshochschule Frankfurt.
 Das Feld heißt Barrierefreiheit. Die meisten denken dabei an Technik:
 Kontraste, Tastaturbedienung, Vorleseprogramme. Mein Thema ist der andere
 Teil. Ob der Text ankommt bei denen, für die er geschrieben ist. Das betrifft
-alle acht Programmbereiche des Hauses.
+alle acht Programmbereiche des Unternehmens.
 
 Angefangen hat es mit dem schärfsten Fall. Die Volkshochschule bietet
 Deutschkurse für Menschen an, die gerade erst Deutsch lernen. Und die
@@ -59,7 +59,7 @@ typ: zahlen
 kapitel: ÜBERBLICK
 titel: 5.800 Texte im Jahr,
 akzent: geprüft wird die Technik.
-lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Haus an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
+lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Unternehmen an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
   - "58 % || haben mindestens einen Befund || warn"
@@ -80,10 +80,10 @@ achtundfünfzig Prozent mindestens einen Befund. Und das ist die Untergrenze.
 Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
 sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
-Die dritte Zahl stammt aus dem Haus selbst. In der Erklärung zur
+Die dritte Zahl stammt aus dem Unternehmen selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
 ersten Juli zweitausendeinundzwanzig. Das ist heute auf den Tag genau fünf
-Jahre her. Seitdem bewertet sich das Haus selbst. Ich habe die Seite mit einem
+Jahre her. Seitdem bewertet sich das Unternehmen selbst. Ich habe die Seite mit einem
 gängigen Prüfprogramm laufen lassen, und sie erfüllt die Anforderungen heute
 nicht mehr, da kommen etliche Verstöße zusammen.
 
@@ -92,7 +92,7 @@ zuständig, und ich komme darauf noch einmal zurück.
 
 Denn dieselbe Erklärung enthält den Satz, der mich auf dieses Projekt gebracht
 hat. Die wichtigsten Informationen zu Betrieb und Kursgeschäft, heißt es dort,
-seien in einfacher Sprache verfügbar. Das Haus hat die Frage nach der
+seien in einfacher Sprache verfügbar. Das Unternehmen hat die Frage nach der
 Verständlichkeit also längst gestellt und für einen Bereich beantwortet. Nur
 für die Kursbeschreibungen selbst, den mit Abstand größten Textbestand, gilt
 das nicht.
@@ -145,7 +145,7 @@ Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei Monate.
 Der Prompt schlägt vor, der Mensch entscheidet.
 
 
-## 4 — Das Haus und der Prozess heute
+## 4 — Das Unternehmen und der Prozess heute
 
 typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
@@ -185,7 +185,7 @@ persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
 Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
-Wichtig ist der erste Punkt, ganz am Ende. Das Haus ist seit zweitausendfünf
+Wichtig ist der erste Punkt, ganz am Ende. Das Unternehmen ist seit zweitausendfünf
 nach L Q W testiert. Das steht für Lernerorientierte Qualitätstestierung in
 der Weiterbildung, ein Verfahren mit regelmäßiger externer Prüfung, inzwischen
 in der sechsten Runde. Dazu kommt eine Zertifizierung nach der Akkreditierungs-
@@ -194,7 +194,7 @@ fehlt keine Qualitätskultur. Es fehlt genau ein Schritt darin.
 
 Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
-Haus. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
+Unternehmen. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
 Rechts steht, wie ein Kurstext entsteht. Geplant wird halbjährlich, von den
 Teams der vier Fachbereiche. Der Text wird geschrieben und ins
@@ -301,7 +301,7 @@ Barrierefreiheitsrichtlinien nämlich nichts, und ob es die richtigen Zahlen
 sind, gehört zu den Fragen, die der Pilot beantworten soll.
 
 Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
-werden. Davon hat das Haus einige eigene. D-T-Z zum Beispiel, der
+werden. Davon hat die vhs einige eigene. D-T-Z zum Beispiel, der
 Deutsch-Test für Zuwanderer.
 
 Damit zur Tabelle darunter. Sie zeigt zwei Sprachkurse, und beide tragen eine
@@ -399,9 +399,9 @@ dass Angebote verständlich sind. Die Konformitätsstufe begründet eine
 Vermutung, keine Obergrenze der Pflicht. Ich argumentiere also nicht gegen das
 Recht, sondern in einer Lücke, die es selbst offenlässt.
 
-Und den eigentlichen Auftrag gibt ohnehin das Haus sich selbst. Die
+Und den eigentlichen Auftrag gibt sich das Unternehmen selbst. Die
 Betriebssatzung sagt, die Angebote stünden allen offen, ohne Rücksicht auf
-Vorbildung. Für ein solches Haus ist es nicht vertretbar, dass ausgerechnet
+Vorbildung. Für ein solches Unternehmen ist es nicht vertretbar, dass ausgerechnet
 die Kriterien für Menschen mit geringer Vorbildung die freiwilligen sind.
 
 
@@ -488,7 +488,7 @@ zeilen:
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
   - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
-  - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
+  - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
 calloutfolge: „Bewertet Texte, niemals Personen.“ Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
@@ -507,7 +507,7 @@ FORMAT erzwingt zu jedem Befund ein wörtliches Zitat, eine Begründung und
 einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
 
 Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die
-Abkürzungen des Hauses, sechs Prüfregeln und, das ist der wichtigste Teil,
+internen Abkürzungen, sechs Prüfregeln und, das ist der wichtigste Teil,
 achthundertzwanzig Wörter des Prüfungswortschatzes für das Goethe-Zertifikat
 A1. Diese Liste steht vollständig im Prompt, nicht als Verweis. Er schätzt das
 Sprachniveau also nicht, sondern begründet es.
@@ -539,11 +539,11 @@ akzent: im Einsatz.
 klein: ja
 lede: Dieselben sechs Regeln, zwei Umgebungen. Die Nachbearbeitung im Code läuft nur beim zweiten.
 wege:
-  - "Als KI-Assistent beim Verband || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
-  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein Server im Haus, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Hier laufen Namensschutz und Korrektur der Einstufung im Code mit."
-callout: Später möglich: die Prüfung im Redaktionssystem selbst, dort wo der Text entsteht.
+  - "Als KI-Assistent bei fobizz || Prompt einmal hinterlegen, dann Kurstext einfügen und Befunde lesen || Der Rahmenvertrag des Verbands mit fobizz besteht seit Mai 2025 und erlaubt eigene Assistenten. Niemand außerhalb des Pilotbereichs muss zustimmen."
+  - "Als eigenes Prüfwerkzeug || Entwurf einfügen — oder Kursnummer eingeben, dann holt es den Text selbst || Ein eigener Server, sonst nichts: die Kursportal-Schnittstelle ist öffentlich. Hier laufen Namensschutz und Korrektur der Einstufung im Code mit."
+callout: Später möglich: die Prüfung im Redaktionssystem selbst, dort, wo der Text entsteht.
 calloutnotiz: ja
-calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf. Ob die Prüfung dann freiwillig bleibt oder verbindlich wird, entscheidet das Haus und nicht die Technik.
+calloutsub: Das Portal betreut ein externer Dienstleister — die Erweiterung wäre ein Auftrag mit Budget und Vorlauf.
 quellen:
   - "Rahmenvereinbarung DVV und fobizz, 05.05.2025 | https://www.volkshochschule.de/meldungen/kooperation-mit-fobizz.php"
   - "fobizz für Volkshochschulen | https://fobizz.com/de/volkshochschulen/"
@@ -559,8 +559,10 @@ im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem Anbieter
 namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in Deutschland
 haben darüber datenschutzkonformen Zugang zu KI-Anwendungen, und man kann dort
 eigene Assistenten mit eigenen Anweisungen anlegen. Genau das ist mein Prompt.
-Der Zugang besteht bereits, niemand außerhalb des Pilotbereichs muss
-zustimmen.
+Es braucht dafür keine Zustimmung außerhalb des Pilotbereichs, weil der
+Rahmenvertrag schon da ist. Zu klären ist allerdings, ob die vhs Frankfurt die
+Lizenz auch tatsächlich gebucht hat — der Rahmenvertrag schafft die
+Möglichkeit, er ist nicht die Buchung.
 
 Zwei Einschränkungen gehören dazu, und ich nenne sie lieber selbst, weil ich
 sie nicht ausprobiert habe.
@@ -581,7 +583,7 @@ andere, sondern nur: Sie sind nicht identisch.
 Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe. Dort fügt man den
 Entwurf ein — oder gibt bei einem vorhandenen Kurs nur die Nummer ein, dann
 holt es den Text selbst. Die Schnittstelle des Kursportals ist öffentlich, das
-kostet keinen Zugang. Es braucht nur einen Server im Haus.
+kostet keinen Zugang. Es braucht nur einen eigenen Server.
 
 Ein Hinweis dazu, warum das Einfügen der wichtigere Fall ist: Über die
 Schnittstelle kommen nur Kurse, die schon veröffentlicht sind. Der Prüfschritt
@@ -600,13 +602,11 @@ Zur Einordnung: Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er
 belegt, dass der Weg funktioniert, er ist keine fertige Anwendung.
 
 Die Nachbemerkung unten ist bewusst kein Teil des Pilotprojekts. Man könnte die
-Prüfung ins Redaktionssystem selbst einbauen, dort wo der Text entsteht. Das
+Prüfung ins Redaktionssystem selbst einbauen, dort, wo der Text entsteht. Das
 wäre für die Beteiligten am bequemsten. Nur wird das Portal von einem externen
-Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf. Und ob die
-Prüfung dann freiwillig bleibt oder verbindlich wird, ist keine technische
-Frage, sondern eine, die das Haus entscheiden muss. Beides gehört ans Ende des
-Pilotprojekts, nicht an den Anfang. Man kauft nichts, bevor man weiß, ob es
-wirkt.
+Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf. Diese
+Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang. Man kauft
+nichts, bevor man weiß, ob es wirkt.
 
 
 ## 10 — Stakeholder
@@ -684,7 +684,7 @@ callout: Betroffene zu Beteiligten machen. Der Pilotbereich wählt selbst, welch
 ### NOTIZ
 
 Jetzt zum Widerstand. Ich habe die vier Ursachen aus dem Unterricht genommen
-und für jede den Satz aufgeschrieben, den ich in diesem Haus tatsächlich
+und für jede den Satz aufgeschrieben, den ich in diesem Unternehmen tatsächlich
 erwarte.
 
 Verlustangst klingt hier so: Jetzt korrigiert mich eine Maschine. Dahinter
