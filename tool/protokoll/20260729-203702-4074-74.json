@@ -1,0 +1,52 @@
+{
+  "zeitpunkt": "2026-07-29T20:37:02",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.0,
+  "temperaturStandard": 0.0,
+  "promptFassung": "v11 · 29.07.2026",
+  "promptPruefsumme": "033954d8656798d2",
+  "promptPruefsummeStandard": "033954d8656798d2",
+  "promptAngepasst": false,
+  "promptZeichen": 20641,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "namenEntfernt": 0,
+  "dauerSekunden": 19.96,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2 (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2 (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende mit Deutschkenntnissen auf A1-Niveau, die einen A2.2-Kurs suchen und den Ankündigungstext auf A1-Niveau lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"idealerweise\"\n    Grund:       Das Wort steht nicht auf der A1-Liste und ist für Lernende auf A1 zu abstrakt.\n    Vorschlag:   \"am besten\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Selbsteinschätzung\"\n    Grund:       Das zusammengesetzte Wort steht nicht auf der A1-Liste und ist auch nicht aus Listenwörtern erschließbar.\n    Vorschlag:   \"Sie schätzen selbst ein, welches Niveau Sie haben\"\n\n[3] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie hier ablegen.\"\n    Grund:       Linktext lautet „hier\". Der Linkzweck ist ohne den vorherigen Satz nicht erkennbar.\n    Vorschlag:   \"Sie können den <a href=https://vhs-frankfurt.eurotest.me/de/register>Online-Test machen</a>.\"\n\n[4] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Fehleinschätzung\"\n    Grund:       Das zusammengesetzte Wort steht nicht auf der A1-Liste und ist auch nicht aus Listenwörtern erschließbar.\n    Vorschlag:   \"falschen Einschätzung\"\n\n[5] EMPFEHLUNG · NIVEAU, AMTSDEUTSCH\n    Stelle:      \"Umbuchung\"\n    Grund:       Das Wort steht nicht auf der A1-Liste und ist Verwaltungssprache.\n    Vorschlag:   \"Wechsel in einen anderen Kurs\"\n\n[6] EMPFEHLUNG · NIVEAU\n    Stelle:      \"garantieren\"\n    Grund:       Das Wort steht nicht auf der A1-Liste.\n    Vorschlag:   \"sicher machen\" oder \"versprechen\"\n\n[7] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc.\"\n    Grund:       Der Satz hat 25 Wörter und liegt damit über der Grenze von 15 Wörtern für DaF-Texte auf A1-Niveau.\n    Vorschlag:   \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke verstehen. Zum Beispiel in Alltagssituationen: Informationen zur Person, Familie, Einkaufen, Arbeit.\"\n\n[8] ABK · EMPFEHLUNG\n    Stelle:      \"z. B.\"\n    Grund:       Die Abkürzung wird nicht aufgelöst.\n    Vorschlag:   \"zum Beispiel (z. B.)\" bei der ersten Verwendung\n\n[9] ABK · EMPFEHLUNG\n    Stelle:      \"etc.\"\n    Grund:       Die Abkürzung wird nicht aufgelöst.\n    Vorschlag:   \"und so weiter (etc.)\" oder streichen und durch weitere Beispiele ersetzen\n\n[10] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Ausdrücke\"\n    Grund:       Das Wort steht nicht auf der A1-Liste (nur die Grundform \"Ausdruck\" fehlt dort).\n    Vorschlag:   \"Wörter und Sätze\"\n\n[11] EMPFEHLUNG · SATZ\n    Stelle:      \"Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben.\"\n    Grund:       Der Satz hat 15 Wörter und liegt damit an der Grenze für DaF-Texte auf A1-Niveau.\n    Vorschlag:   \"Sie können in einfachen Situationen Informationen austauschen. Sie können Dinge des alltäglichen Lebens beschreiben.\"\n\n[12] EMPFEHLUNG · NIVEAU\n    Stelle:      \"austauschen\"\n    Grund:       Das Wort steht nicht auf der A1-Liste.\n    Vorschlag:   \"geben und bekommen\"\n\n[13] EMPFEHLUNG · NIVEAU\n    Stelle:      \"umfasst\"\n    Grund:       Das Wort steht nicht auf der A1-Liste.\n    Vorschlag:   \"hat\"\n\n[14] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Teilstufen\"\n    Grund:       Das zusammengesetzte Wort steht nicht auf der A1-Liste und ist auch nicht aus Listenwörtern erschließbar.\n    Vorschlag:   \"Teile\" oder \"zwei Kurse\"\n\nKEIN BEFUND ZU\nSTRUKTUR\n\nGESAMT\n14 Befunde, davon 1 Pflicht.\nDer Text enthält für die Zielgruppe zu viele Wörter über A1-Niveau und einen Linktext-Verstoß. Eine Überarbeitung ist dringend empfohlen, besonders bei den Verwaltungswörtern im ersten Absatz und beim Link.",
+  "verbrauch": {
+    "prompt_tokens": 8534,
+    "completion_tokens": 1395,
+    "total_tokens": 9929,
+    "cost": 0.046527,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.046527,
+      "upstream_inference_prompt_cost": 0.025602,
+      "upstream_inference_completions_cost": 0.020925
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

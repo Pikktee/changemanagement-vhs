@@ -348,9 +348,14 @@ def t_tabelle(f, seite_, gesamt):
 
 
 def t_tabelle2(f, seite_, gesamt):
-    """Tabelle plus ein zweiter, kompakterer Block darunter.
+    """Regelblock, darunter eine kompakte Tabelle.
 
-    Der zweite Block ist nach Einstufung gruppiert. Geschrieben wird er als
+    Erst der Massstab, dann das Ergebnis — in dieser Reihenfolge laeuft auch
+    der Sprechertext. Beide Bloecke tragen eine eigene Ueberschrift
+    ('regelntitel' und 'tabellentitel'), sonst steht die Tabelle unvermittelt
+    unter den Regeln.
+
+    Der Regelblock ist nach Einstufung gruppiert. Geschrieben wird er als
     'Stufe | Kuerzel | Erklaerung'; bleibt die erste Zelle leer, gehoert die
     Zeile zur Gruppe darueber:
 
@@ -394,8 +399,11 @@ def t_tabelle2(f, seite_, gesamt):
              f'<div class="rspalten">{"".join(bloecke)}</div></div>')
     # Zwei Bloecke auf einer Folie: die Tabelle muss enger gesetzt werden,
     # sonst schiebt der zweite Block Quellen- und Fusszeile aus der Folie
-    tab = f'<div class="kompakt">{_tabelle_html(f)}</div>'
-    return seite(f, seite_, gesamt, tab + block + callout(f))
+    ttitel = f.get("tabellentitel", "")
+    kopf_t = f'<div class="rtitel">{e(ttitel)}</div>' if ttitel else ""
+    tab = (f'<div class="tblock">{kopf_t}'
+           f'<div class="kompakt">{_tabelle_html(f)}</div></div>')
+    return seite(f, seite_, gesamt, block + tab + callout(f))
 
 
 def t_zitat(f, seite_, gesamt):

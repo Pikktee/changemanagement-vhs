@@ -1,0 +1,52 @@
+{
+  "zeitpunkt": "2026-07-29T20:37:28",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.0,
+  "temperaturStandard": 0.0,
+  "promptFassung": "v11 · 29.07.2026",
+  "promptPruefsumme": "033954d8656798d2",
+  "promptPruefsummeStandard": "033954d8656798d2",
+  "promptAngepasst": false,
+  "promptZeichen": 20641,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 1,
+  "namenEntfernt": 0,
+  "dauerSekunden": 13.09,
+  "eingabe": {
+    "titel": "Englisch A1.1 (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1 (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene ohne Vorkenntnisse in Englisch, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] PFLICHT · STRUKTUR\n    Stelle:      \"*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\"\n    Grund:       Die Aufzählung ist mit Sternchen und Zeilenumbrüchen gebaut statt mit <ul> und <li>, dadurch fehlt die semantische Auszeichnung für Screenreader und andere Hilfsmittel.\n    Vorschlag:   \"<ul><li>sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)</li><li>über Familie zu sprechen und Familienangehörige und Freunde vorzustellen</li><li>einfache Gegenwart (Present Simple) zu benutzen</li><li>Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen</li></ul>\"\n\n[2] EMPFEHLUNG · ABK\n    Stelle:      \"Auf dem Kursniveau A1 (A1.1 - A1.2)\"\n    Grund:       Die Abkürzungen A1.1 und A1.2 werden nicht aufgelöst, obwohl sie bei der ersten Verwendung erscheinen und für die Zielgruppe nicht selbsterklärend sind.\n    Vorschlag:   \"Auf dem Kursniveau A1 (Teilstufen A1.1 bis A1.2)\"\n\n[3] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\"\n    Grund:       \"Entscheidend\" ist gehobenes Standarddeutsch, aber hier in einer verwaltungstypischen Konstruktion verwendet, die sich einfacher ausdrücken lässt.\n    Vorschlag:   \"Die Zahl der Anmeldungen am 2. Kurstermin bestimmt die Kurslänge.\"\n\n[4] EMPFEHLUNG · SATZ\n    Stelle:      \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.\"\n    Grund:       Der Satz hat 26 Wörter und enthält drei parallele Bedingungen, was die Verarbeitung erschwert.\n    Vorschlag:   \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine. Bei 7 Anmeldungen sind es 9 Termine, bei 6 Anmeldungen 7 Termine.\"\n\nKEIN BEFUND ZU\nLINKTEXT, NIVEAU\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist verständlich geschrieben. Die Empfehlungen betreffen vor allem die technische Auszeichnung der Aufzählung und kleinere sprachliche Vereinfachungen. Nach Umsetzung der Strukturverbesserung ist der Text aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8627,
+    "completion_tokens": 850,
+    "total_tokens": 9477,
+    "cost": 0.038631,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.038631,
+      "upstream_inference_prompt_cost": 0.025881,
+      "upstream_inference_completions_cost": 0.01275
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

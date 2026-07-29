@@ -588,6 +588,60 @@ tragen jetzt die neue Zahl samt dem Hinweis, dass sie eine Untergrenze ist.
 
 ---
 
+## v11 · 29.07.2026, 15:40 · `STRUKTUR` sagte nicht, woran man sie erkennt
+
+**Anlass.** Beim Überarbeiten von Folie 5 war die Regel `STRUKTUR` in einem
+Halbsatz zu erklären — und es ging nicht. „Sichtbare Gliederung ohne
+Auszeichnung" beschreibt den Eindruck, nicht das Prüfmerkmal. Wer den Satz
+liest, weiß nicht, wonach er suchen soll.
+
+**Befund.** Die Formulierung ließ zwei Lesarten zu. Die eine prüft die
+Optik: eine fett gesetzte Zeile ist verdächtig. Die andere prüft den
+Quelltext: eine Zeile eröffnet eine Gliederungsebene, steht aber nicht in
+einem Überschriften-Element. Nur die zweite ist WCAG 1.3.1. Nach der ersten
+wäre jeder Fettdruck ein Pflichtbefund.
+
+Dazu kam ein Widerspruch im Prompt selbst. Unter GRENZEN stand, Markup gehöre
+zu einem anderen Werkzeug. Genau das prüft `STRUKTUR` aber — sonst wäre die
+Regel gar nicht anwendbar.
+
+**Änderung.** `STRUKTUR` nennt jetzt die Elemente: `<h1>` bis `<h6>` für
+Überschriften, `<ul>`/`<li>` für Aufzählungen, und ausdrücklich, dass
+Fettdruck allein kein Befund ist. Die GRENZE trennt jetzt sauber zwischen der
+Seite, die dem Prüfwerkzeug der IT gehört, und der Auszeichnung innerhalb des
+vorgelegten Kurstextes, die dem Prompt gehört. `LINKTEXT` nennt statt eines
+Beispiels drei.
+
+**Begründung.** Die Arbeitsteilung des Projekts verläuft nicht zwischen
+„inhaltlich" und „technisch", sondern zwischen der Seite und dem Text. Solange
+der Prompt Markup pauschal von sich wies, stand seine einzige gut
+automatisierbare Pflichtregel auf einem Fundament, das er selbst bestritt.
+
+**Läufe.** Je vier gegen die beiden Kernfälle, Sonnet 4.5, Temperatur 0.
+
+| Kurs | Niveau-Befunde | gesamt |
+|---|---|---|
+| 4074-74, Deutsch A2.2, strenger Fall | 8 · 10 · 10 · 9 | 9 bis 14 |
+| 4213-40, Englisch A1.1, normaler Fall | 0 · 0 · 0 · 0 | 3 bis 5 |
+
+Die Asymmetrie hält, kein Personenname in der Ausgabe. Zwei Beobachtungen
+gehören daneben, damit die Zahlen nicht besser aussehen, als sie sind.
+
+**Die Streuung liegt über der eigenen Vorgabe.** Die Betriebsanleitung
+verlangt bei den Niveau-Befunden eine Streuung von höchstens eins; gemessen
+sind es zwei. Die Aussage der Abgabe — mehrere Befunde hier, konstant keiner
+dort — trägt das, eine Einzelzahl trüge es nicht.
+
+**`STRUKTUR` greift jetzt, wo es vorher schwieg.** Beim Englischkurs meldet
+v11 die Regel in allen vier Läufen, v10 in keinem. Der Text ist derselbe: Der
+Anmeldehinweis ist eine Zeile, die eine Gliederungsebene eröffnet und im
+Quelltext gewöhnlicher Fließtext bleibt. Die alte Formulierung hat diesen Fall
+nicht als Befund erkennbar gemacht. Das ist die eigentliche Wirkung dieser
+Fassung und zugleich die Warnung: Eine Regel, die nur ungenau beschrieben ist,
+wird nicht falsch angewandt, sondern gar nicht.
+
+---
+
 ## Offen für die nächsten Fassungen
 
 - Ist die Grenze von 25 beziehungsweise 15 Wörtern je Satz brauchbar, oder

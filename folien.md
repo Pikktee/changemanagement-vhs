@@ -232,22 +232,23 @@ titel: Was zählt als Befund,
 akzent: und für wen.
 klein: ja
 lede: 60 Kursbeschreibungen, sieben Programmbereiche, Portalabruf vom 28.07.2026. 35 davon haben einen Befund.
-spalten: Kurs | Wer die Beschreibung liest | Sätze im Text | Wörter über Niveau | Befunde
-zeilen:
-  - "Englisch A1.1 | + liest Deutsch fließend | Ø 21,3 Wörter | 0 | 1"
-  - "Deutsch als Fremdsprache A2.2 | ! liest Deutsch erst auf A1 | Ø 10,6 Wörter | 24 | 28"
 regelntitel: Wonach gemessen wurde
 regeln:
-  - "PFLICHT · WCAG Stufe A, verbindlich | STRUKTUR | Überschrift, die keine ist"
-  - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
-  - "EMPFEHLUNG · Stufe AAA oder Hausstandard | NIVEAU | Wort zu schwer für diese Zielgruppe"
-  - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
+  - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
+  - "| LINKTEXT | Linktext nennt sein Ziel nicht"
+  - "EMPFEHLUNG · freiwillig | NIVEAU | Wort über dem Sprachniveau der Zielgruppe"
+  - "| AMTSDEUTSCH | Behördenwort, wo ein Alltagswort reicht"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
-  - "| ABK | Abkürzung nicht aufgelöst"
-callout: Der Kurs mit den kürzeren Sätzen hat 28 Befunde, der mit den längeren einen.
-calloutsub: Ein Lesbarkeitsindex misst Satz- und Wortlänge, nicht den Leser. Er würde hier den falschen Kurs beanstanden.
+  - "| ABK | Kürzel ohne Auflösung, etwa DTZ"
+tabellentitel: Was das an zwei Kursen heißt
+spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
+zeilen:
+  - "Englisch A1.1 | + liest Deutsch fließend | 0 | 1"
+  - "Deutsch als Fremdsprache A2.2 | ! lernt Deutsch, kann bisher A1 | 24 | 28"
+callout: Beide Kurse tragen A im Titel. Nur bei einem ist der Text zu schwer für seine Leser.
+calloutsub: Ob ein Text verständlich ist, entscheidet nicht der Text — sondern die Zielgruppe, die ihn lesen soll.
 quellen:
-  - "eigene Messung mit daten/messung.py, Skript und Datensatz liegen der Arbeit bei"
+  - "Eigene Auswertung von 60 Kursbeschreibungen, 29.07.2026 — Auswertung und Daten liegen der Arbeit bei"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
 
 ### NOTIZ
@@ -260,35 +261,66 @@ Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und mit einem
 eigenen Skript ausgewertet. Fünfunddreißig von sechzig Texten haben mindestens
 einen Befund.
 
-Unten steht, wonach ich gemessen habe. Sechs Befundarten, zwei davon Pflicht:
-eine Zeile, die wie eine Überschrift aussieht, aber technisch keine ist, und
-ein Linktext, der nicht sagt, wohin er führt. Beides ist Stufe A der
-Barrierefreiheitsrichtlinien und damit verbindlich. Die übrigen vier sind
-Empfehlungen. Diese sechs Regeln sind zugleich der Maßstab des Prüfassistenten,
-den ich gleich zeige.
+Oben steht, wonach ich gemessen habe. Sechs Regeln, und die Reihenfolge auf
+dieser Folie ist Absicht: erst der Maßstab, dann das Ergebnis. Dieselben sechs
+Regeln sind zugleich der Maßstab des Prüfassistenten, den ich gleich zeige.
 
-Zwei Anmerkungen zu den Regeln. Die Grenzen von fünfundzwanzig und fünfzehn
-Wörtern je Satz habe ich gesetzt, nicht gemessen. Sie orientieren sich an den
-Empfehlungen für einfache Sprache. Ob es die richtigen sind, gehört zu den
-Fragen, die der Pilot beantworten soll. Und die sechste Regel, oben links, kann
-mein Messskript nicht prüfen. Dazu komme ich gleich.
+Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
+Barrierefreiheitsrichtlinien und sind damit verbindlich.
 
-Damit zur Tabelle. Sie zeigt zwei Sprachkurse, und beide tragen eine niedrige
-Stufe im Titel. Das bedeutet aber zweimal etwas völlig Verschiedenes.
+Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
+aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
+mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
+Screenreader dagegen bietet seinen Nutzern an, sich alle Überschriften einer
+Seite vorlesen zu lassen, um gezielt dorthin zu springen. Was technisch keine
+Überschrift ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann
+sichtbar vorhanden und für das Vorleseprogramm nicht da.
+
+Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
+ist ein Link, der schlicht „hier" heißt. Der Grund ist derselbe wie eben:
+Screenreader lesen auf Wunsch nur die Links einer Seite vor, ohne den Text
+drumherum. Eine Liste aus fünfmal „hier" hilft niemandem weiter.
+
+Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
+der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und nicht
+aufgelöste Abkürzungen, stehen auf Stufe AAA der Richtlinien — der höchsten,
+die niemand einhalten muss. Die beiden anderen habe ich selbst gesetzt.
+
+Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen
+sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt
+nicht anwenden lässt.
+
+Amtsdeutsch heißt: Im Text steht ein Verwaltungswort, obwohl ein alltägliches
+genügen würde. Umbuchung statt Wechsel, gegebenenfalls statt wenn nötig. Das
+trifft nicht nur Sprachanfänger, sondern auch geübte Leserinnen und Leser.
+
+Satz heißt: über fünfundzwanzig Wörter, bei Deutschkursen über fünfzehn. Diese
+beiden Zahlen habe ich gesetzt, nicht gemessen. Sie orientieren sich an den
+Empfehlungen für einfache Sprache. Zur Satzlänge sagen die
+Barrierefreiheitsrichtlinien nämlich nichts, und ob es die richtigen Zahlen
+sind, gehört zu den Fragen, die der Pilot beantworten soll.
+
+Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
+werden. Davon hat das Haus einige eigene. D-T-Z zum Beispiel, der
+Deutsch-Test für Zuwanderer.
+
+Damit zur Tabelle darunter. Sie zeigt zwei Sprachkurse, und beide tragen eine
+niedrige Stufe im Titel. Das bedeutet aber zweimal etwas völlig Verschiedenes.
 
 Beim Englischkurs steht A1 für das Englisch, das dort gelernt wird. Wer die
 Beschreibung liest, ist deutschsprachig und liest Deutsch fließend. Beim
 Deutschkurs steht A2 für das Deutsch, das dort gelernt wird. Wer diese
 Beschreibung liest, kann Deutsch bisher eine Stufe darunter, also A1.
 
-Und jetzt die beiden Spalten rechts. Der Englischkurs hat mit einundzwanzig
-Wörtern die deutlich längeren Sätze, aber keine einzige Vokabel über dem
-Niveau seiner Leser. Ein einziger Befund insgesamt, eine nicht aufgelöste
-Abkürzung. Der Deutschkurs hat mit knapp elf Wörtern die kürzeren Sätze und
-trotzdem achtundzwanzig Befunde, davon vierundzwanzig zu schwere Wörter.
+Und jetzt der Unterschied. Der Englischkurs hat kein einziges Wort über dem
+Niveau seiner Leser, einen Befund insgesamt, und das ist eine nicht
+aufgelöste Abkürzung. Der Deutschkurs hat vierundzwanzig zu schwere Wörter und
+achtundzwanzig Befunde.
 
-Ein Lesbarkeitsindex sieht nur die linke Zahl. Er würde den Englischkurs
-beanstanden und den Deutschkurs durchwinken. Das ist genau falsch herum.
+Dabei sind beide Texte gleich einfach gebaut. Die Sätze sind in beiden Fällen
+kurz, im Schnitt neun beziehungsweise elf Wörter. Ein Lesbarkeitsindex, der
+Satz- und Wortlängen zählt, findet bei keinem der beiden etwas. Er schweigt
+zweimal, und einmal davon zu Unrecht.
 
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
 wen der Text ist. In meiner Stichprobe stehen sechs Deutschkurse auf den
@@ -298,8 +330,8 @@ Wörter, die man erst weit oberhalb des Kursziels lernt. Genau hier kann ein
 fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 
 Ein Wort zu den Zahlen, das mir wichtig ist. Achtundfünfzig Prozent sind eine
-Untergrenze. Mein Messskript prüft fünf der sechs Regeln. Die sechste, ob eine
-fett gesetzte Zeile eine Überschrift sein sollte, kann kein Skript
+Untergrenze. Mein Messskript prüft fünf der sechs Regeln. Die erste, ob eine
+hervorgehobene Zeile eine Überschrift sein sollte, kann kein Skript
 entscheiden. Ich messe also bewusst zu niedrig statt zu hoch.
 
 
