@@ -104,7 +104,6 @@ von zehn Texten haben einen Befund. Für wen sind sie eigentlich zu schwer?
 typ: punkte
 kapitel: ÜBERBLICK
 bild: bilder/02-teile-ganzes.jpg
-bu: Einzelne Teile, ein Konzept.
 bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Der Vorschlag,
 akzent: und was er bringt.
@@ -138,7 +137,6 @@ Der Prompt schlägt vor, der Mensch entscheidet.
 typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
 bild: bilder/04-prozess-luecke.jpg
-bu: Vier Schritte, eine fehlende Verbindung.
 bildprompt: Vier Kreise in einer Reihe, verbunden durch Linien, die Verbindung zwischen drittem und viertem Kreis fehlt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Ein Auftrag,
 akzent: eine Lücke im Prozess.
@@ -199,7 +197,6 @@ Messung.
 typ: tabelle
 kapitel: 01 · POTENZIALERMITTLUNG
 bild: bilder/06-zwei-blicke.jpg
-bu: Zwei Leserschaften, ein Text.
 bildprompt: Zwei Figuren betrachten dasselbe Rechteck, links offen und klar, rechts durch dichte Streifen verdeckt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Dieselbe Zahl bedeutet
 akzent: zweimal etwas anderes.
@@ -254,7 +251,6 @@ fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 typ: text
 kapitel: 01 · EINORDNUNG
 bild: bilder/07-stufen.jpg
-bu: Zwei Stufen sind gebaut. Die dritte ist nur gedacht.
 bildprompt: Treppe aus drei Stufen, die unteren zwei massiv petrol, die oberste nur als duenner Umriss. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Welches Recht gilt,
 akzent: und was nicht.
@@ -309,7 +305,6 @@ Rücksicht auf Vorbildung, ist das nicht vertretbar.
 typ: zweispalt
 kapitel: 02 · LÖSUNG
 bild: bilder/08-zahnrad-auge.jpg
-bu: Das Regelhafte und das Urteilende.
 bildprompt: Komposition geteilt durch eine vertikale Linie, links ein praezises Zahnrad, rechts ein stilisiertes Auge. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Zwei Werkzeuge,
 akzent: zwei Zuständigkeiten.
@@ -434,7 +429,6 @@ des Personalrats, ob hier Leistung kontrolliert wird.
 typ: zweispalt
 kapitel: 02 · SYSTEM-PROMPT
 bild: bilder/12-passstueck.jpg
-bu: Der fehlende Schritt zwischen Schreiben und Veröffentlichen.
 bildprompt: Eine bestehende Struktur mit einer Luecke, ein passendes kleines Teil wird eingesetzt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Ein Durchlauf,
 akzent: an einem echten Text.
@@ -534,7 +528,6 @@ Interesse an dem Thema zu haben.
 typ: zweispalt
 kapitel: 03 · CHANGE MANAGEMENT
 bild: bilder/14-widerstand.jpg
-bu: Zwei Kräfte, ein Gleichgewicht.
 bildprompt: Zwei entgegengesetzte Kraefte treffen an einer senkrechten Naht aufeinander, im Gleichgewicht. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Warum jemand Nein sagt,
 akzent: und was hilft.
@@ -625,7 +618,6 @@ dann auf eine schon geweckte Erwartung trifft.
 typ: zweispalt
 kapitel: 03 · ZEITPLAN UND RESSOURCEN
 bild: bilder/11-zeitleiste.jpg
-bu: Was in den ersten Wochen passiert.
 bildprompt: Waagerechte Zeitleiste als dicker Balken mit unterschiedlich hohen Markierungen. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Die ersten 30 Tage,
 akzent: und was sie kosten.
@@ -664,7 +656,6 @@ Stunden im Jahr, im Pilot vier.
 typ: tabelle
 kapitel: 03 · ERFOLGSMESSUNG
 bild: bilder/17-waage.jpg
-bu: Woran sich das Projekt messen lässt.
 bildprompt: Geometrische Waage, Balken auf dreieckigem Drehpunkt, Kreis und Quadrat als Gewichte. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Woran man merkt,
 akzent: ob es gewirkt hat.
