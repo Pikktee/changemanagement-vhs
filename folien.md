@@ -534,8 +534,8 @@ kapitel: 02 · SYSTEM-PROMPT
 bild: bilder/09-befunde-prototyp.png
 bildganz: ja
 bu: Ausschnitt aus einem Durchlauf im Prototyp: Einstufung, Regel, Stelle im Text, Vorschlag.
-titel: Wo der Prompt läuft,
-akzent: und was er braucht.
+titel: Zwei Wege,
+akzent: einer sofort verfügbar.
 klein: ja
 lede: Beide Wege benutzen denselben Prompt und liefern dieselben Befunde. Der Unterschied liegt allein darin, wie der Kurstext hineinkommt.
 wege:
