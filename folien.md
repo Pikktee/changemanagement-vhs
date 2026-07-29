@@ -409,8 +409,6 @@ die Kriterien für Menschen mit geringer Vorbildung die freiwilligen sind.
 
 typ: zweispalt
 kapitel: 02 · LÖSUNG
-bild: bilder/08-zahnrad-auge.jpg
-bildprompt: Komposition geteilt durch eine vertikale Linie, links ein praezises Zahnrad, rechts ein stilisiertes Auge. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Was die Technik prüft,
 akzent: und was nur ein Mensch sieht.
 klein: ja
