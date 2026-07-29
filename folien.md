@@ -228,24 +228,24 @@ schlecht formulierter Text ist hier nie ein Einzelfall.
 
 typ: tabelle2
 kapitel: 01 · POTENZIALERMITTLUNG
-titel: Kurze Sätze sind
-akzent: noch nicht verständlich.
+titel: Was zählt als Befund,
+akzent: und für wen.
 klein: ja
 lede: 60 Kursbeschreibungen, sieben Programmbereiche, Portalabruf vom 28.07.2026. 35 davon haben einen Befund.
-spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
+spalten: Kurs | Wer die Beschreibung liest | Sätze im Text | Wörter über Niveau | Befunde
 zeilen:
-  - "Englisch A1.1 | 21,3 Wörter | 41 Wörter | + fließend"
-  - "Deutsch als Fremdsprache A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
+  - "Englisch A1.1 | + liest Deutsch fließend | Ø 21,3 Wörter | 0 | 1"
+  - "Deutsch als Fremdsprache A2.2 | ! liest Deutsch erst auf A1 | Ø 10,6 Wörter | 24 | 28"
 regelntitel: Wonach gemessen wurde
 regeln:
-  - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
+  - "PFLICHT · WCAG Stufe A, verbindlich | STRUKTUR | Überschrift, die keine ist"
   - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
-  - "EMPFEHLUNG | NIVEAU | Wort zu schwer für diese Zielgruppe"
+  - "EMPFEHLUNG · Stufe AAA oder Hausstandard | NIVEAU | Wort zu schwer für diese Zielgruppe"
   - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Abkürzung nicht aufgelöst"
-callout: Ein Lesbarkeitsindex beanstandet hier den falschen Kurs.
-calloutsub: Er misst Satz- und Wortlänge, nicht den Leser. Alle 6 Deutschkurse auf A1 und A2 enthalten zu schwere Wörter — dort meldet er nichts.
+callout: Der Kurs mit den kürzeren Sätzen hat 28 Befunde, der mit den längeren einen.
+calloutsub: Ein Lesbarkeitsindex misst Satz- und Wortlänge, nicht den Leser. Er würde hier den falschen Kurs beanstanden.
 quellen:
   - "eigene Messung mit daten/messung.py, Skript und Datensatz liegen der Arbeit bei"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
@@ -267,22 +267,28 @@ Barrierefreiheitsrichtlinien und damit verbindlich. Die übrigen vier sind
 Empfehlungen. Diese sechs Regeln sind zugleich der Maßstab des Prüfassistenten,
 den ich gleich zeige.
 
-Der eigentliche Befund steht aber in der Tabelle, und er sieht auf den ersten
-Blick unscheinbar aus.
+Zwei Anmerkungen zu den Regeln. Die Grenzen von fünfundzwanzig und fünfzehn
+Wörtern je Satz habe ich gesetzt, nicht gemessen. Sie orientieren sich an den
+Empfehlungen für einfache Sprache. Ob es die richtigen sind, gehört zu den
+Fragen, die der Pilot beantworten soll. Und die sechste Regel, oben links, kann
+mein Messskript nicht prüfen. Dazu komme ich gleich.
 
-Oben ein Englischkurs auf Stufe A1, unten ein Deutschkurs auf Stufe A2. Der
-Englischkurs hat durchschnittlich einundzwanzig Wörter pro Satz, der längste
-hat einundvierzig. Der Deutschkurs hat knapp elf Wörter pro Satz, der längste
-sechzehn.
+Damit zur Tabelle. Sie zeigt zwei Sprachkurse, und beide tragen eine niedrige
+Stufe im Titel. Das bedeutet aber zweimal etwas völlig Verschiedenes.
 
-Ein Lesbarkeitsindex oder ein Standard-KI-Assistent würde jetzt den
-Englischkurs beanstanden und den Deutschkurs durchwinken. Das ist genau falsch
-herum.
+Beim Englischkurs steht A1 für das Englisch, das dort gelernt wird. Wer die
+Beschreibung liest, ist deutschsprachig und liest Deutsch fließend. Beim
+Deutschkurs steht A2 für das Deutsch, das dort gelernt wird. Wer diese
+Beschreibung liest, kann Deutsch bisher eine Stufe darunter, also A1.
 
-Denn der Englischkurs richtet sich an Menschen, die fließend Deutsch lesen.
-Für die ist ein langer Satz unschön, aber kein Hindernis. Der Deutschkurs
-richtet sich an Menschen, die Deutsch erst auf A1-Niveau lesen. Für die ist
-jedes Wort oberhalb dieses Niveaus eine Hürde.
+Und jetzt die beiden Spalten rechts. Der Englischkurs hat mit einundzwanzig
+Wörtern die deutlich längeren Sätze, aber keine einzige Vokabel über dem
+Niveau seiner Leser. Ein einziger Befund insgesamt, eine nicht aufgelöste
+Abkürzung. Der Deutschkurs hat mit knapp elf Wörtern die kürzeren Sätze und
+trotzdem achtundzwanzig Befunde, davon vierundzwanzig zu schwere Wörter.
+
+Ein Lesbarkeitsindex sieht nur die linke Zahl. Er würde den Englischkurs
+beanstanden und den Deutschkurs durchwinken. Das ist genau falsch herum.
 
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
 wen der Text ist. In meiner Stichprobe stehen sechs Deutschkurse auf den

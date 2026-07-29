@@ -377,14 +377,21 @@ def t_tabelle2(f, seite_, gesamt):
             f'<div class="rzeile"><span class="rk">{e(k)}</span>'
             f'<span class="rt">{e(t)}</span></div>'
             for k, t in g["zeilen"])
+        # Ein " · " in der Stufe trennt Bezeichnung und Einordnung darunter
+        haupt, _, unter = g["stufe"].partition(" · ")
+        stufe = f'<span class="rs1">{e(haupt)}</span>'
+        if unter:
+            stufe += f'<span class="rs2">{e(unter)}</span>'
         bloecke.append(
             f'<div class="rgruppe {g["kl"]}">'
-            f'<div class="rstufe">{e(g["stufe"])}</div>'
+            f'<div class="rstufe">{stufe}</div>'
             f'<div class="rliste">{zs}</div></div>')
 
     titel = f.get("regelntitel", "")
     kopf = f'<div class="rtitel">{e(titel)}</div>' if titel else ""
-    block = f'<div class="regeln">{kopf}{"".join(bloecke)}</div>'
+    # Die Gruppen stehen nebeneinander, damit die Folie in die Breite geht
+    block = (f'<div class="regeln">{kopf}'
+             f'<div class="rspalten">{"".join(bloecke)}</div></div>')
     # Zwei Bloecke auf einer Folie: die Tabelle muss enger gesetzt werden,
     # sonst schiebt der zweite Block Quellen- und Fusszeile aus der Folie
     tab = f'<div class="kompakt">{_tabelle_html(f)}</div>'
