@@ -62,11 +62,20 @@ Abwesenheit eines Belegs.
 
 ## Der wichtigste Grundsatz der Umsetzung
 
-**Was feststeht, gehört in den Code. Was Urteil verlangt, bleibt beim Modell.**
+**Was feststeht, gehört in den Code. Was die Zielgruppe kennen muss, bleibt
+beim Modell.**
 
-Das ist zugleich die Change-Argumentation: Technische Barrierefreiheit bleibt
-beim deterministischen Prüfwerkzeug und bei der städtischen IT, die KI
-übernimmt nur den urteilenden Teil bei den Programmbereichen.
+Das ist zugleich die Change-Argumentation, und die Trennlinie verläuft nicht
+zwischen Technik und Sprache, sondern zwischen der Seite und dem einzelnen
+Text: Das Seitengerüst — Kontraste, Tastaturbedienung, Navigation — ist
+prüfbar, ohne einen einzigen Kurs zu kennen, und bleibt bei den Prüfwerkzeugen
+der städtischen IT. Die KI übernimmt allein den Schritt, für den man wissen
+muss, wer den Text liest, und der liegt bei den Programmbereichen.
+
+Nicht nach der Methode trennen: Auch etablierte Prüfwerkzeuge setzen inzwischen
+KI ein (Deque axe: Axe Assistant, Guided Tests). „Deterministisch gegen KI"
+trägt als Abgrenzung deshalb nicht mehr, „ohne Kenntnis des Kurses entscheidbar
+oder nicht" schon.
 
 Das ist dreimal beim Bauen passiert (siehe `iterationen.md`, v4, v5 und v9):
 Zusagen im Prompt hielt das Modell nicht zuverlässig ein, heute stehen sie in
