@@ -385,7 +385,10 @@ def t_tabelle2(f, seite_, gesamt):
     titel = f.get("regelntitel", "")
     kopf = f'<div class="rtitel">{e(titel)}</div>' if titel else ""
     block = f'<div class="regeln">{kopf}{"".join(bloecke)}</div>'
-    return seite(f, seite_, gesamt, _tabelle_html(f) + block + callout(f))
+    # Zwei Bloecke auf einer Folie: die Tabelle muss enger gesetzt werden,
+    # sonst schiebt der zweite Block Quellen- und Fusszeile aus der Folie
+    tab = f'<div class="kompakt">{_tabelle_html(f)}</div>'
+    return seite(f, seite_, gesamt, tab + block + callout(f))
 
 
 def t_zitat(f, seite_, gesamt):

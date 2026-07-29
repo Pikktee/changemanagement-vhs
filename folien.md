@@ -389,8 +389,6 @@ regeln:
   - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Abkürzung nicht aufgelöst"
-callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
-calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
 quellen:
   - "system-prompt.md, Fassung v9 vom 29.07.2026, zehn Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
