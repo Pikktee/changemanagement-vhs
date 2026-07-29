@@ -64,18 +64,15 @@ quellen: eigene Erhebung an 60 Kursen, Portalabruf vom 28.07.2026
 
 ### NOTIZ
 
-Zuerst das Ganze in der Kurzfassung, und zwar in drei Zahlen.
+Zuerst das Ganze in drei Zahlen.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
-Kursbeschreibungen im Jahr. Ich habe eine Stichprobe von sechzig Kursen
-gezogen: Neun von zehn Texten haben mindestens einen Befund. Und
-dazwischen steht die dritte Zahl. Es gibt null Prüfschritte, an denen jemand
-fragt, ob die Zielgruppe den Text überhaupt versteht.
+Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben neun
+von zehn Texten mindestens einen Befund. Und es gibt null Prüfschritte, an
+denen jemand fragt, ob die Zielgruppe den Text versteht.
 
-Der Satz unten ist die These, um die es in den nächsten zwanzig Minuten geht.
-Ein Text ist nicht an sich verständlich, sondern immer nur für bestimmte
-Leser. Deshalb genügt es nicht, den Text anzusehen. Man muss wissen, für wen
-er ist.
+Unten steht die These, um die es heute geht. Ein Text ist nicht an sich
+verständlich, sondern immer nur für bestimmte Leser.
 
 
 ## 3 — Executive Summary II: Der Vorschlag
@@ -97,19 +94,18 @@ calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 
 ### NOTIZ
 
-Daraus folgt mein Vorschlag, und er passt in vier Zeilen.
+Daraus folgt mein Vorschlag.
 
-Das Ziel: Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe
-genau dieses Kurses geprüft. Die Lösung ist ein System-Prompt in einem
-KI-Rahmen, den der Volkshochschul-Verband für alle Volkshochschulen
-bereitstellt. Er existiert bereits, es muss also nichts beschafft werden.
+Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses
+Kurses geprüft. Dafür genügt ein System-Prompt in dem KI-Rahmen, den der
+Volkshochschul-Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss
+nichts beschafft werden.
 
-Eine Abgrenzung ist mir wichtig, und sie zieht sich durch das ganze Konzept.
-Für die technische Barrierefreiheit bleibt ein normales Prüfwerkzeug
-zuständig. Die KI übernimmt nur den Teil, der Urteil verlangt.
+Die Abgrenzung darunter zieht sich durch das ganze Konzept. Für die technische
+Barrierefreiheit bleibt ein normales Prüfwerkzeug zuständig, die KI übernimmt
+nur den Teil, der Urteil verlangt.
 
-Unten steht, worum ich am Ende bitte: um einen Piloten in einem
-Programmbereich, drei Monate, ohne Beschaffung. Und daneben das Leitprinzip.
+Unten steht, worum ich bitte: ein Pilot in einem Programmbereich, drei Monate.
 Der Prompt schlägt vor, der Mensch entscheidet.
 
 
@@ -608,18 +604,15 @@ quellen: eigene Erhebung, Wirtschaftlichkeitsrechnung liegt der Arbeit bei
 
 ### NOTIZ
 
-Damit zu den nächsten Schritten. Die ersten dreißig Tage stehen links:
-Personalrat einbinden, einen Pilotbereich gewinnen, den Assistenten anlegen
-und die Textbausteine sichten.
+Damit zu den nächsten Schritten. Links die ersten dreißig Tage: Personalrat
+einbinden, einen Pilotbereich gewinnen, den Assistenten anlegen, die
+Textbausteine sichten.
 
 Rechts die Ressourcen, denn der häufigste Einwand lautet, das koste zu viel
-Zeit. Ich habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede
-Veranstaltung einzeln zu prüfen wären rund zweihundertneunzig Stunden im
-Jahr. Das muss man aber nicht. Von rund zweitausendachthundert Kursen im
-Semester sind nur zweihundertdreiundneunzig neu. Prüft man nur diese, sind es
-neunundzwanzig Stunden im Jahr, im Pilot vier Stunden in drei Monaten.
-
-Es braucht also keine Beschaffung und keine zusätzliche Stelle.
+Zeit. Jede Veranstaltung einzeln zu prüfen wären rund zweihundertneunzig
+Stunden im Jahr. Von zweitausendachthundert Kursen im Semester sind aber nur
+zweihundertdreiundneunzig neu. Prüft man nur diese, sind es neunundzwanzig
+Stunden im Jahr, im Pilot vier.
 
 
 ## 14 — Erfolgsmessung und Risiken
@@ -644,23 +637,20 @@ quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschn
 
 ### NOTIZ
 
-Und woran würde man merken, ob das Projekt gewirkt hat?
+Und woran würde man merken, ob es gewirkt hat?
 
-In der Mitte stehen die drei Kennzahlen mit Ausgangswert und Ziel. Die
-Befundquote soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
-Pilotbereich sollen geprüft sein. Und die Deutschkurse mit C1-Vokabular sollen
-von neun von dreizehn auf höchstens zwei sinken.
+Drei Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von neunzig
+Prozent unter vierzig fallen. Alle neuen Texte im Pilotbereich sollen geprüft
+sein. Und die Deutschkurse mit C1-Vokabular sollen von neun von dreizehn auf
+höchstens zwei sinken.
 
-Der wichtigste Punkt steht in der letzten Spalte. Die Ausgangsmessung liegt
-bereits vor, und die Nachmessung läuft mit demselben Skript. Ich muss für die
-Erfolgskontrolle nichts Neues aufbauen, und niemand kann später über die
-Messmethode streiten.
+Wichtig ist die letzte Spalte. Die Nachmessung läuft mit demselben Skript wie
+die Ausgangsmessung. Niemand kann später über die Messmethode streiten.
 
-Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur, die Zusage
-schriftlich und vorher zu geben. Misstraut die Redaktion den schwankenden
-Befunden, sind die Pflichtbefunde das Gegenargument, denn die waren stabil.
-Und sollte der KI-Rahmen des Verbands für Frankfurt doch nicht bereitstehen,
-läuft der Prompt auch außerhalb. Das kläre ich im ersten Monat.
+Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur die schriftliche
+Zusage vorher. Misstraut die Redaktion den schwankenden Befunden, sind die
+stabilen Pflichtbefunde das Gegenargument. Und sollte der KI-Rahmen nicht
+bereitstehen, läuft der Prompt auch außerhalb.
 
 
 ## 15 — Schlussfolie
