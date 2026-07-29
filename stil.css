@@ -181,7 +181,11 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* ---------- Typ: tabelle2, zweiter Block nach Einstufung ---------- */
 .kompakt td{ font-size:14px; padding:6px 14px 6px 0; }
 .kompakt th{ padding-bottom:5px; }
-.regeln{ margin-top:2px; }
+/* .body setzt gap:22px zwischen seinen Bloecken. Auf einer Folie mit
+   Tabelle, Regelblock und Callout summiert sich das auf 44px und der
+   Callout rutscht unter die Quellenzeile. Der negative Rand holt das
+   zurueck, ohne den gap fuer alle anderen Folien zu aendern. */
+.regeln{ margin-top:-10px; }
 .regeln .rtitel{ font-size:11px; font-weight:700; letter-spacing:2px;
                  text-transform:uppercase; color:var(--leise);
                  padding-bottom:5px; border-bottom:2px solid var(--marke);
