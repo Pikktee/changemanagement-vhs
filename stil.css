@@ -191,11 +191,17 @@ td.nein{ color:var(--pflicht); font-weight:700; }
    die Ueberschrift darueber ebenfalls eine, stehen zwei blaue Linien mit
    wenigen Pixeln Abstand uebereinander. */
 .tblock .rtitel{ border-bottom:none; padding-bottom:0; margin-bottom:9px; }
-/* Derselbe Stufenblock auf einer Textfolie. Den Abstand nach oben liefert
-   schon der gap des .body, hier kommt nur eine Kleinigkeit dazu. */
+/* Derselbe Stufenblock auf einer Textfolie. Dort traegt er die Folie und hat
+   nur wenige Zeilen, deshalb steht er groesser und luftiger als neben einer
+   Tabelle. Den Abstand nach oben liefert schon der gap des .body. */
 .kblock{ margin-top:6px; }
+.kblock .rzeile{ font-size:16.5px; }
+.kblock .rliste{ gap:11px; }
+.kblock .rstufe{ margin-bottom:12px; }
+.kblock .rgruppe{ padding:4px 0 4px 16px; }
+.kblock .rk{ flex:0 0 96px; }
 /* Fliesstext-Absaetze stehen enger beieinander als die Bloecke der Folie */
-.absaetze{ display:flex; flex-direction:column; gap:6px; }
+.absaetze{ display:flex; flex-direction:column; gap:10px; }
 .absaetze .lede{ margin:0; }
 .rspalten{ display:flex; gap:34px; align-items:flex-start; }
 .rgruppe{ flex:1; min-width:0; padding:2px 0 2px 14px;
