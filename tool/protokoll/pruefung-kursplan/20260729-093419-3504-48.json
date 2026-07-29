@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T09:34:19",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 11.02,
+  "eingabe": {
+    "titel": "Hatha Yoga",
+    "nummer": "3504-48",
+    "programmbereich": "Gesundheit",
+    "niveau": "kein Sprachniveau",
+    "text": "Sie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag."
+  },
+  "benutzernachricht": "KURSTITEL:        Hatha Yoga\nKURSNUMMER:       3504-48\nPROGRAMMBEREICH:  Gesundheit\nNIVEAU:           kein Sprachniveau\nTEXT:\nSie lernen grundlegende Asanas kennen und vertiefen Ihre Yogakenntnisse. Geeignet für alle, die eine moderate Bewegungsform bevorzugen. \n\nHatha Yoga ist klassisches Yoga und die Basis vieler Yogastile. Eine typische Yogastunde beginnt mit Entspannung und Atemübungen, gefolgt von klar angeleiteten Yoga-Haltungen (Asanas), inklusive Variationen für jedes Fitness-Level. Eine erholsame Schlussentspannung rundet die Praxis ab. Regelmäßiges Üben stärkt Flexibilität, Balance und Kraft und unterstützt den ganzheitlichen Stressabbau – für mehr Gelassenheit, Energie und Wohlbefinden im Alltag.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene, die sich für einen Gesundheitskurs interessieren und Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · NIVEAU\n    Stelle:      \"grundlegende Asanas\"\n    Grund:       \"Asanas\" ist ein Fachwort aus dem Sanskrit, das ohne Erklärung verwendet wird.\n    Vorschlag:   \"grundlegende Yoga-Haltungen (Asanas)\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"moderate Bewegungsform\"\n    Grund:       \"moderat\" ist ein gehobenes Wort, wo ein alltägliches möglich wäre.\n    Vorschlag:   \"sanfte Bewegungsform\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"ganzheitlichen Stressabbau\"\n    Grund:       \"ganzheitlich\" ist ein Fachwort aus dem Gesundheitsbereich.\n    Vorschlag:   \"Stressabbau für Körper und Geist\"\n\n[4] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt die Angabe, was mitzubringen ist (z.B. Matte, bequeme Kleidung).\n    Vorschlag:   \"Bitte bringen Sie bequeme Kleidung und eine Yogamatte mit.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, SPRACHE, ABK, SATZ, AMTSDEUTSCH, ANREDE\n\nGESAMT\n4 Befunde, davon 0 Pflicht.\nDer Text ist weitgehend verständlich. Die Fachwörter sollten erklärt oder ersetzt werden, damit auch Yoga-Neulinge den Text gut verstehen können.",
+  "verbrauch": {
+    "prompt_tokens": 8159,
+    "completion_tokens": 480,
+    "total_tokens": 8639,
+    "cost": 0.031677,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.031677,
+      "upstream_inference_prompt_cost": 0.024477,
+      "upstream_inference_completions_cost": 0.0072
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -489,6 +489,9 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
 .prompthinweis{ font-size:12.5px; color:var(--leise); line-height:1.5; margin-bottom:10px; }
 .prompthinweis code{ font-family:var(--schrift-mono); font-size:12px; background:var(--flaeche);
   color:var(--tinte); padding:1px 4px; }
+/* Fehlt der Platzhalter, wird ohne Referenzwortschatz geprueft. Das ist kein
+   Randfall, sondern aendert die Belastbarkeit der Befunde. */
+.prompthinweis.warnton, .prompthinweis.warnton b{ color:var(--pflicht); }
 /* Der Prompt ist deutscher Fliesstext, kein Quelltext: Er laeuft in Atkinson,
    nicht in Mono. Siehe DESIGN.md, „Mono ist eine Anzeigeschrift". */
 #promptText{ flex:1; min-height:280px; font-size:13.5px; line-height:1.65; resize:none; }
@@ -769,12 +772,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
       <div><div class="kl">Prüfsumme</div><div class="kw mono" id="kSumme">–</div></div>
     </div>
 
-    <div class="prompthinweis" id="promptHinweis">
-      Der Text unten geht so an das Modell, mit bereits eingesetztem Referenzwortschatz.
-      Änderungen gelten nur in diesem Browsertab und verändern
-      <code>system-prompt.md</code> nicht. Jeder Lauf mit angepasstem Prompt wird im
-      Protokoll als solcher vermerkt.
-    </div>
+    <div class="prompthinweis" id="promptHinweis"></div>
     <textarea id="promptText" spellcheck="false" aria-label="System-Prompt"></textarea>
   </div>
 
@@ -792,6 +790,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   var el = function(id){ return document.getElementById(id); };
   var status = null;
   var standardPrompt = "";
+  var promptInfo = null;
   var letzterRohtext = "";
   var rohSichtbar = false;
   var letzteBefunde = null;
@@ -879,6 +878,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   function promptHolen(){
     return fetch("/api/prompt").then(function(r){ return r.json(); }).then(function(p){
       standardPrompt = p.prompt || "";
+      promptInfo = p;
       panelZeichnen();
     }).catch(function(){});
   }
@@ -1256,7 +1256,46 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
 
     var feld = el("promptText");
     if(document.activeElement !== feld){ feld.value = promptJetzt(); }
-    el("promptZahl").textContent = zahl(feld.value.length) + " Zeichen";
+    promptFussZeichnen();
+  }
+
+  // Das Feld zeigt den Prompt mit Platzhalter statt der 820 Wörter, sonst wäre
+  // er nicht lesbar. Beides muss trotzdem sichtbar bleiben: wie lang der Text
+  // wirklich ist, der abgeschickt wird, und ob der Platzhalter noch drinsteht.
+  // Wer ihn löscht, prüft ohne Referenz — genau das prüft server.py auch nach.
+  function promptFussZeichnen(){
+    var feld = el("promptText");
+    var p = promptInfo || {};
+    var marke = p.platzhalter || "{{WORTLISTE_A1}}";
+    var delta = Math.max(0, (p.zeichen || 0) - (p.zeichenAnzeige || 0));
+    var eingesetzt = !!p.wortlisteVorhanden && feld.value.indexOf(marke) >= 0;
+
+    var fuss = zahl(feld.value.length) + " Zeichen";
+    if(eingesetzt && delta){
+      fuss += " · mit Wortliste " + zahl(feld.value.length + delta);
+    }
+    el("promptZahl").textContent = fuss;
+
+    var h = el("promptHinweis");
+    var txt;
+    if(!p.wortlisteVorhanden){
+      txt = "<b>Der Referenzwortschatz fehlt.</b> Geprüft wird ohne Liste, "
+          + "die Niveau-Befunde sind dann Schätzungen.";
+    } else if(eingesetzt){
+      txt = "<code>" + esc(marke) + "</code> steht für den Referenzwortschatz aus <code>"
+          + esc(p.wortlisteDatei || "") + "</code>. Der Server setzt dort beim Prüfen "
+          + zahl(p.wortanzahl) + " Wörter ein; im Feld bleibt der Platzhalter, "
+          + "damit der Prompt lesbar bleibt.";
+    } else {
+      txt = "<b>Platzhalter gelöscht.</b> Ohne <code>" + esc(marke) + "</code> geht der Prompt "
+          + "ohne die " + zahl(p.wortanzahl) + " Wörter an das Modell. Die Antwort weist "
+          + "die Niveau-Befunde dann als Schätzung aus.";
+    }
+    h.innerHTML = txt + " Änderungen gelten nur in diesem Browsertab und verändern <code>"
+        + esc(p.promptDatei || "system-prompt.md") + "</code> nicht. Jeder Lauf mit "
+        + "angepasstem Prompt wird im Protokoll als solcher vermerkt.";
+    h.classList.toggle("warnton", !!p.wortlisteVorhanden && !eingesetzt);
+
     el("promptUebernehmen").disabled = feld.value === promptJetzt();
   }
 
@@ -1323,11 +1362,13 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   // Die Ausgabe des Modells ist in Versalien gehalten, weil der Prompt es so
   // verlangt. Auf dem Schirm gelesen wird sie von Menschen, nicht von einem
   // Parser: Aus NIVEAU wird deshalb „Niveau".
+  // Die fünf Kürzel unter der Trennlinie sind seit v7 nicht mehr Teil des
+  // Prompts. Sie stehen hier weiter, damit ältere Protokolle lesbar bleiben.
   var REGELWORT = {
-    STRUKTUR:"Gliederung", LINKTEXT:"Linktext", SPRACHE:"Sprachauszeichnung",
+    STRUKTUR:"Gliederung", LINKTEXT:"Linktext",
     ABK:"Abkürzung", NIVEAU:"Niveau", SATZ:"Satzlänge", AMTSDEUTSCH:"Amtsdeutsch",
-    ANREDE:"Anrede", LEER:"Fehlende Angabe", FREMDANWEISUNG:"Fremdanweisung",
-    BAUSTEIN:"Textbaustein"
+    SPRACHE:"Sprachauszeichnung", ANREDE:"Anrede", LEER:"Fehlende Angabe",
+    FREMDANWEISUNG:"Fremdanweisung", BAUSTEIN:"Textbaustein"
   };
   var STUFENWORT = { PFLICHT:"Pflicht", EMPFEHLUNG:"Empfehlung", HINWEIS:"Hinweis" };
 
@@ -1983,10 +2024,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   });
   el("panelZu").addEventListener("click", function(){ modalSchliessen(panel); });
 
-  el("promptText").addEventListener("input", function(){
-    el("promptZahl").textContent = zahl(el("promptText").value.length) + " Zeichen";
-    el("promptUebernehmen").disabled = el("promptText").value === promptJetzt();
-  });
+  el("promptText").addEventListener("input", promptFussZeichnen);
   el("promptUebernehmen").addEventListener("click", function(){
     var neu = el("promptText").value;
     merker.setze("prompt", neu === standardPrompt ? null : neu);

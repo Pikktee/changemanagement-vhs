@@ -11,34 +11,41 @@ gehen vom übergeordneten Ordner als Arbeitsverzeichnis aus.
 
 ## Woraus die Arbeit besteht
 
-Die Aufgabenstellung schreibt Struktur, Folienzahl und Pflichtinhalte ziemlich
-genau vor. Vier Phasen:
+Die Aufgabenstellung schreibt Struktur, Folienzahl und Pflichtinhalte ungefähr vor. Vier Phasen:
 
-| Phase | Inhalt laut Aufgabe | Wo im Projekt |
-|---|---|---|
-| 1 | Unternehmensanalyse, Ist-Analyse, Potentialermittlung | Folien 3–5 |
-| 2 | Prozessauswahl, Soll-Zustand, System-Prompt nach 6 Komponenten, Implementierungsplanung | Folien 3, 6–8, `system-prompt.md` |
-| 3 | Change Management: Stakeholder, Kommunikation, Widerstand, Quick Wins, KPIs, Schulung | Folien 9–12 |
-| 4 | Präsentationsvorbereitung | `folien.md`, `build.py` |
+### 1. Executive Summary (1-2 Slides)
+- Kurze, prägnante Zusammenfassung des Gesamtkonzepts
+- Enthält: Ausgangssituation, Kernziele, erwartete Ergebnisse und wichtigste Maßnahmen
+- Ziel: Entscheider sollen in 2-3 Minuten die wichtigsten Punkte erfassen können
 
-Die Arbeit entsteht in **Einzelarbeit**. Die Aufgabenstellung geht von Teams
-aus; das ist auf Folie 1 und in Abgabe 2 offengelegt.
+### 2. Unternehmensanalyse & Potentiale (2-3 Slides)
+- Vorstellung des ausgewählten Unternehmens
+- Analyse des IST-Zustands
+- Identifizierte Optimierungspotenziale
+- Quantifizierung der erwarteten Verbesserungen
+
+### 3. System Prompt & technische Implementation (3-4 Slides)
+- Vorstellung des ausgewählten Prozesses
+- Detaillierte Darstellung des entwickelten System Prompts
+- Technische Voraussetzungen
+- Implementierungsschritte
+
+### 4. Change Management Konzept (3-4 Slides)
+- Stakeholder-Matrix (Einfluss-Betroffenheit)
+- integrierte Timeline (Monat 1-3, Technische Implementation: Setup, Pilot, Rollout / Kommunikation: Ankündigung, Training, Support / Change: Vorbereitung, Einbindung, Begleitung)
+
+### 5. Zeitplan & nächste Schritte (1-2 Slides)
+- Konkrete erste Schritte für die nächsten 30 Tage
+- Ressourcenplanung
+- Erfolgsmessung und K
 
 ---
 
 ## Die inhaltliche Kernthese
 
-**Ein Text ist nicht an sich verständlich, sondern nur für eine bestimmte
-Zielgruppe.** Ein Lesbarkeitsindex beanstandet deshalb den Englischkurs, dessen
-Leser fließend Deutsch lesen, und winkt den Deutschkurs auf A2 durch. Der
-Prompt bestimmt zuerst, wer liest, und legt danach zwei verschiedene Maßstäbe
-an. Belegt an zwei echten Kursen: sieben Niveau-Befunde gegen null.
+Ein Text ist nie an sich verständlich, sondern nur für bestimmte Leser. Lesbarkeitsindizes übersehen das: Sie beanstanden den Englischkurs und winken den Deutschkurs auf A2 durch. Der Prompt klärt erst die Zielgruppe, dann den Maßstab. Belegt: sieben Befunde gegen null.
 
-Der Rechtsanspruch trägt das Projekt **nicht** — die entscheidenden
-WCAG-Kriterien sind Stufe AAA und damit nicht verbindlich. Argumentiert wird
-mit der Betriebssatzung: Die Angebote stehen „grundsätzlich allen offen, ohne
-Rücksicht auf Vorbildung". Diese Unterscheidung ist heikel und darf nicht
-verwischt werden.
+Verpflichtet ist die vhs dazu nicht — die maßgeblichen WCAG-Kriterien sind AAA. Das Argument liefert die Betriebssatzung: Angebote „für alle, ohne Rücksicht auf Vorbildung“.
 
 ## Der wichtigste Grundsatz der Umsetzung
 
@@ -46,16 +53,11 @@ verwischt werden.
 
 Das ist zugleich die Change-Argumentation: Technische Barrierefreiheit bleibt
 beim deterministischen Prüfwerkzeug und bei der städtischen IT, die KI
-übernimmt nur den urteilenden Teil bei den Programmbereichen. Zwei
-Zuständigkeiten, zwei Adressaten.
+übernimmt nur den urteilenden Teil bei den Programmbereichen.
 
-Beim Bauen hat sich das zweimal selbst bestätigt: Zwei Zusagen standen zuerst
-im System-Prompt und wurden nicht zuverlässig eingehalten. Beide liegen heute
-in `tool/server.py` — der Ehrlichkeitsvorbehalt bei fehlender Wortliste und die
-Einstufung der Befunde aus der Regeltabelle.
-
-Wenn eine neue Anforderung eine Nachschlagetabelle ist, schreibe sie nicht in
-den Prompt.
+Das ist zweimal beim Bauen passiert (siehe iterationen.md, v4 und v5):
+Zusagen im Prompt hielt das Modell nicht zuverlässig ein, heute stehen sie in tool/server.py.
+Regel daraus: Ist eine neue Anforderung im Kern eine Nachschlagetabelle, schreib sie nicht in den Prompt.
 
 ---
 
@@ -100,8 +102,7 @@ Mal fünf meldet. Läufe, die nicht in die Abgabe sollen, gehören nach
 liegen deckungsgleich in `stil.css`, `dokument.css` und `tool/index.html`.
 Nach jeder Änderung daran `python3 pruefe-design.py` — das Skript rechnet alle
 Kontrastpaare nach und meldet, wenn die drei Dateien auseinanderdriften. Das
-System hält WCAG AAA freiwillig ein; genau das ist das Argument, und es
-zerfällt, sobald eine Folie es reißt.
+System hält WCAG AAA freiwillig ein.
 
 **Server beenden mit `pkill -f "server.py"`.** Das Muster `python3 server.py`
 greift nicht, weil der Prozess als `Python server.py` läuft. Ein übersehener

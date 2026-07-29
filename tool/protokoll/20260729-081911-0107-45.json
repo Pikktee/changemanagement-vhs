@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T08:19:11",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v6 · 28.07.2026",
+  "promptPruefsumme": "2eb42f6fee256b42",
+  "promptPruefsummeStandard": "2eb42f6fee256b42",
+  "promptAngepasst": false,
+  "promptZeichen": 19698,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 1,
+  "dauerSekunden": 13.94,
+  "eingabe": {
+    "titel": "Eschersheim verbindet – Das neue Sufi-Zentrum lädt ein",
+    "nummer": "0107-45",
+    "programmbereich": "Gesellschaft/Politik/Psychologie",
+    "niveau": "kein Sprachniveau",
+    "text": "Die zweite Veranstaltung im neuen Zentrum des MTO Sufi Verband e.V. steht im Zeichen lokaler Vernetzung und eines gemeinsamen Verantwortungsgefühls. Eingeladen sind Anwohnende, Initiativen, Vereine sowie alle Interessierten, um miteinander ins Gespräch zu kommen und zu überlegen, wie das Sufi-Zentrum ein offener Ort des Miteinanders werden kann.\n\nAb 17.30 Uhr \nAnkommen mit Fingerfood\n\n18.00 Uhr \nEinführung „Was ist Sufismus?“ \nDer Verein MTO stellt sich als Schule des Sufismus vor, begleitet von Sufi-Musik\n\n18.20 Uhr \nVorstellungsrunde lokaler Initiativen und Vereine \n\n19.00 Uhr \nFührung durch das Haus \nGibt Einblick in die Geschichte des Gebäudes und die geplanten Nutzungen\n\n19.45 Uhr \nAlle Teilnehmenden sind eingeladen, Ideen einzubringen, wie das Sufi-Zentrum eine gute Ergänzung für den Stadtteil werden kann. \n\n20.30 Uhr\nEnde\n\nHinweis: Die Forscherin und Autorin Dr. Negah Angha (Fellow an der Akademie für Islam in Wissenschaft und Gesellschaft) wird die Veranstaltung fotografisch begleiten. Die Aufnahmen sind für eine geplante Ausstellung „Sufi-Leben in Deutschland – Spiritualität und Demokratie im Alltag“ sowie für ein zweisprachiges Foto-Essay-Buch vorgesehen. \nMit der Anmeldung erklären sich Teilnehmende damit einverstanden, dass im Rahmen der Veranstaltung entstandene Fotos und Beiträge für diese Dokumentationszwecke verwendet werden können.\n\nWeitere Kurse der Reihe \"Sufi-Dialoge – Begegnung, Sinn und Wandel in Eschersheim\":\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/184826\">Interreligiöser Dialog im neuen Sufi-Zentrum - Wege zu Harmonie und Frieden</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/185711\" target=\"_blank\">\"Die Konferenz der Vögel\"</a>"
+  },
+  "benutzernachricht": "KURSTITEL:        Eschersheim verbindet – Das neue Sufi-Zentrum lädt ein\nKURSNUMMER:       0107-45\nPROGRAMMBEREICH:  Gesellschaft/Politik/Psychologie\nNIVEAU:           kein Sprachniveau\nTEXT:\nDie zweite Veranstaltung im neuen Zentrum des MTO Sufi Verband e.V. steht im Zeichen lokaler Vernetzung und eines gemeinsamen Verantwortungsgefühls. Eingeladen sind Anwohnende, Initiativen, Vereine sowie alle Interessierten, um miteinander ins Gespräch zu kommen und zu überlegen, wie das Sufi-Zentrum ein offener Ort des Miteinanders werden kann.\n\nAb 17.30 Uhr \nAnkommen mit Fingerfood\n\n18.00 Uhr \nEinführung „Was ist Sufismus?“ \nDer Verein MTO stellt sich als Schule des Sufismus vor, begleitet von Sufi-Musik\n\n18.20 Uhr \nVorstellungsrunde lokaler Initiativen und Vereine \n\n19.00 Uhr \nFührung durch das Haus \nGibt Einblick in die Geschichte des Gebäudes und die geplanten Nutzungen\n\n19.45 Uhr \nAlle Teilnehmenden sind eingeladen, Ideen einzubringen, wie das Sufi-Zentrum eine gute Ergänzung für den Stadtteil werden kann. \n\n20.30 Uhr\nEnde\n\nHinweis: Die Forscherin und Autorin Dr. Negah Angha (Fellow an der Akademie für Islam in Wissenschaft und Gesellschaft) wird die Veranstaltung fotografisch begleiten. Die Aufnahmen sind für eine geplante Ausstellung „Sufi-Leben in Deutschland – Spiritualität und Demokratie im Alltag“ sowie für ein zweisprachiges Foto-Essay-Buch vorgesehen. \nMit der Anmeldung erklären sich Teilnehmende damit einverstanden, dass im Rahmen der Veranstaltung entstandene Fotos und Beiträge für diese Dokumentationszwecke verwendet werden können.\n\nWeitere Kurse der Reihe \"Sufi-Dialoge – Begegnung, Sinn und Wandel in Eschersheim\":\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/184826\">Interreligiöser Dialog im neuen Sufi-Zentrum - Wege zu Harmonie und Frieden</a>\n<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/185711\" target=\"_blank\">\"Die Konferenz der Vögel\"</a>",
+  "antwort": "ZIELGRUPPE\nErwachsene aus Frankfurt-Eschersheim und Umgebung, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Anwohnende, Initiativen, Vereine sowie alle Interessierten\"\n    Grund:       \"Anwohnende\" und \"Interessierte\" sind substantivierte Partizipien aus der Verwaltungssprache, wo \"Anwohnerinnen und Anwohner\" oder \"alle, die sich dafür interessieren\" verständlicher wären.\n    Vorschlag:   \"Menschen aus der Nachbarschaft, Initiativen, Vereine und alle, die mehr erfahren möchten\"\n\n[2] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"eines gemeinsamen Verantwortungsgefühls\"\n    Grund:       Abstrakte Amtssprache, die eine einfachere Formulierung zulässt.\n    Vorschlag:   \"gemeinsamer Verantwortung für den Stadtteil\"\n\n[3] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Mit der Anmeldung erklären sich Teilnehmende damit einverstanden\"\n    Grund:       Typische Verwaltungsformulierung, die sich alltagssprachlich ausdrücken lässt.\n    Vorschlag:   \"Wer sich anmeldet, ist damit einverstanden\"\n\n[4] PFLICHT · LINKTEXT\n    Stelle:      \"Die Konferenz der Vögel\"\n    Grund:       Der Linktext nennt nur einen Titel ohne Kontext. Linktext lautet \"Die Konferenz der Vögel\".\n    Vorschlag:   \"<a href=\"https://vhs.frankfurt.de/de/portal#/search/detail/185711\" target=\"_blank\">Kurs: \"Die Konferenz der Vögel\"</a>\"\n\n[5] HINWEIS · LEER\n    Stelle:      (gesamter Text)\n    Grund:       Es fehlt eine Angabe zu Kosten oder ob die Veranstaltung kostenfrei ist.\n    Vorschlag:   Ergänzen Sie eine Information zu den Teilnahmegebühren oder vermerken Sie \"kostenfrei\", falls zutreffend.\n\nKEIN BEFUND ZU\nSTRUKTUR, SPRACHE, ABK, NIVEAU, SATZ, ANREDE\n\nGESAMT\n5 Befunde, davon 0 Pflicht.\nDer Text ist überwiegend verständlich geschrieben. Die Amtssprache-Wendungen könnten durch alltagsnähere Formulierungen ersetzt werden, um den einladenden Charakter der Veranstaltung zu unterstreichen. Nach Klärung der fehlenden Kostenangabe ist der Text aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8623,
+    "completion_tokens": 758,
+    "total_tokens": 9381,
+    "cost": 0.037239,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.037239,
+      "upstream_inference_prompt_cost": 0.025869,
+      "upstream_inference_completions_cost": 0.01137
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

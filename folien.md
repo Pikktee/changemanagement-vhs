@@ -47,18 +47,47 @@ liegt der Arbeit bei.
 Am Ende zeige ich das Werkzeug live an einem echten Kurstext.
 
 
-## 2 — Executive Summary
+## 2 — Executive Summary I: Worum es geht
+
+typ: zahlen
+kapitel: ÜBERBLICK
+titel: 5.800 Texte im Jahr,
+akzent: keiner wird geprüft.
+lede: Die vhs Frankfurt veröffentlicht rund 5.800 Kursbeschreibungen im Jahr. Sie entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter.
+zahlen:
+  - "5.800 || Kursbeschreibungen im Jahr"
+  - "90 % || haben mindestens einen Befund || warn"
+  - "0 || Prüfschritte auf Verständlichkeit || warn"
+callout: Ein Text ist nicht an sich verständlich, sondern immer nur für bestimmte Leser.
+calloutsub: Geprüft wird deshalb nicht der Text allein, sondern der Text gegen die Zielgruppe genau dieses Kurses.
+quellen: eigene Erhebung an 60 Kursen, Portalabruf vom 28.07.2026
+
+### NOTIZ
+
+Zuerst das Ganze in der Kurzfassung, und zwar in drei Zahlen.
+
+Die Volkshochschule veröffentlicht rund fünftausendachthundert
+Kursbeschreibungen im Jahr. Ich habe eine Stichprobe von sechzig Kursen
+gezogen: Neun von zehn Texten haben mindestens einen Befund. Und
+dazwischen steht die dritte Zahl. Es gibt null Prüfschritte, an denen jemand
+fragt, ob die Zielgruppe den Text überhaupt versteht.
+
+Der Satz unten ist die These, um die es in den nächsten zwanzig Minuten geht.
+Ein Text ist nicht an sich verständlich, sondern immer nur für bestimmte
+Leser. Deshalb genügt es nicht, den Text anzusehen. Man muss wissen, für wen
+er ist.
+
+
+## 3 — Executive Summary II: Der Vorschlag
 
 typ: punkte
 kapitel: ÜBERBLICK
 bild: bilder/02-teile-ganzes.jpg
-bu: Sechs Teile, ein Bild.
+bu: Einzelne Teile, ein Konzept.
 bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Das Ganze
-akzent: in sechs Sätzen.
+titel: Was ich vorschlage,
+akzent: und was dabei herauskommt.
 punkte:
-  - "**Ausgangslage** || Die vhs Frankfurt veröffentlicht rund 5.800 Kursbeschreibungen im Jahr. Niemand prüft sie vor der Veröffentlichung auf Verständlichkeit."
-  - "**Befund** || In einer Stichprobe von 60 Kursen haben 90 Prozent mindestens einen Befund. Beschreibungen von Deutschkursen liegen sprachlich über dem Niveau ihrer Zielgruppe."
   - "**Ziel** || Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe genau dieses Kurses geprüft."
   - "**Lösung** || Ein System-Prompt im bereits vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Technische Barrierefreiheit prüft weiterhin ein deterministisches Werkzeug. Die KI übernimmt nur, was Urteil verlangt."
@@ -68,31 +97,23 @@ calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 
 ### NOTIZ
 
-Zuerst das Ganze in der Kurzfassung.
+Daraus folgt mein Vorschlag, und er passt in vier Zeilen.
 
-Die Volkshochschule veröffentlicht rund fünftausendachthundert
-Kursbeschreibungen im Jahr. Diese Texte entstehen in acht Programmbereichen,
-und niemand prüft sie vor der Veröffentlichung darauf, ob die Zielgruppe sie
-versteht.
+Das Ziel: Jeder Kurstext wird vor der Veröffentlichung gegen die Zielgruppe
+genau dieses Kurses geprüft. Die Lösung ist ein System-Prompt in einem
+KI-Rahmen, den der Volkshochschul-Verband für alle Volkshochschulen
+bereitstellt. Er existiert bereits, es muss also nichts beschafft werden.
 
-Ich habe eine Stichprobe von sechzig Kursen gezogen. Neun von zehn Texten
-haben mindestens einen Befund. Der wichtigste: Bei Deutschkursen liegt die
-Beschreibung sprachlich über dem Niveau, das der Kurs erst vermitteln soll.
+Eine Abgrenzung ist mir wichtig, und sie zieht sich durch das ganze Konzept.
+Für die technische Barrierefreiheit bleibt ein normales Prüfwerkzeug
+zuständig. Die KI übernimmt nur den Teil, der Urteil verlangt.
 
-Mein Vorschlag ist ein System-Prompt, der jeden Text gegen die Zielgruppe
-genau dieses Kurses prüft. Die technische Grundlage existiert bereits, denn
-der Volkshochschul-Verband stellt einen datenschutzkonformen KI-Rahmen für
-alle Volkshochschulen bereit. Es muss nichts beschafft werden.
-
-Eine Abgrenzung ist mir wichtig: Für die technische Barrierefreiheit bleibt
-ein normales Prüfwerkzeug zuständig. Die KI übernimmt nur den Teil, der
-Urteil verlangt.
-
-Der Satz unten ist das Leitprinzip. Der Prompt schlägt vor, der Mensch
-entscheidet.
+Unten steht, worum ich am Ende bitte: um einen Piloten in einem
+Programmbereich, drei Monate, ohne Beschaffung. Und daneben das Leitprinzip.
+Der Prompt schlägt vor, der Mensch entscheidet.
 
 
-## 3 — Das Haus und der Prozess heute
+## 4 — Das Haus und der Prozess heute
 
 typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
@@ -151,7 +172,7 @@ branchenübliche Rollenverteilung. Das ist eine begründete Annahme, keine
 Messung.
 
 
-## 4 — Messung und eigentlicher Befund
+## 5 — Messung und eigentlicher Befund
 
 typ: tabelle
 kapitel: 01 · POTENZIALERMITTLUNG
@@ -204,7 +225,7 @@ C1-Vokabular über einem Kurs, den man mit A1 beginnt. Genau hier kann ein
 fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 
 
-## 5 — Rechtslage
+## 6 — Rechtslage
 
 typ: text
 kapitel: 01 · EINORDNUNG
@@ -255,7 +276,7 @@ Für ein Haus, dessen Satzung sagt, die Angebote stünden allen offen ohne
 Rücksicht auf Vorbildung, ist das nicht vertretbar.
 
 
-## 6 — Die Arbeitsteilung
+## 7 — Die Arbeitsteilung
 
 typ: zweispalt
 kapitel: 02 · LÖSUNG
@@ -314,7 +335,7 @@ Assistenten und die Wortliste als Datei. Kein neuer Vertrag, kein Eingriff ins
 Kursverwaltungssystem.
 
 
-## 7 — Der Prompt in sechs Bausteinen
+## 8 — Der Prompt in sechs Bausteinen
 
 typ: tabelle
 kapitel: 02 · SYSTEM-PROMPT
@@ -367,7 +388,7 @@ Bewertung natürlicher Personen voraus. Und er ist die Antwort auf die Frage
 des Personalrats, ob hier Leistung kontrolliert wird.
 
 
-## 8 — Ein Durchlauf am echten Text
+## 9 — Ein Durchlauf am echten Text
 
 typ: zweispalt
 kapitel: 02 · SYSTEM-PROMPT
@@ -422,7 +443,7 @@ erkannt. Der ist mein Quick Win, denn ich habe nachgezählt: Er steht wortgleich
 über sechsunddreißig Kursen.
 
 
-## 9 — Stakeholder
+## 10 — Stakeholder
 
 typ: matrix
 kapitel: 03 · CHANGE MANAGEMENT
@@ -470,7 +491,7 @@ trennschärfer, weil die Kursleitungen sehr betroffen sind, ohne besonderes
 Interesse an dem Thema zu haben.
 
 
-## 10 — Widerstand
+## 11 — Widerstand
 
 typ: zweispalt
 kapitel: 03 · CHANGE MANAGEMENT
@@ -522,7 +543,7 @@ machen. Konkret heißt das, dass der Pilotbereich selbst entscheidet, welche
 der neun Prüfregeln zuerst scharf gestellt werden.
 
 
-## 11 — Timeline
+## 12 — Timeline
 
 typ: timeline
 kapitel: 03 · CHANGE MANAGEMENT
@@ -559,7 +580,49 @@ handeln. Der Quick Win mit den Textbausteinen liegt im zweiten Monat, weil er
 dann auf eine schon geweckte Erwartung trifft.
 
 
-## 12 — Nächste Schritte, Kennzahlen, Risiken
+## 13 — Die ersten 30 Tage und die Ressourcen
+
+typ: zweispalt
+kapitel: 03 · ZEITPLAN UND RESSOURCEN
+bild: bilder/11-zeitleiste.jpg
+bu: Was in den ersten Wochen passiert.
+bildprompt: Waagerechte Zeitleiste als dicker Balken mit unterschiedlich hohen Markierungen. Flach-geometrisch, Bauhaus, keine Schrift.
+titel: Die ersten 30 Tage,
+akzent: und was sie kosten.
+klein: ja
+spalte1: ERSTE 30 TAGE
+punkte1:
+  - "Personalrat einbinden, Zusicherung schriftlich vorlegen"
+  - "Einen Programmbereich als Pilotbereich gewinnen"
+  - "Assistent im vorhandenen KI-Rahmen anlegen"
+  - "Textbausteine sichten, den Quick Win vorbereiten"
+spalte2: RESSOURCEN
+punkte2:
+  - "Pilot: rund 4 Stunden in drei Monaten"
+  - "Regelbetrieb: 29 Stunden im Jahr für alle neuen Texte"
+  - "Von rund 2.800 Kursen im Semester sind nur 293 neu"
+  - "Keine Beschaffung, keine zusätzliche Stelle"
+callout: Alle Veranstaltungen einzeln zu prüfen wären 290 Stunden im Jahr. Nur die neuen zu prüfen sind 29.
+calloutsub: Nachgerechnet an 489 Kursen über die Portalschnittstelle, nicht geschätzt.
+quellen: eigene Erhebung, Wirtschaftlichkeitsrechnung liegt der Arbeit bei
+
+### NOTIZ
+
+Damit zu den nächsten Schritten. Die ersten dreißig Tage stehen links:
+Personalrat einbinden, einen Pilotbereich gewinnen, den Assistenten anlegen
+und die Textbausteine sichten.
+
+Rechts die Ressourcen, denn der häufigste Einwand lautet, das koste zu viel
+Zeit. Ich habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede
+Veranstaltung einzeln zu prüfen wären rund zweihundertneunzig Stunden im
+Jahr. Das muss man aber nicht. Von rund zweitausendachthundert Kursen im
+Semester sind nur zweihundertdreiundneunzig neu. Prüft man nur diese, sind es
+neunundzwanzig Stunden im Jahr, im Pilot vier Stunden in drei Monaten.
+
+Es braucht also keine Beschaffung und keine zusätzliche Stelle.
+
+
+## 14 — Erfolgsmessung und Risiken
 
 typ: tabelle
 kapitel: 03 · ERFOLGSMESSUNG
@@ -569,7 +632,7 @@ bildprompt: Geometrische Waage, Balken auf dreieckigem Drehpunkt, Kreis und Quad
 titel: Woran man merkt,
 akzent: ob es gewirkt hat.
 klein: ja
-lede: Erste 30 Tage: Personalrat einbinden, Pilotbereich gewinnen, Textbausteine überarbeiten. Aufwand im Pilot rund 4 Stunden, im Regelbetrieb 29 Stunden im Jahr für alle neuen Texte. Keine Beschaffung, keine zusätzliche Stelle.
+lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben Skript — für die Erfolgskontrolle muss nichts Neues aufgebaut werden.
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
   - "Texte mit mindestens einem Befund | 90 % | ! unter 40 % | demselben Skript wie die Ausgangsmessung"
@@ -581,27 +644,17 @@ quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschn
 
 ### NOTIZ
 
-Zum Schluss die Frage, woran man merken würde, ob das Projekt gewirkt hat.
+Und woran würde man merken, ob das Projekt gewirkt hat?
 
-Oben die ersten dreißig Tage: Personalrat einbinden, einen Pilotbereich
-gewinnen, die Textbausteine überarbeiten.
-
-Zu den Ressourcen. Der häufigste Einwand lautet, das koste zu viel Zeit. Ich
-habe das an vierhundertneunundachtzig Kursen nachgerechnet. Jede Veranstaltung
-einzeln zu prüfen wären rund zweihundertneunzig Stunden im Jahr. Das muss man
-aber nicht, denn von rund zweitausendachthundert Kursen im Semester sind nur
-zweihundertdreiundneunzig neu. Prüft man nur diese, sind es neunundzwanzig
-Stunden im Jahr. Im Pilot vier Stunden in drei Monaten.
-
-In der Mitte die drei Kennzahlen mit Ausgangswert und Ziel. Die Befundquote
-soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
+In der Mitte stehen die drei Kennzahlen mit Ausgangswert und Ziel. Die
+Befundquote soll von neunzig Prozent unter vierzig fallen. Alle neuen Texte im
 Pilotbereich sollen geprüft sein. Und die Deutschkurse mit C1-Vokabular sollen
 von neun von dreizehn auf höchstens zwei sinken.
 
 Der wichtigste Punkt steht in der letzten Spalte. Die Ausgangsmessung liegt
-bereits vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben
-Skript. Ich muss für die Erfolgskontrolle nichts Neues aufbauen, und niemand
-kann später über die Messmethode streiten.
+bereits vor, und die Nachmessung läuft mit demselben Skript. Ich muss für die
+Erfolgskontrolle nichts Neues aufbauen, und niemand kann später über die
+Messmethode streiten.
 
 Unten die drei Risiken. Stockt die Mitbestimmung, hilft nur, die Zusage
 schriftlich und vorher zu geben. Misstraut die Redaktion den schwankenden
@@ -610,7 +663,7 @@ Und sollte der KI-Rahmen des Verbands für Frankfurt doch nicht bereitstehen,
 läuft der Prompt auch außerhalb. Das kläre ich im ersten Monat.
 
 
-## 13 — Schlussfolie
+## 15 — Schlussfolie
 
 typ: schluss
 bild: bilder/15-durchgang.jpg

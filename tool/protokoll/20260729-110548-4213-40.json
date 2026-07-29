@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T11:05:48",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.0,
+  "temperaturStandard": 0.0,
+  "promptFassung": "v8 · 29.07.2026",
+  "promptPruefsumme": "1f2df6ce4ba83763",
+  "promptPruefsummeStandard": "1f2df6ce4ba83763",
+  "promptAngepasst": false,
+  "promptZeichen": 19495,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 1,
+  "dauerSekunden": 11.63,
+  "eingabe": {
+    "titel": "Englisch A1.1 (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1 (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene ohne Vorkenntnisse in Englisch, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] PFLICHT · STRUKTUR\n    Stelle:      \"*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\"\n    Grund:       Die Aufzählungspunkte sind nur durch Sternchen markiert, nicht als Liste ausgezeichnet. Für Screenreader-Nutzerinnen ist nicht erkennbar, dass hier eine Aufzählung beginnt.\n    Vorschlag:   \"<ul><li>sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)</li><li>über Familie zu sprechen und Familienangehörige und Freunde vorzustellen</li><li>einfache Gegenwart (Present Simple) zu benutzen</li><li>Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen</li></ul>\"\n\n[2] EMPFEHLUNG · ABK\n    Stelle:      \"Dr. Liliya Karpynska\"\n    Grund:       Die Abkürzung \"Dr.\" wird nicht aufgelöst. Für Leserinnen, die mit akademischen Titeln nicht vertraut sind, bleibt unklar, was die Abkürzung bedeutet.\n    Vorschlag:   \"Dr. (Doktorin) Liliya Karpynska\" oder \"Doktorin Liliya Karpynska\"\n\n[3] EMPFEHLUNG · SATZ\n    Stelle:      \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.\"\n    Grund:       Der Satz hat 27 Wörter und enthält drei verschachtelte Bedingungen, was die Verständlichkeit erschwert.\n    Vorschlag:   \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine. Bei 7 Anmeldungen läuft er über 9 Termine. Bei 6 Anmeldungen läuft er über 7 Termine.\"\n\nKEIN BEFUND ZU\nLINKTEXT, NIVEAU, AMTSDEUTSCH\n\nGESAMT\n3 Befunde, davon 0 Pflicht.\nDer Text ist verständlich geschrieben und verwendet eine klare, zugängliche Sprache. Die Befunde betreffen technische Auszeichnung und Satzlänge, die Verbesserungen würden die Lesbarkeit weiter erhöhen.",
+  "verbrauch": {
+    "prompt_tokens": 8213,
+    "completion_tokens": 709,
+    "total_tokens": 8922,
+    "cost": 0.035274,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.035274,
+      "upstream_inference_prompt_cost": 0.024639,
+      "upstream_inference_completions_cost": 0.010635
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

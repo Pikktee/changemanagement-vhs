@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T10:47:22",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.1,
+  "temperaturStandard": 0.1,
+  "promptFassung": "v7 · 29.07.2026",
+  "promptPruefsumme": "cf1234ee963990d8",
+  "promptPruefsummeStandard": "cf1234ee963990d8",
+  "promptAngepasst": false,
+  "promptZeichen": 19017,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 13.37,
+  "eingabe": {
+    "titel": "DaF Deutsch 4 A2.2 (A2)",
+    "nummer": "4074-74",
+    "programmbereich": "Deutsch als Fremdsprache",
+    "niveau": "A2",
+    "text": "Hinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2."
+  },
+  "benutzernachricht": "KURSTITEL:        DaF Deutsch 4 A2.2 (A2)\nKURSNUMMER:       4074-74\nPROGRAMMBEREICH:  Deutsch als Fremdsprache\nNIVEAU:           A2\nTEXT:\nHinweis zur Anmeldung:\nEine Anmeldung zum Kurs erfolgt idealerweise über einen Termin bei der Sprachberatung DaF. Eine individuelle Buchung ist nach Selbsteinschätzung und Online-Test ebenfalls möglich.\nDiesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>hier</a> ablegen. \nBei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\n\n\nSie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen, z. B. Informationen zur Person, Familie, Einkaufen, Arbeit etc. Sie können in einfachen Situationen Informationen austauschen und Dinge des alltäglichen Lebens beschreiben. Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.",
+  "antwort": "ZIELGRUPPE\nLernende, die Deutsch auf A1-Niveau lesen, also auf der Stufe unterhalb des Kursziels A2.\n\nBEFUNDE\n[1] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"idealerweise über einen Termin bei der Sprachberatung\"\n    Grund:       \"idealerweise\" ist Verwaltungssprache, für A1-Leserinnen unnötig schwer\n    Vorschlag:   \"am besten über einen Termin bei der Sprachberatung\"\n\n[2] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Eine individuelle Buchung ist nach Selbsteinschätzung\"\n    Grund:       \"Selbsteinschätzung\" ist ein zusammengesetztes Verwaltungswort, das auf A1 nicht erschließbar ist\n    Vorschlag:   \"Sie können sich auch selbst anmelden, wenn Sie Ihr Niveau kennen\"\n\n[3] PFLICHT · LINKTEXT\n    Stelle:      \"Diesen können Sie hier ablegen.\"\n    Grund:       Linktext lautet \"hier\", der Linkzweck ist ohne den vorherigen Satz nicht erkennbar\n    Vorschlag:   \"Diesen können Sie <a href=https://vhs-frankfurt.eurotest.me/de/register>online machen</a>.\"\n\n[4] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"Bei einer Fehleinschätzung können wir eine Umbuchung allerdings nicht garantieren.\"\n    Grund:       \"Fehleinschätzung\" und \"Umbuchung\" sind Verwaltungswörter, die auf A1 nicht bekannt sind\n    Vorschlag:   \"Wenn Sie das falsche Niveau wählen, können wir Sie vielleicht nicht in einen anderen Kurs wechseln.\"\n\n[5] EMPFEHLUNG · NIVEAU, SATZ\n    Stelle:      \"Sie lernen in den Kursen der Niveaustufe A2 oft gebrauchte Ausdrücke in Alltagssituationen verstehen\"\n    Grund:       \"Niveaustufe\" steht nicht auf der A1-Liste, und der Satz hat 26 Wörter\n    Vorschlag:   \"In diesem Kurs lernen Sie Wörter und Sätze für den Alltag verstehen.\"\n\n[6] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Die Niveaustufe A2 umfasst die Teilstufen A2.1 und A2.2.\"\n    Grund:       \"umfasst\" und \"Teilstufen\" stehen nicht auf der A1-Liste\n    Vorschlag:   \"A2 hat zwei Teile: A2.1 und A2.2.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, ABK\n\nGESAMT\n6 Befunde, davon 1 Pflicht.\nDer Text enthält mehrere Verwaltungswörter und Fachbegriffe, die für A1-Lernende zu schwer sind. Der Linktext-Befund ist verpflichtend zu korrigieren.",
+  "verbrauch": {
+    "prompt_tokens": 7941,
+    "completion_tokens": 816,
+    "total_tokens": 8757,
+    "cost": 0.036063,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.036063,
+      "upstream_inference_prompt_cost": 0.023823,
+      "upstream_inference_completions_cost": 0.01224
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

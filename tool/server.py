@@ -67,7 +67,7 @@ MODELL_IDS = {m["id"] for m in MODELLE_WAHL} | {MODELL_ERSATZ}
 
 # Niedrig, weil es um Reproduzierbarkeit geht: derselbe Text soll in der
 # Vorfuehrung dieselben Befunde ergeben wie im Test.
-TEMPERATUR = 0.1
+TEMPERATUR = 0.0
 MAX_TOKENS = 4000
 TIMEOUT = 240
 # Ein angepasster Prompt darf lang sein, aber nicht beliebig. Der Wert liegt
@@ -189,6 +189,8 @@ def prompt_bauen(erzwingen=False):
         except OSError as err:
             daten = {
                 "prompt": None,
+                "promptAnzeige": None,
+                "wortlisteText": "",
                 "fehler": "System-Prompt nicht lesbar (%s): %s" % (PROMPT_DATEI.name, err),
                 "fassung": "unbekannt",
                 "wortlisteVorhanden": False,
@@ -214,8 +216,16 @@ def prompt_bauen(erzwingen=False):
         wortliste, anzahl = _wortliste_lesen()
         prompt = koerper.replace(PLATZHALTER, wortliste if anzahl else FEHLT_MARKE)
 
+        # Zwei Fassungen desselben Prompts. `prompt` geht an das Modell und hat
+        # die Liste eingesetzt; `promptAnzeige` behaelt den Platzhalter, damit
+        # das Panel lesbar bleibt. Fehlt die Liste, zeigt die Anzeige die
+        # Fehlt-Marke -- gerade dann ist der Zustand die wichtige Information.
+        anzeige = koerper if anzahl else prompt
+
         daten = {
             "prompt": prompt,
+            "promptAnzeige": anzeige,
+            "wortlisteText": wortliste,
             "fehler": None,
             "fassung": fassung,
             "wortlisteVorhanden": anzahl > 0,
@@ -611,20 +621,16 @@ def ehrlichkeitshinweis(inhalt, wortliste_vorhanden):
 # Sie steht auch im Prompt, aber das Modell hielt sich nicht zuverlaessig
 # daran: derselbe Text ergab einmal PFLICHT, einmal HINWEIS. Woran haengt, ob
 # ein Befund rechtlich gefordert oder eine Stilfrage ist, gehoert nicht in ein
-# Ermessen. BAUSTEIN und FREMDANWEISUNG sind Kennzeichnungen, keine Regeln;
-# sie stehen hier mit ihrer Einstufung, damit die Zeile vollstaendig bleibt.
+# Ermessen.
+# Seit v7 gibt es nur noch sechs Regeln und zwei Stufen; HINWEIS ist entfallen.
+# Der Rang bleibt dreistufig, damit aeltere Protokolle lesbar bleiben.
 EINSTUFUNGEN = {
     "STRUKTUR": "PFLICHT",
     "LINKTEXT": "PFLICHT",
-    "SPRACHE": "PFLICHT",
     "ABK": "EMPFEHLUNG",
     "NIVEAU": "EMPFEHLUNG",
     "SATZ": "EMPFEHLUNG",
     "AMTSDEUTSCH": "EMPFEHLUNG",
-    "ANREDE": "HINWEIS",
-    "LEER": "HINWEIS",
-    "FREMDANWEISUNG": "HINWEIS",
-    "BAUSTEIN": "HINWEIS",
 }
 RANG = {"PFLICHT": 3, "EMPFEHLUNG": 2, "HINWEIS": 1}
 
@@ -769,11 +775,20 @@ class Handler(BaseHTTPRequestHandler):
         self.send_json(404, {"error": "Kurs nicht gefunden."})
 
     def prompt_ausliefern(self):
-        """Liefert den Prompt so, wie er an das Modell geht: mit eingesetzter
-        Wortliste. Das Panel zeigt genau den Text, mit dem geprüft wird."""
+        """Liefert den Prompt fuer das Panel, mit Platzhalter statt Wortliste.
+
+        Die 820 Eintraege wuerden das Textfeld unlesbar machen. Der Server
+        setzt den Platzhalter beim Pruefen wieder ein, das Panel zeigt daneben
+        an, wie viele Woerter dort einruecken. `zeichen` und `pruefsumme`
+        bleiben die Werte des vollstaendigen Prompts, denn geprueft wird mit
+        diesem; `zeichenAnzeige` gehoert zum Text im Feld.
+        """
         p = prompt_bauen()
+        anzeige = p["promptAnzeige"] or ""
         self.send_json(200, {
-            "prompt": p["prompt"] or "",
+            "prompt": anzeige,
+            "platzhalter": PLATZHALTER,
+            "zeichenAnzeige": len(anzeige),
             "fehler": p["fehler"],
             "fassung": p["fassung"],
             "zeichen": p["zeichen"],
@@ -870,10 +885,14 @@ class Handler(BaseHTTPRequestHandler):
         # Prompt, Modell und Temperatur duerfen aus dem Panel kommen. Was davon
         # vom Standard abweicht, steht in der Antwort und im Protokoll: ein
         # Lauf mit veraendertem Prompt darf nicht aussehen wie ein Standardlauf.
+        # Das Panel bekommt den Prompt mit Platzhalter; er wird hier wieder
+        # ersetzt, bevor verglichen wird. Sonst gaelte jeder Lauf als angepasst.
         prompt_text = p["prompt"]
         prompt_angepasst = False
         roh_prompt = payload.get("prompt")
         if isinstance(roh_prompt, str) and roh_prompt.strip():
+            if p["wortanzahl"]:
+                roh_prompt = roh_prompt.replace(PLATZHALTER, p["wortlisteText"])
             if len(roh_prompt) > PROMPT_MAX:
                 self.send_json(400, {"error":
                     "Der angepasste Prompt ist zu lang (höchstens %s Zeichen)."
@@ -882,6 +901,12 @@ class Handler(BaseHTTPRequestHandler):
             if roh_prompt.strip() != prompt_text.strip():
                 prompt_text = roh_prompt
                 prompt_angepasst = True
+
+        # Der Ehrlichkeitsvorbehalt haengt daran, ob die Liste in dem Prompt
+        # steht, der wirklich abgeschickt wird -- nicht daran, ob die Datei auf
+        # der Platte liegt. Wer den Platzhalter aus dem Panel loescht, prueft
+        # ohne Referenz; das muss in der Ausgabe stehen.
+        wortliste_wirksam = bool(p["wortanzahl"]) and p["wortlisteText"] in prompt_text
 
         pruefsumme = hashlib.sha256(prompt_text.encode("utf-8")).hexdigest()[:16]
 
@@ -921,7 +946,7 @@ class Handler(BaseHTTPRequestHandler):
             inhalt, korrekturen = einstufung_normieren(inhalt)
             if korrekturen:
                 log("Einstufung korrigiert: %d Zeile(n)" % korrekturen)
-            inhalt = ehrlichkeitshinweis(inhalt, p["wortlisteVorhanden"])
+            inhalt = ehrlichkeitshinweis(inhalt, wortliste_wirksam)
 
             eintrag = {
                 "zeitpunkt": datetime.now().isoformat(timespec="seconds"),
@@ -937,7 +962,7 @@ class Handler(BaseHTTPRequestHandler):
                 "promptAngepasst": prompt_angepasst,
                 "promptZeichen": len(prompt_text),
                 "abweichungVomStandard": abweichung,
-                "wortlisteVorhanden": p["wortlisteVorhanden"],
+                "wortlisteVorhanden": wortliste_wirksam,
                 "wortanzahl": p["wortanzahl"],
                 "einstufungKorrigiert": korrekturen,
                 "dauerSekunden": dauer,
@@ -963,7 +988,7 @@ class Handler(BaseHTTPRequestHandler):
                 "promptAngepasst": prompt_angepasst,
                 "promptPruefsumme": pruefsumme,
                 "abweichungVomStandard": abweichung,
-                "wortlisteVorhanden": p["wortlisteVorhanden"],
+                "wortlisteVorhanden": wortliste_wirksam,
                 "wortanzahl": p["wortanzahl"],
                 "einstufungKorrigiert": korrekturen,
                 "dauerSekunden": dauer,
