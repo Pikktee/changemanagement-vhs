@@ -632,10 +632,15 @@ zeigen jeweils dorthin, wo sie zunehmen.
 
 Oben rechts stehen die vier, die eng eingebunden werden müssen. Der Direktor,
 der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
-ist. Die vier Fachbereiche, die die acht Programmbereiche organisieren und
-damit die Texte verantworten. Die Redaktion des Programmhefts, die es für den
-Druck bereits gibt und die deshalb schon weiß, wie Textprüfung geht. Und der
-Personalrat, der zwei Sitze in der Betriebskommission hat.
+ist. Der Fachbereich, zu dem der Pilotbereich gehört — und zwar nur dieser
+eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot mehr.
+Die Redaktion des Programmhefts, die es für den Druck bereits gibt und die
+deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, der zwei Sitze
+in der Betriebskommission hat.
+
+Deshalb stehen die sieben übrigen Programmbereiche unten links, bei
+informieren. Sie sollen wissen, dass es läuft, und sie sollen sehen, was
+herauskommt. Aber sie sind im Pilot nicht dabei.
 
 Oben links stehen drei mit hohem Einfluss, aber geringer Betroffenheit, weil
 mein Projekt ihre Arbeit nicht verändert. Die städtische IT, die für die
@@ -644,14 +649,14 @@ Impressum das Portal programmiert — sie wird erst wichtig, wenn die Prüfung
 später ins Redaktionssystem soll. Und die Betriebskommission, das
 Aufsichtsgremium eines städtischen Eigenbetriebs.
 
-Unten links steht einer, der nur informiert wird: der Deutsche
-Volkshochschul-Verband. Er stellt den KI-Rahmen bereit, den ich nutze, ist
-davon aber nicht betroffen. Dieser Quadrant ist der leerste, und das ist kein
-Versehen. Ich hatte hier zuerst mehr eingetragen, unter anderem die Kämmerei
-und die hessische Durchsetzungsstelle. Beide habe ich gestrichen. Es fließt
-kein Geld, also ist die Kämmerei nicht beteiligt. Und mit einer
-Aufsichtsbehörde zu drohen wäre unredlich, wenn die Kriterien, um die es geht,
-ausdrücklich freiwillig sind.
+Daneben steht dort der Deutsche Volkshochschul-Verband. Er stellt den
+KI-Rahmen bereit, den ich nutze, ist von dem Projekt aber nicht betroffen.
+
+Ein Wort dazu, was in dieser Matrix nicht steht. Ich hatte zuerst mehr
+eingetragen, unter anderem die Kämmerei und die hessische Durchsetzungsstelle.
+Beide habe ich gestrichen. Es fließt kein Geld, also ist die Kämmerei nicht
+beteiligt. Und mit einer Aufsichtsbehörde zu drohen wäre unredlich, wenn die
+Kriterien, um die es geht, ausdrücklich freiwillig sind.
 
 Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
 Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
