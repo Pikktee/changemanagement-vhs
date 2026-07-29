@@ -320,7 +320,7 @@ def t_zweispalt(f, seite_, gesamt):
                  f'<div class="spalten">{"".join(sp)}</div>{callout(f)}')
 
 
-def t_tabelle(f, seite_, gesamt):
+def _tabelle_html(f):
     kopfz = [x.strip() for x in f.get("spalten", "").split("|")]
     ths = "".join(f"<th>{e(k)}</th>" for k in kopfz)
     trs = []
@@ -340,8 +340,52 @@ def t_tabelle(f, seite_, gesamt):
                 kl = ' class="num"'
             tds.append(f"<td{kl}>{e(z)}</td>")
         trs.append(f"<tr>{''.join(tds)}</tr>")
-    tab = f'<table><thead><tr>{ths}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
-    return seite(f, seite_, gesamt, tab + callout(f))
+    return f'<table><thead><tr>{ths}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
+
+
+def t_tabelle(f, seite_, gesamt):
+    return seite(f, seite_, gesamt, _tabelle_html(f) + callout(f))
+
+
+def t_tabelle2(f, seite_, gesamt):
+    """Tabelle plus ein zweiter, kompakterer Block darunter.
+
+    Der zweite Block ist nach Einstufung gruppiert. Geschrieben wird er als
+    'Stufe | Kuerzel | Erklaerung'; bleibt die erste Zelle leer, gehoert die
+    Zeile zur Gruppe darueber:
+
+        regeln:
+          - "PFLICHT | STRUKTUR | Ueberschrift, die keine ist"
+          - "| LINKTEXT | sagt nicht, wohin der Link fuehrt"
+
+    Die Stufe steht als Wort da und nicht nur als Farbe — die Unterscheidung
+    darf nach WCAG 1.4.1 nicht allein an der Farbe haengen.
+    """
+    gruppen = []
+    for zeile in f.get("regeln", []):
+        teile = [x.strip() for x in str(zeile).split("|")]
+        teile += [""] * (3 - len(teile))
+        stufe, kuerzel, text = teile[0], teile[1], teile[2]
+        if stufe or not gruppen:
+            kl = "pflicht" if stufe.upper().startswith("PFLICHT") else "empfehlung"
+            gruppen.append({"stufe": stufe, "kl": kl, "zeilen": []})
+        gruppen[-1]["zeilen"].append((kuerzel, text))
+
+    bloecke = []
+    for g in gruppen:
+        zs = "".join(
+            f'<div class="rzeile"><span class="rk">{e(k)}</span>'
+            f'<span class="rt">{e(t)}</span></div>'
+            for k, t in g["zeilen"])
+        bloecke.append(
+            f'<div class="rgruppe {g["kl"]}">'
+            f'<div class="rstufe">{e(g["stufe"])}</div>'
+            f'<div class="rliste">{zs}</div></div>')
+
+    titel = f.get("regelntitel", "")
+    kopf = f'<div class="rtitel">{e(titel)}</div>' if titel else ""
+    block = f'<div class="regeln">{kopf}{"".join(bloecke)}</div>'
+    return seite(f, seite_, gesamt, _tabelle_html(f) + block + callout(f))
 
 
 def t_zitat(f, seite_, gesamt):
@@ -415,6 +459,7 @@ TYPEN = {
     "zahlen":    t_zahlen,
     "zweispalt": t_zweispalt,
     "tabelle":   t_tabelle,
+    "tabelle2":  t_tabelle2,
     "zitat":     t_zitat,
     "text":      t_text,
     "matrix":    t_matrix,

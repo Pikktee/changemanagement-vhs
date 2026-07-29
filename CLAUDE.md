@@ -210,6 +210,11 @@ Fenster **22 Minuten**: rund 18 für die Folien, 4 für die Vorführung des
 Werkzeugs. `build.py` rechnet die Sprechzeit bei jedem Build mit 125 Wörtern
 pro Minute aus und meldet die Abweichung zum Ziel (`ZIEL_SEK` in `build.py`).
 
+**Diese Meldung ist während der Arbeit kein Kriterium.** Sprechnotizen dürfen
+ausführlich sein. Gekürzt wird erst zum Schluss in einem eigenen Durchgang,
+und zwar dort, wo es am wenigsten kostet. Die Zeit nicht bei jeder inhaltlichen
+Änderung erwähnen.
+
 Sprechnotizen sind **reiner Vorlesetext in Absätzen**, ohne Regieanweisungen.
 
-Die Aufgabe erlaubt höchstens 15 Folien, aktuell sind es 13.
+Die Aufgabe erlaubt höchstens 15 Folien, aktuell sind es 15.

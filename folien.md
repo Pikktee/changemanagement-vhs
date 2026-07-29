@@ -368,11 +368,8 @@ Kursverwaltungssystem.
 
 ## 8 — Der Prompt in sechs Bausteinen
 
-typ: tabelle
+typ: tabelle2
 kapitel: 02 · SYSTEM-PROMPT
-bild: bilder/10-sechs-bloecke.jpg
-bu: Sechs Bausteine, festgelegte Reihenfolge.
-bildprompt: Sechs gestapelte Rechtecke unterschiedlicher Breite wie ein Bauplan, verbunden durch duenne Linien. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Der Prompt in
 akzent: sechs Bausteinen.
 klein: ja
@@ -384,8 +381,16 @@ zeilen:
   - "GRENZEN | ! Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
-callout: Sechs Befundarten, zwei davon Pflicht.
-calloutsub: PFLICHT — STRUKTUR: Überschrift, die keine ist · LINKTEXT: „hier" sagt nicht, wohin der Link führt. EMPFEHLUNG — NIVEAU: Wort zu schwer für diese Zielgruppe · AMTSDEUTSCH: Verwaltungssprache statt Alltagssprache · SATZ: über 25 Wörter, bei Deutschkursen über 15 · ABK: Abkürzung nicht aufgelöst.
+regelntitel: Die sechs Befundarten
+regeln:
+  - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
+  - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
+  - "EMPFEHLUNG | NIVEAU | Wort zu schwer für diese Zielgruppe"
+  - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
+  - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
+  - "| ABK | Abkürzung nicht aufgelöst"
+callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
+calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
 quellen:
   - "system-prompt.md, Fassung v9 vom 29.07.2026, zehn Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
