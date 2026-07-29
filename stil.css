@@ -181,7 +181,7 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* ---------- Typ: tabelle2, zweiter Block nach Einstufung ---------- */
 .kompakt td{ font-size:14px; padding:7px 14px 7px 0; }
 .kompakt th{ padding-bottom:6px; }
-.regeln{ margin-top:16px; }
+.regeln{ margin-top:10px; }
 .regeln .rtitel{ font-size:11px; font-weight:700; letter-spacing:2px;
                  text-transform:uppercase; color:var(--leise);
                  padding-bottom:7px; border-bottom:2px solid var(--marke);
