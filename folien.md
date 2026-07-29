@@ -156,16 +156,16 @@ lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung s
 spalte1: DAS UNTERNEHMEN
 punkte1:
   - "Eigenbetrieb der Stadt, kaufmännisch geführt, 154 T€ Stammkapital"
-  - "5.800 Veranstaltungen im Jahr in acht Programmbereichen, organisiert von vier Fachbereichen"
+  - "5.800 Veranstaltungen im Jahr, acht Programmbereiche in vier Fachbereichen"
   - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
   - "Seit 2005 qualitätstestiert nach LQW, zusätzlich AZAV-zertifiziert"
   - "Der Direktor ist laut Impressum persönlich für die Inhalte verantwortlich"
 spalte2: SO ENTSTEHT EIN KURSTEXT · ANGENOMMENER ABLAUF
 punkte2:
   - "Die Teams der vier Fachbereiche planen das Programm halbjährlich"
-  - "Der Text wird geschrieben, branchenüblich von der Kursleitung zugeliefert — in den Sprachkursen aus Bausteinen zusammengesetzt"
+  - "Der Text wird geschrieben — zugeliefert oder aus Bausteinen zusammengesetzt"
   - "Der Text wird in das Kursverwaltungssystem eingepflegt"
-  - "Er erscheint unverändert im Portal und, teils wortgleich, im Programmheft"
+  - "Er erscheint unverändert im Portal, teils wortgleich im Programmheft"
 callout: Zwischen Einpflegen und Veröffentlichen ist kein Prüfschritt auf Verständlichkeit vorgesehen.
 calloutsub: Soll-Zustand: Hier steht künftig ein Prüfschritt, der meldet und nicht ändert.
 quellen:
