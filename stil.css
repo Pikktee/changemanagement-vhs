@@ -246,6 +246,27 @@ td.nein{ color:var(--pflicht); font-weight:700; }
          text-transform:uppercase; font-size:10.5px; color:var(--marke);
          padding-top:2px; }
 
+/* ---------- Typ: einwaende ----------
+   Einwand links, Antwort rechts, in derselben Zeile. Der Pfeil sitzt auf der
+   Trennlinie und ist reine Optik ('aria-hidden'); die Zuordnung traegt die
+   Zeile selbst, nicht das Zeichen. */
+.einwaende{ display:flex; flex-direction:column; gap:11px;
+            margin-top:auto; margin-bottom:auto; }
+.einwand{ display:grid; grid-template-columns:1fr 26px 1.12fr;
+          align-items:center; background:var(--flaeche);
+          padding:13px 20px 13px 18px; }
+.ewer{ display:flex; flex-direction:column; min-width:0;
+       border-left:3px solid var(--marke); padding-left:14px; }
+.ewlabel{ font-weight:700; letter-spacing:0.7px; text-transform:uppercase;
+          font-size:10px; color:var(--marke); }
+/* Auf --flaeche steht --tinte, nicht --leise — 6,80:1 verfehlt AAA. */
+.ezitat{ font-size:16px; font-weight:700; line-height:1.35; color:var(--tinte);
+         letter-spacing:-0.2px; margin-top:4px; }
+.epfeil{ color:var(--marke); font-size:17px; text-align:center;
+         line-height:1; }
+.eantwort{ font-size:14.5px; line-height:1.45; color:var(--tinte);
+           min-width:0; border-left:1px solid var(--linie); padding-left:17px; }
+
 /* ---------- Typ: zitat ---------- */
 .zitat{ border-left:6px solid var(--marke); padding:6px 0 6px 26px; }
 .zitat .q{ font-size:29px; line-height:1.32; font-weight:700; letter-spacing:-0.4px;

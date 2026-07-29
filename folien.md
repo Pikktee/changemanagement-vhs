@@ -615,12 +615,13 @@ kapitel: 03 · CHANGE MANAGEMENT
 titel: Wer eingebunden
 akzent: werden muss.
 klein: ja
+lede: Der Pilot beschränkt sich auf einen der acht Programmbereiche. Nur so bleibt der Kreis der eng Eingebundenen klein genug, um ihn wirklich einzubinden.
 yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
 oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium
-oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, zwei Sitze in der Betriebskommission
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
 unten_links: Informieren || Die sieben übrigen Programmbereiche || Volkshochschul-Verband, stellt den KI-Rahmen
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
 
@@ -635,8 +636,12 @@ der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
 ist. Der Fachbereich, zu dem der Pilotbereich gehört — und zwar nur dieser
 eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot mehr.
 Die Redaktion des Programmhefts, die es für den Druck bereits gibt und die
-deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, der zwei Sitze
-in der Betriebskommission hat.
+deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, und bei dem ist
+die Einordnung eigentlich zu schwach. Sein Einfluss ist kein hoher, sondern ein
+sperrender: Die Einführung des Werkzeugs ist mitbestimmungspflichtig, sie
+braucht seine Zustimmung. Zwei von sechzehn Sitzen in der Betriebskommission
+sind dagegen als Stimmblock bedeutungslos. Was das genau heißt, steht auf der
+nächsten Folie.
 
 Deshalb stehen die sieben übrigen Programmbereiche unten links, bei
 informieren. Sie sollen wissen, dass es läuft, und sie sollen sehen, was
@@ -660,12 +665,15 @@ Kriterien, um die es geht, ausdrücklich freiwillig sind.
 
 Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
 Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
-schreiben sie viele dieser Texte. Und sie haben keinen formalen Einfluss, weil
-sie in keinem Gremium sitzen. Sie sind Honorarkräfte, man kann ihnen nichts
-vorschreiben. Ob das hier tatsächlich so ist, kann ich nicht belegen: Für die
-Branche ist die Zulieferung durch Kursleitungen gut dokumentiert, für dieses
-Unternehmen nicht. Meine beiden Beispielkurse sprechen sogar dagegen, sie sind
-mit N. N. als Kursleitung gedruckt und bestehen aus Textbausteinen.
+schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und
+vorschreiben kann man ihnen als Honorarkräften nichts. Einen Kanal haben sie
+aber doch, und den hatte ich zuerst übersehen: Arbeitnehmerähnliche Personen
+gelten nach dem Personalvertretungsgesetz als Beschäftigte, der Personalrat
+vertritt sie also mit. Ob sie hier überhaupt Texte schreiben, kann ich nicht
+belegen: Für die Branche ist die Zulieferung durch Kursleitungen gut
+dokumentiert, für dieses Unternehmen nicht. Meine beiden Beispielkurse sprechen
+sogar dagegen, sie sind mit N. N. als Kursleitung gedruckt und bestehen
+vollständig aus Textbausteinen.
 
 Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und in
 der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht ist,
@@ -685,53 +693,102 @@ Interesse an dem Thema zu haben.
 
 ## 11 — Widerstand
 
-typ: zweispalt
+typ: einwaende
 kapitel: 03 · CHANGE MANAGEMENT
-bild: bilder/14-widerstand.jpg
-bildprompt: Zwei entgegengesetzte Kraefte treffen an einer senkrechten Naht aufeinander, im Gleichgewicht. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Warum jemand Nein sagt,
-akzent: und was hilft.
+titel: Wer Nein sagt,
+akzent: und was darauf antwortet.
 klein: ja
-spalte1: URSACHE · WAS ICH HÖREN WERDE
-punkte1:
-  - "Verlustangst: „Jetzt korrigiert mich eine Maschine.“"
-  - "Unsicherheit: „Wird damit meine Arbeit bewertet?“"
-  - "Gewohnheit: „Wir schreiben das seit fünfzehn Jahren so.“"
-  - "Fehlende Perspektive: „Noch eine Aufgabe, für die ich keine Zeit habe.“"
-spalte2: INTERVENTION
-punkte2:
-  - "Zuhören, bevor geschult wird. Der Prompt prüft Texte, nie Personen."
-  - "Keine Auswertung nach Urheber, keine Rangliste. Schriftlich zusichern und dem Personalrat vorlegen."
-  - "Nicht das Schreiben ändern, nur einen Schritt danach ergänzen."
-  - "Quick Win zuerst: ein Textbaustein steht in 36 Kursen. Einmal überarbeiten, 36 Texte besser."
-callout: Betroffene zu Beteiligten machen. Der Pilotbereich wählt selbst, welche Regeln zuerst gelten.
+einwaende:
+  - "Programmbereich || „Die Befunde stehen in Bausteinen, über die ich nicht entscheide.“ || Die Freigabe der Bausteine gehört geklärt, bevor der Pilot beginnt. Im Beispielkurs liegen alle neun Befunde in zwei Bausteinen; einer davon steht in 105 Kursen."
+  - "Kursleitung auf Honorarbasis || „Noch eine Aufgabe, für die es keine Unterrichtseinheit gibt.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Die Kursleitung bekommt eine Rückmeldung — keine Pflicht, kein Werkzeug, keinen Nachweis."
+  - "Redaktion des Programmhefts || „Verständlicher heißt länger, und ich habe eine feste Seitenzahl.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist für die Einzelheiten ohnehin dorthin."
+  - "Personalrat || „Das ist eine technische Einrichtung. Dafür brauchen Sie unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft die Mitbestimmung an die Eignung zur Überwachung, nicht an die Absicht. Instrument ist die Dienstvereinbarung."
+callout: Betroffene zu Beteiligten machen — hier heißt das: entscheiden, bevor geschult wird.
+calloutsub: Bausteinfreigabe, Zuständigkeit und Umgang mit den Protokollen sind keine Kommunikationsaufgaben. Wer sie offenlässt, schult gegen einen Widerstand, der berechtigt ist.
+quellen:
+  - "Häufigkeit der Bausteine: eigene Auszählung an daten/vhs-kursplan.json"
+  - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
 
 ### NOTIZ
 
-Jetzt zum Widerstand. Ich habe die vier Ursachen aus dem Unterricht genommen
-und für jede den Satz aufgeschrieben, den ich in diesem Unternehmen tatsächlich
-erwarte.
+Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Verlustangst,
+Unsicherheit, Gewohnheit und fehlende Perspektive. Ich habe zuerst versucht,
+für jede den Satz aufzuschreiben, den ich hier erwarte. Dabei ist mir
+aufgefallen, dass alle vier Sätze aus demselben Mund kamen — aus dem einer
+festangestellten Person. Deshalb habe ich die Folie umgestellt: Sie zeigt
+jetzt vier Rollen von der Folie davor, und jede sagt Nein aus einem anderen
+Grund.
 
-Verlustangst klingt hier so: Jetzt korrigiert mich eine Maschine. Dahinter
-steckt Verlustaversion. Wir gewichten einen Verlust etwa doppelt so stark wie
-einen gleich großen Gewinn. Die Kursleitung sieht zuerst den Kontrollverlust
-über ihren eigenen Text, nicht die Entlastung.
+Der Programmbereich zuerst. Sein Einwand lautet: Die Befunde stehen in
+Bausteinen, über die ich nicht entscheide. Ich habe das nachgezählt, und es
+stimmt vollständig. Der Beispielkurs, den ich gleich vorführe, hat keinen
+eigenen Satz. Er besteht restlos aus zwei Bausteinen — dem Anmeldehinweis und
+der Niveaubeschreibung. Alle neun Befunde liegen dort, und der Anmeldehinweis
+steht wortgleich in hundertfünf Kursen. Das ist die Ursache Verlustangst in
+ihrer echten Form: nicht Angst vor der Maschine, sondern die Aussicht, für
+etwas gemessen zu werden, das man nicht ändern darf. Meine Antwort ist deshalb
+keine Schulung, sondern eine Zuständigkeitsfrage, die vor dem Pilot geklärt
+wird. Nebenbei ist es die gute Nachricht: Ein Baustein einmal in Ordnung
+gebracht, und hundertfünf Kurse sind es mit.
 
-Unsicherheit klingt so: Wird damit meine Arbeit bewertet? Das ist die
-gefährlichste Frage, und sie ist berechtigt. Meine Antwort ist dieselbe wie
-auf der Prompt-Folie. Es werden Texte ausgewertet, nicht Personen. Keine
-Statistik nach Urheberin, keine Rangliste. Und das gehört nicht nur gesagt,
-sondern schriftlich zugesichert und dem Personalrat vorgelegt, bevor der Pilot
-beginnt und nicht danach.
+Die Kursleitung auf Honorarbasis. Ihr Einwand lautet: Noch eine Aufgabe, für
+die es keine Unterrichtseinheit gibt. Das ist die Ursache fehlende
+Perspektive, und sie ist bei dieser Gruppe schärfer als bei allen anderen,
+weil deren Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit kommt darin
+nicht vor. Meine Antwort ist der Zuschnitt: Geprüft wird im Programmbereich,
+an dem Text, der dort eingeht. Die Kursleitung bekommt eine Rückmeldung, aber
+keine Pflicht, kein Werkzeug und keinen Nachweis. Das hat noch einen zweiten
+Grund. Verbindliche Regeln, Schulungspflicht und ein Protokoll je Text sind
+genau die Merkmale, aus denen das Bundessozialgericht im Herrenberg-Urteil eine
+Eingliederung in den Betrieb hergeleitet hat. Ein Projekt, das Honorarkräfte in
+diese Kette holt, erzeugt ein Statusrisiko, das größer ist als sein Nutzen.
 
-Gewohnheit und fehlende Perspektive begegne ich mit dem Zuschnitt selbst. Ich
-ändere nicht, wie jemand schreibt, sondern ergänze einen Schritt danach. Und
-ich fange mit den Textbausteinen an, weil eine einzige Überarbeitung dort
-sechsunddreißig Kurse gleichzeitig verbessert.
+Die Redaktion des Programmhefts. Ihr Einwand ist der, an den ich zuletzt
+gedacht hätte: Verständlicher heißt länger, und ich habe eine feste Seitenzahl.
+Das ist die Ursache Gewohnheit, aber nicht als Trägheit, sondern als
+konkurrierendes Regelwerk. Diese Redaktion kürzt beruflich. Ein Werkzeug, das
+Erklärungen verlangt, arbeitet gegen ihren Auftrag. Meine Antwort trennt die
+Medien: Geprüft wird der Text im Portal, und dort gibt es keine Seitenzahl. Das
+Heft verweist für die Einzelheiten ohnehin auf das Portal, das steht wörtlich
+darin.
 
-Der Satz unten ist der Kern jeder Widerstandsarbeit. Betroffene zu Beteiligten
-machen. Konkret heißt das, dass der Pilotbereich selbst entscheidet, welche
-der sechs Prüfregeln zuerst scharf gestellt werden.
+Und der Personalrat. Sein Einwand lautet: Das ist eine technische Einrichtung,
+dafür brauchen Sie unsere Zustimmung. Auf dieser Folie stand vorher, ich würde
+eine Zusicherung schriftlich geben und dem Personalrat vorlegen. Das war
+falsch, und ich sage das ausdrücklich, weil der Fehler lehrreich ist.
+Paragraf achtundsiebzig des Hessischen Personalvertretungsgesetzes knüpft die
+Mitbestimmung an technische Einrichtungen, die zur Überwachung geeignet sind.
+Geeignet, nicht verwendet. Meine Zusage, nicht nach Urheber auszuwerten,
+betrifft die Verwendung und räumt den Tatbestand gar nicht aus. Und vorlegen
+ist keine Zustimmung. Das vorgesehene Instrument nennt der Paragraf selbst: die
+Dienstvereinbarung. Dort gehören Zweckbindung, Zugriffskreis und Löschfrist
+hinein.
+
+Zwei Dinge dazu, die ich beim Nachlesen gelernt habe. Erstens vertritt der
+Personalrat die Honorarkräfte doch, denn arbeitnehmerähnliche Personen gelten
+nach diesem Gesetz als Beschäftigte. Auf der Folie davor habe ich gesagt, sie
+hätten keinen formalen Einfluss; das gilt für die Gremien, nicht für die
+Vertretung. Zweitens ist der Einfluss des Personalrats hier kein hoher, sondern
+ein sperrender. Zwei von sechzehn Sitzen in der Betriebskommission sind als
+Stimmblock bedeutungslos. Der Zustimmungsvorbehalt in eigener Sache ist es
+nicht.
+
+Damit zum Satz unten. Betroffene zu Beteiligten machen, das ist der Kern jeder
+Widerstandsarbeit. Hier heißt er konkret: entscheiden, bevor geschult wird.
+Drei der vier Einwände sind überhaupt keine Kommunikationsaufgabe. Wer die
+Bausteinfreigabe, die Zuständigkeit und den Umgang mit den Protokollen
+offenlässt und stattdessen eine Schulung ansetzt, schult gegen einen
+Widerstand, der berechtigt ist. Der vierte Einwand, der der Redaktion, ist
+einer — und er wird beantwortet, indem man zugibt, dass sie mit dem fehlenden
+Prüfschritt die ganze Zeit recht hatte.
+
+Eine Rolle fehlt auf der Folie, weil kein Platz war: die Direktion. Ihre Frage
+lautet, wer die Protokolle sieht. Für jemanden, der laut Impressum persönlich
+für die Inhalte verantwortlich ist, ist ein Protokoll zuerst eine Gefahr und
+nicht ein Gewinn — es belegt datiert, was vorher nur unbemerkt war. Zum Gewinn
+wird es mit einem Abstellplan: Ein dokumentierter Mangel mit Datum und Plan
+steht besser da als ungeprüfter Bestand. Dieselbe Dienstvereinbarung, die den
+Personalrat schützt, beantwortet auch diese Frage.
 
 
 ## 12 — Timeline

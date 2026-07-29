@@ -509,6 +509,31 @@ def t_text(f, seite_, gesamt):
 
 
 
+def t_einwaende(f, seite_, gesamt):
+    """Einwand und Antwort in einer Zeile, nach Rolle aufgeschluesselt.
+
+    Zwei Listen nebeneinander (Typ 'zweispalt') lassen den Leser abzaehlen,
+    welche Antwort zu welchem Einwand gehoert. Hier stehen beide in derselben
+    Zeile, getrennt durch eine Linie mit Pfeil. Die Rolle steht als Etikett
+    darueber, damit die Zeile auf die Stakeholder der Vorfolie zeigt.
+
+    Feld 'einwaende', je Zeile: Rolle || Zitat || Antwort
+    """
+    zeilen = []
+    for roh in f.get("einwaende", []):
+        teile = [x.strip() for x in str(roh).split("||")]
+        teile += [""] * (3 - len(teile))
+        rolle, zitat, antwort = teile[0], teile[1], teile[2]
+        zeilen.append(
+            f'<div class="einwand">'
+            f'<div class="ewer"><span class="ewlabel">{e(rolle)}</span>'
+            f'<span class="ezitat">{e(zitat)}</span></div>'
+            f'<span class="epfeil" aria-hidden="true">&rarr;</span>'
+            f'<div class="eantwort">{e(antwort)}</div></div>')
+    block = f'<div class="einwaende">{"".join(zeilen)}</div>' if zeilen else ""
+    return seite(f, seite_, gesamt, block + callout(f, " unten"))
+
+
 def t_matrix(f, seite_, gesamt):
     """Stakeholder-Matrix Einfluss x Betroffenheit, Quadrantennamen laut Aufgabenblatt."""
     def q(key, stark=False):
@@ -577,6 +602,7 @@ TYPEN = {
     "tabelle":   t_tabelle,
     "tabelle2":  t_tabelle2,
     "wege":      t_wege,
+    "einwaende": t_einwaende,
     "zitat":     t_zitat,
     "text":      t_text,
     "matrix":    t_matrix,

@@ -267,6 +267,112 @@ Advellence Solutions AG, Kentico CMS.
 
 ---
 
+## 8. Der Kernfall hat keinen eigenen Satz
+
+**Befund: Der Beispielkurs `4074-74` besteht restlos aus zwei Bausteinen, die
+wortgleich in vielen anderen Kursen stehen. Alle neun Befunde des Abgabelaufs
+liegen in diesen Bausteinen. Kein einziger liegt in kursindividuellem Text —
+es gibt keinen.**
+
+| Baustein | steht in | davon Deutsch als Fremdsprache | Befunde daraus |
+|---|---:|---:|---|
+| A — Anmeldehinweis, enthält den Pflichtbefund `LINKTEXT` | 105 Kurse | 104 | 1 bis 6 |
+| B — GER-Beschreibung A2 | 72 Kurse | 72 | 7 bis 9 |
+
+Grundlage: `daten/vhs-kursplan.json`, Abruf 28.07.2026, gegen den Abgabelauf
+`tool/protokoll/20260729-203604-4074-74.json` gehalten.
+
+Der Linktext „hier" ist damit kein Einzelfall des Beispielkurses:
+
+| Linktext im Portal | Kurse |
+|---|---:|
+| „hier" (Pflichtbefund `LINKTEXT`) | 277 |
+| davon Deutsch als Fremdsprache | 104 |
+| davon Beruf/Karriere/Computer/Internet | 126 |
+
+**Folge für die Arbeit.** Die Präsentation nannte auf der Widerstandsfolie
+zuvor „ein Textbaustein steht in 36 Kursen". Diese Zahl steht in keiner
+Messung; die Häufigkeiten sind 105, 72 und 61. Wichtiger als die Korrektur ist
+die Umkehrung der Aussage: Der Baustein ist nicht das Leichte, sondern das
+Gesperrte. Ein Programmbereich, der ihn nicht freigeben darf, bekommt Befunde
+zu einem Text, über den er nicht entscheidet. Der Quick Win ist deshalb keine
+Textarbeit, sondern eine Zuständigkeitsfrage, die vor dem Pilot geklärt sein
+muss.
+
+---
+
+## 9. Mitbestimmung ist Zustimmung, nicht Information
+
+**Befund: Die Einführung des Werkzeugs unterliegt echter Mitbestimmung. Eine
+schriftliche Zusicherung an den Personalrat ist nicht das vorgesehene
+Instrument.**
+
+§ 78 Abs. 1 HPVG in der Fassung von 2023, wörtlich:
+
+> „Der Personalrat bestimmt in organisatorischen Angelegenheiten,
+> gegebenenfalls durch Abschluss von Dienstvereinbarungen und soweit eine
+> gesetzliche oder tarifliche Regelung nicht besteht, mit über […]
+> 5. Einführung, Anwendung, wesentliche Änderung oder Erweiterung von
+> technischen Einrichtungen, die dazu geeignet sind, das Verhalten oder die
+> Leistung der Beschäftigten zu überwachen"
+
+§ 66 HPVG dazu: „Soweit eine Maßnahme der Mitbestimmung des Personalrats
+unterliegt, bedarf sie nach rechtzeitiger und eingehender Erörterung […]"
+
+Drei Punkte folgen daraus:
+
+1. **Der Auslöser ist die Eignung, nicht die Nutzung.** Die Vorschrift sagt
+   „geeignet sind", nicht „verwendet werden". Die Zusage, nicht nach Urheber
+   auszuwerten, betrifft die Nutzung und räumt den Tatbestand nicht aus.
+2. **Das Instrument ist die Dienstvereinbarung**, nicht ein Schreiben. Der
+   Paragraf nennt sie selbst.
+3. **Die Protokolle sind der Grund, warum es hier greift.** Sie liegen auf
+   einem Server des Unternehmens, personenbeziehbar über den Bereich, aus dem
+   ein Text kommt. In einem Programmbereich mit wenigen Schreibenden ist die
+   Aggregatzahl die Einzelleistung.
+
+**Unstimmigkeit im Gesetzestext selbst, zur Ehrlichkeit vermerkt:** Die
+Aufzählung in § 78 Abs. 1 und das Sachregister führen die Vorschrift als
+**Nr. 5**. Der Querverweis in § 63 Abs. 6 zitiert dieselbe Vorschrift als
+„§ 78 Abs. 1 Satz 1 **Nr. 6**". Maßgeblich ist die Aufzählung, also Nr. 5.
+Ältere Netzquellen führen die Vorschrift noch unter der Zählung vor der
+Novelle 2023 als § 74 Abs. 1 Nr. 17.
+
+Quelle: HPVG in der Fassung von 2023, Textausgabe der GEW Hessen,
+<https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf>
+
+---
+
+## 10. Der Personalrat vertritt die Honorarkräfte doch
+
+**Befund: Die Annahme, Kursleitungen auf Honorarbasis hätten „keinen formalen
+Einfluss", trifft nicht zu.** § 4 Abs. 4 Satz 2 HPVG, wörtlich:
+
+> „Als Arbeitnehmerinnen und Arbeitnehmer gelten auch arbeitnehmerähnliche
+> Personen nach § 12a des Tarifvertragsgesetzes […]"
+
+Arbeitnehmerähnliche Honorarkräfte sind damit Beschäftigte im Sinne des
+Gesetzes, und der Personalrat vertritt sie. Die Wählbarkeit scheitert
+praktisch häufig an der Sechsmonatsfrist, die Vertretung nicht.
+
+**Der Statusrisiko-Befund dazu.** Verbindliche Prüfregeln, Schulungspflicht und
+ein Protokoll je Text sind genau die Merkmale, aus denen das
+Bundessozialgericht im Herrenberg-Urteil eine Eingliederung in eine fremde
+Betriebsordnung hergeleitet hat (BSG, 28.06.2022, B 12 R 3/20 R). Die
+Übergangsregelung des § 127 SGB IV, im März 2026 bis zum 31.12.2027
+verlängert, deckt Altverträge nur befristet.
+
+**Folge für die Arbeit.** Das ist kein Grund gegen das Projekt, sondern der
+Grund für einen bestimmten Zuschnitt: Die Prüfung läuft im Programmbereich, am
+eingegangenen Text. Die Kursleitung erhält eine Rückmeldung, keine Pflicht,
+kein Werkzeug und keinen Nachweis. Damit entsteht kein zusätzliches
+Statusmerkmal — und Art. 4 der KI-Verordnung, der die Schulungspflicht auf
+„andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von
+KI-Systemen befasst sind" erstreckt, greift für sie nicht, weil sie das System
+nicht betreiben.
+
+---
+
 ## Was offen bleibt
 
 Nicht belegbar und weiterhin Annahme:
