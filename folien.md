@@ -62,9 +62,9 @@ akzent: geprüft wird die Technik.
 lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Haus an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
-  - "90 % || haben mindestens einen Befund || warn"
+  - "58 % || haben mindestens einen Befund, gemessen ohne Urteil || warn"
   - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
-callout: Neun von zehn Texten haben einen Befund. Die Frage ist, für wen sie zu schwer sind.
+callout: Mehr als jeder zweite Text hat einen Befund. Die Frage ist, für wen er zu schwer ist.
 quellen:
   - "eigene Erhebung an 60 Kursen, 28.07.2026"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
@@ -75,8 +75,11 @@ quellen:
 Zuerst das Ganze in drei Zahlen.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
-Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben neun
-von zehn Texten mindestens einen Befund.
+Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben
+achtundfünfzig Prozent mindestens einen Befund. Diese Zahl habe ich mit einem
+Skript gemessen, das ohne KI auskommt. Es prüft fünf der sechs Regeln, die
+sechste braucht Urteil. Achtundfünfzig Prozent sind deshalb die Untergrenze,
+nicht das ganze Ausmaß.
 
 Die dritte Zahl stammt aus dem Haus selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
@@ -111,7 +114,7 @@ punkte:
   - "**Ziel** || Wer einen Kurs sucht, versteht die Beschreibung, ob gelesen oder vorgelesen. Laut Betriebssatzung stehen die Angebote allen offen — das soll auch für die Texte gelten."
   - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
-  - "**Ergebnis** || Befundquote nach drei Monaten unter 40 Prozent statt heute 90. Aufwand im Regelbetrieb 29 Stunden im Jahr."
+  - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 58. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 quellen:
@@ -228,18 +231,18 @@ typ: tabelle
 kapitel: 01 · POTENZIALERMITTLUNG
 bild: bilder/06-zwei-blicke.jpg
 bildprompt: Zwei Figuren betrachten dasselbe Rechteck, links offen und klar, rechts durch dichte Streifen verdeckt. Flach-geometrisch, Bauhaus, keine Schrift.
-titel: Dieselbe Zahl bedeutet
-akzent: zweimal etwas anderes.
+titel: Kurze Sätze sind
+akzent: noch nicht verständlich.
 klein: ja
-lede: Stichprobe von 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. 90 Prozent haben mindestens einen Befund, nur 6 von 60 blieben ohne. Der längste gemessene Satz hat 74 Wörter.
+lede: Stichprobe von 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. Befund heißt: eine Stelle, die den Zugang erschwert — ein Wort, das für diese Zielgruppe zu schwer ist, ein zu langer Satz, ein Link oder eine Überschrift, die vorgelesen nicht funktioniert.
 spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
 zeilen:
   - "Englisch A1.1 | 21,3 Wörter | 41 Wörter | + fließend"
   - "DaF Deutsch 4 A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
-callout: Ein Lesbarkeitswerkzeug würde hier den falschen Kurs beanstanden.
-calloutsub: 9 von 13 Kursen für Deutschlernende enthalten C1-Vokabular: Selbsteinschätzung, Fehleinschätzung, Umbuchung.
+callout: Ein Lesbarkeitsindex beanstandet hier den falschen Kurs.
+calloutsub: Er misst Satz- und Wortlänge, nicht den Leser. Alle 6 Deutschkurse auf A1 und A2 enthalten Wörter über dem Niveau ihrer Zielgruppe — dort meldet er nichts.
 quellen:
-  - "eigene Erhebung an 60 Kursen, Datensatz liegt der Arbeit bei"
+  - "eigene Messung mit daten/messung.py, Skript und Datensatz liegen der Arbeit bei"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
 
 ### NOTIZ
@@ -248,9 +251,9 @@ Damit zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern
 gemessen.
 
 Das Kursportal hat eine offene Schnittstelle. Darüber habe ich sechzig
-Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und
-automatisch ausgewertet. Neunzig Prozent der Texte haben mindestens einen
-Befund. Sechs von sechzig blieben ohne.
+Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und mit einem
+eigenen Skript ausgewertet. Fünfunddreißig von sechzig Texten haben mindestens
+einen Befund, das sind achtundfünfzig Prozent.
 
 Der eigentliche Befund steht aber in der Tabelle, und er sieht auf den ersten
 Blick unscheinbar aus.
@@ -270,10 +273,16 @@ richtet sich an Menschen, die Deutsch erst auf A1-Niveau lesen. Für die ist
 jedes Wort oberhalb dieses Niveaus eine Hürde.
 
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
-wen der Text ist. Neun von dreizehn Kursen für Deutschlernende enthalten
-Wörter wie Selbsteinschätzung, Fehleinschätzung und Umbuchung. Das ist
-C1-Vokabular über einem Kurs, den man mit A1 beginnt. Genau hier kann ein
+wen der Text ist. In meiner Stichprobe stehen sechs Deutschkurse auf den
+Stufen A1 und A2. Alle sechs enthalten Wörter, die über dem Niveau ihrer
+Zielgruppe liegen. Selbsteinschätzung, Fehleinschätzung, Umbuchung. Das sind
+Wörter, die man erst weit oberhalb des Kursziels lernt. Genau hier kann ein
 fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
+
+Ein Wort zu den Zahlen, das mir wichtig ist. Achtundfünfzig Prozent sind eine
+Untergrenze. Mein Messskript prüft fünf der sechs Regeln. Die sechste, ob eine
+fett gesetzte Zeile eine Überschrift sein sollte, kann kein Skript
+entscheiden. Ich messe also bewusst zu niedrig statt zu hoch.
 
 
 ## 6 — Rechtslage
@@ -703,22 +712,23 @@ klein: ja
 lede: Die Ausgangsmessung liegt vor, erhoben mit einem Skript. Die Nachmessung läuft mit demselben Skript. Die vierte Zeile misst nicht den Text, sondern die Wirkung — dafür werden die Teilnehmenden selbst gefragt.
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
-  - "Texte mit mindestens einem Befund | 90 % | ! unter 40 % | demselben Skript wie die Ausgangsmessung"
+  - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | daten/messung.py, unverändert"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
-  - "DaF-Texte mit C1-Vokabular | 9 von 13 | ! höchstens 2 von 13 | Nachmessung, identisches Verfahren"
+  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | daten/messung.py, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, durch die Kursleitung"
 callout: Drei Risiken, drei Gegenmaßnahmen.
 calloutsub: Mitbestimmung stockt → Zusicherung schriftlich, vor dem Pilot. Redaktion misstraut schwankenden Befunden → Pflichtbefunde sind stabil, der Pilotbereich wählt die scharfen Regeln selbst. KI-Rahmen doch nicht verfügbar → der Prompt läuft auch außerhalb, geklärt wird das im ersten Monat.
-quellen: Ausgangsmessung 28.07.2026, Erhebung an 489 Kursen über die Portalschnittstelle
+quellen: Ausgangsmessung mit daten/messung.py, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
 ### NOTIZ
 
 Und woran würde man merken, ob es gewirkt hat?
 
-Vier Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von neunzig
-Prozent unter vierzig fallen. Alle neuen Texte im Pilotbereich sollen geprüft
-sein. Und die Deutschkurse mit C1-Vokabular sollen von neun von dreizehn auf
-höchstens zwei sinken.
+Vier Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von
+achtundfünfzig Prozent unter fünfundzwanzig fallen. Alle neuen Texte im
+Pilotbereich sollen geprüft sein. Und von den sechs Deutschkursen auf A1 und
+A2, die heute alle Wörter über dem Niveau ihrer Zielgruppe enthalten, sollen
+höchstens noch zwei betroffen sein.
 
 Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
 nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über einen

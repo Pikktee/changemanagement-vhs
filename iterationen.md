@@ -578,6 +578,14 @@ Kursleitung gedruckt sind und ihre Texte vollständig aus Bausteinen bestehen.
 54 Prozent aller Kurse teilen sich ihren Text mit mindestens einem anderen
 Kurs.
 
+**Nachtrag zur Befundquote.** Die Streichung von fünf Befundarten in v7 hat
+eine Folge, die erst beim Nachmessen sichtbar wurde: Die Ausgangsmessung vom
+28.07.2026 nannte 90 Prozent der Texte mit mindestens einem Befund, gemessen
+gegen elf Befundarten. Gegen die verbliebenen sechs, davon fünf deterministisch
+prüfbar, sind es 58 Prozent (`daten/messung.py`, 29.07.2026). Die alte Zahl war
+nicht falsch, sie gehörte zu einem Werkzeug, das es nicht mehr gibt. Die Folien
+tragen jetzt die neue Zahl samt dem Hinweis, dass sie eine Untergrenze ist.
+
 ---
 
 ## Offen für die nächsten Fassungen
