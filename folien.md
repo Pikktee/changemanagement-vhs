@@ -231,7 +231,7 @@ kapitel: 01 · POTENZIALERMITTLUNG
 titel: Kurze Sätze sind
 akzent: noch nicht verständlich.
 klein: ja
-lede: 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. 35 davon haben mindestens einen Befund.
+lede: 60 Kursbeschreibungen, sieben Programmbereiche, Portalabruf vom 28.07.2026. 35 davon haben einen Befund.
 spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
 zeilen:
   - "Englisch A1.1 | 21,3 Wörter | 41 Wörter | + fließend"
