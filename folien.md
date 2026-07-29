@@ -62,7 +62,7 @@ akzent: geprüft wird die Technik.
 lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Haus an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
-  - "58 % || haben mindestens einen Befund, gemessen ohne Urteil || warn"
+  - "58 % || haben mindestens einen Befund || warn"
   - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
 callout: Mehr als jeder zweite Text hat einen Befund. Die Frage ist, für wen er zu schwer ist.
 quellen:
@@ -76,10 +76,9 @@ Zuerst das Ganze in drei Zahlen.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
 Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben
-achtundfünfzig Prozent mindestens einen Befund. Diese Zahl habe ich mit einem
-Skript gemessen, das ohne KI auskommt. Es prüft fünf der sechs Regeln, die
-sechste braucht Urteil. Achtundfünfzig Prozent sind deshalb die Untergrenze,
-nicht das ganze Ausmaß.
+achtundfünfzig Prozent mindestens einen Befund. Und das ist die Untergrenze.
+Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
+sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
 Die dritte Zahl stammt aus dem Haus selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
@@ -227,18 +226,24 @@ schlecht formulierter Text ist hier nie ein Einzelfall.
 
 ## 5 — Messung und eigentlicher Befund
 
-typ: tabelle
+typ: tabelle2
 kapitel: 01 · POTENZIALERMITTLUNG
-bild: bilder/06-zwei-blicke.jpg
-bildprompt: Zwei Figuren betrachten dasselbe Rechteck, links offen und klar, rechts durch dichte Streifen verdeckt. Flach-geometrisch, Bauhaus, keine Schrift.
 titel: Kurze Sätze sind
 akzent: noch nicht verständlich.
 klein: ja
-lede: Stichprobe von 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. Befund heißt: eine Stelle, die den Zugang erschwert — ein Wort, das für diese Zielgruppe zu schwer ist, ein zu langer Satz, ein Link oder eine Überschrift, die vorgelesen nicht funktioniert.
+lede: Stichprobe von 60 Kursbeschreibungen aus sieben Programmbereichen, gezogen über die offene Schnittstelle des Kursportals am 28.07.2026. 35 von 60 Texten haben mindestens einen Befund.
 spalten: Kurs | Ø Satzlänge | längster Satz | Zielgruppe liest Deutsch
 zeilen:
   - "Englisch A1.1 | 21,3 Wörter | 41 Wörter | + fließend"
-  - "DaF Deutsch 4 A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
+  - "Deutsch als Fremdsprache A2.2 | 10,6 Wörter | 16 Wörter | ! erst auf A1-Niveau"
+regelntitel: Wonach gemessen wurde — die sechs Befundarten
+regeln:
+  - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
+  - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
+  - "EMPFEHLUNG | NIVEAU | Wort zu schwer für diese Zielgruppe"
+  - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
+  - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
+  - "| ABK | Abkürzung nicht aufgelöst"
 callout: Ein Lesbarkeitsindex beanstandet hier den falschen Kurs.
 calloutsub: Er misst Satz- und Wortlänge, nicht den Leser. Alle 6 Deutschkurse auf A1 und A2 enthalten Wörter über dem Niveau ihrer Zielgruppe — dort meldet er nichts.
 quellen:
@@ -253,7 +258,14 @@ gemessen.
 Das Kursportal hat eine offene Schnittstelle. Darüber habe ich sechzig
 Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und mit einem
 eigenen Skript ausgewertet. Fünfunddreißig von sechzig Texten haben mindestens
-einen Befund, das sind achtundfünfzig Prozent.
+einen Befund.
+
+Unten steht, wonach ich gemessen habe. Sechs Befundarten, zwei davon Pflicht:
+eine Zeile, die wie eine Überschrift aussieht, aber technisch keine ist, und
+ein Linktext, der nicht sagt, wohin er führt. Beides ist Stufe A der
+Barrierefreiheitsrichtlinien und damit verbindlich. Die übrigen vier sind
+Empfehlungen. Diese sechs Regeln sind zugleich der Maßstab des Prüfassistenten,
+den ich gleich zeige.
 
 Der eigentliche Befund steht aber in der Tabelle, und er sieht auf den ersten
 Blick unscheinbar aus.
@@ -411,7 +423,7 @@ Kursverwaltungssystem.
 
 ## 8 — Der Prompt in sechs Bausteinen
 
-typ: tabelle2
+typ: tabelle
 kapitel: 02 · SYSTEM-PROMPT
 titel: Der Prompt in
 akzent: sechs Bausteinen.
@@ -424,14 +436,8 @@ zeilen:
   - "GRENZEN | ! Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, Hausabkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
-regelntitel: Die sechs Befundarten
-regeln:
-  - "PFLICHT | STRUKTUR | Überschrift, die keine ist"
-  - "| LINKTEXT | „hier" sagt nicht, wohin der Link führt"
-  - "EMPFEHLUNG | NIVEAU | Wort zu schwer für diese Zielgruppe"
-  - "| AMTSDEUTSCH | Verwaltungssprache statt Alltagssprache"
-  - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
-  - "| ABK | Abkürzung nicht aufgelöst"
+callout: Die Zeile GRENZEN trägt zwei Lasten gleichzeitig.
+calloutsub: Sie hält das Projekt aus Anhang III der KI-Verordnung heraus und nimmt dem Personalrat die Sorge vor Leistungskontrolle.
 quellen:
   - "system-prompt.md, Fassung v10 vom 29.07.2026, elf Fassungen in der Versionsverwaltung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -459,11 +465,6 @@ Fehler, den ich anderen Werkzeugen vorwerfe. Eine schöne Fußnote: Der
 Grundstock dieser Listen stammt laut Goethe-Institut aus einer
 Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschulverbands in
 Frankfurt.
-
-Unten stehen die sechs Befundarten, die er kennt. Pflicht sind genau zwei:
-eine Zeile, die wie eine Überschrift aussieht, aber keine ist, und ein
-Linktext, der nicht sagt, wohin er führt. Beides ist Stufe A und damit
-verbindlich. Die übrigen vier sind Empfehlungen.
 
 Und jetzt zur Zeile GRENZEN. Dort steht: bewertet Texte, niemals Personen.
 Dieser eine Satz leistet zweierlei. Er hält das Projekt aus dem
