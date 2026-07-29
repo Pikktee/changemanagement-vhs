@@ -702,7 +702,7 @@ einwaende:
   - "Programmbereich || „Die Befunde stehen in Bausteinen, über die ich nicht entscheide.“ || Die Freigabe der Bausteine gehört geklärt, bevor der Pilot beginnt. Im Beispielkurs liegen alle neun Befunde in zwei Bausteinen; einer davon steht in 105 Kursen."
   - "Kursleitung auf Honorarbasis || „Noch eine Aufgabe, für die es keine Unterrichtseinheit gibt.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Die Kursleitung bekommt eine Rückmeldung — keine Pflicht, kein Werkzeug, keinen Nachweis."
   - "Redaktion des Programmhefts || „Verständlicher heißt länger, und ich habe eine feste Seitenzahl.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist für die Einzelheiten ohnehin dorthin."
-  - "Personalrat || „Das ist eine technische Einrichtung. Dafür brauchen Sie unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft die Mitbestimmung an die Eignung zur Überwachung, nicht an die Absicht. Instrument ist die Dienstvereinbarung."
+  - "Personalrat || „Eine technische Einrichtung. Das braucht unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft die Mitbestimmung an die Eignung zur Überwachung, nicht an die Absicht. Instrument ist die Dienstvereinbarung."
 callout: Betroffene zu Beteiligten machen — hier heißt das: entscheiden, bevor geschult wird.
 calloutsub: Bausteinfreigabe, Zuständigkeit und Umgang mit den Protokollen sind keine Kommunikationsaufgaben. Wer sie offenlässt, schult gegen einen Widerstand, der berechtigt ist.
 quellen:
