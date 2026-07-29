@@ -240,9 +240,10 @@ td.nein{ color:var(--pflicht); font-weight:700; }
                  color:#fff; margin-top:11px; padding-top:11px;
                  border-top:1px solid rgba(255,255,255,.38); }
 .callout .folge .pfeil{ flex:0 0 auto; font-weight:700; }
-/* Auf Textfolien sammelt sich der freie Platz ueber dem Callout, nicht
-   darunter — sonst haengt er mitten in der Folie */
-.callout.unten{ margin-top:auto; }
+/* Auf Textfolien wird der freie Platz auf drei Luecken verteilt: ueber dem
+   Stufenblock, ueber dem Callout und unter ihm. Nur oben verteilt haengt der
+   Callout an der Quellenzeile, gar nicht verteilt haengt er in der Mitte. */
+.callout.unten{ margin-top:auto; margin-bottom:auto; }
 
 /* ---------- Bild ----------
    Eine Folie mit "bild:" bekommt eine rechte Spalte. Der Textbereich
