@@ -43,7 +43,9 @@ Die Aufgabenstellung schreibt Struktur, Folienzahl und Pflichtinhalte ungefähr 
 
 ## Die inhaltliche Kernthese
 
-Ein Text ist nie an sich verständlich, sondern nur für bestimmte Leser. Lesbarkeitsindizes übersehen das: Sie beanstanden den Englischkurs und winken den Deutschkurs auf A2 durch. Der Prompt klärt erst die Zielgruppe, dann den Maßstab. Belegt: sieben Befunde gegen null.
+Ein Text ist nie an sich verständlich, sondern nur für bestimmte Leser. Lesbarkeitsindizes übersehen das: Sie beanstanden den Englischkurs und winken den Deutschkurs auf A2 durch. Der Prompt klärt erst die Zielgruppe, dann den Maßstab. Belegt an zwei Kursen über je vier Läufe: beim Deutschkurs jedes Mal mehrere Niveau-Befunde, beim Englischkurs jedes Mal keiner.
+
+**Keine feste Zahl behaupten.** Die Zahl schwankt (aktuell 11 bis 12), die Asymmetrie nicht. Wer „sieben gegen null“ schreibt, behauptet eine Messung, die ein einzelner Lauf war — genau daran ist die Abgabe schon einmal fast gescheitert, siehe `iterationen.md`, v8.
 
 Verpflichtet ist die vhs dazu nicht — die maßgeblichen WCAG-Kriterien sind AAA. Das Argument liefert die Betriebssatzung: Angebote „für alle, ohne Rücksicht auf Vorbildung“.
 
@@ -55,9 +57,15 @@ Das ist zugleich die Change-Argumentation: Technische Barrierefreiheit bleibt
 beim deterministischen Prüfwerkzeug und bei der städtischen IT, die KI
 übernimmt nur den urteilenden Teil bei den Programmbereichen.
 
-Das ist zweimal beim Bauen passiert (siehe iterationen.md, v4 und v5):
-Zusagen im Prompt hielt das Modell nicht zuverlässig ein, heute stehen sie in tool/server.py.
-Regel daraus: Ist eine neue Anforderung im Kern eine Nachschlagetabelle, schreib sie nicht in den Prompt.
+Das ist dreimal beim Bauen passiert (siehe `iterationen.md`, v4, v5 und v9):
+Zusagen im Prompt hielt das Modell nicht zuverlässig ein, heute stehen sie in
+`tool/server.py` — Ehrlichkeitsvorbehalt, Einstufung, Namensschutz.
+Regel daraus: Ist eine neue Anforderung im Kern eine Nachschlagetabelle oder
+ein prüfbarer Zustand, schreib sie nicht in den Prompt.
+
+Sechs Prüfregeln, zwei Stufen: `STRUKTUR` und `LINKTEXT` sind PFLICHT,
+`NIVEAU`, `AMTSDEUTSCH`, `SATZ` und `ABK` sind EMPFEHLUNG. Fünf weitere
+Befundarten wurden in v7 gestrichen; die Begründung je Regel steht dort.
 
 ---
 
@@ -94,9 +102,9 @@ Beispielläufe niemals hineinkopieren, sonst driftet das PDF vom Prompt weg.
 **Jeder neue Lauf eines Kernfalls landet im PDF.** `{{PROTOKOLL:...}}` nimmt
 das **jüngste** Protokoll dieser Kursnummer. Wer 4074-74 zum Ausprobieren durch
 das Tool schickt, ersetzt damit den Beispiellauf der Abgabe — und der Fließtext
-daneben behauptet weiter sieben Niveaubefunde, während das Modell beim nächsten
-Mal fünf meldet. Läufe, die nicht in die Abgabe sollen, gehören nach
-`tool/protokoll/pruefung-kursplan/`; der Unterordner wird nicht durchsucht.
+daneben nennt weiter die Zahlen des alten Laufs. Läufe, die nicht in die Abgabe
+sollen, gehören nach `tool/protokoll/pruefung-kursplan/`; der Unterordner wird
+nicht durchsucht.
 
 **Farben und Schriften stehen in `DESIGN.md`, nicht im Ermessen.** Die Werte
 liegen deckungsgleich in `stil.css`, `dokument.css` und `tool/index.html`.
@@ -112,7 +120,7 @@ alter Server nimmt den Port und man testet unbemerkt gegen alten Code.
 die Liste aller Angebote und dann je Kurs den vollständigen Text. Wer den
 zweiten Schritt spart, bekommt die Texte ohne die vorangestellten Bausteine,
 also ohne Anmeldehinweis und ohne den eingebetteten Link — und damit ohne die
-Stellen, an denen `LINKTEXT` und `BAUSTEIN` greifen. Beim Kernfall `4074-74`
+Stelle, an der `LINKTEXT` greift. Beim Kernfall `4074-74`
 sind das 331 statt 710 Zeichen. Die alten Stichproben in `daten/` sind
 Messgrundlage der Abgaben und werden nicht überschrieben.
 
@@ -171,7 +179,10 @@ Jede Fassung braucht einen echten Anlass. Der Ablauf:
 1. `system-prompt.md` ändern, Feld `**Fassung:**` hochzählen.
 2. Gegen echte Texte laufen lassen, mindestens die beiden Kernfälle:
    `4074-74` (DaF A2.2, strenger Fall) und `4213-40` (Englisch A1.1, normaler
-   Fall). Erwartung: dort sieben Niveau-Befunde, hier null.
+   Fall). **Je vier Läufe, nicht einen** — ein einzelner Lauf ist keine
+   Messung, das hat v8 auf die harte Tour gezeigt. Erwartung: dort mehrere
+   Niveau-Befunde mit einer Streuung von höchstens eins, hier konstant null.
+   Zusätzlich prüfen, dass kein Personenname in der Ausgabe steht.
 3. In `iterationen.md` einen Abschnitt mit **Anlass, Befund, Änderung,
    Begründung** ergänzen. Auch dann, wenn die Fassung fehlerhaft war — die
    Historie ist Teil der Abgabe und lebt von der Ehrlichkeit.
