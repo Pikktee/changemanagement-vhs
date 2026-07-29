@@ -249,8 +249,11 @@ td.nein{ color:var(--pflicht); font-weight:700; }
           font-size:17.5px; line-height:1.4; font-weight:700; }
 .callout.grau{ background:var(--flaeche); color:var(--tinte); font-weight:400; }
 /* Neben- und Folgezeile sind auf den blauen Grund hin gebaut. Auf hellem
-   Grund waeren sie weiss auf Grau, also unlesbar. */
-.callout.grau .kl{ color:var(--leise); }
+   Grund waeren sie weiss auf Grau, also unlesbar. Sie tragen hier --tinte
+   und nicht --leise: dieselbe Hausregel wie im Prototyp, weil --leise auf
+   --flaeche nur 6,80:1 haelt und AAA 7,0:1 verlangt. Die Unterordnung
+   leistet die Schriftgroesse. */
+.callout.grau .kl{ color:var(--tinte); }
 .callout.grau .folge{ color:var(--tinte); border-top-color:var(--linie); }
 .callout .kl{ display:block; font-size:13px; font-weight:400;
               color:rgba(255,255,255,.78); margin-top:5px; }
