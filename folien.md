@@ -20,9 +20,9 @@
 ## 1 — Titelfolie
 
 typ: titel
-titel: Wer Deutsch lernen will,
-akzent: muss erst Deutsch können.
-untertitel: Ein KI-gestützter Prüfassistent für die Kursbeschreibungen der Volkshochschule Frankfurt am Main.
+titel: KLARTEXT — Kursbeschreibungen
+akzent: barrierefrei prüfen.
+untertitel: Ein KI-gestützter Prüfschritt vor der Veröffentlichung. Volkshochschule Frankfurt am Main, acht Programmbereiche, 5.800 Texte im Jahr.
 fussl: ABSCHLUSSPROJEKT · CHANGE UND KI
 fussr: CIMDATA · HENRIK HEIL · JULI 2026
 bild: bilder/01-titel-wand.jpg
@@ -30,14 +30,19 @@ bildprompt: Kleine Figur vor einer Wand aus dichten horizontalen Balken, ein sch
 
 ### NOTIZ
 
-Ich stelle euch heute mein Abschlussprojekt vor. Es geht um die
-Volkshochschule Frankfurt und um einen Prozess, den man leicht übersieht:
-das Schreiben von Kursbeschreibungen.
+Ich stelle euch heute mein Abschlussprojekt vor: KLARTEXT, ein Prüfschritt für
+die Kursbeschreibungen der Volkshochschule Frankfurt.
 
-Der Titel ist der Befund, mit dem alles angefangen hat. Die Volkshochschule
-bietet Deutschkurse für Menschen an, die gerade erst Deutsch lernen. Und die
+Das Feld heißt Barrierefreiheit. Die meisten denken dabei an Technik:
+Kontraste, Tastaturbedienung, Vorleseprogramme. Mein Thema ist der andere
+Teil. Ob der Text ankommt bei denen, für die er geschrieben ist. Das betrifft
+alle acht Programmbereiche des Hauses.
+
+Angefangen hat es mit dem schärfsten Fall. Die Volkshochschule bietet
+Deutschkurse für Menschen an, die gerade erst Deutsch lernen. Und die
 Beschreibungen dieser Kurse sind in einem Deutsch geschrieben, das man erst
-nach dem Kurs versteht.
+nach dem Kurs versteht. Wer Deutsch lernen will, muss erst Deutsch können. Das
+ist der Extremfall, aber das Prinzip dahinter gilt überall.
 
 Zwei Hinweise vorweg. Ich habe dieses Projekt allein bearbeitet, alle Rollen
 liegen also bei mir. Und alle Zahlen, die gleich kommen, habe ich selbst

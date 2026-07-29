@@ -1,0 +1,51 @@
+{
+  "zeitpunkt": "2026-07-29T11:14:07",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.0,
+  "temperaturStandard": 0.0,
+  "promptFassung": "v9 · 29.07.2026",
+  "promptPruefsumme": "256f5ea1738a5660",
+  "promptPruefsummeStandard": "256f5ea1738a5660",
+  "promptAngepasst": false,
+  "promptZeichen": 19956,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "dauerSekunden": 9.97,
+  "eingabe": {
+    "titel": "Englisch A1.1 (A1)",
+    "nummer": "4213-40",
+    "programmbereich": "Sprachen",
+    "niveau": "A1",
+    "text": "Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet."
+  },
+  "benutzernachricht": "KURSTITEL:        Englisch A1.1 (A1)\nKURSNUMMER:       4213-40\nPROGRAMMBEREICH:  Sprachen\nNIVEAU:           A1\nTEXT:\nAuf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:\n*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)\n*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen\n*einfache Gegenwart (Present Simple) zu benutzen\n*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen\n\nInformation und Beratung\nDr. Liliya Karpynska\nTelefon: 069 212 38384\nE-Mail: liliya.karpynska.vhs@stadt-frankfurt.de\n\nDieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.\n\nBitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.",
+  "antwort": "ZIELGRUPPE\nDeutschsprachige Erwachsene, die Englisch auf Anfängerniveau lernen möchten und Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · ABK\n    Stelle:      \"Dr. Liliya Karpynska\"\n    Grund:       Die Abkürzung \"Dr.\" wird nicht aufgelöst, obwohl sie bei der ersten Verwendung steht.\n    Vorschlag:   \"Doktorin Liliya Karpynska\" oder \"Frau Dr. Liliya Karpynska\"\n\n[2] EMPFEHLUNG · SATZ\n    Stelle:      \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.\"\n    Grund:       Der Satz hat 27 Wörter und ist damit über der empfohlenen Grenze von 25 Wörtern.\n    Vorschlag:   \"Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine. Bei 7 Anmeldungen läuft er über 9 Termine. Bei 6 Anmeldungen läuft er über 7 Termine.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, NIVEAU, AMTSDEUTSCH\n\nGESAMT\n2 Befunde, davon 0 Pflicht.\nDer Text ist klar strukturiert und verwendet eine verständliche Sprache für die Zielgruppe. Die beiden Empfehlungen betreffen formale Aspekte, die den Text noch leichter lesbar machen würden. Der Text ist aus meiner Sicht veröffentlichungsfähig.",
+  "verbrauch": {
+    "prompt_tokens": 8374,
+    "completion_tokens": 474,
+    "total_tokens": 8848,
+    "cost": 0.032232,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.032232,
+      "upstream_inference_prompt_cost": 0.025122,
+      "upstream_inference_completions_cost": 0.00711
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

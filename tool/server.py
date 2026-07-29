@@ -639,6 +639,38 @@ BEFUNDZEILE = re.compile(
     r"^(\s*\[\d+\]\s+)(PFLICHT|EMPFEHLUNG|HINWEIS)(\s*[·.]\s*)(.+)$")
 
 
+# Regel 1 des Prompts verbietet Personennamen in der Ausgabe. Bei Namen im
+# Fliesstext haelt das Modell sich daran; bei einem Titel davor nicht: Es
+# beanstandet das "Dr." als unaufgeloeste Abkuerzung und zitiert dabei den
+# ganzen Namen. In vier von vier Laeufen, auch nachdem der Prompt die Ausnahme
+# ausdruecklich nannte -- das Modell schrieb die Regel sogar in den Vorschlag
+# und meldete den Befund trotzdem. Ob an einer Stelle ein Titel mit Namen
+# steht, ist eine Mustererkennung und kein Urteil, also steht sie hier.
+#
+# Das faengt den beobachteten Fall, nicht die Fehlerklasse: Ein Name ohne
+# Titel wird hiervon nicht erfasst, dafuer bleibt Regel 1 zustaendig.
+# Mehrere Titel hintereinander muessen mitgehen: "Prof. Dr. Anna Müller" darf
+# nicht nach dem ersten Titel abbrechen, sonst bleibt der Name stehen.
+# Auch die ausgeschriebene Form muss mit: Das Modell schlaegt von sich aus
+# "Doktorin Liliya Karpynska" als Aufloesung vor und bringt den Namen so
+# wieder herein, nachdem die abgekuerzte Form entfernt wurde.
+TITEL = (r"(?:(?:Dr|Prof|Dipl|Mag|PD|Dres)\.(?:[\s-]*(?:med|phil|rer|nat|jur|paed|Ing)\.)*"
+         r"|Doktor(?:in)?|Professor(?:in)?|Herr|Frau)")
+NAME_MIT_TITEL = re.compile(
+    r"(?:" + TITEL + r"\s*)+"
+    r"(?:(?:von|van|de|di|zu)\s+)?"
+    r"(?:[A-ZÄÖÜ][\wÄÖÜäöüß'’-]+)(?:\s+[A-ZÄÖÜ][\wÄÖÜäöüß'’-]+){0,2}")
+
+
+def namensschutz(inhalt):
+    """Ersetzt Titel samt folgendem Namen durch [Name].
+
+    Gibt (Text, Zahl der Ersetzungen) zurueck.
+    """
+    neu, anzahl = NAME_MIT_TITEL.subn("[Name]", inhalt)
+    return neu, anzahl
+
+
 def einstufung_normieren(inhalt):
     """Setzt die Einstufung jeder Befundzeile aus der Tabelle.
 
@@ -946,6 +978,9 @@ class Handler(BaseHTTPRequestHandler):
             inhalt, korrekturen = einstufung_normieren(inhalt)
             if korrekturen:
                 log("Einstufung korrigiert: %d Zeile(n)" % korrekturen)
+            inhalt, namen = namensschutz(inhalt)
+            if namen:
+                log("Personenname entfernt: %d Stelle(n)" % namen)
             inhalt = ehrlichkeitshinweis(inhalt, wortliste_wirksam)
 
             eintrag = {
@@ -965,6 +1000,7 @@ class Handler(BaseHTTPRequestHandler):
                 "wortlisteVorhanden": wortliste_wirksam,
                 "wortanzahl": p["wortanzahl"],
                 "einstufungKorrigiert": korrekturen,
+                "namenEntfernt": namen,
                 "dauerSekunden": dauer,
                 "eingabe": feld,
                 "benutzernachricht": benutzer_text,
