@@ -4,37 +4,27 @@
 <link rel="stylesheet" href="../dokument.css"></head>
 <body><div class="seite eng"><header><span class="marke">KLARTEXT</span><span>Teil B · Durchläufe</span></header><main><h2>Beispiel 2, Ausgabe</h2>
 <pre>ZIELGRUPPE
-Deutschsprachige Erwachsene ohne Englischkenntnisse, die Deutsch als Erst- oder starke Zweitsprache lesen.
+Deutschsprachige Erwachsene ohne Vorkenntnisse in Englisch, die Deutsch als Erst- oder starke Zweitsprache lesen.
 
 BEFUNDE
 [1] EMPFEHLUNG · SATZ
     Stelle:      &quot;Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden.&quot;
-    Grund:       Der Satz hat 26 Wörter und ist damit schwer zu überblicken.
+    Grund:       Der Satz hat 26 Wörter und ist damit für einen Ankündigungstext zu lang.
     Vorschlag:   &quot;Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie vertraute, alltägliche Ausdrücke. Sie lernen auch, ganz einfache Sätze zu verstehen und zu verwenden.&quot;
 
-[2] EMPFEHLUNG · AMTSDEUTSCH
-    Stelle:      &quot;insbesondere&quot;
-    Grund:       Gehobenes Verwaltungsdeutsch, wo &quot;besonders&quot; oder &quot;vor allem&quot; alltäglicher wäre.
-    Vorschlag:   &quot;Sie lernen dabei vor allem:&quot;
+[2] PFLICHT · STRUKTUR
+    Stelle:      &quot;*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)&quot;
+    Grund:       Die Aufzählung ist mit Sternchen und Zeilenumbrüchen gebaut statt mit semantischer HTML-Auszeichnung (&lt;ul&gt; und &lt;li&gt;). Screenreader können die Struktur nicht erkennen.
+    Vorschlag:   &quot;&lt;ul&gt;&lt;li&gt;sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)&lt;/li&gt;&lt;li&gt;über Familie zu sprechen und Familienangehörige und Freunde vorzustellen&lt;/li&gt;&lt;li&gt;einfache Gegenwart (Present Simple) zu benutzen&lt;/li&gt;&lt;li&gt;Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen&lt;/li&gt;&lt;/ul&gt;&quot;
 
-[3] EMPFEHLUNG · AMTSDEUTSCH
-    Stelle:      &quot;Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.&quot;
-    Grund:       &quot;Entscheidend&quot; ist gehobenes Standarddeutsch, &quot;Zahl der Anmeldungen&quot; klingt nach Verwaltung.
-    Vorschlag:   &quot;Es kommt darauf an, wie viele Personen am 2. Kurstermin angemeldet sind.&quot;
-
-[4] EMPFEHLUNG · SATZ
+[3] EMPFEHLUNG · SATZ
     Stelle:      &quot;Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine.&quot;
-    Grund:       Der Satz hat 26 Wörter und enthält viele Zahlen, die schwer zu verarbeiten sind.
-    Vorschlag:   &quot;Bei 8 Anmeldungen: 11 Termine wie geplant. Bei 7 Anmeldungen: 9 Termine. Bei 6 Anmeldungen: 7 Termine.&quot;
-
-[5] EMPFEHLUNG · AMTSDEUTSCH
-    Stelle:      &quot;Bitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.&quot;
-    Grund:       &quot;sich besorgen&quot;, &quot;angegebenen&quot;, &quot;fest steht&quot; sind Verwaltungsformulierungen.
-    Vorschlag:   &quot;Bitte kaufen Sie die Lehrbücher erst, wenn der Kurs sicher stattfindet.&quot;
+    Grund:       Der Satz hat 26 Wörter und enthält drei verschachtelte Bedingungen, was die Verständlichkeit erschwert.
+    Vorschlag:   &quot;Bei 8 Anmeldungen: 11 Termine. Bei 7 Anmeldungen: 9 Termine. Bei 6 Anmeldungen: 7 Termine.&quot;
 
 KEIN BEFUND ZU
-STRUKTUR, LINKTEXT, SPRACHE, ABK, NIVEAU, ANREDE, LEER
+ABK, LINKTEXT, NIVEAU, AMTSDEUTSCH
 
 GESAMT
-5 Befunde, davon 0 Pflicht.
-Der Text ist verständlich, könnte aber durch kürzere Sätze und alltagsnähere Formulierungen noch zugänglicher werden.</pre></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil B · Durchläufe</span><span>12 / 23</span></footer></div></body></html>
+3 Befunde, davon 1 Pflicht.
+Der Strukturbefund sollte vor Veröffentlichung behoben werden. Die beiden Satzlängenbefunde sind Empfehlungen zur besseren Lesbarkeit.</pre></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil B · Durchläufe</span><span>12 / 26</span></footer></div></body></html>

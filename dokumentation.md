@@ -180,14 +180,14 @@ Derselbe Prompt, dieselben Regeln, zwei Kurse. Das Ergebnis:
 | | Deutschkurs A2.2 | Englischkurs A1.1 |
 |---|---|---|
 | Zielgruppe, vom Prompt bestimmt | liest Deutsch auf A1 | liest Deutsch als Erst- oder starke Zweitsprache |
-| Befunde gesamt | 12 | 3 |
-| davon Pflicht | 1 | 0 |
-| davon zum Sprachniveau | 11 | **0** |
-| über vier Läufe je Kurs | 11 bis 12 | **konstant 0** |
+| Befunde gesamt | 9 | 3 |
+| davon Pflicht | 1 | 1 |
+| davon zum Sprachniveau | 8 | **0** |
+| über vier Läufe je Kurs | 8 bis 10 | **konstant 0** |
 
-Die letzte Zeile ist die wichtigere. Ein einzelner Lauf ist bei einem Sprachmodell keine Messung: Die Zahl der Niveaubefunde schwankt, weil das Modell mal ein Wort und mal einen ganzen Satz als eine Stelle behandelt. Belastbar ist deshalb nicht die Zahl, sondern die Asymmetrie — und die war in jedem Lauf dieselbe. Wie diese Streuung von fünf auf eins gebracht wurde, steht in Teil D unter v8.
+Die letzte Zeile ist die wichtigere. Ein einzelner Lauf ist bei einem Sprachmodell keine Messung: Die Zahl der Niveaubefunde schwankt, weil das Modell mal ein Wort und mal einen ganzen Satz als eine Stelle behandelt. Belastbar ist deshalb nicht die Zahl, sondern die Asymmetrie — und die war in jedem Lauf dieselbe. Die Streuung lag unter v8 bei fünf und ist seither auf zwei zurückgegangen; wie das erreicht wurde, steht in Teil D.
 
-Der Englischkurs hat die **längeren** Sätze und die **längere** Beschreibung. Ein Lesbarkeitsindex hätte ihn strenger beurteilt als den Deutschkurs. Der Prompt tut das Gegenteil, und zwar aus dem richtigen Grund: Er hat vorher bestimmt, wer liest.
+Beide Texte sind gleich einfach gebaut: im Schnitt neun beziehungsweise elf Wörter je Satz. Ein Lesbarkeitsindex, der Satz- und Wortlängen zählt, findet bei keinem der beiden etwas — er schweigt zweimal, und einmal davon zu Unrecht. Der Prompt unterscheidet sie, und zwar aus dem richtigen Grund: Er hat vorher bestimmt, wer liest.
 
 ## Was die Ausgaben sonst noch belegen
 
@@ -195,9 +195,9 @@ Der Englischkurs hat die **längeren** Sätze und die **längere** Beschreibung.
 
 **Die Obergrenze bindet, und das ist eine bekannte Schwäche.** Regel 4 begrenzt die Ausgabe auf fünfzehn Befunde, zuvor waren es zehn. Beim Deutschkurs wird die Grenze regelmäßig erreicht. Der Prompt soll dann vermerken, wie viele Befunde er weggelassen hat; verlässlich tut er das nicht. Bis v8 kam es sogar vor, dass eine wegen der Grenze weggelassene Regel unter KEIN BEFUND ZU auftauchte — das Werkzeug meldete „nichts gefunden", wo es keinen Platz mehr hatte. Diese Falschmeldung ist seit v9 nicht mehr aufgetreten, der fehlende Vermerk bleibt offen.
 
-**Die Pflichtbefunde sind belastbar.** Der Linktext „hier" verstößt gegen WCAG 2.4.4 auf Stufe A. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier". Das ist nach BITV HE über EN 301 549 gefordert, nicht Geschmackssache. Der Prompt trennt diesen Befund deshalb sichtbar von den Empfehlungen.
+**Die Pflichtbefunde sind belastbar.** Der Linktext „hier" verstößt gegen WCAG 2.4.4 auf Stufe A. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier". Das ist nach BITV HE über EN 301 549 gefordert, nicht Geschmackssache. Beim Englischkurs greift stattdessen `STRUKTUR` nach WCAG 1.3.1, ebenfalls Stufe A: Der Anmeldehinweis eröffnet eine Gliederungsebene und ist im Quelltext gewöhnlicher Fließtext. Der Prompt trennt beide Befunde sichtbar von den Empfehlungen.
 
-**Die Ausgabe schwankt, und die Schwankung ist gemessen.** Über je vier Läufe liegen die Niveaubefunde beim Deutschkurs zwischen elf und zwölf, beim Englischkurs konstant bei null. Vor der Präzisierung in v8 lag dieselbe Messung zwischen zwei und sieben — die Unschärfe saß in einer mehrdeutigen Regel, nicht im Modell. Die Pflichtbefunde blieben in allen Läufen stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar. Es ist zugleich ein Grund mehr, warum ein Mensch entscheidet.
+**Die Ausgabe schwankt, und die Schwankung ist gemessen.** Über je vier Läufe liegen die Niveaubefunde beim Deutschkurs zwischen acht und zehn, beim Englischkurs konstant bei null. Vor der Präzisierung in v8 lag dieselbe Messung zwischen zwei und sieben — die Unschärfe saß in einer mehrdeutigen Regel, nicht im Modell. Die Pflichtbefunde blieben in allen Läufen stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar. Es ist zugleich ein Grund mehr, warum ein Mensch entscheidet.
 
 === SEITE ===
 kapitel: Teil C · Testszenarien

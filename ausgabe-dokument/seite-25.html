@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>KLARTEXT · System-Prompt-Dokumentation — 25</title>
+<link rel="stylesheet" href="../dokument.css"></head>
+<body><div class="seite eng"><header><span class="marke">KLARTEXT</span><span>Teil D · Iterationshistorie</span></header><main><h2>v9 · Ein Name, den der Prompt nicht halten konnte</h2>
+<p><strong>Anlass.</strong> Zwei Funde aus den v8-Läufen: die Zehnerdecke von oben, und ein Personenname in der Ausgabe.</p>
+<p><strong>Befund.</strong> Beim Englischkurs meldete das Modell <code>Dr.</code> als nicht aufgelöste Abkürzung und zitierte dabei die Kursleitung mit vollem Namen. In drei von vier Läufen. Regel 1 verbietet das seit v0.1, und Test T5 führt sie als bestanden.</p>
+<p><strong>Was zuerst geändert wurde.</strong> Die Obergrenze von zehn auf fünfzehn Befunde, dazu der ausdrückliche Zusatz, dass eine wegen der Grenze weggelassene Regel nicht unter KEIN BEFUND ZU gehört. Für den Namen: eine Ausnahme in der <code>ABK</code>-Zeile für Titel vor Personennamen und die Erweiterung von Regel 1 auf die ganze Ausgabe.</p>
+<p><strong>Der Prompt hat es nicht gehalten.</strong> Vier von vier Läufen zitierten den Namen weiter. Das Modell schrieb die Ausnahme sogar selbst hin:</p>
+<pre>[1] EMPFEHLUNG · ABK
+    Stelle:      &quot;Dr. Liliya Karpynska&quot;
+    Vorschlag:   Entfällt – Titel vor Personennamen sind von der Regel ausgenommen.</pre>
+<p>Es kennt die Regel, zitiert sie wörtlich und meldet den Befund trotzdem — um ihn im selben Atemzug für ungültig zu erklären. Im GESAMT-Block steht dann „0 Befunde", während oben einer steht.</p>
+<p><strong>Die Lösung war wieder keine Prompt-Lösung.</strong> Ob an einer Stelle ein Titel mit Namen steht, ist eine Mustererkennung und kein Urteil. Seit v9 entfernt der Server Titel samt folgendem Namen aus der Ausgabe, bevor sie den Bildschirm erreicht. Das Muster ist isoliert gegen elf Fälle geprüft, darunter die wichtigen Nicht-Treffer: Die Begründung „Die Abkürzung „Dr." wird nicht aufgelöst" darf nicht angetastet werden, sonst wird sie unlesbar.</p>
+<p>Beim ersten Einbau griff der Schutz zu kurz. Nachdem der Server „Dr. Liliya Karpynska" entfernt hatte, schrieb das Modell den Namen im Vorschlag erneut hin — diesmal ausgeschrieben als „Doktorin Liliya Karpynska", also als Auflösung genau jener Abkürzung, die es beanstandet hatte. Das Muster deckt seither beide Formen ab.</p>
+<p><strong>Ergebnis.</strong> Acht Läufe, kein Namensdurchbruch:</p>
+<table><thead><tr><th></th><th>Niveau-Befunde</th><th>Namen in der Ausgabe</th></tr></thead><tbody><tr><td>Deutschkurs 4074-74</td><td>12, 12, 12, 11</td><td>0 von 4</td></tr><tr><td>Englischkurs 4213-40</td><td>0, 0, 0, 0</td><td>0 von 4</td></tr></tbody></table>
+<p>Dass die Zahl gegenüber v8 gestiegen ist, war zu erwarten: Die Zehnerdecke hatte vorher Befunde abgeschnitten.</p>
+<p><strong>Zum dritten Mal dasselbe Muster.</strong> Der Ehrlichkeitsvorbehalt in v4, die Einstufung in v5, der Namensschutz in v9. Dreimal stand eine Zusage im Prompt, dreimal wurde sie nicht zuverlässig gehalten, dreimal liegt sie heute im Code. Was feststeht, gehört in den Code. Was Urteil verlangt, bleibt beim Modell.</p>
+<p><strong>Was offen bleibt.</strong> Der Schutz fängt den beobachteten Fall, nicht die Fehlerklasse. Ein Name <strong>ohne</strong> Titel — „Die Kursleiterin Maria Schmidt bringt Material mit" — wird vom Muster nicht erfasst; dafür bleibt Regel 1 im Prompt zuständig, und die hat in allen bisherigen Läufen gehalten. Eine vollständige Lösung bräuchte eine Namenserkennung oder eine Namensliste aus dem Kurssystem. Beides ist hier unverhältnismäßig, und es steht besser hier als unerwähnt.</p>
+<p>Auch die neue Grenze von fünfzehn Befunden bindet beim Deutschkurs noch: Drei von vier Läufen erreichten sie genau. Falsche Meldungen unter KEIN BEFUND ZU kamen nicht mehr vor, ein Vermerk über die Zahl der weggelassenen Befunde aber auch nicht.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil D · Iterationshistorie</span><span>25 / 26</span></footer></div></body></html>
