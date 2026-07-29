@@ -179,16 +179,16 @@ td.ja{ color:var(--geprueft); font-weight:700; }
 td.nein{ color:var(--pflicht); font-weight:700; }
 
 /* ---------- Typ: tabelle2, zweiter Block nach Einstufung ---------- */
-.kompakt td{ font-size:14px; padding:7px 14px 7px 0; }
-.kompakt th{ padding-bottom:6px; }
-.regeln{ margin-top:10px; }
+.kompakt td{ font-size:14px; padding:6px 14px 6px 0; }
+.kompakt th{ padding-bottom:5px; }
+.regeln{ margin-top:8px; }
 .regeln .rtitel{ font-size:11px; font-weight:700; letter-spacing:2px;
                  text-transform:uppercase; color:var(--leise);
-                 padding-bottom:7px; border-bottom:2px solid var(--marke);
-                 margin-bottom:9px; }
-.rgruppe{ display:flex; gap:18px; padding:6px 0 6px 14px;
+                 padding-bottom:5px; border-bottom:2px solid var(--marke);
+                 margin-bottom:6px; }
+.rgruppe{ display:flex; gap:18px; padding:4px 0 4px 14px;
           border-left:4px solid var(--linie); }
-.rgruppe + .rgruppe{ margin-top:7px; }
+.rgruppe + .rgruppe{ margin-top:5px; }
 .rgruppe.pflicht{ border-left-color:var(--pflicht); }
 .rgruppe.empfehlung{ border-left-color:var(--empfehlung); }
 .rstufe{ flex:0 0 104px; font-size:11px; font-weight:700; letter-spacing:1.4px;
