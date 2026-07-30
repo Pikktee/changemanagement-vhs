@@ -592,7 +592,7 @@ def t_plan(f, seite_, gesamt):
         teile = [x.strip() for x in str(roh).split("||")]
         teile += [""] * (3 - len(teile))
         wert, erkl, art = teile[0], teile[1], teile[2].lower()
-        kl = " einwand" if art == "einwand" else ""
+        kl = " pkzeinwand" if art == "einwand" else ""
         kzs.append(f'<div class="pkz{kl}"><span class="pkzwert">{e(wert)}</span>'
                    f'<span class="pkzerkl">{e(erkl)}</span></div>')
     rechts = ""

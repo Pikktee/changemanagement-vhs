@@ -299,9 +299,15 @@ td.nein{ color:var(--pflicht); font-weight:700; }
           color:var(--tinte); }
 /* Die Zahl des Einwands ist keine Kennzahl des Vorhabens. Sie bleibt in
    Fliesstextfarbe und verliert den Markenstreifen — die Unterscheidung haengt
-   damit nicht an der Farbe allein, sondern auch an der Form. */
-.pkz.einwand{ border-left:4px solid var(--rahmen); }
-.pkz.einwand .pkzwert{ color:var(--tinte); }
+   damit nicht an der Farbe allein, sondern auch an der Form.
+
+   Die Klasse heisst 'pkzeinwand' und nicht 'einwand': Klassennamen sind hier
+   ein flacher Namensraum, und '.einwand' gehoert dem Typ 'einwaende'. Mit dem
+   kurzen Namen erbte diese Zeile dessen 'display:grid' samt
+   'grid-template-columns:1fr 26px 1.12fr' — die Erklaerung landete in der
+   26px-Spalte und brach wortweise um. */
+.pkz.pkzeinwand{ border-left:4px solid var(--rahmen); }
+.pkz.pkzeinwand .pkzwert{ color:var(--tinte); }
 
 /* ---------- Typ: einwaende ----------
    Einwand links, Antwort rechts, in derselben Zeile. Der Pfeil sitzt auf der
@@ -474,22 +480,24 @@ td.nein{ color:var(--pflicht); font-weight:700; }
      display:flex; flex-direction:column; gap:10px;
      margin-top:auto; margin-bottom:auto; }
 .tlkopf{ display:flex; gap:var(--tllueck);
-         padding-left:calc(var(--tlnamen) + var(--tltor) + 2 * var(--tllueck)); }
+         padding-left:calc(var(--tltor) + 26px + var(--tlnamen)
+                           + var(--tllueck)); }
 .tlkopf span{ flex:1; font-size:10.5px; font-weight:700; letter-spacing:2px;
               text-transform:uppercase; color:var(--leise);
               border-bottom:2px solid var(--marke); padding-bottom:5px; }
 
-.tlmittor{ display:flex; gap:var(--tllueck); align-items:stretch; }
-/* Das Tor sitzt hinter der Spalte der Strangnamen, damit es unter dem Kopf
-   'Monat 1' nicht mitzaehlt. */
-.tltor{ flex:none; width:var(--tltor); margin-left:calc(var(--tlnamen) + var(--tllueck));
+/* Die Reihenfolge ist Tor, dann Strangnamen, dann Monatsspalten. Das Tor
+   bekommt deshalb keinen linken Rand — es steht vor allem, auch vor den Namen.
+   Der Einzug des Kopfes rechnet mit genau dieser Summe. */
+.tlmittor{ display:flex; gap:26px; align-items:stretch; }
+.tltor{ flex:none; width:var(--tltor);
         background:var(--marke); color:#fff; padding:14px 15px;
         display:flex; flex-direction:column; justify-content:center;
         position:relative; }
 .tltitel{ font-size:10px; font-weight:700; letter-spacing:1.4px;
           text-transform:uppercase; color:var(--auf-marke); }
 .tltext{ font-size:14px; font-weight:700; line-height:1.32; margin-top:6px; }
-.tlspitze{ position:absolute; right:-16px; top:50%; transform:translateY(-50%);
+.tlspitze{ position:absolute; right:-21px; top:50%; transform:translateY(-50%);
            color:var(--marke); font-size:19px; line-height:1; }
 
 .tlgitter{ flex:1; display:flex; flex-direction:column;
