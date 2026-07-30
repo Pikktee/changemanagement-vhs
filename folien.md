@@ -541,6 +541,8 @@ Dieser hier ist Pflicht, der Link heißt schlicht „hier“. Wer sich die Seite
 vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der Vorschlag
 daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
 
+Ich zeige euch das kurz live, an genau diesem Kurs.
+
 Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er belegt, dass
 der Weg funktioniert, er ist keine fertige Anwendung.
 
