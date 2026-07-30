@@ -177,13 +177,25 @@ textarea{ min-height:150px; resize:vertical; line-height:1.6; }
           color:var(--marke); background:none; border:none; padding:4px 0; cursor:pointer; }
 .zurueck:hover{ color:var(--marke-dunkel); text-decoration:underline; }
 
-/* Herkunft eines Laufes, direkt am Ergebnis statt in der Fusszeile. */
+/* Herkunft eines Laufes. Sie steht nicht mehr ueber dem Ergebnis: Wer wissen
+   will, ob der Text verstaendlich ist, fragt nicht nach Temperatur und
+   Pruefsumme. Sichtbar wird sie zusammen mit dem Rohtext des Modells — das
+   ist die technische Ansicht, dort gehoert sie hin. */
 .laufband{ display:flex; flex-wrap:wrap; gap:5px 18px; border:1px solid var(--linie);
-  background:var(--papier); padding:9px 14px; margin-top:12px;
+  background:var(--papier); padding:9px 14px; margin-top:14px;
   font-size:12.5px; color:var(--leise); }
 .laufband b{ color:var(--tinte); font-weight:600; }
 .laufband .warnton, .laufband .warnton b{ color:var(--pflicht); }
 .laufband .mono{ font-family:var(--schrift-mono); font-variant-numeric:tabular-nums; }
+
+/* Zuerst die Frage, dann die Antwort: Ein Ergebnis ohne den Kurs davor ist
+   nicht zu lesen — die Kernthese des Projekts ist gerade, dass ein Urteil nur
+   fuer eine bestimmte Zielgruppe gilt. Die Kursnummer laeuft in Atkinson mit,
+   sie ist eine Kennung und kein Messwert (DESIGN.md). */
+.kurskopf{ margin-top:16px; padding-bottom:13px; border-bottom:2px solid var(--tinte); }
+.kurskopf .kkmarke{ font-size:13px; font-weight:600; color:var(--leise); margin-bottom:5px; }
+.kurskopf h1{ font-size:21px; font-weight:700; letter-spacing:-.4px; line-height:1.28; }
+.kurskopf .kkmeta{ font-size:13.5px; color:var(--leise); margin-top:6px; line-height:1.5; }
 
 /* Das Urteil steht oben, nicht unter der Befundliste. Es ist die Antwort auf
    die Frage, die jemand gestellt hat; alles Weitere ist Beleg. */
@@ -200,7 +212,12 @@ textarea{ min-height:150px; resize:vertical; line-height:1.6; }
 .verdikt.empfehlung .zeichen{ background:var(--empfehlung); }
 .verdikt.hinweis .zeichen{ background:var(--hinweis); }
 .verdikt.geprueft .zeichen{ background:var(--geprueft); }
-.verdikt h1{ font-size:24px; font-weight:700; letter-spacing:-.6px; line-height:1.22; }
+/* Das Urteil ist eine Ueberschrift zweiter Ordnung, seit der Kurs die erste
+   traegt. Die Regel fuer h2 weiter unten setzt Linie, Groesse und Flex fuer
+   die Spaltenkoepfe — das muss hier ausdruecklich zurueckgenommen werden. */
+.verdikt h2{ display:block; font-size:24px; font-weight:700; letter-spacing:-.6px;
+             line-height:1.22; color:var(--tinte); margin-bottom:0;
+             padding-bottom:0; border-bottom:none; }
 .verdikt .satz{ font-size:15px; line-height:1.55; margin-top:9px; max-width:74ch; }
 .verdikt .ziel{ font-size:14.5px; line-height:1.55; color:var(--leise); margin-top:10px;
                 max-width:74ch; }
@@ -234,13 +251,15 @@ textarea{ min-height:150px; resize:vertical; line-height:1.6; }
 .paar > .links{ padding-right:34px; }
 /* Der Text bleibt stehen, waehrend die Befundliste laeuft. Kursbeschreibungen
    sind kurz (Kernfall 710 Zeichen mit Bausteinen), die Liste waechst dagegen
-   mit jedem Fund. Ein sehr langer Text bekommt seinen eigenen Scrollbereich,
-   damit er das Fenster nicht ueberlaeuft und das Kleben aufhebt.
-   Kein overscroll-behavior:contain: Chrome sperrt damit das Mausrad ueber der
-   linken Spalte fuer die ganze Seite — auch dann, wenn der Text gar nicht
-   ueberlaeuft und der Container selbst nichts zu scrollen hat. */
-.paar > .links .haft{ position:sticky; top:74px;
-                      max-height:calc(100vh - 92px); overflow-y:auto; }
+   mit jedem Fund.
+   Ein eigener Scrollbereich fuer lange Texte war die falsche Antwort: Zwei
+   Rollbalken uebereinander sind schwer zu treffen und geben dem Mausrad zwei
+   Bedeutungen. Stattdessen setzt haftSetzen() den Abstand — passt der Text
+   ins Fenster, klebt er unter der Kopfzeile; ist er laenger, laeuft er erst
+   mit und bleibt stehen, sobald sein Ende zu sehen ist. Ist er das laengste
+   Element der Zeile, bleibt fuer sticky ohnehin kein Weg, dann laeuft die
+   Seite als Ganzes. In jedem Fall bleibt es bei einem Rollbalken. */
+.paar > .links .haft{ position:sticky; top:74px; }
 .paar > .rechts{ padding-left:34px; border-left:1px solid var(--linie); }
 h2{ font-size:14px; font-weight:700; color:var(--tinte); margin-bottom:14px;
     padding-bottom:10px; border-bottom:2px solid var(--tinte);
@@ -637,12 +656,15 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
 @media (max-width:980px){
   .paar{ grid-template-columns:1fr; gap:28px; }
   .paar > .links{ padding-right:0; }
-  .paar > .links .haft{ position:static; max-height:none; overflow:visible; }
+  /* Einspaltig steht der Text ueber der Liste, nichts klebt. Der Abstand, den
+     haftSetzen() setzt, bleibt ohne Wirkung — top gilt nur fuer sticky. */
+  .paar > .links .haft{ position:static; }
   .paar > .rechts{ padding-left:0; border-left:none; border-top:1px solid var(--linie);
                    padding-top:24px; }
   .liste{ padding-bottom:0; }
   #inline{ display:block; }
-  .verdikt h1{ font-size:21px; }
+  .kurskopf h1{ font-size:19px; }
+  .verdikt h2{ font-size:21px; }
   .pruftext{ font-size:16.5px; line-height:1.9; }
 }
 @media (max-width:700px){
@@ -654,7 +676,8 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   .ergebnis{ padding:18px 18px 36px; }
   .raster, .raster.breitlinks, .raster.breitrechts{ grid-template-columns:1fr; }
   .fuss{ margin:0 18px; }
-  .verdikt{ gap:12px; padding:16px; } .verdikt h1{ font-size:19px; }
+  .kurskopf h1{ font-size:18px; }
+  .verdikt{ gap:12px; padding:16px; } .verdikt h2{ font-size:19px; }
   .messung .rest{ min-width:100%; border-top:1px solid var(--linie); }
   .pruftext{ font-size:16px; line-height:1.85; }
 
@@ -945,6 +968,10 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
   var letzteBefunde = null;
   var letzterLauf = null;
   var letzterPruftext = "";
+  // Die Felder, wie sie beim Abschicken standen. Das Ergebnis nennt den Kurs,
+  // und die Felder sind dafuer die Quelle, nicht der gewaehlte Kursplaneintrag:
+  // Wer Titel oder Niveau vor der Pruefung aendert, hat genau das geprueft.
+  var letzteEingabe = null;
   var laeuft = false;
   var uhr = null;
 
@@ -1897,6 +1924,27 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
     return { vorbehalt:vorbehalt, satz:satz.join(" ") };
   }
 
+  // Der Kopf des Ergebnisses nennt, was geprueft wurde. Ohne ihn steht ein
+  // Urteil ueber einem Text, dessen Herkunft nur noch im Gedaechtnis liegt —
+  // und wer zwei Kurse nacheinander prueft, verwechselt sie.
+  function kurskopfBauen(){
+    var e = letzteEingabe || {};
+    var titel = (e.titel || "").trim();
+    var nummer = (e.nummer || "").trim();
+    // Ohne Titel traegt die Kursnummer die Zeile, ohne beides bleibt der
+    // eingesetzte Text. Die Nummer steht dann nicht noch einmal darunter.
+    var teile = [];
+    if(nummer && titel) teile.push(nummer);
+    if(e.bereich) teile.push(e.bereich);
+    if(e.niveau && e.niveau !== "kein Sprachniveau") teile.push(e.niveau);
+    if(e.zeichen) teile.push(zahl(e.zeichen) + " Zeichen");
+    var h = '<div class="kurskopf"><p class="kkmarke">'
+          + (titel || nummer ? "Geprüfter Kurs" : "Geprüft") + "</p>"
+          + "<h1>" + esc(titel || nummer || "Eingesetzter Text") + "</h1>";
+    if(teile.length){ h += '<p class="kkmeta">' + esc(teile.join(" · ")) + "</p>"; }
+    return h + "</div>";
+  }
+
   function laufbandBauen(){
     if(!letzterLauf) return "";
     var d = letzterLauf, teile = [];
@@ -1926,10 +1974,10 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
     var g = gesamtTeilen(daten.gesamt);
     var u = urteilBauen(z, b.length === 0);
 
-    var h = laufbandBauen();
+    var h = kurskopfBauen();
     h += '<div class="verdikt ' + u.klasse + '">'
        + '<span class="zeichen" aria-hidden="true">' + u.zeichen + "</span><div>"
-       + "<h1>" + esc(u.titel) + "</h1>";
+       + "<h2>" + esc(u.titel) + "</h2>";
     if(g.satz){ h += '<p class="satz">' + esc(g.satz) + "</p>"; }
     if(daten.zielgruppe){
       h += '<p class="ziel">Geprüft für <b>' + esc(daten.zielgruppe) + "</b></p>";
@@ -2089,9 +2137,27 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
     });
   }
 
+  // Wie weit der Text von oben kleben darf. Passt er ins Fenster, haengt er
+  // unter der Kopfzeile — der Normalfall, eine Kursbeschreibung ist kurz. Ist
+  // er laenger, bekommt er einen negativen Abstand: Er laeuft dann mit, bis
+  // seine Unterkante am Fensterboden steht, und bleibt erst danach stehen,
+  // solange die Befundliste daneben noch laeuft. Ohne diese Rechnung hielte
+  // sticky ihn oben fest und sein Ende waere nicht zu erreichen.
+  function haftSetzen(){
+    var haft = document.querySelector(".paar > .links .haft");
+    if(!haft) return;
+    haft.style.top = "";
+    var hoehe = haft.getBoundingClientRect().height;
+    var raum = window.innerHeight - 92;      // 74 Kopfzeile, 18 Luft darunter
+    if(hoehe > raum){
+      haft.style.top = Math.round(window.innerHeight - hoehe - 18) + "px";
+    }
+  }
+
   // Wechselt die Breite, muss die Anzeige des aktiven Befunds mitwandern.
   var breit = !schmal();
   window.addEventListener("resize", function(){
+    haftSetzen();
     var jetzt = !schmal();
     if(jetzt !== breit){
       breit = jetzt;
@@ -2116,7 +2182,10 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
     ansicht("ergebnis");
     auswahlLoesen();
     if(rohSichtbar || !letzteBefunde){
-      el("ergebnisKopf").innerHTML = letzteBefunde ? laufbandBauen() : "";
+      // Hier, bei der unveraenderten Antwort, ist die Herkunft des Laufes am
+      // Platz. Bei einer Antwort im falschen Format erst recht: Dann ist die
+      // Frage nach Modell und Fassung genau die richtige.
+      el("ergebnisKopf").innerHTML = kurskopfBauen() + laufbandBauen();
       el("ergebnisPaar").innerHTML =
         rohDarstellen(letzteBefunde ? "" : "Die Antwort folgt nicht dem erwarteten Format.")
         + rohSchalter();
@@ -2124,6 +2193,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
       el("ergebnisKopf").innerHTML = kopfZeichnen(letzteBefunde);
       el("ergebnisPaar").innerHTML = paarZeichnen(letzteBefunde) + rohSchalter();
       kopplungBinden();
+      haftSetzen();
     }
     var r = el("rohKnopf");
     if(r) r.addEventListener("click", function(){
@@ -2225,6 +2295,9 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
       letzteBefunde = parseAntwort(letzterRohtext);
       letzterLauf = res.daten;
       letzterPruftext = text;
+      letzteEingabe = { titel:koerper.titel.trim(), nummer:koerper.nummer.trim(),
+                        bereich:koerper.programmbereich, niveau:koerper.niveau,
+                        zeichen:text.length };
       ergebnisZeichnen();
       if(!res.daten.wortlisteVorhanden){ el("balkenWort").classList.add("an"); }
       else { el("balkenWort").classList.remove("an"); }
@@ -2368,6 +2441,7 @@ kbd{ font-family:var(--schrift-mono); font-size:11.5px; background:var(--papier)
     el("text").value = ""; el("niveau").selectedIndex = 0; el("bereich").selectedIndex = 0;
     zeichenZaehlen();
     letzterRohtext = ""; letzteBefunde = null; letzterLauf = null; letzterPruftext = "";
+    letzteEingabe = null;
     el("kursGewaehltTitel").textContent = "Kurs aus dem Kursplan wählen";
     el("kursGewaehltMeta").textContent = kursMetaStandard();
     el("kursHint").textContent = "Programmbereich und Niveau werden aus den Portaldaten vorbelegt und lassen sich ändern.";
