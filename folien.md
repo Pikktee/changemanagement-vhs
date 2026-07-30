@@ -704,13 +704,11 @@ titel: Drei Monate,
 akzent: drei Stränge.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-tortitel: Vorher
-tor: Zustimmung des Personalrats, als Dienstvereinbarung
 strang1: Technische Implementation || Setup > Assistent anlegen, Regeln an echten Texten schärfen || Pilot > Ein Programmbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
 strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe || Training > Pflicht nach Artikel 4 KI-Verordnung, für alle, die bedienen || Support > Feste Sprechstunde, nicht auf Zuruf
 strang3: Change || Vorbereitung > Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die scharfen Regeln, dazu der Quick Win || Begleitung > Nachmessung, dann Entscheidung
-callout: Der Kommunikationsstrang beginnt nicht aus Höflichkeit vor dem technischen, sondern weil er muss.
-calloutsub: Ohne die Dienstvereinbarung darf der Assistent nicht angelegt werden — deshalb steht sie links vor Monat 1 und nicht in ihm.
+callout: Im Change-Strang steht das Fragen vor dem Handeln — die Bausteinfreigabe im ersten Monat, nicht im zweiten.
+calloutsub: Sonst trifft der Quick Win im zweiten Monat auf eine Zuständigkeit, die niemand geklärt hat.
 quellen:
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
   - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -719,21 +717,16 @@ quellen:
 
 Der Zeitplan, drei Monate, drei Stränge, die neun Phasen aus der
 Aufgabenstellung als Überschrift jeder Zelle. Die Zellen könnt ihr mitlesen,
-ich hebe drei Dinge heraus.
+ich hebe zwei Dinge heraus.
 
-Erstens das blaue Feld links. Es steht in keinem der drei Monate, sondern
-davor, weil die Dienstvereinbarung ein Tor ist und keine Parallelaufgabe. Im
-ersten Monat sähe es aus, als könne daneben schon der Assistent angelegt
-werden. Das darf er nicht.
-
-Zweitens das Training im zweiten Monat. Das ist keine Kür, sondern Pflicht:
+Erstens das Training im zweiten Monat. Das ist keine Kür, sondern Pflicht:
 Artikel vier der KI-Verordnung verlangt seit Februar zweitausendfünfundzwanzig
 ausreichende KI-Kompetenz, und zwar für das Personal und für alle, die im
 Auftrag mit Betrieb und Nutzung befasst sind. Deshalb steht in der Zelle nicht
 Personal, sondern alle, die bedienen. Wer nicht bedient, braucht die Schulung
 nicht — das ist der Grund, warum die Kursleitungen aus dieser Kette bleiben.
 
-Und drittens die Reihenfolge im Change-Strang: erst fragen, dann handeln. Die
+Und zweitens die Reihenfolge im Change-Strang: erst fragen, dann handeln. Die
 Freigabe der Textbausteine steht deshalb im ersten Monat und nicht im zweiten,
 sonst läuft der Quick Win auf eine Zuständigkeit, die niemand hat.
 

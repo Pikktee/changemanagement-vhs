@@ -1,0 +1,52 @@
+{
+  "zeitpunkt": "2026-07-30T16:24:46",
+  "modell": "anthropic/claude-sonnet-4.5",
+  "modellErstwahl": "anthropic/claude-sonnet-4.5",
+  "modellStandard": "anthropic/claude-sonnet-4.5",
+  "ersatzmodellGenutzt": false,
+  "temperatur": 0.0,
+  "temperaturStandard": 0.0,
+  "promptFassung": "v11 · 30.07.2026",
+  "promptPruefsumme": "033954d8656798d2",
+  "promptPruefsummeStandard": "033954d8656798d2",
+  "promptAngepasst": false,
+  "promptZeichen": 20641,
+  "abweichungVomStandard": false,
+  "wortlisteVorhanden": true,
+  "wortanzahl": 820,
+  "einstufungKorrigiert": 0,
+  "namenEntfernt": 0,
+  "dauerSekunden": 10.95,
+  "eingabe": {
+    "titel": "Frauengesundheit als Menschenrecht",
+    "nummer": "0107-53",
+    "programmbereich": "Gesellschaft/Politik/Psychologie",
+    "niveau": "kein Sprachniveau",
+    "text": "Warum ist Frauengesundheit eigentlich ein Thema der Menschenrechte? Im Kurs betrachten wir Gesundheit aus einer sozialen und menschenrechtlichen Perspektive. Wir diskutieren, wie Diskriminierung, Abtreibungsverbote, weibliche Genitalverstümmelung und internationale Abkommen die Gesundheit und Selbstbestimmung von Frauen beeinflussen. Interaktive Diskussionen und praxisnahe Beispiele verbinden Theorie und gesellschaftliche Realität. Der Kurs richtet sich an alle, die sich für Frauenrechte, globale Gesundheit und soziale Gerechtigkeit interessieren."
+  },
+  "benutzernachricht": "KURSTITEL:        Frauengesundheit als Menschenrecht\nKURSNUMMER:       0107-53\nPROGRAMMBEREICH:  Gesellschaft/Politik/Psychologie\nNIVEAU:           kein Sprachniveau\nTEXT:\nWarum ist Frauengesundheit eigentlich ein Thema der Menschenrechte? Im Kurs betrachten wir Gesundheit aus einer sozialen und menschenrechtlichen Perspektive. Wir diskutieren, wie Diskriminierung, Abtreibungsverbote, weibliche Genitalverstümmelung und internationale Abkommen die Gesundheit und Selbstbestimmung von Frauen beeinflussen. Interaktive Diskussionen und praxisnahe Beispiele verbinden Theorie und gesellschaftliche Realität. Der Kurs richtet sich an alle, die sich für Frauenrechte, globale Gesundheit und soziale Gerechtigkeit interessieren.",
+  "antwort": "ZIELGRUPPE\nErwachsene mit allgemeinem Interesse an gesellschaftspolitischen Themen, die Deutsch als Erst- oder starke Zweitsprache lesen.\n\nBEFUNDE\n[1] EMPFEHLUNG · AMTSDEUTSCH\n    Stelle:      \"menschenrechtlichen Perspektive\"\n    Grund:       \"Menschenrechtlich\" ist Verwaltungs- und Fachsprache, wo \"aus Sicht der Menschenrechte\" alltagssprachlich wäre.\n    Vorschlag:   \"Warum ist Frauengesundheit eigentlich ein Thema der Menschenrechte? Im Kurs betrachten wir Gesundheit aus einer sozialen Sicht und aus Sicht der Menschenrechte.\"\n\n[2] EMPFEHLUNG · NIVEAU\n    Stelle:      \"weibliche Genitalverstümmelung\"\n    Grund:       \"Genitalverstümmelung\" ist ein Fachwort aus dem medizinisch-rechtlichen Bereich, das nicht zum Alltagswortschatz gehört.\n    Vorschlag:   \"Wir diskutieren, wie Diskriminierung, Abtreibungsverbote, Beschneidung von Frauen und internationale Abkommen die Gesundheit und Selbstbestimmung von Frauen beeinflussen.\"\n\n[3] EMPFEHLUNG · NIVEAU\n    Stelle:      \"Selbstbestimmung von Frauen\"\n    Grund:       \"Selbstbestimmung\" ist ein abstrakter Fachbegriff aus der Sozial- und Rechtswissenschaft.\n    Vorschlag:   \"Wir diskutieren, wie Diskriminierung, Abtreibungsverbote, weibliche Genitalverstümmelung und internationale Abkommen die Gesundheit von Frauen und ihr Recht, selbst zu entscheiden, beeinflussen.\"\n\nKEIN BEFUND ZU\nSTRUKTUR, LINKTEXT, ABK, SATZ\n\nGESAMT\n3 Befunde, davon 0 Pflicht.\nDer Text ist verständlich geschrieben. Die drei Empfehlungen betreffen Fachbegriffe, die für die Zielgruppe mit allgemeinem Interesse vereinfacht werden könnten, aber nicht zwingend müssen.",
+  "verbrauch": {
+    "prompt_tokens": 8466,
+    "completion_tokens": 598,
+    "total_tokens": 9064,
+    "cost": 0.034368,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.034368,
+      "upstream_inference_prompt_cost": 0.025398,
+      "upstream_inference_completions_cost": 0.00897
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
