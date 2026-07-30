@@ -12,6 +12,17 @@
 #         Folie ist Referentennotiz und landet in der PowerPoint.
 #   **fett** funktioniert in allen Texten.
 #
+# Im NOTIZ-Block ist Markdown erlaubt und wird im Vortragswerkzeug gesetzt:
+#   "# " und "### " Ueberschrift, "- " und "1. " Liste, "> " Zitat,
+#   "---" Trennlinie, **fett**, *kursiv*.
+#   NICHT "## " am Zeilenanfang — das beginnt auch mitten in einer Notiz eine
+#   neue Folie und zerlegt die Datei. Fuer eine Ueberschrift "# " oder "### ".
+#
+# Notizen lassen sich auch im Vortragswerkzeug bearbeiten:
+#   python3 notizen.py --server, dann Taste E oder der Stift.
+#   Wer diese Datei hier aendert, waehrend dort eine Seite offen ist, muss sie
+#   neu laden — sonst schreibt sie beim Speichern ihren alten Stand zurueck.
+#
 # Folientypen: titel, schluss, kapitel, punkte, zahlen, zweispalt,
 #              tabelle, zitat, text
 # Alle Felder pro Typ stehen in README-FOLIEN.md

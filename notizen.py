@@ -21,8 +21,25 @@ Bedienung (auf beiden Seiten gleich):
     Schrift  + und -  (nur Notizen, in Schritten von 5 Prozent,
                        gemerkt in localStorage)
     Ein Klick blaettert ebenfalls vor.
+    Bearbeiten  Taste E oder der Stift rechts in der Fusszeile
+                Esc speichert und schliesst, Cmd+S speichert zwischendurch
 
-Notizen bearbeiten (Taste E) braucht den mitgelieferten Server:
+Bearbeitet wird der rohe Markdown-Text in einem Textfeld, nicht die gesetzte
+Anzeige. Was im Feld steht, geht Zeichen fuer Zeichen in die Datei — es gibt
+keinen Ruecklese-Schritt, der etwas anders verstehen koennte, als es aussieht.
+
+Erkannt wird: **fett**, *kursiv*, "# " und "### " als Ueberschrift, "- " und
+"1. " als Liste, "> " als Zitat, "---" als Trennlinie. Zwei Muster sind
+verboten, weil sie folien.md zerlegen wuerden, und werden vor dem Schreiben
+abgewiesen (notiz_pruefen):
+
+    "## " am Zeilenanfang   beginnt dort eine neue Folie
+    "### NOTIZ"             ist die Marke, die den Notizblock einleitet
+
+Deshalb fehlt die zweite Ueberschriftenebene. Alles andere ist gegen
+build.parse() nachgemessen und ueberlebt unveraendert.
+
+Das braucht den mitgelieferten Server:
 
     python3 notizen.py --server
 
@@ -34,8 +51,8 @@ Folienbilder aendern sich durch eine Notiz nicht, und build.py committet
 selbst. Wer die PowerPoint mit den neuen Notizen will, baut danach von Hand
 oder laesst watch.py nebenher laufen.
 
-Mit "python3 -m http.server" laufen die Seiten weiter, nur ohne Editor: die
-Taste E meldet dann, dass kein schreibender Server da ist.
+Mit "python3 -m http.server" laufen die Seiten weiter, nur ohne Editor: der
+Stift bleibt verborgen, und die Taste E meldet den Grund.
 
 Direkt anspringen laesst sich eine Folie mit ?folie=5 in der Adresse. Das
 zaehlt nicht als Blaettern, der Hinweis in der Fusszeile bleibt stehen.
@@ -58,9 +75,10 @@ WICHTIG — die Kopplung braucht denselben Ursprung:
     und verschwindet, sobald zum ersten Mal geblaettert wird.
 
 Aufbau der Notizseite:
-    Kopf   Foliennummer, Folientitel, darunter klein die naechste Folie
-    Text   die Notiz, Absaetze durch Leerzeilen getrennt
-    Fuss   der Hinweis auf den Server
+    Kopf   Foliennummer und Folientitel
+    Text   die Notiz, Absaetze durch Leerzeilen getrennt; beim Bearbeiten
+           liegt an derselben Stelle das Textfeld mit dem Markdown
+    Fuss   Hinweis oder Statuszeile, rechts der Stift
 
 Die Notizen stecken als JSON in der Datei selbst, es wird zur Laufzeit
 nichts nachgeladen. Nur die Folienbilder der Vortragsseite kommen als
@@ -72,8 +90,15 @@ passt (Halbierungssuche zwischen MIN und MAX). Reicht MIN nicht, darf
 diese eine Folie scrollen — abschneiden waere der schlimmere Fehler.
 
 Gemessen bei 1080x1920: alle 15 Folien passen ohne Scrollen, die Groessen
-liegen zwischen 21px (Folie 5, 612 Woerter) und 56px (Folie 15), der Rest
-zum unteren Rand zwischen 5 und 149 Pixeln.
+liegen zwischen 22px (Folie 5, 612 Woerter) und 57px (Folie 15), der Rest
+zum unteren Rand zwischen 2 und 121 Pixeln. Am knappsten ist Folie 12 mit
+2 Pixeln — wer dort einen Satz ergaenzt, schickt die ganze Notiz eine
+Groessenstufe hinunter.
+
+Das Textfeld des Editors uebernimmt die gefundene Groesse (--gr haengt an
+.seite und wird von beiden geerbt), damit der Text beim Umschalten nicht
+springt. Es rollt dabei oefter als die Anzeige: derselbe Inhalt braucht als
+Markdown mehr Zeilen als gesetzt.
 """
 
 import html
@@ -115,36 +140,144 @@ def lade_build():
 # Notiztext aufbereiten
 # --------------------------------------------------------------------------
 
-def absaetze(notiz):
-    """Notiz in Absaetze zerlegen.
+# Zeilen, die als eigener Block gelten und niemals mit der Nachbarzeile
+# verschmolzen werden. Alles andere ist Fliesstext, dessen harte Umbrueche
+# aus folien.md stammen und aufgeloest gehoeren.
+#
+# Gegen den Bestand geprueft: keine der 391 Notizzeilen faellt heute
+# faelschlich darunter. Die 16 Zeilen, die mit einem Stern beginnen, sind
+# **fett** — ohne Leerzeichen nach dem Stern und damit kein Listenpunkt.
+MARKER = re.compile(r"^(#{1,6} |[-*+] |\d+\. |> |-{3,}$|\*{3,}$)")
 
-    folien.md ist hart auf rund 76 Zeichen umbrochen. Diese Umbrueche sind
-    ein Artefakt der Quelldatei und keine Absatzgrenzen — innerhalb eines
-    Blocks werden die Zeilen deshalb mit einem Leerzeichen zusammengezogen
-    und der Browser bricht selbst um. Getrennt wird nur an Leerzeilen.
+# Was folien.md zerlegen wuerde. Nur diese beiden Muster sind gefaehrlich —
+# gegen build.parse() nachgemessen, siehe die Meldungen in notiz_pruefen:
+#   "## " am Zeilenanfang beginnt dort eine neue Folie
+#   "### NOTIZ" / "### NOTIZEN" setzt die Notizmarke ein zweites Mal
+# "# ", "### Beliebig", "#### ", Listen, Zitate und Trennlinien sind harmlos.
+FOLIENMARKE = re.compile(r"^## ")
+NOTIZMARKE = ("### NOTIZ", "### NOTIZEN")
+
+
+def zeilen_gruppen(notiz):
+    """Notiz in Gruppen zerlegen: (art, text, quellzeilen).
+
+    art ist "text" fuer einen Fliessabsatz — dessen harte Umbrueche werden
+    zusammengezogen, der Browser bricht selbst um —, "marker" fuer eine
+    Ueberschrift, einen Listenpunkt, ein Zitat oder eine Trennlinie, die je
+    fuer sich stehen bleibt, und "leer" fuer eine Absatzgrenze.
+
+    quellzeilen sind die Zeilen, aus denen die Gruppe kam. notiz_zeilen()
+    braucht sie, um beim Zurueckschreiben einen unveraenderten Absatz mit
+    seinem originalen Umbruch wiederherzustellen.
 
     (build.py macht das anders herum: dort wird jede Quellzeile ein eigener
-    Absatz. Fuer die Notizen der PowerPoint ist das richtig, hier nicht.)
+    Absatz der PowerPoint-Notiz. Fuer die ist das richtig, hier nicht.)
     """
-    roh = re.split(r"\n\s*\n", notiz.strip())
-    fertig = []
-    for block in roh:
-        text = " ".join(z.strip() for z in block.splitlines() if z.strip())
-        if text:
-            fertig.append(text)
-    return fertig
+    gruppen, puffer = [], []
+
+    def spuele():
+        if puffer:
+            gruppen.append(("text", " ".join(z.strip() for z in puffer), list(puffer)))
+            puffer.clear()
+
+    for roh in notiz.split("\n"):
+        z = roh.strip()
+        if not z:
+            spuele()
+            gruppen.append(("leer", "", []))
+        elif MARKER.match(z):
+            spuele()
+            gruppen.append(("marker", z, [roh.rstrip()]))
+        else:
+            puffer.append(roh)
+    spuele()
+
+    while gruppen and gruppen[-1][0] == "leer":
+        gruppen.pop()
+    while gruppen and gruppen[0][0] == "leer":
+        gruppen.pop(0)
+    return gruppen
 
 
-def fett(text):
-    """HTML-escapen, **fett** in <strong> uebersetzen.
+def roh_text(notiz):
+    """Die Notiz fuer das Textfeld des Editors.
 
-    Auf Folie 10 stehen die Stakeholder-Namen so am Zeilenanfang; ohne die
-    Auszeichnung verliert die Notiz dort ihre Gliederung. *kursiv* kommt in
-    den Notizen nicht vor und wird bewusst nicht uebersetzt — ein einzelner
-    Stern soll nicht stillschweigend verschwinden.
+    Wie in der Datei, nur ohne die harten Umbrueche im Fliesstext: die sind
+    ein Artefakt der Quelle, und beim Speichern setzt notiz_zeilen() sie neu.
+    Ueberschriften und Listenpunkte bleiben Zeile fuer Zeile stehen.
+    """
+    aus = []
+    for art, text, _ in zeilen_gruppen(notiz):
+        if art == "leer":
+            if aus and aus[-1] != "":
+                aus.append("")
+        else:
+            aus.append(text)
+    return "\n".join(aus)
+
+
+def inline(text):
+    """HTML-escapen, **fett** und *kursiv* uebersetzen.
+
+    Auf Folie 10 stehen die Stakeholder-Namen fett am Zeilenanfang; ohne die
+    Auszeichnung verliert die Notiz dort ihre Gliederung.
+
+    Kursiv ist eng gefasst: kein Leerzeichen hinter dem oeffnenden und keines
+    vor dem schliessenden Stern, und kein Wortzeichen aussen herum. Ein
+    einzelner Stern im Text soll nicht stillschweigend verschwinden — das war
+    der Grund, aus dem kursiv hier lange gar nicht uebersetzt wurde.
     """
     s = html.escape(text)
-    return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"(?<![*\w])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", s)
+    return s
+
+
+def anzeige(notiz):
+    """Die Notiz als HTML fuer den Kasten."""
+    aus, liste = [], None
+
+    def liste_zu():
+        nonlocal liste
+        if liste:
+            aus.append("</%s>" % liste)
+            liste = None
+
+    for art, text, _ in zeilen_gruppen(notiz):
+        if art == "leer":
+            liste_zu()
+            continue
+        if art == "text":
+            liste_zu()
+            aus.append("<p>%s</p>" % inline(text))
+            continue
+
+        # Marker
+        if re.match(r"^(-{3,}|\*{3,})$", text):
+            liste_zu()
+            aus.append("<hr>")
+        elif text.startswith("#"):
+            liste_zu()
+            raute, rest = re.match(r"^(#{1,6}) (.*)$", text).groups()
+            # "## " kann in der Datei nicht vorkommen, die Ebene fehlt also.
+            # h2 fuer eine Raute, h3 fuer drei, h4 fuer alles darunter — der
+            # Folientitel der Seite ist das h1.
+            stufe = {1: 2, 3: 3}.get(len(raute), 4)
+            aus.append("<h%d>%s</h%d>" % (stufe, inline(rest), stufe))
+        elif text.startswith(">"):
+            liste_zu()
+            aus.append("<blockquote>%s</blockquote>" % inline(text[1:].strip()))
+        else:
+            art_liste = "ol" if re.match(r"^\d+\. ", text) else "ul"
+            if liste != art_liste:
+                liste_zu()
+                aus.append("<%s>" % art_liste)
+                liste = art_liste
+            rest = re.sub(r"^([-*+] |\d+\. )", "", text)
+            aus.append("<li>%s</li>" % inline(rest))
+
+    liste_zu()
+    return "".join(aus)
 
 
 def folientitel(f):
@@ -155,14 +288,22 @@ def folientitel(f):
 
 
 def daten(folien):
-    """Die Liste, die in beide Seiten eingebettet wird."""
+    """Die Liste, die in beide Seiten eingebettet wird.
+
+    'html' ist die fertige Anzeige, 'roh' derselbe Inhalt als Markdown fuer
+    das Textfeld des Editors. Der harte Umbruch aus folien.md steckt bewusst
+    nicht im rohen Text — er ist ein Artefakt der Quelldatei, und beim
+    Speichern setzt notiz_zeilen() ihn neu.
+    """
     liste = []
     for nr, f in enumerate(folien, 1):
+        notiz = f.get("notiz", "")
         liste.append({
             "nr": nr,
             "titel": folientitel(f),
             "bild": f"folie-{nr:02d}.png",
-            "text": [fett(a) for a in absaetze(f.get("notiz", ""))],
+            "html": anzeige(notiz),
+            "roh": roh_text(notiz),
         })
     return liste
 
@@ -206,7 +347,12 @@ def notiz_bereich(zeilen, nr):
 
 
 def notiz_zeilen(text, alt=""):
-    """Notiztext in Quellzeilen umbrechen, Absaetze durch Leerzeilen getrennt.
+    """Notiztext in Quellzeilen fuer folien.md umbrechen.
+
+    Fliessabsaetze werden auf UMBRUCH Zeichen gebrochen. Ueberschriften,
+    Listenpunkte, Zitate und Trennlinien bleiben je eine Zeile, auch wenn sie
+    laenger werden — ein Umbruch mittendrin machte aus der Fortsetzung beim
+    naechsten Lesen einen eigenen Fliessabsatz.
 
     Absaetze, die im alten Stand wortgleich vorkamen, behalten dessen
     Zeilenumbruch. Das ist der Kern: folien.md ist von Hand umbrochen und
@@ -220,45 +366,56 @@ def notiz_zeilen(text, alt=""):
     haelt lange URLs zusammen — die eine 84 Zeichen lange Zeile im Bestand ist
     genau so eine.
     """
-    def zusammen(block):
-        return " ".join(z.strip() for z in block.splitlines() if z.strip())
-
-    bestand = {}
-    for block in re.split(r"\n\s*\n", alt.strip()):
-        zeilen = [z for z in block.splitlines() if z.strip()]
-        if zeilen:
-            bestand[zusammen(block)] = zeilen
+    bestand = {t_: q for art, t_, q in zeilen_gruppen(alt) if art == "text"}
 
     aus = []
-    for block in re.split(r"\n\s*\n", text.strip()):
-        eine = zusammen(block)
-        if not eine:
-            continue
-        if aus:
-            aus.append("")          # Leerzeile zwischen den Absaetzen
-        aus.extend(bestand.get(eine) or
-                   textwrap.fill(eine, width=UMBRUCH,
-                                 break_long_words=False,
-                                 break_on_hyphens=False).splitlines())
+    for art, t_, _ in zeilen_gruppen(text):
+        if art == "leer":
+            if aus and aus[-1] != "":
+                aus.append("")
+        elif art == "marker":
+            aus.append(t_)
+        elif t_ in bestand:
+            aus.extend(bestand[t_])
+        else:
+            aus.extend(textwrap.fill(t_, width=UMBRUCH,
+                                     break_long_words=False,
+                                     break_on_hyphens=False).splitlines())
+    while aus and aus[-1] == "":
+        aus.pop()
     return aus
 
 
+def notiz_pruefen(text):
+    """Wirft ValueError, wenn der Text folien.md zerlegen wuerde.
+
+    Es sind genau zwei Muster, gegen build.parse() nachgemessen. Alles andere
+    an Markdown — "# ", "### Beliebig", "#### ", Listen, Zitate,
+    Trennlinien — ueberlebt den Parser unveraendert und ist erlaubt.
+    """
+    if not text.strip():
+        raise ValueError("Leere Notiz wird nicht geschrieben.")
+
+    for nr, z in enumerate(text.splitlines(), 1):
+        if FOLIENMARKE.match(z):
+            raise ValueError(
+                f"Zeile {nr} beginnt mit „## “. Das beginnt in folien.md eine "
+                f"neue Folie. Für eine Überschrift „# “ oder „### “ nehmen.")
+        if z.strip().upper() in NOTIZMARKE:
+            raise ValueError(
+                f"Zeile {nr} ist „{z.strip()}“. Das ist in folien.md die "
+                f"Marke, die den Notizblock einleitet, und kann nicht im "
+                f"Notiztext stehen.")
+
+
 def notiz_schreiben(nr, text, build):
-    """Notiz der Folie nr ersetzen. Gibt die neuen Absaetze zurueck.
+    """Notiz der Folie nr ersetzen. Gibt die neue Darstellung zurueck.
 
     Wirft ValueError, wenn etwas nicht stimmt — dann bleibt die Datei
     unangetastet. Geschrieben wird ueber eine Nebendatei und os.replace, damit
     ein Abbruch mitten im Schreiben keine halbe folien.md hinterlaesst.
     """
-    if not text.strip():
-        raise ValueError("Leere Notiz wird nicht geschrieben.")
-
-    # Eine Zeile, die mit '#' beginnt, wuerde beim naechsten Lesen als neue
-    # Folie oder als Notizmarke gelten und die Datei zerlegen.
-    for z in text.splitlines():
-        if z.lstrip().startswith("#"):
-            raise ValueError(
-                "Eine Zeile beginnt mit '#'. Das wuerde folien.md zerlegen.")
+    notiz_pruefen(text)
 
     alt_text = QUELLE.read_text(encoding="utf-8")
     alt = build.parse(alt_text)
@@ -298,7 +455,11 @@ def notiz_schreiben(nr, text, build):
     tmp.write_text(neu_text, encoding="utf-8")
     os.replace(tmp, QUELLE)
 
-    return [fett(a) for a in absaetze(neu[nr - 1]["notiz"])]
+    # So zurueckgeben, wie es beim naechsten Start aus der Datei gelesen
+    # wuerde — nicht so, wie es hereinkam. Was die Seite danach zeigt, ist
+    # damit garantiert der Inhalt von folien.md.
+    fertig = neu[nr - 1]["notiz"]
+    return {"html": anzeige(fertig), "roh": roh_text(fertig)}
 
 
 # --------------------------------------------------------------------------
@@ -316,10 +477,11 @@ def notiz_schreiben(nr, text, build):
 # Schwarz waere ein neuer Farbwert und damit ein Regelbruch ("Keine neuen
 # Grautoene"). Auf --marke gilt: "Auf Markenflaeche gilt Weiss oder
 # --auf-marke, sonst nichts." Also Weiss fuer den Text (8,84:1, AAA) und
-# --auf-marke fuer die beiden Nebenrollen — Foliennummer und Ausblick auf
-# die naechste Folie (6,32:1). Das ist AAA fuer grossen Text (ab 24px);
-# beide Rollen sind deshalb nach unten auf 26px begrenzt und werden von der
-# automatischen Verkleinerung des Textkoerpers nicht erfasst.
+# --auf-marke fuer die Nebenrollen — Foliennummer, Rahmen des Textfelds,
+# Stift (6,32:1). Das ist AAA fuer grossen Text (ab 24px); die Foliennummer
+# ist deshalb nach unten auf 26px begrenzt und wird von der automatischen
+# Verkleinerung des Textkoerpers nicht erfasst. Der Stift ist ein Symbol und
+# faellt unter die 3:1-Grenze fuer grafische Elemente, die er deutlich haelt.
 #
 # Keine Signalfarbe. Rot und Gruen sind im System mit Bedeutung belegt und
 # haben auf einer Notizseite nichts zu suchen.
@@ -364,6 +526,14 @@ body{
   gap:2.2vmin;
 }
 
+/* Alle vier ausdruecklich platzieren. Anzeige und Textfeld teilen sich die
+   mittlere Zelle — sichtbar ist immer nur eines von beiden. Ohne die
+   ausdrueckliche Zuweisung schoebe das automatische Platzieren die Fusszeile
+   in eine vierte Zeile, sobald das Textfeld dazukommt. */
+.seite > header{ grid-row:1; }
+#notiz, #quelle{ grid-row:2; grid-column:1; }
+.seite > .fuss{ grid-row:3; }
+
 /* ---------- Kopf ---------- */
 .kopf{ display:flex; align-items:baseline; gap:.55em; }
 
@@ -380,13 +550,6 @@ h1{
   font-weight:700;
   line-height:1.15;
   letter-spacing:-0.01em;
-}
-
-.weiter{
-  margin-top:.5em;
-  font-size:clamp(26px, 2.4vmin, 32px);
-  font-weight:400;
-  color:var(--auf-marke);
 }
 
 /* ---------- Notiz ---------- */
@@ -406,19 +569,105 @@ h1{
 #notiz.rollt{ overflow-y:auto; }
 #notiz p + p{ margin-top:.62em; }
 #notiz strong{ font-weight:700; }
+#notiz em{ font-style:italic; }
+
+/* Markdown in der Notiz. Alle Masse in em, damit die Halbierungssuche mit
+   einer einzigen Schriftgroesse den ganzen Block skaliert — ein fester
+   px-Wert an einer Ueberschrift liesse sie beim Verkleinern stehen und die
+   Suche faende nie eine passende Groesse.
+
+   Die Ueberschriften stehen in --auf-marke. Das haelt auf --marke 6,32:1 und
+   ist damit AAA fuer grossen Text; klein werden sie nicht, sie sind stets
+   groesser als der Fliesstext. */
+#notiz h2, #notiz h3, #notiz h4{
+  color:var(--auf-marke);
+  font-weight:700;
+  line-height:1.2;
+  margin:1.1em 0 .35em;
+}
+#notiz > :first-child{ margin-top:0; }
+#notiz h2{ font-size:1.5em; }
+#notiz h3{ font-size:1.25em; }
+#notiz h4{ font-size:1.08em; }
+
+#notiz ul, #notiz ol{ margin:.5em 0 .5em 1.4em; }
+#notiz li{ margin-top:.3em; }
+#notiz li::marker{ color:var(--auf-marke); }
+
+/* Zitat: was wortwoertlich vorgelesen wird. Der Balken links zeigt beim
+   Ueberfliegen sofort, wo der eigene Text aufhoert. */
+#notiz blockquote{
+  margin:.7em 0;
+  padding-left:.8em;
+  border-left:.2em solid var(--auf-marke);
+}
+
+#notiz hr{
+  border:none;
+  border-top:1px solid var(--auf-marke);
+  margin:1em 0;
+}
 
 /* ---------- Bearbeiten ---------- */
-/* outline statt border: der Rahmen sitzt ausserhalb des Boxmodells und
-   veraendert clientHeight nicht. Sonst misst die Halbierungssuche beim
-   Verlassen gegen einen anderen Kasten als beim Betreten. */
-#notiz.bearbeitet{
+/* Ein Textfeld mit dem rohen Markdown, kein contenteditable. Es liegt an
+   derselben Stelle wie die Anzeige und ersetzt sie, solange bearbeitet wird.
+   Die Anzeige bleibt dabei im Baum stehen (display:none), damit die
+   Halbierungssuche beim Schliessen wieder gegen denselben Kasten misst.
+
+   Warum Textfeld statt WYSIWYG: contenteditable liefert HTML zurueck, und
+   dieses HTML muss jemand nach Markdown ruecklesen — mit geschachtelten <b>,
+   eingefuegten <span style>, Absaetzen, die mal <p> und mal <div> sind. Was
+   im Textfeld steht, geht dagegen unveraendert in die Datei. */
+#quelle{
+  display:none;
+  width:100%; height:100%;
+  box-sizing:border-box;
+  padding:.7em .8em;
+  border:none;
   outline:2px solid var(--auf-marke);
-  outline-offset:8px;
+  outline-offset:6px;
+  border-radius:2px;
+  background:rgba(0,0,0,.22);        /* etwas tiefer als die Flaeche, damit
+                                        das Feld als Feld lesbar ist */
+  color:var(--papier);
+  caret-color:var(--papier);
+  font-family:var(--schrift);
+  /* Dieselbe Groesse und Zeilenhoehe wie die Anzeige: --gr haengt an .seite
+     und wird von beiden geerbt. Beim Umschalten springt der Text so nicht in
+     der Groesse — man bearbeitet den Text, den man eben gelesen hat.
+     Die Markdown-Marker machen den Text laenger als die Anzeige; passt er
+     dann nicht mehr, rollt das Feld. */
+  font-size:var(--gr, 30px);
+  line-height:1.42;
+  resize:none;
+  -webkit-hyphens:none; hyphens:none;
 }
-/* Chrome zeichnet auf contenteditable zusaetzlich einen eigenen Fokusrahmen.
-   Der liegt direkt am Text und stoert neben dem eigenen. */
-#notiz.bearbeitet:focus{ outline:2px solid var(--auf-marke); }
-#notiz.bearbeitet p{ caret-color:var(--papier); }
+.bearbeitet #quelle{ display:block; }
+.bearbeitet #notiz{ display:none; }
+
+/* ---------- Stift ---------- */
+/* Sitzt rechts in der Fusszeile und bleibt stehen, auch wenn der Hinweistext
+   nach dem ersten Blaettern verschwindet. Erscheint nur, wenn der Server
+   schreiben kann — sonst waere er eine Falle. */
+.fuss{ display:flex; align-items:center; gap:1em; }
+.fusstext{ flex:1; min-width:0; }
+.fusstext[hidden]{ display:block; visibility:hidden; }
+
+.stift{
+  flex:none;
+  display:flex; align-items:center; justify-content:center;
+  width:2.4em; height:2.4em;
+  padding:0; border:none; border-radius:50%;
+  background:transparent;
+  color:var(--auf-marke);
+  cursor:pointer;
+}
+.stift svg{ width:1.5em; height:1.5em; display:block; }
+.stift:hover{ background:rgba(255,255,255,.14); color:var(--papier); }
+/* Der Fokusrahmen muss sichtbar bleiben: die Seite laesst sich vollstaendig
+   mit der Tastatur bedienen, und das ist bei diesem Projekt keine Nebensache. */
+.stift:focus-visible{ outline:2px solid var(--papier); outline-offset:2px; }
+.stift[hidden]{ display:none; }
 
 /* ---------- Fuss ---------- */
 /* Der Hinweis auf den Server steht nur, bis zum ersten Mal geblaettert
@@ -430,7 +679,6 @@ h1{
   color:var(--papier);
   min-height:1.4em;
 }
-.fuss[hidden]{ display:block; visibility:hidden; }
 
 /* Querformat: derselbe Aufbau, nur schmalere Raender. Zerbrechen kann
    nichts, weil die Groesse ohnehin gemessen und nicht gesetzt wird. */
@@ -557,11 +805,13 @@ let nachstellung = 100;
 try { nachstellung = parseInt(localStorage.getItem(SPEICHER), 10) || 100; }
 catch (e) {}
 
+const eSeite  = document.querySelector('.seite');
 const eNr     = document.getElementById('nr');
 const eTitel  = document.getElementById('titel');
-const eWeiter = document.getElementById('weiter');
 const eNotiz  = document.getElementById('notiz');
-const eFuss   = document.getElementById('fuss');
+const eQuelle = document.getElementById('quelle');
+const eFuss   = document.getElementById('fusstext');
+const eStift  = document.getElementById('stift');
 
 let letzteGroesse = 0;   // fuer die Messseite
 
@@ -569,8 +819,10 @@ let letzteGroesse = 0;   // fuer die Messseite
 // passt. Halbierungssuche in ganzen Pixeln: rund sieben Durchlaeufe, das
 // merkt niemand. Gemessen wird scrollHeight gegen clientHeight — genau der
 // Wert, der auch entscheidet, ob abgeschnitten wuerde.
+// --gr sitzt auf .seite, nicht auf #notiz: Anzeige und Textfeld erben
+// dieselbe Groesse, damit der Text beim Umschalten nicht springt.
 function passtBei(px){
-  eNotiz.style.setProperty('--gr', px + 'px');
+  eSeite.style.setProperty('--gr', px + 'px');
   return eNotiz.scrollHeight <= eNotiz.clientHeight;
 }
 
@@ -608,9 +860,7 @@ function zeige(i){
   const f = FOLIEN[i];
   eNr.textContent = String(f.nr).padStart(2, '0');
   eTitel.textContent = f.titel;
-  const n = FOLIEN[i + 1];
-  eWeiter.textContent = n ? 'Weiter: ' + n.titel : 'Letzte Folie.';
-  eNotiz.innerHTML = f.text.map(p => '<p>' + p + '</p>').join('');
+  eNotiz.innerHTML = f.html;
   eNotiz.scrollTop = 0;
   fussSetzen();
   einpassen();
@@ -702,15 +952,21 @@ gehe(ausAdresse(), false);
 # Roher String: der Umwandler enthaelt Regulaerausdruecke und \\n als Zeichen
 # im JavaScript. In einem gewoehnlichen Python-String wuerde daraus schon beim
 # Erzeugen der Datei ein echter Zeilenumbruch.
-JS_EDIT = r"""
+JS_EDIT = """
 // ---------- Notiz bearbeiten ----------
 //
-// Geschrieben wird in folien.md, dafuer braucht es einen Server, der schreiben
-// kann. python3 -m http.server kann es nicht; ob dieser es kann, wird einmal
-// beim Aufbau gefragt.
+// Bearbeitet wird der rohe Markdown-Text in einem Textfeld, nicht die
+// gesetzte Anzeige. Das ist die kuerzere und die ehrlichere Loesung: Was im
+// Feld steht, geht Zeichen fuer Zeichen in folien.md — es gibt keinen
+// Ruecklese-Schritt, der etwas anders verstehen koennte, als es aussieht.
+// **fett** tippt man selbst, ohne Tastengriff und ohne execCommand.
+//
+// Geschrieben wird ueber POST /notiz, dafuer braucht es einen Server, der das
+// annimmt. python3 -m http.server kann es nicht; ob dieser es kann, wird
+// einmal beim Aufbau gefragt.
 
 let bearbeitet = false;   // Editiermodus an
-let schmutzig  = false;   // ungespeicherte Aenderung im Kasten
+let schmutzig  = false;   // ungespeicherte Aenderung im Feld
 let schreibbar = false;   // Server nimmt POST /notiz an
 let meldung    = '';      // Statuszeile, verdraengt den Fusstext
 let meldeUhr   = 0;
@@ -723,8 +979,8 @@ function fussSetzen(){
   if (meldung) { eFuss.textContent = meldung; eFuss.hidden = false; return; }
   if (bearbeitet) {
     eFuss.textContent = schmutzig
-      ? 'Bearbeiten — noch nicht gespeichert. ⌘S speichert, Esc speichert und schließt, ⌘B setzt fett.'
-      : 'Bearbeiten — gespeichert. Esc schließt, ⌘B setzt fett.';
+      ? 'Bearbeiten — noch nicht gespeichert. Markdown: **fett**, *kursiv*, ### Überschrift, - Liste, > Zitat. \\u2318S speichert, Esc speichert und schließt.'
+      : 'Bearbeiten — gespeichert. Markdown: **fett**, *kursiv*, ### Überschrift, - Liste, > Zitat. Esc schließt.';
     eFuss.hidden = false;
     return;
   }
@@ -741,60 +997,6 @@ function melde(text, dauer){
   }
 }
 
-// ---------- Kasten zurueck nach Markdown ----------
-//
-// Nicht die Sterne beim Durchlaufen einsetzen und auf das Beste hoffen:
-// contenteditable schachtelt gern (<b><b>x</b></b>) und zerteilt eine
-// Auszeichnung an der Stelle, an der der Cursor stand. Deshalb entsteht erst
-// eine flache Folge aus {text, fett}, in der gleiche Nachbarn verschmelzen.
-// Die Sterne kommen zuletzt und koennen so nicht doppelt auftreten.
-
-const BLOCK = /^(P|DIV|LI|BLOCKQUOTE|PRE|H[1-6]|TR)$/;
-
-function istFett(k){
-  if (k.tagName === 'STRONG' || k.tagName === 'B') return true;
-  const g = k.style && k.style.fontWeight;
-  return g === 'bold' || g === 'bolder' || parseInt(g, 10) >= 600;
-}
-
-function alsMarkdown(){
-  const teile = [];
-  function schiebe(text, fett){
-    if (!text) return;
-    const letzt = teile[teile.length - 1];
-    if (letzt && letzt.fett === fett) letzt.text += text;
-    else teile.push({text: text, fett: fett});
-  }
-  function lauf(knoten, fett){
-    for (const k of knoten.childNodes) {
-      if (k.nodeType === 3) { schiebe(k.data, fett); continue; }
-      if (k.nodeType !== 1) continue;
-      if (k.tagName === 'BR') { schiebe('\n\n', false); continue; }
-      lauf(k, fett || istFett(k));
-      if (BLOCK.test(k.tagName)) schiebe('\n\n', false);
-    }
-  }
-  lauf(eNotiz, false);
-
-  let t = '';
-  for (const s of teile) {
-    if (!s.fett) { t += s.text; continue; }
-    // Die Sterne muessen am Wort kleben: '** fett **' ist in Markdown keine
-    // Auszeichnung, sondern landet als vier Sternchen im Vortragstext.
-    const m = /^(\s*)([\s\S]*?)(\s*)$/.exec(s.text);
-    t += m[2] ? m[1] + '**' + m[2] + '**' + m[3] : s.text;
-  }
-
-  // Absaetze trennen an Leerzeilen. Aller uebrige Weissraum — einzelne
-  // Umbrueche, Tabulatoren, die geschuetzten Leerzeichen, die contenteditable
-  // beim Tippen einstreut — wird zu einem Leerzeichen. In folien.md steht
-  // danach je Absatz ein Block; den Zeilenumbruch darin macht umbrechen().
-  return t.split(/\n\s*\n/)
-          .map(b => b.replace(/\s+/g, ' ').trim())
-          .filter(Boolean)
-          .join('\n\n');
-}
-
 // ---------- Oeffnen, speichern, schliessen ----------
 
 function editorOeffnen(){
@@ -805,22 +1007,17 @@ function editorOeffnen(){
   }
   bearbeitet = true;
   schmutzig = false;
-  // Rollen erlauben: beim Tippen darf der Text ueber den Kasten hinaus
-  // wachsen. Die Schriftgroesse bleibt derweil stehen, siehe einpassen().
-  eNotiz.classList.add('bearbeitet', 'rollt');
-  eNotiz.contentEditable = 'true';
-  eNotiz.spellcheck = true;
-  eNotiz.focus();
-  // Ohne das legt Chrome fuer Fettdruck ein <span style="font-weight:bold">
-  // an statt eines <b>. Lesbar waere beides, aber <b> ist das, was der
-  // Umwandler oben zuerst prueft.
-  try { document.execCommand('styleWithCSS', false, false); } catch (e) {}
+  eQuelle.value = FOLIEN[folie].roh;
+  eSeite.classList.add('bearbeitet');
+  eQuelle.focus();
+  eQuelle.setSelectionRange(0, 0);
+  eQuelle.scrollTop = 0;
   melde('');
 }
 
 async function speichern(){
-  const text = alsMarkdown();
-  if (!text) { melde('Die Notiz ist leer — nicht gespeichert.', 8000); return false; }
+  const text = eQuelle.value;
+  if (!text.trim()) { melde('Die Notiz ist leer — nicht gespeichert.', 8000); return false; }
   melde('Speichere …');
   let d;
   try {
@@ -835,10 +1032,14 @@ async function speichern(){
     return false;
   }
   if (!d.ok) { melde('Nicht gespeichert: ' + d.fehler, 10000); return false; }
-  // Der Server liefert die Absaetze so zurueck, wie sie beim naechsten Start
-  // aus der Datei gelesen wuerden. Damit zeigt der Kasten nach dem Schliessen
-  // genau das, was in folien.md steht — nicht das, was man getippt hat.
-  FOLIEN[folie].text = d.absaetze;
+  // Der Server antwortet mit dem, was beim naechsten Start aus der Datei
+  // gelesen wuerde. Das Feld uebernimmt es — steht dort etwas anderes als
+  // getippt, sieht man es sofort statt erst nach einem Neustart.
+  FOLIEN[folie].html = d.html;
+  FOLIEN[folie].roh  = d.roh;
+  const p = eQuelle.selectionStart;
+  eQuelle.value = d.roh;
+  eQuelle.setSelectionRange(Math.min(p, d.roh.length), Math.min(p, d.roh.length));
   schmutzig = false;
   melde('In folien.md gespeichert.', 4000);
   return true;
@@ -848,49 +1049,38 @@ async function editorSchliessen(){
   if (!bearbeitet) return;
   if (schmutzig && !(await speichern())) return;   // Fehler: offen lassen
   bearbeitet = false;
-  eNotiz.contentEditable = 'false';
-  eNotiz.spellcheck = false;
-  eNotiz.classList.remove('bearbeitet');
+  eSeite.classList.remove('bearbeitet');
   const f = FOLIEN[folie];
-  eNotiz.innerHTML = f.text.map(p => '<p>' + p + '</p>').join('');
+  eNotiz.innerHTML = f.html;
   eNotiz.scrollTop = 0;
   einpassen();
   fussSetzen();
 }
 
-// ---------- Tastatur und Eingabe ----------
+// ---------- Bedienung ----------
 
 // Laeuft nach dem Handler in JS_GEMEINSAM, der bei offenem Editor sofort
-// aussteigt. Diese drei Griffe sind die einzigen, die dann noch gelten.
+// aussteigt. Diese beiden Griffe sind die einzigen, die dann noch gelten;
+// alles uebrige gehoert dem Textfeld.
 document.addEventListener('keydown', ev => {
   if (!bearbeitet) return;
-  const k = ev.key, cmd = ev.metaKey || ev.ctrlKey;
-  if (k === 'Escape') { ev.preventDefault(); editorSchliessen(); }
-  else if (cmd && (k === 's' || k === 'S')) { ev.preventDefault(); speichern(); }
-  else if (cmd && (k === 'b' || k === 'B')) {
-    ev.preventDefault();
-    document.execCommand('bold');
-    schmutzig = true;
-    fussSetzen();
-  }
+  const cmd = ev.metaKey || ev.ctrlKey;
+  if (ev.key === 'Escape') { ev.preventDefault(); editorSchliessen(); }
+  else if (cmd && (ev.key === 's' || ev.key === 'S')) { ev.preventDefault(); speichern(); }
 });
 
-eNotiz.addEventListener('input', () => {
+eQuelle.addEventListener('input', () => {
   if (!bearbeitet || schmutzig) return;
   schmutzig = true;
   fussSetzen();
 });
 
-// Eingefuegter Text aus Word oder aus einer Website bringt sonst <span
-// style=...>, <font> und ganze Tabellen mit in den Kasten. Uebernommen wird
-// nur der reine Text; fett setzt man danach mit ⌘B.
-eNotiz.addEventListener('paste', ev => {
-  if (!bearbeitet) return;
-  ev.preventDefault();
-  const t = (ev.clipboardData || window.clipboardData).getData('text/plain');
-  document.execCommand('insertText', false, t);
+// stopPropagation, sonst blaettert der Klick auf den Stift die Seite weiter —
+// der Handler in JS_GEMEINSAM sieht jeden Klick auf dem Dokument.
+eStift.addEventListener('click', ev => {
+  ev.stopPropagation();
+  if (bearbeitet) editorSchliessen(); else editorOeffnen();
 });
-eNotiz.addEventListener('drop', ev => { if (bearbeitet) ev.preventDefault(); });
 
 addEventListener('beforeunload', ev => {
   if (!schmutzig) return;
@@ -899,11 +1089,11 @@ addEventListener('beforeunload', ev => {
 });
 
 // Einmal fragen, ob der Server schreiben kann. Bei python3 -m http.server
-// gibt es /notiz nicht, dann bleibt schreibbar false und die Taste E meldet
-// das beim Druecken.
+// gibt es /notiz nicht; dann bleibt der Stift verborgen und die Taste E
+// meldet den Grund beim Druecken.
 fetch('/notiz')
   .then(a => a.ok ? a.json() : null)
-  .then(d => { schreibbar = !!(d && d.schreibbar); })
+  .then(d => { schreibbar = !!(d && d.schreibbar); eStift.hidden = !schreibbar; })
   .catch(() => {});
 """
 
@@ -917,6 +1107,15 @@ fetch('/notiz')
 HINWEIS_ANZEIGE = ("Kopplung nur über den lokalen Server: Beide Fenster unter "
                    "„http://localhost/…“ öffnen, nicht als Datei. Weiter mit "
                    "Pfeiltaste, Leertaste oder Bild ab.")
+
+# Stift, gezeichnet statt getippt. Ein Unicode-Bleistift (U+270F) faellt je
+# nach System in eine Emoji-Schrift und kommt dann bunt und in fremder Groesse
+# — das SVG sieht ueberall gleich aus und erbt die Textfarbe.
+STIFT = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+         'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" '
+         'aria-hidden="true">'
+         '<path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17v3z"/>'
+         '<path d="M14.5 6.5l3 3"/></svg>')
 
 
 def seite(titel, css, js, koerper, liste):
@@ -949,10 +1148,14 @@ def baue():
     koerper_notizen = f"""<div class="seite">
   <header>
     <div class="kopf"><span class="nr" id="nr"></span><h1 id="titel"></h1></div>
-    <p class="weiter" id="weiter"></p>
   </header>
   <div id="notiz"></div>
-  <p class="fuss" id="fuss">{html.escape(HINWEIS_ANZEIGE)}</p>
+  <textarea id="quelle" spellcheck="true" aria-label="Notiz als Markdown"></textarea>
+  <p class="fuss">
+    <span class="fusstext" id="fusstext">{html.escape(HINWEIS_ANZEIGE)}</span>
+    <button type="button" class="stift" id="stift" hidden
+            title="Notiz bearbeiten (Taste E)" aria-label="Notiz bearbeiten">{STIFT}</button>
+  </p>
 </div>"""
 
     (AUS / "notizen.html").write_text(
@@ -963,10 +1166,10 @@ def baue():
         seite("KLARTEXT — Folien", CSS_VORTRAG, JS_VORTRAG,
               '<img id="bild" src="" alt="">', liste), encoding="utf-8")
 
-    laengste = max(liste, key=lambda f: sum(len(p) for p in f["text"]))
+    laengste = max(liste, key=lambda f: len(f["roh"]))
     print(f"notizen.py: {len(liste)} Folien geschrieben")
     print(f"  ausgabe/notizen.html   laengste Notiz: Folie {laengste['nr']}, "
-          f"{sum(len(p.split()) for p in laengste['text'])} Woerter")
+          f"{len(laengste['roh'].split())} Woerter")
     print("  ausgabe/vortrag.html")
     return build
 
@@ -1056,9 +1259,14 @@ class Bediener(http.server.SimpleHTTPRequestHandler):
             print(f"  ! Folie {nr} nicht gespeichert: {ex}")
             return self.antworte(400, {"ok": False, "fehler": str(ex)})
 
+        # Erst antworten, dann protokollieren. Andersherum kann ein Fehler in
+        # der Meldung die Antwort verhindern, obwohl die Datei laengst
+        # geschrieben ist — der Browser meldet dann "Server nicht erreichbar"
+        # zu einer Aenderung, die in Wahrheit drin steht. Genau das ist beim
+        # Bauen passiert, als hier noch ein Feldname der alten Fassung stand.
+        self.antworte(200, {"ok": True, **neu})
         print(f"  Folie {nr:02d}: Notiz gespeichert "
-              f"({len(neu)} Absätze, {sum(len(a.split()) for a in neu)} Wörter)")
-        return self.antworte(200, {"ok": True, "absaetze": neu})
+              f"({len(neu['roh'].split())} Wörter)")
 
 
 def bediene():

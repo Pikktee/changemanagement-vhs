@@ -181,9 +181,20 @@ nach `folien.md` — es ersetzt dabei nur den Zeilenbereich dieser einen Notiz
 und rechnet vorher nach, dass keine andere Folie mitgeht; schlägt die Probe
 fehl, bleibt die Datei unangetastet. Wogegen das nicht schützt: eine offene
 `folien.md` in einem Editor, der beim nächsten Speichern seinen eigenen Stand
-darüberschreibt. Ein Build läuft dabei nicht — Folienbilder ändern sich durch
-eine Notiz nicht, und `build.py` würde committen. Für die PowerPoint mit den
-neuen Notizen danach `python3 build.py`.
+darüberschreibt. Dasselbe gilt für eine Notizseite, die schon offen war, bevor
+die Datei von außen geändert wurde — sie hält ihre eigene Kopie und schreibt
+beim Speichern den alten Stand zurück. Nach jeder Änderung an `folien.md` von
+außen die Seite neu laden. Ein Build läuft beim Speichern nicht — Folienbilder
+ändern sich durch eine Notiz nicht, und `build.py` würde committen. Für die
+PowerPoint mit den neuen Notizen danach `python3 build.py`.
+
+**In Sprechnotizen ist fast alles Markdown erlaubt — außer `## `.** Der Parser
+in `build.py` erkennt `## ` am Zeilenanfang als neue Folie und `### NOTIZ` als
+Notizmarke; beides würde `folien.md` zerlegen und wird von `notiz_pruefen` in
+`notizen.py` abgewiesen. Alles andere ist gegen `build.parse()` nachgemessen
+und überlebt unverändert: `# `, `### `, `#### `, `- `, `1. `, `> `, `---`,
+`**fett**`, `*kursiv*`. Deshalb gibt es keine zweite Überschriftenebene — für
+eine Überschrift `# ` oder `### ` nehmen.
 
 **Der Kursplan braucht den Detailabruf.** `daten/kursplan-holen.py` holt erst
 die Liste aller Angebote und dann je Kurs den vollständigen Text. Wer den
