@@ -144,6 +144,26 @@ Nach jeder Änderung daran `python3 pruefe-design.py` — das Skript rechnet all
 Kontrastpaare nach und meldet, wenn die drei Dateien auseinanderdriften. Das
 System hält WCAG AAA freiwillig ein.
 
+**Das Panel zeigt alle Iterationen des Prompts — im Hosting aus einer Datei.**
+Die Auswahlliste zieht die Prompt-Stände aus `git show`. Auf Railway liegt
+kein `.git` (846 MB, in `.railwayignore`), dort liest `server.py` stattdessen
+`tool/iterationen-staende.json`. Diese Datei wird nicht automatisch
+mitgeschrieben. Nach jedem Commit an `system-prompt.md` und vor jedem Deploy:
+
+```bash
+cd abschlussprojekt-vhs && python3 tool/iterationen-export.py
+```
+
+Bleibt das aus, ist im Hosting die neue Iteration nicht wählbar — lokal fällt
+es nicht auf, weil dort Git greift.
+
+**Das Dokumente-Modal liefert die echten Abgaben aus,** nicht Kopien:
+`ausgabe/Praesentation-KLARTEXT.pdf`, `ausgabe-dokument/KLARTEXT-System-Prompt-Dokumentation.pdf`
+und `system-prompt.md`. Ein neuer Build erneuert damit auch den Download. In
+`.railwayignore` stehen die beiden PDFs deshalb als ausdrückliche Ausnahme vom
+Ausschluss ihrer Ordner (`ausgabe/*` mit `!`-Zeile, nicht `ausgabe/`). Wer die
+Ausnahme entfernt, bekommt im Hosting „liegt noch nicht vor".
+
 **Server beenden mit `pkill -f "server.py"`.** Das Muster `python3 server.py`
 greift nicht, weil der Prozess als `Python server.py` läuft. Ein übersehener
 alter Server nimmt den Port und man testet unbemerkt gegen alten Code.
@@ -177,6 +197,8 @@ daten/             Kursplan, Stichproben, Wortliste, Wirtschaftlichkeit
                    recherche-redaktionsablauf.md: was am Ablauf des Hauses
                    belegt ist und was Annahme bleibt, mit Quellen
 tool/              Prototyp: server.py, index.html, protokoll/
+                   iterationen-export.py schreibt iterationen-staende.json,
+                   die Prompt-Historie für den Betrieb ohne Git
 bilder/            zeichnen.py erzeugt die vier Bilder aus der Palette von
                    stil.css; original-petrol/ ist Archiv und wird nicht gelesen
 ```

@@ -16,6 +16,7 @@ import hmac
 import json
 import os
 import re
+import subprocess
 import sys
 import threading
 import time
@@ -252,6 +253,226 @@ def prompt_bauen(erzwingen=False):
         _prompt_cache["stempel"] = aktuell
         _prompt_cache["daten"] = daten
         return daten
+
+
+# --------------------------------------------------------------------------
+# Fassungshistorie des Prompts
+# --------------------------------------------------------------------------
+# Quelle sind die Commits von system-prompt.md und die Ueberschriften in
+# iterationen.md — nichts davon wird hier doppelt gepflegt. Eine neue Fassung
+# erscheint in der Auswahl, sobald sie committet und in der Historie
+# beschrieben ist; der Kurztext je Fassung ist der Titel ihres Abschnitts.
+
+ITER_DATEI = PROJEKT_DIR / "iterationen.md"
+STAENDE_DATEI = BASE_DIR / "iterationen-staende.json"
+# ## v8 · 29.07.2026, 11:00 · Die Sieben war nie eine Messung
+ITER_KOPF = re.compile(r"^##\s+(v[\d.]+)\s*·\s*([^·\n]+?)\s*·\s*(.+?)\s*$", re.MULTILINE)
+FASSUNG_FELD = re.compile(r"^\*\*Fassung:\*\*\s*(.+)$", re.MULTILINE)
+
+# Knappe technische Kurztexte je Iteration fuer die Auswahl im Panel. Die
+# Ueberschriften in iterationen.md erzaehlen den Anlass und bleiben dort;
+# hier steht, was sich am Prompt geaendert hat. Eine neue Iteration ohne
+# Eintrag faellt auf ihren Abschnittstitel zurueck.
+ITERATION_KURZTEXTE = {
+    "v0.1": "Erstfassung: Komponenten ROLLE bis REGELN, zwei Prüffälle, drei Stufen",
+    "v1": "Goethe-A1-Wortliste per {{WORTLISTE_A1}} in den Prompt eingebettet",
+    "v2": "Ausnahmen im Wortabgleich: Beugungen, Funktionswörter, Komposita, Eigennamen",
+    "v3": "Zitate ohne HTML-Markup; AMTSDEUTSCH nur im strengen Fall",
+    "v4": "AMTSDEUTSCH in beiden Fällen; Ehrlichkeitsvorbehalt an den Server übergeben",
+    "v5": "Befund-Einstufung an den Server übergeben; NIVEAU-Regel erweitert",
+    "v6": "NIVEAU (Fachwörter) und AMTSDEUTSCH (Verwaltungssprache) getrennt",
+    "v7": "Von elf auf sechs Regeln gekürzt; Stufe HINWEIS entfernt",
+    "v8": "Stelle = Wort bei NIVEAU, sonst Satz; NIVEAU vor AMTSDEUTSCH; Temperatur 0",
+    "v9": "Befundgrenze 15 statt 10; Namensschutz an den Server übergeben",
+    "v10": "Entscheider korrigiert: Fachbereich statt Programmbereichsleitung",
+    "v11": "STRUKTUR prüft Überschriften- und Listen-Markup; Fettdruck allein kein Befund",
+}
+
+_fassungen_cache = {"stempel": None, "daten": None}
+_fassungen_lock = threading.Lock()
+
+
+def _git(*args):
+    """git im Projektordner; None bei Fehler oder wenn git fehlt (Hosting)."""
+    try:
+        lauf = subprocess.run(
+            ["git", "-C", str(PROJEKT_DIR)] + list(args),
+            capture_output=True, text=True, timeout=10)
+    except Exception:
+        return None
+    if lauf.returncode != 0:
+        return None
+    return lauf.stdout
+
+
+def _prompt_koerper(roh):
+    """Kopf bis zur ersten ---Trennlinie weg, wie in prompt_bauen."""
+    zeilen = roh.splitlines()
+    start = 0
+    for i, zeile in enumerate(zeilen):
+        if re.match(r"^-{3,}\s*$", zeile.strip()):
+            start = i + 1
+            break
+    return "\n".join(zeilen[start:]).strip("\n")
+
+
+def _fassung_sortwert(nummer):
+    try:
+        return float(nummer.lstrip("v"))
+    except ValueError:
+        return -1.0
+
+
+def _iterationen_lesen():
+    """{'v8': {'titel': ..., 'datum': ...}} aus den Abschnittsueberschriften."""
+    try:
+        roh = ITER_DATEI.read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    eintraege = {}
+    for treffer in ITER_KOPF.finditer(roh):
+        nummer, datum, titel = treffer.groups()
+        eintraege[nummer] = {
+            "titel": titel.replace("`", "").strip(),
+            "datum": datum.split(",")[0].strip(),
+        }
+    return eintraege
+
+
+def staende_aus_git():
+    """{'v8': {'prompt': ..., 'datum': ...}} aus der Commit-Historie."""
+    staende = {}
+    log_roh = _git("log", "--follow", "--format=%H\t%ad",
+                   "--date=format:%d.%m.%Y", "--", "system-prompt.md")
+    # git log laeuft von neu nach alt; der erste Treffer je Nummer ist der
+    # juengste Stand dieser Iteration.
+    for zeile in (log_roh or "").strip().splitlines():
+        teile = zeile.split("\t")
+        if len(teile) != 2:
+            continue
+        commit, datum = teile
+        roh = _git("show", "%s:system-prompt.md" % commit)
+        if not roh:
+            continue
+        feld = FASSUNG_FELD.search(roh)
+        if not feld:
+            continue
+        nummer = feld.group(1).split("·")[0].strip()
+        if nummer in staende:
+            continue
+        staende[nummer] = {"prompt": _prompt_koerper(roh), "datum": datum}
+    return staende
+
+
+def staende_aus_datei():
+    """Ersatz fuer den Betrieb ohne Git.
+
+    Auf der Hosting-Plattform liegt kein .git — die Historie ist 846 MB gross
+    und in .railwayignore ausgeschlossen. Ohne diese Datei bliebe im Panel nur
+    die laufende Iteration waehlbar. Erzeugt von iterationen-export.py.
+    """
+    if not STAENDE_DATEI.is_file():
+        return {}
+    try:
+        daten = json.loads(STAENDE_DATEI.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    staende = {}
+    for nummer, eintrag in (daten.get("staende") or {}).items():
+        if isinstance(eintrag, dict) and eintrag.get("prompt"):
+            staende[nummer] = {"prompt": eintrag["prompt"],
+                               "datum": eintrag.get("datum", "")}
+    return staende
+
+
+def fassungen_laden():
+    """Alle Iterationen des Prompts: Nummer, Datum, Kurztext, Text.
+
+    Je Nummer gilt der juengste Commit; die Arbeitskopie ueberschreibt ihre
+    eigene Nummer, denn geprueft wird mit ihr. Iterationen, die nie einzeln
+    committet wurden (v0.1, v5, v7), stehen ohne Text in der Liste — die
+    Historie kennt sie, ein Stand von ihnen ist nicht erhalten.
+    """
+    with _fassungen_lock:
+        kopf = _git("rev-parse", "HEAD") or ""
+        try:
+            iter_st = ITER_DATEI.stat().st_mtime
+        except OSError:
+            iter_st = None
+        aktuell = (kopf.strip(), iter_st, _stempel())
+        if _fassungen_cache["stempel"] == aktuell and _fassungen_cache["daten"]:
+            return _fassungen_cache["daten"]
+
+        beschreibungen = _iterationen_lesen()
+        # Git zuerst, damit ein frischer Commit lokal sofort sichtbar ist.
+        staende = staende_aus_git() or staende_aus_datei()
+
+        # Die Arbeitskopie ist der Massstab fuer ihre eigene Nummer.
+        p = prompt_bauen()
+        jetzt_nummer = (p["fassung"] or "").split("·")[0].strip()
+        if p["promptAnzeige"]:
+            staende[jetzt_nummer] = {
+                "prompt": p["promptAnzeige"],
+                "datum": (p["fassung"].split("·") + [""])[1].strip(),
+            }
+
+        nummern = set(staende) | set(beschreibungen)
+        liste = []
+        for nummer in sorted(nummern, key=_fassung_sortwert, reverse=True):
+            stand = staende.get(nummer)
+            info = beschreibungen.get(nummer, {})
+            liste.append({
+                "nummer": nummer,
+                "datum": info.get("datum") or (stand or {}).get("datum") or "",
+                "titel": ITERATION_KURZTEXTE.get(nummer) or info.get("titel", ""),
+                "prompt": stand["prompt"] if stand else None,
+                "zeichen": len(stand["prompt"]) if stand else 0,
+                "verfuegbar": bool(stand),
+                "aktuell": nummer == jetzt_nummer,
+            })
+
+        daten = {"aktuell": jetzt_nummer, "fassungen": liste}
+        _fassungen_cache["stempel"] = aktuell
+        _fassungen_cache["daten"] = daten
+        return daten
+
+
+# --------------------------------------------------------------------------
+# Dokumente
+# --------------------------------------------------------------------------
+# Die Abgaben zum Herunterladen, jeweils die Datei, die build.py bzw.
+# dokument.py erzeugt. Kein eigener Ablageordner: Ein zweites Exemplar
+# neben der erzeugten Datei driftet, sobald einmal neu gebaut wird.
+# .railwayignore muss diese drei Pfade ausdruecklich durchlassen.
+
+DOKUMENTE = [
+    {
+        "datei": "Praesentation-KLARTEXT.pdf",
+        "pfad": PROJEKT_DIR / "ausgabe" / "Praesentation-KLARTEXT.pdf",
+        "titel": "Präsentation",
+        "beschreibung": "Abgabe 1 · Foliensatz zum Implementierungskonzept",
+    },
+    {
+        "datei": "KLARTEXT-System-Prompt-Dokumentation.pdf",
+        "pfad": PROJEKT_DIR / "ausgabe-dokument" / "KLARTEXT-System-Prompt-Dokumentation.pdf",
+        "titel": "System-Prompt-Dokumentation",
+        "beschreibung": "Abgabe 2 · Aufbau, Iterationen und Belege des Prompts",
+    },
+    {
+        "datei": "system-prompt.md",
+        "pfad": PROMPT_DATEI,
+        "titel": "System-Prompt",
+        "beschreibung": "Die aktuelle Iteration als Markdown, Quelle dieser Installation",
+    },
+]
+
+
+def _dokument_pfad(name):
+    """Whitelist statt Pfadpruefung: Nur eingetragene Namen sind abrufbar."""
+    for d in DOKUMENTE:
+        if d["datei"] == name:
+            return d["pfad"]
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -780,6 +1001,15 @@ class Handler(BaseHTTPRequestHandler):
         if pfad == "/api/prompt":
             self.prompt_ausliefern()
             return
+        if pfad == "/api/fassungen":
+            self.send_json(200, fassungen_laden())
+            return
+        if pfad == "/api/dokumente":
+            self.dokumente_ausliefern()
+            return
+        if pfad.startswith("/dokumente/"):
+            self.dokument_ausliefern(pfad[len("/dokumente/"):])
+            return
         if pfad == "/api/kurse":
             self.kurse_ausliefern(parse_qs(zerlegt.query))
             return
@@ -809,6 +1039,38 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", typ)
         self.send_header("Content-Length", str(len(inhalt)))
         self.send_header("Cache-Control", "max-age=86400")
+        self.end_headers()
+        self.wfile.write(inhalt)
+
+    def dokumente_ausliefern(self):
+        liste = []
+        for d in DOKUMENTE:
+            vorhanden = d["pfad"].is_file()
+            liste.append({
+                "datei": d["datei"],
+                "titel": d["titel"],
+                "beschreibung": d["beschreibung"],
+                "vorhanden": vorhanden,
+                "groesse": d["pfad"].stat().st_size if vorhanden else 0,
+            })
+        self.send_json(200, {"dokumente": liste})
+
+    def dokument_ausliefern(self, name):
+        pfad = _dokument_pfad(name)
+        if not pfad or not pfad.is_file():
+            self.send_json(404, {"error": "Dokument nicht gefunden."})
+            return
+        typ = ("application/pdf" if name.endswith(".pdf")
+               else "text/markdown; charset=utf-8")
+        inhalt = pfad.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", typ)
+        self.send_header("Content-Length", str(len(inhalt)))
+        # attachment, damit der Browser speichert statt anzeigt — es ist ein
+        # Download-Regal, kein Betrachter.
+        self.send_header("Content-Disposition",
+                         'attachment; filename="%s"' % name)
+        self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(inhalt)
 

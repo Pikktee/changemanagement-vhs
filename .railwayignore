@@ -1,16 +1,21 @@
 # Was der Prototyp zur Laufzeit nicht liest, muss auch nicht hoch. Ohne diese
 # Liste gingen rund 27 MB fertige Folien und PDFs bei jedem Deploy mit.
 #
-# Gebraucht werden nur: tool/, system-prompt.md, schriften/ und aus daten/ die
-# Wortliste sowie der Kursplan.
+# Gebraucht werden nur: tool/, system-prompt.md, schriften/, aus daten/ die
+# Wortliste sowie der Kursplan — und die beiden Abgabe-PDFs, die das
+# Dokumente-Modal zum Herunterladen anbietet (zusammen 7,8 MB).
 
-ausgabe/
-ausgabe-dokument/
+# Mit /* statt / bleibt der Ordner selbst durchlaessig; nur so laesst sich
+# eine einzelne Datei darin wieder einschliessen.
+ausgabe/*
+ausgabe-dokument/*
+!ausgabe/Praesentation-KLARTEXT.pdf
+!ausgabe-dokument/KLARTEXT-System-Prompt-Dokumentation.pdf
+
 bilder/
 entwurf/
 
 *.pptx
-*.pdf
 
 # Werkzeuge des Foliensatzes, nicht des Servers
 build.py
