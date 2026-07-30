@@ -588,7 +588,7 @@ tragen jetzt die neue Zahl samt dem Hinweis, dass sie eine Untergrenze ist.
 
 ---
 
-## v11 · 29.07.2026, 15:40 · `STRUKTUR` sagte nicht, woran man sie erkennt
+## v11 · 30.07.2026, 15:40 · `STRUKTUR` sagte nicht, woran man sie erkennt
 
 **Anlass.** Beim Überarbeiten von Folie 5 war die Regel `STRUKTUR` in einem
 Halbsatz zu erklären — und es ging nicht. „Sichtbare Gliederung ohne

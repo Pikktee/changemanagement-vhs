@@ -197,6 +197,14 @@ th:last-child, td:last-child{ padding-right:0; }
   color:var(--papier); font-size:11.5px; line-height:1.62;
   margin:0 0 9px; max-width:60ch;
 }
+/* Die zwei Zeilen unter dem Untertitel tragen Werkzeug- und Quellenadresse.
+   Sie gehoeren nach oben und muessen aus der Entfernung lesbar sein, deshalb
+   groesser und in Weiss — hellblau haelt bei dieser Groesse AAA nicht. */
+.titelblatt h2 + p, .titelblatt h2 + p + p{
+  font-size:15.5px; line-height:1.5; color:#fff; margin:0 0 5px;
+  max-width:none;
+}
+.titelblatt h2 + p + p{ margin-bottom:26px; }
 .titelblatt p + p{ color:rgba(255,255,255,.78); }
 /* Der Trennstrich schiebt die Kenndaten an den Fuss der Seite. */
 .titelblatt hr{
@@ -204,9 +212,9 @@ th:last-child, td:last-child{ padding-right:0; }
   margin:auto 0 22px;
 }
 .titelblatt table{ color:var(--papier); font-size:10.5px; }
-.titelblatt thead th{
-  color:var(--auf-marke); border-bottom-color:var(--auf-marke-50);
-}
+/* Die Kenndaten brauchen keine Spaltentitel; „Angabe / Wert“ sagt nichts.
+   Die trennende Linie ueber der ersten Zeile liefert der Trennstrich. */
+.titelblatt thead{ display:none; }
 .titelblatt tbody td{ border-bottom-color:rgba(255,255,255,.2); }
 .titelblatt code{
   background:rgba(255,255,255,.15); color:#fff;

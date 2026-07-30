@@ -4,7 +4,7 @@ Prüfassistent für Kursbeschreibungen der Volkshochschule Frankfurt am Main.
 Aufgebaut nach der 6-Komponenten-Struktur: ROLLE, AUFGABE, FORMAT, GRENZEN,
 KONTEXT, REGELN.
 
-**Fassung:** v11 · 29.07.2026
+**Fassung:** v11 · 30.07.2026
 **Änderungshistorie:** siehe `iterationen.md`, technisch nachvollziehbar über
 `git log system-prompt.md`
 

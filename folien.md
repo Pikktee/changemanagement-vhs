@@ -832,7 +832,7 @@ typ: schluss
 bild: bilder/15-durchgang.png
 bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
 titel: Danke für die Aufmerksamkeit.
-untertitel: Eine kurze Vorführung am echten Kurstext, danach gerne eure Fragen.
+untertitel: Probiert es selbst aus, an einem echten Kurstext aus dem Portal:
 link: klartext-vhs.henrikheil.net
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
 fussr: HENRIK HEIL · CIMDATA 2026
@@ -849,5 +849,6 @@ möglich macht: zu wissen, für wen ein Text ist, zu wissen, was Pflicht ist und
 was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
 schreiben, das Werkzeug nicht als Kontrolle erleben.
 
-Danke für die Aufmerksamkeit. Ich zeige euch jetzt kurz, wie es läuft, an
-einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.
+Danke für die Aufmerksamkeit. Die Adresse steht oben, dort läuft der Prototyp
+weiter — mit dem Prompt in allen Fassungen und den Läufen, die ihr gesehen
+habt. Jetzt gerne eure Fragen.

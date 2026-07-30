@@ -4,24 +4,22 @@ typ: titel
 
 ## Dokumentation des System-Prompts für die Prüfung von Kursbeschreibungen der Volkshochschule Frankfurt am Main
 
-### Abgabe 2 von 2
+Werkzeug **klartext-vhs.henrikheil.net**
+
+Quellen **github.com/Pikktee/changemanagement-vhs**
 
 Henrik Heil · cimdata Bildungsakademie · Kurs Changemanagement und KI · Juli 2026
 
-Das Abschlussprojekt ist in Einzelarbeit entstanden. Die Aufgabenstellung sieht Teamarbeit vor; alle Rollen wurden von einer Person wahrgenommen.
-
 ---
 
-| Angabe | Wert |
+| | |
 |---|---|
 | Fassung des Prompts | {{FASSUNG}} |
 | Aufbau | sechs Komponenten: ROLLE · AUFGABE · FORMAT · GRENZEN · KONTEXT · REGELN |
-| Modell | `anthropic/claude-sonnet-4.5`, Ersatz `anthropic/claude-sonnet-4` |
+| Modell | `anthropic/claude-sonnet-4.5` |
 | Temperatur | 0 |
 | Prüfregeln | sechs, auf zwei Stufen: PFLICHT und EMPFEHLUNG |
 | Referenzwortschatz | Goethe-Zertifikat A1, 820 Wörter, vollständig im Prompt |
-| Fassungen bis zur Abgabe | zwölf, jede aus einem konkreten Anlass |
-| Werkzeug | klartext-vhs.henrikheil.net |
 
 === SEITE ===
 kapitel: Einordnung
@@ -60,20 +58,15 @@ Dieses Dokument beschreibt den Prompt. Beispiele für Ein- und Ausgabe stehen ni
 | Was dort zu sehen ist | Wo |
 |---|---|
 | Ein- und Ausgabe an einem echten Kurstext | „Kurs aus dem Kursplan wählen“, Kursnummer suchen, dann „Text prüfen“ |
-| Die beiden Kernfälle der Erprobung | `4074-74` Deutsch als Fremdsprache A2.2, der strenge Fall · `4213-40` Englisch A1.1, der normale Fall |
 | Der Prompt im Wortlaut, Modell, Temperatur | Kopfzeile → „System-Prompt“ |
 | Alle zwölf Iterationen, einzeln ladbar | im Panel → „Alle Iterationen“ |
 | Präsentation, diese Dokumentation, `system-prompt.md` | Kopfzeile → „Dokumente“ |
 
 Ein eigener Text lässt sich ebenso einsetzen; Programmbereich und Niveau sind dann von Hand zu wählen, weil der Prompt ohne diese beiden Angaben die Zielgruppe nicht bestimmt und die Prüfung abbricht.
 
-## Warum die Beispiele nicht abgedruckt sind
-
-Die Ausgabe eines Sprachmodells ist nicht bei jedem Lauf gleich. Ein abgedruckter Lauf sieht aus wie eine Messung, ist aber eine Stichprobe von eins — dieser Fehler hat die Arbeit einmal fast gekostet (Teil D, v8). Im Werkzeug lässt sich derselbe Text mehrfach prüfen, und die Streuung wird sichtbar statt behauptet.
-
 ## Protokoll
 
-Jeder Lauf schreibt sich selbst mit: Eingabe, Ausgabe, Modell, Temperatur, Prüfsumme des Prompts und Dauer. In `tool/protokoll/` liegen 72 solche Läufe. Sie sind die Grundlage der Angaben in Teil C und Teil D und liegen der Arbeit als Dateien bei.
+Jeder Lauf schreibt sich selbst mit: Eingabe, Ausgabe, Modell, Temperatur, Prüfsumme des Prompts und Dauer. In `tool/protokoll/` liegen 72 solche Läufe; sie sind die Grundlage der Angaben in Teil C und Teil D. Prompt, Code und Protokolle stehen im Repository, siehe Teil E.
 
 ## Aufbau dieses Dokuments
 
@@ -287,7 +280,7 @@ kapitel: Teil D · Iterationen
 
 # Teil D · Iterationen
 
-Zwölf Fassungen an zwei Tagen. Jede hat einen Anlass, und keiner davon ist erfunden. Ausführlich mit Anlass, Befund, Änderung und Begründung stehen sie in `iterationen.md`, technisch nachvollziehbar über `git log --follow system-prompt.md`.
+Zwölf Fassungen an drei Tagen. Jede hat einen Anlass, und keiner davon ist erfunden. Ausführlich mit Anlass, Befund, Änderung und Begründung stehen sie in `iterationen.md` (Teil E).
 
 **Im Werkzeug ist die Historie begehbar:** im Panel „System-Prompt“ unter „Alle Iterationen“. Jede erhaltene Fassung lässt sich laden und gegen denselben Text laufen lassen — der Unterschied zwischen zwei Fassungen ist damit nicht behauptet, sondern vorführbar. Neun der zwölf Stände sind erhalten; v0.1, v5 und v7 wurden nie einzeln festgeschrieben, die Historie kennt sie, ein ladbarer Stand fehlt.
 
@@ -297,7 +290,6 @@ Zwei Einträge tragen die Argumentation der Arbeit. **v1:** Der Prompt behauptet
 
 === SEITE ===
 kapitel: Teil E · Grenzen und Einordnung
-eng: ja
 
 # Teil E · Grenzen, offene Punkte, Einordnung
 
@@ -310,7 +302,7 @@ eng: ja
 ## Was er nicht leistet
 
 - **Keine technische Barrierefreiheit.** Kontraste, Tastaturbedienung und Seitengerüst gehören zu einem anderen Werkzeug und einem anderen Zuständigen.
-- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar — und ein Grund mehr, warum ein Mensch entscheidet.
+- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei, gemessen an zwei Kursen und nicht über die Breite der 60er-Stichprobe. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar — und ein Grund mehr, warum ein Mensch entscheidet.
 - **Keine Erkennung von Textbausteinen.** Passagen, die wortgleich über vielen Kursen stehen, kann das Modell nicht erkennen; es sieht immer nur einen Text. Der Vergleich über den Kursplan gehört ins Werkzeug, nicht ins Modell.
 - **Kein Ersatz für die Fachprüfung.** Ob ein Kurskonzept sinnvoll und eine Angabe richtig ist, prüft der Prompt nicht.
 
@@ -320,7 +312,6 @@ eng: ja
 - **Begründungen im Betrieb ohne Wortliste.** Der Vorbehalt steht seit T7 sicher, die einzelnen Begründungen behaupten weiter, ein Wort stehe nicht auf der Liste.
 - **Der Namensschutz erfasst nur Namen mit vorangestelltem Titel.** Für Namen im Fließtext bleibt Regel 1 zuständig, also das Modell.
 - **Der Referenzwortschatz deckt nur A1 ab.** Für A2 und B1 ist die Liste unterer Anker, das Übrige Einschätzung. Eine A2-Liste aus dem Prüfungshandbuch des Deutsch-Tests für Zuwanderer wäre der nächste Ausbauschritt.
-- **Die Streuung ist an zwei Kursen gemessen,** nicht über die Breite der 60er-Stichprobe.
 
 ## Einordnung nach der KI-Verordnung
 
@@ -328,12 +319,8 @@ Die vhs wäre **Betreiberin** im Sinne von Artikel 3 Nummer 4 der Verordnung (EU
 
 Unabhängig davon gilt seit dem 2. Februar 2025 Artikel 4: Wer KI-Systeme betreibt, muss für ausreichende KI-Kompetenz der damit befassten Personen sorgen. Diese Pflicht ist im Change-Konzept als Schulungsbaustein abgebildet und gilt unabhängig von der Risikoklasse.
 
-## Dateien zu dieser Abgabe
+## Quellen zum Nachlesen
 
-| Datei | Inhalt |
-|---|---|
-| `system-prompt.md` | der Prompt im Original, mit Platzhalter |
-| `iterationen.md` | die zwölf Fassungen im Wortlaut, mit Anlass und Begründung |
-| `tool/server.py` | Proxy, Prompt-Aufbau, Nachbearbeitung, Protokoll |
-| `tool/protokoll/` | 72 Läufe vollständig, je mit Prüfsumme des Prompts |
-| `daten/wortliste-goethe-a1.txt` | Referenzwortschatz, 820 Wörter |
+Prompt, Prototyp und Protokolle liegen offen: **github.com/Pikktee/changemanagement-vhs**
+
+Dort stehen `system-prompt.md` mit dem Prompt im Original, `iterationen.md` mit den zwölf Fassungen samt Anlass und Begründung, `tool/server.py` mit Proxy und Nachbearbeitung, `tool/protokoll/` mit den 72 Läufen und `daten/wortliste-goethe-a1.txt` mit dem Referenzwortschatz. Die Fassungshistorie des Prompts ist über `git log --follow system-prompt.md` nachvollziehbar.
