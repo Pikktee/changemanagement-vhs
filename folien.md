@@ -609,10 +609,8 @@ mit.
 
 Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und
 in der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht
-ist, und sie haben in keinem Gremium eine Stimme.
-
-Die Teilnehmenden haben keine Stimme, in keinem Gremium und in keinem Gesetz.
-Bei ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das
+ist — und sie haben keine Stimme, in keinem Gremium und in keinem Gesetz. Bei
+ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das
 überhaupt zur Verfügung steht. Was das praktisch heißt, steht auf der nächsten
 Folie.
 
