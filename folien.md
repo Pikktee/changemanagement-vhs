@@ -577,13 +577,13 @@ Damit zum Change-Teil, und der beginnt mit den **Stakeholdern**. Die
 **Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
 betroffen, und wer hat Einfluss.
 
-Oben rechts, eng einbinden.
+Oben rechts, eng einbinden: wer entscheidet oder zustimmen muss.
 
 **Der Direktor** — laut Impressum persönlich für die redaktionellen Inhalte
 verantwortlich.
 
-**Der Fachbereich des Pilotbereichs** — und zwar nur dieser eine. Vier
-Fachbereiche gleichzeitig einzubinden wäre kein Pilot mehr.
+**Der Fachbereich des Pilotbereichs** — er entscheidet über den Text. Und
+zwar nur dieser eine: Vier Fachbereiche gleichzeitig wären kein Pilot mehr.
 
 **Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute,
 weiß also, wie Textprüfung geht.
