@@ -126,18 +126,11 @@ quellen:
 Daraus folgt mein Vorschlag.
 
 ### Ziel
-
-Das Ziel oben ist von den Lesenden her formuliert. Wer einen Kurs sucht, soll
-die Beschreibung verstehen, ob er sie liest oder vorgelesen bekommt. Die
-Betriebssatzung sagt, die Angebote stehen allen offen — dann muss das auch für
-die Texte gelten, mit denen wir sie ankündigen.
-
-Geprüft wird zweierlei: ob die Zielgruppe den Text versteht, und ob ein
-Vorleseprogramm etwas damit anfangen kann.
+- *vorlesen*
 
 ### Lösung
 
-Dafür genügt ein System-Prompt in dem KI-Zugang, den der Volkshochschul-
+Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-
 Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts
 beschafft werden.
 
@@ -146,14 +139,6 @@ beschafft werden.
 Die Abgrenzung darunter zieht sich durch das ganze Konzept: Für die technische
 Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
 zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
-
-### Ergebnis
-
-Der vierte Punkt ist das erwartete Ergebnis. Die Befundquote soll von
-siebenundfünfzig unter fünfundzwanzig Prozent fallen, und der laufende Aufwand
-liegt bei neunundzwanzig Stunden im Jahr. Das ist gerechnet, nicht geschätzt:
-Geprüft wird nur, was neu entsteht, also rund sechshundert Texte im Jahr und
-nicht fünftausendachthundert.
 
 ### Der Kasten unten
 
