@@ -630,70 +630,53 @@ Folie.
 
 typ: einwaende
 kapitel: 03 · CHANGE MANAGEMENT
-titel: Wer Nein sagt,
-akzent: und was darauf antwortet.
+titel: Vier Widerstände,
+akzent: und vier Antworten.
 klein: ja
 einwaende:
-  - "Programmbereich || „Die Befunde stehen in Bausteinen, über die ich nicht entscheide.“ || Stimmt — und vor dem Pilot zu klären. Alle neun Befunde des Beispielkurses liegen in zwei Bausteinen, einer steht in 105 Kursen."
-  - "Kursleitung auf Honorarbasis || „Noch eine Aufgabe, für die es keine Unterrichtseinheit gibt.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Rückmeldung ja — keine Pflicht, kein Werkzeug, kein Nachweis."
-  - "Redaktion des Programmhefts || „Verständlicher heißt länger, und ich habe eine feste Seitenzahl.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist ohnehin dorthin."
-  - "Personalrat || „Eine technische Einrichtung. Das braucht unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft an die Eignung zur Überwachung, nicht an die Absicht."
-callout: Betroffene zu Beteiligten machen — hier heißt das: entscheiden, bevor geschult wird.
-calloutsub: Drei der vier Einwände sind keine Kommunikationsaufgabe, sondern eine offene Entscheidung.
+  - "Unsicherheit · im ganzen Haus || „Schreibt die KI jetzt unsere Texte?“ || Nein. Sie schlägt vor, der Fachbereich entscheidet und veröffentlicht. Nichts geht ohne einen Menschen ins Portal."
+  - "Verlustangst · Programmbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt, und das ist vor dem Pilot zu klären. Ein Baustein steht in 105 Kursen: einmal richtig, und 105 Kurse sind es mit."
+  - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Rückmeldung ja, Pflicht nein."
+  - "Gewohnheit · Redaktion des Programmhefts || „Verständlicher heißt länger, und mein Heft hat feste Seiten.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist ohnehin dorthin."
+callout: Drei dieser Einwände sind schon beantwortet — durch den Zuschnitt des Projekts. Der zweite nicht.
+calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot entschieden werden. Das ist keine Schulungsfrage.
 quellen:
   - "Häufigkeit der Bausteine: eigene Auszählung im Kursplan der vhs"
-  - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
 
 ### NOTIZ
 
-Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Verlustangst,
-Unsicherheit, Gewohnheit und fehlende Perspektive. Ich zeige sie nicht als
-Liste, sondern an vier Rollen von der Folie davor — jede sagt Nein aus einem
-anderen Grund.
+Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Unsicherheit,
+Verlustangst, fehlende Perspektive und Gewohnheit. Ich zeige für jede einen
+Fall, den es hier wirklich gibt.
 
-Der Programmbereich zuerst. Sein Einwand: Die Befunde stehen in Bausteinen,
-über die ich nicht entscheide. Ich habe das nachgezählt, und es stimmt
-vollständig. Der Beispielkurs, den ich gleich vorführe, hat keinen eigenen
-Satz. Er besteht restlos aus zwei Bausteinen, dem Anmeldehinweis und der
-Niveaubeschreibung. Alle neun Befunde liegen dort, und der Anmeldehinweis
-steht wortgleich in hundertfünf Kursen. Das ist Verlustangst in ihrer echten
-Form: nicht Angst vor der Maschine, sondern die Aussicht, für etwas gemessen
-zu werden, das man nicht ändern darf. Meine Antwort ist deshalb keine
-Schulung, sondern eine Zuständigkeitsfrage, die vor dem Pilot geklärt wird.
-Nebenbei ist es die gute Nachricht: ein Baustein in Ordnung gebracht, und
-hundertfünf Kurse sind es mit.
+**Unsicherheit** — die Frage, die im ganzen Haus als Erstes kommt: Schreibt die
+KI jetzt unsere Texte? Nein. Sie schlägt vor, mehr nicht. Entschieden und
+veröffentlicht wird von Menschen. Das ist keine Beruhigung, sondern der
+Zuschnitt des Werkzeugs.
 
-Die Kursleitung auf Honorarbasis. Noch eine Aufgabe, für die es keine
-Unterrichtseinheit gibt — das ist fehlende Perspektive, und bei dieser Gruppe
-schärfer als bei allen anderen, weil ihre Abrechnungseinheit die
-Unterrichtsstunde ist. Textarbeit kommt darin nicht vor. Meine Antwort ist der
-Zuschnitt: Geprüft wird im Programmbereich, an dem Text, der dort eingeht. Das
-schützt auch den Status. Verbindliche Regeln, Schulungspflicht und ein
-Protokoll je Text sind genau die Merkmale, aus denen das Bundessozialgericht
-im Herrenberg-Urteil eine Eingliederung in den Betrieb hergeleitet hat.
+**Verlustangst** — und das ist der einzige Einwand, der noch offen ist. Ich habe
+nachgezählt: Der Beispielkurs besteht restlos aus zwei Bausteinen, dem
+Anmeldehinweis und der Niveaubeschreibung. Alle Befunde liegen dort, und der
+Anmeldehinweis steht wortgleich in hundertfünf Kursen. Das ist keine Angst vor
+der Maschine, sondern die Aussicht, für etwas gemessen zu werden, das man nicht
+ändern darf. Die Antwort ist deshalb keine Schulung, sondern eine
+Zuständigkeitsfrage. Und darin steckt die gute Nachricht: ein Baustein in
+Ordnung gebracht, und hundertfünf Kurse sind es mit.
 
-Die Redaktion des Programmhefts. Ihr Einwand ist der, an den ich zuletzt
-gedacht hätte: Verständlicher heißt länger, und ich habe eine feste
-Seitenzahl. Das ist Gewohnheit, aber nicht als Trägheit, sondern als
-konkurrierendes Regelwerk. Diese Redaktion kürzt beruflich, ein Werkzeug, das
-Erklärungen verlangt, arbeitet gegen ihren Auftrag. Meine Antwort trennt die
-Medien: Geprüft wird der Text im Portal, und dort gibt es keine Seitenzahl.
+**Fehlende Perspektive** — bei den Honorarkräften schärfer als bei allen
+anderen, weil ihre Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit
+kommt darin nicht vor. Die Antwort ist der Zuschnitt: Geprüft wird im
+Programmbereich, an dem Text, der dort eingeht. Das schützt auch ihren Status —
+verbindliche Regeln und ein Protokoll je Text sind genau die Merkmale, aus
+denen das Bundessozialgericht im Herrenberg-Urteil eine Eingliederung in den
+Betrieb hergeleitet hat.
 
-Und der Personalrat. Der Paragraf knüpft die Mitbestimmung an technische
-Einrichtungen, die zur Überwachung geeignet sind — geeignet, nicht verwendet.
-Eine Zusage, nicht nach Urheber auszuwerten, räumt den Tatbestand also gar
-nicht aus, und etwas vorzulegen ist keine Zustimmung. Das Instrument nennt der
-Paragraf selbst: die Dienstvereinbarung, mit Zweckbindung, Zugriffskreis und
-Löschfrist. Sie ist die Voraussetzung für alles Weitere und kommt auf den
-nächsten beiden Folien noch zweimal vor.
+**Gewohnheit** — nicht als Trägheit, sondern als konkurrierendes Regelwerk:
+Diese Redaktion kürzt beruflich. Ein Werkzeug, das Erklärungen verlangt,
+arbeitet gegen ihren Auftrag. Die Antwort trennt die Medien: Geprüft wird der
+Text im Portal, und dort gibt es keine Seitenzahl.
 
-Der Satz unten: Betroffene zu Beteiligten machen. Hier heißt das konkret,
-entscheiden, bevor geschult wird. Drei der vier Einwände sind überhaupt keine
-Kommunikationsaufgabe. Wer die Bausteinfreigabe, die Zuständigkeit und den
-Umgang mit den Protokollen offenlässt und stattdessen eine Schulung ansetzt,
-schult gegen einen Widerstand, der berechtigt ist. Der vierte, der der
-Redaktion, ist einer — und er wird beantwortet, indem man zugibt, dass sie mit
-dem fehlenden Prüfschritt die ganze Zeit recht hatte.
+Betroffene zu Beteiligten machen heißt hier: entscheiden, bevor geschult wird.
 
 
 ## 12 — Timeline
