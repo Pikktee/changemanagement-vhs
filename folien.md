@@ -320,27 +320,24 @@ quellen:
 
 ### NOTIZ
 
-Zur Lösung. Sie beginnt mit einer Abgrenzung, und die halte ich für den
-wichtigsten Teil meines Konzepts.
+- Nochmal zur Abgrenzung
+- Was die Technik prüft, und wo KLARTEXT ansetzt.
 
-### Die Website
-- Links steht, was an der Website als Ganzem hängt: Kontraste, Tastaturbedienung, Seitentitel, Navigation.
-- Prüfbar, ohne einen einzigen Kurs zu kennen. Gilt für alle 5800 Texte gleich.
-- Dafür gibt es etablierte Programme wie **axe-core**. Zuständig ist die städtische IT.
+### ((Die Website))
+- Was nicht zum Projekt gehört ist die technische Prüfung der Website als ganzes.
+- Also z.B. Kontraste, Tastaturbedienung, Seitentitel, Navigation.
+- Das ist prüfbar, ohne einen einzigen Kurs zu kennen.
+- Dafür gibt es etablierte Tools wie **axe-core**. Zuständig ist hier die städtische IT.
 
 ### Der einzelne Text
-- Rechts steht, was am einzelnen Text hängt: ==Versteht die Zielgruppe genau dieses Kurses ihn?==
-- Das lässt sich nicht beantworten, ohne zu wissen, wer liest. Zuständig sind die Programmbereiche.
+- Das Projekt prüft den einzelnen Text:
+- Versteht die Zielgruppe genau dieses Kurses ihn?
+- Die KI kann hier nur Vorschläge machen, die Entscheidung liegt beim Fachbereich.
 
-### Der Kasten unten
-- Die Trennlinie verläuft also nicht zwischen Sprache und Technik. Zwei meiner sechs Regeln sind selbst Pflichtkriterien.
-- Beispiel: eine hervorgehobene Zeile, die als Überschrift gemeint ist, im Quelltext aber keine. Das Prüfprogramm sieht dort nur Fließtext und meldet nichts.
-- Ob sie eine Überschrift sein sollte, kann man dem Text nicht ansehen, sondern nur verstehen. Deshalb liegt dieses Pflichtkriterium rechts.
-- ((Beim Bauen hat sich das dreimal bestätigt: Drei Zusagen, die zuerst im Prompt standen, hielt das Modell nicht zuverlässig ein. Alle drei stehen heute im Programmcode.))
-
-### Technische Voraussetzungen
-- Der KI-Zugang, den der Volkshochschul-Verband ohnehin bereitstellt, ein dort angelegter Assistent, die Wortliste als Datei.
-- Kein neuer Vertrag, kein Eingriff ins Kursverwaltungssystem.
+### Callout
+- Die Trennlinie verläuft also nicht zwischen Technik und Sprache, sondern zwischen der Seite und dem einzelnen Text.
+- ==Neu ist allein der Schritt, für den man wissen muss, wer liest.==
+- Und genau dafür setzen wir ein KI-Sprachmodell ein.
 
 
 ## 8 — Der Prompt in sechs Bausteinen
