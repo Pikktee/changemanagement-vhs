@@ -141,8 +141,6 @@ Monate. Der Prompt schlägt vor, der Mensch entscheidet.
 
 typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
-bild: bilder/04-prozess-luecke.png
-bildnotiz: Vier Arbeitsschritte, dazwischen eine leere Stelle ohne Verbindung nach oben und unten.
 titel: Die vhs Frankfurt,
 akzent: und wie ein Kurstext entsteht.
 klein: ja
