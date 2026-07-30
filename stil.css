@@ -384,9 +384,18 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .mitbild h1{ max-width:770px; }
 .mitbild .lede{ max-width:760px; }
 
+/* Das Bild haengt an der Unterkante, nicht an der Oberkante. Oben beginnt der
+   Inhalt je nach Folie woanders — eine zweizeilige Ueberschrift und ein
+   Vorspann schieben ihn zusammen um 94px nach unten, gemessen an Folie 3
+   gegen Folie 4. Unten liegt dagegen auf jeder Folie dieselbe Linie: dort
+   beginnt die Quellenzeile. Daran ausgerichtet springt der Bildkasten beim
+   Folienwechsel nicht.
+   Bildschirmfotos ('ganz') bleiben oben, sie tragen Text und gehoeren dorthin,
+   wo der Blick anfaengt. */
 .bildspalte{ width:322px; flex:none; display:flex; flex-direction:column;
-             min-height:0; }
-.bildspalte .rahmen{ width:322px; flex:1 1 auto; min-height:0; max-height:334px;
+             justify-content:flex-end; min-height:0; }
+.bildspalte:has(.rahmen.ganz){ justify-content:flex-start; }
+.bildspalte .rahmen{ width:322px; flex:0 1 334px; min-height:0; max-height:334px;
                      overflow:hidden; background:var(--flaeche); }
 .bildspalte .rahmen img{ width:100%; height:100%; object-fit:cover; display:block; }
 /* Bildschirmfotos duerfen nicht beschnitten werden, sie tragen Text.

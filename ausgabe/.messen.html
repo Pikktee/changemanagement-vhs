@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><body><div id="out">…</div>
+<iframe id="a" src="folie-09.html" style="width:1280px;height:720px;border:0"></iframe>
+<script>
+function mess(id,name){
+  const d=document.getElementById(id).contentDocument, r=[];
+  for(const s of ['h1','.lede','.body','.inhalt','.bildspalte','.bildspalte .rahmen','.bu','.callout']){
+    const e=d.querySelector(s); if(!e){r.push(s+': —'); continue}
+    const b=e.getBoundingClientRect();
+    r.push(`${s}: top ${Math.round(b.top)} bottom ${Math.round(b.bottom)} h ${Math.round(b.height)}`);
+  }
+  return name+'\n  '+r.join('\n  ');
+}
+setTimeout(()=>{document.getElementById('out').textContent=mess('a','FOLIE 09');},900);
+</script></body>
