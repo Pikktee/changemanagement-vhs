@@ -995,9 +995,8 @@ außerhalb. Das ist der Grund, warum ich vorhin zwei Wege gezeigt habe.
 typ: schluss
 bild: bilder/15-durchgang.png
 bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
-titel: Danke für die Aufmerksamkeit —
-akzent: jetzt läuft der Prompt live.
-untertitel: An einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.
+titel: Danke für die Aufmerksamkeit.
+untertitel: Eine kurze Vorführung am echten Kurstext, danach gerne eure Fragen.
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
 fussr: HENRIK HEIL · CIMDATA 2026
 
