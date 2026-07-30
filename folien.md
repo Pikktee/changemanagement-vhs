@@ -55,7 +55,7 @@ Willkommen zu meinem Abschlussprojekt!
 ### Worum geht es?
 
 - Barrierefreiheit.
-- Aber nicht der technische Teil wie. Kontraste oder Tastaturbedienung, sondern:
+- Aber nicht der technische Teil wie Kontraste oder Tastaturbedienung, sondern:
 - ob der Text ankommt bei denen, für die er geschrieben ist.
 
 ### Der schärfste Fall
@@ -87,7 +87,7 @@ Erstmal eine kurze Übersicht zum Projekt.
 ### 5.800 Texte und 57 Prozent
 
 - Die Volkshochschule veröffentlicht rund 5800 Kursbeschreibungen im Jahr.
-- Von allen Texten, die heute im Portal stehen, hat mehr als jeder zweite Text einen Befund ((Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.))
+- Von allen Texten, die heute im Portal stehen, hat mehr als jeder zweite Text einen Befund. ((Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.))
 
 ### Fünf Jahre ohne externe Prüfung
 Die letzte externe Prüfung auf Barrierefreiheit der Website ist etwa 5 Jahre
@@ -129,21 +129,13 @@ Daraus folgt mein Vorschlag.
 - *vorlesen*
 
 ### Lösung
-
-Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-
-Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts
-beschafft werden.
+- *vorlesen*
 
 ### Abgrenzung
-
-Die Abgrenzung darunter zieht sich durch das ganze Konzept: Für die technische
-Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
-zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+- Für die technische Barrierefreiheit der Website bleiben normale Prüfwerkzeug zuständig, zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
 
 ### Der Kasten unten
-
-Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei
-Monate. Der Prompt schlägt vor, der Mensch entscheidet.
+- *vorlesen*
 
 
 ## 4 — Das Unternehmen und der Prozess heute
@@ -176,9 +168,9 @@ quellen:
 
 ### NOTIZ
 
-Das Unternehmen und der Prozess.
+Zunächst zum Unternehmen und zum aktuellen Prozess.
 
-### Linke Spalte: Das Unternehmen
+### Das Unternehmen
 
 Die Volkshochschule Frankfurt ist kein Amt, sondern ein Eigenbetrieb der
 Stadt. Geleitet wird sie von einem Direktor, der laut Impressum auch

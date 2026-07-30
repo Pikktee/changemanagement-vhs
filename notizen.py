@@ -620,14 +620,18 @@ h1{
 
    Gedaempft wird ueber die Deckkraft, nicht ueber eine zweite Textfarbe — die
    Palette kennt auf --marke nur Weiss und --auf-marke, und ein eigenes Grau
-   waere ein neuer Farbwert. Weiss auf --marke haelt 8,84:1; bei 90 Prozent
-   Deckkraft mischt sich #E8ECF5 und haelt 7,47:1, also AAA auch fuer kleinen
-   Text. Bei 85 Prozent waeren es 6,86:1 und AAA damit verloren — das ist der
-   Grund fuer den knappen Wert. Die eigentliche Daempfung leistet die
-   Schriftgroesse. */
+   waere ein neuer Farbwert. Weiss auf --marke haelt 8,84:1, bei 75 Prozent
+   mischt sich #C4D0E7 und haelt 5,69:1.
+
+   Das ist AA und nicht mehr AAA — die Schwelle fuer kleinen Text liegt bei
+   7:1 und waere erst ab 90 Prozent gehalten. Bewusst in Kauf genommen: Diese
+   Seite geht in keine Abgabe ein, pruefe-design.py liest sie nicht, und der
+   Text soll sich beim Ueberfliegen deutlich vom Vorlesetext abheben. Wer die
+   Werte anhebt, holt sich AAA zurueck und verliert die Wirkung; unter 62
+   Prozent faellt auch AA. */
 #notiz .neben{
-  font-size:.85em;
-  opacity:.9;
+  font-size:.78em;
+  opacity:.75;
 }
 
 /* ---------- Bearbeiten ---------- */
