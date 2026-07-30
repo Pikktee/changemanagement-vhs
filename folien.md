@@ -349,7 +349,7 @@ akzent: sechs Bausteinen.
 klein: ja
 spalten: Baustein | Was darin steht
 zeilen:
-  - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, entscheidet aber nicht selbst."
+  - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, bereitet eine Entscheidung vor, die ein Mensch trifft."
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
   - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
