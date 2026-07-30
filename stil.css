@@ -378,7 +378,12 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* Auf Textfolien wird der freie Platz auf drei Luecken verteilt: ueber dem
    Stufenblock, ueber dem Callout und unter ihm. Nur oben verteilt haengt der
    Callout an der Quellenzeile, gar nicht verteilt haengt er in der Mitte. */
-.callout.unten{ margin-top:auto; margin-bottom:auto; }
+/* 'margin-bottom:auto' teilte den Rest hälftig auf und legte den Balken damit
+   auf jeder Folie woanders ab — gemessen lag seine Unterkante zwischen 564 und
+   626. Ein fester Bodenabstand setzt ihn stattdessen ueberall auf 606.
+   20px und nicht mehr: Auf der engsten Folie (8) bleiben nur 22px Rest, ein
+   groesserer Wert liesse den Inhalt oben ueberlaufen. */
+.callout.unten{ margin-top:auto; margin-bottom:20px; }
 
 /* ---------- Bild ----------
    Eine Folie mit "bild:" bekommt eine rechte Spalte. Der Textbereich
