@@ -302,7 +302,7 @@ kapitel: Teil E · Grenzen und Einordnung
 ## Was er nicht leistet
 
 - **Keine technische Barrierefreiheit.** Kontraste, Tastaturbedienung und Seitengerüst gehören zu einem anderen Werkzeug und einem anderen Zuständigen.
-- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei, gemessen an zwei Kursen und nicht über die Breite der 60er-Stichprobe. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar.
+- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei, gemessen an zwei Kursen und nicht über die Breite des Kursbestands. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar.
 - **Keine Erkennung von Textbausteinen.** Passagen, die wortgleich über vielen Kursen stehen, kann das Modell nicht erkennen; es sieht immer nur einen Text. Der Vergleich über den Kursplan gehört ins Werkzeug, nicht ins Modell.
 - **Kein Ersatz für die Fachprüfung.** Ob ein Kurskonzept sinnvoll und eine Angabe richtig ist, prüft der Prompt nicht.
 
