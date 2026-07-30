@@ -38,13 +38,13 @@ Ein Lesbarkeitsindex misst Satz- und Wortlängen und kennt die Zielgruppe nicht.
 
 > Kann die Zielgruppe **genau dieses** Kurses **genau diesen** Text verstehen?
 
-Der Prompt bestimmt darum zuerst die Zielgruppe und danach den Maßstab, nicht umgekehrt. Diese Reihenfolge steht in der Komponente AUFGABE und ist die Entscheidung, aus der alle übrigen folgen.
+Der Prompt bestimmt darum zuerst die Zielgruppe und danach den Maßstab, nicht umgekehrt. Diese Reihenfolge steht in der Komponente AUFGABE.
 
 Der Maßstab kommt nicht aus dem Gesetz allein. Die maßgeblichen Kriterien der WCAG liegen auf Stufe AAA und sind rechtlich nicht gefordert. Verpflichtend ist der Auftrag der Betriebssatzung: Die Angebote stehen **grundsätzlich allen offen, ohne Rücksicht auf Vorbildung**.
 
 ## Was das Werkzeug nicht ist
 
-Es ersetzt keine Redaktion. Es entscheidet nichts, es veröffentlicht nichts, es ändert nichts. Es legt dem zuständigen Fachbereich eine begründete Liste vor, und dieser entscheidet. Diese Beschränkung ist keine Bescheidenheit, sondern die Voraussetzung dafür, dass das Werkzeug im Haus angenommen wird und mitbestimmungsrechtlich unproblematisch bleibt.
+Es ersetzt keine Redaktion. Es entscheidet nichts, es veröffentlicht nichts, es ändert nichts. Es legt dem zuständigen Fachbereich eine begründete Liste vor, und dieser entscheidet. Diese Beschränkung ist die Voraussetzung dafür, dass das Werkzeug im Haus angenommen wird und mitbestimmungsrechtlich unproblematisch bleibt.
 
 === SEITE ===
 kapitel: Einordnung
@@ -59,7 +59,7 @@ Dieses Dokument beschreibt den Prompt. Beispiele für Ein- und Ausgabe stehen ni
 |---|---|
 | Ein- und Ausgabe an einem echten Kurstext | „Kurs aus dem Kursplan wählen“, Kursnummer suchen, dann „Text prüfen“ |
 | Der Prompt im Wortlaut, Modell, Temperatur | Kopfzeile → „System-Prompt“ |
-| Alle zwölf Iterationen, einzeln ladbar | im Panel → „Alle Iterationen“ |
+| Die zwölf Iterationen, neun davon einzeln ladbar | im Panel → „Alle Iterationen“ |
 | Präsentation, diese Dokumentation, `system-prompt.md` | Kopfzeile → „Dokumente“ |
 
 Ein eigener Text lässt sich ebenso einsetzen; Programmbereich und Niveau sind dann von Hand zu wählen, weil der Prompt ohne diese beiden Angaben die Zielgruppe nicht bestimmt und die Prüfung abbricht.
@@ -85,7 +85,7 @@ kapitel: Teil A · Die sechs Komponenten
 
 Der Prompt liegt im Projekt als `system-prompt.md` und wird zur Laufzeit geladen. Der Platzhalter `{{WORTLISTE_A1}}` unter KONTEXT wird dabei durch die 820 Wörter des Referenzwortschatzes ersetzt: Der Prompt arbeitet nicht mit einem Verweis auf eine Liste, sondern mit der Liste selbst. Im Betrieb ist er rund 20.000 Zeichen lang.
 
-Jede Komponente steht auf den folgenden Seiten zweimal: zuerst, was sie festlegt, dann ihr Wortlaut. Der Wortlaut ist nicht abgetippt — er wird beim Bauen dieses PDFs aus der Quelldatei gezogen und kann deshalb nicht veralten.
+Jede Komponente steht auf den folgenden Seiten zweimal: zuerst, was sie festlegt, dann ihr Wortlaut. Der Wortlaut ist nicht abgetippt — er wird beim Bauen dieses PDFs aus der Quelldatei gezogen und kann deshalb nicht veralten. Einzige Ausnahme ist der Referenzwortschatz: Dort stehen im Prompt die 820 Wörter selbst, deshalb ist der Abschnitt verkürzt wiedergegeben.
 
 | Komponente | Was sie festlegt |
 |---|---|
@@ -96,7 +96,7 @@ Jede Komponente steht auf den folgenden Seiten zweimal: zuerst, was sie festlegt
 | KONTEXT | Das Hauswissen: Programmbereiche, Abkürzungen, Referenzwortschatz, sechs Prüfregeln |
 | REGELN | Neun Arbeitsregeln für die Ausgabe: Namen, Zitate, Zählung, Grenze, Sortierung |
 
-Die Sechs-Komponenten-Struktur gibt die Aufgabenstellung vor. Beim Ändern hat sie sich als Ordnung bewährt, weil jeder Befund aus einem Testlauf eine Adresse hatte: Eine unklare Prüfregel gehört in KONTEXT, eine zu lange Ausgabe nach REGELN, eine unzuverlässige Zusage überhaupt nicht in den Prompt, sondern in den Code (Teil B).
+Die Sechs-Komponenten-Struktur gibt die Aufgabenstellung vor. Sie legt zugleich fest, wo eine Änderung hingehört: eine unklare Prüfregel in KONTEXT, eine zu lange Ausgabe in REGELN, eine unzuverlässige Zusage überhaupt nicht in den Prompt, sondern in den Code (Teil B).
 
 === SEITE ===
 kapitel: Teil A · Die sechs Komponenten
@@ -139,7 +139,7 @@ kapitel: Teil A · Die sechs Komponenten
 
 ## GRENZEN
 
-Sechs Verbote, die auch dann gelten, wenn der geprüfte Text etwas anderes verlangt. Zwei davon tragen mehr als eine Stilfrage.
+Sechs Verbote, die auch dann gelten, wenn der geprüfte Text etwas anderes verlangt. Zwei davon haben Folgen über die Formulierung hinaus.
 
 **„Du bewertest Texte, niemals Personen.“** Dieser Satz hält das Vorhaben aus dem Hochrisikobereich der KI-Verordnung heraus, denn Anhang III setzt im Bildungsbereich überall die Bewertung natürlicher Personen voraus (Teil E). Derselbe Satz ist die Antwort auf die Frage des Personalrats, ob hier Leistung kontrolliert wird.
 
@@ -191,13 +191,13 @@ kapitel: Teil A · Die sechs Komponenten
 
 ## REGELN
 
-Neun Arbeitsregeln. Sie sind der Teil des Prompts, der am häufigsten geändert wurde, weil hier jede Unklarheit unmittelbar in der Ausgabe sichtbar wird.
+Neun Arbeitsregeln. Sie bestimmen nicht, was geprüft wird, sondern wie die Ausgabe aussieht — und jede Unklarheit darin ist im nächsten Lauf unmittelbar zu sehen.
 
 | Regel | Was sie verhindert |
 |---|---|
 | 1 Namen entfernen | Ein Befund, der eine Kursleitung beim Namen nennt, ist eine Aussage über eine Person |
 | 2 Wörtlich zitieren, ohne Markup | Sinngemäße Wiedergabe lässt sich in der Redaktion nicht wiederfinden |
-| 3 Ein Befund je Stelle | Bei `NIVEAU` ist die Stelle das Wort, sonst der Satz. An dieser Unterscheidung hing die Reproduzierbarkeit der Kernzahl (Teil D, v8) |
+| 3 Ein Befund je Stelle | Bei `NIVEAU` ist die Stelle das Wort, sonst der Satz. Daran hing, ob die Zahl der Niveaubefunde reproduzierbar ist (Teil D, v8) |
 | 4 Höchstens fünfzehn Befunde | Eine Liste, die niemand mehr liest. Weggelassene Regeln dürfen nicht als „kein Befund“ erscheinen |
 | 5 Einstufung nicht verhandelbar | Ein geringfügig erscheinender Pflichtverstoß bleibt Pflicht |
 | 6 Gleichwertiger Vorschlag | Vereinfachen durch Weglassen von Inhalt |
@@ -217,7 +217,7 @@ kapitel: Teil B · Technische Umsetzung
 
 1. Der Server liest `system-prompt.md`, setzt die Wortliste in den Platzhalter ein und bildet eine Prüfsumme über das Ergebnis.
 2. Die Eingabe wird in ein festes Feldschema gebracht: Kurstitel, Kursnummer, Programmbereich, Niveau, Text. Bei einer Kursnummer holt der Server den Text selbst über die offene Schnittstelle des Kursportals.
-3. Aufruf des Modells als Proxy über OpenRouter, Temperatur 0. Fällt das Modell aus, greift ein Ersatzmodell.
+3. Aufruf des Modells über OpenRouter, Temperatur 0; der Server tritt als Proxy dazwischen, damit der Schlüssel den Browser nie erreicht. Fällt das Modell aus, greift ein Ersatzmodell.
 4. Nachbearbeitung im Code, siehe unten.
 5. Protokoll nach `tool/protokoll/`, mit Prüfsumme, Modell, Temperatur und Dauer.
 
@@ -261,7 +261,7 @@ Geprüft wurde nicht nur, ob das Werkzeug richtig urteilt, sondern auch, ob es s
 | T6 | Titel, Bereich und Niveau fehlen | „nicht bestimmbar“, Abbruch | bestanden |
 | T7 | Betrieb ohne Referenzwortschatz | Vorbehalt in der Ausgabe | im Prompt **durchgefallen**, im Code gelöst |
 
-## T1 und T2, der Kernbeleg
+## T1 und T2, die beiden Kernfälle
 
 Zwei Kurse, derselbe Prompt, dieselben Regeln. Beide Texte sind gleich einfach gebaut, im Schnitt neun beziehungsweise elf Wörter je Satz; ein Lesbarkeitsindex findet bei keinem von beiden etwas und schweigt damit einmal zu Unrecht. Der Prompt unterscheidet sie, weil er vorher bestimmt hat, wer liest: Beim Deutschkurs auf A2.2 meldet er in jedem Lauf mehrere Niveaubefunde, beim Englischkurs auf A1.1 in jedem Lauf keinen.
 
@@ -269,7 +269,7 @@ Belastbar ist die Asymmetrie, nicht die Einzelzahl. Über je vier Läufe streuen
 
 ## T5, Personenname hinter einem Titel
 
-Steht der Name einer Kursleitung im Fließtext, hält sich das Modell an Regel 1. Steht er hinter einem Titel, nicht: Es beanstandete das „Dr.“ als unaufgelöste Abkürzung und zitierte dabei den vollen Namen, in drei von vier Läufen — auch nachdem der Prompt Titel vor Personennamen ausdrücklich ausgenommen hatte. Gelöst ist der Fall im Server, der Titel samt folgendem Namen entfernt. Das fängt den beobachteten Fall, nicht die ganze Fehlerklasse: Ein Name ohne Titel wird davon nicht erfasst.
+Steht der Name einer Kursleitung im Fließtext, hält sich das Modell an Regel 1. Steht er hinter einem Titel, nicht: Es beanstandete das „Dr.“ als unaufgelöste Abkürzung und zitierte dabei den vollen Namen, in drei von vier Läufen — auch nachdem der Prompt Titel vor Personennamen ausdrücklich ausgenommen hatte. Gelöst ist der Fall im Server, der Titel samt folgendem Namen entfernt; unter der aktuellen Fassung stand in keinem der vier Läufe ein Name in der Ausgabe. Das fängt den beobachteten Fall, nicht die ganze Fehlerklasse: Ein Name ohne Titel wird davon nicht erfasst.
 
 ## T7, Betrieb ohne Referenzwortschatz
 
@@ -280,13 +280,13 @@ kapitel: Teil D · Iterationen
 
 # Teil D · Iterationen
 
-Zwölf Fassungen an drei Tagen. Jede hat einen Anlass, und keiner davon ist erfunden. Ausführlich mit Anlass, Befund, Änderung und Begründung stehen sie in `iterationen.md` (Teil E).
+Zwölf Fassungen an drei Tagen, jede aus einem konkreten Anlass. Ausführlich mit Anlass, Befund, Änderung und Begründung stehen sie in `iterationen.md` im Repository, siehe Teil E.
 
-**Im Werkzeug ist die Historie begehbar:** im Panel „System-Prompt“ unter „Alle Iterationen“. Jede erhaltene Fassung lässt sich laden und gegen denselben Text laufen lassen — der Unterschied zwischen zwei Fassungen ist damit nicht behauptet, sondern vorführbar. Neun der zwölf Stände sind erhalten; v0.1, v5 und v7 wurden nie einzeln festgeschrieben, die Historie kennt sie, ein ladbarer Stand fehlt.
+**Im Werkzeug ist die Historie begehbar:** im Panel „System-Prompt“ unter „Alle Iterationen“. Jede erhaltene Fassung lässt sich laden und gegen denselben Text laufen lassen; so wird sichtbar, was eine Änderung am Ergebnis bewirkt hat. Neun der zwölf Stände sind erhalten; v0.1, v5 und v7 wurden nie einzeln festgeschrieben, die Historie kennt sie, ein ladbarer Stand fehlt.
 
 {{ITER_TABELLE}}
 
-Zwei Einträge tragen die Argumentation der Arbeit. **v1:** Der Prompt behauptete, gegen den Prüfungswortschatz zu prüfen, hatte ihn aber nicht — derselbe Fehler, den diese Arbeit anderen Werkzeugen vorwirft, im eigenen Entwurf. **v8:** Die Zahl, mit der das Konzept argumentierte, war ein einzelner Lauf und keine Messung. Seither gilt die Regel, jede Fassung mit je vier Läufen gegen die beiden Kernfälle zu prüfen.
+Seit v8 wird jede neue Fassung mit je vier Läufen gegen die beiden Kernfälle geprüft, nicht mit einem.
 
 === SEITE ===
 kapitel: Teil E · Grenzen und Einordnung
@@ -302,20 +302,20 @@ kapitel: Teil E · Grenzen und Einordnung
 ## Was er nicht leistet
 
 - **Keine technische Barrierefreiheit.** Kontraste, Tastaturbedienung und Seitengerüst gehören zu einem anderen Werkzeug und einem anderen Zuständigen.
-- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei, gemessen an zwei Kursen und nicht über die Breite der 60er-Stichprobe. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar — und ein Grund mehr, warum ein Mensch entscheidet.
+- **Keine gleichbleibende Ausgabe.** Die Zahl der Niveaubefunde streut über je vier Läufe um zwei, gemessen an zwei Kursen und nicht über die Breite der 60er-Stichprobe. Die Pflichtbefunde und das Verhältnis der beiden Kurse zueinander waren stabil. Für ein Werkzeug, das vorschlägt und nicht entscheidet, ist das vertretbar.
 - **Keine Erkennung von Textbausteinen.** Passagen, die wortgleich über vielen Kursen stehen, kann das Modell nicht erkennen; es sieht immer nur einen Text. Der Vergleich über den Kursplan gehört ins Werkzeug, nicht ins Modell.
 - **Kein Ersatz für die Fachprüfung.** Ob ein Kurskonzept sinnvoll und eine Angabe richtig ist, prüft der Prompt nicht.
 
 ## Offene Punkte
 
 - **Die Obergrenze bindet.** Beim Deutschkurs werden die fünfzehn Befunde regelmäßig erreicht. Der Vermerk, wie viele Befunde weggelassen wurden, kommt nicht verlässlich. Eine Bündelung mehrerer Wörter je Satz bei gleichbleibender Zählung wäre der nächste Schritt.
-- **Begründungen im Betrieb ohne Wortliste.** Der Vorbehalt steht seit T7 sicher, die einzelnen Begründungen behaupten weiter, ein Wort stehe nicht auf der Liste.
+- **Begründungen im Betrieb ohne Wortliste.** Der Vorbehalt steht seit v4 im Code und kommt damit sicher; die einzelnen Begründungen behaupten weiter, ein Wort stehe nicht auf der Liste.
 - **Der Namensschutz erfasst nur Namen mit vorangestelltem Titel.** Für Namen im Fließtext bleibt Regel 1 zuständig, also das Modell.
 - **Der Referenzwortschatz deckt nur A1 ab.** Für A2 und B1 ist die Liste unterer Anker, das Übrige Einschätzung. Eine A2-Liste aus dem Prüfungshandbuch des Deutsch-Tests für Zuwanderer wäre der nächste Ausbauschritt.
 
 ## Einordnung nach der KI-Verordnung
 
-Die vhs wäre **Betreiberin** im Sinne von Artikel 3 Nummer 4 der Verordnung (EU) 2024/1689, nicht Anbieterin. Ein Hochrisikotatbestand nach Anhang III liegt nicht vor: Die dortigen Fälle im Bildungsbereich, insbesondere Nummer 3, setzen sämtlich eine Bewertung **natürlicher Personen** voraus, etwa bei Zugang, Zuweisung oder Prüfung. KLARTEXT bewertet ausschließlich Texte. Die entsprechende Zeile unter GRENZEN ist deshalb keine Höflichkeit, sondern trägt die rechtliche Einordnung.
+Die vhs wäre **Betreiberin** im Sinne von Artikel 3 Nummer 4 der Verordnung (EU) 2024/1689, nicht Anbieterin. Ein Hochrisikotatbestand nach Anhang III liegt nicht vor: Die dortigen Fälle im Bildungsbereich, insbesondere Nummer 3, setzen sämtlich eine Bewertung **natürlicher Personen** voraus, etwa bei Zugang, Zuweisung oder Prüfung. KLARTEXT bewertet ausschließlich Texte; die entsprechende Zeile steht unter GRENZEN.
 
 Unabhängig davon gilt seit dem 2. Februar 2025 Artikel 4: Wer KI-Systeme betreibt, muss für ausreichende KI-Kompetenz der damit befassten Personen sorgen. Diese Pflicht ist im Change-Konzept als Schulungsbaustein abgebildet und gilt unabhängig von der Risikoklasse.
 
