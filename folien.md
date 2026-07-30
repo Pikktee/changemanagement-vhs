@@ -23,6 +23,7 @@ typ: titel
 titel: KLARTEXT — Kursbeschreibungen
 akzent: barrierefrei prüfen.
 untertitel: Ein KI-gestützter Prüfschritt vor der Veröffentlichung.
+link: klartext-vhs.henrikheil.net
 meta: Volkshochschule Frankfurt am Main | Acht Programmbereiche | 5.800 Texte im Jahr
 fussl: ABSCHLUSSPROJEKT · CHANGE UND KI
 fussr: CIMDATA · HENRIK HEIL · JULI 2026
@@ -163,7 +164,7 @@ quellen:
   - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
   - "Impressum | https://vhs.frankfurt.de/de/special-pages/important/impressum"
   - "Fachbereiche und Qualitätstestierung | https://vhs.frankfurt.de/de/about/featured/fachbereiche-an-der-vhs"
-  - "Ablauf: eigene Recherche, daten/recherche-redaktionsablauf.md"
+  - "Ablauf des Hauses: eigene Recherche, Belege und Annahmen dokumentiert"
 
 ### NOTIZ
 
@@ -452,7 +453,7 @@ zeilen:
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
 calloutfolge: „Bewertet Texte, niemals Personen.“ Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
 quellen:
-  - "system-prompt.md, Fassung v11 vom 29.07.2026, zwölf Fassungen in der Versionsverwaltung"
+  - "System-Prompt, Fassung v11 vom 29.07.2026 — zwölf Fassungen mit Anlass und Begründung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
@@ -627,7 +628,7 @@ einwaende:
 callout: Betroffene zu Beteiligten machen — hier heißt das: entscheiden, bevor geschult wird.
 calloutsub: Drei der vier Einwände sind keine Kommunikationsaufgabe, sondern eine offene Entscheidung.
 quellen:
-  - "Häufigkeit der Bausteine: eigene Auszählung an daten/vhs-kursplan.json"
+  - "Häufigkeit der Bausteine: eigene Auszählung im Kursplan der vhs"
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
 
 ### NOTIZ
@@ -744,7 +745,7 @@ kennzahlen:
   - "4 Std. || im Pilot, ein Programmbereich, rund 73 neue Texte"
 callout: Der Einwand rechnet mit 5.800 Texten. Es sind rund 600, weil 54 Prozent der Kurse ihren Text teilen.
 calloutsub: Gemessen an 489 Kursen. Was die vhs als „neu“ zählt, ist offen — im Grenzfall 220 Stunden, immer noch unter dem Einwand.
-quellen: eigene Erhebung, daten/wirtschaftlichkeit.md mit allen Szenarien und Einschränkungen
+quellen: eigene Erhebung — alle Szenarien und Einschränkungen in der Dokumentation zur Abgabe
 
 ### NOTIZ
 
@@ -780,14 +781,14 @@ klein: ja
 kompakt: ja
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
-  - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | daten/messung.py, unverändert"
+  - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | eigenes Messskript, unverändert"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
-  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | daten/messung.py, unverändert"
+  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | eigenes Messskript, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
   - "Die Protokolle werden gegen das Unternehmen verwendet. Sie belegen datiert, was vorher nur unbemerkt war. > Zweckbindung, Zugriffskreis und Löschfrist in dieselbe Dienstvereinbarung — und zu jedem Befundstand ein Abstellplan mit Datum."
 callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
-quellen: Ausgangsmessung mit daten/messung.py, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
+quellen: Ausgangsmessung mit eigenem Messskript, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
 ### NOTIZ
 
@@ -832,7 +833,7 @@ bild: bilder/15-durchgang.png
 bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
 titel: Danke für die Aufmerksamkeit.
 untertitel: Eine kurze Vorführung am echten Kurstext, danach gerne eure Fragen.
-link: cm-vhs.henrikheil.net
+link: klartext-vhs.henrikheil.net
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
 fussr: HENRIK HEIL · CIMDATA 2026
 

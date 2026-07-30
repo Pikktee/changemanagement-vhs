@@ -16,8 +16,10 @@
 (async function(){
   const buehne = document.getElementById('buehne');
   const tbody  = document.querySelector('#tab tbody');
-  let schlecht = 0;
-  for (let i = 1; i <= 23; i++) {
+  let schlecht = 0, gemessen = 0;
+  // Bis zur ersten Seite, die es nicht gibt: Die Seitenzahl aendert sich mit
+  // dem Inhalt, eine feste Zahl hier meldet sonst stillschweigend zu wenig.
+  for (let i = 1; i <= 99; i++) {
     const nr = String(i).padStart(2,'0');
     const rahmen = document.createElement('iframe');
     rahmen.style.width = '794px';
@@ -29,7 +31,8 @@
     const d = rahmen.contentDocument;
     const seite = d.querySelector('.seite');
     const main  = d.querySelector('main');
-    if (!main) { rahmen.remove(); continue; }
+    if (!main) { rahmen.remove(); break; }
+    gemessen++;
     // verfuegbare Hoehe = Seite minus Kopf, Fuss und Innenabstand
     const st = getComputedStyle(seite);
     let platz = 1123 - parseFloat(st.paddingTop) - parseFloat(st.paddingBottom);
@@ -59,7 +62,8 @@
     rahmen.remove();
   }
   document.getElementById('stand').textContent =
-    schlecht === 0 ? 'Alle 23 Seiten passen.' : schlecht + ' Seite(n) laufen ueber.';
+    schlecht === 0 ? 'Alle ' + gemessen + ' Seiten passen.'
+                   : schlecht + ' von ' + gemessen + ' Seiten laufen ueber.';
   document.title = 'FERTIG ' + schlecht;
 })();
 </script>

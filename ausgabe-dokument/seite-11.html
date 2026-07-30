@@ -2,25 +2,13 @@
 <html lang="de"><head><meta charset="utf-8">
 <title>KLARTEXT · System-Prompt-Dokumentation — 11</title>
 <link rel="stylesheet" href="../dokument.css"></head>
-<body><div class="seite eng"><header><span class="marke">KLARTEXT</span><span>Teil B · Durchläufe</span></header><main><h2>Beispiel 2, normaler Fall</h2>
-<p>Kurs 4213-40 · Englisch A1.1 (A1) · Prompt v11 · 29.07.2026 · anthropic/claude-sonnet-4.5 · Temperatur 0.0 · 10 s</p>
-<h3>Eingabe</h3>
-<pre>KURSTITEL:        Englisch A1.1 (A1)
-KURSNUMMER:       4213-40
-PROGRAMMBEREICH:  Sprachen
-NIVEAU:           A1
-TEXT:
-Auf dem Kursniveau A1 (A1.1 - A1.2) lernen Sie, vertraute, alltägliche Ausdrücke und ganz einfache Sätze zu verstehen und zu verwenden. Sie lernen dabei insbesondere:
-*sich und jemanden vorzustellen (Name, Herkunft, Nationalität, Beruf)
-*über Familie zu sprechen und Familienangehörige und Freunde vorzustellen
-*einfache Gegenwart (Present Simple) zu benutzen
-*Ihre Alltagsroutine zu beschreiben und nach der Uhrzeit zu fragen
-
-Information und Beratung
-Dr. Liliya Karpynska
-Telefon: 069 212 38384
-E-Mail: liliya.karpynska.vhs@stadt-frankfurt.de
-
-Dieser Kurs findet auch mit einer kleinen Teilnehmerzahl statt. Bei 8 Anmeldungen läuft der Kurs wie geplant über 11 Termine, bei 7 Anmeldungen über 9 Termine, bei 6 Anmeldungen über 7 Termine. Entscheidend ist die Zahl der Anmeldungen am 2. Kurstermin.
-
-Bitte besorgen Sie sich die angegebenen Lehrbücher im Buchhandel erst dann, wenn fest steht, dass der Kurs stattfindet.</pre></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil B · Durchläufe</span><span>11 / 26</span></footer></div></body></html>
+<body><div class="seite"><header><span class="marke">KLARTEXT</span><span>Teil B · Technische Umsetzung</span></header><main><h1>Teil B · Technische Umsetzung</h1>
+<h2>Der Ablauf eines Laufs</h2>
+<ol><li>Der Server liest <code>system-prompt.md</code>, setzt die Wortliste in den Platzhalter ein und bildet eine Prüfsumme über das Ergebnis.</li><li>Die Eingabe wird in ein festes Feldschema gebracht: Kurstitel, Kursnummer, Programmbereich, Niveau, Text. Bei einer Kursnummer holt der Server den Text selbst über die offene Schnittstelle des Kursportals.</li><li>Aufruf des Modells als Proxy über OpenRouter, Temperatur 0. Fällt das Modell aus, greift ein Ersatzmodell.</li><li>Nachbearbeitung im Code, siehe unten.</li><li>Protokoll nach <code>tool/protokoll/</code>, mit Prüfsumme, Modell, Temperatur und Dauer.</li></ol>
+<h2>Voraussetzungen</h2>
+<table><thead><tr><th>Was</th><th>Anmerkung</th></tr></thead><tbody><tr><td>API-Zugang zu einem Sprachmodell</td><td>hier OpenRouter; der Schlüssel liegt nur auf dem Server, nie im Browser und nie im Protokoll</td></tr><tr><td>Ein Server</td><td>Python 3, keine Bibliothek über die Standardbibliothek hinaus</td></tr><tr><td>Kursdaten</td><td>Schnittstelle des Kursportals, öffentlich, Abrufe auf etwa zwei je Sekunde gedrosselt</td></tr><tr><td>Kein Zugriff auf das Redaktionssystem</td><td>Der Prompt ist auch ohne eigenen Server einsetzbar, als Assistent in einer bestehenden Umgebung</td></tr></tbody></table>
+<h2>Was im Code steht und nicht im Prompt</h2>
+<p>Der Grundsatz des Projekts: <strong>Was feststeht, gehört in den Code. Was die Zielgruppe kennen muss, bleibt beim Modell.</strong> Dreimal hat der Prompt eine Zusage nicht zuverlässig gehalten, und dreimal war die Lösung dieselbe.</p>
+<table><thead><tr><th>Zusage</th><th>Warum der Prompt sie nicht hielt</th><th>Wo sie heute steht</th></tr></thead><tbody><tr><td>Vorbehalt, wenn die Wortliste fehlt</td><td>Das Modell vergaß den Satz und berief sich sogar auf eine Liste, die es in diesem Lauf nicht hatte (Teil C, T7)</td><td><code>ehrlichkeitshinweis()</code> setzt <code>HINWEIS DES SYSTEMS</code> vor die Ausgabe</td></tr><tr><td>Einstufung PFLICHT oder EMPFEHLUNG</td><td>Derselbe Text ergab einmal PFLICHT, einmal HINWEIS</td><td>Tabelle <code>EINSTUFUNGEN</code>, jede Befundzeile wird nachgerechnet</td></tr><tr><td>Kein Personenname in der Ausgabe</td><td>Das Modell beanstandete das „Dr.“ als unaufgelöste Abkürzung und zitierte dabei den vollen Namen (Teil C, T5)</td><td><code>namensschutz()</code> ersetzt Titel samt folgendem Namen durch <code>[Name]</code></td></tr></tbody></table>
+<p>Fünf Anläufe im Prompt haben einen einzigen Satz nicht zuverlässig erzeugt. Drei Zeilen Python haben es. Die Regel daraus: Ist eine Anforderung im Kern eine Nachschlagetabelle oder ein prüfbarer Zustand, gehört sie nicht in den Prompt.</p>
+<p>Das ist zugleich die Grenze des Wegs über einen fremden KI-Assistenten: Dort gibt es diese Nachbearbeitung nicht. Der Prompt läuft, die drei Zusagen hängen dann aber wieder am Modell.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil B · Technische Umsetzung</span><span>11 / 14</span></footer></div></body></html>

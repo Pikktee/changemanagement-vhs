@@ -25,6 +25,7 @@ WURZEL = Path(__file__).resolve().parent
 QUELLE = WURZEL / "dokumentation.md"
 PROMPT = WURZEL / "system-prompt.md"
 ITER = WURZEL / "iterationen.md"
+SERVER = WURZEL / "tool" / "server.py"
 AUS = WURZEL / "ausgabe-dokument"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 PORT = 8793
@@ -59,6 +60,52 @@ def abschnitte(pfad, muster):
     return raus
 
 
+def fassung_lesen():
+    """Das Feld **Fassung:** aus dem Prompt, damit das Titelblatt nicht driftet.
+
+    Die Nummer stand hier einmal abgetippt und zeigte v9, als der Prompt schon
+    bei v11 war.
+    """
+    m = re.search(r"^\*\*Fassung:\*\*\s*(.+)$", PROMPT.read_text(encoding="utf-8"),
+                  re.M)
+    if not m:
+        sys.exit("Kein Feld **Fassung:** in system-prompt.md")
+    return m.group(1).strip()
+
+
+def kurztexte_lesen():
+    """{'v8': 'Stelle = Wort bei NIVEAU, ...'} aus tool/server.py.
+
+    Dieselbe Liste zeigt das Werkzeug im Panel neben jeder Iteration. Sie hier
+    zu wiederholen hiesse, zwei Fassungen derselben Angabe zu pflegen.
+    """
+    m = re.search(r"^ITERATION_KURZTEXTE = \{(.*?)^\}", SERVER.read_text(encoding="utf-8"),
+                  re.M | re.S)
+    if not m:
+        sys.exit("ITERATION_KURZTEXTE nicht in tool/server.py gefunden")
+    return dict(re.findall(r'"([^"]+)":\s*"([^"]+)"', m.group(1)))
+
+
+def iterationen_tabelle():
+    """Die Fassungshistorie als Tabelle: Nummer, Datum, Kurztext.
+
+    Reihenfolge und Datum kommen aus den Ueberschriften von iterationen.md,
+    der Kurztext aus server.py. Eine neue Fassung erscheint damit beim
+    naechsten Bau von selbst.
+    """
+    kurz = kurztexte_lesen()
+    zeilen = ["| Fassung | Datum | Was sich geändert hat |", "|---|---|---|"]
+    for t in re.finditer(r"^##\s+(v[\d.]+)\s*·\s*([^·\n]+?)\s*·\s*(.+?)\s*$",
+                         ITER.read_text(encoding="utf-8"), re.M):
+        nummer, datum, titel = t.groups()
+        zeilen.append("| %s | %s | %s |"
+                      % (nummer, datum.split(",")[0].strip(),
+                         kurz.get(nummer) or titel.replace("`", "")))
+    if len(zeilen) < 3:
+        sys.exit("Keine Fassungen in iterationen.md gefunden")
+    return "\n".join(zeilen)
+
+
 def teilstueck(rumpf, von=None, bis=None):
     """Schneidet einen Abschnitt an seinen ###-Unterueberschriften zu."""
     if von is None and bis is None:
@@ -86,6 +133,34 @@ def inline(s):
     s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", s)
     return s
+
+
+LISTENZEILE = re.compile(r"^(\s*)([-*]|\d+\.)\s+(.+)$")
+
+
+def liste_bauen(eintraege, pos, einzug):
+    """Baut aus (Einzug, geordnet, Text) verschachtelte Listen.
+
+    Gibt (HTML, naechste Position) zurueck. Eine Zeile mit groesserem Einzug
+    beginnt eine Unterliste, eine mit kleinerem beendet die laufende. Ohne
+    diese Unterscheidung liefen die zwei Unterpunkte in AUFGABE als Schritt 3
+    und 4 mit, und die fuenf Arbeitsschritte des Prompts wurden zu sieben.
+    """
+    geordnet = eintraege[pos][1]
+    stuecke = []
+    while pos < len(eintraege):
+        e_einzug, e_geordnet, e_text = eintraege[pos]
+        if e_einzug < einzug or (e_einzug == einzug and e_geordnet != geordnet):
+            break
+        if e_einzug > einzug and stuecke:
+            unter, pos = liste_bauen(eintraege, pos, e_einzug)
+            stuecke[-1] += unter
+            continue
+        stuecke.append(inline(e_text))
+        pos += 1
+    tag = "ol" if geordnet else "ul"
+    return ("<%s>%s</%s>"
+            % (tag, "".join("<li>%s</li>" % s for s in stuecke), tag), pos)
 
 
 def md(text):
@@ -142,25 +217,23 @@ def md(text):
             continue
 
         # Listen
-        m = re.match(r"^(\s*)([-*]|\d+\.)\s+(.+)$", z)
-        if m:
-            geordnet = bool(re.match(r"^\d+\.$", m.group(2)))
-            tag = "ol" if geordnet else "ul"
+        if LISTENZEILE.match(z):
             eintraege = []
             while i < len(zeilen):
-                mm = re.match(r"^(\s*)([-*]|\d+\.)\s+(.+)$", zeilen[i])
+                mm = LISTENZEILE.match(zeilen[i])
                 if not mm:
                     # Fortsetzungszeile eines Eintrags. Die Quellen ruecken
                     # mal zwei, mal drei Zeichen ein, je nach Listenart.
                     if eintraege and zeilen[i][:1].isspace() and zeilen[i].strip():
-                        eintraege[-1] += " " + zeilen[i].strip()
+                        eintraege[-1][2] += " " + zeilen[i].strip()
                         i += 1
                         continue
                     break
-                eintraege.append(mm.group(3))
+                eintraege.append([len(mm.group(1)),
+                                  bool(re.match(r"^\d+\.$", mm.group(2))),
+                                  mm.group(3)])
                 i += 1
-            raus.append("<%s>%s</%s>" % (
-                tag, "".join("<li>%s</li>" % inline(e) for e in eintraege), tag))
+            raus.append(liste_bauen(eintraege, 0, eintraege[0][0])[0])
             continue
 
         if z.startswith("> "):
@@ -209,6 +282,10 @@ def platzhalter_aufloesen(text, prompt_teile, iter_teile):
                   prompt, text)
     text = re.sub(r"\{\{ITER:([^}]+)\}\}", iteration, text)
     text = re.sub(r"\{\{PROTOKOLL:([\d-]+):(\w+)\}\}", protokoll, text)
+    # Zuletzt, damit die eingesetzten Texte nicht selbst noch durchsucht
+    # werden: In einem Kurztext steht {{WORTLISTE_A1}} als Wort.
+    text = text.replace("{{ITER_TABELLE}}", iterationen_tabelle())
+    text = text.replace("{{FASSUNG}}", fassung_lesen())
     return text
 
 

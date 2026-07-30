@@ -253,9 +253,13 @@ def t_panel(f, seite_, gesamt, schluss=False):
     # koennen, und gesperrte Versalien machen genau das schwer.
     link = ""
     if f.get("link"):
+        # Angezeigt ohne Schema, verlinkt mit. Das PDF entsteht aus alle.html
+        # und nicht aus den PNGs, der Anker ist darin also anklickbar.
+        sichtbar = re.sub(r"^https?://", "", str(f["link"]).strip())
         link = (f'<div class="plink">'
                 f'<span class="plabel">{e(f.get("linklabel", "Zum Ausprobieren"))}'
-                f'</span><span class="purl">{e(f["link"])}</span></div>')
+                f'</span><a class="purl" href="https://{e(sichtbar)}">'
+                f'{e(sichtbar)}</a></div>')
     # meta: mit | getrennte Angaben, gesetzt als Versalienzeile mit Trennstrichen
     meta = ""
     if f.get("meta"):
@@ -315,8 +319,11 @@ def t_punkte(f, seite_, gesamt):
         items.append(f'<div class="pkt"><div class="bar"></div>'
                      f'<div class="ptxt">{inner}</div></div>')
     eng = " eng" if len(items) >= 6 else ""
+    # 'unten' wie bei den uebrigen Typen: Ohne die Klasse klebte der Callout
+    # direkt an der letzten Aufzaehlung und liess darunter 68px tot liegen.
     return seite(f, seite_, gesamt,
-                 f'<div class="punkte{eng}">{"".join(items)}</div>{callout(f)}')
+                 f'<div class="punkte{eng}">{"".join(items)}</div>'
+                 f'{callout(f, " unten")}')
 
 
 def t_zahlen(f, seite_, gesamt):

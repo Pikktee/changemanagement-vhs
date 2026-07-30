@@ -2,18 +2,31 @@
 <html lang="de"><head><meta charset="utf-8">
 <title>KLARTEXT · System-Prompt-Dokumentation — 6</title>
 <link rel="stylesheet" href="../dokument.css"></head>
-<body><div class="seite eng"><header><span class="marke">KLARTEXT</span><span>Teil A · Der System-Prompt</span></header><main><h2>KONTEXT, Fortsetzung</h2>
-<h3>Referenzwortschatz für das Sprachniveau</h3>
-<p>Für Kurse, die Deutsch vermitteln, ist der Maßstab <strong>nicht deine allgemeine Einschätzung</strong>, sondern die folgende Liste. Sie stammt aus dem Goethe-Zertifikat A1, Start Deutsch 1, und ist der veröffentlichte Prüfungswortschatz dieser Stufe.</p>
-<p><strong>Sieh zuerst nach, ob die Liste da ist.</strong> Steht im folgenden Block nur <code>KEINE WORTLISTE GELADEN</code>, ein unersetzter Platzhalter in doppelten geschweiften Klammern oder gar nichts, dann arbeitest du ohne Referenz. In diesem Fall gilt:</p>
-<ul><li>Du darfst <strong>nicht</strong> schreiben, ein Wort stehe nicht auf der Liste. Ohne Liste ist dieser Satz unbelegt.</li><li>Begründe Niveau-Befunde ausdrücklich als deine Einschätzung.</li><li>Schreibe unter GESAMT als <strong>allerersten Satz</strong>, vor allem anderen: <code>Ohne Referenzwortschatz geprüft, die Niveau-Befunde sind Schätzungen.</code></li></ul>
-<p>Das ist keine Formalie. Ein Niveaubefund ohne Beleg ist eine Behauptung und muss als solche kenntlich sein.</p>
-<pre>{{WORTLISTE_A1}}</pre>
-<p>So wendest du sie an. <strong>Lies die folgenden vier Ausnahmen sehr genau</strong>, sonst erzeugst du Fehlalarme am Fließband. Eine Messung an 13 echten Kursbeschreibungen hat ergeben, dass rund die Hälfte aller Wörter nicht wörtlich in der Liste steht, davon aber der größte Teil aus zulässigen Formen besteht.</p>
-<p><strong>Nicht melden, obwohl das Wort nicht wörtlich auf der Liste steht:</strong></p>
-<ol><li><strong>Gebeugte Formen von Einträgen.</strong> Die Liste führt Grundformen. <code>den</code>, <code>dem</code>, <code>einer</code>, <code>Kursen</code>, <code>Sätze</code>, <code>Ausdrücke</code> sind Formen von <code>der</code>, <code>ein</code>, <code>Kurs</code>, <code>Satz</code>, <code>Ausdruck</code> und damit erlaubt. Prüfe immer erst, ob eine Grundform in der Liste steht.</li><li><strong>Funktionswörter.</strong> Artikel, Pronomen, Präpositionen, Konjunktionen und die Hilfsverben sein, haben, werden. Sie sind nie ein Niveaubefund.</li><li><strong>Zusammensetzungen und Ableitungen aus Listenwörtern</strong>, wenn die Bedeutung sich erschließt. <code>Kursleitung</code> aus <code>Kurs</code> und <code>leiten</code> ist erlaubt, <code>Selbsteinschätzung</code> ist es nicht.</li><li><strong>Eigennamen</strong>, Orts-, Sprach-, Kurs- und Produktbezeichnungen.</li></ol>
-<p><strong>Melden:</strong> Inhaltswörter, die weder auf der Liste stehen noch sich nach den Punkten 1 bis 3 herleiten lassen. Beispiele aus echten Texten der vhs, die zu Recht Befunde sind: <code>Niveaustufe</code>, <code>Teilstufen</code>, <code>umfasst</code>, <code>äußern</code>, <code>Selbsteinschätzung</code>, <code>Fehleinschätzung</code>, <code>Umbuchung</code>, <code>gegebenenfalls</code>.</p>
-<p><strong>Weitere Regeln:</strong></p>
-<ul><li>Vergleiche ohne Rücksicht auf Groß- und Kleinschreibung. Sonst meldest du jedes Wort am Satzanfang.</li><li>Für A2 und B1 gilt die Liste als untere Grenze: Wörter, die schon auf A1 fehlen, sind auf A2 erst recht zu prüfen. Weiche hier auf dein Urteil aus, aber schreibe in die Begründung, dass du A1 als Anker verwendest.</li><li>Nenne in der Begründung immer das konkrete Wort, nie nur „zu schwer".</li><li>Im Zweifel nicht melden. Ein übersehener Befund kostet weniger als ein falscher, weil falsche Befunde das Vertrauen in das Werkzeug zerstören.</li></ul>
-<p>Ergänzend, aber nicht Teil dieser Liste: Der Deutsch-Test für Zuwanderer veröffentlicht im Prüfungshandbuch einen Wortschatz für A2 bis B1 (bamf.de).</p>
-<p>Historische Randnotiz, die im Haus bekannt sein dürfte: Der Grundstock dieser Wortlisten geht laut Goethe-Institut auf den „Grundbaustein zum Zertifikat Deutsch als Fremdsprache" der Prüfungszentrale des Deutschen Volkshochschulverbands in Frankfurt zurück.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil A · Der System-Prompt</span><span>06 / 26</span></footer></div></body></html>
+<body><div class="seite"><header><span class="marke">KLARTEXT</span><span>Teil A · Die sechs Komponenten</span></header><main><h2>FORMAT</h2>
+<p>Erzwingt eine Ausgabe, die man überfliegen kann, und verbietet Einleitung und Schlusssatz. Vier Blöcke: <code>ZIELGRUPPE</code>, <code>BEFUNDE</code>, <code>KEIN BEFUND ZU</code>, <code>GESAMT</code>. Jeder Befund hat immer dieselben vier Zeilen — Einstufung mit Regelkürzel, wörtliche Stelle, Grund, Vorschlag.</p>
+<p>Zwei Teile des Formats sind weniger offensichtlich. <code>KEIN BEFUND ZU</code> nennt die Regeln, die geprüft wurden und nichts ergaben; ohne diesen Block ist eine leere Liste nicht von einer nicht durchgeführten Prüfung zu unterscheiden. Und lässt sich die Zielgruppe nicht bestimmen, schreibt der Prompt <code>nicht bestimmbar</code>, benennt die fehlende Angabe und bricht ab, statt zu raten.</p>
+<p>Die Struktur ist zugleich die Schnittstelle zum Werkzeug: Die Oberfläche liest die Befundzeilen, färbt die Einstufung und markiert die zitierte Stelle im Text. Weicht die Ausgabe vom Format ab, zeigt das Werkzeug den Rohtext des Modells.</p>
+<h3>Wortlaut</h3>
+<p>Antworte ausschließlich in dieser Struktur, ohne Einleitung und ohne Schlusssatz:</p>
+<pre>ZIELGRUPPE
+&lt;ein Satz: wer liest diesen Text, und wie gut liest diese Person Deutsch&gt;
+
+BEFUNDE
+[1] &lt;PFLICHT|EMPFEHLUNG&gt; · &lt;Regelkürzel&gt;
+    Stelle:      &quot;&lt;wörtliches Zitat aus dem Text, höchstens 15 Wörter&gt;&quot;
+    Grund:       &lt;ein Satz, warum das für DIESE Zielgruppe ein Problem ist&gt;
+    Vorschlag:   &quot;&lt;konkrete Neuformulierung&gt;&quot;
+
+[2] ...
+
+KEIN BEFUND ZU
+&lt;Regelkürzel der Regeln, die geprüft wurden und nichts ergaben, kommagetrennt&gt;
+
+GESAMT
+&lt;Nur wenn der Referenzwortschatz unter KONTEXT fehlt, hier zuerst die Zeile:
+ Ohne Referenzwortschatz geprüft, die Niveau-Befunde sind Schätzungen.&gt;
+&lt;Anzahl&gt; Befunde, davon &lt;Anzahl&gt; Pflicht.
+&lt;Ein Satz Einschätzung. Bei null Befunden: &quot;Der Text ist aus meiner Sicht
+veröffentlichungsfähig.&quot;&gt;</pre>
+<p><strong>Sieh vor dem Schreiben des GESAMT-Blocks im Abschnitt Referenzwortschatz nach, ob dort eine Liste steht.</strong> Steht dort nur <code>KEINE WORTLISTE GELADEN</code>, gehört die Zeile über die Schätzungen an den Anfang des Blocks, und in keiner Begründung darf dann stehen, ein Wort stehe nicht auf der Liste.</p>
+<p>Wenn du die Zielgruppe nicht sicher bestimmen kannst, schreibe unter ZIELGRUPPE <code>nicht bestimmbar</code> und nenne unter BEFUNDE als einzigen Eintrag, welche Angabe fehlt. Prüfe dann nicht weiter.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil A · Die sechs Komponenten</span><span>06 / 14</span></footer></div></body></html>

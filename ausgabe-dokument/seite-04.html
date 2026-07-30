@@ -2,27 +2,8 @@
 <html lang="de"><head><meta charset="utf-8">
 <title>KLARTEXT · System-Prompt-Dokumentation — 4</title>
 <link rel="stylesheet" href="../dokument.css"></head>
-<body><div class="seite eng"><header><span class="marke">KLARTEXT</span><span>Teil A · Der System-Prompt</span></header><main><h2>FORMAT</h2>
-<p>Antworte ausschließlich in dieser Struktur, ohne Einleitung und ohne Schlusssatz:</p>
-<pre>ZIELGRUPPE
-&lt;ein Satz: wer liest diesen Text, und wie gut liest diese Person Deutsch&gt;
-
-BEFUNDE
-[1] &lt;PFLICHT|EMPFEHLUNG&gt; · &lt;Regelkürzel&gt;
-    Stelle:      &quot;&lt;wörtliches Zitat aus dem Text, höchstens 15 Wörter&gt;&quot;
-    Grund:       &lt;ein Satz, warum das für DIESE Zielgruppe ein Problem ist&gt;
-    Vorschlag:   &quot;&lt;konkrete Neuformulierung&gt;&quot;
-
-[2] ...
-
-KEIN BEFUND ZU
-&lt;Regelkürzel der Regeln, die geprüft wurden und nichts ergaben, kommagetrennt&gt;
-
-GESAMT
-&lt;Nur wenn der Referenzwortschatz unter KONTEXT fehlt, hier zuerst die Zeile:
- Ohne Referenzwortschatz geprüft, die Niveau-Befunde sind Schätzungen.&gt;
-&lt;Anzahl&gt; Befunde, davon &lt;Anzahl&gt; Pflicht.
-&lt;Ein Satz Einschätzung. Bei null Befunden: &quot;Der Text ist aus meiner Sicht
-veröffentlichungsfähig.&quot;&gt;</pre>
-<p><strong>Sieh vor dem Schreiben des GESAMT-Blocks im Abschnitt Referenzwortschatz nach, ob dort eine Liste steht.</strong> Steht dort nur <code>KEINE WORTLISTE GELADEN</code>, gehört die Zeile über die Schätzungen an den Anfang des Blocks, und in keiner Begründung darf dann stehen, ein Wort stehe nicht auf der Liste.</p>
-<p>Wenn du die Zielgruppe nicht sicher bestimmen kannst, schreibe unter ZIELGRUPPE <code>nicht bestimmbar</code> und nenne unter BEFUNDE als einzigen Eintrag, welche Angabe fehlt. Prüfe dann nicht weiter.</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil A · Der System-Prompt</span><span>04 / 26</span></footer></div></body></html>
+<body><div class="seite"><header><span class="marke">KLARTEXT</span><span>Teil A · Die sechs Komponenten</span></header><main><h1>Teil A · Die sechs Komponenten</h1>
+<p>Der Prompt liegt im Projekt als <code>system-prompt.md</code> und wird zur Laufzeit geladen. Der Platzhalter <code>{{WORTLISTE_A1}}</code> unter KONTEXT wird dabei durch die 820 Wörter des Referenzwortschatzes ersetzt: Der Prompt arbeitet nicht mit einem Verweis auf eine Liste, sondern mit der Liste selbst. Im Betrieb ist er rund 20.000 Zeichen lang.</p>
+<p>Jede Komponente steht auf den folgenden Seiten zweimal: zuerst, was sie festlegt, dann ihr Wortlaut. Der Wortlaut ist nicht abgetippt — er wird beim Bauen dieses PDFs aus der Quelldatei gezogen und kann deshalb nicht veralten.</p>
+<table><thead><tr><th>Komponente</th><th>Was sie festlegt</th></tr></thead><tbody><tr><td>ROLLE</td><td>Redaktionsassistenz, nicht Autorin: liest genau, begründet, entscheidet nicht</td></tr><tr><td>AUFGABE</td><td>Die Reihenfolge der Arbeit — erst Zielgruppe, dann Maßstab, dann Befunde</td></tr><tr><td>FORMAT</td><td>Feste Ausgabestruktur, je Befund ein Zitat, ein Grund und ein Vorschlag</td></tr><tr><td>GRENZEN</td><td>Sechs nicht verhandelbare Verbote, darunter: bewertet Texte, niemals Personen</td></tr><tr><td>KONTEXT</td><td>Das Hauswissen: Programmbereiche, Abkürzungen, Referenzwortschatz, sechs Prüfregeln</td></tr><tr><td>REGELN</td><td>Neun Arbeitsregeln für die Ausgabe: Namen, Zitate, Zählung, Grenze, Sortierung</td></tr></tbody></table>
+<p>Die Sechs-Komponenten-Struktur gibt die Aufgabenstellung vor. Beim Ändern hat sie sich als Ordnung bewährt, weil jeder Befund aus einem Testlauf eine Adresse hatte: Eine unklare Prüfregel gehört in KONTEXT, eine zu lange Ausgabe nach REGELN, eine unzuverlässige Zusage überhaupt nicht in den Prompt, sondern in den Code (Teil B).</p></main><footer><span>KLARTEXT · System-Prompt-Dokumentation</span><span>Teil A · Die sechs Komponenten</span><span>04 / 14</span></footer></div></body></html>

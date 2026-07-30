@@ -1,0 +1,26 @@
+<!doctype html><meta charset="utf-8"><body><pre id="out">…</pre>
+<div id="rahmen"></div>
+<script>
+const r=document.getElementById('rahmen');
+for(let i=1;i<=15;i++){
+  const f=document.createElement('iframe');
+  f.id='f'+i; f.src='folie-'+String(i).padStart(2,'0')+'.html';
+  f.style.cssText='width:1280px;height:720px;border:0';
+  r.appendChild(f);
+}
+function m(i){
+  const d=document.getElementById('f'+i).contentDocument;
+  const c=d.querySelector('.callout'), q=d.querySelector('.quellen');
+  const nr=String(i).padStart(2);
+  if(!c) return nr+'  —';
+  const b=c.getBoundingClientRect();
+  const unten=c.classList.contains('unten')?'unten':'     ';
+  const luft=q?Math.round(q.getBoundingClientRect().top-b.bottom):-1;
+  return nr+'  '+unten+'  Callout '+Math.round(b.top)+'-'+Math.round(b.bottom)
+       +'   Luft bis Quellen '+luft;
+}
+setTimeout(function(){
+  const o=[]; for(let i=1;i<=15;i++) o.push(m(i));
+  document.getElementById('out').textContent=o.join('\n');
+},1600);
+</script></body>
