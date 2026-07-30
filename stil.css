@@ -384,19 +384,26 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .mitbild h1{ max-width:770px; }
 .mitbild .lede{ max-width:760px; }
 
-/* Das Bild haengt an der Unterkante, nicht an der Oberkante. Oben beginnt der
-   Inhalt je nach Folie woanders — eine zweizeilige Ueberschrift und ein
-   Vorspann schieben ihn zusammen um 94px nach unten, gemessen an Folie 3
-   gegen Folie 4. Unten liegt dagegen auf jeder Folie dieselbe Linie: dort
-   beginnt die Quellenzeile. Daran ausgerichtet springt der Bildkasten beim
-   Folienwechsel nicht.
-   Bildschirmfotos ('ganz') bleiben oben, sie tragen Text und gehoeren dorthin,
-   wo der Blick anfaengt. */
+/* Der Bildkasten steht fest, nicht im Fluss. Im Fluss wanderte er mit dem
+   Text: Eine zweizeilige Ueberschrift und ein Vorspann schieben den Textkoerper
+   zusammen um 94px nach unten (gemessen Folie 3 gegen Folie 4), und die
+   Bildspalte ist sein Kind. Deshalb feste Werte, gemessen im Browser:
+
+     99   Oberkante der Ueberschrift, auf jeder Folie gleich
+     626  Oberkante der Quellenzeile, auf jeder Folie gleich
+     196  = 99 + (527 - 334) / 2 — mittig in diesem Band
+      64  rechtes Polster von .stage, damit der Kasten buendig bleibt
+
+   .bildspalte behaelt ihre 322px im Fluss und reserviert damit weiter den
+   Platz neben dem Text; nur der Rahmen haengt an .stage, die dafuer schon
+   'position:relative' traegt.
+   Bildschirmfotos ('ganz') bleiben im Fluss — sie tragen Text, haben eine
+   Bildunterschrift unter sich und wachsen in der Hoehe. */
 .bildspalte{ width:322px; flex:none; display:flex; flex-direction:column;
-             justify-content:flex-end; min-height:0; }
-.bildspalte:has(.rahmen.ganz){ justify-content:flex-start; }
-.bildspalte .rahmen{ width:322px; flex:0 1 334px; min-height:0; max-height:334px;
+             min-height:0; }
+.bildspalte .rahmen{ width:322px; height:334px;
                      overflow:hidden; background:var(--flaeche); }
+.bildspalte .rahmen:not(.ganz){ position:absolute; top:196px; right:64px; }
 .bildspalte .rahmen img{ width:100%; height:100%; object-fit:cover; display:block; }
 /* Bildschirmfotos duerfen nicht beschnitten werden, sie tragen Text.
    'bildganz: ja' passt das Bild vollstaendig ein und rahmt es sichtbar. */
