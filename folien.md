@@ -194,12 +194,12 @@ klein: ja
 lede: Alle 3.111 Kurstexte des Portals, Abruf vom 28.07.2026. 1.765 davon haben einen Befund.
 regelntitel: Wonach gemessen wurde
 regeln:
+  - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
+  - "| LINKTEXT | Linktext nennt sein Ziel nicht"
   - "EMPFEHLUNG | NIVEAU | Wort über dem Sprachniveau der Zielgruppe"
   - "| AMTSDEUTSCH | Behördenwort, wo ein Alltagswort reicht"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Kürzel ohne Auflösung, etwa DTZ"
-  - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
-  - "| LINKTEXT | Linktext nennt sein Ziel nicht"
 tabellentitel: Zwei Kurse im Vergleich
 spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
 zeilen:
@@ -224,13 +224,30 @@ Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
 Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
 Prüfassistenten, den ich gleich zeige.
 
-### Links: die vier Empfehlungen
+### Links: die zwei Pflichtregeln
 
-Links stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
-der eigentliche Ertrag dieses Projekts — deshalb stehen sie vorn. Zwei davon,
-zu schwere Wörter und nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der
-höchsten, die niemand einhalten muss. Die beiden anderen habe ich selbst
-gesetzt.
+Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
+Barrierefreiheitsrichtlinien und sind damit verbindlich.
+
+Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
+aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
+mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
+Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
+zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
+ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
+vorhanden und für das Vorleseprogramm nicht da.
+
+Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
+ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
+lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
+Liste aus fünfmal „hier“ hilft niemandem weiter.
+
+### Rechts: die vier Empfehlungen
+
+Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
+der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und
+nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der höchsten, die niemand
+einhalten muss. Die beiden anderen habe ich selbst gesetzt.
 
 Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen
 sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt
@@ -249,24 +266,6 @@ sind, soll der Pilot beantworten.
 Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
 werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
 für Zuwanderer.
-
-### Rechts: die zwei Pflichtregeln
-
-Rechts stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
-Barrierefreiheitsrichtlinien und sind damit verbindlich.
-
-Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
-aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
-mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
-Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
-zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
-ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
-vorhanden und für das Vorleseprogramm nicht da.
-
-Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
-ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
-lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
-Liste aus fünfmal „hier“ hilft niemandem weiter.
 
 ### Zwei Kurse im Vergleich
 
@@ -317,10 +316,10 @@ absaetze:
   - "Für die vhs als kommunale Einrichtung in Hessen gilt **Landesrecht**: § 14 HessBGG und die **BITV HE**. Gefordert ist Stufe **AA**."
 kriterientitel: Was das für Kursbeschreibungen bedeutet
 kriterien:
-  - "FREIWILLIG · Stufe AAA | 3.1.4 | Abkürzungen erklärt"
-  - "| 3.1.5 | Leseniveau der Zielgruppe"
   - "PFLICHT · bis Stufe AA | 1.3.1 | Struktur ausgezeichnet"
   - "| 2.4.4 | Linktext nennt sein Ziel"
+  - "FREIWILLIG · Stufe AAA | 3.1.4 | Abkürzungen erklärt"
+  - "| 3.1.5 | Leseniveau der Zielgruppe"
 callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind freiwillig.
 calloutfolge: Freiwillig heißt nicht belanglos. § 3 Abs. 1 BITV HE verlangt eigenständig, dass Angebote verständlich sind — und die Betriebssatzung, dass sie allen offenstehen, ohne Rücksicht auf Vorbildung.
 quellen:
@@ -347,16 +346,16 @@ Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
 Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
 Gefordert wird Stufe doppel A.
 
-### Der Block in der Mitte: freiwillig und Pflicht
+### Der Block in der Mitte: Pflicht und freiwillig
 
 Der Block in der Mitte zeigt nur die Kriterien, die am Text der
-Kursbeschreibung selbst hängen, und wieder steht links das, worum es hier
-geht: dass Abkürzungen erklärt werden und dass das Leseniveau zur Zielgruppe
-passt. Beides ist dreifach A und damit nicht gefordert. Rechts steht, was
-verbindlich ist: dass eine Zeile, die eine Gliederungsebene eröffnet, auch
-technisch als Überschrift ausgezeichnet wird, und dass ein Linktext sagt,
-wohin er führt. Zwei meiner Regeln liegen also im Pflichtbereich; dazu gleich
-mehr.
+Kursbeschreibung selbst hängen. Links steht, was daran verbindlich ist: dass
+eine Zeile, die eine Gliederungsebene eröffnet, auch technisch als Überschrift
+ausgezeichnet wird, und dass ein Linktext sagt, wohin er führt. Rechts steht,
+was freiwillig ist: dass Abkürzungen erklärt werden und dass das Leseniveau
+zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — und
+beides gehört zum Kern dieses Projekts. Zwei meiner Regeln liegen dagegen im
+Pflichtbereich; dazu gleich mehr.
 
 ### Warum ich nicht mit dem Bußgeld argumentiere
 
