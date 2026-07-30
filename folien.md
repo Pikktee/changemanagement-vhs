@@ -882,7 +882,7 @@ zeilen:
   - "Texte für Deutschkurse A1/A2 mit Wörtern über Niveau | 31 von 31 | ! höchstens 10 von 31 | eigenes Messskript, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
-  - "Die Ziele lassen sich erfüllen, ohne dass ein Text besser wird. Ein kürzerer Satz ist nicht automatisch ein verständlicherer. > Deshalb fragt die vierte Kennzahl nicht den Text, sondern die Teilnehmenden."
+  - "Manche Ziele lassen sich erfüllen, ohne dass ein Text besser wird. Ein kürzerer Satz ist nicht automatisch ein verständlicherer. > Deshalb fragt die vierte Kennzahl nicht den Text, sondern die Teilnehmenden."
 quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 ### NOTIZ
