@@ -217,7 +217,7 @@ def roh_text(notiz):
 
 
 def inline(text):
-    """HTML-escapen, **fett** und *kursiv* uebersetzen.
+    """HTML-escapen, **fett**, *kursiv* und ((nebenbei)) uebersetzen.
 
     Auf Folie 10 stehen die Stakeholder-Namen fett am Zeilenanfang; ohne die
     Auszeichnung verliert die Notiz dort ihre Gliederung.
@@ -226,8 +226,16 @@ def inline(text):
     vor dem schliessenden Stern, und kein Wortzeichen aussen herum. Ein
     einzelner Stern im Text soll nicht stillschweigend verschwinden — das war
     der Grund, aus dem kursiv hier lange gar nicht uebersetzt wurde.
+
+    ((...)) ist die Nebenbemerkung: kleiner und leicht gedaempft, fuer Saetze,
+    die nur bei genug Zeit vorgelesen werden. Doppelte Klammern, weil einfache
+    im Vortragstext vorkommen. Ein einzelnes Paar bleibt deshalb unangetastet,
+    und ein unvollstaendiges (( steht sichtbar da, statt zu verschwinden.
+    HTML geht nicht: html.escape() laeuft zuerst, ein <small> im Notiztext
+    erscheint woertlich auf der Seite.
     """
     s = html.escape(text)
+    s = re.sub(r"\(\((.+?)\)\)", r'<span class="neben">\1</span>', s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<![*\w])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", s)
     return s
@@ -606,6 +614,20 @@ h1{
   border:none;
   border-top:1px solid var(--auf-marke);
   margin:1em 0;
+}
+
+/* Nebenbemerkung: was nur bei genug Zeit vorgelesen wird.
+
+   Gedaempft wird ueber die Deckkraft, nicht ueber eine zweite Textfarbe — die
+   Palette kennt auf --marke nur Weiss und --auf-marke, und ein eigenes Grau
+   waere ein neuer Farbwert. Weiss auf --marke haelt 8,84:1; bei 90 Prozent
+   Deckkraft mischt sich #E8ECF5 und haelt 7,47:1, also AAA auch fuer kleinen
+   Text. Bei 85 Prozent waeren es 6,86:1 und AAA damit verloren — das ist der
+   Grund fuer den knappen Wert. Die eigentliche Daempfung leistet die
+   Schriftgroesse. */
+#notiz .neben{
+  font-size:.85em;
+  opacity:.9;
 }
 
 /* ---------- Bearbeiten ---------- */

@@ -15,6 +15,10 @@
 # Im NOTIZ-Block ist Markdown erlaubt und wird im Vortragswerkzeug gesetzt:
 #   "# " und "### " Ueberschrift, "- " und "1. " Liste, "> " Zitat,
 #   "---" Trennlinie, **fett**, *kursiv*.
+#   ((Text in doppelten Klammern)) ist eine Nebenbemerkung: kleiner und leicht
+#   gedaempft, fuer Saetze, die nur bei genug Zeit vorgelesen werden. Sie darf
+#   ueber mehrere Zeilen gehen, aber nicht ueber eine Leerzeile.
+#   HTML geht nicht — ein <small> erscheint woertlich auf der Notizseite.
 #   NICHT "## " am Zeilenanfang — das beginnt auch mitten in einer Notiz eine
 #   neue Folie und zerlegt die Datei. Fuer eine Ueberschrift "# " oder "### ".
 #
@@ -82,32 +86,21 @@ Erstmal eine kurze Übersicht zum Projekt.
 
 ### 5.800 Texte und 57 Prozent
 
-Die Volkshochschule veröffentlicht rund fünftausendachthundert
-Kursbeschreibungen im Jahr. Von allen Texten, die heute im Portal stehen,
-haben siebenundfünfzig Prozent mindestens einen Befund, und das ist die Untergrenze:
-Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
-sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
+- Die Volkshochschule veröffentlicht rund 5800 Kursbeschreibungen im Jahr.
+- Von allen Texten, die heute im Portal stehen, hat mehr als jeder zweite Text einen Befund ((Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.))
 
 ### Fünf Jahre ohne externe Prüfung
-
-Die dritte Zahl stammt aus dem Unternehmen selbst. In der Erklärung zur
-Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
-ersten Juli zweitausendeinundzwanzig, also vor gut fünf Jahren. Seitdem
-bewertet sich das Unternehmen selbst.
+Die letzte externe Prüfung auf Barrierefreiheit der Website ist etwa 5 Jahre
+her. Die Zahl stammt aus der Erklärung zur Barrierefreiheit der
+Volkshochschule.
 
 ### Einfache Sprache, der eigentliche Anlass
-
-Dieselbe Erklärung enthält den Satz, der mich auf dieses Projekt gebracht hat.
-Die wichtigsten Informationen zu Betrieb und Kursgeschäft, heißt es dort,
-seien in einfacher Sprache verfügbar. Das Unternehmen hat die Frage nach der
-Verständlichkeit also längst gestellt und für einen Bereich beantwortet. Nur
-für die Kursbeschreibungen selbst, den mit Abstand größten Textbestand, gilt
-das nicht.
+Dort heißt es auch, dass Informationen zu Betrieb und Kursgeschäft in
+einfacher Sprache verfügbar sind. Das gilt jedoch nicht für die
+Kursbeschreibungen selbst, die immerhin den größten Textbestand darstellen.
 
 ### Der Kasten unten
-
-Da setze ich an. Unten steht die Frage, um die es geht: Mehr als jeder zweite
-Text hat einen Befund. Für wen ist er eigentlich zu schwer?
+Vor allem hier setzt das Projekt an.
 
 
 ## 3 — Executive Summary II: Der Vorschlag

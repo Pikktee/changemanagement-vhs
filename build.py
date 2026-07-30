@@ -773,7 +773,7 @@ def schiesse_pngs(folien, nur=None):
 
 
 def notiz_setzen(rahmen, text):
-    """Schreibt die Referentennotiz und setzt **fett** als Fettdruck.
+    """Schreibt die Referentennotiz, **fett** als Fettdruck, ((...)) kursiv.
 
     Der direkte Weg — rahmen.text = notiz — legt je Zeile genau einen Textlauf
     an, und ein Lauf traegt nur eine Formatierung. Fuer die Auszeichnung muss
@@ -782,18 +782,32 @@ def notiz_setzen(rahmen, text):
     Die Absatzaufteilung bleibt wie vorher: eine Zeile der Quelle wird ein
     Absatz, Leerzeilen bleiben leere Absaetze. Wer das aendert, aendert den
     Umbruch in jeder Referentenansicht.
+
+    Die Nebenbemerkung ((...)) wird hier kursiv statt kleiner und gedaempft:
+    In der Referentenansicht gibt es keine gesicherte Grundgroesse, an der
+    sich ein kleinerer Wert bemessen liesse, und eine zweite Textfarbe waere
+    ein Farbwert ausserhalb von DESIGN.md. Anders als ** darf sie ueber
+    Zeilen laufen — der Block in folien.md ist hart umbrochen, und eine
+    Nebenbemerkung ist meist laenger als eine Zeile.
     """
     zeilen = (text or "(keine Notiz)").split("\n")
     rahmen.clear()
+    neben = False
     for i, zeile in enumerate(zeilen):
-        # Eine Auszeichnung darf keinen Zeilenumbruch ueberspannen — folien.md
-        # ist hart umbrochen, und ein offenes ** wuerde als Sternchen im
-        # Vortragstext landen, wo es niemand mehr bemerkt.
+        # Fett darf keinen Zeilenumbruch ueberspannen — folien.md ist hart
+        # umbrochen, und ein offenes ** wuerde als Sternchen im Vortragstext
+        # landen, wo es niemand mehr bemerkt.
         if zeile.count("**") % 2:
             print(f"  ! Notiz: offenes ** in Zeile: {zeile.strip()[:60]}")
         p = rahmen.paragraphs[0] if i == 0 else rahmen.add_paragraph()
-        for stueck in re.split(r"(\*\*[^*]+\*\*)", zeile):
+        for stueck in re.split(r"(\*\*[^*]+\*\*|\(\(|\)\))", zeile):
             if not stueck:
+                continue
+            if stueck == "((":
+                neben = True
+                continue
+            if stueck == "))":
+                neben = False
                 continue
             lauf = p.add_run()
             if stueck.startswith("**") and stueck.endswith("**"):
@@ -801,6 +815,9 @@ def notiz_setzen(rahmen, text):
                 lauf.font.bold = True
             else:
                 lauf.text = stueck
+            lauf.font.italic = neben
+    if neben:
+        print("  ! Notiz: „((“ ohne schliessendes „))“ — der Rest bleibt kursiv.")
 
 
 def baue_pptx(folien):

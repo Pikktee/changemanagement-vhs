@@ -196,6 +196,15 @@ und überlebt unverändert: `# `, `### `, `#### `, `- `, `1. `, `> `, `---`,
 `**fett**`, `*kursiv*`. Deshalb gibt es keine zweite Überschriftenebene — für
 eine Überschrift `# ` oder `### ` nehmen.
 
+**HTML in Sprechnotizen wirkt nicht.** `inline()` in `notizen.py` ruft
+zuerst `html.escape()` auf; ein `<small>` steht danach wörtlich auf der
+Notizseite. Für Nebensächliches gibt es stattdessen `((doppelte Klammern))`:
+auf der Notizseite kleiner und auf 90 % Deckkraft, in der PowerPoint kursiv.
+Die 90 % sind keine Geschmacksfrage — Weiß auf `--marke` hält 8,84:1, bei
+90 % noch 7,47:1 und damit AAA, bei 85 % nur noch 6,86:1. Anders als `**`
+darf die Auszeichnung über Zeilen gehen, aber nicht über eine Leerzeile;
+ein unvollständiges `((` meldet `build.py` beim Bauen.
+
 **Der Kursplan braucht den Detailabruf.** `daten/kursplan-holen.py` holt erst
 die Liste aller Angebote und dann je Kurs den vollständigen Text. Wer den
 zweiten Schritt spart, bekommt die Texte ohne die vorangestellten Bausteine,
