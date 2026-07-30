@@ -444,7 +444,7 @@ quellen:
 - Ich fange an mit den Stakeholdern, die wir eng einbinden müssen.
 - **Der Direktor** — da er laut Impressum persönlich für die redaktionellen Inhalte verantwortlich ist.
 - **Der Pilot-Fachbereich** — natürlich, er entscheidet über den Text.
-- **Der Personalrat** — der Einzige, der das Projekt anhalten kann: Die Einführung ist mitbestimmungspflichtig. ==Ohne seine Zustimmung passiert nichts.== ((Seine zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.))
+- **Der Personalrat** — der Einzige, der das Projekt anhalten kann: Die Einführung ist mitbestimmungspflichtig. ==Ohne seine Zustimmung passiert nichts.==
 
 ### Unten links: Informieren
 - **Die drei übrigen Fachbereiche** — sollen wissen, dass es läuft, und sehen, was herauskommt. Im Pilot sind sie nicht dabei.
@@ -452,16 +452,13 @@ quellen:
 ### Oben links: Beobachten
 - Hoher Einfluss, aber ihre Arbeit verändert das Projekt nicht.
 - **Die städtische IT** — bleibt für die technische Seite zuständig.
-- **Die Betriebskommission** — Aufsichtsgremium.
+- **Die Betriebskommission** — als Aufsichtsgremium.
 - **Der Volkshochschul-Verband** — stellt den KI-Zugang.
 
 ### Unten rechts: Konsultieren
-- Der Quadrant, der mich am meisten beschäftigt hat.
-- **Die Kursleitungen auf Honorarbasis** — maximal betroffen, denn in der Branche schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und vorschreiben kann man ihnen nichts.
-- Einen Kanal haben sie doch: Arbeitnehmerähnliche Personen gelten nach dem Personalvertretungsgesetz als Beschäftigte, der Personalrat vertritt sie mit.
+- **Die Kursleitungen auf Honorarbasis** — oft kommt der Text von ihnen. Trotzdem sitzen sie in keinem Gremium, und vorschreiben kann man ihnen nichts.
 - **Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute, weiß also, wie Textprüfung geht. ((Im Pilot ist sie nicht: Der prüft nur neue Portaltexte.))
-- **Die Teilnehmenden** — besonders in Deutschkursen und Grundbildung. ==Für sie ist das Projekt gemacht, und sie haben keine Stimme — in keinem Gremium und in keinem Gesetz.==
-- Bei ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das es überhaupt gibt.
+- **Die Teilnehmenden**
 
 
 ## 11 — Widerstand
@@ -481,12 +478,10 @@ calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot geklärt sein. Da
 
 ### NOTIZ
 
-Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Unsicherheit,
-Verlustangst, fehlende Perspektive und Gewohnheit. Für jede gibt es hier einen
-Fall, den es wirklich gibt.
+Jetzt zu den Widerständen.
 
 ### Unsicherheit · im ganzen Haus
-- Die Frage, die als Erstes kommt: Schreibt die KI jetzt unsere Texte?
+- Die Frage, die als Erstes kommen könnte: Schreibt die KI jetzt unsere Texte?
 - Nein. Sie schlägt vor, mehr nicht. Entschieden und veröffentlicht wird von Menschen.
 - ==Das ist keine Beruhigung, sondern der Zuschnitt des Werkzeugs.==
 
@@ -521,7 +516,7 @@ titel: Der Plan
 akzent: für die nächsten drei Monate.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-strang1: Technische Implementation || Setup > Assistent anlegen, Regeln an echten Texten schärfen || Pilot > Ein Fachbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
+strang1: Technische Implementation || Setup > System-Prompt weiter an echten Texten schärfen || Pilot > Ein Fachbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
 strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe || Training > Pflicht nach Artikel 4 KI-Verordnung, für alle, die bedienen || Support > Feste Sprechstunde, nicht auf Zuruf
 strang3: Change || Vorbereitung > Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die scharfen Regeln, dazu der Quick Win || Begleitung > Nachmessung, dann Entscheidung
 callout: Im Change-Strang steht das Fragen vor dem Handeln — die Bausteinfreigabe im ersten Monat, nicht im zweiten.
