@@ -108,7 +108,7 @@ punkte:
   - "**Ziel** || Wer einen Kurs sucht, versteht die Beschreibung, ob gelesen oder vorgelesen. Laut Betriebssatzung stehen die Angebote allen offen — das soll auch für die Texte gelten."
   - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
-  - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 58. Aufwand im Regelbetrieb 29 Stunden im Jahr."
+  - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 57. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 quellen:
@@ -735,8 +735,8 @@ sonst läuft der Quick Win auf eine Zuständigkeit, die niemand hat.
 
 typ: plan
 kapitel: 03 · ZEITPLAN UND NÄCHSTE SCHRITTE
-titel: Die ersten 30 Tage,
-akzent: und warum in dieser Reihenfolge.
+titel: Die ersten
+akzent: 30 Tage.
 klein: ja
 schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
 schritte:

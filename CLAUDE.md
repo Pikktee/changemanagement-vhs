@@ -175,6 +175,16 @@ Ausnahme entfernt, bekommt im Hosting „liegt noch nicht vor".
 greift nicht, weil der Prozess als `Python server.py` läuft. Ein übersehener
 alter Server nimmt den Port und man testet unbemerkt gegen alten Code.
 
+**Notizen im Vortragswerkzeug bearbeiten, aber nicht gleichzeitig in einem
+Texteditor.** `notizen.py --server` schreibt die bearbeitete Sprechnotiz sofort
+nach `folien.md` — es ersetzt dabei nur den Zeilenbereich dieser einen Notiz
+und rechnet vorher nach, dass keine andere Folie mitgeht; schlägt die Probe
+fehl, bleibt die Datei unangetastet. Wogegen das nicht schützt: eine offene
+`folien.md` in einem Editor, der beim nächsten Speichern seinen eigenen Stand
+darüberschreibt. Ein Build läuft dabei nicht — Folienbilder ändern sich durch
+eine Notiz nicht, und `build.py` würde committen. Für die PowerPoint mit den
+neuen Notizen danach `python3 build.py`.
+
 **Der Kursplan braucht den Detailabruf.** `daten/kursplan-holen.py` holt erst
 die Liste aller Angebote und dann je Kurs den vollständigen Text. Wer den
 zweiten Schritt spart, bekommt die Texte ohne die vorangestellten Bausteine,
@@ -197,7 +207,9 @@ notizen.py         Vortragswerkzeug, geht in keine Abgabe ein: erzeugt
                    Bildschirm, für einen Monitor im Hochformat) und
                    ausgabe/vortrag.html (nur das Folienbild). Beide über
                    denselben lokalen Server öffnen — die Kopplung läuft
-                   über einen BroadcastChannel und braucht gleiche Herkunft
+                   über einen BroadcastChannel und braucht gleiche Herkunft.
+                   `--server` liefert sie auf 8795 selbst aus und nimmt
+                   bearbeitete Sprechnotizen zurück nach folien.md
 dokumentation.md   Quelle der Abgabe 2, mit Platzhaltern
 dokument.py        Dokument → HTML → PNG → PDF
 dokument.css       Dokumentsatz
@@ -216,10 +228,13 @@ bilder/            zeichnen.py erzeugt die vier Bilder aus der Palette von
                    stil.css; original-petrol/ ist Archiv und wird nicht gelesen
 ```
 
-Belegte Ports: **8791** build.py, **8793** dokument.py, **8799** Prototyp.
-8765 und 8787 sind anderweitig belegt. Für eigene Testserver 8795 nehmen —
-build.py und dokument.py starten ihren Server nur kurz zum Rendern, würden
-sich aber sonst mit einem dauerhaft laufenden beißen.
+Belegte Ports: **8791** build.py, **8793** dokument.py, **8795** die
+Vortragsseiten (`python3 -m http.server 8795` oder `notizen.py --server`),
+**8799** Prototyp. 8765 und 8787 sind anderweitig belegt. build.py und
+dokument.py starten ihren Server nur kurz zum Rendern, würden sich aber sonst
+mit einem dauerhaft laufenden beißen. Wer beim Arbeiten schon einen Server auf
+8795 hat, sieht `notizen.py --server` mit „Address already in use" scheitern —
+erst den alten beenden.
 
 ---
 
