@@ -883,7 +883,6 @@ zeilen:
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
   - "Die Ziele lassen sich erfüllen, ohne dass ein Text besser wird. Ein kürzerer Satz ist nicht automatisch ein verständlicherer. > Deshalb fragt die vierte Kennzahl nicht den Text, sondern die Teilnehmenden."
-callout: Die Nachmessung läuft mit demselben, unveränderten Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
 quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 ### NOTIZ
