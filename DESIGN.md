@@ -349,14 +349,18 @@ lässt das Skript laufen und die Bilder passen wieder.
 cd abschlussprojekt-vhs && python3 bilder/zeichnen.py
 ```
 
-Es sind zwei Paare, die dieselbe Aussage auf zwei Ebenen tragen:
-
 | Datei | Bild | Folie |
 |---|---|---|
 | `01-titel-wand.png` | Wand aus Textzeilen, ein Schlitz | 1, Titel |
 | `15-durchgang.png` | dieselbe Wand, Durchgang offen und hell | 15, Schluss |
-| `04-prozess-luecke.png` | Kette der Arbeitsschritte mit leerer Stelle | 4, IST |
-| `03-prozess-voll.png` | dieselbe Kette, Stelle besetzt in `--auf-marke` | 3, SOLL |
+| `03-prozess-voll.png` | Kette der Arbeitsschritte, die neue Stelle in `--auf-marke` | 3, SOLL |
+| `04-prozess-luecke.png` | dieselbe Kette mit leerer Stelle | **zur Zeit ungenutzt** |
+
+`04-prozess-luecke.png` war das IST-Gegenstück auf Folie 4 und ist dort
+herausgenommen worden: Die rechte Spalte zählt denselben Ablauf in Worten auf,
+das Bild sagte es ein zweites Mal, und ohne es haben die beiden Textspalten die
+volle Breite. Erzeugt wird es weiter, damit das Paar erhalten bleibt, falls die
+Gegenüberstellung zurückkommt.
 
 Die Vorgänger kamen aus einem Bildmodell und wurden nachträglich umgefärbt.
 Drei Gründe gegen dieses Verfahren, alle drei am Ergebnis sichtbar geworden:
