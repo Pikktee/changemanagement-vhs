@@ -43,13 +43,19 @@ bildnotiz: Wand aus Textzeilen mit einem Schlitz. Gezeichnet von bilder/zeichnen
 
 ### NOTIZ
 
+### Begrüßung
+
 Ich stelle euch heute mein Abschlussprojekt vor: KLARTEXT, ein Prüfschritt für
 die Kursbeschreibungen der Volkshochschule Frankfurt.
+
+### Worum es geht
 
 Es geht um Barrierefreiheit. Die meisten denken dabei an Technik: Kontraste,
 Tastaturbedienung, Vorleseprogramme. Mich interessiert der andere Teil — ob
 der Text ankommt bei denen, für die er geschrieben ist. Das betrifft alle acht
 Programmbereiche.
+
+### Der schärfste Fall
 
 Angefangen hat es mit dem schärfsten Fall. Die Volkshochschule bietet
 Deutschkurse für Menschen an, die gerade erst Deutsch lernen, und die
@@ -57,9 +63,13 @@ Beschreibungen dieser Kurse sind in einem Deutsch geschrieben, das man erst
 nach dem Kurs versteht. Wer Deutsch lernen will, muss also erst Deutsch
 können. Das ist der Extremfall, aber das Prinzip dahinter gilt überall.
 
+### Rollen und Datenstand
+
 Ich habe das Projekt allein bearbeitet, alle Rollen liegen also bei mir. Und
 alle Zahlen, die gleich kommen, habe ich selbst gemessen, an der echten
 Website, am achtundzwanzigsten Juli. Der Datensatz liegt der Arbeit bei.
+
+### Ausblick
 
 Am Ende zeige ich das Werkzeug an einem echten Kurstext.
 
@@ -85,16 +95,22 @@ quellen:
 
 Drei Zahlen zum Einstieg.
 
+### 5.800 Texte und 57 Prozent
+
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
 Kursbeschreibungen im Jahr. Von allen Texten, die heute im Portal stehen,
 haben siebenundfünfzig Prozent mindestens einen Befund, und das ist die Untergrenze:
 Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
 sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
+### Fünf Jahre ohne externe Prüfung
+
 Die dritte Zahl stammt aus dem Unternehmen selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
 ersten Juli zweitausendeinundzwanzig, heute auf den Tag genau fünf Jahre her.
 Seitdem bewertet sich das Unternehmen selbst.
+
+### Einfache Sprache, der eigentliche Anlass
 
 Dieselbe Erklärung enthält den Satz, der mich auf dieses Projekt gebracht hat.
 Die wichtigsten Informationen zu Betrieb und Kursgeschäft, heißt es dort,
@@ -102,6 +118,8 @@ seien in einfacher Sprache verfügbar. Das Unternehmen hat die Frage nach der
 Verständlichkeit also längst gestellt und für einen Bereich beantwortet. Nur
 für die Kursbeschreibungen selbst, den mit Abstand größten Textbestand, gilt
 das nicht.
+
+### Der Kasten unten
 
 Da setze ich an. Unten steht die Frage, um die es geht: Mehr als jeder zweite
 Text hat einen Befund. Für wen ist er eigentlich zu schwer?
@@ -129,6 +147,8 @@ quellen:
 
 Daraus folgt mein Vorschlag.
 
+### Ziel
+
 Das Ziel oben ist von den Lesenden her formuliert. Wer einen Kurs sucht, soll
 die Beschreibung verstehen, ob er sie liest oder vorgelesen bekommt. Die
 Betriebssatzung sagt, die Angebote stehen allen offen — dann muss das auch für
@@ -137,13 +157,19 @@ die Texte gelten, mit denen wir sie ankündigen.
 Geprüft wird zweierlei: ob die Zielgruppe den Text versteht, und ob ein
 Vorleseprogramm etwas damit anfangen kann.
 
+### Lösung
+
 Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-
 Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts
 beschafft werden.
 
+### Abgrenzung
+
 Die Abgrenzung darunter zieht sich durch das ganze Konzept: Für die technische
 Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
 zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+
+### Der Kasten unten
 
 Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei
 Monate. Der Prompt schlägt vor, der Mensch entscheidet.
@@ -181,6 +207,8 @@ quellen:
 
 Das Unternehmen und der Prozess.
 
+### Linke Spalte: Das Unternehmen
+
 Die Volkshochschule Frankfurt ist kein Amt, sondern ein Eigenbetrieb der
 Stadt. Geleitet wird sie von einem Direktor, der laut Impressum auch
 persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
@@ -193,15 +221,21 @@ Qualitätstestierung in der Weiterbildung, ein Verfahren mit regelmäßiger
 externer Prüfung, inzwischen in der sechsten Runde. Hier fehlt also keine
 Qualitätskultur. Es fehlt genau ein Schritt darin.
 
+### Der Satz oben aus der Betriebssatzung
+
 Der Satz oben stammt wörtlich aus der Betriebssatzung: Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
 Unternehmen — nicht am Gesetz, sondern an seinem eigenen Anspruch.
+
+### Rechte Spalte: So entsteht ein Kurstext
 
 Rechts steht, wie ein Kurstext entsteht. Geplant wird halbjährlich, von den
 Teams der vier Fachbereiche. Der Text wird geschrieben und ins
 Kursverwaltungssystem eingepflegt, und dann erscheint er. Über der Spalte
 steht das Wort angenommen, denn wer bei der vhs Frankfurt die Texte schreibt,
 ist nicht öffentlich dokumentiert.
+
+### Der Kasten unten
 
 Zwischen dem Einpflegen und dem Erscheinen ist kein Prüfschritt auf
 Verständlichkeit vorgesehen. Das ist kein Vorwurf, denn dieser Arbeitsschritt
@@ -248,13 +282,19 @@ quellen:
 
 Zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern gemessen.
 
+### Die Messung
+
 Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle
 Kurstexte gezogen, gut dreitausend, und mit einem eigenen Skript ausgewertet.
 Siebenundfünfzig Prozent haben mindestens einen Befund.
 
+### Wonach gemessen wurde
+
 Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
 Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
 Prüfassistenten, den ich gleich zeige.
+
+### Links: die zwei Pflichtregeln
 
 Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
 Barrierefreiheitsrichtlinien und sind damit verbindlich.
@@ -271,6 +311,8 @@ Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
 ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
 lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
 Liste aus fünfmal „hier“ hilft niemandem weiter.
+
+### Rechts: die vier Empfehlungen
 
 Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
 der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und
@@ -295,6 +337,8 @@ Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
 werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
 für Zuwanderer.
 
+### Zwei Kurse im Vergleich
+
 Die Tabelle darunter zeigt zwei Sprachkurse, und beide tragen eine niedrige
 Stufe im Titel. Das bedeutet zweimal etwas völlig Verschiedenes.
 
@@ -314,11 +358,15 @@ kurz, im Schnitt neun und sieben Wörter. Ein Lesbarkeitsindex, der
 Satz- und Wortlängen zählt, findet bei keinem der beiden etwas. Er schweigt
 zweimal, und einmal davon zu Unrecht.
 
+### Der Kasten unten
+
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
 wen der Text ist. Für Deutschkurse auf den Stufen A1 und A2 gibt es
 einunddreißig verschiedene Texte, und alle einunddreißig enthalten Wörter über
 dem Niveau ihrer Leser. Genau hier kann ein fachlich
 eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
+
+### Nachtrag: warum 57 Prozent eine Untergrenze sind
 
 Noch einmal zu den siebenundfünfzig Prozent: Das ist eine Untergrenze. Mein
 Messskript prüft fünf der sechs Regeln; die erste, ob eine hervorgehobene
@@ -354,15 +402,21 @@ quellen:
 
 Kurz die Rechtslage.
 
+### Was Barrierefreiheit heißt
+
 Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit
 Behinderung nutzbar sein muss. Der Maßstab sind die WCAG, mit drei Stufen: A,
 doppel A und dreifach A.
+
+### Welches Recht gilt
 
 Für die vhs gilt weder die EU-Richtlinie noch das
 Barrierefreiheitsstärkungsgesetz unmittelbar. Sie ist eine kommunale
 Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
 Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
 Gefordert wird Stufe doppel A.
+
+### Der Block in der Mitte: Pflicht und freiwillig
 
 Der Block in der Mitte zeigt nur die Kriterien, die am Text der
 Kursbeschreibung selbst hängen. Links steht, was daran verbindlich ist: dass
@@ -371,6 +425,8 @@ ausgezeichnet wird, und dass ein Linktext sagt, wohin er führt. Rechts steht,
 was freiwillig ist: dass Abkürzungen erklärt werden und dass das Leseniveau
 zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — genau
 die beiden Kriterien also, um die es in diesem Projekt geht.
+
+### Der Kasten unten
 
 Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
 und es wäre falsch.
@@ -419,14 +475,20 @@ quellen:
 Zur Lösung. Sie beginnt mit einer Abgrenzung, und die halte ich für den
 wichtigsten Teil meines Konzepts.
 
+### Linke Spalte: Das Seitengerüst
+
 Links steht, was am Gerüst der Seite hängt: Kontraste, Tastaturbedienung,
 Seitentitel, Navigation. Das kann man prüfen, ohne einen einzigen Kurs zu
 kennen. Es gilt für alle fünftausendachthundert Texte gleich, dafür gibt es
 etablierte Programme wie axe-core, und zuständig ist die städtische IT.
 
+### Rechte Spalte: Der einzelne Text
+
 Rechts steht, was am einzelnen Text hängt. Versteht die Zielgruppe genau
 dieses Kurses ihn? Diese Frage lässt sich nicht beantworten, ohne zu wissen,
 wer liest. Zuständig sind die Programmbereiche.
+
+### Der Kasten unten: wo die Trennlinie verläuft
 
 Die Trennlinie verläuft also nicht zwischen Sprache und Technik. Zwei meiner
 sechs Regeln sind selbst Pflichtkriterien der Barrierefreiheit. Ein Beispiel:
@@ -440,6 +502,8 @@ Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
 ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig
 eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und keine
 Einschätzung verlangen.
+
+### Technische Voraussetzungen
 
 Technisch braucht es den KI-Rahmen, den der Volkshochschul-Verband ohnehin
 bereitstellt, einen dort hinterlegten Assistenten und die Wortliste als Datei.
@@ -472,10 +536,14 @@ quellen:
 Zum Kern der Aufgabe, dem System-Prompt. Er folgt der Sechs-Komponenten-
 Struktur aus dem Aufgabenblatt.
 
+### Rolle, Aufgabe, Format
+
 Die ROLLE macht ihn zur Redaktionsassistenz, nicht zur Autorin. Die AUFGABE
 schreibt die Reihenfolge vor: erst die Zielgruppe bestimmen, dann prüfen. Das
 FORMAT erzwingt zu jedem Befund ein wörtliches Zitat, eine Begründung und
 einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
+
+### Kontext: die Wortliste
 
 Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die internen
 Abkürzungen, sechs Prüfregeln und — der wichtigste Teil — achthundertzwanzig
@@ -489,6 +557,8 @@ nicht. Er schätzte weiter frei und klang dabei nach Beleg — derselbe Fehler,
 den ich anderen Werkzeugen vorwerfe. Der Grundstock dieser Listen stammt
 übrigens laut Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale
 des Deutschen Volkshochschulverbands in Frankfurt.
+
+### Der Kasten unten: die Zeile Grenzen
 
 In der Zeile GRENZEN steht: bewertet Texte, niemals Personen. Dieser eine Satz
 leistet zweierlei. Er hält das Projekt aus dem Hochrisikobereich der KI-
@@ -523,6 +593,8 @@ quellen:
 Bleibt die Frage, wie das in den Alltag kommt. Dafür gibt es zwei Wege, und
 beide stehen vom ersten Tag an offen.
 
+### Weg 1: Als KI-Assistent bei fobizz
+
 Der erste braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband
 hat im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem
 Anbieter namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in
@@ -533,6 +605,8 @@ nicht, weil der Rahmenvertrag schon da ist. Zu klären ist allerdings, ob die
 vhs Frankfurt die Lizenz auch tatsächlich gebucht hat — der Rahmenvertrag
 schafft die Möglichkeit, er ist nicht die Buchung.
 
+### Die Einschränkung zu Weg 1
+
 Eine Einschränkung gehört dazu, denn diesen Weg habe ich nicht ausprobiert:
 Mein Prüfwerkzeug bearbeitet jede Antwort nach. Es rechnet die Einstufung
 anhand einer Tabelle nach und entfernt Personennamen. Beides stand
@@ -540,10 +614,14 @@ ursprünglich im Prompt, und beides hielt das Modell nicht zuverlässig ein —
 deshalb steht es heute im Programmcode. In einem fremden Assistenten gibt es
 diesen Code nicht. Was das praktisch bedeutet, muss der Pilot zeigen.
 
+### Weg 2: Als eigenes Prüfwerkzeug
+
 Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe. Dort fügt man den
 Entwurf ein — oder gibt bei einem vorhandenen Kurs nur die Nummer ein, dann
 holt es den Text selbst. Die Schnittstelle des Kursportals ist öffentlich, das
 kostet keinen Zugang; es braucht nur einen eigenen Server.
+
+### Rechts im Bild: ein Befund
 
 Rechts steht, was dabei herauskommt: ein Befund aus einem echten Durchlauf,
 dem Deutschkurs auf A2. Jeder Befund hat dieselben vier Teile: die Einstufung,
@@ -552,10 +630,14 @@ Dieser hier ist Pflicht, der Link heißt schlicht „hier“. Wer sich die Seite
 vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der Vorschlag
 daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
 
+### Hier die Vorführung
+
 Ich zeige euch das kurz live, an genau diesem Kurs.
 
 Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er belegt, dass
 der Weg funktioniert, er ist keine fertige Anwendung.
+
+### Der Kasten unten
 
 Die Nachbemerkung unten ist kein Teil des Pilotprojekts. Man könnte die
 Prüfung ins Redaktionssystem selbst einbauen, dort, wo der Text entsteht. Nur
@@ -588,7 +670,9 @@ Damit zum Change-Teil, und der beginnt mit den **Stakeholdern**. Die
 **Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
 betroffen, und wer hat Einfluss.
 
-Oben rechts, eng einbinden: wer entscheidet oder zustimmen muss.
+### Oben rechts: Eng einbinden
+
+Wer entscheidet oder zustimmen muss.
 
 **Der Direktor** — laut Impressum persönlich für die redaktionellen Inhalte
 verantwortlich.
@@ -604,12 +688,16 @@ Einfluss ist kein hoher, sondern ein **sperrender**: Die Einführung des
 Werkzeugs ist mitbestimmungspflichtig, sie braucht seine Zustimmung. Seine
 zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.
 
-Nur dieser eine Fachbereich — deshalb unten links, informieren.
+### Unten links: Informieren
+
+Nur dieser eine Fachbereich ist im Pilot — die anderen erfahren davon.
 
 **Die drei übrigen Fachbereiche** — sollen wissen, dass es läuft, und sehen,
 was herauskommt. Im Pilot sind sie nicht dabei.
 
-Oben links: hoher Einfluss, aber mein Projekt verändert ihre Arbeit nicht.
+### Oben links: Beobachten
+
+Hoher Einfluss, aber mein Projekt verändert ihre Arbeit nicht.
 
 **Die städtische IT** — bleibt für die technische Seite zuständig.
 
@@ -620,7 +708,9 @@ programmiert.
 
 **Der Volkshochschul-Verband** — stellt den KI-Rahmen, den ich nutze.
 
-Und unten rechts der Quadrant, der mich am meisten beschäftigt hat.
+### Unten rechts: Konsultieren
+
+Der Quadrant, der mich am meisten beschäftigt hat.
 
 **Die Kursleitungen auf Honorarbasis** — maximal betroffen, denn in der
 Branche schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und
@@ -660,12 +750,16 @@ Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Unsicherheit,
 Verlustangst, fehlende Perspektive und Gewohnheit. Ich zeige für jede einen
 Fall, den es hier wirklich gibt.
 
-**Unsicherheit** — die Frage, die im ganzen Haus als Erstes kommt: Schreibt die
+### Unsicherheit · im ganzen Haus
+
+Die Frage, die im ganzen Haus als Erstes kommt: Schreibt die
 KI jetzt unsere Texte? Nein. Sie schlägt vor, mehr nicht. Entschieden und
 veröffentlicht wird von Menschen. Das ist keine Beruhigung, sondern der
 Zuschnitt des Werkzeugs.
 
-**Verlustangst** — und das ist der einzige Einwand, der noch offen ist. Ich habe
+### Verlustangst · Programmbereich
+
+Der einzige Einwand, der noch offen ist. Ich habe
 nachgezählt: Der Beispielkurs besteht restlos aus zwei Bausteinen, dem
 Anmeldehinweis und der Niveaubeschreibung. Alle Befunde liegen dort, und der
 Anmeldehinweis steht wortgleich in hundertfünf Kursen. Das ist keine Angst vor
@@ -674,7 +768,9 @@ der Maschine, sondern die Aussicht, für etwas gemessen zu werden, das man nicht
 Zuständigkeitsfrage. Und darin steckt die gute Nachricht: ein Baustein in
 Ordnung gebracht, und hundertfünf Kurse sind es mit.
 
-**Fehlende Perspektive** — bei den Honorarkräften schärfer als bei allen
+### Fehlende Perspektive · Kursleitung
+
+Bei den Honorarkräften schärfer als bei allen
 anderen, weil ihre Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit
 kommt darin nicht vor. Die Antwort ist der Zuschnitt: Geprüft wird im
 Programmbereich, an dem Text, der dort eingeht. Das schützt auch ihren Status —
@@ -682,10 +778,14 @@ verbindliche Regeln und ein Protokoll je Text sind genau die Merkmale, aus
 denen das Bundessozialgericht im Herrenberg-Urteil eine Eingliederung in den
 Betrieb hergeleitet hat.
 
-**Gewohnheit** — nicht als Trägheit, sondern als konkurrierendes Regelwerk:
+### Gewohnheit · Redaktion des Programmhefts
+
+Nicht als Trägheit, sondern als konkurrierendes Regelwerk:
 Diese Redaktion kürzt beruflich. Ein Werkzeug, das Erklärungen verlangt,
 arbeitet gegen ihren Auftrag. Die Antwort trennt die Medien: Geprüft wird der
 Text im Portal, und dort gibt es keine Seitenzahl.
+
+### Der Kasten unten
 
 Betroffene zu Beteiligten machen heißt hier: entscheiden, bevor geschult wird.
 
@@ -713,12 +813,16 @@ Der Zeitplan, drei Monate, drei Stränge, die neun Phasen aus der
 Aufgabenstellung als Überschrift jeder Zelle. Die Zellen könnt ihr mitlesen,
 ich hebe zwei Dinge heraus.
 
+### Monat 2, Strang Kommunikation: Training
+
 Erstens das Training im zweiten Monat. Das ist keine Kür, sondern Pflicht:
 Artikel vier der KI-Verordnung verlangt seit Februar zweitausendfünfundzwanzig
 ausreichende KI-Kompetenz, und zwar für das Personal und für alle, die im
 Auftrag mit Betrieb und Nutzung befasst sind. Deshalb steht in der Zelle nicht
 Personal, sondern alle, die bedienen. Wer nicht bedient, braucht die Schulung
 nicht — das ist der Grund, warum die Kursleitungen aus dieser Kette bleiben.
+
+### Strang Change: erst fragen, dann handeln
 
 Und zweitens die Reihenfolge im Change-Strang: erst fragen, dann handeln. Die
 Freigabe der Textbausteine steht deshalb im ersten Monat und nicht im zweiten,
@@ -745,11 +849,15 @@ callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand 
 Die ersten dreißig Tage, und das ist keine Aufzählung, sondern eine
 Reihenfolge: Jeder Schritt bedingt den nächsten.
 
+### Die vier Schritte
+
 Die Dienstvereinbarung zuerst, aus dem Grund von eben. Dann einen
 Programmbereich gewinnen, und zwar freiwillig — ein zugewiesener liefert kein
 belastbares Ergebnis, sondern nur Erfüllung. Dann die Freigabe der Bausteine.
 Und erst als viertes das Technische, den Assistenten anlegen. Es kostet nichts:
 kein Einkauf, keine neue Stelle, der KI-Rahmen ist da.
+
+### Der Kasten unten: der dritte Schritt
 
 Der dritte Schritt ist der, den man am ehesten überspringt, und der teuerste.
 Lässt man ihn aus, liefert der Pilot eine Liste von Befunden, die im
@@ -780,11 +888,15 @@ quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 Und woran würde man merken, ob es gewirkt hat?
 
+### Die ersten drei Kennzahlen
+
 Vier Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von
 siebenundfünfzig Prozent unter fünfundzwanzig fallen. Alle neuen Texte im
 Pilotbereich sollen geprüft sein. Und von den einunddreißig Texten für
 Deutschkurse auf A1 und A2, die heute alle Wörter über dem Niveau ihrer Leser
 enthalten, sollen höchstens noch zehn betroffen sein.
+
+### Die vierte Kennzahl: die Befragung
 
 Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
 nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über
@@ -796,20 +908,24 @@ Diese Befragung ist freiwillig und wird vergütet. Sonst wäre sie eine neue
 Aufgabe ohne Bezahlung, und das ist bei Honorarkräften genau das Problem von
 der Widerstandsfolie.
 
+### Letzte Spalte: womit gemessen wird
+
 In der letzten Spalte steht, womit gemessen wird. Die Nachmessung läuft mit
 demselben Skript wie die Ausgangsmessung, und das Skript ist dafür
 eingefroren. Wäre es zwischendurch verbessert worden, wüsste man hinterher
 nicht, ob die Texte besser geworden sind oder nur die Messung anders.
 
-Unten steht das Risiko, das ich zuerst übersehen habe und das unangenehmste
-ist: Die Protokolle können gegen das Unternehmen verwendet werden. Sie belegen
-datiert und zitierbar, dass Texte Kriterien verletzen, die das Haus sich
-freiwillig gibt. Wer laut Impressum persönlich für die Inhalte verantwortlich
-ist, hat nach dem Pilot eine Kenntnis, die er vorher nicht hatte. Deshalb
-gehören die Protokolle in dieselbe Dienstvereinbarung, und deshalb gehört zu
-jedem Befundstand ein Abstellplan mit Datum. Ein dokumentierter Mangel mit
-Plan steht besser da als ungeprüfter Bestand — aber nur, wenn der Plan
-wirklich existiert.
+### Das Risiko unten
+
+Das Risiko steckt in den Kennzahlen selbst. Die ersten drei lassen sich
+erfüllen, ohne dass ein einziger Text besser wird: Wer lange Sätze teilt und
+schwere Wörter austauscht, drückt die Befundquote — ob der Text dadurch
+verständlicher geworden ist, hat dann noch niemand gefragt. Ein kürzerer Satz
+ist nicht automatisch ein verständlicherer.
+
+Genau dagegen steht die vierte Kennzahl. Sie fragt nicht den Text, sondern die
+Menschen, für die er geschrieben ist. Ohne sie misst der Pilot am Ende nur
+seinen eigenen Maßstab.
 
 
 ## 15 — Schlussfolie
@@ -825,15 +941,21 @@ fussr: HENRIK HEIL
 
 ### NOTIZ
 
+### Was diese Arbeit ist
+
 Ich habe ein reales Unternehmen analysiert, einen Prozess gefunden, in dem
 niemand etwas falsch macht und trotzdem etwas fehlt, und ich habe den Zustand
 gemessen statt geschätzt.
+
+### Meine Lehre aus dem Projekt
 
 Der System-Prompt selbst ist an einem Nachmittag geschrieben. Das ist meine
 eigentliche Lehre aus diesem Projekt. Die Arbeit steckt in allem, was ihn
 möglich macht: zu wissen, für wen ein Text ist, zu wissen, was Pflicht ist und
 was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
 schreiben, das Werkzeug nicht als Kontrolle erleben.
+
+### Der Link auf der Folie
 
 Danke für die Aufmerksamkeit. Die Adresse steht oben, dort läuft der Prototyp
 weiter — mit dem Prompt in allen Fassungen und den Läufen, die ihr gesehen
