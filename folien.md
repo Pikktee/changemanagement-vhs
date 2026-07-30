@@ -63,8 +63,8 @@ Willkommen zu meinem Abschlussprojekt!
 
 typ: zahlen
 kapitel: ÜBERBLICK
-titel: 5.800 Texte im Jahr,
-akzent: geprüft wird die Technik.
+titel: Die Technik wird geprüft,
+akzent: die Texte nicht.
 lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Unternehmen an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
