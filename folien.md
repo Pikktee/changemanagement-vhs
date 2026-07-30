@@ -139,7 +139,7 @@ Daraus folgt mein Vorschlag.
 ### Ergebnis
 - *vorlesen*
 
-### Der Kasten unten
+### Callout
 - *vorlesen*
 
 
@@ -427,26 +427,23 @@ yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
 oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Zugang
-oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Pilot-Fachbereich || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Pilot-Fachbereich || Personalrat, Zustimmung erforderlich
 unten_links: Informieren || Die drei übrigen Fachbereiche
-unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
+unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Redaktion des Programmhefts || Teilnehmende, besonders in Deutschkursen und Grundbildung
 quellen:
   - "§ 4 Abs. 4 Satz 2 HPVG — Honorarkräfte werden mitvertreten | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
 
 ### NOTIZ
 
-- Damit zum Change-Teil
-- Der Pilot beschränkt sich auf einen der vier Fachbereiche. Nur so ist der Kreis klein genug, dass man ihn wirklich einbinden kann.
+- Damit zum Change-Teil: Wen sollten wir im Projekt auf welche Weise berücksichtigen?
+- Wichtig: Der Pilot beschränkt sich auf einen der vier Fachbereiche.
 
-und der beginnt mit den **Stakeholdern**. Die
-**Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
-betroffen, und wer hat Einfluss.
+- Die **Einfluss-Betroffenheits-Matrix** sortiert die Stakeholder nach zwei Fragen: Wer ist betroffen, und wer hat Einfluss.
 
 ### Oben rechts: Eng einbinden
 - Ich fange an mit den Stakeholdern, die wir eng einbinden müssen.
-- **Der Direktor** — laut Impressum persönlich für die redaktionellen Inhalte verantwortlich.
-- **Der Pilot-Fachbereich** — entscheidet über den Text. Und zwar nur dieser eine: Vier gleichzeitig wären kein Pilot mehr.
-- **Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute, weiß also, wie Textprüfung geht.
+- **Der Direktor** — da er laut Impressum persönlich für die redaktionellen Inhalte verantwortlich ist.
+- **Der Pilot-Fachbereich** — natürlich, er entscheidet über den Text.
 - **Der Personalrat** — hier ist die Einordnung zu schwach. Sein Einfluss ist kein hoher, sondern ein ==sperrender==: Die Einführung ist mitbestimmungspflichtig. ((Seine zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.))
 
 ### Unten links: Informieren
@@ -463,6 +460,7 @@ betroffen, und wer hat Einfluss.
 - Der Quadrant, der mich am meisten beschäftigt hat.
 - **Die Kursleitungen auf Honorarbasis** — maximal betroffen, denn in der Branche schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und vorschreiben kann man ihnen nichts.
 - Einen Kanal haben sie doch: Arbeitnehmerähnliche Personen gelten nach dem Personalvertretungsgesetz als Beschäftigte, der Personalrat vertritt sie mit.
+- **Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute, weiß also, wie Textprüfung geht. ((Im Pilot ist sie nicht: Der prüft nur neue Portaltexte.))
 - **Die Teilnehmenden** — besonders in Deutschkursen und Grundbildung. ==Für sie ist das Projekt gemacht, und sie haben keine Stimme — in keinem Gremium und in keinem Gesetz.==
 - Bei ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das es überhaupt gibt.
 
