@@ -516,11 +516,11 @@ titel: Der Plan
 akzent: für die nächsten drei Monate.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-strang1: Technische Implementation || Setup > System-Prompt weiter an echten Texten schärfen || Pilot > Ein Fachbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
-strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe || Training > Pflicht nach Artikel 4 KI-Verordnung, für alle, die bedienen || Support > Feste Sprechstunde, nicht auf Zuruf
-strang3: Change || Vorbereitung > Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die scharfen Regeln, dazu der Quick Win || Begleitung > Nachmessung, dann Entscheidung
-callout: Im Change-Strang steht das Fragen vor dem Handeln — die Bausteinfreigabe im ersten Monat, nicht im zweiten.
-calloutsub: Sonst trifft der Quick Win im zweiten Monat auf eine Zuständigkeit, die niemand geklärt hat.
+strang1: Technische Implementation || Setup > Assistent im KI-Zugang anlegen, Prompt an echten Texten schärfen || Pilot > Ein Fachbereich prüft alle neu entstehenden Texte || Rollout > Nur vorbereitet — ob er kommt, entscheidet die Nachmessung
+strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Haus || Training > Vor dem ersten Durchlauf, Pflicht nach Artikel 4 KI-Verordnung || Support > Feste Sprechstunde, nicht auf Zuruf
+strang3: Change || Vorbereitung > Pilotbereich gewinnen, Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die verbindlichen Regeln, korrigiert die Bausteine zuerst || Begleitung > Nachmessung mit unverändertem Skript, dann die Rollout-Entscheidung
+callout: Der Plan ist eine Kette von Freigaben — ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.
+calloutsub: Deshalb steht die Bausteinfreigabe im ersten Monat: Wer im zweiten korrigieren soll, braucht die Zuständigkeit vorher.
 quellen:
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
   - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -529,16 +529,22 @@ quellen:
 
 Der Zeitplan: drei Monate, drei Stränge, die neun Phasen aus der
 Aufgabenstellung als Überschrift jeder Zelle. Die Zellen könnt ihr mitlesen,
-ich hebe zwei Dinge heraus.
+ich erkläre die Logik dahinter.
+
+### Die Logik: eine Kette von Freigaben
+- Jeder Monat gibt den nächsten erst frei.
+- ==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
+- Der Rollout im dritten Monat wird deshalb nur vorbereitet. Ob er kommt, entscheidet die Nachmessung — nicht der Kalender.
 
 ### Monat 2, Kommunikation: Training
 - Keine Kür, sondern Pflicht: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz.
 - Und zwar für das Personal und für alle, die im Auftrag mit Betrieb und Nutzung befasst sind.
 - Deshalb steht in der Zelle nicht „Personal“, sondern „alle, die bedienen“. ((Wer nicht bedient, braucht die Schulung nicht — deshalb bleiben die Kursleitungen aus dieser Kette.))
 
-### Strang Change: erst fragen, dann handeln
-- Die Freigabe der Textbausteine steht im ersten Monat, nicht im zweiten.
-- ==Sonst läuft der Quick Win auf eine Zuständigkeit, die niemand hat.==
+### Der Kasten unten: die Bausteinfreigabe
+- Im Change-Strang steht das Fragen vor dem Handeln: Die Freigabe der Textbausteine wird im ersten Monat geklärt, korrigiert wird im zweiten.
+- Warum die Bausteine zuerst? Ein korrigierter Baustein wirkt sofort in vielen Kursen gleichzeitig — der früheste sichtbare Erfolg, den dieses Projekt haben kann.
+- ==Ohne die Zuständigkeit aus dem ersten Monat dürfte ihn im zweiten niemand anfassen.==
 
 
 ## 13 — Die ersten 30 Tage
@@ -552,7 +558,7 @@ schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
 schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
   - "Einen Fachbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
-  - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win auf niemanden."
+  - "Die Freigabe der Textbausteine klären > Sonst darf im Pilot niemand die Bausteine ändern."
   - "Assistent im KI-Zugang des Verbands anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
 

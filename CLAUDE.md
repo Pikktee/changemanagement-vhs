@@ -49,44 +49,6 @@ Ein Text ist nie an sich verständlich, sondern nur für bestimmte Leser. Lesbar
 
 Verpflichtet ist die vhs dazu nicht — die maßgeblichen WCAG-Kriterien sind AAA. Das Argument liefert die Betriebssatzung: Angebote „für alle, ohne Rücksicht auf Vorbildung“.
 
-## Welcher Maßstab gilt
-
-Das ist eine **Kursabgabe, keine Verteidigung.** Es gibt kein Kolloquium, in dem
-einzelne Zahlen angegriffen werden. Maßstab ist deshalb **innere Konsistenz**,
-nicht die Beweisbarkeit jeder einzelnen Angabe.
-
-Eine Zahl darf auf einer begründeten Annahme beruhen. Zu melden ist, wenn zwei
-Folien einander widersprechen — oder wenn eine Folie etwas als „gemessen"
-ausweist, das nirgends hergeleitet ist. Nicht zu melden ist die bloße
-Abwesenheit eines Belegs.
-
-## Der wichtigste Grundsatz der Umsetzung
-
-**Was feststeht, gehört in den Code. Was die Zielgruppe kennen muss, bleibt
-beim Modell.**
-
-Das ist zugleich die Change-Argumentation, und die Trennlinie verläuft nicht
-zwischen Technik und Sprache, sondern zwischen der Seite und dem einzelnen
-Text: Das Seitengerüst — Kontraste, Tastaturbedienung, Navigation — ist
-prüfbar, ohne einen einzigen Kurs zu kennen, und bleibt bei den Prüfwerkzeugen
-der städtischen IT. Die KI übernimmt allein den Schritt, für den man wissen
-muss, wer den Text liest, und der liegt bei den Programmbereichen.
-
-Nicht nach der Methode trennen: Auch etablierte Prüfwerkzeuge setzen inzwischen
-KI ein (Deque axe: Axe Assistant, Guided Tests). „Deterministisch gegen KI"
-trägt als Abgrenzung deshalb nicht mehr, „ohne Kenntnis des Kurses entscheidbar
-oder nicht" schon.
-
-Das ist dreimal beim Bauen passiert (siehe `iterationen.md`, v4, v5 und v9):
-Zusagen im Prompt hielt das Modell nicht zuverlässig ein, heute stehen sie in
-`tool/server.py` — Ehrlichkeitsvorbehalt, Einstufung, Namensschutz.
-Regel daraus: Ist eine neue Anforderung im Kern eine Nachschlagetabelle oder
-ein prüfbarer Zustand, schreib sie nicht in den Prompt.
-
-Sechs Prüfregeln, zwei Stufen: `STRUKTUR` und `LINKTEXT` sind PFLICHT,
-`NIVEAU`, `AMTSDEUTSCH`, `SATZ` und `ABK` sind EMPFEHLUNG. Fünf weitere
-Befundarten wurden in v7 gestrichen; die Begründung je Regel steht dort.
-
 ---
 
 ## Was man hier leicht falsch macht
