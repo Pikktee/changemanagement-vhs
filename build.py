@@ -772,6 +772,37 @@ def schiesse_pngs(folien, nur=None):
         server.terminate()
 
 
+def notiz_setzen(rahmen, text):
+    """Schreibt die Referentennotiz und setzt **fett** als Fettdruck.
+
+    Der direkte Weg — rahmen.text = notiz — legt je Zeile genau einen Textlauf
+    an, und ein Lauf traegt nur eine Formatierung. Fuer die Auszeichnung muss
+    der Absatz deshalb aus mehreren Laeufen zusammengesetzt werden.
+
+    Die Absatzaufteilung bleibt wie vorher: eine Zeile der Quelle wird ein
+    Absatz, Leerzeilen bleiben leere Absaetze. Wer das aendert, aendert den
+    Umbruch in jeder Referentenansicht.
+    """
+    zeilen = (text or "(keine Notiz)").split("\n")
+    rahmen.clear()
+    for i, zeile in enumerate(zeilen):
+        # Eine Auszeichnung darf keinen Zeilenumbruch ueberspannen — folien.md
+        # ist hart umbrochen, und ein offenes ** wuerde als Sternchen im
+        # Vortragstext landen, wo es niemand mehr bemerkt.
+        if zeile.count("**") % 2:
+            print(f"  ! Notiz: offenes ** in Zeile: {zeile.strip()[:60]}")
+        p = rahmen.paragraphs[0] if i == 0 else rahmen.add_paragraph()
+        for stueck in re.split(r"(\*\*[^*]+\*\*)", zeile):
+            if not stueck:
+                continue
+            lauf = p.add_run()
+            if stueck.startswith("**") and stueck.endswith("**"):
+                lauf.text = stueck[2:-2]
+                lauf.font.bold = True
+            else:
+                lauf.text = stueck
+
+
 def baue_pptx(folien):
     from pptx import Presentation
     from pptx.util import Emu
@@ -786,7 +817,7 @@ def baue_pptx(folien):
             continue
         s = prs.slides.add_slide(leer)
         s.shapes.add_picture(str(png), 0, 0, width=B, height=H)
-        s.notes_slide.notes_text_frame.text = f.get("notiz", "") or "(keine Notiz)"
+        notiz_setzen(s.notes_slide.notes_text_frame, f.get("notiz", ""))
     ziel = AUS / "Praesentation-KLARTEXT.pptx"
     prs.save(str(ziel))
     return ziel

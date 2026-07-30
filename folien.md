@@ -573,18 +573,18 @@ quellen:
 
 ### NOTIZ
 
-Damit zum Change-Teil, und der beginnt mit der Frage, wer betroffen ist. Die
-beiden Achsen sind Einfluss und Betroffenheit, die Pfeile zeigen jeweils
-dorthin, wo sie zunehmen.
+Damit zum Change-Teil, und der beginnt mit den Stakeholdern. Die
+**Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
+betroffen, und wer hat Einfluss.
 
-Oben rechts stehen die vier, die eng eingebunden werden müssen. Der Direktor,
+Oben rechts stehen die vier Stakeholder, die eng eingebunden werden müssen. Der Direktor,
 der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
 ist. Der Fachbereich, zu dem der Pilotbereich gehört — und zwar nur dieser
 eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot
 mehr. Die Redaktion des Programmhefts, die es für den Druck bereits gibt und
 die deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, bei dem die
 Einordnung eigentlich zu schwach ist: Sein Einfluss ist kein hoher, sondern
-ein sperrender. Die Einführung des Werkzeugs ist mitbestimmungspflichtig, sie
+ein **sperrender**. Die Einführung des Werkzeugs ist mitbestimmungspflichtig,
 braucht seine Zustimmung. Zwei von sechzehn Sitzen in der Betriebskommission
 sind dagegen als Stimmblock bedeutungslos.
 
