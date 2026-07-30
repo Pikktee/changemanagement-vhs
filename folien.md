@@ -352,7 +352,7 @@ zeilen:
   - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, bereitet eine Entscheidung vor, die ein Mensch trifft."
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
-  - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
+  - "GRENZEN | Bewertet Texte, niemals Personen. Schlägt vor statt umzuschreiben, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflichtbefunde zuerst."
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
