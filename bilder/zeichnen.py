@@ -159,13 +159,14 @@ def prozess(p, name, besetzt):
     B, H = 322, 334
     bild, d = leinwand(B, H, p["marke"])
 
-    # Die Kaesten sind breit und flach, die Verbindungen schmal und hoch. Beim
-    # ersten Versuch war es umgekehrt: 152x44 mit 18px Abstand las sich als
-    # weisser Block mit Schlitzen und nicht als Kette aus Schritten.
-    kb, kh = 204, 34         # Kasten
+    # Zwei Anlaeufe kosteten das: 152x44 mit 18px Abstand las sich als weisser
+    # Block mit Schlitzen; 204 breit fuellte die Bildspalte so weit, dass die
+    # Verbindungen wie Kerben im Rand wirkten. Entscheidend ist, dass links und
+    # rechts der Kaesten genug Grund sichtbar bleibt.
+    kb, kh = 138, 32         # Kasten
     mitte_x = (B - kb) // 2
-    verb_b = 6               # Verbindungsstueck
-    verb_h = 28
+    verb_b = 8               # Verbindungsstueck
+    verb_h = 30
     OFFEN = 3                # Position der offenen Stelle, nullbasiert
     schritte = 5             # vier vorhandene Schritte, dazu die offene Stelle
 
