@@ -354,7 +354,7 @@ zeilen:
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
   - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
-  - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
+  - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflichtbefunde zuerst."
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
 calloutfolge: „Bewertet Texte, niemals Personen.“ Die Verordnung stuft nur hoch ein, was Menschen bewertet — dieses System bewertet Texte. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
 quellen:
