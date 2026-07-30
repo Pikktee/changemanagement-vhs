@@ -135,8 +135,8 @@ def kopf(f, seite, gesamt):
 
 
 def fuss(f):
-    links = f.get("fussl", "vhs Frankfurt · Projekt KLARTEXT")
-    rechts = f.get("fussr", "Henrik Heil · cimdata 2026")
+    links = f.get("fussl", "Projekt KLARTEXT · vhs Frankfurt")
+    rechts = f.get("fussr", "Henrik Heil")
     return f'<div class="foot"><span>{e(links)}</span><span>{e(rechts)}</span></div>'
 
 

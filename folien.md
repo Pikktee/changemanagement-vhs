@@ -839,7 +839,7 @@ titel: Danke für die Aufmerksamkeit.
 link: klartext-vhs.henrikheil.net
 linktext: Probiert es selbst aus, an einem echten Kurstext aus dem Portal:
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
-fussr: HENRIK HEIL · CIMDATA 2026
+fussr: HENRIK HEIL
 
 ### NOTIZ
 
