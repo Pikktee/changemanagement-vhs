@@ -248,6 +248,14 @@ def seite(f, s, g, inhalt):
 
 def t_panel(f, seite_, gesamt, schluss=False):
     sub = f'<p class="sub">{e(f["untertitel"])}</p>' if f.get("untertitel") else ""
+    # link: Adresse zum Nachschlagen, mit Versalien-Marke davor. Bewusst gross
+    # und ohne Versalien gesetzt — wer sie im Raum abschreibt, muss sie lesen
+    # koennen, und gesperrte Versalien machen genau das schwer.
+    link = ""
+    if f.get("link"):
+        link = (f'<div class="plink">'
+                f'<span class="plabel">{e(f.get("linklabel", "Zum Ausprobieren"))}'
+                f'</span><span class="purl">{e(f["link"])}</span></div>')
     # meta: mit | getrennte Angaben, gesetzt als Versalienzeile mit Trennstrichen
     meta = ""
     if f.get("meta"):
@@ -274,6 +282,7 @@ def t_panel(f, seite_, gesamt, schluss=False):
     <div class="rule"></div>
     <h1>{titel}</h1>
     {sub}
+    {link}
     {meta}
     <div class="spacer"></div>
     <div class="pfoot">

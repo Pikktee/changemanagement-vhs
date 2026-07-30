@@ -104,6 +104,14 @@ h1.klein{ font-size:41px; letter-spacing:-0.6px; }
 .panel h1 .g{ color:var(--auf-marke); }
 .panel .sub{ font-size:18.5px; line-height:1.45; color:rgba(255,255,255,.82);
              max-width:700px; margin:26px 0 0; }
+/* Adresse auf der Schlussfolie. Die Marke steht als gesperrte Versalienzeile
+   davor, die Adresse selbst gemischt und gross: Sie wird abgeschrieben. */
+.panel .plink{ display:flex; align-items:baseline; gap:18px; margin:30px 0 0; }
+.panel .plabel{ font-size:11px; font-weight:700; letter-spacing:2px;
+                text-transform:uppercase; color:rgba(255,255,255,.72);
+                white-space:nowrap; }
+.panel .purl{ font-size:26px; font-weight:700; letter-spacing:-0.2px;
+              color:var(--auf-marke); }
 .panel .meta{ display:flex; flex-wrap:wrap; margin:30px 0 0; }
 .panel .meta span{
   font-size:12px; letter-spacing:1.8px; text-transform:uppercase;
