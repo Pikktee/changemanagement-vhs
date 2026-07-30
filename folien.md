@@ -376,9 +376,10 @@ quellen:
 - ((Der Grundstock dieser Listen stammt laut Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands in Frankfurt.))
 
 ### Der Kasten unten: die Zeile GRENZEN
-- „Bewertet Texte, niemals Personen.“ Dieser eine Satz leistet zweierlei.
-- Er hält das Projekt aus dem Hochrisikobereich der KI-Verordnung: Hoch eingestuft wird dort nur, was Menschen bewertet — dieses System bewertet Texte.
-- Und er ist die Antwort auf die Frage des Personalrats, ob hier Leistung kontrolliert wird.
+- „Bewertet Texte, niemals Personen.“ Das Werkzeug liefert Befunde zu Texten, die jemand geschrieben hat.
+- ==Wer die auswertet, bewertet Menschen.== Genau das verbietet der Prompt: keine Statistik, kein Vergleich zwischen Verfasserinnen.
+- Das ist die Antwort auf die Frage des Personalrats, ob hier Leistung kontrolliert wird.
+- ((Und es ist die Grenze zur KI-Verordnung: Systeme, die die Leistung Beschäftigter bewerten, stuft sie als hochriskant ein.))
 
 
 ## 9 — Wie es praktisch laeuft
