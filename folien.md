@@ -226,8 +226,8 @@ regeln:
 tabellentitel: Zwei Kurse im Vergleich
 spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
 zeilen:
-  - "Englisch A1.1 | + liest Deutsch fließend | 0 | 1"
-  - "Deutsch als Fremdsprache A2.2 | ! lernt Deutsch, kann bisher A1 | 24 | 28"
+  - "Englisch A1.1 | liest Deutsch fließend | 0 | 1"
+  - "Deutsch als Fremdsprache A2.2 | lernt Deutsch, kann bisher A1 | 24 | 28"
 callout: Beide Kurse tragen A im Titel. Nur bei einem ist der Text zu schwer für seine Leser.
 calloutsub: Ob ein Text verständlich ist, entscheidet nicht der Text — sondern die Zielgruppe, die ihn lesen soll.
 quellen:

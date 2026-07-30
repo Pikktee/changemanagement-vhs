@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>KLARTEXT — Signet und Favicon, Entwurf</title>
+<link rel="stylesheet" href="../../schriften/schriften.css">
+<style>
+:root{
+  --papier:#FFFFFF; --grund:#F5F6F8; --flaeche:#EEF0F3; --linie:#E4E6EB;
+  --rahmen:#848B96; --tinte:#14171C; --leise:#4C535E;
+  --marke:#14459E; --marke-dunkel:#0E3378; --auf-marke:#B9DFFA;
+  --schrift:'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --schrift-mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--grund); color:var(--tinte);
+      font-family:var(--schrift); font-size:15.5px; line-height:1.55; }
+.bahn{ max-width:1000px; margin:0 auto; padding:40px 30px 80px; }
+
+h1{ font-size:31px; font-weight:700; letter-spacing:-.4px; margin:0 0 6px; }
+.lede{ font-size:16px; color:var(--leise); margin:0 0 34px; max-width:62ch; }
+h2{ font-size:19px; font-weight:700; margin:0 0 4px; }
+.sub{ font-size:14px; color:var(--leise); margin:0 0 20px; max-width:70ch; }
+
+.karte{ background:var(--papier); border:1px solid var(--linie);
+        padding:26px 28px; margin-bottom:22px; }
+
+/* ----- Variantenreihe ----------------------------------------------- */
+.reihe{ display:flex; gap:26px; flex-wrap:wrap; }
+.spalte{ flex:1 1 230px; min-width:230px; }
+.spalte h3{ font-size:15px; font-weight:700; margin:0 0 3px; }
+.spalte p{ font-size:13.5px; color:var(--leise); margin:0 0 14px; min-height:56px; }
+.spalte p:empty{ min-height:0; margin:0 0 14px; }
+.buehne{ background:var(--flaeche); padding:20px; display:flex;
+         align-items:center; justify-content:center; }
+
+/* ----- Echte Groessen ------------------------------------------------ */
+.groessen{ display:flex; align-items:flex-end; gap:22px; }
+.gr{ text-align:center; }
+.gr img{ display:block; margin:0 auto 7px; image-rendering:pixelated; }
+.gr span{ font-family:var(--schrift-mono); font-size:11.5px; color:var(--leise); }
+
+/* ----- Browsertab, hell und dunkel ----------------------------------- */
+.tabs{ display:flex; gap:18px; flex-wrap:wrap; }
+.fenster{ flex:1 1 300px; border:1px solid var(--linie); }
+.leiste{ display:flex; align-items:flex-end; padding:8px 8px 0; gap:4px; }
+.leiste.hell{ background:#DEE1E6; }
+.leiste.dunkel{ background:#202124; }
+.tab{ display:flex; align-items:center; gap:8px; padding:8px 14px;
+      font-size:12.5px; border-radius:8px 8px 0 0; white-space:nowrap;
+      max-width:220px; overflow:hidden; }
+.tab.hell{ background:#FFFFFF; color:#202124; }
+.tab.dunkel{ background:#35363A; color:#E8EAED; }
+.tab img{ flex:none; }
+.tabtext{ overflow:hidden; text-overflow:ellipsis; }
+.fensterfuss{ padding:9px 12px; font-size:12.5px; color:var(--leise);
+              background:var(--papier); border-top:1px solid var(--linie); }
+
+/* ----- Kopfleiste des Werkzeugs -------------------------------------- */
+.kopfprobe{ border:1px solid var(--linie); background:var(--papier); }
+.kopfzeile{ display:flex; align-items:center; gap:16px;
+            padding:0 22px; min-height:58px; border-bottom:1px solid var(--linie); }
+.mark{ display:flex; align-items:center; gap:10px; }
+.sq{ width:14px; height:14px; background:var(--marke); flex:none; }
+.wortmarke{ font-size:17px; font-weight:700; letter-spacing:.5px; color:var(--marke); }
+.kopfsub{ font-size:13px; color:var(--leise); }
+.kopfnote{ padding:9px 22px; font-size:12.5px; color:var(--leise); }
+
+/* ----- Folienfleck ---------------------------------------------------- */
+.folie{ background:var(--marke); padding:40px 44px; display:flex;
+        align-items:center; gap:22px; }
+.folie .wm{ font-size:31px; font-weight:700; letter-spacing:.5px; color:#FFFFFF; }
+.folie .wmsub{ font-size:14px; color:var(--auf-marke); margin-top:2px; }
+
+/* ----- Papierfassung -------------------------------------------------- */
+.offen line{ stroke:var(--marke); }
+
+table{ border-collapse:collapse; width:100%; font-size:14px; margin-top:6px; }
+th{ text-align:left; font-size:11px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; color:var(--leise); padding:0 10px 7px 0;
+    border-bottom:1px solid var(--linie); }
+td{ padding:9px 10px 9px 0; border-bottom:1px solid var(--linie);
+    vertical-align:top; }
+td:last-child, th:last-child{ padding-right:0; }
+code{ font-family:var(--schrift-mono); font-size:12.5px; }
+.fuss{ font-size:12.5px; color:var(--leise); margin-top:30px;
+       border-top:1px solid var(--linie); padding-top:14px; }
+</style>
+</head>
+<body>
+<div class="bahn">
+
+  <h1>Signet und Favicon</h1>
+  <p class="lede">Entwurf, noch nirgends eingebaut. Das Zeichen ist nicht neu
+  erfunden: Es ist die Wand aus Textzeilen mit dem Durchgang, die auf Folie 1
+  und Folie 15 steht — dieselbe Aussage im Format eines Browsertabs.</p>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>Drei Fassungen</h2>
+    <p class="sub">Alle drei tragen denselben Durchgang an derselben Stelle.
+    Der Unterschied ist, wie viel Wand daneben steht.</p>
+
+    <div class="reihe">
+      <div class="spalte">
+        <h3>Durchgang</h3>
+        <p>Vier Textzeilen, der Spalt geht durch. Das Motiv der Schlussfolie:
+        die Wand ist offen.</p>
+        <div class="buehne"><img src="favicon-durchgang.svg" width="112" height="112" alt="Fassung Durchgang"></div>
+      </div>
+      <div class="spalte">
+        <h3>Schlitz</h3>
+        <p>Dieselbe Wand, aber nur ein Schlitz — das Motiv der Titelfolie.
+        Geschlossener, ruhiger.</p>
+        <div class="buehne"><img src="favicon-schlitz.svg" width="112" height="112" alt="Fassung Schlitz"></div>
+      </div>
+      <div class="spalte">
+        <h3>Block</h3>
+        <p>Der kleinste Eingriff: das vorhandene Quadrat der Kopfleiste,
+        aufgetrennt. Ohne Zeilen.</p>
+        <div class="buehne"><img src="favicon-block.svg" width="112" height="112" alt="Fassung Block"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>In echter Größe</h2>
+    <p class="sub">Ein Favicon wird bei 16 Pixeln entschieden, nicht bei
+    hundert. Hier stehen die drei Fassungen so, wie der Browser sie zeigt —
+    16, 32 und 48 Pixel. <strong>Bei 16 Pixeln sind „Durchgang“ und „Schlitz“
+    kaum noch zu unterscheiden</strong>; der Unterschied entscheidet sich also
+    am großen Zeichen, nicht am Tab.</p>
+
+    <div class="reihe">
+      <div class="spalte">
+        <h3>Durchgang</h3>
+        <p></p>
+        <div class="buehne groessen">
+          <div class="gr"><img src="favicon-durchgang.svg" width="16" height="16" alt=""><span>16</span></div>
+          <div class="gr"><img src="favicon-durchgang.svg" width="32" height="32" alt=""><span>32</span></div>
+          <div class="gr"><img src="favicon-durchgang.svg" width="48" height="48" alt=""><span>48</span></div>
+        </div>
+      </div>
+      <div class="spalte">
+        <h3>Schlitz</h3>
+        <p></p>
+        <div class="buehne groessen">
+          <div class="gr"><img src="favicon-schlitz.svg" width="16" height="16" alt=""><span>16</span></div>
+          <div class="gr"><img src="favicon-schlitz.svg" width="32" height="32" alt=""><span>32</span></div>
+          <div class="gr"><img src="favicon-schlitz.svg" width="48" height="48" alt=""><span>48</span></div>
+        </div>
+      </div>
+      <div class="spalte">
+        <h3>Block</h3>
+        <p></p>
+        <div class="buehne groessen">
+          <div class="gr"><img src="favicon-block.svg" width="16" height="16" alt=""><span>16</span></div>
+          <div class="gr"><img src="favicon-block.svg" width="32" height="32" alt=""><span>32</span></div>
+          <div class="gr"><img src="favicon-block.svg" width="48" height="48" alt=""><span>48</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>Im Browsertab</h2>
+    <p class="sub">Der Grund ist deshalb vollflächig blau: Ein Zeichen aus
+    blauen Strichen auf durchsichtigem Grund verschwindet im dunklen Tab.
+    So steht es in beiden.</p>
+
+    <div class="tabs">
+      <div class="fenster">
+        <div class="leiste hell">
+          <div class="tab hell">
+            <img src="favicon-durchgang.svg" width="16" height="16" alt="">
+            <span class="tabtext">KLARTEXT — Redaktionsassistenz VHS…</span>
+          </div>
+        </div>
+        <div class="fensterfuss">Helles Fenster</div>
+      </div>
+      <div class="fenster">
+        <div class="leiste dunkel">
+          <div class="tab dunkel">
+            <img src="favicon-durchgang.svg" width="16" height="16" alt="">
+            <span class="tabtext">KLARTEXT — Redaktionsassistenz VHS…</span>
+          </div>
+        </div>
+        <div class="fensterfuss">Dunkles Fenster</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>In der Kopfleiste des Werkzeugs</h2>
+    <p class="sub">Oben der Bestand, unten der Entwurf. Beides in echter
+    Größe — das Quadrat misst 14 Pixel.</p>
+
+    <div class="kopfprobe" style="margin-bottom:16px">
+      <div class="kopfzeile">
+        <div class="mark"><span class="sq"></span><span class="wortmarke">KLARTEXT</span></div>
+        <div class="kopfsub">Redaktionsassistenz &middot; Volkshochschule Frankfurt am Main</div>
+      </div>
+      <div class="kopfnote">Bestand: volles Quadrat</div>
+    </div>
+
+    <div class="kopfprobe">
+      <div class="kopfzeile">
+        <div class="mark">
+          <img src="favicon-durchgang.svg" width="14" height="14" alt="">
+          <span class="wortmarke">KLARTEXT</span>
+        </div>
+        <div class="kopfsub">Redaktionsassistenz &middot; Volkshochschule Frankfurt am Main</div>
+      </div>
+      <div class="kopfnote">Entwurf: dieselbe Stelle, dieselbe Größe</div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>Auf Markenfläche</h2>
+    <p class="sub">Für Titel- und Schlussfolie. Hier steht das Signet größer
+    und mit acht Zeilen statt vier: <code>signet-gross.svg</code>. Bei 16
+    Pixeln wären acht Zeilen Matsch, ab 32 tragen sie.</p>
+
+    <div class="folie">
+      <img src="signet-gross.svg" width="64" height="64" alt="">
+      <div>
+        <div class="wm">KLARTEXT</div>
+        <div class="wmsub">Redaktionsassistenz · Volkshochschule Frankfurt am Main</div>
+      </div>
+    </div>
+    <p class="sub" style="margin:14px 0 0">Zu entscheiden: Das Signet trägt
+    <code>--marke</code> als Grund und verschwindet deshalb auf einer Fläche
+    derselben Farbe — übrig bleiben Zeilen und Durchgang. Das sieht ruhig aus,
+    ist aber nicht dasselbe Zeichen wie im Tab. Darunter dieselbe Marke auf
+    <code>--marke-dunkel</code>, wie die Wand in <code>zeichnen.py</code>: Dort
+    bleibt das Signet als Fläche erkennbar.</p>
+
+    <div class="folie" style="background:var(--marke-dunkel); margin-top:14px">
+      <img src="signet-gross.svg" width="64" height="64" alt="">
+      <div>
+        <div class="wm">KLARTEXT</div>
+        <div class="wmsub">Redaktionsassistenz · Volkshochschule Frankfurt am Main</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <div class="karte">
+    <h2>Woher die Werte kommen</h2>
+    <p class="sub">Keine neue Farbe, keine neue Form. Alles steht schon in
+    DESIGN.md oder in <code>bilder/zeichnen.py</code>.</p>
+    <table>
+      <thead>
+        <tr><th>Element</th><th>Wert</th><th>Herkunft</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Grundfläche</td><td><code>--marke</code> #14459E</td>
+            <td>Markenfläche, wie das Quadrat der Kopfleiste</td></tr>
+        <tr><td>Textzeilen</td><td><code>--auf-marke</code> #B9DFFA</td>
+            <td>einzige Akzentfarbe auf Markenfläche; dieselbe wie im Folienbild</td></tr>
+        <tr><td>Durchgang</td><td>Weiß</td>
+            <td>„Hinter dem Durchgang wird es hell“ — <code>zeichnen.py</code>, Zeile 148</td></tr>
+        <tr><td>Lage des Spalts</td><td>46 % der Breite</td>
+            <td>derselbe Anteil wie in der Wand auf Folie 1 und 15</td></tr>
+        <tr><td>Zeilenlängen</td><td>1,00 · 0,86 · 0,94 · 0,71 …</td>
+            <td>die ersten Werte aus <code>ZEILEN</code> in <code>zeichnen.py</code></td></tr>
+        <tr><td>Raster</td><td>ganzzahlig, 16 bzw. 48</td>
+            <td>damit bei 16 px nichts weichgerechnet wird</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="fuss">Entwurfsstand. Nichts davon ist in Präsentation, Dokument
+  oder Werkzeug eingebaut. Die Dateien liegen in
+  <code>entwurf/logo/</code>.</p>
+
+</div>
+</body>
+</html>

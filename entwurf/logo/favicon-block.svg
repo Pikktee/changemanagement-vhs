@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" role="img" aria-label="KLARTEXT">
+  <!-- Favicon, Fassung „Block". Der kleinste Eingriff in den Bestand: das
+       vorhandene Quadrat der Kopfleiste (.sq in tool/index.html), aufgetrennt
+       durch denselben Durchgang. Kein Zeilenmotiv — dafuer auch bei 16px
+       nichts, was zu Matsch werden koennte. -->
+  <rect width="16" height="16" fill="#14459E"/>
+  <rect x="7" y="0" width="2" height="16" fill="#FFFFFF"/>
+</svg>

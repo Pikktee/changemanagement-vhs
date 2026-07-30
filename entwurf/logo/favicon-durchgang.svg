@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" role="img" aria-label="KLARTEXT">
+  <!-- Favicon, Fassung „Durchgang". Ganzzahliges 16er Raster: bei 16px
+       rastert nichts weich, bei 32 und 180px skaliert es sauber.
+       Vollflaechiger Markengrund, damit das Zeichen auch im dunklen
+       Browsertab steht. Farben nach DESIGN.md: auf Markenflaeche gilt
+       Weiss oder die Rolle auf-marke, sonst nichts. -->
+  <rect width="16" height="16" fill="#14459E"/>
+  <g fill="#B9DFFA">
+    <!-- Vier Textzeilen, unterschiedlich lang wie ein echter Absatz.
+         Die letzte ist kurz, das macht sie als Text lesbar. -->
+    <rect x="2" y="1"  width="12" height="2"/>
+    <rect x="2" y="5"  width="10" height="2"/>
+    <rect x="2" y="9"  width="12" height="2"/>
+    <rect x="2" y="13" width="5"  height="2"/>
+  </g>
+  <!-- Der Durchgang, bei 46 Prozent der Zeilenbreite wie in zeichnen.py.
+       Weiter rechts blieben rechts davon nur Stummel stehen, und das liest
+       sich als Bruch statt als Durchgang. Er reicht von oben nach unten
+       durch: ein Spalt, der vor dem Rand aufhoert, ist ein Schlitz und
+       sagt das Gegenteil. -->
+  <rect x="7" y="0" width="3" height="16" fill="#FFFFFF"/>
+</svg>

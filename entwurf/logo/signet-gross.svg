@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="KLARTEXT">
+  <!-- Signet fuer grosse Darstellung: Folie, Titelblatt, Druck.
+       Dieselbe Wand wie das Favicon, aber mit acht Zeilen statt vier — bei
+       16px waeren die nicht mehr zu unterscheiden, ab etwa 32px tragen sie.
+       Zeilenlaengen sind die ersten acht Werte aus ZEILEN in
+       bilder/zeichnen.py, damit Signet und Folienbild dasselbe Textbild
+       zeigen. Der Durchgang sitzt wie dort bei 46 Prozent der Breite. -->
+  <rect width="48" height="48" fill="#14459E"/>
+  <g fill="#B9DFFA">
+    <rect x="3" y="1"  width="42" height="4"/>
+    <rect x="3" y="7"  width="36" height="4"/>
+    <rect x="3" y="13" width="39" height="4"/>
+    <rect x="3" y="19" width="30" height="4"/>
+    <rect x="3" y="25" width="42" height="4"/>
+    <rect x="3" y="31" width="38" height="4"/>
+    <rect x="3" y="37" width="26" height="4"/>
+    <rect x="3" y="43" width="41" height="4"/>
+  </g>
+  <rect x="22" y="0" width="6" height="48" fill="#FFFFFF"/>
+</svg>
