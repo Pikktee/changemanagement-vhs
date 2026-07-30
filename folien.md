@@ -527,35 +527,25 @@ quellen:
 
 ### NOTIZ
 
-Der Zeitplan: drei Monate, drei Stränge — Technik, Kommunikation, Change —,
-die neun Phasen aus der Aufgabenstellung als Überschrift jeder Zelle. Die
-Zellen könnt ihr mitlesen, ich erkläre die Logik dahinter.
+Der Zeitplan: drei Monate, drei Stränge, die neun Phasen aus der
+Aufgabenstellung. Und eine Logik dahinter, eine Kette von Freigaben:
+==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
+Ich gehe die Stränge einmal durch.
 
-### Die Logik: eine Kette von Freigaben
-- Dieser Plan ist keine Abfolge von Terminen, sondern eine Kette von Freigaben. Jeder Monat gibt den nächsten erst frei.
-- ==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
-- Deshalb wird der Rollout im dritten Monat nur vorbereitet. Ob er kommt, entscheidet die Nachmessung — nicht der Kalender. ((Ein Plan, der das Nein am Ende nicht vorsieht, wäre keiner.))
+### Technische Implementation
+- **Setup:** Der Assistent wird im bestehenden KI-Zugang des Verbands angelegt. Den Prompt schärfe ich im Prüfwerkzeug an echten Kurstexten — jeder Lauf wird protokolliert.
+- **Pilot:** Ein Fachbereich, nur neu entstehende Texte. Klein genug, um alle Beteiligten wirklich einzubinden.
+- **Rollout:** Wird nur vorbereitet. ==Ob er kommt, entscheidet die Nachmessung — nicht der Kalender.==
 
-### Technik-Strang: die Rolle des Prüfwerkzeugs
-- Das Setup im ersten Monat ist bewusst klein: Der Assistent wird im bestehenden KI-Zugang des Verbands angelegt — kein Einkauf, keine neue Stelle.
-- Geschärft wird der Prompt im eigenen Prüfwerkzeug, dem von eben: Es holt echte Kurstexte selbst und protokolliert jeden Lauf.
-- Im Pilot stehen dann beide Wege offen: der Assistent für den Fachbereich, daneben das Prüfwerkzeug. ((Dort laufen Namensschutz und die Korrektur der Einstufung im Code mit.))
+### Kommunikation
+- **Ankündigung:** Erst die Dienstvereinbarung mit dem Personalrat, dann die Bekanntgabe im Haus — in dieser Reihenfolge, sonst verhandelt man öffentlich.
+- **Training:** Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System, bevor der erste Text geprüft wird. Pflicht ist sie ohnehin: **Artikel 4 der KI-Verordnung**, für alle, die bedienen. ((Wer nicht bedient, braucht keine Schulung — deshalb bleiben die Kursleitungen draußen.))
+- **Support:** Eine feste Sprechstunde statt Zuruf. Sie senkt die Schwelle zu fragen, hält den Aufwand planbar — und dieselbe Frage dreimal in einer Stunde ist ein Befund am Prompt oder an der Schulung.
 
-### Monat 2, Kommunikation: Training
-- Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System: einen Kurstext prüfen lassen, die Befunde lesen, annehmen oder verwerfen — und die Grenze kennen: ==Die KI schlägt vor, entschieden wird im Fachbereich.==
-- Verpflichtend ist das ohnehin: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz — ausdrücklich bezogen auf den Einsatzkontext. Genau das leistet eine Schulung am Werkzeug selbst, kein Foliensatz über KI im Allgemeinen.
-- Die Pflicht gilt für das Personal und für alle, die im Auftrag mit Betrieb und Nutzung befasst sind. Deshalb steht in der Zelle nicht „Personal“, sondern „alle, die bedienen“. ((Wer nicht bedient, braucht die Schulung nicht — deshalb bleiben die Kursleitungen aus dieser Kette.))
-
-### Monat 3, Kommunikation: warum eine feste Sprechstunde
-- Support auf Zuruf klingt großzügig und ist das Gegenteil: Wer fragen will, muss erst entscheiden, ob seine Frage eine Störung wert ist. Viele fragen dann gar nicht — und legen das Werkzeug leise weg.
-- Ein festes Fenster senkt diese Schwelle, und es macht den Aufwand planbar — ein Projektteam, das nebenbei erreichbar wäre, gibt es hier nicht.
-- Und: Dieselbe Frage dreimal in einer Sprechstunde ist ein Befund — am Prompt oder an der Schulung. Dreimal auf Zuruf verteilt, merkt das niemand.
-
-### Der Kasten unten: die Textbausteine
-- Was mit Textbausteinen gemeint ist: Textteile, die zentral gepflegt werden und wortgleich in vielen Kursbeschreibungen stehen — der Anmeldehinweis etwa, oder die Beschreibung der Niveaustufe.
-- Der Fachbereich, der die Befunde bekommt, darf genau diese Teile nicht ändern — das war die Verlustangst von der Widerstandsfolie. Beim Kernfall, dem Deutschkurs auf A2, ist das mehr als die halbe Beschreibung.
-- Warum zuerst? ==Ein korrigierter Textbaustein wirkt sofort in allen Kursen, die ihn verwenden== — der früheste sichtbare Erfolg, den dieses Projekt haben kann.
-- Deshalb das Fragen vor dem Handeln: Die Zuständigkeit wird im ersten Monat geklärt, korrigiert wird im zweiten. ((Ohne sie dürfte im zweiten Monat niemand einen Textbaustein anfassen.))
+### Change
+- **Vorbereitung:** Den Pilotbereich gewinnen, nicht zuweisen. Die Betroffenen befragen, bevor etwas läuft. Und klären, wer die Textbausteine ändern darf — die zentral gepflegten Teile, die wortgleich in vielen Kursen stehen. ((Das war die Verlustangst von der Widerstandsfolie.))
+- **Einbindung:** Der Bereich wählt selbst, welche Regeln verbindlich gelten. Und er korrigiert die Textbausteine zuerst: ==Ein korrigierter Textbaustein wirkt sofort in allen Kursen, die ihn verwenden.==
+- **Begleitung:** Die Nachmessung, mit demselben Skript wie die Ausgangsmessung — sonst weiß man nicht, ob die Texte besser wurden oder nur die Messung anders. Danach fällt die Rollout-Entscheidung.
 
 
 ## 13 — Die ersten 30 Tage
@@ -565,11 +555,11 @@ kapitel: 03 · ZEITPLAN UND NÄCHSTE SCHRITTE
 titel: Die ersten
 akzent: 30 Tage.
 klein: ja
-schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
+schrittetitel: VIER SCHRITTE · JEDER BEDINGT DEN NÄCHSTEN
 schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
   - "Einen Fachbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
-  - "Die Freigabe der Textbausteine klären > Sonst darf sie im Pilot niemand ändern."
+  - "Die Freigabe der Textbausteine klären > Ein korrigierter Textbaustein wirkt in vielen Kursen zugleich."
   - "Assistent im KI-Zugang des Verbands anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
 
