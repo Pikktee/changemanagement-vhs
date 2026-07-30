@@ -84,6 +84,7 @@ import os
 import re
 import sys
 import textwrap
+import threading
 from pathlib import Path
 
 WURZEL = Path(__file__).parent
@@ -676,6 +677,214 @@ JS_START = """
 gehe(ausAdresse(), false);
 """
 
+# Roher String: der Umwandler enthaelt Regulaerausdruecke und \\n als Zeichen
+# im JavaScript. In einem gewoehnlichen Python-String wuerde daraus schon beim
+# Erzeugen der Datei ein echter Zeilenumbruch.
+JS_EDIT = r"""
+// ---------- Notiz bearbeiten ----------
+//
+// Geschrieben wird in folien.md, dafuer braucht es einen Server, der schreiben
+// kann. python3 -m http.server kann es nicht; ob dieser es kann, wird einmal
+// beim Aufbau gefragt.
+
+let bearbeitet = false;   // Editiermodus an
+let schmutzig  = false;   // ungespeicherte Aenderung im Kasten
+let schreibbar = false;   // Server nimmt POST /notiz an
+let meldung    = '';      // Statuszeile, verdraengt den Fusstext
+let meldeUhr   = 0;
+
+const FUSS_RUHE = eFuss.textContent;
+
+function imEditor(){ return bearbeitet; }
+
+function fussSetzen(){
+  if (meldung) { eFuss.textContent = meldung; eFuss.hidden = false; return; }
+  if (bearbeitet) {
+    eFuss.textContent = schmutzig
+      ? 'Bearbeiten — noch nicht gespeichert. ⌘S speichert, Esc speichert und schließt, ⌘B setzt fett.'
+      : 'Bearbeiten — gespeichert. Esc schließt, ⌘B setzt fett.';
+    eFuss.hidden = false;
+    return;
+  }
+  eFuss.textContent = FUSS_RUHE;
+  eFuss.hidden = geblaettert;
+}
+
+function melde(text, dauer){
+  clearTimeout(meldeUhr);
+  meldung = text || '';
+  fussSetzen();
+  if (meldung && dauer) {
+    meldeUhr = setTimeout(() => { meldung = ''; fussSetzen(); }, dauer);
+  }
+}
+
+// ---------- Kasten zurueck nach Markdown ----------
+//
+// Nicht die Sterne beim Durchlaufen einsetzen und auf das Beste hoffen:
+// contenteditable schachtelt gern (<b><b>x</b></b>) und zerteilt eine
+// Auszeichnung an der Stelle, an der der Cursor stand. Deshalb entsteht erst
+// eine flache Folge aus {text, fett}, in der gleiche Nachbarn verschmelzen.
+// Die Sterne kommen zuletzt und koennen so nicht doppelt auftreten.
+
+const BLOCK = /^(P|DIV|LI|BLOCKQUOTE|PRE|H[1-6]|TR)$/;
+
+function istFett(k){
+  if (k.tagName === 'STRONG' || k.tagName === 'B') return true;
+  const g = k.style && k.style.fontWeight;
+  return g === 'bold' || g === 'bolder' || parseInt(g, 10) >= 600;
+}
+
+function alsMarkdown(){
+  const teile = [];
+  function schiebe(text, fett){
+    if (!text) return;
+    const letzt = teile[teile.length - 1];
+    if (letzt && letzt.fett === fett) letzt.text += text;
+    else teile.push({text: text, fett: fett});
+  }
+  function lauf(knoten, fett){
+    for (const k of knoten.childNodes) {
+      if (k.nodeType === 3) { schiebe(k.data, fett); continue; }
+      if (k.nodeType !== 1) continue;
+      if (k.tagName === 'BR') { schiebe('\n\n', false); continue; }
+      lauf(k, fett || istFett(k));
+      if (BLOCK.test(k.tagName)) schiebe('\n\n', false);
+    }
+  }
+  lauf(eNotiz, false);
+
+  let t = '';
+  for (const s of teile) {
+    if (!s.fett) { t += s.text; continue; }
+    // Die Sterne muessen am Wort kleben: '** fett **' ist in Markdown keine
+    // Auszeichnung, sondern landet als vier Sternchen im Vortragstext.
+    const m = /^(\s*)([\s\S]*?)(\s*)$/.exec(s.text);
+    t += m[2] ? m[1] + '**' + m[2] + '**' + m[3] : s.text;
+  }
+
+  // Absaetze trennen an Leerzeilen. Aller uebrige Weissraum — einzelne
+  // Umbrueche, Tabulatoren, die geschuetzten Leerzeichen, die contenteditable
+  // beim Tippen einstreut — wird zu einem Leerzeichen. In folien.md steht
+  // danach je Absatz ein Block; den Zeilenumbruch darin macht umbrechen().
+  return t.split(/\n\s*\n/)
+          .map(b => b.replace(/\s+/g, ' ').trim())
+          .filter(Boolean)
+          .join('\n\n');
+}
+
+// ---------- Oeffnen, speichern, schliessen ----------
+
+function editorOeffnen(){
+  if (bearbeitet) return;
+  if (!schreibbar) {
+    melde('Bearbeiten braucht den schreibenden Server: python3 notizen.py --server', 8000);
+    return;
+  }
+  bearbeitet = true;
+  schmutzig = false;
+  // Rollen erlauben: beim Tippen darf der Text ueber den Kasten hinaus
+  // wachsen. Die Schriftgroesse bleibt derweil stehen, siehe einpassen().
+  eNotiz.classList.add('bearbeitet', 'rollt');
+  eNotiz.contentEditable = 'true';
+  eNotiz.spellcheck = true;
+  eNotiz.focus();
+  // Ohne das legt Chrome fuer Fettdruck ein <span style="font-weight:bold">
+  // an statt eines <b>. Lesbar waere beides, aber <b> ist das, was der
+  // Umwandler oben zuerst prueft.
+  try { document.execCommand('styleWithCSS', false, false); } catch (e) {}
+  melde('');
+}
+
+async function speichern(){
+  const text = alsMarkdown();
+  if (!text) { melde('Die Notiz ist leer — nicht gespeichert.', 8000); return false; }
+  melde('Speichere …');
+  let d;
+  try {
+    const a = await fetch('/notiz', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({nr: FOLIEN[folie].nr, text: text})
+    });
+    d = await a.json();
+  } catch (e) {
+    melde('Server nicht erreichbar. Es wurde nichts gespeichert.', 10000);
+    return false;
+  }
+  if (!d.ok) { melde('Nicht gespeichert: ' + d.fehler, 10000); return false; }
+  // Der Server liefert die Absaetze so zurueck, wie sie beim naechsten Start
+  // aus der Datei gelesen wuerden. Damit zeigt der Kasten nach dem Schliessen
+  // genau das, was in folien.md steht — nicht das, was man getippt hat.
+  FOLIEN[folie].text = d.absaetze;
+  schmutzig = false;
+  melde('In folien.md gespeichert.', 4000);
+  return true;
+}
+
+async function editorSchliessen(){
+  if (!bearbeitet) return;
+  if (schmutzig && !(await speichern())) return;   // Fehler: offen lassen
+  bearbeitet = false;
+  eNotiz.contentEditable = 'false';
+  eNotiz.spellcheck = false;
+  eNotiz.classList.remove('bearbeitet');
+  const f = FOLIEN[folie];
+  eNotiz.innerHTML = f.text.map(p => '<p>' + p + '</p>').join('');
+  eNotiz.scrollTop = 0;
+  einpassen();
+  fussSetzen();
+}
+
+// ---------- Tastatur und Eingabe ----------
+
+// Laeuft nach dem Handler in JS_GEMEINSAM, der bei offenem Editor sofort
+// aussteigt. Diese drei Griffe sind die einzigen, die dann noch gelten.
+document.addEventListener('keydown', ev => {
+  if (!bearbeitet) return;
+  const k = ev.key, cmd = ev.metaKey || ev.ctrlKey;
+  if (k === 'Escape') { ev.preventDefault(); editorSchliessen(); }
+  else if (cmd && (k === 's' || k === 'S')) { ev.preventDefault(); speichern(); }
+  else if (cmd && (k === 'b' || k === 'B')) {
+    ev.preventDefault();
+    document.execCommand('bold');
+    schmutzig = true;
+    fussSetzen();
+  }
+});
+
+eNotiz.addEventListener('input', () => {
+  if (!bearbeitet || schmutzig) return;
+  schmutzig = true;
+  fussSetzen();
+});
+
+// Eingefuegter Text aus Word oder aus einer Website bringt sonst <span
+// style=...>, <font> und ganze Tabellen mit in den Kasten. Uebernommen wird
+// nur der reine Text; fett setzt man danach mit ⌘B.
+eNotiz.addEventListener('paste', ev => {
+  if (!bearbeitet) return;
+  ev.preventDefault();
+  const t = (ev.clipboardData || window.clipboardData).getData('text/plain');
+  document.execCommand('insertText', false, t);
+});
+eNotiz.addEventListener('drop', ev => { if (bearbeitet) ev.preventDefault(); });
+
+addEventListener('beforeunload', ev => {
+  if (!schmutzig) return;
+  ev.preventDefault();
+  ev.returnValue = '';
+});
+
+// Einmal fragen, ob der Server schreiben kann. Bei python3 -m http.server
+// gibt es /notiz nicht, dann bleibt schreibbar false und die Taste E meldet
+// das beim Druecken.
+fetch('/notiz')
+  .then(a => a.ok ? a.json() : null)
+  .then(d => { schreibbar = !!(d && d.schreibbar); })
+  .catch(() => {});
+"""
+
 
 # --------------------------------------------------------------------------
 # Seiten zusammensetzen
@@ -704,7 +913,7 @@ def seite(titel, css, js, koerper, liste):
 const FOLIEN = {json.dumps(liste, ensure_ascii=False)};
 </script>
 <script>{JS_GEMEINSAM}</script>
-<script>{js}</script>
+<script>{js}{JS_START}</script>
 </body>
 </html>
 """
@@ -725,7 +934,7 @@ def baue():
 </div>"""
 
     (AUS / "notizen.html").write_text(
-        seite("KLARTEXT — Referentennotizen", CSS_NOTIZEN, JS_NOTIZEN,
+        seite("KLARTEXT — Referentennotizen", CSS_NOTIZEN, JS_NOTIZEN + JS_EDIT,
               koerper_notizen, liste), encoding="utf-8")
 
     (AUS / "vortrag.html").write_text(
@@ -737,10 +946,124 @@ def baue():
     print(f"  ausgabe/notizen.html   laengste Notiz: Folie {laengste['nr']}, "
           f"{sum(len(p.split()) for p in laengste['text'])} Woerter")
     print("  ausgabe/vortrag.html")
-    print("  Beide ueber den lokalen Server oeffnen, sonst koppeln sie nicht:")
-    print("    http://localhost:8795/ausgabe/notizen.html")
-    print("    http://localhost:8795/ausgabe/vortrag.html")
+    return build
+
+
+# --------------------------------------------------------------------------
+# Server
+# --------------------------------------------------------------------------
+#
+# Reicht python3 -m http.server nicht? Zum Blaettern schon. Aber der Editor
+# schreibt zurueck, und dafuer braucht es jemanden, der POST annimmt.
+#
+# Gebunden wird auf 127.0.0.1, nicht auf 0.0.0.0. Der Server nimmt Schreib-
+# zugriffe entgegen; im WLAN eines Schulungsraums hat er nichts zu suchen.
+
+# Ausgeliefert wird der ganze Projektordner, damit ../schriften und
+# ../stil.css erreichbar sind. Diese Namen liegen darin und gehen niemanden
+# etwas an — .env enthaelt den API-Schluessel.
+VERBOTEN = (".env", ".git", ".railwayignore", ".gitignore", ".DS_Store")
+
+
+class Bediener(http.server.SimpleHTTPRequestHandler):
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, directory=str(WURZEL), **k)
+
+    # ---------- Hilfen ----------
+
+    def antworte(self, code, nutzlast):
+        roh = json.dumps(nutzlast, ensure_ascii=False).encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(roh)))
+        self.end_headers()
+        self.wfile.write(roh)
+
+    def gesperrt(self):
+        teile = self.path.split("?")[0].split("/")
+        return any(t in VERBOTEN for t in teile)
+
+    def end_headers(self):
+        # Eine Stelle, alle Antworten. Ohne das liefert der Browser nach einem
+        # neuen Lauf von notizen.py weiter die alte notizen.html aus dem Cache
+        # — derselbe Fallstrick, den CLAUDE.md fuer die Pruefseite beschreibt.
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
+    def log_message(self, *a):
+        pass          # das Blaettern soll die Konsole nicht zumuellen
+
+    # ---------- Anfragen ----------
+
+    def do_GET(self):
+        if self.gesperrt():
+            return self.antworte(403, {"ok": False, "fehler": "gesperrt"})
+        if self.path.split("?")[0] == "/notiz":
+            return self.antworte(200, {"schreibbar": True})
+        return super().do_GET()
+
+    def do_HEAD(self):
+        if self.gesperrt():
+            return self.antworte(403, {"ok": False, "fehler": "gesperrt"})
+        return super().do_HEAD()
+
+    def do_POST(self):
+        if self.path.split("?")[0] != "/notiz":
+            return self.antworte(404, {"ok": False, "fehler": "unbekannter Weg"})
+        try:
+            laenge = int(self.headers.get("Content-Length") or 0)
+            if laenge <= 0 or laenge > 200_000:
+                raise ValueError("unglaubwuerdige Laenge")
+            daten_ = json.loads(self.rfile.read(laenge).decode("utf-8"))
+            nr = int(daten_["nr"])
+            text = str(daten_["text"])
+        except Exception as ex:
+            return self.antworte(400, {"ok": False, "fehler": f"Anfrage: {ex}"})
+
+        try:
+            # notiz_schreiben liest, rechnet nach und schreibt. Zwei Anfragen
+            # gleichzeitig wuerden gegen denselben alten Stand rechnen und die
+            # erste Aenderung stillschweigend ueberschreiben.
+            with self.server.schloss:
+                neu = notiz_schreiben(nr, text, self.server.build)
+        except Exception as ex:
+            # Bewusst breit: was hier auch schiefgeht, folien.md ist dann
+            # unveraendert, und der Grund gehoert auf den Bildschirm des
+            # Referenten statt in ein Serverprotokoll, das niemand liest.
+            print(f"  ! Folie {nr} nicht gespeichert: {ex}")
+            return self.antworte(400, {"ok": False, "fehler": str(ex)})
+
+        print(f"  Folie {nr:02d}: Notiz gespeichert "
+              f"({len(neu)} Absätze, {sum(len(a.split()) for a in neu)} Wörter)")
+        return self.antworte(200, {"ok": True, "absaetze": neu})
+
+
+def bediene():
+    build = baue()
+    server = http.server.ThreadingHTTPServer(("127.0.0.1", PORT), Bediener)
+    server.build = build
+    server.schloss = threading.Lock()
+    print(f"\n  Server auf http://localhost:{PORT}  (Strg+C beendet ihn)")
+    print(f"    http://localhost:{PORT}/ausgabe/notizen.html   Taste E bearbeitet")
+    print(f"    http://localhost:{PORT}/ausgabe/vortrag.html")
+    print("\n  Gespeicherte Notizen gehen sofort nach folien.md. Die PowerPoint")
+    print("  entsteht davon nicht neu — dafuer danach python3 build.py.\n")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nBeendet.")
+    finally:
+        server.server_close()
 
 
 if __name__ == "__main__":
-    baue()
+    if "--server" in sys.argv:
+        bediene()
+    else:
+        baue()
+        print("  Beide ueber den lokalen Server oeffnen, sonst koppeln sie nicht:")
+        print(f"    cd abschlussprojekt-vhs && python3 -m http.server {PORT}")
+        print(f"    http://localhost:{PORT}/ausgabe/notizen.html")
+        print(f"    http://localhost:{PORT}/ausgabe/vortrag.html")
+        print("  Zum Bearbeiten der Notizen: python3 notizen.py --server")
