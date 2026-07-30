@@ -792,9 +792,9 @@ zeilen:
   - "Texte für Deutschkurse A1/A2 mit Wörtern über Niveau | 31 von 31 | ! höchstens 10 von 31 | eigenes Messskript, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
-  - "Die Protokolle werden gegen das Unternehmen verwendet. Sie belegen datiert, was vorher nur unbemerkt war. > Zweckbindung, Zugriffskreis und Löschfrist in dieselbe Dienstvereinbarung — und zu jedem Befundstand ein Abstellplan mit Datum."
+  - "Die Ziele lassen sich erfüllen, ohne dass ein Text besser wird. Ein kürzerer Satz ist nicht automatisch ein verständlicherer. > Deshalb fragt die vierte Kennzahl nicht den Text, sondern die Teilnehmenden."
 callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
-quellen: Ausgangsmessung mit eigenem Messskript, ganzer Kursbestand vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
+quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 ### NOTIZ
 

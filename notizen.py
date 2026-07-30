@@ -22,6 +22,21 @@ Bedienung (auf beiden Seiten gleich):
                        gemerkt in localStorage)
     Ein Klick blaettert ebenfalls vor.
 
+Notizen bearbeiten (Taste E) braucht den mitgelieferten Server:
+
+    python3 notizen.py --server
+
+Er baut die beiden Seiten, liefert sie auf 8795 aus und nimmt unter
+POST /notiz die geaenderte Notiz entgegen. Geschrieben wird ausschliesslich
+der Notizblock der einen Folie in folien.md; der Rest der Datei bleibt Byte
+fuer Byte stehen (siehe notiz_schreiben). Ein Build laeuft dabei NICHT — die
+Folienbilder aendern sich durch eine Notiz nicht, und build.py committet
+selbst. Wer die PowerPoint mit den neuen Notizen will, baut danach von Hand
+oder laesst watch.py nebenher laufen.
+
+Mit "python3 -m http.server" laufen die Seiten weiter, nur ohne Editor: die
+Taste E meldet dann, dass kein schreibender Server da ist.
+
 Direkt anspringen laesst sich eine Folie mit ?folie=5 in der Adresse. Das
 zaehlt nicht als Blaettern, der Hinweis in der Fusszeile bleibt stehen.
 
@@ -62,14 +77,28 @@ zum unteren Rand zwischen 5 und 149 Pixeln.
 """
 
 import html
+import http.server
 import importlib.util
 import json
+import os
 import re
+import sys
+import textwrap
 from pathlib import Path
 
 WURZEL = Path(__file__).parent
 QUELLE = WURZEL / "folien.md"
 AUS = WURZEL / "ausgabe"
+
+PORT = 8795
+
+# Zeilenbreite beim Zurueckschreiben. folien.md ist von Hand auf diese Breite
+# umbrochen (gemessen: Median 73, Maximum 78). Der Umbruch ist nicht nur
+# Kosmetik — notiz_setzen() in build.py macht aus jeder Quellzeile einen
+# eigenen Absatz der PowerPoint-Notiz. Wer hier eine Notiz als eine einzige
+# 2000-Zeichen-Zeile ablegt, bekommt sie in der Referentenansicht als einen
+# Block ohne Umbruch zurueck.
+UMBRUCH = 78
 
 
 def lade_build():
@@ -135,6 +164,118 @@ def daten(folien):
             "text": [fett(a) for a in absaetze(f.get("notiz", ""))],
         })
     return liste
+
+
+# --------------------------------------------------------------------------
+# Notiz zurueck in folien.md
+# --------------------------------------------------------------------------
+#
+# Warum nicht ueber parse() und einen Serialisierer:
+#
+# parse() aus build.py ist verlustbehaftet. Es wirft den Kopfkommentar der
+# Datei weg, die Merkzettel hinter "## 3 — ", die Leerzeilen und die
+# optionalen Anfuehrungszeichen um Listenwerte. Wer die Datei aus dem Ergebnis
+# neu schreibt, verliert all das bei der ersten Notizaenderung.
+#
+# Hier wird deshalb nur der Zeilenbereich EINER Notiz ersetzt. Alles andere —
+# auch die Notizen der uebrigen 14 Folien — bleibt unberuehrt, und genau das
+# wird vor dem Schreiben nachgerechnet.
+
+
+def notiz_bereich(zeilen, nr):
+    """(start, ende, letzte) des Notiztextes von Folie nr, 1-basiert.
+
+    start ist die erste Zeile nach '### NOTIZ', ende die erste Zeile, die
+    nicht mehr dazugehoert (die naechste '## '-Zeile oder das Dateiende).
+    """
+    marken = [i for i, z in enumerate(zeilen) if z.startswith("## ")]
+    if not marken:
+        raise ValueError("folien.md enthaelt keine Folie.")
+    if not 1 <= nr <= len(marken):
+        raise ValueError(f"Folie {nr} gibt es nicht, die Datei hat {len(marken)}.")
+
+    von = marken[nr - 1]
+    letzte = nr == len(marken)
+    bis = len(zeilen) if letzte else marken[nr]
+
+    for i in range(von, bis):
+        if zeilen[i].strip().upper() in ("### NOTIZ", "### NOTIZEN"):
+            return i + 1, bis, letzte
+    raise ValueError(f"Folie {nr} hat keinen '### NOTIZ'-Block.")
+
+
+def umbrechen(text):
+    """Absaetze auf UMBRUCH Zeichen umbrechen, getrennt durch Leerzeilen.
+
+    break_on_hyphens=False, weil textwrap sonst an jedem Bindestrich trennen
+    darf und aus 'KI-gestuetzt' zwei Zeilen macht. break_long_words=False
+    haelt lange URLs zusammen — die eine 84 Zeichen lange Zeile im Bestand ist
+    genau so eine.
+    """
+    aus = []
+    for block in re.split(r"\n\s*\n", text.strip()):
+        eine = " ".join(z.strip() for z in block.splitlines() if z.strip())
+        if eine:
+            aus.append(textwrap.fill(eine, width=UMBRUCH,
+                                     break_long_words=False,
+                                     break_on_hyphens=False))
+    return aus
+
+
+def notiz_schreiben(nr, text, build):
+    """Notiz der Folie nr ersetzen. Gibt die neuen Absaetze zurueck.
+
+    Wirft ValueError, wenn etwas nicht stimmt — dann bleibt die Datei
+    unangetastet. Geschrieben wird ueber eine Nebendatei und os.replace, damit
+    ein Abbruch mitten im Schreiben keine halbe folien.md hinterlaesst.
+    """
+    if not text.strip():
+        raise ValueError("Leere Notiz wird nicht geschrieben.")
+
+    # Eine Zeile, die mit '#' beginnt, wuerde beim naechsten Lesen als neue
+    # Folie oder als Notizmarke gelten und die Datei zerlegen.
+    for z in text.splitlines():
+        if z.lstrip().startswith("#"):
+            raise ValueError(
+                "Eine Zeile beginnt mit '#'. Das wuerde folien.md zerlegen.")
+
+    alt_text = QUELLE.read_text(encoding="utf-8")
+    alt = build.parse(alt_text)
+
+    # split statt splitlines: der Abschluss der Datei soll beim join
+    # unveraendert zurueckkommen.
+    zeilen = alt_text.split("\n")
+    start, ende, letzte = notiz_bereich(zeilen, nr)
+
+    # Leerzeile nach '### NOTIZ', dann der Text. Danach die zwei Leerzeilen,
+    # die im Bestand vor jeder '## '-Zeile stehen. Bei der letzten Folie endet
+    # die Datei stattdessen mit genau einem Zeilenumbruch.
+    ersatz = [""] + umbrechen(text) + ([""] if letzte else ["", ""])
+    neu_text = "\n".join(zeilen[:start] + ersatz + zeilen[ende:])
+
+    # Gegenprobe: Die Datei muss weiter lesbar sein, gleich viele Folien
+    # haben, und ausser der einen Notiz darf sich nichts geaendert haben.
+    neu = build.parse(neu_text)
+    if len(neu) != len(alt):
+        raise ValueError(
+            f"Der Schnitt haette die Folienzahl von {len(alt)} auf "
+            f"{len(neu)} geaendert.")
+    for i, (a, b) in enumerate(zip(alt, neu), 1):
+        abweichung = [k for k in set(a) | set(b)
+                      if k != "_zeile" and a.get(k) != b.get(k)]
+        if i == nr:
+            if abweichung != ["notiz"]:
+                raise ValueError(
+                    f"Folie {nr}: unerwartet geaendert: {sorted(abweichung)}")
+        elif abweichung:
+            raise ValueError(
+                f"Der Schnitt haette Folie {i} mitgeaendert: {sorted(abweichung)}")
+
+    tmp = QUELLE.with_name(QUELLE.name + ".neu")
+    tmp.write_text(neu_text, encoding="utf-8")
+    os.replace(tmp, QUELLE)
+
+    return [fett(a) for a in absaetze(neu[nr - 1]["notiz"])]
 
 
 # --------------------------------------------------------------------------
@@ -243,6 +384,19 @@ h1{
 #notiz p + p{ margin-top:.62em; }
 #notiz strong{ font-weight:700; }
 
+/* ---------- Bearbeiten ---------- */
+/* outline statt border: der Rahmen sitzt ausserhalb des Boxmodells und
+   veraendert clientHeight nicht. Sonst misst die Halbierungssuche beim
+   Verlassen gegen einen anderen Kasten als beim Betreten. */
+#notiz.bearbeitet{
+  outline:2px solid var(--auf-marke);
+  outline-offset:8px;
+}
+/* Chrome zeichnet auf contenteditable zusaetzlich einen eigenen Fokusrahmen.
+   Der liegt direkt am Text und stoert neben dem eigenen. */
+#notiz.bearbeitet:focus{ outline:2px solid var(--auf-marke); }
+#notiz.bearbeitet p{ caret-color:var(--papier); }
+
 /* ---------- Fuss ---------- */
 /* Der Hinweis auf den Server steht nur, bis zum ersten Mal geblaettert
    wurde. Danach ist die Seite leer bis zum Rand. */
@@ -286,6 +440,14 @@ const kanal = (() => { try { return new BroadcastChannel(KANAL); }
 let folie = 0;                 // 0-basiert
 let geblaettert = false;
 
+// Solange die Notiz bearbeitet wird, darf nichts blaettern: Leertaste und
+// Pfeile sind dann Schreibtasten, und ein Folienwechsel wuerde den Text im
+// Kasten stillschweigend gegen den der naechsten Folie tauschen.
+// imEditor() steht nur auf der Notizseite; vortrag.html kennt es nicht.
+function editorAktiv(){
+  return typeof imEditor === 'function' && imEditor();
+}
+
 function ausAdresse(){
   const m = /[?&#]folie=(\\d+)/.exec(location.search + location.hash);
   if (m) return Math.min(FOLIEN.length, Math.max(1, parseInt(m[1], 10))) - 1;
@@ -308,6 +470,7 @@ function blaettern(i){
 }
 
 if (kanal) kanal.onmessage = e => {
+  if (editorAktiv()) return;
   if (e.data && typeof e.data.folie === 'number') {
     geblaettert = true;
     gehe(e.data.folie, false);
@@ -327,6 +490,9 @@ function vollbild(){
 }
 
 document.addEventListener('keydown', ev => {
+  // Im Editor gehoert die Tastatur dem Text. Escape, Cmd+S und Cmd+B fasst
+  // der eigene Handler der Notizseite ab, bevor dieser hier laeuft.
+  if (editorAktiv()) return;
   const k = ev.key;
   if (VOR.includes(k))          { blaettern(folie + 1); }
   else if (ZURUCK.includes(k))  { blaettern(folie - 1); }
@@ -337,6 +503,8 @@ document.addEventListener('keydown', ev => {
   else if (typeof groesser === 'function' &&
            (k === '-' || k === '_' || k === 'Subtract')) { groesser(-1); }
   else if (k === 'f' || k === 'F')  { vollbild(); }
+  else if (typeof editorOeffnen === 'function' &&
+           (k === 'e' || k === 'E')) { editorOeffnen(); }
   else return;
   ev.preventDefault();
 });
@@ -345,6 +513,7 @@ document.addEventListener('keydown', ev => {
 // Fernbedienung streikt. Nicht in einem Bereich, den man rollen kann —
 // dort will man scrollen und nicht weiterblaettern.
 document.addEventListener('click', ev => {
+  if (editorAktiv()) return;
   if (ev.target.closest && ev.target.closest('.rollt')) return;
   blaettern(folie + 1);
 });
@@ -394,6 +563,10 @@ function sucheGroesse(){
 }
 
 function einpassen(){
+  // Beim Bearbeiten bleibt die Groesse stehen, die beim Oeffnen gefunden
+  // wurde. Sonst springt der ganze Text bei jedem getippten Wort um eine
+  // Stufe, sobald er die Kastenhoehe kreuzt.
+  if (editorAktiv()) return;
   eNotiz.classList.remove('rollt');
   const basis = sucheGroesse();
 
@@ -416,7 +589,7 @@ function zeige(i){
   eWeiter.textContent = n ? 'Weiter: ' + n.titel : 'Letzte Folie.';
   eNotiz.innerHTML = f.text.map(p => '<p>' + p + '</p>').join('');
   eNotiz.scrollTop = 0;
-  eFuss.hidden = geblaettert;
+  fussSetzen();
   einpassen();
   document.title = 'Notizen ' + String(f.nr).padStart(2, '0');
 }
@@ -476,8 +649,6 @@ window.klartext = {
     absaetze: eNotiz.querySelectorAll('p').length
   })
 };
-
-gehe(ausAdresse(), false);
 """
 
 JS_VORTRAG = """
@@ -495,7 +666,13 @@ function zeige(i){
 FOLIEN.forEach(f => { const v = new Image(); v.src = f.bild; });
 
 window.klartext = { gehe: i => gehe(i, false), anzahl: () => FOLIEN.length };
+"""
 
+# Der erste Aufbau steht bewusst am Ende und nicht in den Bausteinen darueber:
+# zeige() ruft fussSetzen() und einpassen(), und die greifen auf die mit let
+# angelegten Zustaende des Editors zu. Liefe der Aufruf vor JS_EDIT, waeren
+# die noch in ihrer temporalen Totzone.
+JS_START = """
 gehe(ausAdresse(), false);
 """
 
