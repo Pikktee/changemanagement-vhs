@@ -995,9 +995,9 @@ außerhalb. Das ist der Grund, warum ich vorhin zwei Wege gezeigt habe.
 typ: schluss
 bild: bilder/15-durchgang.png
 bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
-titel: Der Prompt ist ein Nachmittag Arbeit.
-akzent: Alles, was ihn erlaubt, ist der eigentliche Aufwand.
-untertitel: Ich zeige das Werkzeug jetzt live. Danach freue ich mich auf eure Fragen.
+titel: Danke für die Aufmerksamkeit.
+akzent: Jetzt noch das Werkzeug, live.
+untertitel: An einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
 fussr: HENRIK HEIL · CIMDATA 2026
 
@@ -1015,4 +1015,5 @@ möglich macht: zu wissen, für wen ein Text ist, zu wissen, was Pflicht ist und
 was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
 schreiben, das Werkzeug nicht als Kontrolle erleben.
 
-Ich zeige euch jetzt kurz, wie es läuft. Danach gerne eure Fragen.
+Damit danke ich für die Aufmerksamkeit. Ich zeige euch jetzt kurz, wie es
+läuft, an einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.

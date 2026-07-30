@@ -108,18 +108,35 @@ def wand(p, name, offen):
     rechts = B - 78
     wandbreite = rechts - links
     zh, luecke = 15, 11  # Zeilenhoehe und Abstand
-    oben = 62
+
+    # Das Band ist oben und unten begrenzt, und die untere Grenze ist keine
+    # Schaetzung: Die Fusszeile der Panel-Folie beginnt bei y=631 mit ihrer
+    # Trennlinie, der Text darunter bei 646 (im Browser gemessen). Die Wand lief
+    # vorher bis 658 und damit mitten in die Fusszeile hinein. 18px Abstand
+    # halten sie frei, auch wenn die Zeilenhoehe einmal geaendert wird.
+    oben = 60            # Hoehe der Wortmarke, gleiche Oberkante
+    unten = 631 - 18
 
     # Der Durchgang. Auf der Titelfolie ein Schlitz, auf der Schlussfolie
     # begehbar. Dieselbe Wand, ein anderer Wert — das ist die ganze Aussage
     # der beiden Bilder.
+    #
+    # Er reicht als einziges Element von oben nach unten durch, denn ein
+    # Durchgang, der vor dem Rand aufhoert, ist ein Schlitz. Deshalb sitzt er
+    # links der rechten Fusszeile, die bei x=959 beginnt: 0,46 statt 0,58 der
+    # Wandbreite haelt ihn mit Abstand davor.
     spalt = 128 if offen else 15
-    spalt_x = links + int(wandbreite * 0.58)
+    spalt_x = links + int(wandbreite * 0.46)
 
-    for i, anteil in enumerate(ZEILEN):
-        y = oben + i * (zh + luecke)
-        if y + zh > H - oben:
-            break
+    # So viele Zeilen, wie in das Band passen, und der Rest verteilt sich als
+    # gleicher Abstand oben und unten. Sonst haengt die Wand oben fest und
+    # laesst unten eine Luecke, die wie ein Versehen aussieht.
+    passen = (unten - oben + luecke) // (zh + luecke)
+    hoch = passen * zh + (passen - 1) * luecke
+    start = oben + (unten - oben - hoch) // 2
+
+    for i, anteil in enumerate(ZEILEN[:passen]):
+        y = start + i * (zh + luecke)
         ende = links + int(wandbreite * anteil)
         # Zeile links des Durchgangs
         if spalt_x > links:
