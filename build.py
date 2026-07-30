@@ -360,18 +360,34 @@ def t_zahlen(f, seite_, gesamt):
 
 
 def t_zweispalt(f, seite_, gesamt):
+    """Zwei Spalten, wahlweise mit einer hervorgehobenen.
+
+    'betont: 2' gibt der zweiten Spalte den Markenkopf und eine ruhige
+    Fuellung. Ohne die Angabe traegt die erste den Markenkopf — so war es,
+    bevor es das Feld gab, und so bleiben alle Folien, die es nicht setzen.
+
+    Gebraucht wird das, wo die Folie zwei Zustaendigkeiten zeigt und nur eine
+    davon das Thema ist: Auf Folie 7 sass die Markenfarbe sonst auf der
+    Spalte, die gerade *nicht* zum Projekt gehoert.
+    """
+    betont = str(f.get("betont", "")).strip()
     sp = []
     for i in (1, 2):
         kopfz = f.get(f"spalte{i}", "")
         punkte = f.get(f"punkte{i}", [])
-        alt = " alt" if i == 2 else ""
+        haupt = (str(i) == betont) if betont else (i == 1)
+        alt = "" if haupt else " alt"
+        kl = " sp betont" if (betont and haupt) else " sp"
         lis = "".join(f"<li>{e(p)}</li>" for p in punkte)
-        sp.append(f'<div class="sp"><span class="spkopf{alt}">{e(kopfz)}</span>'
+        sp.append(f'<div class="{kl.strip()}"><span class="spkopf{alt}">{e(kopfz)}</span>'
                   f'<ul>{lis}</ul></div>')
+    # Das vertikale Polster braucht auch die unbetonte Spalte, sonst stehen
+    # die beiden Koepfe nicht mehr auf einer Linie.
+    rahmen = "spalten mitbetont" if betont else "spalten"
     # 'unten' verteilt den freien Platz auf die Luecken ueber und unter dem
     # Callout, statt ihn ganz ueber ihm zu sammeln. Ohne Freiraum wirkungslos.
     return seite(f, seite_, gesamt,
-                 f'<div class="spalten">{"".join(sp)}</div>{callout(f, " unten")}')
+                 f'<div class="{rahmen}">{"".join(sp)}</div>{callout(f, " unten")}')
 
 
 def _tabelle_html(f):

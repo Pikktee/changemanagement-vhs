@@ -60,8 +60,8 @@ Willkommen zu meinem Abschlussprojekt!
 - Aber nicht der technische Teil wie Kontraste oder Tastaturbedienung, sondern:
 - ob der Text ankommt bei denen, für die er geschrieben ist.
 
-### Der schärfste Fall
-- Beispiel: bietet die Volkshochschule Deutschkurse für Menschen an, die gerade erst Deutsch lernen.
+### Ein konkreter Fall
+- Beispiel: Die Volkshochschule bietet Deutschkurse für Menschen an, die gerade erst Deutsch lernen.
 - Die Beschreibungen dieser Kurse sind oft in einem Deutsch geschrieben, das man erst nach dem Kurs versteht.
 
 
@@ -131,10 +131,13 @@ Daraus folgt mein Vorschlag.
 - *vorlesen*
 
 ### Lösung
-- Ein Prüfschritt zur Sicherstellung der Zugänglichkeit eines Kurstextes für die Zielgruppe des Textes vor der Veröffentlichung. (weiter vorlesen)
+- ==Ein Prüfschritt zur Sicherstellung der Zugänglichkeit eines Kurstextes für die Zielgruppe des Textes vor der Veröffentlichung.== (weiter vorlesen)
 
 ### Abgrenzung
 - Für die technische Barrierefreiheit der Website bleiben normale Prüfwerkzeug zuständig, zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+
+### Ergebnis
+- *vorlesen*
 
 ### Der Kasten unten
 - *vorlesen*
@@ -177,7 +180,7 @@ Zunächst zum Unternehmen und zum aktuellen Prozess.
 - seit 2005 extern qualitätsgeprüft nach **LQW**, **Lernerorientierte Qualitätstestierung in der Weiterbildung**
 - Es gibt acht Programmbereiche in vier Fachbereichen
 - Geleitet wird sie von einem Direktor, der laut Impressum auch persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
-- Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den Personalrat.
+- Darüber steht eine Betriebskommission mit 16 Sitzen, 2 davon für den Personalrat.
 
 ### Der Satz oben aus der Betriebssatzung
 Der Satz oben stammt wörtlich aus der Betriebssatzung: Die Angebote stehen
@@ -218,64 +221,32 @@ quellen:
 
 Zur Potenzialermittlung. Was zählt als Befund und für wen?
 
-### Die Messung
-- Erstmal kurz zur Messung: Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle Kurstexte gezogen und mit einem eigenen Skript ausgewertet.
+- Erstmal kurz zur Messung: Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle Kurstexte erhalten und mit einem Skript ausgewertet.
 
-### Wonach gemessen wurde
-- Dabei wurde nach sechs Regeln gemessen.
-- Dieselben sechs Regeln sind zugleich der Maßstab des Prüfassistenten, den ich gleich zeige.
+### Wonach wurde gemssen?
+- Nach 6 Regeln, die auch im System-Prompt Verwendung finden
 
-### Die zwei Pflichtregeln
+### Es gibt 2 Pflichtregeln
 - Stehen auf Stufe A der Barrierefreiheitsrichtlinien und sind damit gesetzlich verbindlich.
-- **STRUKTUR**: Eine Zeile sieht z.B. aus wie eine Überschrift, ist im Quelltext aber gewöhnlicher Fließtext.
+- **STRUKTUR**: z.B. eine Zeile sieht aus wie eine Überschrift, ist im Quelltext aber gewöhnlicher Fließtext.
 - **LINKTEXT**: Der Linktext sagt nicht, wohin er führt. Beispiel: „hier“
 - **Bei beiden**: Screen-Reader können die Inhalte damit nicht zuverlässig lesen.
 
 ### Die vier Empfehlungen
-- Nicht verbindlich, aber der größte Ertrag des Projekts.
-- **NIVEAU:** Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt nicht anwenden lässt.
+- Nicht verbindlich, aber sind die wichtigsten des Projekts.
+- **NIVEAU:** Niveau heißt: Ein Wort liegt über dem Sprachniveau der Menschen, die den Text lesen sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt nicht anwenden lässt.
 - **AMTSDEUTSCH**: (vorlesen)
 - **SATZ**: Zur Satzlänge sagen die Barrierefreiheitsrichtlinien nichts. Aber die Zahlen orientieren sich an den Empfehlungen für einfache Sprache.
-- **AB
-Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
-werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
-für Zuwanderer.
+- **ABKÜRZUNG**: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu werden. Davon hat die vhs einige, D-T-Z zum Beispiel, der Deutsch-Test für Zuwanderer.
 
-### Zwei Kurse im Vergleich
-
-Die Tabelle darunter zeigt zwei Sprachkurse, und beide tragen eine niedrige
-Stufe im Titel. Das bedeutet zweimal etwas völlig Verschiedenes.
-
-Beim Englischkurs steht A1 für das Englisch, das dort gelernt wird. Wer die
-Beschreibung liest, ist deutschsprachig und liest Deutsch fließend. Beim
-Deutschkurs steht A2 für das Deutsch, das dort gelernt wird. Wer diese
-Beschreibung liest, kann Deutsch bisher eine Stufe darunter, also A1.
-
-Der Englischkurs hat kein einziges Wort über dem Niveau seiner Leser und einen
-Befund insgesamt, eine nicht aufgelöste Abkürzung. Der Deutschkurs hat
-dreiundfünfzig zu schwere Wörter und siebenundfünfzig Befunde. Darunter
-Selbsteinschätzung, Fehleinschätzung und Umbuchung — Wörter, die man erst weit
-oberhalb des Kursziels lernt.
-
-Dabei sind beide Texte gleich einfach gebaut. Die Sätze sind in beiden Fällen
-kurz, im Schnitt neun und sieben Wörter. Ein Lesbarkeitsindex, der
-Satz- und Wortlängen zählt, findet bei keinem der beiden etwas. Er schweigt
-zweimal, und einmal davon zu Unrecht.
+### Zwei Kurse im Vergleich als Beispiel
+- Englisch A1.1 und Deutsch als Fremdsprache A2.2
+- Beide Beschreibungen sind auf Deutsch. ==Nur kann die eine Zielgruppe Deutsch — die andere lernt es gerade erst.==
+- Englischkurs: kein einziges zu schweres Wort. Deutschkurs: dreiundfünfzig.
+- Beide Texte haben kurze Sätze. Ein Programm, das nur zählt, findet bei keinem etwas.
 
 ### Der Kasten unten
-
-Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
-wen der Text ist. Für Deutschkurse auf den Stufen A1 und A2 gibt es
-einunddreißig verschiedene Texte, und alle einunddreißig enthalten Wörter über
-dem Niveau ihrer Leser. Genau hier kann ein fachlich
-eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
-
-### Nachtrag: warum 57 Prozent eine Untergrenze sind
-
-Noch einmal zu den siebenundfünfzig Prozent: Das ist eine Untergrenze. Mein
-Messskript prüft fünf der sechs Regeln; die erste, ob eine hervorgehobene
-Zeile eine Überschrift sein sollte, kann kein Skript entscheiden. Ich messe
-also bewusst zu niedrig statt zu hoch.
+- Man muss wissen, für wen der Text ist. Für Deutschkurse auf den Stufen A1 und A2 gibt es z.B. 31 verschiedene Texte, die  Wörter über dem Niveau ihrer Leser enthalten. Genau hier kann ein KI-Prompt etwas, was ein Standardwerkzeug nicht kann.
 
 
 ## 6 — Rechtslage
@@ -304,60 +275,29 @@ quellen:
 
 ### NOTIZ
 
-Kurz die Rechtslage.
+Zunächst noch kurz zur Rechtslage.
 
-### Was Barrierefreiheit heißt
+### Was bedeutet Barrierefreiheit?
+- Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit Behinderung nutzbar sein muss. Der Maßstab sind die WCAG, mit drei Stufen: A, Doppel A und Dreifach A.
 
-Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit
-Behinderung nutzbar sein muss. Der Maßstab sind die WCAG, mit drei Stufen: A,
-doppel A und dreifach A.
+### Welches Recht gilt?
+- Wichtig: Für die vhs gilt weder die EU-Richtlinie noch das Barrierefreiheitsstärkungsgesetz unmittelbar.
+- Als kommunale Einrichtung in Hessen greift Landesrecht: Paragraph 14 des Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung. Gefordert wird Stufe Doppel A.
 
-### Welches Recht gilt
-
-Für die vhs gilt weder die EU-Richtlinie noch das
-Barrierefreiheitsstärkungsgesetz unmittelbar. Sie ist eine kommunale
-Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
-Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
-Gefordert wird Stufe doppel A.
-
-### Der Block in der Mitte: Pflicht und freiwillig
-
-Der Block in der Mitte zeigt nur die Kriterien, die am Text der
-Kursbeschreibung selbst hängen. Links steht, was daran verbindlich ist: dass
-eine Zeile, die eine Gliederungsebene eröffnet, auch technisch als Überschrift
-ausgezeichnet wird, und dass ein Linktext sagt, wohin er führt. Rechts steht,
-was freiwillig ist: dass Abkürzungen erklärt werden und dass das Leseniveau
-zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — und
-beides gehört zum Kern dieses Projekts. Zwei meiner Regeln liegen dagegen im
-Pflichtbereich; dazu gleich mehr.
-
-### Warum ich nicht mit dem Bußgeld argumentiere
-
-Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
-und es wäre falsch.
-
-### Der Kasten unten
-
-Freiwillig heißt aber nicht belanglos. Paragraph drei Absatz eins der
-hessischen Verordnung verlangt eigenständig, dass Angebote verständlich sind.
-Die Konformitätsstufe begründet eine Vermutung, keine Obergrenze der Pflicht.
-Ich argumentiere also nicht gegen das Recht, sondern in einer Lücke, die es
-selbst offenlässt.
-
-Den eigentlichen Auftrag gibt sich das Unternehmen ohnehin selbst. Die
-Betriebssatzung sagt, die Angebote stünden allen offen, ohne Rücksicht auf
-Vorbildung. Für ein solches Unternehmen ist es nicht vertretbar, dass
-ausgerechnet die Kriterien für Menschen mit geringer Vorbildung die
-freiwilligen sind.
+### Callout
+- Einige der Regeln sind freiwillig, da sie nicht in WCAG Doppel A enthalten sind.
+- Freiwillig heißt aber nicht belanglos. Paragraph 3 Absatz 1 der hessischen Verordnung verlangt eigenständig, dass Angebote verständlich sind.
+- Außerdem sagt die Betriebssatzung, dass die Angebote allen offen stehen, ohne Rücksicht auf Vorbildung.
 
 
 ## 7 — Die Arbeitsteilung
 
 typ: zweispalt
-kapitel: 02 · LÖSUNG
+kapitel: 02 · ABGRENZUNG
 titel: Was die Technik prüft,
-akzent: und was nur ein Mensch sieht.
+akzent: und wo KLARTEXT ansetzt.
 klein: ja
+betont: 2
 spalte1: DAS SEITENGERÜST · städtische IT
 punkte1:
   - "Kontraste, Tastaturbedienung, Seitentitel, Navigation"

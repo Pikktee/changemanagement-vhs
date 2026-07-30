@@ -198,6 +198,17 @@ h1.klein{ font-size:41px; letter-spacing:-0.6px; }
 .sp li::before{ content:""; position:absolute; left:0; top:9px; width:7px;
                 height:2px; background:var(--marke); }
 
+/* 'betont: N' im Typ 'zweispalt'. Die Fuellung ist --flaeche, der Ton, den
+   DESIGN.md fuer ruhige Flaechen fuehrt (Quadranten, Zeitleiste, Bildkasten).
+   Kein zweites Blau: Der Callout unten ist bereits eine Markenflaeche, und
+   zwei davon auf einer Folie nehmen sich gegenseitig die Wirkung — die
+   Betonung traegt hier der Kopf, den build.py der betonten Spalte gibt.
+   Das Polster steht auf beiden Spalten, sonst rutschen die Koepfe
+   gegeneinander; der Trennstrich entfaellt, wo die Flaeche ihn ersetzt. */
+.spalten.mitbetont .sp{ padding-top:15px; padding-bottom:17px; }
+.sp.betont{ background:var(--flaeche); border-left:none; }
+.sp.betont + .sp{ border-left:none; }
+
 /* ---------- Typ: tabelle ---------- */
 table{ width:100%; border-collapse:collapse; }
 th{ font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
