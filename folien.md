@@ -135,7 +135,7 @@ titel: Der Vorschlag,
 akzent: und was er bringt.
 punkte:
   - "**Ziel** || Wer einen Kurs sucht, versteht die Beschreibung, ob gelesen oder vorgelesen. Laut Betriebssatzung stehen die Angebote allen offen — das soll auch für die Texte gelten."
-  - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im vorhandenen KI-Rahmen des Volkshochschul-Verbands. Keine Beschaffung, kein neuer Vertrag."
+  - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im KI-Zugang, den der Volkshochschul-Verband schon bereitstellt. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 57. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
@@ -159,7 +159,7 @@ Vorleseprogramm etwas damit anfangen kann.
 
 ### Lösung
 
-Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-
+Dafür genügt ein System-Prompt in dem KI-Zugang, den der Volkshochschul-
 Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts
 beschafft werden.
 
@@ -185,7 +185,7 @@ klein: ja
 lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 spalte1: DAS UNTERNEHMEN
 punkte1:
-  - "Eigenbetrieb der Stadt, 154 T€ Stammkapital, seit 2005 nach LQW testiert"
+  - "Eigenbetrieb der Stadt, 154.000 € Stammkapital, seit 2005 extern qualitätsgeprüft"
   - "5.800 Veranstaltungen im Jahr, acht Programmbereiche in vier Fachbereichen"
   - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
   - "Der Direktor ist laut Impressum persönlich für die Inhalte verantwortlich"
@@ -465,7 +465,7 @@ punkte2:
   - "Vorschlag der KI, Entscheidung beim Fachbereich"
 callout: Ob ein Text zu seinen Lesern passt, steht in keinem Regelwerk.
 calloutfolge: Die Technik bleibt bei der städtischen IT. Neu ist allein der Schritt, der die Zielgruppe kennen muss.
-calloutsub: Technische Voraussetzungen: der vorhandene KI-Rahmen des Volkshochschul-Verbands, ein hinterlegter Assistent, die Wortliste als Datei. Keine Beschaffung, kein Eingriff ins Kursverwaltungssystem.
+calloutsub: Technische Voraussetzungen: der KI-Zugang, den der Volkshochschul-Verband schon bereitstellt, ein dort angelegter Assistent, die Wortliste als Datei. Keine Beschaffung, kein Eingriff ins Kursverwaltungssystem.
 quellen:
   - "WCAG 2.1 | https://www.w3.org/TR/WCAG21/"
   - "Deque axe-core | https://github.com/dequelabs/axe-core"
@@ -505,8 +505,8 @@ Einschätzung verlangen.
 
 ### Technische Voraussetzungen
 
-Technisch braucht es den KI-Rahmen, den der Volkshochschul-Verband ohnehin
-bereitstellt, einen dort hinterlegten Assistenten und die Wortliste als Datei.
+Technisch braucht es den KI-Zugang, den der Volkshochschul-Verband ohnehin
+bereitstellt, einen dort angelegten Assistenten und die Wortliste als Datei.
 Kein neuer Vertrag, kein Eingriff ins Kursverwaltungssystem.
 
 
@@ -526,7 +526,7 @@ zeilen:
   - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflicht vor Empfehlung."
 callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
-calloutfolge: „Bewertet Texte, niemals Personen.“ Anhang III setzt überall die Bewertung natürlicher Personen voraus. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
+calloutfolge: „Bewertet Texte, niemals Personen.“ Die Verordnung stuft nur hoch ein, was Menschen bewertet — dieses System bewertet Texte. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
 quellen:
   - "System-Prompt, Fassung v11 vom 29.07.2026 — zwölf Fassungen mit Anlass und Begründung"
   - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -562,9 +562,9 @@ des Deutschen Volkshochschulverbands in Frankfurt.
 
 In der Zeile GRENZEN steht: bewertet Texte, niemals Personen. Dieser eine Satz
 leistet zweierlei. Er hält das Projekt aus dem Hochrisikobereich der KI-
-Verordnung heraus, denn Anhang III setzt überall eine Bewertung natürlicher
-Personen voraus. Und er ist die Antwort auf die Frage des Personalrats, ob
-hier Leistung kontrolliert wird.
+Verordnung heraus, denn hoch eingestuft wird dort nur, was Menschen bewertet —
+dieses System bewertet Texte. Und er ist die Antwort auf die Frage des
+Personalrats, ob hier Leistung kontrolliert wird.
 
 
 ## 9 — Wie es praktisch laeuft
@@ -652,12 +652,12 @@ kapitel: 03 · CHANGE MANAGEMENT
 titel: Wer eingebunden
 akzent: werden muss.
 klein: ja
-lede: Der Pilot beschränkt sich auf einen der acht Programmbereiche. Nur so bleibt der Kreis der eng Eingebundenen klein genug, um ihn wirklich einzubinden.
+lede: Der Pilot beschränkt sich auf einen der acht Programmbereiche. Nur so ist der Kreis klein genug, dass man ihn wirklich einbinden kann.
 yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
-oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Rahmen
+oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Zugang
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
 unten_links: Informieren || Die drei übrigen Fachbereiche
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
@@ -706,7 +706,7 @@ programmiert.
 
 **Die Betriebskommission** — Aufsichtsgremium.
 
-**Der Volkshochschul-Verband** — stellt den KI-Rahmen, den ich nutze.
+**Der Volkshochschul-Verband** — stellt den KI-Zugang, den ich nutze.
 
 ### Unten rechts: Konsultieren
 
@@ -844,7 +844,7 @@ schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
   - "Einen Programmbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
   - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win auf niemanden."
-  - "Assistent im vorhandenen KI-Rahmen anlegen > Keine Beschaffung, keine zusätzliche Stelle."
+  - "Assistent im KI-Zugang des Verbands anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
 
 ### NOTIZ
@@ -857,7 +857,7 @@ Die Dienstvereinbarung zuerst, aus dem Grund von eben. Dann einen
 Programmbereich gewinnen, und zwar freiwillig — ein zugewiesener liefert kein
 belastbares Ergebnis, sondern nur Erfüllung. Dann die Freigabe der Bausteine.
 Und erst als viertes das Technische, den Assistenten anlegen. Es kostet nichts:
-kein Einkauf, keine neue Stelle, der KI-Rahmen ist da.
+kein Einkauf, keine neue Stelle, der KI-Zugang ist da.
 
 ### Der Kasten unten: der dritte Schritt
 
@@ -883,7 +883,7 @@ zeilen:
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
   - "Die Ziele lassen sich erfüllen, ohne dass ein Text besser wird. Ein kürzerer Satz ist nicht automatisch ein verständlicherer. > Deshalb fragt die vierte Kennzahl nicht den Text, sondern die Teilnehmenden."
-callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
+callout: Die Nachmessung läuft mit demselben, unveränderten Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
 quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 ### NOTIZ
@@ -913,8 +913,8 @@ der Widerstandsfolie.
 ### Letzte Spalte: womit gemessen wird
 
 In der letzten Spalte steht, womit gemessen wird. Die Nachmessung läuft mit
-demselben Skript wie die Ausgangsmessung, und das Skript ist dafür
-eingefroren. Wäre es zwischendurch verbessert worden, wüsste man hinterher
+demselben Skript wie die Ausgangsmessung, und dafür bleibt es unverändert
+liegen. Wäre es zwischendurch verbessert worden, wüsste man hinterher
 nicht, ob die Texte besser geworden sind oder nur die Messung anders.
 
 ### Das Risiko unten
