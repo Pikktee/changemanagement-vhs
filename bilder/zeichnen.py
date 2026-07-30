@@ -1,90 +1,62 @@
 #!/usr/bin/env python3
-"""Zeichnet die vier Bilder der Praesentation aus der Palette von stil.css.
+"""Erzeugt die vier Bilder der Praesentation aus Palette und Schrift des Systems.
 
     cd abschlussprojekt-vhs && python3 bilder/zeichnen.py
 
-Warum gezeichnet und nicht erzeugt. Die Vorgaenger waren flach-geometrische
-Bilder aus einem Bildmodell, nachtraeglich umgefaerbt. Drei Dinge gingen dabei
-schief, und alle drei sind hier konstruktiv ausgeschlossen:
+Warum ueber Chrome und nicht mit PIL. Die Vorgaenger waren mit PIL gezeichnet,
+und daran ist zweierlei gescheitert:
 
-1. **Der graue Grund.** Das alte Bildpapier lag auf --grund (#F5F6F8), die
-   Folie ist aber weiss. Jedes Bild sass damit als hellgraues Kaestchen auf
-   weisser Flaeche. Hier ist der Grund --marke, also eine Entscheidung und
-   kein Rest.
-2. **Rot als Schmuck.** Alle drei alten Bilder trugen --pflicht als Zierde.
-   DESIGN.md verbietet das ausdruecklich: Rot und Gruen sind mit Bedeutung
-   belegt. In diesem Skript kommen die beiden Rollen nicht vor.
-3. **Aussage.** Ein Bildmodell trifft die Aussage ungefaehr. Das alte
-   Prozessbild setzte an die Stelle der fehlenden Verbindung einen roten
-   Punkt — die Luecke sah dadurch wie ein Fehler aus und nicht wie das, was sie
-   ist: ein Arbeitsschritt, den niemand vorgesehen hat.
+1. **Keine Schrift.** PIL braucht eine TTF, das System liefert woff2. Die
+   Prozessbilder bestanden deshalb aus fuenf leeren weissen Balken. Ein
+   Ablaufbild, dessen Stationen keine Woerter tragen, zeigt ein Muster und
+   keine Kette mit einer Luecke — niemand konnte es ohne Bildunterschrift
+   entziffern.
+2. **Keine weichen Kanten.** PIL kennt kein Antialiasing fuer Flaechen. Der
+   Umweg war vierfach zeichnen und herunterrechnen; gestrichelte Linien und
+   Schriftkanten wurden davon trotzdem nicht gut.
 
-Die Farbwerte kommen aus stil.css und werden nicht hier gepflegt. Wer dort eine
-Rolle aendert, laesst dieses Skript neu laufen und die Bilder passen wieder.
+Chrome loest beides: dieselbe Schrift, dieselben Farbrollen und derselbe
+Renderweg wie in build.py. Die Farbwerte kommen weiterhin aus stil.css und
+werden hier nicht gepflegt.
 
-Zwei Bildpaare, die dieselbe Aussage auf zwei Ebenen tragen:
+Was davor schon richtig war und bleibt:
+
+* **Kein grauer Grund.** Das alte Bildpapier lag auf --grund, die Folie ist
+  weiss; jedes Bild sass als hellgraues Kaestchen darauf. Der Grund ist --marke.
+* **Rot und Gruen kommen nicht vor.** DESIGN.md belegt beide mit Bedeutung;
+  als Schmuck sind sie verboten.
+* **Die Luecke ist kein Fehler.** Sie ist eine Stelle, an der niemand einen
+  Arbeitsschritt vorgesehen hat, und wird deshalb gestrichelt und leer
+  gezeichnet, nicht rot markiert.
+
+Vier Bilder, zwei Paare:
 
     01-titel-wand      Wand aus Textzeilen, ein Schlitz            Titelfolie
     15-durchgang       dieselbe Wand, der Durchgang offen          Schlussfolie
-    04-prozess-luecke  Kette mit leerer Stelle                     IST, Folie 4
+    04-prozess-luecke  Kette mit offener Stelle                    IST, Folie 4
     03-prozess-voll    dieselbe Kette, die Stelle besetzt          SOLL, Folie 3
-
-Gezeichnet wird vierfach und dann heruntergerechnet; PIL kennt kein
-Antialiasing fuer Flaechen.
 """
 import pathlib
 import re
+import shutil
+import subprocess
 import sys
-
-from PIL import Image, ImageDraw
+import time
 
 WURZEL = pathlib.Path(__file__).resolve().parent.parent
 ZIEL = WURZEL / "bilder"
-UEBER = 4  # vierfach zeichnen, dann herunterrechnen
+TEMP = ZIEL / ".render"
+PORT = 8795  # eigener Testport laut CLAUDE.md, beisst sich nicht mit build.py
+CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
+# Die vier Stationen des Ablaufs, wie sie auf Folie 4 in der rechten Spalte
+# stehen. Die offene Stelle liegt zwischen Einpflegen und Erscheinen — genau
+# dort, wo der Sprechtext sagt, dass kein Pruefschritt vorgesehen ist.
+STATIONEN = ["Planen", "Schreiben", "Einpflegen", None, "Erscheinen"]
+OFFEN = STATIONEN.index(None)
+NEUER_SCHRITT = "Prüfen"
 
-def palette():
-    """Liest die :root-Rollen aus stil.css. Einzige Quelle der Farbwerte."""
-    text = (WURZEL / "stil.css").read_text(encoding="utf-8")
-    block = re.search(r":root\s*\{(.*?)\}", text, re.S)
-    if not block:
-        sys.exit("Kein :root-Block in stil.css gefunden.")
-    p = {n: w.upper() for n, w in
-         re.findall(r"--([\w-]+)\s*:\s*(#[0-9a-fA-F]{6})\s*;", block.group(1))}
-    for rolle in ("marke", "marke-dunkel", "auf-marke"):
-        if rolle not in p:
-            sys.exit(f"Rolle --{rolle} fehlt in stil.css.")
-    # Rot und Gruen holen wir absichtlich nicht: siehe Kopf dieser Datei.
-    return p
-
-
-def leinwand(breite, hoehe, grund):
-    bild = Image.new("RGB", (breite * UEBER, hoehe * UEBER), grund)
-    return bild, ImageDraw.Draw(bild)
-
-
-def fertig(bild, breite, hoehe, name):
-    bild = bild.resize((breite, hoehe), Image.LANCZOS)
-    pfad = ZIEL / name
-    bild.save(pfad, "PNG", optimize=True)
-    print(f"    {name}  {breite}x{hoehe}  {pfad.stat().st_size // 1024} kB")
-
-
-def kasten(d, x, y, b, h, farbe):
-    d.rectangle([x * UEBER, y * UEBER,
-                 (x + b) * UEBER - 1, (y + h) * UEBER - 1], fill=farbe)
-
-
-def rahmen(d, x, y, b, h, farbe, dicke):
-    d.rectangle([x * UEBER, y * UEBER, (x + b) * UEBER - 1, (y + h) * UEBER - 1],
-                outline=farbe, width=dicke * UEBER)
-
-
-# --------------------------------------------------------------------------
-# Die Wand aus Textzeilen — Titel- und Schlussfolie
-# --------------------------------------------------------------------------
-
-# Zeilenlaengen als Anteil der Wandbreite. Ungleich, damit die Wand wie
+# Zeilenlaengen der Wand als Anteil der Wandbreite. Ungleich, damit sie wie
 # gesetzter Text aussieht und nicht wie ein Strichcode. Von Hand gesetzt, damit
 # das Bild bei jedem Lauf gleich herauskommt — Zufall waere hier ein Fehler.
 ZEILEN = [1.00, 0.86, 0.94, 0.71, 1.00, 0.90, 0.62, 0.97, 0.83, 1.00,
@@ -92,7 +64,84 @@ ZEILEN = [1.00, 0.86, 0.94, 0.71, 1.00, 0.90, 0.62, 0.97, 0.83, 1.00,
           0.98, 0.86, 1.00, 0.79, 0.92]
 
 
-def wand(p, name, offen):
+def palette():
+    """Liest die :root-Rollen aus stil.css. Einzige Quelle der Farbwerte."""
+    text = (WURZEL / "stil.css").read_text(encoding="utf-8")
+    block = re.search(r":root\s*\{(.*?)\n\}", text, re.S)
+    if not block:
+        sys.exit("Kein :root-Block in stil.css gefunden.")
+    p = {n: w.upper() for n, w in
+         re.findall(r"--([\w-]+)\s*:\s*(#[0-9a-fA-F]{6})\s*;", block.group(1))}
+    for rolle in ("marke", "marke-dunkel", "auf-marke"):
+        if rolle not in p:
+            sys.exit(f"Rolle --{rolle} fehlt in stil.css.")
+    return p
+
+
+# --------------------------------------------------------------------------
+# Die Kette der Arbeitsschritte — Folie 3 und Folie 4
+# --------------------------------------------------------------------------
+
+def prozess_html(p, besetzt):
+    """Fuenf Stationen untereinander, eine davon offen oder besetzt.
+
+    Der Rahmen der Bildspalte ist 322x334 und schneidet mit 'cover'. Gezeichnet
+    wird deshalb genau in diesem Verhaeltnis, dann wird nichts beschnitten.
+
+    Die beiden Verbindungen, die an die offene Stelle grenzen, fehlen im
+    IST-Bild ganz: Ohne den Schritt haengt die Kette dort nicht zusammen. Im
+    SOLL-Bild tragen dieselben zwei Verbindungen die Akzentfarbe — man sieht,
+    was neu ist, ohne es beschriften zu muessen.
+    """
+    teile = []
+    for i, name in enumerate(STATIONEN):
+        if i:
+            grenzt = i in (OFFEN, OFFEN + 1)
+            if grenzt and not besetzt:
+                teile.append('<span class="verb leer"></span>')
+            else:
+                teile.append(
+                    f'<span class="verb{" neu" if grenzt else ""}"></span>')
+        if name is not None:
+            teile.append(f'<span class="stat">{name}</span>')
+        elif besetzt:
+            teile.append(f'<span class="stat neu">{NEUER_SCHRITT}</span>')
+        else:
+            teile.append('<span class="stat offen"></span>')
+
+    return f"""<meta charset="utf-8">
+<style>
+  @import url('../schriften/schriften.css');
+  *{{ margin:0; padding:0; box-sizing:border-box; }}
+  body{{ width:322px; height:334px; background:{p['marke']};
+         font-family:'Atkinson Hyperlegible Next',sans-serif;
+         display:flex; flex-direction:column; align-items:center;
+         justify-content:center; }}
+  /* Station: weisse Flaeche mit Beschriftung. Die Versalien folgen der
+     Plakette .spkopf aus stil.css, damit das Bild zur Folie gehoert. */
+  .stat{{ width:206px; height:38px; background:#fff; color:{p['marke-dunkel']};
+          display:flex; align-items:center; justify-content:center;
+          font-size:12.5px; font-weight:700; letter-spacing:1.5px;
+          text-transform:uppercase; }}
+  /* Der neue Schritt in der Akzentfarbe. Text darauf ist --marke-dunkel,
+     so schreibt es DESIGN.md vor. */
+  .stat.neu{{ background:{p['auf-marke']}; }}
+  /* Die offene Stelle: gestrichelt und leer. Kein Rot — es ist kein Fehler,
+     sondern ein Schritt, den niemand vorgesehen hat. */
+  .stat.offen{{ background:transparent;
+                border:2px dashed {p['auf-marke']}; }}
+  .verb{{ width:7px; height:26px; background:#fff; }}
+  .verb.neu{{ background:{p['auf-marke']}; }}
+  .verb.leer{{ background:transparent; }}
+</style>
+{"".join(teile)}"""
+
+
+# --------------------------------------------------------------------------
+# Die Wand aus Textzeilen — Titel- und Schlussfolie
+# --------------------------------------------------------------------------
+
+def wand_html(p, offen):
     """Wand aus waagerechten Zeilen mit einem senkrechten Durchgang.
 
     Die Panel-Folien legen einen Verlauf darueber: --marke deckend bis 46
@@ -100,131 +149,99 @@ def wand(p, name, offen):
     die rechte Haelfte, und die durch einen Blauschleier. Deshalb steht die
     Wand rechts, der Grund ist --marke-dunkel und die Zeilen sind --auf-marke:
     Ein feiner Kontrast waere unter dem Schleier verschwunden.
+
+    Die untere Grenze ist keine Schaetzung: Die Fusszeile der Panel-Folie
+    beginnt bei y=631 mit ihrer Trennlinie, der Text darunter bei 646 (im
+    Browser gemessen). Die Wand lief einmal bis 658 und damit mitten hinein.
+
+    Der Durchgang reicht als einziges Element von oben nach unten durch, denn
+    einer, der vor dem Rand aufhoert, ist ein Schlitz. Er sitzt bei 46 Prozent
+    der Wandbreite und damit links der rechten Fusszeile, die bei x=959
+    beginnt.
     """
     B, H = 1280, 720
-    bild, d = leinwand(B, H, p["marke-dunkel"])
-
-    links = 470          # links davon deckt der Verlauf ohnehin alles ab
-    rechts = B - 78
-    wandbreite = rechts - links
-    zh, luecke = 15, 11  # Zeilenhoehe und Abstand
-
-    # Das Band ist oben und unten begrenzt, und die untere Grenze ist keine
-    # Schaetzung: Die Fusszeile der Panel-Folie beginnt bei y=631 mit ihrer
-    # Trennlinie, der Text darunter bei 646 (im Browser gemessen). Die Wand lief
-    # vorher bis 658 und damit mitten in die Fusszeile hinein. 18px Abstand
-    # halten sie frei, auch wenn die Zeilenhoehe einmal geaendert wird.
-    oben = 60            # Hoehe der Wortmarke, gleiche Oberkante
-    unten = 631 - 18
-
-    # Der Durchgang. Auf der Titelfolie ein Schlitz, auf der Schlussfolie
-    # begehbar. Dieselbe Wand, ein anderer Wert — das ist die ganze Aussage
-    # der beiden Bilder.
-    #
-    # Er reicht als einziges Element von oben nach unten durch, denn ein
-    # Durchgang, der vor dem Rand aufhoert, ist ein Schlitz. Deshalb sitzt er
-    # links der rechten Fusszeile, die bei x=959 beginnt: 0,46 statt 0,58 der
-    # Wandbreite haelt ihn mit Abstand davor.
+    links, rechts = 470, B - 78
+    breite = rechts - links
+    zh, luecke = 15, 11
+    oben, unten = 60, 631 - 18
     spalt = 128 if offen else 15
-    spalt_x = links + int(wandbreite * 0.46)
+    spalt_x = links + int(breite * 0.46)
 
-    # So viele Zeilen, wie in das Band passen, und der Rest verteilt sich als
-    # gleicher Abstand oben und unten. Sonst haengt die Wand oben fest und
-    # laesst unten eine Luecke, die wie ein Versehen aussieht.
     passen = (unten - oben + luecke) // (zh + luecke)
     hoch = passen * zh + (passen - 1) * luecke
     start = oben + (unten - oben - hoch) // 2
 
+    balken = []
     for i, anteil in enumerate(ZEILEN[:passen]):
         y = start + i * (zh + luecke)
-        ende = links + int(wandbreite * anteil)
-        # Zeile links des Durchgangs
+        ende = links + int(breite * anteil)
         if spalt_x > links:
-            kasten(d, links, y, min(ende, spalt_x) - links, zh, p["auf-marke"])
-        # Zeile rechts des Durchgangs, nur wo die Zeile ueberhaupt hinreicht
+            b = min(ende, spalt_x) - links
+            balken.append(f'<i style="left:{links}px;top:{y}px;width:{b}px"></i>')
         nach = spalt_x + spalt
         if ende > nach:
-            kasten(d, nach, y, ende - nach, zh, p["auf-marke"])
+            balken.append(
+                f'<i style="left:{nach}px;top:{y}px;width:{ende - nach}px"></i>')
 
-    if offen:
-        # Hinter dem Durchgang wird es hell. Weiss, weil auf Markenflaeche
-        # laut DESIGN.md Weiss oder --auf-marke gilt und sonst nichts.
-        kasten(d, spalt_x, 0, spalt, H, "#FFFFFF")
+    # Hinter dem Durchgang wird es hell. Weiss, weil auf Markenflaeche laut
+    # DESIGN.md Weiss oder --auf-marke gilt und sonst nichts.
+    durchgang = (f'<u style="left:{spalt_x}px;width:{spalt}px"></u>'
+                 if offen else "")
 
-    # build.py rendert die Folie in doppelter Aufloesung. Ein Bild in 1280x720
-    # wuerde dort hochskaliert.
-    fertig(bild, B * 2, H * 2, name)
+    return f"""<meta charset="utf-8">
+<style>
+  *{{ margin:0; padding:0; }}
+  body{{ width:{B}px; height:{H}px; background:{p['marke-dunkel']};
+         position:relative; overflow:hidden; }}
+  i{{ position:absolute; height:{zh}px; background:{p['auf-marke']};
+      display:block; }}
+  u{{ position:absolute; top:0; height:{H}px; background:#fff; display:block; }}
+</style>
+{"".join(balken)}{durchgang}"""
 
 
 # --------------------------------------------------------------------------
-# Die Kette der Arbeitsschritte — Folie 3 und Folie 4
-# --------------------------------------------------------------------------
 
-def prozess(p, name, besetzt):
-    """Vier Arbeitsschritte untereinander, dazwischen eine offene Stelle.
-
-    Folie 4 sagt: zwischen Einpflegen und Erscheinen ist kein Pruefschritt
-    vorgesehen. Deshalb sind vier Schritte gefuellt und die fuenfte Stelle ist
-    ein leerer Rahmen ohne Verbindung nach oben und unten — nicht ein Fehler,
-    sondern eine Stelle, an der nichts steht. Auf Folie 3 ist dieselbe Stelle
-    besetzt, in --auf-marke, damit man den neuen Schritt von den vier
-    vorhandenen unterscheidet.
-
-    Der Rahmen der Bildspalte ist 322x334 und schneidet mit 'cover'. Gezeichnet
-    wird deshalb annaehernd quadratisch und die Kette sitzt mittig.
-    """
-    B, H = 322, 334
-    bild, d = leinwand(B, H, p["marke"])
-
-    # Zwei Anlaeufe kosteten das: 152x44 mit 18px Abstand las sich als weisser
-    # Block mit Schlitzen; 204 breit fuellte die Bildspalte so weit, dass die
-    # Verbindungen wie Kerben im Rand wirkten. Entscheidend ist, dass links und
-    # rechts der Kaesten genug Grund sichtbar bleibt.
-    kb, kh = 138, 32         # Kasten
-    mitte_x = (B - kb) // 2
-    verb_b = 8               # Verbindungsstueck
-    verb_h = 30
-    OFFEN = 3                # Position der offenen Stelle, nullbasiert
-    schritte = 5             # vier vorhandene Schritte, dazu die offene Stelle
-
-    ganz = schritte * kh + (schritte - 1) * verb_h
-    y = (H - ganz) // 2
-
-    for i in range(schritte):
-        oy = y + i * (kh + verb_h)
-        if i != OFFEN:
-            kasten(d, mitte_x, oy, kb, kh, "#FFFFFF")
-        elif besetzt:
-            kasten(d, mitte_x, oy, kb, kh, p["auf-marke"])
-        else:
-            rahmen(d, mitte_x, oy, kb, kh, p["auf-marke"], 2)
-
-        # Verbindung zum naechsten Schritt. Die beiden, die an die offene
-        # Stelle grenzen, fehlen ganz, solange sie leer ist: Ohne den Schritt
-        # haengt die Kette dort nicht zusammen. Ist die Stelle besetzt, tragen
-        # dieselben zwei Verbindungen die Akzentfarbe — man sieht, was neu ist.
-        if i == schritte - 1:
-            continue
-        grenzt = i in (OFFEN - 1, OFFEN)
-        if grenzt and not besetzt:
-            continue
-        kasten(d, mitte_x + (kb - verb_b) // 2, oy + kh, verb_b, verb_h,
-               p["auf-marke"] if grenzt else "#FFFFFF")
-
-    fertig(bild, B * 3, H * 3, name)
+def schiessen(name, html, breite, hoehe, skala):
+    (TEMP / f"{name}.html").write_text(html, encoding="utf-8")
+    ziel = ZIEL / f"{name}.png"
+    subprocess.run(
+        [CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+         f"--force-device-scale-factor={skala}",
+         f"--window-size={breite},{hoehe}",
+         f"--screenshot={ziel}",
+         f"http://localhost:{PORT}/bilder/.render/{name}.html"],
+        check=True, capture_output=True)
+    print(f"    {name}.png  {breite * skala}x{hoehe * skala}  "
+          f"{ziel.stat().st_size // 1024} kB")
 
 
 def main():
+    if not pathlib.Path(CHROME).exists():
+        sys.exit(f"Chrome nicht gefunden: {CHROME}")
     p = palette()
     print(f"Palette aus stil.css: --marke {p['marke']}, "
           f"--marke-dunkel {p['marke-dunkel']}, --auf-marke {p['auf-marke']}\n")
-    print("  Panel-Folien, 1280x720 unter dem Blauverlauf:")
-    wand(p, "01-titel-wand.png", offen=False)
-    wand(p, "15-durchgang.png", offen=True)
-    print("\n  Bildspalte, 322x334 in dreifacher Aufloesung:")
-    prozess(p, "04-prozess-luecke.png", besetzt=False)
-    prozess(p, "03-prozess-voll.png", besetzt=True)
-    print("\nFertig. Kein Rot, kein Gruen, kein grauer Grund.")
+
+    TEMP.mkdir(exist_ok=True)
+    server = subprocess.Popen(
+        [sys.executable, "-m", "http.server", str(PORT)],
+        cwd=WURZEL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        time.sleep(1.2)
+        print("  Panel-Folien, 1280x720 unter dem Blauverlauf:")
+        schiessen("01-titel-wand", wand_html(p, False), 1280, 720, 2)
+        schiessen("15-durchgang", wand_html(p, True), 1280, 720, 2)
+        print("\n  Bildspalte, 322x334 in dreifacher Aufloesung:")
+        schiessen("04-prozess-luecke", prozess_html(p, False), 322, 334, 3)
+        schiessen("03-prozess-voll", prozess_html(p, True), 322, 334, 3)
+    finally:
+        server.terminate()
+        server.wait()
+        shutil.rmtree(TEMP, ignore_errors=True)
+
+    print("\nFertig. Beschriftete Stationen, kein Rot, kein Gruen, "
+          "kein grauer Grund.")
 
 
 if __name__ == "__main__":
