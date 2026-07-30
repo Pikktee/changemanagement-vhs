@@ -411,9 +411,7 @@ wichtigsten Teil meines Konzepts.
 Links steht, was am Gerüst der Seite hängt: Kontraste, Tastaturbedienung,
 Seitentitel, Navigation. Das kann man prüfen, ohne einen einzigen Kurs zu
 kennen. Es gilt für alle fünftausendachthundert Texte gleich, dafür gibt es
-etablierte Programme wie axe-core, und zuständig ist die städtische IT. Dieser
-Satz wurde im **Editor** getippt und ist absichtlich lang genug, damit der
-Umbruch greift.
+etablierte Programme wie axe-core, und zuständig ist die städtische IT.
 
 Rechts steht, was am einzelnen Text hängt. Versteht die Zielgruppe genau
 dieses Kurses ihn? Diese Frage lässt sich nicht beantworten, ohne zu wissen,
@@ -733,27 +731,20 @@ Freigabe der Textbausteine steht deshalb im ersten Monat und nicht im zweiten,
 sonst läuft der Quick Win auf eine Zuständigkeit, die niemand hat.
 
 
-## 13 — Die ersten 30 Tage und die Ressourcen
+## 13 — Die ersten 30 Tage
 
 typ: plan
-kapitel: 03 · ZEITPLAN UND RESSOURCEN
+kapitel: 03 · ZEITPLAN UND NÄCHSTE SCHRITTE
 titel: Die ersten 30 Tage,
-akzent: und was sie kosten.
+akzent: und warum in dieser Reihenfolge.
 klein: ja
-schrittetitel: ERSTE 30 TAGE · IN DIESER REIHENFOLGE
+schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
 schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
-  - "Einen Programmbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert kein belastbares Ergebnis."
+  - "Einen Programmbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
   - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win auf niemanden."
   - "Assistent im vorhandenen KI-Rahmen anlegen > Keine Beschaffung, keine zusätzliche Stelle."
-kennzahlentitel: PRÜFAUFWAND IM JAHR
-kennzahlen:
-  - "290 Std. || so lautet der Einwand: jede der 5.800 Veranstaltungen einzeln geprüft || einwand"
-  - "29 Std. || gemessen: nur die rund 600 Texte, die im Jahr wirklich neu entstehen"
-  - "4 Std. || im Pilot, ein Programmbereich, rund 73 neue Texte"
-callout: Der Einwand rechnet mit 5.800 Texten. Es sind rund 600, weil 54 Prozent der Kurse ihren Text teilen.
-calloutsub: Gemessen an 489 Kursen. Was die vhs als „neu“ zählt, ist offen — im Grenzfall 220 Stunden, immer noch unter dem Einwand.
-quellen: eigene Erhebung — alle Szenarien und Einschränkungen in der Dokumentation zur Abgabe
+callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
 
 ### NOTIZ
 
@@ -762,21 +753,14 @@ Reihenfolge: Jeder Schritt bedingt den nächsten.
 
 Die Dienstvereinbarung zuerst, aus dem Grund von eben. Dann einen
 Programmbereich gewinnen, und zwar freiwillig — ein zugewiesener liefert kein
-belastbares Ergebnis, sondern nur Erfüllung. Dann die Freigabe der Bausteine,
-sonst trifft der Quick Win auf niemanden. Und erst als viertes das Technische,
-den Assistenten anlegen.
+belastbares Ergebnis, sondern nur Erfüllung. Dann die Freigabe der Bausteine.
+Und erst als viertes das Technische, den Assistenten anlegen. Es kostet nichts:
+kein Einkauf, keine neue Stelle, der KI-Rahmen ist da.
 
-Rechts die Zahlen, denn der häufigste Einwand lautet, das koste zu viel Zeit.
-Er rechnet so: fünftausendachthundert Veranstaltungen, drei Minuten pro Text,
-zweihundertneunzig Stunden im Jahr. Diese Rechnung unterstellt, dass jede
-Veranstaltung einen eigenen Text hat. Hat sie nicht. Vierundfünfzig Prozent
-der Kurse teilen ihren Text mit mindestens einem anderen, und nur rund zehn
-Prozent der Angebote sind je Semester neu. Übrig bleiben ungefähr sechshundert
-Texte und damit neunundzwanzig Stunden. Im Pilot sind es vier.
-
-Die größte Unsicherheit steht unten: Was die vhs als neues Angebot zählt, ist
-nicht dokumentiert. Im Grenzfall wären es zweihundertzwanzig Stunden — immer
-noch unter dem Einwand, aber die Zahl gehört im Pilot gemessen.
+Der dritte Schritt ist der, den man am ehesten überspringt, und der teuerste.
+Lässt man ihn aus, liefert der Pilot eine Liste von Befunden, die im
+Pilotbereich niemand ändern darf — und das Werkzeug hat sich beim ersten
+Durchlauf selbst erledigt.
 
 
 ## 14 — Erfolgsmessung und Risiken
