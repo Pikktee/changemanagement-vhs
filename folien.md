@@ -832,8 +832,8 @@ typ: schluss
 bild: bilder/15-durchgang.png
 bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
 titel: Danke für die Aufmerksamkeit.
-untertitel: Probiert es selbst aus, an einem echten Kurstext aus dem Portal:
 link: klartext-vhs.henrikheil.net
+linktext: Probiert es selbst aus, an einem echten Kurstext aus dem Portal:
 fussl: PROJEKT KLARTEXT · VHS FRANKFURT
 fussr: HENRIK HEIL · CIMDATA 2026
 

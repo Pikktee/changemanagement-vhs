@@ -258,9 +258,20 @@ def t_panel(f, seite_, gesamt, schluss=False):
         # Das PDF entsteht aus alle.html und nicht aus den PNGs, der Anker ist
         # darin also anklickbar.
         sichtbar = re.sub(r"^https?://", "", str(f["link"]).strip())
-        link = (f'<div class="plink">'
+        # 'linktext' ist die Hinfuehrung und gehoert in denselben Block wie die
+        # Adresse, nicht in 'untertitel': Als Untertitel stand sie zwei
+        # Absatzabstaende weiter oben und las sich wie ein eigener Satz, der
+        # mit der Adresse nichts zu tun hat. Im Block bindet der Balken beide
+        # Zeilen zusammen — eine einzelne Adresse braucht ihn nicht und
+        # bekommt ihn deshalb auch nicht.
+        vor = (f'<p class="plabel">{e(f["linktext"])}</p>'
+               if f.get("linktext") else "")
+        balken = '<span class="pbalken"></span>' if vor else ""
+        link = (f'<div class="plink{" paar" if vor else ""}">{balken}'
+                f'<span class="pzeile">{vor}'
                 f'<a class="purl" href="https://{e(sichtbar)}">'
-                f'<span class="pschema">https://</span>{e(sichtbar)}</a></div>')
+                f'<span class="pschema">https://</span>{e(sichtbar)}</a>'
+                f'</span></div>')
     # meta: mit | getrennte Angaben, gesetzt als Versalienzeile mit Trennstrichen
     meta = ""
     if f.get("meta"):
