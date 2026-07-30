@@ -45,33 +45,18 @@ bildnotiz: Wand aus Textzeilen mit einem Schlitz. Gezeichnet von bilder/zeichnen
 
 ### Begrüßung
 
-Ich stelle euch heute mein Abschlussprojekt vor: KLARTEXT, ein Prüfschritt für
-die Kursbeschreibungen der Volkshochschule Frankfurt.
+Willkommen zu meinem Abschlussprojekt!
+- KLARTEXT, ein KI-gestützter Prüfschritt für die Kursbeschreibungen der Volkshochschule Frankfurt.
 
-### Worum es geht
+### Worum geht es?
 
-Es geht um Barrierefreiheit. Die meisten denken dabei an Technik: Kontraste,
-Tastaturbedienung, Vorleseprogramme. Mich interessiert der andere Teil — ob
-der Text ankommt bei denen, für die er geschrieben ist. Das betrifft alle acht
-Programmbereiche.
+- Barrierefreiheit.
+- Aber nicht der technische Teil wie. Kontraste oder Tastaturbedienung, sondern:
+- ob der Text ankommt bei denen, für die er geschrieben ist.
 
 ### Der schärfste Fall
-
-Angefangen hat es mit dem schärfsten Fall. Die Volkshochschule bietet
-Deutschkurse für Menschen an, die gerade erst Deutsch lernen, und die
-Beschreibungen dieser Kurse sind in einem Deutsch geschrieben, das man erst
-nach dem Kurs versteht. Wer Deutsch lernen will, muss also erst Deutsch
-können. Das ist der Extremfall, aber das Prinzip dahinter gilt überall.
-
-### Rollen und Datenstand
-
-Ich habe das Projekt allein bearbeitet, alle Rollen liegen also bei mir. Und
-alle Zahlen, die gleich kommen, habe ich selbst gemessen, an der echten
-Website, am achtundzwanzigsten Juli. Der Datensatz liegt der Arbeit bei.
-
-### Ausblick
-
-Am Ende zeige ich das Werkzeug an einem echten Kurstext.
+- Beispiel: bietet die Volkshochschule Deutschkurse für Menschen an, die gerade erst Deutsch lernen.
+- Die Beschreibungen dieser Kurse sind oft in einem Deutsch geschrieben, das man erst nach dem Kurs versteht.
 
 
 ## 2 — Executive Summary I: Worum es geht
@@ -93,7 +78,7 @@ quellen:
 
 ### NOTIZ
 
-Drei Zahlen zum Einstieg.
+Erstmal eine kurze Übersicht zum Projekt.
 
 ### 5.800 Texte und 57 Prozent
 
@@ -107,8 +92,8 @@ sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
 Die dritte Zahl stammt aus dem Unternehmen selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
-ersten Juli zweitausendeinundzwanzig, heute auf den Tag genau fünf Jahre her.
-Seitdem bewertet sich das Unternehmen selbst.
+ersten Juli zweitausendeinundzwanzig, also vor gut fünf Jahren. Seitdem
+bewertet sich das Unternehmen selbst.
 
 ### Einfache Sprache, der eigentliche Anlass
 
@@ -168,6 +153,14 @@ beschafft werden.
 Die Abgrenzung darunter zieht sich durch das ganze Konzept: Für die technische
 Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
 zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+
+### Ergebnis
+
+Der vierte Punkt ist das erwartete Ergebnis. Die Befundquote soll von
+siebenundfünfzig unter fünfundzwanzig Prozent fallen, und der laufende Aufwand
+liegt bei neunundzwanzig Stunden im Jahr. Das ist gerechnet, nicht geschätzt:
+Geprüft wird nur, was neu entsteht, also rund sechshundert Texte im Jahr und
+nicht fünftausendachthundert.
 
 ### Der Kasten unten
 
@@ -423,13 +416,16 @@ Kursbeschreibung selbst hängen. Links steht, was daran verbindlich ist: dass
 eine Zeile, die eine Gliederungsebene eröffnet, auch technisch als Überschrift
 ausgezeichnet wird, und dass ein Linktext sagt, wohin er führt. Rechts steht,
 was freiwillig ist: dass Abkürzungen erklärt werden und dass das Leseniveau
-zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — genau
-die beiden Kriterien also, um die es in diesem Projekt geht.
+zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — und
+beides gehört zum Kern dieses Projekts. Zwei meiner Regeln liegen dagegen im
+Pflichtbereich; dazu gleich mehr.
 
-### Der Kasten unten
+### Warum ich nicht mit dem Bußgeld argumentiere
 
 Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
 und es wäre falsch.
+
+### Der Kasten unten
 
 Freiwillig heißt aber nicht belanglos. Paragraph drei Absatz eins der
 hessischen Verordnung verlangt eigenständig, dass Angebote verständlich sind.
@@ -498,10 +494,10 @@ diese Zeile eine Überschrift sein sollte, kann man dem Text nicht ansehen,
 sondern nur verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium
 rechts.
 
-Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
+Diese Trennung hat sich beim Bauen dreimal selbst bestätigt. Drei Zusagen, die
 ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig
-eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und keine
-Einschätzung verlangen.
+eingehalten. Alle drei stehen jetzt im Programmcode, weil sie feststehen und
+keine Einschätzung verlangen.
 
 ### Technische Voraussetzungen
 
@@ -785,8 +781,7 @@ Bremse, sie ist der nächstliegende Verbündete, und so sollte man ihr auch
 begegnen. Der Punkt ist nur: Wer sich beschwert, hat den Text gelesen und
 verstanden. Die Menschen, um die es hier geht, fragen nicht nach und melden sich
 auch nicht an. Ihr Fehlen sieht von innen aus wie Zufriedenheit — dass es bisher
-niemand gesehen hat, ist deshalb kein Versäumnis, sondern liegt in der Sache. Und geprüft wird ohnehin der Text im Portal, und dort gibt
-es keine Seitenzahl.
+niemand gesehen hat, ist deshalb kein Versäumnis, sondern liegt in der Sache.
 
 ### Der Kasten unten
 
@@ -958,6 +953,6 @@ schreiben, das Werkzeug nicht als Kontrolle erleben.
 
 ### Der Link auf der Folie
 
-Danke für die Aufmerksamkeit. Die Adresse steht oben, dort läuft der Prototyp
-weiter — mit dem Prompt in allen Fassungen und den Läufen, die ihr gesehen
-habt. Jetzt gerne eure Fragen.
+Danke für die Aufmerksamkeit. Die Adresse steht hier auf der Folie, dort läuft
+der Prototyp weiter — mit dem Prompt in allen Fassungen und den Läufen, die ihr
+gesehen habt. Jetzt gerne eure Fragen.
