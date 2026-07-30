@@ -192,6 +192,12 @@ folien.md          Quelle der Präsentation, 13 Folien
 build.py           Folien → HTML → PNG → PPTX + PDF, rechnet Sprechzeit
 stil.css           Foliendesign, Farbwerte nach DESIGN.md
 watch.py           baut neu, sobald folien.md oder stil.css sich ändern
+notizen.py         Vortragswerkzeug, geht in keine Abgabe ein: erzeugt
+                   ausgabe/notizen.html (Sprechnotizen, eine Folie je
+                   Bildschirm, für einen Monitor im Hochformat) und
+                   ausgabe/vortrag.html (nur das Folienbild). Beide über
+                   denselben lokalen Server öffnen — die Kopplung läuft
+                   über einen BroadcastChannel und braucht gleiche Herkunft
 dokumentation.md   Quelle der Abgabe 2, mit Platzhaltern
 dokument.py        Dokument → HTML → PNG → PDF
 dokument.css       Dokumentsatz
