@@ -516,7 +516,7 @@ titel: Der Plan
 akzent: für die nächsten drei Monate.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-strang1: Technische Implementation || Setup > Assistent im KI-Zugang anlegen, Prompt an echten Texten schärfen || Pilot > Ein Fachbereich prüft alle neu entstehenden Texte || Rollout > Nur vorbereitet — ob er kommt, entscheidet die Nachmessung
+strang1: Technische Implementation || Setup > Assistent im KI-Zugang anlegen, Prompt im Prüfwerkzeug an echten Texten schärfen || Pilot > Ein Fachbereich prüft alle neu entstehenden Texte || Rollout > Nur vorbereitet — ob er kommt, entscheidet die Nachmessung
 strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Haus || Training > Am konkreten System, vor dem ersten Durchlauf — Pflicht nach Artikel 4 KI-Verordnung || Support > Feste Sprechstunde, nicht auf Zuruf
 strang3: Change || Vorbereitung > Pilotbereich gewinnen, Betroffene befragen, Freigabe der Textbausteine klären || Einbindung > Der Bereich wählt die verbindlichen Regeln, korrigiert die Textbausteine zuerst || Begleitung > Nachmessung mit unverändertem Skript, dann die Rollout-Entscheidung
 callout: Der Plan ist eine Kette von Freigaben — ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.
@@ -527,19 +527,29 @@ quellen:
 
 ### NOTIZ
 
-Der Zeitplan: drei Monate, drei Stränge, die neun Phasen aus der
-Aufgabenstellung als Überschrift jeder Zelle. Die Zellen könnt ihr mitlesen,
-ich erkläre die Logik dahinter.
+Der Zeitplan: drei Monate, drei Stränge — Technik, Kommunikation, Change —,
+die neun Phasen aus der Aufgabenstellung als Überschrift jeder Zelle. Die
+Zellen könnt ihr mitlesen, ich erkläre die Logik dahinter.
 
 ### Die Logik: eine Kette von Freigaben
-- Jeder Monat gibt den nächsten erst frei.
+- Dieser Plan ist keine Abfolge von Terminen, sondern eine Kette von Freigaben. Jeder Monat gibt den nächsten erst frei.
 - ==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
-- Der Rollout im dritten Monat wird deshalb nur vorbereitet. Ob er kommt, entscheidet die Nachmessung — nicht der Kalender.
+- Deshalb wird der Rollout im dritten Monat nur vorbereitet. Ob er kommt, entscheidet die Nachmessung — nicht der Kalender. ((Ein Plan, der das Nein am Ende nicht vorsieht, wäre keiner.))
+
+### Technik-Strang: die Rolle des Prüfwerkzeugs
+- Das Setup im ersten Monat ist bewusst klein: Der Assistent wird im bestehenden KI-Zugang des Verbands angelegt — kein Einkauf, keine neue Stelle.
+- Geschärft wird der Prompt im eigenen Prüfwerkzeug, dem von eben: Es holt echte Kurstexte selbst und protokolliert jeden Lauf.
+- Im Pilot stehen dann beide Wege offen: der Assistent für den Fachbereich, daneben das Prüfwerkzeug. ((Dort laufen Namensschutz und die Korrektur der Einstufung im Code mit.))
 
 ### Monat 2, Kommunikation: Training
-- Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System: einen Kurstext prüfen lassen, die Befunde lesen, annehmen oder verwerfen — und die Grenze kennen: Die KI schlägt vor, entschieden wird im Fachbereich.
-- Verpflichtend ist das ohnehin: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz — und zwar ausdrücklich bezogen auf den Einsatzkontext. Genau das leistet eine Schulung am Werkzeug selbst.
+- Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System: einen Kurstext prüfen lassen, die Befunde lesen, annehmen oder verwerfen — und die Grenze kennen: ==Die KI schlägt vor, entschieden wird im Fachbereich.==
+- Verpflichtend ist das ohnehin: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz — ausdrücklich bezogen auf den Einsatzkontext. Genau das leistet eine Schulung am Werkzeug selbst, kein Foliensatz über KI im Allgemeinen.
 - Die Pflicht gilt für das Personal und für alle, die im Auftrag mit Betrieb und Nutzung befasst sind. Deshalb steht in der Zelle nicht „Personal“, sondern „alle, die bedienen“. ((Wer nicht bedient, braucht die Schulung nicht — deshalb bleiben die Kursleitungen aus dieser Kette.))
+
+### Monat 3, Kommunikation: warum eine feste Sprechstunde
+- Support auf Zuruf klingt großzügig und ist das Gegenteil: Wer fragen will, muss erst entscheiden, ob seine Frage eine Störung wert ist. Viele fragen dann gar nicht — und legen das Werkzeug leise weg.
+- Ein festes Fenster senkt diese Schwelle, und es macht den Aufwand planbar — ein Projektteam, das nebenbei erreichbar wäre, gibt es hier nicht.
+- Und: Dieselbe Frage dreimal in einer Sprechstunde ist ein Befund — am Prompt oder an der Schulung. Dreimal auf Zuruf verteilt, merkt das niemand.
 
 ### Der Kasten unten: die Textbausteine
 - Was mit Textbausteinen gemeint ist: Textteile, die zentral gepflegt werden und wortgleich in vielen Kursbeschreibungen stehen — der Anmeldehinweis etwa, oder die Beschreibung der Niveaustufe.
@@ -565,19 +575,25 @@ callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand 
 
 ### NOTIZ
 
-Die ersten dreißig Tage. Keine Aufzählung, sondern eine Reihenfolge:
-==Jeder Schritt bedingt den nächsten.==
+Das war der Plan für drei Monate — das hier ist sein erster Monat im Detail.
+Keine Aufzählung, sondern eine Reihenfolge: ==Jeder Schritt bedingt den nächsten.==
 
-### Die vier Schritte
-- Die **Dienstvereinbarung** zuerst, aus dem Grund von eben.
-- Dann einen **Fachbereich** gewinnen, und zwar freiwillig — ein zugewiesener liefert kein belastbares Ergebnis, sondern nur Erfüllung.
-- Dann die **Freigabe der Textbausteine**.
-- Und erst als viertes das Technische, den **Assistenten anlegen**. Das kostet nichts: kein Einkauf, keine neue Stelle, der KI-Zugang ist da.
+### Schritt eins: die Dienstvereinbarung
+- Zuerst die **Dienstvereinbarung** mit dem Personalrat — er ist der Einzige, der das Projekt anhalten kann, die Einführung ist mitbestimmungspflichtig.
+- Vorher wird nichts angelegt, auch nicht „nur zum Ausprobieren“. ((Ein Assistent, der schon läuft, während noch verhandelt wird, kostet genau das Vertrauen, von dem der Pilot lebt.))
 
-### Der Kasten unten: der dritte Schritt
-- Der, den man am ehesten überspringt, und der teuerste.
-- Lässt man ihn aus, liefert der Pilot eine Liste von Befunden, die im Pilotbereich niemand ändern darf.
-- Das Werkzeug hat sich dann beim ersten Durchlauf selbst erledigt.
+### Schritt zwei: den Pilotbereich gewinnen
+- Einen **Fachbereich** gewinnen, nicht zuweisen. Freiwillig deshalb, weil ein zugewiesener Pilot Erfüllung liefert, kein Ergebnis.
+- Der Bereich, der sich meldet, bekommt dafür etwas: Er wählt im zweiten Monat selbst, welche Regeln verbindlich gelten.
+
+### Schritt drei: die Freigabe der Textbausteine
+- Klären, wer die zentral gepflegten **Textbausteine** ändern darf — die Teile, die wortgleich in vielen Kursen stehen.
+- Das ist der Schritt, den man am ehesten überspringt, und der teuerste: Lässt man ihn aus, liefert der Pilot eine Liste von Befunden, die im Pilotbereich niemand ändern darf.
+- ==Das Werkzeug hätte sich dann beim ersten Durchlauf selbst erledigt.== Das sagt auch der Kasten unten.
+
+### Schritt vier: der Assistent
+- Erst als Letztes das Technische: den **Assistenten anlegen**. Das kostet nichts — kein Einkauf, keine neue Stelle, der KI-Zugang des Verbands ist da.
+- Dass der technische Schritt der letzte und der billigste ist, ist die Pointe dieser Folie: ==Die Arbeit liegt nicht in der Technik, sondern in den Zuständigkeiten davor.==
 
 
 ## 14 — Erfolgsmessung und Risiken
