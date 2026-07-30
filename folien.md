@@ -309,7 +309,6 @@ punkte1:
 spalte2: DER EINZELNE TEXT · Programmbereiche
 punkte2:
   - "Versteht die Zielgruppe genau dieses Kurses ihn?"
-  - "Auch Überschriften, die keine sind, und Linktexte ohne Aussage"
   - "Nicht prüfbar, ohne zu wissen, wer liest"
   - "Vorschlag der KI, Entscheidung beim Fachbereich"
 callout: Ob ein Text zu seinen Lesern passt, steht in keinem Regelwerk.
