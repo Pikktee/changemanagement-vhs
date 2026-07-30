@@ -373,7 +373,7 @@ quellen:
 - Der KONTEXT enthält das Hauswissen: acht Programmbereiche, interne Abkürzungen und auch die sechs Prüfregeln sind hier drin.
 - Der wichtigste Teil: 820 Wörter des Prüfungswortschatzes für das **Goethe-Zertifikat A1**. Die werden vollständig mit dem Prompt übergeben.
 - Das ist das Ergebnis der ersten Überarbeitung: Vorher hat die KI behauptet gegen die Wortlisten zu prüfen, was jedoch nicht erfolgt ist.
-- ((Der Grundstock dieser Listen stammt laut Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands in Frankfurt.))
+- ==Und der Maßstab kommt nicht von mir:== Die Liste geht laut Goethe-Institut auf eine Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands zurück. ((Die sitzt in Frankfurt — Zufall, aber ein hübscher.))
 
 ### Der Kasten unten: die Zeile GRENZEN
 - „Bewertet Texte, niemals Personen.“ Das Werkzeug liefert Befunde zu Texten, die jemand geschrieben hat.
