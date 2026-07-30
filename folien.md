@@ -171,47 +171,17 @@ quellen:
 Zunächst zum Unternehmen und zum aktuellen Prozess.
 
 ### Das Unternehmen
-
-Die Volkshochschule Frankfurt ist kein Amt, sondern ein Eigenbetrieb der
-Stadt. Geleitet wird sie von einem Direktor, der laut Impressum auch
-persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
-Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
-Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
-
-Am Ende der ersten Zeile steht die Qualitätstestierung. Das Unternehmen ist
-seit zweitausendfünf nach L Q W testiert, Lernerorientierte
-Qualitätstestierung in der Weiterbildung, ein Verfahren mit regelmäßiger
-externer Prüfung, inzwischen in der sechsten Runde. Hier fehlt also keine
-Qualitätskultur. Es fehlt genau ein Schritt darin.
+- kein Amt, sondern ein Eigenbetrieb der Stadt.
+- seit 2005 extern qualitätsgeprüft nach **LQW**, **Lernerorientierte Qualitätstestierung in der Weiterbildung**
+- Geleitet wird sie von einem Direktor, der laut Impressum auch persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
+- Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den Personalrat.
 
 ### Der Satz oben aus der Betriebssatzung
-
 Der Satz oben stammt wörtlich aus der Betriebssatzung: Die Angebote stehen
-grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
-Unternehmen — nicht am Gesetz, sondern an seinem eigenen Anspruch.
+grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 
-### Rechte Spalte: So entsteht ein Kurstext
-
-Rechts steht, wie ein Kurstext entsteht. Geplant wird halbjährlich, von den
-Teams der vier Fachbereiche. Der Text wird geschrieben und ins
-Kursverwaltungssystem eingepflegt, und dann erscheint er. Über der Spalte
-steht das Wort angenommen, denn wer bei der vhs Frankfurt die Texte schreibt,
-ist nicht öffentlich dokumentiert.
-
-### Der Kasten unten
-
-Zwischen dem Einpflegen und dem Erscheinen ist kein Prüfschritt auf
-Verständlichkeit vorgesehen. Das ist kein Vorwurf, denn dieser Arbeitsschritt
-ist nirgends vorgesehen. Genau deshalb ist es ein Fall für Prozessgestaltung
-und nicht für einen Appell, sich mehr Mühe zu geben.
-
-Für das gedruckte Programmheft gibt es sehr wohl eine Redaktion, das Impressum
-nennt sie mit Namen. Für das Portal gibt es sie nicht, und dort stehen die
-Texte, um die es hier geht.
-
-Ich habe nachgezählt: Vierundfünfzig Prozent aller Kurse teilen sich ihren
-Text mit mindestens einem anderen. Ein schlecht formulierter Text ist hier nie
-ein Einzelfall.
+### So entsteht ein Kurstext
+- *(vorlesen)*
 
 
 ## 5 — Messung und eigentlicher Befund
@@ -224,12 +194,12 @@ klein: ja
 lede: Alle 3.111 Kurstexte des Portals, Abruf vom 28.07.2026. 1.765 davon haben einen Befund.
 regelntitel: Wonach gemessen wurde
 regeln:
-  - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
-  - "| LINKTEXT | Linktext nennt sein Ziel nicht"
   - "EMPFEHLUNG | NIVEAU | Wort über dem Sprachniveau der Zielgruppe"
   - "| AMTSDEUTSCH | Behördenwort, wo ein Alltagswort reicht"
   - "| SATZ | über 25 Wörter, bei Deutschkursen über 15"
   - "| ABK | Kürzel ohne Auflösung, etwa DTZ"
+  - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
+  - "| LINKTEXT | Linktext nennt sein Ziel nicht"
 tabellentitel: Zwei Kurse im Vergleich
 spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
 zeilen:
@@ -243,13 +213,10 @@ quellen:
 
 ### NOTIZ
 
-Zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern gemessen.
+Zur Potenzialermittlung. Was zählt als Befund und für wen?
 
 ### Die Messung
-
-Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle
-Kurstexte gezogen, gut dreitausend, und mit einem eigenen Skript ausgewertet.
-Siebenundfünfzig Prozent haben mindestens einen Befund.
+- Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle Kurstexte gezogen, gut dreitausend, und mit einem eigenen Skript ausgewertet. Siebenundfünfzig Prozent haben mindestens einen Befund.
 
 ### Wonach gemessen wurde
 
@@ -257,30 +224,13 @@ Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
 Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
 Prüfassistenten, den ich gleich zeige.
 
-### Links: die zwei Pflichtregeln
+### Links: die vier Empfehlungen
 
-Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
-Barrierefreiheitsrichtlinien und sind damit verbindlich.
-
-Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
-aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
-mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
-Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
-zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
-ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
-vorhanden und für das Vorleseprogramm nicht da.
-
-Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
-ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
-lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
-Liste aus fünfmal „hier“ hilft niemandem weiter.
-
-### Rechts: die vier Empfehlungen
-
-Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
-der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und
-nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der höchsten, die niemand
-einhalten muss. Die beiden anderen habe ich selbst gesetzt.
+Links stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
+der eigentliche Ertrag dieses Projekts — deshalb stehen sie vorn. Zwei davon,
+zu schwere Wörter und nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der
+höchsten, die niemand einhalten muss. Die beiden anderen habe ich selbst
+gesetzt.
 
 Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen
 sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt
@@ -299,6 +249,24 @@ sind, soll der Pilot beantworten.
 Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
 werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
 für Zuwanderer.
+
+### Rechts: die zwei Pflichtregeln
+
+Rechts stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
+Barrierefreiheitsrichtlinien und sind damit verbindlich.
+
+Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
+aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
+mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
+Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
+zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
+ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
+vorhanden und für das Vorleseprogramm nicht da.
+
+Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
+ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
+lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
+Liste aus fünfmal „hier“ hilft niemandem weiter.
 
 ### Zwei Kurse im Vergleich
 
@@ -349,10 +317,10 @@ absaetze:
   - "Für die vhs als kommunale Einrichtung in Hessen gilt **Landesrecht**: § 14 HessBGG und die **BITV HE**. Gefordert ist Stufe **AA**."
 kriterientitel: Was das für Kursbeschreibungen bedeutet
 kriterien:
-  - "PFLICHT · bis Stufe AA | 1.3.1 | Struktur ausgezeichnet"
-  - "| 2.4.4 | Linktext nennt sein Ziel"
   - "FREIWILLIG · Stufe AAA | 3.1.4 | Abkürzungen erklärt"
   - "| 3.1.5 | Leseniveau der Zielgruppe"
+  - "PFLICHT · bis Stufe AA | 1.3.1 | Struktur ausgezeichnet"
+  - "| 2.4.4 | Linktext nennt sein Ziel"
 callout: Ausgerechnet die Kriterien für Menschen mit geringer Vorbildung sind freiwillig.
 calloutfolge: Freiwillig heißt nicht belanglos. § 3 Abs. 1 BITV HE verlangt eigenständig, dass Angebote verständlich sind — und die Betriebssatzung, dass sie allen offenstehen, ohne Rücksicht auf Vorbildung.
 quellen:
@@ -379,16 +347,16 @@ Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
 Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
 Gefordert wird Stufe doppel A.
 
-### Der Block in der Mitte: Pflicht und freiwillig
+### Der Block in der Mitte: freiwillig und Pflicht
 
 Der Block in der Mitte zeigt nur die Kriterien, die am Text der
-Kursbeschreibung selbst hängen. Links steht, was daran verbindlich ist: dass
-eine Zeile, die eine Gliederungsebene eröffnet, auch technisch als Überschrift
-ausgezeichnet wird, und dass ein Linktext sagt, wohin er führt. Rechts steht,
-was freiwillig ist: dass Abkürzungen erklärt werden und dass das Leseniveau
-zur Zielgruppe passt. Beides ist dreifach A und damit nicht gefordert — und
-beides gehört zum Kern dieses Projekts. Zwei meiner Regeln liegen dagegen im
-Pflichtbereich; dazu gleich mehr.
+Kursbeschreibung selbst hängen, und wieder steht links das, worum es hier
+geht: dass Abkürzungen erklärt werden und dass das Leseniveau zur Zielgruppe
+passt. Beides ist dreifach A und damit nicht gefordert. Rechts steht, was
+verbindlich ist: dass eine Zeile, die eine Gliederungsebene eröffnet, auch
+technisch als Überschrift ausgezeichnet wird, und dass ein Linktext sagt,
+wohin er führt. Zwei meiner Regeln liegen also im Pflichtbereich; dazu gleich
+mehr.
 
 ### Warum ich nicht mit dem Bußgeld argumentiere
 
