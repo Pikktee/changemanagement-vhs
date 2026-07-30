@@ -101,9 +101,11 @@ springt. Es rollt dabei oefter als die Anzeige: derselbe Inhalt braucht als
 Markdown mehr Zeilen als gesetzt.
 """
 
+import contextlib
 import html
 import http.server
 import importlib.util
+import io
 import json
 import os
 import re
@@ -1215,6 +1217,48 @@ def baue():
 # etwas an — .env enthaelt den API-Schluessel.
 VERBOTEN = (".env", ".git", ".railwayignore", ".gitignore", ".DS_Store")
 
+# Die beiden erzeugten Seiten. bediene() ruft baue() beim Start, danach nie
+# wieder — do_GET faellt fuer alles ausser /notiz auf den Dateiserver zurueck.
+# Ein Reload holte deshalb die HTML-Datei so, wie sie beim Start geschrieben
+# wurde, auch wenn der Editor folien.md seither zwanzigmal geaendert hatte.
+# Die offene Seite merkte davon nichts: Sie bekommt ihre neue Fassung aus der
+# POST-Antwort. Erst der naechste Reload fiel auf den alten Stand zurueck —
+# und das sah aus wie verlorene Arbeit, obwohl in folien.md alles stand.
+SEITEN = ("/ausgabe/notizen.html", "/ausgabe/vortrag.html")
+
+_bau_sperre = threading.Lock()
+
+
+def seiten_nachziehen():
+    """baue() nachholen, wenn folien.md juenger ist als die erzeugten Seiten.
+
+    Der mtime-Vergleich ist nicht Sparsamkeit um ihrer selbst willen:
+    lade_build() liest build.py bei jedem Aufruf neu ein, und beim Blaettern
+    laedt der Browser die Seite nicht neu — aber ein versehentliches Reload
+    beim Vortrag soll auch nicht spuerbar haengen.
+
+    Faellt der Bau aus, wird die alte Seite ausgeliefert statt gar keiner.
+    Das ist der bessere Fehler: Wer vortraegt, braucht etwas auf dem Schirm.
+    """
+    ziel = AUS / "notizen.html"
+
+    def aktuell():
+        try:
+            return ziel.exists() and ziel.stat().st_mtime >= QUELLE.stat().st_mtime
+        except OSError:
+            return True          # Quelle weg: nichts anfassen
+
+    if aktuell():
+        return
+    with _bau_sperre:
+        if aktuell():            # ein anderer Thread war schneller
+            return
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                baue()
+        except Exception as f:
+            print(f"  ! Seiten nicht neu gebaut: {f}")
+
 
 class Bediener(http.server.SimpleHTTPRequestHandler):
 
@@ -1250,13 +1294,19 @@ class Bediener(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.gesperrt():
             return self.antworte(403, {"ok": False, "fehler": "gesperrt"})
-        if self.path.split("?")[0] == "/notiz":
+        pfad = self.path.split("?")[0]
+        if pfad == "/notiz":
             return self.antworte(200, {"schreibbar": True})
+        if pfad in SEITEN:
+            seiten_nachziehen()
         return super().do_GET()
 
     def do_HEAD(self):
         if self.gesperrt():
             return self.antworte(403, {"ok": False, "fehler": "gesperrt"})
+        # Auch hier, sonst meldet HEAD die Laenge der veralteten Datei.
+        if self.path.split("?")[0] in SEITEN:
+            seiten_nachziehen()
         return super().do_HEAD()
 
     def do_POST(self):
