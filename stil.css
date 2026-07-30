@@ -155,10 +155,14 @@ h1.klein{ font-size:41px; letter-spacing:-0.6px; }
 .spalten{ display:flex; gap:0; flex:1; align-items:stretch; }
 .sp{ flex:1; padding:0 30px; border-left:1px solid var(--linie); }
 .sp:first-child{ padding-left:0; border-left:none; }
-.sp .spkopf{ font-size:11px; font-weight:700; letter-spacing:2.2px;
-             text-transform:uppercase; color:#fff; background:var(--marke);
-             display:inline-block; padding:5px 11px; margin-bottom:16px; }
-.sp .spkopf.alt{ background:var(--tinte); }
+/* Der Selektor ist absichtlich nicht an .sp gebunden: Die Plakette markiert
+   auch die Spalten des Typs 'plan'. War sie an .sp gehaengt, standen dort
+   nackte Versalien ohne Flaeche. */
+.spkopf{ font-size:11px; font-weight:700; letter-spacing:2.2px;
+         text-transform:uppercase; color:#fff; background:var(--marke);
+         display:inline-block; padding:5px 11px; margin-bottom:16px;
+         align-self:flex-start; }
+.spkopf.alt{ background:var(--tinte); }
 .sp ul{ list-style:none; }
 .sp li{ font-size:15.5px; line-height:1.42; margin-bottom:11px; padding-left:16px;
         position:relative; }
@@ -268,8 +272,8 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 .plan{ display:flex; gap:46px; align-items:stretch;
        margin-top:auto; margin-bottom:auto; }
 .planspalte{ flex:1 1 0; display:flex; flex-direction:column; min-width:0; }
-.planspalte.kz{ flex:0 0 452px; }
-.pschritte{ display:flex; flex-direction:column; gap:15px; margin-top:19px; }
+.planspalte.kz{ flex:0 0 486px; }
+.pschritte{ display:flex; flex-direction:column; gap:15px; margin-top:3px; }
 .pschritt{ display:flex; gap:14px; align-items:flex-start; }
 .psnr{ flex:0 0 auto; width:25px; height:25px; background:var(--marke);
        color:#fff; display:flex; align-items:center; justify-content:center;
@@ -280,14 +284,19 @@ td.nein{ color:var(--pflicht); font-weight:700; }
         letter-spacing:-0.2px; }
 .pssub{ font-size:13.5px; color:var(--leise); line-height:1.4; margin-top:3px; }
 
-.pkzs{ display:flex; flex-direction:column; gap:11px; margin-top:19px; }
+.pkzs{ display:flex; flex-direction:column; gap:11px; margin-top:3px; }
 .pkz{ display:flex; gap:18px; align-items:center; background:var(--flaeche);
-      padding:13px 18px; border-left:4px solid var(--marke); }
-.pkzwert{ flex:0 0 118px; font-size:33px; font-weight:700; color:var(--marke);
-          font-variant-numeric:tabular-nums; letter-spacing:-1px;
-          line-height:1.05; text-align:right; }
+      padding:14px 18px; border-left:4px solid var(--marke); }
+/* 'flex:0 0 auto' mit min-width statt 'flex:0 0 118px': Die Zahl darf ihre
+   Basis ueberschreiten, ohne dass der Text daneben auf Wortbreite
+   zusammenfaellt. Genau das ist bei "290 Std." passiert. */
+.pkzwert{ flex:0 0 auto; min-width:126px; font-size:33px; font-weight:700;
+          color:var(--marke); font-variant-numeric:tabular-nums;
+          letter-spacing:-1px; line-height:1.05; text-align:right;
+          white-space:nowrap; }
 /* Auf --flaeche steht --tinte, nicht --leise: 6,80:1 verfehlt AAA. */
-.pkzerkl{ font-size:13.5px; line-height:1.4; color:var(--tinte); min-width:0; }
+.pkzerkl{ flex:1 1 auto; min-width:0; font-size:13.5px; line-height:1.4;
+          color:var(--tinte); }
 /* Die Zahl des Einwands ist keine Kennzahl des Vorhabens. Sie bleibt in
    Fliesstextfarbe und verliert den Markenstreifen — die Unterscheidung haengt
    damit nicht an der Farbe allein, sondern auch an der Form. */
