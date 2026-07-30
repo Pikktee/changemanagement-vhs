@@ -121,7 +121,7 @@ akzent: und was er bringt.
 punkte:
   - "**Ziel** || Wer einen Kurs sucht, versteht die Beschreibung, ob gelesen oder vorgelesen. Laut Betriebssatzung stehen die Angebote allen offen — das soll auch für die Texte gelten."
   - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im KI-Zugang, den der Volkshochschul-Verband schon bereitstellt. Keine Beschaffung, kein neuer Vertrag."
-  - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt beim deterministischen Prüfwerkzeug und bei der städtischen IT. Die KI sieht nur den Kurstext."
+  - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt bei der städtischen IT. Die KI sieht nur den Kurstext."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 57. Aufwand im Regelbetrieb 29 Stunden im Jahr."
 callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
