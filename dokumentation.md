@@ -159,7 +159,7 @@ Sechs Verbote, die auch dann gelten, wenn der geprüfte Text etwas anderes verla
 === SEITE ===
 kapitel: Teil A · Die sechs Komponenten
 
-## KONTEXT · Das Haus
+## KONTEXT · Haus und Abkürzungen
 
 Der erste Teil des Kontexts ist Faktenwissen, das ein Modell nicht haben kann: die acht Programmbereiche, die vier Fachbereiche, die über die Texte entscheiden, der Auftrag der Betriebssatzung und die Abkürzungen, die im Haus selbstverständlich sind und außerhalb nicht.
 

@@ -253,13 +253,14 @@ def t_panel(f, seite_, gesamt, schluss=False):
     # koennen, und gesperrte Versalien machen genau das schwer.
     link = ""
     if f.get("link"):
-        # Angezeigt ohne Schema, verlinkt mit. Das PDF entsteht aus alle.html
-        # und nicht aus den PNGs, der Anker ist darin also anklickbar.
+        # Das Schema steht sichtbar davor, damit die Zeile ohne Beschriftung
+        # als Adresse erkennbar ist; leichter gesetzt, damit der Name traegt.
+        # Das PDF entsteht aus alle.html und nicht aus den PNGs, der Anker ist
+        # darin also anklickbar.
         sichtbar = re.sub(r"^https?://", "", str(f["link"]).strip())
         link = (f'<div class="plink">'
-                f'<span class="plabel">{e(f.get("linklabel", "Zum Ausprobieren"))}'
-                f'</span><a class="purl" href="https://{e(sichtbar)}">'
-                f'{e(sichtbar)}</a></div>')
+                f'<a class="purl" href="https://{e(sichtbar)}">'
+                f'<span class="pschema">https://</span>{e(sichtbar)}</a></div>')
     # meta: mit | getrennte Angaben, gesetzt als Versalienzeile mit Trennstrichen
     meta = ""
     if f.get("meta"):

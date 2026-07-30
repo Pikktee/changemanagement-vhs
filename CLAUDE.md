@@ -127,16 +127,23 @@ einem Überlauf, den es nicht gibt. Zuverlässig misst nur ein frischer Chrome:
 ```
 
 **Die Abgabe-2-Doku zieht ihre Inhalte zur Bauzeit.** `dokumentation.md`
-enthält Platzhalter wie `{{PROMPT:GRENZEN}}`, `{{ITER:v4}}` und
-`{{PROTOKOLL:4074-74:antwort}}`. Prompt-Abschnitte, Iterationshistorie und
-Beispielläufe niemals hineinkopieren, sonst driftet das PDF vom Prompt weg.
+enthält Platzhalter: `{{PROMPT:GRENZEN}}` holt einen Prompt-Abschnitt
+(`{{PROMPT:KONTEXT:von:bis}}` schneidet an den `###`-Überschriften zu),
+`{{FASSUNG}}` das Feld `**Fassung:**`, `{{ITER_TABELLE}}` die Fassungshistorie
+als Tabelle — Datum aus den Überschriften von `iterationen.md`, Kurztext aus
+`ITERATION_KURZTEXTE` in `tool/server.py`, derselben Liste, die auch das Panel
+zeigt. Prompt-Abschnitte, Fassungsnummer und Historie niemals hineinkopieren,
+sonst driftet das PDF vom Prompt weg; genau das war passiert, als das
+Titelblatt v9 nannte und der Prompt bei v11 stand.
 
-**Jeder neue Lauf eines Kernfalls landet im PDF.** `{{PROTOKOLL:...}}` nimmt
-das **jüngste** Protokoll dieser Kursnummer. Wer 4074-74 zum Ausprobieren durch
-das Tool schickt, ersetzt damit den Beispiellauf der Abgabe — und der Fließtext
-daneben nennt weiter die Zahlen des alten Laufs. Läufe, die nicht in die Abgabe
-sollen, gehören nach `tool/protokoll/pruefung-kursplan/`; der Unterordner wird
-nicht durchsucht.
+**Beispielläufe stehen nicht im PDF, sondern im Werkzeug.** Das Dokument
+verweist dafür auf `klartext-vhs.henrikheil.net`. `{{ITER:v4}}` und
+`{{PROTOKOLL:4074-74:antwort}}` beherrscht `dokument.py` weiterhin, benutzt
+werden sie nicht mehr. Wer `{{PROTOKOLL:...}}` wieder einbaut, holt sich das
+alte Problem zurück: Der Platzhalter nimmt das **jüngste** Protokoll dieser
+Kursnummer, ein Probelauf ersetzt also den Beispiellauf der Abgabe. Läufe, die
+nichts in der Abgabe zu suchen haben, gehören ohnehin nach
+`tool/protokoll/pruefung-kursplan/`; der Unterordner wird nicht durchsucht.
 
 **Farben und Schriften stehen in `DESIGN.md`, nicht im Ermessen.** Die Werte
 liegen deckungsgleich in `stil.css`, `dokument.css` und `tool/index.html`.
