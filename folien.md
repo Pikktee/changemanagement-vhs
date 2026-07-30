@@ -566,7 +566,7 @@ xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
 oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Rahmen
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
-unten_links: Informieren || Die sieben übrigen Programmbereiche
+unten_links: Informieren || Die drei übrigen Fachbereiche
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
 quellen:
   - "§ 4 Abs. 4 Satz 2 HPVG — Honorarkräfte werden mitvertreten | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
@@ -588,9 +588,9 @@ ein sperrender. Die Einführung des Werkzeugs ist mitbestimmungspflichtig, sie
 braucht seine Zustimmung. Zwei von sechzehn Sitzen in der Betriebskommission
 sind dagegen als Stimmblock bedeutungslos.
 
-Deshalb stehen die sieben übrigen Programmbereiche unten links, bei
-informieren. Sie sollen wissen, dass es läuft, und sie sollen sehen, was
-herauskommt. Im Pilot sind sie nicht dabei.
+Deshalb stehen die drei übrigen Fachbereiche unten links, bei informieren. Sie
+sollen wissen, dass es läuft, und sie sollen sehen, was herauskommt. Im Pilot
+sind sie nicht dabei.
 
 Oben links stehen die mit hohem Einfluss, aber geringer Betroffenheit, weil
 mein Projekt ihre Arbeit nicht verändert: die städtische IT, die für die

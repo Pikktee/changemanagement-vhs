@@ -476,8 +476,11 @@ td.nein{ color:var(--pflicht); font-weight:700; }
 /* ---------- Typ: matrix (Stakeholder, Einfluss x Betroffenheit) ---------- */
 /* Die Matrix bekommt eine Obergrenze statt der ganzen Folienhoehe. Vorher
    fuellte sie alles und stand ohne Luft zwischen Titel und Fusszeile. */
+/* Unten ein fester Abstand statt 'auto': Mit auto auf beiden Seiten teilte
+   sich der Rest ungleich auf, und als die Quellenzeile dazukam, blieben zur
+   Achsenbeschriftung nur 7px. Oben bleibt auto, dort darf die Luft wandern. */
 .matrixwrap{ display:flex; gap:12px; flex:0 1 auto; min-height:0;
-             max-height:440px; margin:auto 0; }
+             max-height:440px; margin:auto 0 26px; }
 .yachse{ display:flex; gap:6px; align-items:stretch; }
 /* writing-mode ohne Rotation: erster Eintrag steht oben */
 .ylabels{ writing-mode:vertical-rl;
