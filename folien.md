@@ -300,7 +300,7 @@ akzent: und wo KLARTEXT ansetzt.
 klein: ja
 betont: 2
 betontmarke: → Hier setzt Projekt KLARTEXT an
-spalte1: DAS SEITENGERÜST · städtische IT
+spalte1: DIE WEBSITE · städtische IT
 punkte1:
   - "Kontraste, Tastaturbedienung, Seitentitel, Navigation"
   - "Prüfbar, ohne den einzelnen Kurs zu kennen"
@@ -323,8 +323,8 @@ quellen:
 Zur Lösung. Sie beginnt mit einer Abgrenzung, und die halte ich für den
 wichtigsten Teil meines Konzepts.
 
-### Das Seitengerüst
-- Links steht, was am Gerüst der Seite hängt: Kontraste, Tastaturbedienung, Seitentitel, Navigation.
+### Die Website
+- Links steht, was an der Website als Ganzem hängt: Kontraste, Tastaturbedienung, Seitentitel, Navigation.
 - Prüfbar, ohne einen einzigen Kurs zu kennen. Gilt für alle 5800 Texte gleich.
 - Dafür gibt es etablierte Programme wie **axe-core**. Zuständig ist die städtische IT.
 
