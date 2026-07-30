@@ -736,13 +736,11 @@ akzent: und vier Antworten.
 klein: ja
 einwaende:
   - "Unsicherheit · im ganzen Haus || „Schreibt die KI jetzt unsere Texte?“ || Nein. Sie schlägt vor, der Fachbereich entscheidet und veröffentlicht. Nichts geht ohne einen Menschen ins Portal."
-  - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Der Beispielkurs besteht vollständig aus zwei Bausteinen des Hauses. Deshalb wird die Freigabe geklärt, bevor der Pilot beginnt."
+  - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Vieles im Text sind Bausteine, die woanders gepflegt werden. Wer sie ändern darf, wird vor dem Pilot geklärt."
   - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Geprüft wird im Fachbereich, am eingegangenen Text. Rückmeldung ja, Pflicht nein."
-  - "Gewohnheit · Redaktion des Programmhefts || „Verständlicher heißt länger, und mein Heft hat feste Seiten.“ || Nachgemessen an einem echten Lauf: 31 Zeichen mehr auf 710. Und geprüft wird der Text im Portal, dort gibt es keine Seitenzahl."
-callout: Drei dieser Einwände sind schon beantwortet — durch den Zuschnitt des Projekts. Der zweite nicht.
-calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot entschieden werden. Das ist keine Schulungsfrage.
-quellen:
-  - "Bausteine und Längenvergleich: Kurs 4074-74, eigener Lauf vom 29.07.2026"
+  - "Gewohnheit · Redaktion des Programmhefts || „Die Texte stehen seit Jahren so da, beschwert hat sich nie jemand.“ || Beschwerden kommen von denen, die den Text verstanden haben. Wer ihn nicht versteht, meldet sich nicht — und meldet sich auch nicht an."
+callout: Drei dieser Einwände lassen sich beantworten. Der zweite braucht eine Entscheidung.
+calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot geklärt sein. Das ist keine Schulungsfrage.
 
 ### NOTIZ
 
@@ -759,35 +757,32 @@ Zuschnitt des Werkzeugs.
 
 ### Verlustangst · Fachbereich
 
-Der einzige Einwand, der noch offen ist. Ich habe
-nachgezählt: Der Beispielkurs besteht restlos aus zwei Bausteinen, dem
-Anmeldehinweis und der Niveaubeschreibung. Alle Befunde liegen dort, und der
-Anmeldehinweis steht wortgleich in hundertfünf Kursen. Das ist keine Angst vor
-der Maschine, sondern die Aussicht, für etwas gemessen zu werden, das man nicht
-ändern darf. Die Antwort ist deshalb keine Schulung, sondern eine
-Zuständigkeitsfrage. Und darin steckt die gute Nachricht: ein Baustein in
-Ordnung gebracht, und hundertfünf Kurse sind es mit.
+Der einzige Einwand, der noch offen ist. Eine Kursbeschreibung ist selten von
+einer Hand: Der Anmeldehinweis, die Beschreibung der Niveaustufe — solche
+Bausteine stehen wortgleich in vielen Kursen und werden nicht in dem Bereich
+gepflegt, der den Kurs anbietet. Wer die Befunde bekommt, darf den Text also
+oft gar nicht ändern. Das ist keine Angst vor der Maschine, sondern die
+Aussicht, für etwas geradezustehen, das einem nicht gehört. Die Antwort ist
+deshalb keine Schulung, sondern eine Zuständigkeitsfrage — und die gehört vor
+den Pilot.
 
 ### Fehlende Perspektive · Kursleitung
 
 Bei den Honorarkräften schärfer als bei allen
 anderen, weil ihre Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit
 kommt darin nicht vor. Die Antwort ist der Zuschnitt: Geprüft wird im
-Programmbereich, an dem Text, der dort eingeht. Das schützt auch ihren Status —
-verbindliche Regeln und ein Protokoll je Text sind genau die Merkmale, aus
-denen das Bundessozialgericht im Herrenberg-Urteil eine Eingliederung in den
-Betrieb hergeleitet hat.
+Fachbereich, an dem Text, der dort eingeht. Das schützt auch ihren Status:
+Verbindliche Regeln und ein Protokoll je Text wären genau die Merkmale, an
+denen sich eine Scheinselbständigkeit festmachen lässt.
 
 ### Gewohnheit · Redaktion des Programmhefts
 
-Nicht als Trägheit, sondern als konkurrierendes Regelwerk:
-Diese Redaktion kürzt beruflich, ein Werkzeug, das Erklärungen verlangt,
-scheint gegen ihren Auftrag zu arbeiten. Nur trägt die Annahme nicht. Ich habe
-die neun Vorschläge aus einem echten Lauf nachgerechnet: Fünf davon machen den
-Text kürzer, einer lässt ihn gleich, und unter dem Strich wächst er um
-einunddreißig Zeichen — bei siebenhundertzehn. Länger wird es vor allem dort,
-wo ein Verwaltungswort in einen ganzen Satz aufgelöst wird, Selbsteinschätzung
-zum Beispiel. Und geprüft wird ohnehin der Text im Portal, und dort gibt
+Der Satz, der jedes Qualitätsprojekt begleitet: Es hat sich doch nie jemand
+beschwert. Er stimmt vermutlich sogar — nur beweist er das Gegenteil. Wer sich
+beschwert, hat den Text gelesen und verstanden. Die Menschen, um die es hier
+geht, melden sich nicht: Sie verstehen die Beschreibung nicht, sie fragen nicht
+nach, und sie melden sich auch nicht an. Ihr Fehlen sieht von innen aus wie
+Zufriedenheit. Und geprüft wird ohnehin der Text im Portal, und dort gibt
 es keine Seitenzahl.
 
 ### Der Kasten unten
@@ -855,7 +850,6 @@ Die ersten dreißig Tage, und das ist keine Aufzählung, sondern eine
 Reihenfolge: Jeder Schritt bedingt den nächsten.
 
 ### Die vier Schritte
-
 Die Dienstvereinbarung zuerst, aus dem Grund von eben. Dann einen
 Programmbereich gewinnen, und zwar freiwillig — ein zugewiesener liefert kein
 belastbares Ergebnis, sondern nur Erfüllung. Dann die Freigabe der Bausteine.
