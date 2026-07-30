@@ -371,6 +371,7 @@ def t_zweispalt(f, seite_, gesamt):
     Spalte, die gerade *nicht* zum Projekt gehoert.
     """
     betont = str(f.get("betont", "")).strip()
+    marke = str(f.get("betontmarke", "")).strip()
     sp = []
     for i in (1, 2):
         kopfz = f.get(f"spalte{i}", "")
@@ -379,8 +380,13 @@ def t_zweispalt(f, seite_, gesamt):
         alt = "" if haupt else " alt"
         kl = " sp betont" if (betont and haupt) else " sp"
         lis = "".join(f"<li>{e(p)}</li>" for p in punkte)
+        # 'betontmarke' schliesst die betonte Spalte ab, statt ueber ihrem
+        # Kopf zu stehen: Dort haette sie die beiden Spaltenkoepfe gegeneinander
+        # verschoben, und der Blick liest die Liste ohnehin von oben nach unten.
+        fuss = (f'<p class="spmarke">{e(marke)}</p>'
+                if marke and betont and haupt else "")
         sp.append(f'<div class="{kl.strip()}"><span class="spkopf{alt}">{e(kopfz)}</span>'
-                  f'<ul>{lis}</ul></div>')
+                  f'<ul>{lis}</ul>{fuss}</div>')
     # Das vertikale Polster braucht auch die unbetonte Spalte, sonst stehen
     # die beiden Koepfe nicht mehr auf einer Linie.
     rahmen = "spalten mitbetont" if betont else "spalten"

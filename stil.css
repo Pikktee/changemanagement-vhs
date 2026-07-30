@@ -209,6 +209,17 @@ h1.klein{ font-size:41px; letter-spacing:-0.6px; }
 .sp.betont{ background:var(--flaeche); border-left:none; }
 .sp.betont + .sp{ border-left:none; }
 
+/* 'betontmarke' benennt, warum diese Spalte betont ist. Der Pfeil steht im
+   Inhalt und nicht im CSS, damit er auch in der PowerPoint-Notiz und im
+   Textbestand auftaucht — und weil ::before-Inhalte manchen Vorleseprogrammen
+   entgehen. Die Linie darueber trennt die Marke von der letzten Listenzeile,
+   ohne einen zweiten Kasten aufzumachen. */
+.sp.betont .spmarke{
+  margin-top:14px; padding-top:11px; border-top:2px solid var(--marke);
+  font-size:12px; font-weight:700; letter-spacing:1.6px;
+  text-transform:uppercase; color:var(--marke);
+}
+
 /* ---------- Typ: tabelle ---------- */
 table{ width:100%; border-collapse:collapse; }
 th{ font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;

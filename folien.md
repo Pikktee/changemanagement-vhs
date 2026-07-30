@@ -150,6 +150,7 @@ kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
 titel: Die vhs Frankfurt,
 akzent: und wie ein Kurstext entsteht.
 klein: ja
+betont: 2
 lede: Volkshochschule Frankfurt am Main, gegründet 1890. Laut Betriebssatzung stehen die Angebote grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 spalte1: DAS UNTERNEHMEN
 punkte1:
@@ -298,6 +299,7 @@ titel: Was die Technik prüft,
 akzent: und wo KLARTEXT ansetzt.
 klein: ja
 betont: 2
+betontmarke: → Hier setzt Projekt KLARTEXT an
 spalte1: DAS SEITENGERÜST · städtische IT
 punkte1:
   - "Kontraste, Tastaturbedienung, Seitentitel, Navigation"
@@ -788,22 +790,8 @@ fussr: HENRIK HEIL
 
 ### NOTIZ
 
-### Was diese Arbeit ist
+- Danke für die Aufmerksamkeit.
 
-Ich habe ein reales Unternehmen analysiert, einen Prozess gefunden, in dem
-niemand etwas falsch macht und trotzdem etwas fehlt, und ich habe den Zustand
-gemessen statt geschätzt.
+- Zum Test an einem Kurstext aus dem Portal habe ich die URL zum Prototypen verlinkt — mit dem Prompt in allen Fassungen.
 
-### Meine Lehre aus dem Projekt
-
-Der System-Prompt selbst ist an einem Nachmittag geschrieben. Das ist meine
-eigentliche Lehre aus diesem Projekt. Die Arbeit steckt in allem, was ihn
-möglich macht: zu wissen, für wen ein Text ist, zu wissen, was Pflicht ist und
-was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
-schreiben, das Werkzeug nicht als Kontrolle erleben.
-
-### Der Link auf der Folie
-
-Danke für die Aufmerksamkeit. Die Adresse steht hier auf der Folie, dort läuft
-der Prototyp weiter — mit dem Prompt in allen Fassungen und den Läufen, die ihr
-gesehen habt. Jetzt gerne eure Fragen.
+- Wenn es Fragen gibt gerne.
