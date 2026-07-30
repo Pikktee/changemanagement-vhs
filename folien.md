@@ -34,23 +34,22 @@ bildnotiz: Wand aus Textzeilen mit einem Schlitz. Gezeichnet von bilder/zeichnen
 Ich stelle euch heute mein Abschlussprojekt vor: KLARTEXT, ein Prüfschritt für
 die Kursbeschreibungen der Volkshochschule Frankfurt.
 
-Das Feld heißt Barrierefreiheit. Die meisten denken dabei an Technik:
-Kontraste, Tastaturbedienung, Vorleseprogramme. Mein Thema ist der andere
-Teil. Ob der Text ankommt bei denen, für die er geschrieben ist. Das betrifft
-alle acht Programmbereiche des Unternehmens.
+Es geht um Barrierefreiheit. Die meisten denken dabei an Technik: Kontraste,
+Tastaturbedienung, Vorleseprogramme. Mich interessiert der andere Teil — ob
+der Text ankommt bei denen, für die er geschrieben ist. Das betrifft alle acht
+Programmbereiche.
 
 Angefangen hat es mit dem schärfsten Fall. Die Volkshochschule bietet
-Deutschkurse für Menschen an, die gerade erst Deutsch lernen. Und die
+Deutschkurse für Menschen an, die gerade erst Deutsch lernen, und die
 Beschreibungen dieser Kurse sind in einem Deutsch geschrieben, das man erst
-nach dem Kurs versteht. Wer Deutsch lernen will, muss erst Deutsch können. Das
-ist der Extremfall, aber das Prinzip dahinter gilt überall.
+nach dem Kurs versteht. Wer Deutsch lernen will, muss also erst Deutsch
+können. Das ist der Extremfall, aber das Prinzip dahinter gilt überall.
 
-Zwei Hinweise vorweg. Ich habe dieses Projekt allein bearbeitet, alle Rollen
-liegen also bei mir. Und alle Zahlen, die gleich kommen, habe ich selbst
-gemessen, an der echten Website, am achtundzwanzigsten Juli. Der Datensatz
-liegt der Arbeit bei.
+Ich habe das Projekt allein bearbeitet, alle Rollen liegen also bei mir. Und
+alle Zahlen, die gleich kommen, habe ich selbst gemessen, an der echten
+Website, am achtundzwanzigsten Juli. Der Datensatz liegt der Arbeit bei.
 
-Am Ende zeige ich das Werkzeug live an einem echten Kurstext.
+Am Ende zeige ich das Werkzeug an einem echten Kurstext.
 
 
 ## 2 — Executive Summary I: Worum es geht
@@ -72,33 +71,33 @@ quellen:
 
 ### NOTIZ
 
-Zuerst das Ganze in drei Zahlen.
+Drei Zahlen zum Einstieg.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
 Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben
-achtundfünfzig Prozent mindestens einen Befund. Und das ist die Untergrenze.
+achtundfünfzig Prozent mindestens einen Befund, und das ist die Untergrenze:
 Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
 sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
 Die dritte Zahl stammt aus dem Unternehmen selbst. In der Erklärung zur
 Barrierefreiheit steht, wann die Website zuletzt extern geprüft wurde: am
-ersten Juli zweitausendeinundzwanzig. Das ist heute auf den Tag genau fünf
-Jahre her. Seitdem bewertet sich das Unternehmen selbst. Ich habe die Seite mit einem
+ersten Juli zweitausendeinundzwanzig, heute auf den Tag genau fünf Jahre her.
+Seitdem bewertet sich das Unternehmen selbst. Ich habe die Seite mit einem
 gängigen Prüfprogramm laufen lassen, und sie erfüllt die Anforderungen heute
 nicht mehr, da kommen etliche Verstöße zusammen.
 
-Das ist aber ausdrücklich nicht mein Thema. Dafür ist die städtische IT
-zuständig, und ich komme darauf noch einmal zurück.
+Das ist nicht mein Thema — dafür ist die städtische IT zuständig, und ich
+komme darauf zurück.
 
-Denn dieselbe Erklärung enthält den Satz, der mich auf dieses Projekt gebracht
+Dieselbe Erklärung enthält aber den Satz, der mich auf dieses Projekt gebracht
 hat. Die wichtigsten Informationen zu Betrieb und Kursgeschäft, heißt es dort,
 seien in einfacher Sprache verfügbar. Das Unternehmen hat die Frage nach der
 Verständlichkeit also längst gestellt und für einen Bereich beantwortet. Nur
 für die Kursbeschreibungen selbst, den mit Abstand größten Textbestand, gilt
 das nicht.
 
-Genau da setze ich an. Und unten steht die Frage, um die es dabei geht: Neun
-von zehn Texten haben einen Befund. Für wen sind sie eigentlich zu schwer?
+Da setze ich an. Unten steht die Frage, um die es geht: Mehr als jeder zweite
+Text hat einen Befund. Für wen ist er eigentlich zu schwer?
 
 
 ## 3 — Executive Summary II: Der Vorschlag
@@ -123,26 +122,26 @@ quellen:
 
 Daraus folgt mein Vorschlag.
 
-Das Ziel oben ist bewusst von den Lesenden her formuliert. Wer einen Kurs
-sucht, soll die Beschreibung verstehen, ob er sie liest oder vorgelesen
-bekommt. Die Betriebssatzung sagt, die Angebote stehen allen offen. Mein Punkt
-ist: Dann muss das auch für die Texte gelten, mit denen wir sie ankündigen.
+Das Ziel oben ist von den Lesenden her formuliert. Wer einen Kurs sucht, soll
+die Beschreibung verstehen, ob er sie liest oder vorgelesen bekommt. Die
+Betriebssatzung sagt, die Angebote stehen allen offen — dann muss das auch für
+die Texte gelten, mit denen wir sie ankündigen.
 
-Geprüft wird deshalb zweierlei. Ob die Zielgruppe den Text versteht, und ob ein
+Geprüft wird zweierlei: ob die Zielgruppe den Text versteht, und ob ein
 Vorleseprogramm etwas damit anfangen kann. Eine fett gesetzte Zeile, die als
-Überschrift gemeint ist, aber technisch keine ist, wird beim Vorlesen nicht als
-Sprungmarke angeboten.
+Überschrift gemeint ist, aber technisch keine ist, wird beim Vorlesen nicht
+als Sprungmarke angeboten.
 
-Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-Verband
-ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts beschafft
-werden.
+Dafür genügt ein System-Prompt in dem KI-Rahmen, den der Volkshochschul-
+Verband ohnehin für alle Volkshochschulen bereitstellt. Es muss nichts
+beschafft werden.
 
-Die Abgrenzung darunter zieht sich durch das ganze Konzept. Für die technische
+Die Abgrenzung darunter zieht sich durch das ganze Konzept: Für die technische
 Barrierefreiheit der Website bleibt ein normales Prüfwerkzeug zuständig,
 zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
 
-Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei Monate.
-Der Prompt schlägt vor, der Mensch entscheidet.
+Unten steht der erste Schritt: ein Pilot in einem Programmbereich, drei
+Monate. Der Prompt schlägt vor, der Mensch entscheidet.
 
 
 ## 4 — Das Unternehmen und der Prozess heute
@@ -177,7 +176,7 @@ quellen:
 
 ### NOTIZ
 
-Zunächst das Unternehmen und der Prozess, um den es geht.
+Das Unternehmen und der Prozess.
 
 Die Volkshochschule Frankfurt ist kein Amt, sondern ein Eigenbetrieb der
 Stadt. Geleitet wird sie von einem Direktor, der laut Impressum auch
@@ -185,16 +184,17 @@ persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den
 Personalrat. Diese zwei Sitze spielen später noch eine Rolle.
 
-Wichtig ist der erste Punkt, ganz am Ende. Das Unternehmen ist seit zweitausendfünf
-nach L Q W testiert. Das steht für Lernerorientierte Qualitätstestierung in
-der Weiterbildung, ein Verfahren mit regelmäßiger externer Prüfung, inzwischen
-in der sechsten Runde. Dazu kommt eine Zertifizierung nach der Akkreditierungs-
-und Zulassungsverordnung Arbeitsförderung. Das ist mir wichtig zu betonen: Hier
-fehlt keine Qualitätskultur. Es fehlt genau ein Schritt darin.
+Am Ende der ersten Zeile steht die Qualitätstestierung. Das Unternehmen ist
+seit zweitausendfünf nach L Q W testiert, Lernerorientierte
+Qualitätstestierung in der Weiterbildung, ein Verfahren mit regelmäßiger
+externer Prüfung, inzwischen in der sechsten Runde. Dazu kommt eine
+Zertifizierung nach der Akkreditierungs- und Zulassungsverordnung
+Arbeitsförderung. Hier fehlt also keine Qualitätskultur. Es fehlt genau ein
+Schritt darin.
 
-Der Satz oben stammt wörtlich aus der Betriebssatzung. Die Angebote stehen
+Der Satz oben stammt wörtlich aus der Betriebssatzung: Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung. Daran messe ich das
-Unternehmen. Nicht am Gesetz, sondern an seinem eigenen Anspruch.
+Unternehmen — nicht am Gesetz, sondern an seinem eigenen Anspruch.
 
 Rechts steht, wie ein Kurstext entsteht. Geplant wird halbjährlich, von den
 Teams der vier Fachbereiche. Der Text wird geschrieben und ins
@@ -205,23 +205,22 @@ Verständlichkeit vorgesehen. Das ist kein Vorwurf, denn dieser Arbeitsschritt
 ist nirgends vorgesehen. Genau deshalb ist es ein Fall für Prozessgestaltung
 und nicht für einen Appell, sich mehr Mühe zu geben.
 
-Eine Einschränkung sage ich offen dazu. Für das gedruckte Programmheft gibt es
-sehr wohl eine Redaktion, das Impressum nennt sie mit Namen. Für das Portal
-gibt es sie nicht, und dort stehen die Texte, um die es hier geht.
+Für das gedruckte Programmheft gibt es sehr wohl eine Redaktion, das Impressum
+nennt sie mit Namen. Für das Portal gibt es sie nicht, und dort stehen die
+Texte, um die es hier geht.
 
-Und noch eine Einschränkung. Über der rechten Spalte steht nicht ohne Grund
-das Wort angenommen. Wer bei der vhs Frankfurt die Texte schreibt, ist nicht
-öffentlich dokumentiert. Für die Branche ist es gut belegt: Das Standardwerk
-des Deutschen Instituts für Erwachsenenbildung führt die fristgerechte Abgabe
-von Ankündigungstexten unter den Pflichten der Kursleitung. Bei den
-Sprachkursen hier spricht der Befund allerdings dagegen. Beide Kurse, die ich
-gleich zeige, sind im Programmheft mit N. N. als Kursleitung gedruckt. Da war
-noch niemand gewonnen, der einen Text hätte liefern können. Diese Texte
-bestehen vollständig aus Bausteinen.
+Über der rechten Spalte steht nicht ohne Grund das Wort angenommen. Wer bei
+der vhs Frankfurt die Texte schreibt, ist nicht öffentlich dokumentiert. Für
+die Branche ist es gut belegt: Das Standardwerk des Deutschen Instituts für
+Erwachsenenbildung führt die fristgerechte Abgabe von Ankündigungstexten unter
+den Pflichten der Kursleitung. Bei den Sprachkursen hier spricht der Befund
+allerdings dagegen. Beide Kurse, die ich gleich zeige, sind im Programmheft
+mit N. N. als Kursleitung gedruckt — da war noch niemand gewonnen, der einen
+Text hätte liefern können. Diese Texte bestehen vollständig aus Bausteinen.
 
-Das ist übrigens kein Randbefund. Ich habe nachgezählt: Vierundfünfzig Prozent
-aller Kurse teilen sich ihren Text mit mindestens einem anderen Kurs. Ein
-schlecht formulierter Text ist hier nie ein Einzelfall.
+Ich habe nachgezählt: Vierundfünfzig Prozent aller Kurse teilen sich ihren
+Text mit mindestens einem anderen. Ein schlecht formulierter Text ist hier nie
+ein Einzelfall.
 
 
 ## 5 — Messung und eigentlicher Befund
@@ -253,17 +252,16 @@ quellen:
 
 ### NOTIZ
 
-Damit zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern
-gemessen.
+Zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern gemessen.
 
 Das Kursportal hat eine offene Schnittstelle. Darüber habe ich sechzig
 Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und mit einem
 eigenen Skript ausgewertet. Fünfunddreißig von sechzig Texten haben mindestens
 einen Befund.
 
-Oben steht, wonach ich gemessen habe. Sechs Regeln, und die Reihenfolge auf
-dieser Folie ist Absicht: erst der Maßstab, dann das Ergebnis. Dieselben sechs
-Regeln sind zugleich der Maßstab des Prüfassistenten, den ich gleich zeige.
+Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
+Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
+Prüfassistenten, den ich gleich zeige.
 
 Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
 Barrierefreiheitsrichtlinien und sind damit verbindlich.
@@ -271,20 +269,20 @@ Barrierefreiheitsrichtlinien und sind damit verbindlich.
 Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
 aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
 mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
-Screenreader dagegen bietet seinen Nutzern an, sich alle Überschriften einer
-Seite vorlesen zu lassen, um gezielt dorthin zu springen. Was technisch keine
-Überschrift ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann
-sichtbar vorhanden und für das Vorleseprogramm nicht da.
+Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
+zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
+ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
+vorhanden und für das Vorleseprogramm nicht da.
 
 Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
-ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe wie eben:
-Screenreader lesen auf Wunsch nur die Links einer Seite vor, ohne den Text
-drumherum. Eine Liste aus fünfmal „hier“ hilft niemandem weiter.
+ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
+lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
+Liste aus fünfmal „hier“ hilft niemandem weiter.
 
 Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
-der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und nicht
-aufgelöste Abkürzungen, stehen auf Stufe AAA der Richtlinien — der höchsten,
-die niemand einhalten muss. Die beiden anderen habe ich selbst gesetzt.
+der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und
+nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der höchsten, die niemand
+einhalten muss. Die beiden anderen habe ich selbst gesetzt.
 
 Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen
 sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt
@@ -295,27 +293,26 @@ genügen würde. Umbuchung statt Wechsel, gegebenenfalls statt wenn nötig. Das
 trifft nicht nur Sprachanfänger, sondern auch geübte Leserinnen und Leser.
 
 Satz heißt: über fünfundzwanzig Wörter, bei Deutschkursen über fünfzehn. Diese
-beiden Zahlen habe ich gesetzt, nicht gemessen. Sie orientieren sich an den
+beiden Zahlen habe ich gesetzt, nicht gemessen; sie orientieren sich an den
 Empfehlungen für einfache Sprache. Zur Satzlänge sagen die
 Barrierefreiheitsrichtlinien nämlich nichts, und ob es die richtigen Zahlen
-sind, gehört zu den Fragen, die der Pilot beantworten soll.
+sind, soll der Pilot beantworten.
 
 Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
-werden. Davon hat die vhs einige eigene. D-T-Z zum Beispiel, der
-Deutsch-Test für Zuwanderer.
+werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
+für Zuwanderer.
 
-Damit zur Tabelle darunter. Sie zeigt zwei Sprachkurse, und beide tragen eine
-niedrige Stufe im Titel. Das bedeutet aber zweimal etwas völlig Verschiedenes.
+Die Tabelle darunter zeigt zwei Sprachkurse, und beide tragen eine niedrige
+Stufe im Titel. Das bedeutet zweimal etwas völlig Verschiedenes.
 
 Beim Englischkurs steht A1 für das Englisch, das dort gelernt wird. Wer die
 Beschreibung liest, ist deutschsprachig und liest Deutsch fließend. Beim
 Deutschkurs steht A2 für das Deutsch, das dort gelernt wird. Wer diese
 Beschreibung liest, kann Deutsch bisher eine Stufe darunter, also A1.
 
-Und jetzt der Unterschied. Der Englischkurs hat kein einziges Wort über dem
-Niveau seiner Leser, einen Befund insgesamt, und das ist eine nicht
-aufgelöste Abkürzung. Der Deutschkurs hat vierundzwanzig zu schwere Wörter und
-achtundzwanzig Befunde.
+Der Englischkurs hat kein einziges Wort über dem Niveau seiner Leser und einen
+Befund insgesamt, eine nicht aufgelöste Abkürzung. Der Deutschkurs hat
+vierundzwanzig zu schwere Wörter und achtundzwanzig Befunde.
 
 Dabei sind beide Texte gleich einfach gebaut. Die Sätze sind in beiden Fällen
 kurz, im Schnitt neun beziehungsweise elf Wörter. Ein Lesbarkeitsindex, der
@@ -324,15 +321,15 @@ zweimal, und einmal davon zu Unrecht.
 
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
 wen der Text ist. In meiner Stichprobe stehen sechs Deutschkurse auf den
-Stufen A1 und A2. Alle sechs enthalten Wörter, die über dem Niveau ihrer
-Zielgruppe liegen. Selbsteinschätzung, Fehleinschätzung, Umbuchung. Das sind
-Wörter, die man erst weit oberhalb des Kursziels lernt. Genau hier kann ein
-fachlich eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
+Stufen A1 und A2, und alle sechs enthalten Wörter, die über dem Niveau ihrer
+Zielgruppe liegen: Selbsteinschätzung, Fehleinschätzung, Umbuchung. Wörter,
+die man erst weit oberhalb des Kursziels lernt. Genau hier kann ein fachlich
+eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 
-Ein Wort zu den Zahlen, das mir wichtig ist. Achtundfünfzig Prozent sind eine
-Untergrenze. Mein Messskript prüft fünf der sechs Regeln. Die erste, ob eine
-hervorgehobene Zeile eine Überschrift sein sollte, kann kein Skript
-entscheiden. Ich messe also bewusst zu niedrig statt zu hoch.
+Noch einmal zu den achtundfünfzig Prozent: Das ist eine Untergrenze. Mein
+Messskript prüft fünf der sechs Regeln; die erste, ob eine hervorgehobene
+Zeile eine Überschrift sein sollte, kann kein Skript entscheiden. Ich messe
+also bewusst zu niedrig statt zu hoch.
 
 
 ## 6 — Rechtslage
@@ -361,7 +358,7 @@ quellen:
 
 ### NOTIZ
 
-Bevor ich zur Lösung komme, kurz die Rechtslage.
+Kurz die Rechtslage.
 
 Digitale Barrierefreiheit bedeutet, dass eine Website auch für Menschen mit
 Behinderung nutzbar sein muss. Der Maßstab sind die WCAG, mit drei Stufen: A,
@@ -372,37 +369,37 @@ Barrierefreiheitsstärkungsgesetz unmittelbar. Sie ist eine kommunale
 Einrichtung in Hessen, also greift Landesrecht: Paragraph vierzehn des
 Hessischen Behindertengleichstellungsgesetzes und die hessische Verordnung.
 Gefordert wird Stufe doppel A. Viele kommunale Stellen berufen sich
-stattdessen auf die BITV zwei null des Bundes. Die gilt für Bundesbehörden.
-Wer das verwechselt, prüft am falschen Maßstab.
+stattdessen auf die BITV zwei null des Bundes, und die gilt für
+Bundesbehörden. Wer das verwechselt, prüft am falschen Maßstab.
 
-Und jetzt der Block in der Mitte, der Punkt, an dem ich beim Recherchieren
-selbst falsch lag. Er zeigt nur die Kriterien, die am Text der
+Der Block in der Mitte zeigt nur die Kriterien, die am Text der
 Kursbeschreibung selbst hängen. Die Seite hat weitere Pflichten — Kontraste,
-Seitentitel, Tastaturbedienung. Die gehören einem anderen Werkzeug, dazu
-komme ich auf der nächsten Folie.
+Seitentitel, Tastaturbedienung —, die gehören einem anderen Werkzeug, dazu
+komme ich gleich.
 
 Links steht, was am Text verbindlich ist: dass eine Zeile, die eine
 Gliederungsebene eröffnet, auch technisch als Überschrift ausgezeichnet wird.
 Und dass ein Linktext sagt, wohin er führt. Beides sind die Pflichtregeln von
 eben.
 
-Rechts steht, was freiwillig ist. Dass Abkürzungen erklärt werden. Und dass
-das Leseniveau zur Zielgruppe passt. Beides ist dreifach A und damit nicht
-gefordert. Genau die beiden Kriterien also, um die es in diesem Projekt geht.
+Rechts steht, was freiwillig ist: dass Abkürzungen erklärt werden und dass das
+Leseniveau zur Zielgruppe passt. Beides ist dreifach A und damit nicht
+gefordert — genau die beiden Kriterien also, um die es in diesem Projekt geht.
 
 Ich könnte jetzt mit einem drohenden Bußgeld argumentieren. Das wäre bequem,
 und es wäre falsch.
 
-Freiwillig heißt aber nicht belanglos, und das ist der Kern dieser Folie.
-Paragraph drei Absatz eins der hessischen Verordnung verlangt eigenständig,
-dass Angebote verständlich sind. Die Konformitätsstufe begründet eine
-Vermutung, keine Obergrenze der Pflicht. Ich argumentiere also nicht gegen das
-Recht, sondern in einer Lücke, die es selbst offenlässt.
+Freiwillig heißt aber nicht belanglos. Paragraph drei Absatz eins der
+hessischen Verordnung verlangt eigenständig, dass Angebote verständlich sind.
+Die Konformitätsstufe begründet eine Vermutung, keine Obergrenze der Pflicht.
+Ich argumentiere also nicht gegen das Recht, sondern in einer Lücke, die es
+selbst offenlässt.
 
-Und den eigentlichen Auftrag gibt sich das Unternehmen selbst. Die
+Den eigentlichen Auftrag gibt sich das Unternehmen ohnehin selbst. Die
 Betriebssatzung sagt, die Angebote stünden allen offen, ohne Rücksicht auf
-Vorbildung. Für ein solches Unternehmen ist es nicht vertretbar, dass ausgerechnet
-die Kriterien für Menschen mit geringer Vorbildung die freiwilligen sind.
+Vorbildung. Für ein solches Unternehmen ist es nicht vertretbar, dass
+ausgerechnet die Kriterien für Menschen mit geringer Vorbildung die
+freiwilligen sind.
 
 
 ## 7 — Die Arbeitsteilung
@@ -433,12 +430,8 @@ quellen:
 
 ### NOTIZ
 
-Damit zur Lösung. Sie beginnt mit einer Abgrenzung, die ich für den
-wichtigsten Teil meines Konzepts halte.
-
-Auf der vorigen Folie habe ich nur die Kriterien gezeigt, die am Text der
-Kursbeschreibung hängen. Die Seite hat weitere Pflichten, und die Frage ist,
-warum dafür nicht dasselbe Werkzeug reicht.
+Zur Lösung. Sie beginnt mit einer Abgrenzung, und die halte ich für den
+wichtigsten Teil meines Konzepts.
 
 Links steht, was am Gerüst der Seite hängt: Kontraste, Tastaturbedienung,
 Seitentitel, Navigation. Das kann man prüfen, ohne einen einzigen Kurs zu
@@ -449,30 +442,29 @@ Rechts steht, was am einzelnen Text hängt. Versteht die Zielgruppe genau
 dieses Kurses ihn? Diese Frage lässt sich nicht beantworten, ohne zu wissen,
 wer liest. Zuständig sind die Programmbereiche.
 
-Und jetzt der Punkt, auf den es mir ankommt. Die Trennlinie verläuft nicht
-zwischen Sprache und Technik. Zwei meiner sechs Regeln sind selbst
-Pflichtkriterien der Barrierefreiheit. Ein Beispiel: eine hervorgehobene
-Zeile, die als Überschrift gemeint ist, aber im Quelltext keine ist. Das
-Prüfprogramm sieht dort nur Fließtext und meldet nichts. Ob diese Zeile eine
-Überschrift sein sollte, kann man dem Text nicht ansehen, sondern nur
-verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium rechts.
+Die Trennlinie verläuft also nicht zwischen Sprache und Technik. Zwei meiner
+sechs Regeln sind selbst Pflichtkriterien der Barrierefreiheit. Ein Beispiel:
+eine hervorgehobene Zeile, die als Überschrift gemeint ist, aber im Quelltext
+keine ist. Das Prüfprogramm sieht dort nur Fließtext und meldet nichts. Ob
+diese Zeile eine Überschrift sein sollte, kann man dem Text nicht ansehen,
+sondern nur verstehen. Deshalb liegt ausgerechnet dieses Pflichtkriterium
+rechts.
 
-Ein Wort dazu, warum links kein Sprachmodell steht. Nicht, weil dort keine KI
-im Spiel wäre — die Hersteller solcher Prüfprogramme bauen selbst KI ein, um
-schneller zu werden. Sondern weil dort keine nötig ist. Für alles, was
-feststeht, ist ein Sprachmodell das schlechtere Werkzeug: langsamer, teurer,
-und es liefert nicht immer dasselbe Ergebnis. Ein Kontrastwert ist eine
-Rechnung, keine Einschätzung.
+Links steht kein Sprachmodell — nicht, weil dort keine KI im Spiel wäre, die
+Hersteller solcher Prüfprogramme bauen selbst KI ein, um schneller zu werden.
+Sondern weil dort keine nötig ist. Für alles, was feststeht, ist ein
+Sprachmodell das schlechtere Werkzeug: langsamer, teurer, und es liefert nicht
+immer dasselbe Ergebnis. Ein Kontrastwert ist eine Rechnung, keine
+Einschätzung.
 
 Diese Trennung hat sich beim Bauen zweimal selbst bestätigt. Zwei Zusagen, die
 ich zuerst in den Prompt geschrieben hatte, hat das Modell nicht zuverlässig
 eingehalten. Beide stehen jetzt im Programmcode, weil sie feststehen und keine
 Einschätzung verlangen.
 
-Zu den technischen Voraussetzungen: Es braucht den KI-Rahmen, den der
-Volkshochschul-Verband ohnehin bereitstellt, einen dort hinterlegten
-Assistenten und die Wortliste als Datei. Kein neuer Vertrag, kein Eingriff ins
-Kursverwaltungssystem.
+Technisch braucht es den KI-Rahmen, den der Volkshochschul-Verband ohnehin
+bereitstellt, einen dort hinterlegten Assistenten und die Wortliste als Datei.
+Kein neuer Vertrag, kein Eingriff ins Kursverwaltungssystem.
 
 
 ## 8 — Der Prompt in sechs Bausteinen
@@ -498,33 +490,32 @@ quellen:
 
 ### NOTIZ
 
-Damit zum Kern der Aufgabe, dem System-Prompt. Er folgt der
-Sechs-Komponenten-Struktur aus dem Aufgabenblatt.
+Zum Kern der Aufgabe, dem System-Prompt. Er folgt der Sechs-Komponenten-
+Struktur aus dem Aufgabenblatt.
 
 Die ROLLE macht ihn zur Redaktionsassistenz, nicht zur Autorin. Die AUFGABE
 schreibt die Reihenfolge vor: erst die Zielgruppe bestimmen, dann prüfen. Das
 FORMAT erzwingt zu jedem Befund ein wörtliches Zitat, eine Begründung und
 einen konkreten Vorschlag. Ohne Vorschlag kein Befund.
 
-Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die
-internen Abkürzungen, sechs Prüfregeln und, das ist der wichtigste Teil,
-achthundertzwanzig Wörter des Prüfungswortschatzes für das Goethe-Zertifikat
-A1. Diese Liste steht vollständig im Prompt, nicht als Verweis. Er schätzt das
-Sprachniveau also nicht, sondern begründet es.
+Der KONTEXT enthält das Hauswissen: die acht Programmbereiche, die internen
+Abkürzungen, sechs Prüfregeln und — der wichtigste Teil — achthundertzwanzig
+Wörter des Prüfungswortschatzes für das Goethe-Zertifikat A1. Diese Liste
+steht vollständig im Prompt, nicht als Verweis. Er schätzt das Sprachniveau
+also nicht, sondern begründet es.
 
 Das ist das Ergebnis der ersten Überarbeitung. In meiner ersten Fassung
 behauptete der Prompt, gegen die Wortlisten zu prüfen, hatte sie aber gar
-nicht. Er schätzte weiter frei und klang dabei nach Beleg. Das ist derselbe
-Fehler, den ich anderen Werkzeugen vorwerfe. Eine schöne Fußnote: Der
-Grundstock dieser Listen stammt laut Goethe-Institut aus einer
-Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschulverbands in
-Frankfurt.
+nicht. Er schätzte weiter frei und klang dabei nach Beleg — derselbe Fehler,
+den ich anderen Werkzeugen vorwerfe. Der Grundstock dieser Listen stammt
+übrigens laut Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale
+des Deutschen Volkshochschulverbands in Frankfurt.
 
-Und jetzt zur Zeile GRENZEN. Dort steht: bewertet Texte, niemals Personen.
-Dieser eine Satz leistet zweierlei. Er hält das Projekt aus dem
-Hochrisikobereich der KI-Verordnung heraus, denn Anhang III setzt überall eine
-Bewertung natürlicher Personen voraus. Und er ist die Antwort auf die Frage
-des Personalrats, ob hier Leistung kontrolliert wird.
+In der Zeile GRENZEN steht: bewertet Texte, niemals Personen. Dieser eine Satz
+leistet zweierlei. Er hält das Projekt aus dem Hochrisikobereich der KI-
+Verordnung heraus, denn Anhang III setzt überall eine Bewertung natürlicher
+Personen voraus. Und er ist die Antwort auf die Frage des Personalrats, ob
+hier Leistung kontrolliert wird.
 
 
 ## 9 — Wie es praktisch laeuft
@@ -550,59 +541,58 @@ quellen:
 
 ### NOTIZ
 
-Bleibt die Frage, wie das praktisch in den Alltag kommt. Dafür gibt es zwei
-Wege, und beide stehen vom ersten Tag an offen.
+Bleibt die Frage, wie das in den Alltag kommt. Dafür gibt es zwei Wege, und
+beide stehen vom ersten Tag an offen.
 
-Der erste braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband hat
-im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem Anbieter
-namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in Deutschland
-haben darüber datenschutzkonformen Zugang zu KI-Anwendungen, und man kann dort
-eigene Assistenten mit eigenen Anweisungen anlegen. Genau das ist mein Prompt.
-Es braucht dafür keine Zustimmung außerhalb des Pilotbereichs, weil der
-Rahmenvertrag schon da ist. Zu klären ist allerdings, ob die vhs Frankfurt die
-Lizenz auch tatsächlich gebucht hat — der Rahmenvertrag schafft die
-Möglichkeit, er ist nicht die Buchung.
+Der erste braucht keine eigene Technik. Der Deutsche Volkshochschul-Verband
+hat im Mai zweitausendfünfundzwanzig eine Rahmenvereinbarung mit einem
+Anbieter namens fobizz geschlossen. Mitarbeitende aller Volkshochschulen in
+Deutschland haben darüber datenschutzkonformen Zugang zu KI-Anwendungen, und
+man kann dort eigene Assistenten mit eigenen Anweisungen anlegen. Genau das
+ist mein Prompt. Zustimmung außerhalb des Pilotbereichs braucht es dafür
+nicht, weil der Rahmenvertrag schon da ist. Zu klären ist allerdings, ob die
+vhs Frankfurt die Lizenz auch tatsächlich gebucht hat — der Rahmenvertrag
+schafft die Möglichkeit, er ist nicht die Buchung.
 
-Zwei Einschränkungen gehören dazu, und ich nenne sie lieber selbst, weil ich
-sie nicht ausprobiert habe.
+Zwei Einschränkungen gehören dazu, denn diesen Weg habe ich nicht ausprobiert.
 
 Die erste: Mein Prompt ist mit der Wortliste rund einundzwanzigtausend Zeichen
 lang. Ob der Anbieter Anweisungen dieser Länge annimmt, veröffentlicht er
-nicht. Es ist gut möglich, dass der Prompt für diese Umgebung angepasst werden
-muss. Das gehört zu den ersten Aufgaben im Pilotprojekt.
+nicht. Gut möglich, dass der Prompt für diese Umgebung angepasst werden muss.
+Das gehört zu den ersten Aufgaben im Pilotprojekt.
 
-Die zweite, und die ist wichtiger: Mein Prüfwerkzeug bearbeitet jede Antwort
-nach. Es rechnet die Einstufung anhand einer Tabelle nach und entfernt
-Personennamen. Beides stand ursprünglich im Prompt, und beides hielt das Modell
-nicht zuverlässig ein — deshalb steht es heute im Programmcode. In einem
-fremden Assistenten gibt es diesen Code nicht. Was das praktisch bedeutet, muss
-der Pilot zeigen. Ich behaupte hier nicht, der eine Weg sei besser als der
-andere, sondern nur: Sie sind nicht identisch.
+Die zweite ist wichtiger: Mein Prüfwerkzeug bearbeitet jede Antwort nach. Es
+rechnet die Einstufung anhand einer Tabelle nach und entfernt Personennamen.
+Beides stand ursprünglich im Prompt, und beides hielt das Modell nicht
+zuverlässig ein — deshalb steht es heute im Programmcode. In einem fremden
+Assistenten gibt es diesen Code nicht. Was das praktisch bedeutet, muss der
+Pilot zeigen. Ich behaupte nicht, der eine Weg sei besser als der andere,
+sondern nur: Sie sind nicht identisch.
 
 Der zweite Weg ist das Prüfwerkzeug, das ich gebaut habe. Dort fügt man den
 Entwurf ein — oder gibt bei einem vorhandenen Kurs nur die Nummer ein, dann
 holt es den Text selbst. Die Schnittstelle des Kursportals ist öffentlich, das
-kostet keinen Zugang. Es braucht nur einen eigenen Server.
+kostet keinen Zugang; es braucht nur einen eigenen Server.
 
-Ein Hinweis dazu, warum das Einfügen der wichtigere Fall ist: Über die
-Schnittstelle kommen nur Kurse, die schon veröffentlicht sind. Der Prüfschritt
-soll aber vorher greifen. Der Kursnummer-Abruf ist deshalb vor allem dafür da,
-den vorhandenen Bestand nachzuprüfen — fünftausendachthundert Texte, die
-niemand einzeln durchgehen kann.
+Das Einfügen ist dabei der wichtigere Fall. Über die Schnittstelle kommen nur
+Kurse, die schon veröffentlicht sind, der Prüfschritt soll aber vorher
+greifen. Der Kursnummer-Abruf ist vor allem dafür da, den vorhandenen Bestand
+nachzuprüfen — fünftausendachthundert Texte, die niemand einzeln durchgehen
+kann.
 
-Rechts sehen Sie, was dabei herauskommt. Ein Befund aus einem echten Durchlauf,
+Rechts steht, was dabei herauskommt: ein Befund aus einem echten Durchlauf,
 dem Deutschkurs auf A2. Jeder Befund hat dieselben vier Teile: die Einstufung,
 die Regel, die wörtliche Stelle aus dem Text und einen konkreten Vorschlag.
-Dieser hier ist Pflicht: Der Link heißt schlicht „hier“. Wer sich die Seite
+Dieser hier ist Pflicht, der Link heißt schlicht „hier“. Wer sich die Seite
 vorlesen lässt und von Link zu Link springt, hört nur „hier“. Der Vorschlag
 daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
 
-Zur Einordnung: Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er
-belegt, dass der Weg funktioniert, er ist keine fertige Anwendung.
+Das ist ein Prototyp, den ich für diese Arbeit gebaut habe. Er belegt, dass
+der Weg funktioniert, er ist keine fertige Anwendung.
 
-Die Nachbemerkung unten ist bewusst kein Teil des Pilotprojekts. Man könnte die
-Prüfung ins Redaktionssystem selbst einbauen, dort, wo der Text entsteht. Das
-wäre für die Beteiligten am bequemsten. Nur wird das Portal von einem externen
+Die Nachbemerkung unten ist kein Teil des Pilotprojekts. Man könnte die
+Prüfung ins Redaktionssystem selbst einbauen, dort, wo der Text entsteht — für
+die Beteiligten am bequemsten. Nur wird das Portal von einem externen
 Dienstleister betreut, also hieße das: Auftrag, Budget, Vorlauf. Diese
 Entscheidung gehört ans Ende des Pilotprojekts, nicht an den Anfang. Man kauft
 nichts, bevor man weiß, ob es wirkt.
@@ -627,68 +617,65 @@ unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, be
 
 ### NOTIZ
 
-Damit komme ich zum Change-Teil. Er beginnt mit der Frage, wer eigentlich
-betroffen ist. Die beiden Achsen sind Einfluss und Betroffenheit, und die Pfeile
-zeigen jeweils dorthin, wo sie zunehmen.
+Damit zum Change-Teil, und der beginnt mit der Frage, wer betroffen ist. Die
+beiden Achsen sind Einfluss und Betroffenheit, die Pfeile zeigen jeweils
+dorthin, wo sie zunehmen.
 
 Oben rechts stehen die vier, die eng eingebunden werden müssen. Der Direktor,
 der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
 ist. Der Fachbereich, zu dem der Pilotbereich gehört — und zwar nur dieser
-eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot mehr.
-Die Redaktion des Programmhefts, die es für den Druck bereits gibt und die
-deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, und bei dem ist
-die Einordnung eigentlich zu schwach. Sein Einfluss ist kein hoher, sondern ein
-sperrender: Die Einführung des Werkzeugs ist mitbestimmungspflichtig, sie
+eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot
+mehr. Die Redaktion des Programmhefts, die es für den Druck bereits gibt und
+die deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, bei dem die
+Einordnung eigentlich zu schwach ist: Sein Einfluss ist kein hoher, sondern
+ein sperrender. Die Einführung des Werkzeugs ist mitbestimmungspflichtig, sie
 braucht seine Zustimmung. Zwei von sechzehn Sitzen in der Betriebskommission
-sind dagegen als Stimmblock bedeutungslos. Was das genau heißt, steht auf der
-nächsten Folie.
+sind dagegen als Stimmblock bedeutungslos.
 
 Deshalb stehen die sieben übrigen Programmbereiche unten links, bei
 informieren. Sie sollen wissen, dass es läuft, und sie sollen sehen, was
-herauskommt. Aber sie sind im Pilot nicht dabei.
+herauskommt. Im Pilot sind sie nicht dabei.
 
 Oben links stehen drei mit hohem Einfluss, aber geringer Betroffenheit, weil
 mein Projekt ihre Arbeit nicht verändert. Die städtische IT, die für die
 technische Seite zuständig bleibt. Advellence, die Schweizer Firma, die laut
 Impressum das Portal programmiert — sie wird erst wichtig, wenn die Prüfung
 später ins Redaktionssystem soll. Und die Betriebskommission, das
-Aufsichtsgremium eines städtischen Eigenbetriebs.
+Aufsichtsgremium eines städtischen Eigenbetriebs. Daneben der Deutsche
+Volkshochschul-Verband: Er stellt den KI-Rahmen bereit, den ich nutze, ist von
+dem Projekt aber nicht betroffen.
 
-Daneben steht dort der Deutsche Volkshochschul-Verband. Er stellt den
-KI-Rahmen bereit, den ich nutze, ist von dem Projekt aber nicht betroffen.
-
-Ein Wort dazu, was in dieser Matrix nicht steht. Ich hatte zuerst mehr
-eingetragen, unter anderem die Kämmerei und die hessische Durchsetzungsstelle.
-Beide habe ich gestrichen. Es fließt kein Geld, also ist die Kämmerei nicht
+Zwei Gruppen habe ich gestrichen, die Kämmerei und die hessische
+Durchsetzungsstelle. Es fließt kein Geld, also ist die Kämmerei nicht
 beteiligt. Und mit einer Aufsichtsbehörde zu drohen wäre unredlich, wenn die
 Kriterien, um die es geht, ausdrücklich freiwillig sind.
 
-Und unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
+Unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
 Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
 schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und
 vorschreiben kann man ihnen als Honorarkräften nichts. Einen Kanal haben sie
-aber doch, und den hatte ich zuerst übersehen: Arbeitnehmerähnliche Personen
-gelten nach dem Personalvertretungsgesetz als Beschäftigte, der Personalrat
-vertritt sie also mit. Ob sie hier überhaupt Texte schreiben, kann ich nicht
-belegen: Für die Branche ist die Zulieferung durch Kursleitungen gut
-dokumentiert, für dieses Unternehmen nicht. Meine beiden Beispielkurse sprechen
-sogar dagegen, sie sind mit N. N. als Kursleitung gedruckt und bestehen
-vollständig aus Textbausteinen.
+aber doch: Arbeitnehmerähnliche Personen gelten nach dem
+Personalvertretungsgesetz als Beschäftigte, der Personalrat vertritt sie also
+mit. Ob sie hier überhaupt Texte schreiben, kann ich nicht belegen — für die
+Branche ist die Zulieferung durch Kursleitungen gut dokumentiert, für dieses
+Unternehmen nicht. Meine beiden Beispielkurse sprechen sogar dagegen, sie sind
+mit N. N. als Kursleitung gedruckt und bestehen vollständig aus
+Textbausteinen.
 
-Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und in
-der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht ist,
-und sie haben in keinem Gremium eine Stimme.
+Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und
+in der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht
+ist, und sie haben in keinem Gremium eine Stimme.
 
-Für diesen ganzen unteren rechten Quadranten gilt dasselbe: hoch betroffen,
-kein formaler Einfluss. Beteiligung ist dort kein guter Stil, sondern das
-einzige Instrument, das überhaupt zur Verfügung steht. Was das praktisch heißt,
-steht auf der nächsten Folie.
+Für diesen ganzen Quadranten gilt dasselbe: hoch betroffen, kein formaler
+Einfluss. Beteiligung ist dort kein guter Stil, sondern das einzige
+Instrument, das überhaupt zur Verfügung steht. Was das praktisch heißt, steht
+auf der nächsten Folie.
 
-Ein Hinweis zur Matrix selbst. Ich verwende die Achsen aus dem Aufgabenblatt,
-Einfluss und Betroffenheit. In der Change Toolbox ist sie als
-Einfluss-Interesse-Matrix geführt. Betroffenheit halte ich hier für
-trennschärfer, weil die Kursleitungen sehr betroffen sind, ohne besonderes
-Interesse an dem Thema zu haben.
+Zur Matrix selbst: Ich verwende die Achsen aus dem Aufgabenblatt, Einfluss und
+Betroffenheit. In der Change Toolbox ist sie als Einfluss-Interesse-Matrix
+geführt. Betroffenheit halte ich hier für trennschärfer, weil die
+Kursleitungen sehr betroffen sind, ohne besonderes Interesse an dem Thema zu
+haben.
 
 
 ## 11 — Widerstand
@@ -699,12 +686,12 @@ titel: Wer Nein sagt,
 akzent: und was darauf antwortet.
 klein: ja
 einwaende:
-  - "Programmbereich || „Die Befunde stehen in Bausteinen, über die ich nicht entscheide.“ || Die Freigabe der Bausteine gehört geklärt, bevor der Pilot beginnt. Im Beispielkurs liegen alle neun Befunde in zwei Bausteinen; einer davon steht in 105 Kursen."
-  - "Kursleitung auf Honorarbasis || „Noch eine Aufgabe, für die es keine Unterrichtseinheit gibt.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Die Kursleitung bekommt eine Rückmeldung — keine Pflicht, kein Werkzeug, keinen Nachweis."
-  - "Redaktion des Programmhefts || „Verständlicher heißt länger, und ich habe eine feste Seitenzahl.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist für die Einzelheiten ohnehin dorthin."
-  - "Personalrat || „Eine technische Einrichtung. Das braucht unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft die Mitbestimmung an die Eignung zur Überwachung, nicht an die Absicht. Instrument ist die Dienstvereinbarung."
+  - "Programmbereich || „Die Befunde stehen in Bausteinen, über die ich nicht entscheide.“ || Stimmt — und vor dem Pilot zu klären. Alle neun Befunde des Beispielkurses liegen in zwei Bausteinen, einer steht in 105 Kursen."
+  - "Kursleitung auf Honorarbasis || „Noch eine Aufgabe, für die es keine Unterrichtseinheit gibt.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Rückmeldung ja — keine Pflicht, kein Werkzeug, kein Nachweis."
+  - "Redaktion des Programmhefts || „Verständlicher heißt länger, und ich habe eine feste Seitenzahl.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist ohnehin dorthin."
+  - "Personalrat || „Eine technische Einrichtung. Das braucht unsere Zustimmung.“ || Richtig, und zwar vorher. § 78 HPVG knüpft an die Eignung zur Überwachung, nicht an die Absicht."
 callout: Betroffene zu Beteiligten machen — hier heißt das: entscheiden, bevor geschult wird.
-calloutsub: Bausteinfreigabe, Zuständigkeit und Umgang mit den Protokollen sind keine Kommunikationsaufgaben. Wer sie offenlässt, schult gegen einen Widerstand, der berechtigt ist.
+calloutsub: Drei der vier Einwände sind keine Kommunikationsaufgabe, sondern eine offene Entscheidung.
 quellen:
   - "Häufigkeit der Bausteine: eigene Auszählung an daten/vhs-kursplan.json"
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
@@ -712,18 +699,15 @@ quellen:
 ### NOTIZ
 
 Jetzt zum Widerstand. Der Unterricht nennt vier Ursachen: Verlustangst,
-Unsicherheit, Gewohnheit und fehlende Perspektive. Ich habe zuerst versucht,
-für jede den Satz aufzuschreiben, den ich hier erwarte. Dabei ist mir
-aufgefallen, dass alle vier Sätze aus demselben Mund kamen — aus dem einer
-festangestellten Person. Deshalb habe ich die Folie umgestellt: Sie zeigt
-jetzt vier Rollen von der Folie davor, und jede sagt Nein aus einem anderen
-Grund.
+Unsicherheit, Gewohnheit und fehlende Perspektive. Ich zeige sie nicht als
+Liste, sondern an vier Rollen von der Folie davor — jede sagt Nein aus einem
+anderen Grund.
 
-Der Programmbereich zuerst. Sein Einwand lautet: Die Befunde stehen in
-Bausteinen, über die ich nicht entscheide. Ich habe das nachgezählt, und es
-stimmt vollständig. Der Beispielkurs, den ich gleich vorführe, hat keinen
-eigenen Satz. Er besteht restlos aus zwei Bausteinen — dem Anmeldehinweis und
-der Niveaubeschreibung. Alle neun Befunde liegen dort, und der Anmeldehinweis
+Der Programmbereich zuerst. Sein Einwand: Die Befunde stehen in Bausteinen,
+über die ich nicht entscheide. Ich habe das nachgezählt, und es stimmt
+vollständig. Der Beispielkurs, den ich gleich vorführe, hat keinen eigenen
+Satz. Er besteht restlos aus zwei Bausteinen, dem Anmeldehinweis und der
+Niveaubeschreibung. Alle neun Befunde liegen dort, und der Anmeldehinweis
 steht wortgleich in hundertfünf Kursen. Das ist die Ursache Verlustangst in
 ihrer echten Form: nicht Angst vor der Maschine, sondern die Aussicht, für
 etwas gemessen zu werden, das man nicht ändern darf. Meine Antwort ist deshalb
@@ -731,47 +715,39 @@ keine Schulung, sondern eine Zuständigkeitsfrage, die vor dem Pilot geklärt
 wird. Nebenbei ist es die gute Nachricht: Ein Baustein einmal in Ordnung
 gebracht, und hundertfünf Kurse sind es mit.
 
-Die Kursleitung auf Honorarbasis. Ihr Einwand lautet: Noch eine Aufgabe, für
-die es keine Unterrichtseinheit gibt. Das ist die Ursache fehlende
-Perspektive, und sie ist bei dieser Gruppe schärfer als bei allen anderen,
-weil deren Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit kommt darin
-nicht vor. Meine Antwort ist der Zuschnitt: Geprüft wird im Programmbereich,
-an dem Text, der dort eingeht. Die Kursleitung bekommt eine Rückmeldung, aber
-keine Pflicht, kein Werkzeug und keinen Nachweis. Das hat noch einen zweiten
-Grund. Verbindliche Regeln, Schulungspflicht und ein Protokoll je Text sind
-genau die Merkmale, aus denen das Bundessozialgericht im Herrenberg-Urteil eine
-Eingliederung in den Betrieb hergeleitet hat. Ein Projekt, das Honorarkräfte in
-diese Kette holt, erzeugt ein Statusrisiko, das größer ist als sein Nutzen.
+Die Kursleitung auf Honorarbasis. Ihr Einwand: Noch eine Aufgabe, für die es
+keine Unterrichtseinheit gibt. Das ist die Ursache fehlende Perspektive, und
+sie ist bei dieser Gruppe schärfer als bei allen anderen, weil deren
+Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit kommt darin nicht
+vor. Meine Antwort ist der Zuschnitt: Geprüft wird im Programmbereich, an dem
+Text, der dort eingeht. Die Kursleitung bekommt eine Rückmeldung, aber keine
+Pflicht, kein Werkzeug und keinen Nachweis. Das hat noch einen zweiten Grund.
+Verbindliche Regeln, Schulungspflicht und ein Protokoll je Text sind genau die
+Merkmale, aus denen das Bundessozialgericht im Herrenberg-Urteil eine
+Eingliederung in den Betrieb hergeleitet hat. Ein Projekt, das Honorarkräfte
+in diese Kette holt, erzeugt ein Statusrisiko, das größer ist als sein Nutzen.
 
 Die Redaktion des Programmhefts. Ihr Einwand ist der, an den ich zuletzt
-gedacht hätte: Verständlicher heißt länger, und ich habe eine feste Seitenzahl.
-Das ist die Ursache Gewohnheit, aber nicht als Trägheit, sondern als
-konkurrierendes Regelwerk. Diese Redaktion kürzt beruflich. Ein Werkzeug, das
-Erklärungen verlangt, arbeitet gegen ihren Auftrag. Meine Antwort trennt die
-Medien: Geprüft wird der Text im Portal, und dort gibt es keine Seitenzahl. Das
-Heft verweist für die Einzelheiten ohnehin auf das Portal, das steht wörtlich
-darin.
+gedacht hätte: Verständlicher heißt länger, und ich habe eine feste
+Seitenzahl. Das ist die Ursache Gewohnheit, aber nicht als Trägheit, sondern
+als konkurrierendes Regelwerk. Diese Redaktion kürzt beruflich. Ein Werkzeug,
+das Erklärungen verlangt, arbeitet gegen ihren Auftrag. Meine Antwort trennt
+die Medien: Geprüft wird der Text im Portal, und dort gibt es keine
+Seitenzahl. Das Heft verweist für die Einzelheiten ohnehin auf das Portal, das
+steht wörtlich darin.
 
-Und der Personalrat. Sein Einwand lautet: Das ist eine technische Einrichtung,
-dafür brauchen Sie unsere Zustimmung. Auf dieser Folie stand vorher, ich würde
-eine Zusicherung schriftlich geben und dem Personalrat vorlegen. Das war
-falsch, und ich sage das ausdrücklich, weil der Fehler lehrreich ist.
-Paragraf achtundsiebzig des Hessischen Personalvertretungsgesetzes knüpft die
-Mitbestimmung an technische Einrichtungen, die zur Überwachung geeignet sind.
-Geeignet, nicht verwendet. Meine Zusage, nicht nach Urheber auszuwerten,
-betrifft die Verwendung und räumt den Tatbestand gar nicht aus. Und vorlegen
-ist keine Zustimmung. Das vorgesehene Instrument nennt der Paragraf selbst: die
-Dienstvereinbarung. Dort gehören Zweckbindung, Zugriffskreis und Löschfrist
-hinein.
+Und der Personalrat. Sein Einwand: Das ist eine technische Einrichtung, dafür
+brauchen Sie unsere Zustimmung. Paragraf achtundsiebzig des Hessischen
+Personalvertretungsgesetzes knüpft die Mitbestimmung an technische
+Einrichtungen, die zur Überwachung geeignet sind. Geeignet, nicht verwendet.
+Eine Zusage, nicht nach Urheber auszuwerten, betrifft die Verwendung und räumt
+den Tatbestand gar nicht aus. Und etwas vorzulegen ist keine Zustimmung. Das
+vorgesehene Instrument nennt der Paragraf selbst: die Dienstvereinbarung. Dort
+gehören Zweckbindung, Zugriffskreis und Löschfrist hinein.
 
-Zwei Dinge dazu, die ich beim Nachlesen gelernt habe. Erstens vertritt der
-Personalrat die Honorarkräfte doch, denn arbeitnehmerähnliche Personen gelten
-nach diesem Gesetz als Beschäftigte. Auf der Folie davor habe ich gesagt, sie
-hätten keinen formalen Einfluss; das gilt für die Gremien, nicht für die
-Vertretung. Zweitens ist der Einfluss des Personalrats hier kein hoher, sondern
-ein sperrender. Zwei von sechzehn Sitzen in der Betriebskommission sind als
-Stimmblock bedeutungslos. Der Zustimmungsvorbehalt in eigener Sache ist es
-nicht.
+Der Personalrat vertritt übrigens auch die Honorarkräfte, denn
+arbeitnehmerähnliche Personen gelten nach diesem Gesetz als Beschäftigte. Ohne
+formalen Einfluss sind sie nur in den Gremien, nicht in der Vertretung.
 
 Damit zum Satz unten. Betroffene zu Beteiligten machen, das ist der Kern jeder
 Widerstandsarbeit. Hier heißt er konkret: entscheiden, bevor geschult wird.
@@ -782,13 +758,13 @@ Widerstand, der berechtigt ist. Der vierte Einwand, der der Redaktion, ist
 einer — und er wird beantwortet, indem man zugibt, dass sie mit dem fehlenden
 Prüfschritt die ganze Zeit recht hatte.
 
-Eine Rolle fehlt auf der Folie, weil kein Platz war: die Direktion. Ihre Frage
-lautet, wer die Protokolle sieht. Für jemanden, der laut Impressum persönlich
-für die Inhalte verantwortlich ist, ist ein Protokoll zuerst eine Gefahr und
-nicht ein Gewinn — es belegt datiert, was vorher nur unbemerkt war. Zum Gewinn
-wird es mit einem Abstellplan: Ein dokumentierter Mangel mit Datum und Plan
-steht besser da als ungeprüfter Bestand. Dieselbe Dienstvereinbarung, die den
-Personalrat schützt, beantwortet auch diese Frage.
+Eine fünfte Rolle hat auf der Folie keinen Platz mehr: die Direktion. Ihre
+Frage lautet, wer die Protokolle sieht. Für jemanden, der laut Impressum
+persönlich für die Inhalte verantwortlich ist, ist ein Protokoll zuerst eine
+Gefahr und nicht ein Gewinn — es belegt datiert, was vorher nur unbemerkt war.
+Zum Gewinn wird es mit einem Abstellplan: Ein dokumentierter Mangel mit Datum
+und Plan steht besser da als ungeprüfter Bestand. Dieselbe Dienstvereinbarung,
+die den Personalrat schützt, beantwortet auch diese Frage.
 
 
 ## 12 — Timeline
@@ -801,11 +777,11 @@ klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
 tortitel: Vorher
 tor: Zustimmung des Personalrats, als Dienstvereinbarung
-strang1: Technische Implementation || Setup > Assistent im vorhandenen KI-Rahmen anlegen, Regeln an echten Texten schärfen || Pilot > Ein Programmbereich, und nur die Texte, die neu entstehen || Rollout > Vorbereitet, freigegeben aber erst nach der Nachmessung
-strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Bereich || Training > Schulung nach Artikel 4 KI-Verordnung, für alle, die das System bedienen || Support > Feste Sprechstunde im Pilotbereich, nicht auf Zuruf
-strang3: Change || Vorbereitung > Betroffene befragen, Freigabe der Textbausteine klären || Einbindung > Der Bereich wählt, welche Regeln scharf gestellt werden, dazu der Quick Win || Begleitung > Nachmessung mit demselben Skript, dann Entscheidung
+strang1: Technische Implementation || Setup > Assistent anlegen, Regeln an echten Texten schärfen || Pilot > Ein Programmbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
+strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe || Training > Pflicht nach Artikel 4 KI-Verordnung, für alle, die bedienen || Support > Feste Sprechstunde, nicht auf Zuruf
+strang3: Change || Vorbereitung > Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die scharfen Regeln, dazu der Quick Win || Begleitung > Nachmessung, dann Entscheidung
 callout: Der Kommunikationsstrang beginnt nicht aus Höflichkeit vor dem technischen, sondern weil er muss.
-calloutsub: Die Einführung ist mitbestimmungspflichtig. Ohne Zustimmung des Personalrats darf der Assistent nicht angelegt werden — deshalb steht sie links vor Monat 1 und nicht in ihm.
+calloutsub: Ohne die Dienstvereinbarung darf der Assistent nicht angelegt werden — deshalb steht sie links vor Monat 1 und nicht in ihm.
 quellen:
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
   - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -813,21 +789,19 @@ quellen:
 ### NOTIZ
 
 Der Zeitplan, drei Monate, drei Stränge. Die Aufgabenstellung gibt für jeden
-Strang drei Phasen vor, und Sie finden sie hier als Überschrift jeder Zelle
-wieder: Setup, Pilot, Rollout, dann Ankündigung, Training, Support, dann
-Vorbereitung, Einbindung, Begleitung. Darunter steht jeweils, was das hier
-konkret heißt.
+Strang drei Phasen vor, und die stehen hier als Überschrift jeder Zelle.
+Darunter steht jeweils, was das konkret heißt.
 
-Links, blau, sehen Sie etwas, das in keinem der drei Monate steht, sondern
-davor. Das ist die Zustimmung des Personalrats als Dienstvereinbarung, und sie
-steht dort, weil sie ein Tor ist und keine Parallelaufgabe. Hätte ich sie in
-den ersten Monat gesetzt, sähe es aus, als könne daneben schon der Assistent
-angelegt werden. Das darf er nicht.
+Links, blau, steht etwas, das in keinem der drei Monate steht, sondern davor:
+die Zustimmung des Personalrats als Dienstvereinbarung. Sie steht dort, weil
+sie ein Tor ist und keine Parallelaufgabe. Hätte ich sie in den ersten Monat
+gesetzt, sähe es aus, als könne daneben schon der Assistent angelegt werden.
+Das darf er nicht.
 
-Damit zum ersten Strang. Technisch ist wenig zu tun, und das ist ein Vorteil
-dieses Projekts. Im ersten Monat wird der Assistent im vorhandenen KI-Rahmen
-angelegt und an echten Texten nachgeschärft. Im zweiten läuft der Pilot, in
-einem Programmbereich und nur an den Texten, die neu entstehen — das sind, wie
+Zum ersten Strang. Technisch ist wenig zu tun, und das ist ein Vorteil dieses
+Projekts. Im ersten Monat wird der Assistent im vorhandenen KI-Rahmen angelegt
+und an echten Texten nachgeschärft. Im zweiten läuft der Pilot, in einem
+Programmbereich und nur an den Texten, die neu entstehen — das sind, wie
 gerechnet, ungefähr dreiundsiebzig im Jahr. Im dritten wird die Ausweitung
 vorbereitet, aber nicht freigegeben. Freigegeben wird sie erst, wenn die
 Nachmessung sie trägt, und die liegt am Ende desselben Monats. Vorher wäre die
@@ -836,21 +810,21 @@ Entscheidung ein Vorgriff.
 Der Kommunikationsstrang. Ankündigung heißt hier: erst die Dienstvereinbarung,
 dann die Bekanntgabe. In dieser Reihenfolge, denn eine Ankündigung vor der
 Mitbestimmung erzeugt genau den Ärger, den man vermeiden wollte. Das Training
-im zweiten Monat ist keine Kür. Artikel vier der KI-Verordnung verpflichtet
-Betreiber seit Februar zweitausendfünfundzwanzig zu ausreichender KI-Kompetenz,
-und zwar wörtlich für ihr Personal und für andere Personen, die in ihrem
-Auftrag mit dem Betrieb und der Nutzung befasst sind. Deshalb steht in der
-Zelle nicht das Wort Personal, sondern alle, die das System bedienen. Wer es
-nicht bedient, braucht die Schulung nicht — das betrifft die Kursleitungen, und
-es ist der Grund, warum wir sie aus dieser Kette heraushalten.
+im zweiten Monat ist Pflicht: Artikel vier der KI-Verordnung verpflichtet
+Betreiber seit Februar zweitausendfünfundzwanzig zu ausreichender KI-
+Kompetenz, und zwar wörtlich für ihr Personal und für andere Personen, die in
+ihrem Auftrag mit dem Betrieb und der Nutzung befasst sind. Deshalb steht in
+der Zelle nicht das Wort Personal, sondern alle, die das System bedienen. Wer
+es nicht bedient, braucht die Schulung nicht — das betrifft die Kursleitungen,
+und es ist der Grund, warum wir sie aus dieser Kette heraushalten.
 
 Support im dritten Monat heißt: eine feste Sprechstunde, nicht auf Zuruf. Eine
 Zusage, jederzeit ansprechbar zu sein, ist in einem Haus mit
 fünftausendachthundert Veranstaltungen keine Zusage.
 
-Der Change-Strang folgt einer einfachen Reihenfolge: erst fragen, dann handeln.
-In der Vorbereitung werden die Betroffenen befragt, und die Freigabe der
-Textbausteine wird geklärt — das ist die offene Frage vom Widerstandsteil, und
+Der Change-Strang folgt einer einfachen Reihenfolge: erst fragen, dann
+handeln. In der Vorbereitung werden die Betroffenen befragt und die Freigabe
+der Textbausteine geklärt — das ist die offene Frage vom Widerstandsteil, und
 sie gehört in den ersten Monat, weil der Quick Win sonst im zweiten auf eine
 Zuständigkeit läuft, die niemand hat. In der Einbindung wählt der Bereich
 selbst, welche der sechs Regeln scharf gestellt werden. Und die Begleitung
@@ -876,14 +850,14 @@ kennzahlen:
   - "29 Std. || gemessen: nur die rund 600 Texte, die im Jahr wirklich neu entstehen"
   - "4 Std. || im Pilot, ein Programmbereich, rund 73 neue Texte"
 callout: Der Einwand rechnet mit 5.800 Texten. Es sind rund 600, weil 54 Prozent der Kurse ihren Text teilen.
-calloutsub: Gemessen an 489 Kursen. Offen bleibt, was die vhs als „neu“ zählt — im Grenzfall wären es 220 Stunden. Auch das liegt unter dem Einwand, gehört aber im Pilot gemessen.
+calloutsub: Gemessen an 489 Kursen. Was die vhs als „neu“ zählt, ist offen — im Grenzfall 220 Stunden, immer noch unter dem Einwand.
 quellen: eigene Erhebung, daten/wirtschaftlichkeit.md mit allen Szenarien und Einschränkungen
 
 ### NOTIZ
 
-Damit zu den nächsten Schritten. Links stehen die ersten dreißig Tage, und die
-Nummern sind keine Zierde: Das ist eine Reihenfolge, in der jeder Schritt den
-nächsten bedingt.
+Zu den nächsten Schritten. Links stehen die ersten dreißig Tage, und das ist
+keine Aufzählung, sondern eine Reihenfolge: Jeder Schritt bedingt den
+nächsten.
 
 Zuerst die Dienstvereinbarung mit dem Personalrat. In sie gehören
 Zweckbindung, Zugriffskreis und Löschfrist der Protokolle. Sie steht an erster
@@ -894,8 +868,8 @@ Ein zugewiesener Pilotbereich liefert kein belastbares Ergebnis, sondern nur
 Erfüllung.
 
 Drittens die Freigabe der Textbausteine klären. Das ist der Punkt vom
-Widerstandsteil. Bleibt er offen, läuft der Quick Win im zweiten Monat auf eine
-Zuständigkeit, die niemand hat.
+Widerstandsteil. Bleibt er offen, läuft der Quick Win im zweiten Monat auf
+eine Zuständigkeit, die niemand hat.
 
 Und erst viertens das Technische: den Assistenten im vorhandenen KI-Rahmen
 anlegen. Keine Beschaffung, kein neuer Vertrag, keine zusätzliche Stelle.
@@ -906,15 +880,14 @@ das sind zweihundertneunzig Stunden im Jahr. Diese Rechnung unterstellt, dass
 jede Veranstaltung einen eigenen Text hat. Das ist nicht so. Vierundfünfzig
 Prozent der Kurse teilen ihren Text mit mindestens einem anderen, und nur rund
 zehn Prozent der Angebote sind je Semester neu. Übrig bleiben ungefähr
-sechshundert Texte im Jahr und damit neunundzwanzig Stunden. Im Pilot, in einem
-von acht Bereichen, sind es vier.
+sechshundert Texte im Jahr und damit neunundzwanzig Stunden. Im Pilot, in
+einem von acht Bereichen, sind es vier.
 
-Eine Einschränkung sage ich dazu, weil sie die größte der ganzen Rechnung ist.
-Was die vhs als neues Angebot zählt, ist nicht dokumentiert. Wenn zusätzlich
-bestehende Texte überarbeitet werden, steigt die Zahl, im Grenzfall auf
+Die größte Unsicherheit dieser Rechnung steht unten auf der Folie: Was die vhs
+als neues Angebot zählt, ist nicht dokumentiert. Wenn zusätzlich bestehende
+Texte überarbeitet werden, steigt die Zahl, im Grenzfall auf
 zweihundertzwanzig Stunden. Selbst das liegt noch unter dem Einwand. Aber die
-Zahl gehört im Pilot gemessen und nicht geschätzt, und deshalb steht sie unten
-auf der Folie und nicht nur in meinen Unterlagen.
+Zahl gehört im Pilot gemessen und nicht geschätzt.
 
 
 ## 14 — Erfolgsmessung und Risiken
@@ -932,9 +905,7 @@ zeilen:
   - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | daten/messung.py, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
-  - "Die Mitbestimmung stockt, der Pilot verschiebt sich. > Die Dienstvereinbarung ist Schritt eins, nicht der letzte. Der Entwurf liegt vor, bevor gefragt wird."
-  - "Die Protokolle werden gegen das Unternehmen verwendet. > Zweckbindung, Zugriffskreis, Löschfrist in dieselbe Dienstvereinbarung — dazu ein Abstellplan mit Datum."
-  - "Die Bausteine werden nicht freigegeben, Befunde ohne Adressat. > Die Freigabe ist Schritt drei, also vor dem Quick Win. Sonst wird der Pilot begrenzt, offen benannt."
+  - "Die Protokolle werden gegen das Unternehmen verwendet. Sie belegen datiert, was vorher nur unbemerkt war. > Zweckbindung, Zugriffskreis und Löschfrist in dieselbe Dienstvereinbarung — und zu jedem Befundstand ein Abstellplan mit Datum."
 callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
 quellen: Ausgangsmessung mit daten/messung.py, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
@@ -949,45 +920,36 @@ A2, die heute alle Wörter über dem Niveau ihrer Zielgruppe enthalten, sollen
 höchstens noch zwei betroffen sein.
 
 Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
-nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über einen
-Fragebogen auf der Website, denn den füllt genau die Zielgruppe nicht aus, um
-die es geht. Sondern im Kurs, am Ende einer Stunde, in einfacher Sprache. Das
-erreicht die Menschen wirklich.
+nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über
+einen Fragebogen auf der Website, denn den füllt genau die Zielgruppe nicht
+aus, um die es geht. Sondern im Kurs, am Ende einer Stunde, in einfacher
+Sprache.
 
-Dazu ein Punkt, an dem ich mich selbst korrigiert habe. Hier stand vorher, die
-Befragung erledige die Kursleitung. Das widerspricht der Zusage von der
-Widerstandsfolie, dass für die Kursleitungen keine neue Pflicht entsteht. Eine
-Befragung ist eine Aufgabe, und Aufgaben ohne Vergütung sind bei
-Honorarkräften genau das Problem. Sie ist deshalb freiwillig und wird vergütet.
-Das ist keine neue Stelle und keine Beschaffung, sondern ein Zusatzhonorar für
-eine begrenzte Zahl von Kursen im Pilotbereich.
+Diese Befragung ist freiwillig und wird vergütet. Sonst wäre sie eine neue
+Aufgabe ohne Bezahlung, und das ist bei Honorarkräften genau das Problem von
+der Widerstandsfolie. Es ist keine neue Stelle und keine Beschaffung, sondern
+ein Zusatzhonorar für eine begrenzte Zahl von Kursen im Pilotbereich.
 
-Wichtig ist die letzte Spalte. Die Nachmessung läuft mit demselben Skript wie
-die Ausgangsmessung, und das Skript ist dafür eingefroren. Wäre es zwischendurch
-verbessert worden, wüsste man hinterher nicht, ob die Texte besser geworden sind
-oder nur die Messung anders. Über die Methode kann später niemand streiten.
+In der letzten Spalte steht, womit gemessen wird. Die Nachmessung läuft mit
+demselben Skript wie die Ausgangsmessung, und das Skript ist dafür
+eingefroren. Wäre es zwischendurch verbessert worden, wüsste man hinterher
+nicht, ob die Texte besser geworden sind oder nur die Messung anders. Über die
+Methode kann später niemand streiten.
 
-Unten drei Risiken. Das erste ist, dass die Mitbestimmung stockt und sich der
-Pilot verschiebt. Dagegen hilft nur, sie an den Anfang zu stellen und dem
-Personalrat einen Entwurf vorzulegen, bevor man ihn fragt.
+Unten steht das Risiko, das ich zuerst übersehen habe und das unangenehmste
+ist: Die Protokolle können gegen das Unternehmen verwendet werden. Sie belegen
+datiert und zitierbar, dass Texte Kriterien verletzen, die das Haus sich
+freiwillig gibt. Wer laut Impressum persönlich für die Inhalte verantwortlich
+ist, hat nach dem Pilot eine Kenntnis, die er vorher nicht hatte. Deshalb
+gehören die Protokolle in dieselbe Dienstvereinbarung, mit Zweckbindung,
+Zugriffskreis und Löschfrist. Und deshalb gehört zu jedem Befundstand ein
+Abstellplan mit Datum. Ein dokumentierter Mangel mit Plan steht besser da als
+ungeprüfter Bestand — aber nur, wenn der Plan wirklich existiert.
 
-Das zweite Risiko habe ich zuerst übersehen, und es ist das unangenehmste: Die
-Protokolle können gegen das Unternehmen verwendet werden. Sie belegen datiert
-und zitierbar, dass Texte Kriterien verletzen, die das Haus sich freiwillig
-gibt. Wer laut Impressum persönlich für die Inhalte verantwortlich ist, hat nach
-dem Pilot eine Kenntnis, die er vorher nicht hatte. Deshalb gehören die
-Protokolle in die Dienstvereinbarung, mit Zweckbindung, Zugriffskreis und
-Löschfrist. Und deshalb gehört zu jedem Befundstand ein Abstellplan mit Datum.
-Ein dokumentierter Mangel mit Plan steht besser da als ungeprüfter Bestand — aber
-das gilt nur, wenn der Plan wirklich existiert.
-
-Das dritte Risiko ist die Bausteinfreigabe. Bleibt sie aus, meldet der Pilot
-Befunde, für die niemand zuständig ist. Dann wird der Pilot auf
-kursindividuelle Texte begrenzt, und ich sage das offen statt es zu verschweigen.
-
-Ein viertes nenne ich nur kurz, weil es auf der Folie keinen Platz mehr hatte:
-Sollte der KI-Rahmen des Verbands nicht bereitstehen, läuft der Prompt auch
-außerhalb. Das ist der Grund, warum ich vorhin zwei Wege gezeigt habe.
+Zwei weitere Risiken stehen nicht auf der Folie, weil ihre Gegenmaßnahme schon
+die Schritte eins und drei von eben sind: Stockt die Mitbestimmung, verschiebt
+sich der Pilot. Bleibt die Bausteinfreigabe aus, meldet der Pilot Befunde, für
+die niemand zuständig ist — dann wird er auf kursindividuelle Texte begrenzt.
 
 
 ## 15 — Schlussfolie
@@ -1003,8 +965,6 @@ fussr: HENRIK HEIL · CIMDATA 2026
 
 ### NOTIZ
 
-Ich fasse zusammen.
-
 Ich habe ein reales Unternehmen analysiert, einen Prozess gefunden, in dem
 niemand etwas falsch macht und trotzdem etwas fehlt, und ich habe den Zustand
 gemessen statt geschätzt.
@@ -1015,5 +975,5 @@ möglich macht: zu wissen, für wen ein Text ist, zu wissen, was Pflicht ist und
 was Anspruch, und einen Weg zu finden, auf dem die Menschen, die diese Texte
 schreiben, das Werkzeug nicht als Kontrolle erleben.
 
-Damit danke ich für die Aufmerksamkeit. Ich zeige euch jetzt kurz, wie es
-läuft, an einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.
+Danke für die Aufmerksamkeit. Ich zeige euch jetzt kurz, wie es läuft, an
+einem echten Kurstext aus dem Portal. Danach gerne eure Fragen.

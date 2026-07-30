@@ -10,7 +10,9 @@ Start:  python3 server.py          ->  http://localhost:8799
         python3 server.py --open   ->  oeffnet zusaetzlich den Browser
 """
 
+import base64
 import hashlib
+import hmac
 import json
 import os
 import re
@@ -25,7 +27,11 @@ from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
-PORT = 8799
+# Lokal 8799 wie gehabt. Auf einer Hosting-Plattform gibt die Umgebung den Port
+# vor; dann muss der Server ausserdem auf allen Adressen lauschen statt nur auf
+# 127.0.0.1, sonst erreicht ihn der vorgelagerte Proxy nicht.
+PORT = int(os.environ.get("PORT", "8799"))
+HOST = os.environ.get("KLARTEXT_HOST", "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1")
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -37,7 +43,11 @@ WORTLISTE_DATEI = PROJEKT_DIR / "daten" / "wortliste-goethe-a1.txt"
 # Abruf lauffaehig bleibt.
 KURSE_DATEI = PROJEKT_DIR / "daten" / "vhs-kursplan.json"
 KURSE_ERSATZ = PROJEKT_DIR / "daten" / "vhs-stichprobe-60.json"
-PROTOKOLL_DIR = BASE_DIR / "protokoll"
+# Beim Hosting liegt hier der Pfad eines dauerhaften Datentraegers. Das
+# Dateisystem eines Containers ueberlebt den naechsten Start sonst nicht, und
+# die Protokolle sind der Beleg der Abgabe: dokumentation.md zieht sie ueber
+# {{PROTOKOLL:...}} zur Bauzeit heraus.
+PROTOKOLL_DIR = Path(os.environ.get("KLARTEXT_PROTOKOLL_DIR") or (BASE_DIR / "protokoll"))
 INDEX_DATEI = BASE_DIR / "index.html"
 # Die Schriften liegen ausserhalb von tool/, weil Folien und Dokument sie
 # ebenso brauchen. Sie werden mitgeliefert statt vom Google-CDN geladen: das
@@ -73,6 +83,12 @@ TIMEOUT = 240
 # Ein angepasster Prompt darf lang sein, aber nicht beliebig. Der Wert liegt
 # rund fuenfmal ueber dem ausgelieferten Prompt.
 PROMPT_MAX = 60000
+
+# Zugangsschutz. Leer gelassen ist der Server offen — richtig fuer den lokalen
+# Betrieb, falsch sobald er im Netz steht: /api/pruefen ruft ein Modell auf
+# Rechnung des hinterlegten Schluessels auf. Ist die Variable gesetzt, verlangt
+# jede Anfrage den Benutzernamen "vhs" und dieses Passwort.
+PASSWORT = os.environ.get("KLARTEXT_PASSWORT", "").strip()
 
 PLATZHALTER = "{{WORTLISTE_A1}}"
 # Fehlt die Wortliste, wird der Platzhalter nicht durch nichts ersetzt, sondern
@@ -727,8 +743,32 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         log(fmt % args)
 
+    def zugang_ok(self):
+        """Prueft Basic Auth, sofern KLARTEXT_PASSWORT gesetzt ist. Ohne die
+        Variable bleibt der Server offen wie bisher. Der Vergleich laeuft ueber
+        compare_digest, damit die Antwortzeit das Passwort nicht verraet."""
+        if not PASSWORT:
+            return True
+        kopf = self.headers.get("Authorization", "")
+        if kopf.startswith("Basic "):
+            try:
+                klar = base64.b64decode(kopf[6:]).decode("utf-8", "replace")
+            except Exception:
+                klar = ""
+            _, _, gesendet = klar.partition(":")
+            if hmac.compare_digest(gesendet, PASSWORT):
+                return True
+        self.send_response(401)
+        self.send_header("WWW-Authenticate", 'Basic realm="KLARTEXT", charset="UTF-8"')
+        self.send_header("Content-Type", "text/plain; charset=utf-8")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+        return False
+
     # -- GET ---------------------------------------------------------------
     def do_GET(self):
+        if not self.zugang_ok():
+            return
         zerlegt = urlparse(self.path)
         pfad = zerlegt.path
         if pfad in ("/", "/index.html"):
@@ -870,6 +910,8 @@ class Handler(BaseHTTPRequestHandler):
 
     # -- POST --------------------------------------------------------------
     def do_POST(self):
+        if not self.zugang_ok():
+            return
         pfad = self.path.split("?", 1)[0]
         if pfad != "/api/pruefen":
             self.send_json(404, {"error": "Unbekannter Pfad."})
@@ -1078,8 +1120,13 @@ def main():
         print("  Gesucht in: Umgebungsvariable, %s/.env, %s/.env, %s/.env"
               % (BASE_DIR, PROJEKT_DIR, PROJEKT_DIR.parent))
     print("  Protokolle: %s" % PROTOKOLL_DIR)
+    print("  Zugang: %s" % ("Passwort gesetzt" if PASSWORT else "offen, kein Passwort"))
+    if not PASSWORT and HOST != "127.0.0.1":
+        print("  ACHTUNG: erreichbar auf %s ohne Passwort. Jeder Aufruf von" % HOST)
+        print("           /api/pruefen geht auf Rechnung des API-Schluessels.")
+        print("           Abhilfe: Umgebungsvariable KLARTEXT_PASSWORT setzen.")
 
-    server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
+    server = ThreadingHTTPServer((HOST, PORT), Handler)
     url = "http://localhost:%d" % PORT
     print("\nLaeuft: %s   (Beenden mit Ctrl+C)\n" % url)
     if "--open" in sys.argv:

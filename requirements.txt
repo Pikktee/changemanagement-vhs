@@ -1,0 +1,3 @@
+# Absichtlich ohne Eintraege: der Prototyp kommt mit der Standardbibliothek
+# aus. Die Datei steht hier, damit der Build den Dienst als Python-Projekt
+# erkennt.

@@ -1,0 +1,28 @@
+# Was der Prototyp zur Laufzeit nicht liest, muss auch nicht hoch. Ohne diese
+# Liste gingen rund 27 MB fertige Folien und PDFs bei jedem Deploy mit.
+#
+# Gebraucht werden nur: tool/, system-prompt.md, schriften/ und aus daten/ die
+# Wortliste sowie der Kursplan.
+
+ausgabe/
+ausgabe-dokument/
+bilder/
+entwurf/
+
+*.pptx
+*.pdf
+
+# Werkzeuge des Foliensatzes, nicht des Servers
+build.py
+watch.py
+dokument.py
+dokument.css
+pruefe-design.py
+folien.md
+dokumentation.md
+
+.DS_Store
+__pycache__/
+
+# Die Historie ist 846 MB gross und zur Laufzeit ohne Belang.
+.git/
