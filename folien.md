@@ -737,8 +737,8 @@ klein: ja
 einwaende:
   - "Unsicherheit · im ganzen Haus || „Schreibt die KI jetzt unsere Texte?“ || Nein. Sie schlägt vor, der Fachbereich entscheidet und veröffentlicht. Nichts geht ohne einen Menschen ins Portal."
   - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Vieles im Text sind Bausteine, die woanders gepflegt werden. Wer sie ändern darf, wird vor dem Pilot geklärt."
-  - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Geprüft wird im Fachbereich, am eingegangenen Text. Rückmeldung ja, Pflicht nein."
-  - "Gewohnheit · Redaktion des Programmhefts || „Die Texte stehen seit Jahren so da, beschwert hat sich nie jemand.“ || Beschwerden kommen von denen, die den Text verstanden haben. Wer ihn nicht versteht, meldet sich nicht — und meldet sich auch nicht an."
+  - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Der Einwand ist berechtigt. Deshalb wird im Fachbereich geprüft, am eingegangenen Text. Rückmeldung gerne, Pflicht nein."
+  - "Gewohnheit · Redaktion des Programmhefts || „Die Texte stehen seit Jahren so da, beschwert hat sich nie jemand.“ || Stimmt — und ihr prüft Texte als Einzige im Haus heute schon. Nur beschwert sich niemand, der eine Beschreibung nicht versteht. Er meldet sich gar nicht erst an."
 callout: Drei dieser Einwände lassen sich beantworten. Der zweite braucht eine Entscheidung.
 calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot geklärt sein. Das ist keine Schulungsfrage.
 
@@ -770,7 +770,8 @@ den Pilot.
 
 Bei den Honorarkräften schärfer als bei allen
 anderen, weil ihre Abrechnungseinheit die Unterrichtsstunde ist. Textarbeit
-kommt darin nicht vor. Die Antwort ist der Zuschnitt: Geprüft wird im
+kommt darin nicht vor, der Einwand ist also berechtigt und gehört auch so
+beantwortet. Die Antwort ist der Zuschnitt: Geprüft wird im
 Fachbereich, an dem Text, der dort eingeht. Das schützt auch ihren Status:
 Verbindliche Regeln und ein Protokoll je Text wären genau die Merkmale, an
 denen sich eine Scheinselbständigkeit festmachen lässt.
@@ -778,11 +779,13 @@ denen sich eine Scheinselbständigkeit festmachen lässt.
 ### Gewohnheit · Redaktion des Programmhefts
 
 Der Satz, der jedes Qualitätsprojekt begleitet: Es hat sich doch nie jemand
-beschwert. Er stimmt vermutlich sogar — nur beweist er das Gegenteil. Wer sich
-beschwert, hat den Text gelesen und verstanden. Die Menschen, um die es hier
-geht, melden sich nicht: Sie verstehen die Beschreibung nicht, sie fragen nicht
-nach, und sie melden sich auch nicht an. Ihr Fehlen sieht von innen aus wie
-Zufriedenheit. Und geprüft wird ohnehin der Text im Portal, und dort gibt
+beschwert. Und er stimmt vermutlich. Entscheidend ist, wie man darauf antwortet:
+Diese Redaktion prüft Texte im Haus als Einzige schon heute. Sie ist keine
+Bremse, sie ist der nächstliegende Verbündete, und so sollte man ihr auch
+begegnen. Der Punkt ist nur: Wer sich beschwert, hat den Text gelesen und
+verstanden. Die Menschen, um die es hier geht, fragen nicht nach und melden sich
+auch nicht an. Ihr Fehlen sieht von innen aus wie Zufriedenheit — dass es bisher
+niemand gesehen hat, ist deshalb kein Versäumnis, sondern liegt in der Sache. Und geprüft wird ohnehin der Text im Portal, und dort gibt
 es keine Seitenzahl.
 
 ### Der Kasten unten
