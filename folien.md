@@ -426,7 +426,7 @@ yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
-oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Zugang
+oben_links: Beobachten || Städtische IT || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Zugang
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Pilot-Fachbereich || Personalrat, Zustimmung erforderlich
 unten_links: Informieren || Die drei übrigen Fachbereiche
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Redaktion des Programmhefts || Teilnehmende, besonders in Deutschkursen und Grundbildung
@@ -444,7 +444,7 @@ quellen:
 - Ich fange an mit den Stakeholdern, die wir eng einbinden müssen.
 - **Der Direktor** — da er laut Impressum persönlich für die redaktionellen Inhalte verantwortlich ist.
 - **Der Pilot-Fachbereich** — natürlich, er entscheidet über den Text.
-- **Der Personalrat** — hier ist die Einordnung zu schwach. Sein Einfluss ist kein hoher, sondern ein ==sperrender==: Die Einführung ist mitbestimmungspflichtig. ((Seine zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.))
+- **Der Personalrat** — der Einzige, der das Projekt anhalten kann: Die Einführung ist mitbestimmungspflichtig. ==Ohne seine Zustimmung passiert nichts.== ((Seine zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.))
 
 ### Unten links: Informieren
 - **Die drei übrigen Fachbereiche** — sollen wissen, dass es läuft, und sehen, was herauskommt. Im Pilot sind sie nicht dabei.
@@ -452,7 +452,6 @@ quellen:
 ### Oben links: Beobachten
 - Hoher Einfluss, aber ihre Arbeit verändert das Projekt nicht.
 - **Die städtische IT** — bleibt für die technische Seite zuständig.
-- **Advellence** — programmiert laut Impressum das Portal.
 - **Die Betriebskommission** — Aufsichtsgremium.
 - **Der Volkshochschul-Verband** — stellt den KI-Zugang.
 
