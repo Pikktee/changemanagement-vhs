@@ -197,14 +197,27 @@ th:last-child, td:last-child{ padding-right:0; }
   color:var(--papier); font-size:11.5px; line-height:1.62;
   margin:0 0 9px; max-width:60ch;
 }
-/* Die zwei Zeilen unter dem Untertitel tragen Werkzeug- und Quellenadresse.
-   Sie gehoeren nach oben und muessen aus der Entfernung lesbar sein, deshalb
-   groesser und in Weiss — hellblau haelt bei dieser Groesse AAA nicht. */
-.titelblatt h2 + p, .titelblatt h2 + p + p{
-  font-size:15.5px; line-height:1.5; color:#fff; margin:0 0 5px;
-  max-width:none;
+/* Die ersten zwei Absaetze des Titelblatts tragen Werkzeug- und
+   Quellenadresse. Aufbau je Zeile: Quadrat, kleines Etikett in fester Breite,
+   damit beide Adressen an derselben Kante beginnen, dahinter die Adresse
+   gross. Schrift durchweg weiss: Hellblau haelt bei dieser Groesse die
+   AAA-Schwelle nicht, als Quadrat davor schon (Nichttext, 3:1). */
+.titelblatt p:nth-of-type(-n+2){
+  display:flex; align-items:baseline; gap:0;
+  max-width:none; margin:0 0 9px; color:var(--papier);
 }
-.titelblatt h2 + p + p{ margin-bottom:26px; }
+.titelblatt p:nth-of-type(-n+2) em{
+  flex:0 0 96px; font-style:normal;
+  font-size:9px; letter-spacing:.17em; text-transform:uppercase;
+}
+.titelblatt p:nth-of-type(-n+2) em::before{
+  content:""; display:inline-block; width:7px; height:7px;
+  background:var(--auf-marke); margin-right:10px;
+}
+.titelblatt p:nth-of-type(-n+2) strong{
+  font-size:17.5px; line-height:1.3; letter-spacing:-.014em;
+}
+.titelblatt p:nth-of-type(2){ margin-bottom:30px; }
 .titelblatt p + p{ color:rgba(255,255,255,.78); }
 /* Der Trennstrich schiebt die Kenndaten an den Fuss der Seite. */
 .titelblatt hr{

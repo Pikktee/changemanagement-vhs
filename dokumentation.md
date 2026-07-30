@@ -4,9 +4,9 @@ typ: titel
 
 ## Dokumentation des System-Prompts für die Prüfung von Kursbeschreibungen der Volkshochschule Frankfurt am Main
 
-Werkzeug **klartext-vhs.henrikheil.net**
+*Werkzeug* **klartext-vhs.henrikheil.net**
 
-Quellen **github.com/Pikktee/changemanagement-vhs**
+*Quellen* **github.com/Pikktee/changemanagement-vhs**
 
 Henrik Heil · cimdata Bildungsakademie · Kurs Changemanagement und KI · Juli 2026
 
