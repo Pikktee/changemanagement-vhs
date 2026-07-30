@@ -573,44 +573,55 @@ quellen:
 
 ### NOTIZ
 
-Damit zum Change-Teil, und der beginnt mit den Stakeholdern. Die
+Damit zum Change-Teil, und der beginnt mit den **Stakeholdern**. Die
 **Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
 betroffen, und wer hat Einfluss.
 
-Oben rechts stehen die vier Stakeholder, die eng eingebunden werden müssen. Der Direktor,
-der laut Impressum persönlich für die redaktionellen Inhalte verantwortlich
-ist. Der Fachbereich, zu dem der Pilotbereich gehört — und zwar nur dieser
-eine, denn acht Programmbereiche gleichzeitig einzubinden wäre kein Pilot
-mehr. Die Redaktion des Programmhefts, die es für den Druck bereits gibt und
-die deshalb schon weiß, wie Textprüfung geht. Und der Personalrat, bei dem die
-Einordnung eigentlich zu schwach ist: Sein Einfluss ist kein hoher, sondern
-ein **sperrender**. Die Einführung des Werkzeugs ist mitbestimmungspflichtig,
-braucht seine Zustimmung. Zwei von sechzehn Sitzen in der Betriebskommission
-sind dagegen als Stimmblock bedeutungslos.
+Oben rechts, eng einbinden.
 
-Deshalb stehen die drei übrigen Fachbereiche unten links, bei informieren. Sie
-sollen wissen, dass es läuft, und sie sollen sehen, was herauskommt. Im Pilot
-sind sie nicht dabei.
+**Der Direktor** — laut Impressum persönlich für die redaktionellen Inhalte
+verantwortlich.
 
-Oben links stehen die mit hohem Einfluss, aber geringer Betroffenheit, weil
-mein Projekt ihre Arbeit nicht verändert: die städtische IT, die für die
-technische Seite zuständig bleibt; Advellence, die Schweizer Firma, die laut
-Impressum das Portal programmiert; die Betriebskommission als
-Aufsichtsgremium. Und der Volkshochschul-Verband, der den KI-Rahmen
-bereitstellt, den ich nutze.
+**Der Fachbereich des Pilotbereichs** — und zwar nur dieser eine. Vier
+Fachbereiche gleichzeitig einzubinden wäre kein Pilot mehr.
 
-Unten rechts der Quadrant, der mich am meisten beschäftigt hat. Die
-Kursleitungen auf Honorarbasis sind maximal betroffen, denn in der Branche
-schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und
+**Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute,
+weiß also, wie Textprüfung geht.
+
+**Der Personalrat** — hier ist die Einordnung eigentlich zu schwach. Sein
+Einfluss ist kein hoher, sondern ein **sperrender**: Die Einführung des
+Werkzeugs ist mitbestimmungspflichtig, sie braucht seine Zustimmung. Seine
+zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.
+
+Nur dieser eine Fachbereich — deshalb unten links, informieren.
+
+**Die drei übrigen Fachbereiche** — sollen wissen, dass es läuft, und sehen,
+was herauskommt. Im Pilot sind sie nicht dabei.
+
+Oben links: hoher Einfluss, aber mein Projekt verändert ihre Arbeit nicht.
+
+**Die städtische IT** — bleibt für die technische Seite zuständig.
+
+**Advellence** — die Schweizer Firma, die laut Impressum das Portal
+programmiert.
+
+**Die Betriebskommission** — Aufsichtsgremium.
+
+**Der Volkshochschul-Verband** — stellt den KI-Rahmen, den ich nutze.
+
+Und unten rechts der Quadrant, der mich am meisten beschäftigt hat.
+
+**Die Kursleitungen auf Honorarbasis** — maximal betroffen, denn in der
+Branche schreiben sie viele dieser Texte. In keinem Gremium sitzen sie, und
 vorschreiben kann man ihnen als Honorarkräften nichts. Einen Kanal haben sie
 aber doch: Arbeitnehmerähnliche Personen gelten nach dem
-Personalvertretungsgesetz als Beschäftigte, der Personalrat vertritt sie also
-mit.
+Personalvertretungsgesetz als Beschäftigte, der Personalrat vertritt sie mit.
 
-Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und
-in der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht
-ist — und sie haben keine Stimme, in keinem Gremium und in keinem Gesetz. Bei
-ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das
+**Die Teilnehmenden** — besonders in den Deutschkursen und in der
+Grundbildung. Für sie ist das ganze Projekt gemacht, und sie haben keine
+Stimme, in keinem Gremium und in keinem Gesetz.
+
+Bei ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das
 überhaupt zur Verfügung steht. Was das praktisch heißt, steht auf der nächsten
 Folie.
 
