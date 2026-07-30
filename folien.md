@@ -736,13 +736,13 @@ akzent: und vier Antworten.
 klein: ja
 einwaende:
   - "Unsicherheit · im ganzen Haus || „Schreibt die KI jetzt unsere Texte?“ || Nein. Sie schlägt vor, der Fachbereich entscheidet und veröffentlicht. Nichts geht ohne einen Menschen ins Portal."
-  - "Verlustangst · Programmbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt, und das ist vor dem Pilot zu klären. Ein Baustein steht in 105 Kursen: einmal richtig, und 105 Kurse sind es mit."
-  - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Geprüft wird im Programmbereich, am eingegangenen Text. Rückmeldung ja, Pflicht nein."
-  - "Gewohnheit · Redaktion des Programmhefts || „Verständlicher heißt länger, und mein Heft hat feste Seiten.“ || Geprüft wird der Text im Portal. Dort gibt es keine Seitenzahl, und das Heft verweist ohnehin dorthin."
+  - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Der Beispielkurs besteht vollständig aus zwei Bausteinen des Hauses. Deshalb wird die Freigabe geklärt, bevor der Pilot beginnt."
+  - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Geprüft wird im Fachbereich, am eingegangenen Text. Rückmeldung ja, Pflicht nein."
+  - "Gewohnheit · Redaktion des Programmhefts || „Verständlicher heißt länger, und mein Heft hat feste Seiten.“ || Nachgemessen an einem echten Lauf: 31 Zeichen mehr auf 710. Und geprüft wird der Text im Portal, dort gibt es keine Seitenzahl."
 callout: Drei dieser Einwände sind schon beantwortet — durch den Zuschnitt des Projekts. Der zweite nicht.
 calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot entschieden werden. Das ist keine Schulungsfrage.
 quellen:
-  - "Häufigkeit der Bausteine: eigene Auszählung im Kursplan der vhs"
+  - "Bausteine und Längenvergleich: Kurs 4074-74, eigener Lauf vom 29.07.2026"
 
 ### NOTIZ
 
@@ -757,7 +757,7 @@ KI jetzt unsere Texte? Nein. Sie schlägt vor, mehr nicht. Entschieden und
 veröffentlicht wird von Menschen. Das ist keine Beruhigung, sondern der
 Zuschnitt des Werkzeugs.
 
-### Verlustangst · Programmbereich
+### Verlustangst · Fachbereich
 
 Der einzige Einwand, der noch offen ist. Ich habe
 nachgezählt: Der Beispielkurs besteht restlos aus zwei Bausteinen, dem
@@ -781,9 +781,14 @@ Betrieb hergeleitet hat.
 ### Gewohnheit · Redaktion des Programmhefts
 
 Nicht als Trägheit, sondern als konkurrierendes Regelwerk:
-Diese Redaktion kürzt beruflich. Ein Werkzeug, das Erklärungen verlangt,
-arbeitet gegen ihren Auftrag. Die Antwort trennt die Medien: Geprüft wird der
-Text im Portal, und dort gibt es keine Seitenzahl.
+Diese Redaktion kürzt beruflich, ein Werkzeug, das Erklärungen verlangt,
+scheint gegen ihren Auftrag zu arbeiten. Nur trägt die Annahme nicht. Ich habe
+die neun Vorschläge aus einem echten Lauf nachgerechnet: Fünf davon machen den
+Text kürzer, einer lässt ihn gleich, und unter dem Strich wächst er um
+einunddreißig Zeichen — bei siebenhundertzehn. Länger wird es vor allem dort,
+wo ein Verwaltungswort in einen ganzen Satz aufgelöst wird, Selbsteinschätzung
+zum Beispiel. Und geprüft wird ohnehin der Text im Portal, und dort gibt
+es keine Seitenzahl.
 
 ### Der Kasten unten
 
