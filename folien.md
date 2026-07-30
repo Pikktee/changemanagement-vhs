@@ -62,11 +62,11 @@ akzent: geprüft wird die Technik.
 lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Unternehmen an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
-  - "58 % || haben mindestens einen Befund || warn"
+  - "57 % || haben mindestens einen Befund || warn"
   - "5 Jahre || seit dem letzten externen Barrierefreiheitstest || warn"
 callout: Mehr als jeder zweite Text hat einen Befund. Die Frage ist, für wen er zu schwer ist.
 quellen:
-  - "Eigene Auswertung von 60 Kursbeschreibungen, 29.07.2026"
+  - "Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
   - "Erklärung zur Barrierefreiheit der vhs, 23.09.2025 | https://vhs.frankfurt.de/de/special-pages/support/barrierefreiheit"
 
@@ -75,8 +75,8 @@ quellen:
 Drei Zahlen zum Einstieg.
 
 Die Volkshochschule veröffentlicht rund fünftausendachthundert
-Kursbeschreibungen im Jahr. In meiner Stichprobe von sechzig Kursen haben
-achtundfünfzig Prozent mindestens einen Befund, und das ist die Untergrenze:
+Kursbeschreibungen im Jahr. Von allen Texten, die heute im Portal stehen,
+haben siebenundfünfzig Prozent mindestens einen Befund, und das ist die Untergrenze:
 Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der
 sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.
 
@@ -213,7 +213,7 @@ kapitel: 01 · POTENZIALERMITTLUNG
 titel: Was zählt als Befund,
 akzent: und für wen.
 klein: ja
-lede: 60 Kursbeschreibungen, sieben Programmbereiche, Portalabruf vom 28.07.2026. 35 davon haben einen Befund.
+lede: Alle 3.111 Kurstexte des Portals, Abruf vom 28.07.2026. 1.765 davon haben einen Befund.
 regelntitel: Wonach gemessen wurde
 regeln:
   - "PFLICHT · verbindlich nach WCAG | STRUKTUR | Überschrift oder Liste ohne semantisches HTML"
@@ -226,21 +226,20 @@ tabellentitel: Zwei Kurse im Vergleich
 spalten: Kurs | Wer die Beschreibung liest | Wörter über Niveau | Befunde
 zeilen:
   - "Englisch A1.1 | liest Deutsch fließend | 0 | 1"
-  - "Deutsch als Fremdsprache A2.2 | lernt Deutsch, kann bisher A1 | 24 | 28"
+  - "Deutsch als Fremdsprache A2.2 | lernt Deutsch, kann bisher A1 | 53 | 57"
 callout: Beide Kurse tragen A im Titel. Nur bei einem ist der Text zu schwer für seine Leser.
 calloutsub: Ob ein Text verständlich ist, entscheidet nicht der Text — sondern die Zielgruppe, die ihn lesen soll.
 quellen:
-  - "Eigene Auswertung von 60 Kursbeschreibungen, 29.07.2026 — Auswertung und Daten liegen der Arbeit bei"
+  - "Eigene Auswertung aller 3.111 Kurstexte, 30.07.2026 — Auswertung und Daten liegen der Arbeit bei"
   - "Kursportal-Schnittstelle der vhs | https://vhs.frankfurt.de/KundenportalApi/api/angebot"
 
 ### NOTIZ
 
 Zur Potenzialermittlung. Hier habe ich nicht geschätzt, sondern gemessen.
 
-Das Kursportal hat eine offene Schnittstelle. Darüber habe ich sechzig
-Kursbeschreibungen aus sieben der acht Programmbereiche gezogen und mit einem
-eigenen Skript ausgewertet. Fünfunddreißig von sechzig Texten haben mindestens
-einen Befund.
+Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle
+Kurstexte gezogen, gut dreitausend, und mit einem eigenen Skript ausgewertet.
+Siebenundfünfzig Prozent haben mindestens einen Befund.
 
 Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
 Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
@@ -295,21 +294,22 @@ Beschreibung liest, kann Deutsch bisher eine Stufe darunter, also A1.
 
 Der Englischkurs hat kein einziges Wort über dem Niveau seiner Leser und einen
 Befund insgesamt, eine nicht aufgelöste Abkürzung. Der Deutschkurs hat
-vierundzwanzig zu schwere Wörter und achtundzwanzig Befunde.
+dreiundfünfzig zu schwere Wörter und siebenundfünfzig Befunde. Darunter
+Selbsteinschätzung, Fehleinschätzung und Umbuchung — Wörter, die man erst weit
+oberhalb des Kursziels lernt.
 
 Dabei sind beide Texte gleich einfach gebaut. Die Sätze sind in beiden Fällen
-kurz, im Schnitt neun beziehungsweise elf Wörter. Ein Lesbarkeitsindex, der
+kurz, im Schnitt neun und sieben Wörter. Ein Lesbarkeitsindex, der
 Satz- und Wortlängen zählt, findet bei keinem der beiden etwas. Er schweigt
 zweimal, und einmal davon zu Unrecht.
 
 Deshalb reicht kein Werkzeug, das nur den Text ansieht. Man muss wissen, für
-wen der Text ist. In meiner Stichprobe stehen sechs Deutschkurse auf den
-Stufen A1 und A2, und alle sechs enthalten Wörter, die über dem Niveau ihrer
-Zielgruppe liegen: Selbsteinschätzung, Fehleinschätzung, Umbuchung. Wörter,
-die man erst weit oberhalb des Kursziels lernt. Genau hier kann ein fachlich
+wen der Text ist. Für Deutschkurse auf den Stufen A1 und A2 gibt es
+einunddreißig verschiedene Texte, und alle einunddreißig enthalten Wörter über
+dem Niveau ihrer Leser. Genau hier kann ein fachlich
 eingestellter Prompt etwas, was ein Standardwerkzeug nicht kann.
 
-Noch einmal zu den achtundfünfzig Prozent: Das ist eine Untergrenze. Mein
+Noch einmal zu den siebenundfünfzig Prozent: Das ist eine Untergrenze. Mein
 Messskript prüft fünf der sechs Regeln; die erste, ob eine hervorgehobene
 Zeile eine Überschrift sein sollte, kann kein Skript entscheiden. Ich messe
 also bewusst zu niedrig statt zu hoch.
@@ -794,24 +794,24 @@ klein: ja
 kompakt: ja
 spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
-  - "Texte mit mindestens einem Befund | 58 % | ! unter 25 % | eigenes Messskript, unverändert"
+  - "Texte mit mindestens einem Befund | 57 % | ! unter 25 % | eigenes Messskript, unverändert"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
-  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 6 von 6 | ! höchstens 2 von 6 | eigenes Messskript, unverändert"
+  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 31 von 31 | ! höchstens 10 von 31 | eigenes Messskript, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
   - "Die Protokolle werden gegen das Unternehmen verwendet. Sie belegen datiert, was vorher nur unbemerkt war. > Zweckbindung, Zugriffskreis und Löschfrist in dieselbe Dienstvereinbarung — und zu jedem Befundstand ein Abstellplan mit Datum."
 callout: Die Nachmessung läuft mit demselben eingefrorenen Skript wie die Ausgangsmessung. Über die Methode kann später niemand streiten.
-quellen: Ausgangsmessung mit eigenem Messskript, Stichprobe vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
+quellen: Ausgangsmessung mit eigenem Messskript, ganzer Kursbestand vom 28.07.2026 · Wirtschaftlichkeit an 489 Kursen
 
 ### NOTIZ
 
 Und woran würde man merken, ob es gewirkt hat?
 
 Vier Kennzahlen mit Ausgangswert und Ziel. Die Befundquote soll von
-achtundfünfzig Prozent unter fünfundzwanzig fallen. Alle neuen Texte im
-Pilotbereich sollen geprüft sein. Und von den sechs Deutschkursen auf A1 und
-A2, die heute alle Wörter über dem Niveau ihrer Zielgruppe enthalten, sollen
-höchstens noch zwei betroffen sein.
+siebenundfünfzig Prozent unter fünfundzwanzig fallen. Alle neuen Texte im
+Pilotbereich sollen geprüft sein. Und von den einunddreißig Texten für
+Deutschkurse auf A1 und A2, die heute alle Wörter über dem Niveau ihrer Leser
+enthalten, sollen höchstens noch zehn betroffen sein.
 
 Die vierte Zeile ist mir wichtig, weil die ersten drei nur den Text messen und
 nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst. Nicht über

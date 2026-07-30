@@ -2,6 +2,16 @@
 
 Erhebung und Auswertung, Stand 29. Juli 2026. Skript: `daten/messung.py`.
 
+> **Nachtrag vom 30. Juli 2026.** Die Folien nennen inzwischen die Zahlen des
+> ganzen Kursbestands, nicht mehr die dieser Stichprobe: 57 Prozent statt 58,3.
+> Gerechnet wird das von `daten/messung-bestand.py`, das `messung.py`
+> unverändert importiert und allein die Eingabemenge wechselt. Der Grund war
+> nicht Genauigkeit, sondern Einfachheit — eine Vollerhebung muss ihre Auswahl
+> nicht begründen, und Folie 4 stützte sich ohnehin schon auf den ganzen
+> Bestand. Dass die Stichprobe nur 1,6 Prozentpunkte danebenlag, ist selbst ein
+> Ergebnis; dieses Dokument bleibt deshalb als Beleg dafür stehen. Alles
+> Folgende beschreibt weiterhin die Stichprobenmessung.
+
 Anlass sind zwei Zahlen, die auf drei Folien stehen und nirgends hergeleitet
 waren: „90 Prozent der Texte haben mindestens einen Befund“ und „9 von 13
 Kursen für Deutschlernende enthalten C1-Vokabular“. Beide sollten

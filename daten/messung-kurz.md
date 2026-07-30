@@ -67,7 +67,24 @@ ist das Arbeitsgerät, nicht das Messgerät.
 - Häufigste Probleme: zu schwere Wörter (339), zu lange Sätze (57)
 - Längster Satz: 36 Wörter
 
+## Seit dem 30.07.2026 zählt der ganze Bestand
+
+Die Folien nennen nicht mehr die Zahlen dieser Stichprobe, sondern die aller
+3.111 Kurstexte des Portals. Gerechnet wird das von `messung-bestand.py`:
+
+```bash
+cd abschlussprojekt-vhs && python3 daten/messung-bestand.py
+```
+
+Es benutzt `messung.py` unverändert und wechselt nur die Eingabemenge. Das
+Ergebnis: **1.765 von 3.111 Texten** haben einen Befund, das sind **57
+Prozent**. Für Deutschkurse auf A1 und A2 gibt es **31 verschiedene Texte**,
+alle mit Wörtern über dem Niveau ihrer Leser; sie stecken in **196 Kursen**.
+
+Die Stichprobe lag also 1,6 Prozentpunkte daneben. Sie bleibt als Beleg dafür
+liegen, wird aber nicht mehr fortgeschrieben.
+
 ## Wo die Zahlen in der Arbeit stehen
 
 Folie 2 (Befundquote), Folie 5 (Messung und Befund), Folie 14 (Erfolgsmessung).
-Wer eine dieser Zahlen ändert, lässt vorher das Skript laufen.
+Wer eine dieser Zahlen ändert, lässt vorher `messung-bestand.py` laufen.
