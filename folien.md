@@ -349,7 +349,7 @@ akzent: sechs Bausteinen.
 klein: ja
 spalten: Baustein | Was darin steht
 zeilen:
-  - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, entscheidet nichts."
+  - "ROLLE | Redaktionsassistenz der vhs. Liest wie eine erfahrene Lektorin, entscheidet aber nicht selbst."
   - "AUFGABE | Zielgruppe des Kurses bestimmen, dann prüfen, ob sie den Text verstehen kann."
   - "FORMAT | Feste Ausgabe: Zielgruppe, Befunde mit Zitat, Grund und Vorschlag, Zusammenfassung."
   - "GRENZEN | Bewertet Texte, niemals Personen. Ändert nichts, veröffentlicht nichts, erfindet nichts."
@@ -363,8 +363,8 @@ quellen:
 
 ### NOTIZ
 
-Zum Kern der Aufgabe, dem System-Prompt. Er folgt der Sechs-Komponenten-
-Struktur aus dem Aufgabenblatt.
+- Und damit kommen wir zum Kern der Aufgabe, unserem System-Prompt.
+- Er folgt der gängigen Sechs-Komponenten- Struktur
 
 ### Rolle, Aufgabe, Format
 - **ROLLE**: Redaktionsassistenz, nicht Autorin.
