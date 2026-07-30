@@ -205,21 +205,41 @@ def notiz_bereich(zeilen, nr):
     raise ValueError(f"Folie {nr} hat keinen '### NOTIZ'-Block.")
 
 
-def umbrechen(text):
-    """Absaetze auf UMBRUCH Zeichen umbrechen, getrennt durch Leerzeilen.
+def notiz_zeilen(text, alt=""):
+    """Notiztext in Quellzeilen umbrechen, Absaetze durch Leerzeilen getrennt.
+
+    Absaetze, die im alten Stand wortgleich vorkamen, behalten dessen
+    Zeilenumbruch. Das ist der Kern: folien.md ist von Hand umbrochen und
+    weicht an vielen Stellen von der gierigen Aufteilung durch textwrap ab.
+    Ohne diese Schonung faerbt das Speichern einer einzigen geaenderten Stelle
+    den kompletten Notizblock im Diff ein — bei einer Abgabe, deren Historie
+    Teil der Arbeit ist, waere das teuer.
 
     break_on_hyphens=False, weil textwrap sonst an jedem Bindestrich trennen
     darf und aus 'KI-gestuetzt' zwei Zeilen macht. break_long_words=False
     haelt lange URLs zusammen — die eine 84 Zeichen lange Zeile im Bestand ist
     genau so eine.
     """
+    def zusammen(block):
+        return " ".join(z.strip() for z in block.splitlines() if z.strip())
+
+    bestand = {}
+    for block in re.split(r"\n\s*\n", alt.strip()):
+        zeilen = [z for z in block.splitlines() if z.strip()]
+        if zeilen:
+            bestand[zusammen(block)] = zeilen
+
     aus = []
     for block in re.split(r"\n\s*\n", text.strip()):
-        eine = " ".join(z.strip() for z in block.splitlines() if z.strip())
-        if eine:
-            aus.append(textwrap.fill(eine, width=UMBRUCH,
-                                     break_long_words=False,
-                                     break_on_hyphens=False))
+        eine = zusammen(block)
+        if not eine:
+            continue
+        if aus:
+            aus.append("")          # Leerzeile zwischen den Absaetzen
+        aus.extend(bestand.get(eine) or
+                   textwrap.fill(eine, width=UMBRUCH,
+                                 break_long_words=False,
+                                 break_on_hyphens=False).splitlines())
     return aus
 
 
@@ -251,7 +271,8 @@ def notiz_schreiben(nr, text, build):
     # Leerzeile nach '### NOTIZ', dann der Text. Danach die zwei Leerzeilen,
     # die im Bestand vor jeder '## '-Zeile stehen. Bei der letzten Folie endet
     # die Datei stattdessen mit genau einem Zeilenumbruch.
-    ersatz = [""] + umbrechen(text) + ([""] if letzte else ["", ""])
+    ersatz = ([""] + notiz_zeilen(text, alt[nr - 1].get("notiz", ""))
+              + ([""] if letzte else ["", ""]))
     neu_text = "\n".join(zeilen[:start] + ersatz + zeilen[ende:])
 
     # Gegenprobe: Die Datei muss weiter lesbar sein, gleich viele Folien
@@ -265,7 +286,8 @@ def notiz_schreiben(nr, text, build):
         abweichung = [k for k in set(a) | set(b)
                       if k != "_zeile" and a.get(k) != b.get(k)]
         if i == nr:
-            if abweichung != ["notiz"]:
+            # Leer ist erlaubt: Speichern ohne Aenderung ist kein Fehler.
+            if abweichung not in ([], ["notiz"]):
                 raise ValueError(
                     f"Folie {nr}: unerwartet geaendert: {sorted(abweichung)}")
         elif abweichung:
