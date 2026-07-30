@@ -18,6 +18,8 @@
 #   ((Text in doppelten Klammern)) ist eine Nebenbemerkung: kleiner und leicht
 #   gedaempft, fuer Saetze, die nur bei genug Zeit vorgelesen werden. Sie darf
 #   ueber mehrere Zeilen gehen, aber nicht ueber eine Leerzeile.
+#   ==Text zwischen Gleichheitszeichen== ist das Gegenteil: roetlich und fett,
+#   fuer die Stelle, die nicht untergehen darf. Nur innerhalb einer Zeile.
 #   HTML geht nicht — ein <small> erscheint woertlich auf der Notizseite.
 #   NICHT "## " am Zeilenanfang — das beginnt auch mitten in einer Notiz eine
 #   neue Folie und zerlegt die Datei. Fuer eine Ueberschrift "# " oder "### ".
@@ -129,7 +131,7 @@ Daraus folgt mein Vorschlag.
 - *vorlesen*
 
 ### Lösung
-- *vorlesen*
+- Ein Prüfschritt zur Sicherstellung der Zugänglichkeit eines Kurstextes für die Zielgruppe des Textes vor der Veröffentlichung. (weiter vorlesen)
 
 ### Abgrenzung
 - Für die technische Barrierefreiheit der Website bleiben normale Prüfwerkzeug zuständig, zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
@@ -150,8 +152,8 @@ spalte1: DAS UNTERNEHMEN
 punkte1:
   - "Eigenbetrieb der Stadt, 154.000 € Stammkapital, seit 2005 extern qualitätsgeprüft"
   - "5.800 Veranstaltungen im Jahr, acht Programmbereiche in vier Fachbereichen"
-  - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
   - "Der Direktor ist laut Impressum persönlich für die Inhalte verantwortlich"
+  - "Betriebskommission mit 16 Sitzen, zwei davon für den Personalrat"
 spalte2: SO ENTSTEHT EIN KURSTEXT · ANGENOMMENER ABLAUF
 punkte2:
   - "Die Teams der vier Fachbereiche planen das Programm halbjährlich"
@@ -173,6 +175,7 @@ Zunächst zum Unternehmen und zum aktuellen Prozess.
 ### Das Unternehmen
 - kein Amt, sondern ein Eigenbetrieb der Stadt.
 - seit 2005 extern qualitätsgeprüft nach **LQW**, **Lernerorientierte Qualitätstestierung in der Weiterbildung**
+- Es gibt acht Programmbereiche in vier Fachbereichen
 - Geleitet wird sie von einem Direktor, der laut Impressum auch persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 - Darüber steht eine Betriebskommission mit sechzehn Sitzen, zwei davon für den Personalrat.
 
@@ -216,53 +219,24 @@ quellen:
 Zur Potenzialermittlung. Was zählt als Befund und für wen?
 
 ### Die Messung
-- Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle Kurstexte gezogen, gut dreitausend, und mit einem eigenen Skript ausgewertet. Siebenundfünfzig Prozent haben mindestens einen Befund.
+- Erstmal kurz zur Messung: Das Kursportal hat eine offene Schnittstelle. Darüber habe ich alle Kurstexte gezogen und mit einem eigenen Skript ausgewertet.
 
 ### Wonach gemessen wurde
+- Dabei wurde nach sechs Regeln gemessen.
+- Dieselben sechs Regeln sind zugleich der Maßstab des Prüfassistenten, den ich gleich zeige.
 
-Oben steht, wonach ich gemessen habe: sechs Regeln, erst der Maßstab, dann das
-Ergebnis. Dieselben sechs Regeln sind zugleich der Maßstab des
-Prüfassistenten, den ich gleich zeige.
+### Die zwei Pflichtregeln
+- Stehen auf Stufe A der Barrierefreiheitsrichtlinien und sind damit gesetzlich verbindlich.
+- **STRUKTUR**: Eine Zeile sieht z.B. aus wie eine Überschrift, ist im Quelltext aber gewöhnlicher Fließtext.
+- **LINKTEXT**: Der Linktext sagt nicht, wohin er führt. Beispiel: „hier“
+- **Bei beiden**: Screen-Reader können die Inhalte damit nicht zuverlässig lesen.
 
-### Links: die zwei Pflichtregeln
-
-Links stehen die beiden Pflichtregeln. Sie stehen auf Stufe A der
-Barrierefreiheitsrichtlinien und sind damit verbindlich.
-
-Struktur heißt: Eine Zeile sieht aus wie eine Überschrift, ist im Quelltext
-aber gewöhnlicher Fließtext. Dasselbe gilt für Aufzählungen, die jemand nur
-mit Bindestrichen gebaut hat. Wer sehend liest, merkt davon nichts. Ein
-Screenreader dagegen bietet an, sich alle Überschriften einer Seite vorlesen
-zu lassen, um gezielt dorthin zu springen — was technisch keine Überschrift
-ist, taucht in dieser Liste nicht auf. Die Gliederung ist dann sichtbar
-vorhanden und für das Vorleseprogramm nicht da.
-
-Linktext heißt: Der Link sagt nicht, wohin er führt. Das bekannteste Beispiel
-ist ein Link, der schlicht „hier“ heißt. Der Grund ist derselbe: Screenreader
-lesen auf Wunsch nur die Links einer Seite vor, ohne den Text drumherum. Eine
-Liste aus fünfmal „hier“ hilft niemandem weiter.
-
-### Rechts: die vier Empfehlungen
-
-Rechts stehen die vier Empfehlungen. Verbindlich sind sie nicht, aber sie sind
-der eigentliche Ertrag dieses Projekts. Zwei davon, zu schwere Wörter und
-nicht aufgelöste Abkürzungen, stehen auf Stufe AAA — der höchsten, die niemand
-einhalten muss. Die beiden anderen habe ich selbst gesetzt.
-
-Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen
-sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt
-nicht anwenden lässt.
-
-Amtsdeutsch heißt: Im Text steht ein Verwaltungswort, obwohl ein alltägliches
-genügen würde. Umbuchung statt Wechsel, gegebenenfalls statt wenn nötig. Das
-trifft nicht nur Sprachanfänger, sondern auch geübte Leserinnen und Leser.
-
-Satz heißt: über fünfundzwanzig Wörter, bei Deutschkursen über fünfzehn. Diese
-beiden Zahlen habe ich gesetzt, nicht gemessen; sie orientieren sich an den
-Empfehlungen für einfache Sprache. Zur Satzlänge sagen die
-Barrierefreiheitsrichtlinien nämlich nichts, und ob es die richtigen Zahlen
-sind, soll der Pilot beantworten.
-
+### Die vier Empfehlungen
+- Nicht verbindlich, aber der größte Ertrag des Projekts.
+- **NIVEAU:** Niveau heißt: Ein Wort liegt über dem Sprachniveau derer, die den Text lesen sollen. Das ist die Regel, die sich ohne Kenntnis der Zielgruppe überhaupt nicht anwenden lässt.
+- **AMTSDEUTSCH**: (vorlesen)
+- **SATZ**: Zur Satzlänge sagen die Barrierefreiheitsrichtlinien nichts. Aber die Zahlen orientieren sich an den Empfehlungen für einfache Sprache.
+- **AB
 Abkürzung heißt: Ein Kürzel steht im Text, ohne beim ersten Mal aufgelöst zu
 werden. Davon hat die vhs einige eigene, D-T-Z zum Beispiel, der Deutsch-Test
 für Zuwanderer.

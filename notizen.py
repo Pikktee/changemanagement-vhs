@@ -235,9 +235,16 @@ def inline(text):
     und ein unvollstaendiges (( steht sichtbar da, statt zu verschwinden.
     HTML geht nicht: html.escape() laeuft zuerst, ein <small> im Notiztext
     erscheint woertlich auf der Seite.
+
+    ==...== ist das Gegenstueck: die Stelle, die nicht untergehen darf. Das
+    Zeichen kommt aus Markdown (mark) und nicht !!...!!, weil zwei
+    Ausrufezeichen am Satzende in einem Vortragstext durchaus vorkommen und
+    dann versehentlich eine Auszeichnung oeffnen wuerden. Ein einzelnes = im
+    Text bleibt unberuehrt.
     """
     s = html.escape(text)
     s = re.sub(r"\(\((.+?)\)\)", r'<span class="neben">\1</span>', s)
+    s = re.sub(r"==(.+?)==", r'<span class="wichtig">\1</span>', s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<![*\w])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", s)
     return s
@@ -493,8 +500,21 @@ def notiz_schreiben(nr, text, build):
 # Verkleinerung des Textkoerpers nicht erfasst. Der Stift ist ein Symbol und
 # faellt unter die 3:1-Grenze fuer grafische Elemente, die er deutlich haelt.
 #
-# Keine Signalfarbe. Rot und Gruen sind im System mit Bedeutung belegt und
-# haben auf einer Notizseite nichts zu suchen.
+# Eine Signalfarbe, und zwar genau eine: --wichtig fuer ==hervorgehobenen==
+# Text. Hier stand vorher "Rot und Gruen haben auf einer Notizseite nichts zu
+# suchen" — das galt, solange die Seite nur Vorlesetext zeigte. Wer im Vortrag
+# eine Stelle nicht verpassen darf, braucht sie aber sichtbar, und Fettung
+# allein traegt in einem Text, der ohnehin Fettungen benutzt, nicht weit.
+#
+# Gruen bleibt draussen. Und der Ton ist nicht --pflicht: #A4162B haelt auf
+# --marke 1,15:1 und waere unlesbar. --wichtig ist derselbe Farbton (351 Grad),
+# so weit aufgehellt, dass er 6,00:1 haelt — dasselbe Niveau wie --auf-marke
+# mit 6,32:1, also AAA fuer grossen Text. Noch heller wuerde besser messen und
+# schlechter wirken: Ab #FADBE0 (6,85:1) ist nichts Rotes mehr zu erkennen.
+# Deshalb kommt die restliche Auffaelligkeit aus der Fettung, nicht aus Farbe.
+#
+# In der PowerPoint nimmt build.py stattdessen --pflicht unveraendert: dort
+# ist der Grund weiss. Dasselbe Verhaeltnis wie --marke zu --auf-marke.
 #
 # Die Farbwerte stehen hier ein zweites Mal, weil die Seite ohne stil.css
 # auskommen muss: stil.css legt html,body hart auf 1280x720 fest und wuerde
@@ -506,6 +526,7 @@ FARBEN = """
 :root{
   --marke:#14459E;
   --auf-marke:#B9DFFA;
+  --wichtig:#F8C9D0;
   --papier:#FFFFFF;
   --schrift:"Atkinson Hyperlegible Next","Helvetica Neue",Arial,sans-serif;
 }
@@ -634,6 +655,16 @@ h1{
 #notiz .neben{
   font-size:.78em;
   opacity:.75;
+}
+
+/* Wichtig: die Stelle, die nicht untergehen darf. Farbe UND Fettung — auf
+   6,00:1 traegt der Ton allein die Betonung nicht, und der Vortragstext
+   benutzt **fett** ohnehin schon fuer Namen. Erst beides zusammen sticht
+   heraus. Keine Hinterlegung: Ein farbiger Kasten haette einen eigenen
+   Kontrast zum Text darin und waere ein zweiter Farbwert. */
+#notiz .wichtig{
+  color:var(--wichtig);
+  font-weight:700;
 }
 
 /* ---------- Bearbeiten ---------- */

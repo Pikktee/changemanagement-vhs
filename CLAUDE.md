@@ -198,12 +198,27 @@ eine Überschrift `# ` oder `### ` nehmen.
 
 **HTML in Sprechnotizen wirkt nicht.** `inline()` in `notizen.py` ruft
 zuerst `html.escape()` auf; ein `<small>` steht danach wörtlich auf der
-Notizseite. Für Nebensächliches gibt es stattdessen `((doppelte Klammern))`:
-auf der Notizseite kleiner und auf 90 % Deckkraft, in der PowerPoint kursiv.
-Die 90 % sind keine Geschmacksfrage — Weiß auf `--marke` hält 8,84:1, bei
-90 % noch 7,47:1 und damit AAA, bei 85 % nur noch 6,86:1. Anders als `**`
-darf die Auszeichnung über Zeilen gehen, aber nicht über eine Leerzeile;
-ein unvollständiges `((` meldet `build.py` beim Bauen.
+Notizseite. Stattdessen gibt es zwei eigene Auszeichnungen:
+
+| Quelle | Notizseite | PowerPoint |
+|---|---|---|
+| `((nebenbei))` | 0,78em, 75 % Deckkraft | kursiv |
+| `==wichtig==` | `--wichtig` #F8C9D0, fett | fett, `--pflicht` #A4162B |
+
+Die Werte sind gerechnet, nicht gegriffen. Auf `--marke` hält Weiß 8,84:1;
+die Nebenbemerkung bei 75 % noch 5,69:1 — das ist AA, nicht mehr AAA, und
+bewusst so: Die Notizseite geht in keine Abgabe ein, `pruefe-design.py`
+liest sie nicht, und unter 62 % fiele auch AA. `--wichtig` hält 6,00:1 und
+liegt damit auf dem Niveau von `--auf-marke` (6,32:1); heller würde besser
+messen und schlechter wirken, ab #FADBE0 ist nichts Rotes mehr zu erkennen.
+`--pflicht` unverändert wäre auf dem Blau unlesbar (1,15:1) — deshalb der
+Untergrundwechsel zwischen Notizseite und Referentenansicht, dasselbe
+Verhältnis wie `--marke` zu `--auf-marke`.
+
+`((...))` darf über Zeilen gehen, `==...==` und `**` nicht; über eine
+Leerzeile geht keine. Unvollständige Klammern und `==` meldet `build.py`
+beim Bauen. `==` und nicht `!!`, weil zwei Ausrufezeichen am Satzende in
+einem Vortragstext vorkommen und sonst versehentlich auszeichnen würden.
 
 **Der Kursplan braucht den Detailabruf.** `daten/kursplan-holen.py` holt erst
 die Liste aller Angebote und dann je Kurs den vollständigen Text. Wer den

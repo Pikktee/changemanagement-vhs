@@ -789,18 +789,28 @@ def notiz_setzen(rahmen, text):
     ein Farbwert ausserhalb von DESIGN.md. Anders als ** darf sie ueber
     Zeilen laufen — der Block in folien.md ist hart umbrochen, und eine
     Nebenbemerkung ist meist laenger als eine Zeile.
+
+    ==wichtig== wird fett und --pflicht (#A4162B). Hier steht der Wert aus
+    DESIGN.md unveraendert, waehrend notizen.py --wichtig (#F8C9D0) nimmt:
+    Die Referentenansicht setzt auf Weiss, die Notizseite auf --marke. Gleiche
+    Rolle, zwei Untergruende — dasselbe Verhaeltnis wie --marke zu --auf-marke.
     """
+    from pptx.dml.color import RGBColor
+    PFLICHT = RGBColor(0xA4, 0x16, 0x2B)
+
     zeilen = (text or "(keine Notiz)").split("\n")
     rahmen.clear()
     neben = False
     for i, zeile in enumerate(zeilen):
-        # Fett darf keinen Zeilenumbruch ueberspannen — folien.md ist hart
-        # umbrochen, und ein offenes ** wuerde als Sternchen im Vortragstext
-        # landen, wo es niemand mehr bemerkt.
+        # Fett und ==wichtig== duerfen keinen Zeilenumbruch ueberspannen —
+        # folien.md ist hart umbrochen, und ein offenes ** wuerde als
+        # Sternchen im Vortragstext landen, wo es niemand mehr bemerkt.
         if zeile.count("**") % 2:
             print(f"  ! Notiz: offenes ** in Zeile: {zeile.strip()[:60]}")
+        if zeile.count("==") % 2:
+            print(f"  ! Notiz: offenes == in Zeile: {zeile.strip()[:60]}")
         p = rahmen.paragraphs[0] if i == 0 else rahmen.add_paragraph()
-        for stueck in re.split(r"(\*\*[^*]+\*\*|\(\(|\)\))", zeile):
+        for stueck in re.split(r"(\*\*[^*]+\*\*|==[^=]+==|\(\(|\)\))", zeile):
             if not stueck:
                 continue
             if stueck == "((":
@@ -813,6 +823,10 @@ def notiz_setzen(rahmen, text):
             if stueck.startswith("**") and stueck.endswith("**"):
                 lauf.text = stueck[2:-2]
                 lauf.font.bold = True
+            elif stueck.startswith("==") and stueck.endswith("=="):
+                lauf.text = stueck[2:-2]
+                lauf.font.bold = True
+                lauf.font.color.rgb = PFLICHT
             else:
                 lauf.text = stueck
             lauf.font.italic = neben
