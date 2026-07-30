@@ -304,7 +304,7 @@ spalte1: DAS SEITENGERÜST · städtische IT
 punkte1:
   - "Kontraste, Tastaturbedienung, Seitentitel, Navigation"
   - "Prüfbar, ohne den einzelnen Kurs zu kennen"
-  - "Etablierte Programme wie axe-core, kostenlos, bei jeder Änderung"
+  - "Etablierte Programme wie axe-core, bei jeder Änderung"
   - "Gilt für alle 5.800 Texte gleich"
 spalte2: DER EINZELNE TEXT · Programmbereiche
 punkte2:
