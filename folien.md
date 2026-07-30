@@ -26,8 +26,8 @@ untertitel: Ein KI-gestützter Prüfschritt vor der Veröffentlichung.
 meta: Volkshochschule Frankfurt am Main | Acht Programmbereiche | 5.800 Texte im Jahr
 fussl: ABSCHLUSSPROJEKT · CHANGE UND KI
 fussr: CIMDATA · HENRIK HEIL · JULI 2026
-bild: bilder/01-titel-wand.jpg
-bildprompt: Kleine Figur vor einer Wand aus dichten horizontalen Balken, ein schmaler Durchgang. Flach-geometrisch, Bauhaus, Palette Petrol/Papier/Mint/Orange, keine Schrift.
+bild: bilder/01-titel-wand.png
+bildnotiz: Wand aus Textzeilen mit einem Schlitz. Gezeichnet von bilder/zeichnen.py, Gegenstueck auf der Schlussfolie.
 
 ### NOTIZ
 
@@ -105,8 +105,8 @@ von zehn Texten haben einen Befund. Für wen sind sie eigentlich zu schwer?
 
 typ: punkte
 kapitel: ÜBERBLICK
-bild: bilder/02-teile-ganzes.jpg
-bildprompt: Einzelne geometrische Formen, die sich zu einer geordneten Komposition fuegen. Flach-geometrisch, Bauhaus, keine Schrift.
+bild: bilder/03-prozess-voll.png
+bildnotiz: Die Kette der Arbeitsschritte mit besetzter Stelle. Was neu ist, steht in der Akzentfarbe. Gegenstueck auf Folie 4.
 titel: Der Vorschlag,
 akzent: und was er bringt.
 punkte:
@@ -149,8 +149,8 @@ Der Prompt schlägt vor, der Mensch entscheidet.
 
 typ: zweispalt
 kapitel: 01 · UNTERNEHMEN UND IST-ANALYSE
-bild: bilder/04-prozess-luecke.jpg
-bildprompt: Vier Kreise in einer Reihe, verbunden durch Linien, die Verbindung zwischen drittem und viertem Kreis fehlt. Flach-geometrisch, Bauhaus, keine Schrift.
+bild: bilder/04-prozess-luecke.png
+bildnotiz: Vier Arbeitsschritte, dazwischen eine leere Stelle ohne Verbindung nach oben und unten.
 titel: Die vhs Frankfurt,
 akzent: und wie ein Kurstext entsteht.
 klein: ja
@@ -993,8 +993,8 @@ außerhalb. Das ist der Grund, warum ich vorhin zwei Wege gezeigt habe.
 ## 15 — Schlussfolie
 
 typ: schluss
-bild: bilder/15-durchgang.jpg
-bildprompt: Wand aus dichten Balken mit einem Durchgang, dahinter Helligkeit, eine Figur geht hindurch. Flach-geometrisch, Bauhaus, keine Schrift.
+bild: bilder/15-durchgang.png
+bildnotiz: Dieselbe Wand wie auf der Titelfolie, der Durchgang jetzt begehbar und hell.
 titel: Der Prompt ist ein Nachmittag Arbeit.
 akzent: Alles, was ihn erlaubt, ist der eigentliche Aufwand.
 untertitel: Ich zeige das Werkzeug jetzt live. Danach freue ich mich auf eure Fragen.

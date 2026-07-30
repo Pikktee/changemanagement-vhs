@@ -340,19 +340,49 @@ Signalfarbe auf Blau.
 begründet: Karten brauchen etwas, worauf sie liegen. Wer einen sechsten
 braucht, braucht in Wirklichkeit einen der fünf.
 
-**Die Bilder gehören zur Palette.** `bilder/*.jpg` sind flach-geometrisch und
-auf genau diese Farben abgebildet. Ein neues Bild in anderen Farben bricht
-den Foliensatz sichtbar. `bilder/umfaerben.py` bildet von der alten
-Petrol-Palette ab und legt die Originale in `bilder/original-petrol/`; das
-Skript färbt immer aus dem Original, nie aus dem Ergebnis. Ein zweiter Lauf
-ist deshalb gefahrlos, und genau den brauchte der Wechsel auf die neutrale
-Palette.
+**Die Bilder werden gezeichnet, nicht eingefärbt.** `bilder/zeichnen.py` liest
+die Rollen aus `stil.css` und zeichnet die vier Bilder daraus. Damit können
+Bilder und Foliendesign nicht auseinanderdriften: Wer hier eine Farbe ändert,
+lässt das Skript laufen und die Bilder passen wieder.
 
-Das alte Bildpapier `#F4F1EA` geht dabei auf `--grund` und **nicht** auf
-`--papier`. Weiß ist bereits der letzte Anker der Tabelle; beide Anker auf
-denselben Wert zu legen presst die hellen Verläufe gegen die Obergrenze und
-erzeugt sichtbare Stufen — dieselben, die das Skript mit seiner
-Helligkeitsverschiebung gerade vermeidet.
+```bash
+cd abschlussprojekt-vhs && python3 bilder/zeichnen.py
+```
+
+Es sind zwei Paare, die dieselbe Aussage auf zwei Ebenen tragen:
+
+| Datei | Bild | Folie |
+|---|---|---|
+| `01-titel-wand.png` | Wand aus Textzeilen, ein Schlitz | 1, Titel |
+| `15-durchgang.png` | dieselbe Wand, Durchgang offen und hell | 15, Schluss |
+| `04-prozess-luecke.png` | Kette der Arbeitsschritte mit leerer Stelle | 4, IST |
+| `03-prozess-voll.png` | dieselbe Kette, Stelle besetzt in `--auf-marke` | 3, SOLL |
+
+Die Vorgänger kamen aus einem Bildmodell und wurden nachträglich umgefärbt.
+Drei Gründe gegen dieses Verfahren, alle drei am Ergebnis sichtbar geworden:
+
+1. **Der graue Grund.** Das alte Bildpapier `#F4F1EA` ging auf `--grund`
+   (`#F5F6F8`) und nicht auf `--papier`, weil beide Anker auf Weiß die hellen
+   Verläufe gegen die Obergrenze pressen und Stufen erzeugen. Die Folie ist
+   aber weiß. Jedes Bild saß damit als hellgraues Kästchen auf weißer Fläche.
+   Ein gezeichnetes Bild hat dieses Problem nicht: Sein Grund ist `--marke`,
+   also eine Entscheidung.
+2. **Rot als Schmuck.** Alle abgelösten Bilder trugen `--pflicht` als Zierde,
+   was diese Datei ausdrücklich verbietet. Im Zeichenskript kommen `--pflicht`
+   und `--geprueft` nicht vor, und das steht dort auch begründet.
+3. **Aussage.** Ein Bildmodell trifft die Aussage ungefähr. Das alte
+   Prozessbild setzte an die Stelle der fehlenden Verbindung einen roten Punkt
+   — die Lücke sah dadurch wie ein Fehler aus und nicht wie das, was sie ist:
+   ein Arbeitsschritt, den niemand vorgesehen hat.
+
+Die Originale des Bildmodells liegen weiter in `bilder/original-petrol/`. Sie
+werden von nichts mehr gelesen und sind nur Archiv.
+
+**Auf den Panel-Folien liegt ein Verlauf über dem Bild:** `--marke` deckend bis
+46 Prozent der Breite, dann bis `--marke-62` nach rechts. Sichtbar ist also nur
+die rechte Hälfte, und die durch einen Blauschleier. Ein Bild für diesen Platz
+setzt seinen Inhalt rechts und arbeitet mit hohem Kontrast — feine
+Abstufungen verschwinden unter dem Schleier.
 
 **Farbwerte stehen an einer Stelle.** `stil.css` ist die Quelle,
 `pruefe-design.py` liest von dort. Deckkraftvarianten bekommen eine eigene

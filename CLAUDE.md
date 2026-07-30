@@ -177,7 +177,8 @@ daten/             Kursplan, Stichproben, Wortliste, Wirtschaftlichkeit
                    recherche-redaktionsablauf.md: was am Ablauf des Hauses
                    belegt ist und was Annahme bleibt, mit Quellen
 tool/              Prototyp: server.py, index.html, protokoll/
-bilder/            flach-geometrische JPGs; umfaerben.py, Originale in original-petrol/
+bilder/            zeichnen.py erzeugt die vier Bilder aus der Palette von
+                   stil.css; original-petrol/ ist Archiv und wird nicht gelesen
 ```
 
 Belegte Ports: **8791** build.py, **8793** dokument.py, **8799** Prototyp.

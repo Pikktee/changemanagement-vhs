@@ -80,9 +80,9 @@ Reihenfolge in der Datei zählt.
 | `quellen` | Kleine Quellenzeile über der Fußzeile, siehe unten |
 | `meta` | Nur auf `titel` und `schluss`: Angaben in Versalien, mit `\|` getrennt |
 | `fussl`, `fussr` | Fußzeile links und rechts überschreiben |
-| `bild` | Pfad zu einem Bild, z. B. `bilder/05-raster.jpg` |
+| `bild` | Pfad zu einem Bild, z. B. `bilder/04-prozess-luecke.png` |
 | `bu` | Bildunterschrift unter dem Bild |
-| `bildprompt` | Dokumentation, wie das Bild entstanden ist. Erscheint nicht auf der Folie |
+| `bildnotiz` | Notiz, was das Bild zeigt. Erscheint nicht auf der Folie |
 
 ---
 
@@ -120,22 +120,26 @@ Beim nächsten Speichern ist es drin.
 **Bild weglassen.** Zeile `bild:` löschen. Die Folie nutzt dann die volle
 Breite und setzt den Text wieder größer.
 
-**Neues Bild generieren lassen.** Ändere den Text in `bildprompt` und sag mir
-Bescheid. Das Feld ist die Dokumentation dessen, was generiert wurde, damit
-später nachvollziehbar bleibt, wie ein Bild zustande kam.
+**Ein Bild ändern.** Die vier Bilder werden gezeichnet, nicht gesucht:
+`bilder/zeichnen.py` liest die Farbrollen aus `stil.css` und erzeugt sie
+daraus. Wer eine Form ändern will, ändert das Skript und lässt es laufen:
+
+```bash
+cd abschlussprojekt-vhs && python3 bilder/zeichnen.py
+```
 
 Fehlt eine Bilddatei, meldet der Build das als `! Bild fehlt: …` und baut die
 Folie trotzdem, nur ohne Bild. Nichts geht kaputt.
 
-Alle Bilder sind flach-geometrisch im Bauhaus-Stil gehalten und enthalten
-bewusst **keine Schrift**. In einer Präsentation über Textqualität wären
-erfundene Buchstaben im Bild ein Eigentor.
+Alle Bilder sind flach-geometrisch und enthalten bewusst **keine Schrift**. In
+einer Präsentation über Textqualität wären erfundene Buchstaben im Bild ein
+Eigentor.
 
-Erzeugt wurden sie in den vier Farben Petrol, Papier, Mint und Orange. Die
-Originale liegen in `bilder/original-petrol/`; was in `bilder/` liegt, hat
-`bilder/umfaerben.py` daraus auf die Palette aus `DESIGN.md` abgebildet. Wer
-die Palette ändert, ändert die Zieltabelle im Skript mit und lässt es erneut
-laufen — es färbt immer aus dem Original.
+Es sind zwei Paare: die Wand aus Textzeilen auf der Titelfolie und dieselbe
+Wand mit offenem Durchgang am Schluss, dazu die Kette der Arbeitsschritte mit
+leerer Stelle auf Folie 4 und mit besetzter Stelle auf Folie 3. Warum sie
+gezeichnet und nicht von einem Bildmodell erzeugt werden, steht in `DESIGN.md`;
+die abgelösten Bilder liegen als Archiv in `bilder/original-petrol/`.
 
 ---
 
