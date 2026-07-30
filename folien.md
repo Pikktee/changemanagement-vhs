@@ -355,27 +355,24 @@ zeilen:
   - "GRENZEN | Bewertet Texte, niemals Personen. Schlägt vor statt umzuschreiben, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflichtbefunde zuerst."
-callout: Ein einziger Satz hält das Projekt aus dem Hochrisikobereich der KI-Verordnung.
-calloutfolge: „Bewertet Texte, niemals Personen.“ Die Verordnung stuft nur hoch ein, was Menschen bewertet — dieses System bewertet Texte. Derselbe Satz beantwortet die Frage des Personalrats nach Leistungskontrolle.
+callout: Aus einer Textprüfung darf keine Leistungskontrolle werden.
+calloutfolge: „Bewertet Texte, niemals Personen.“ Der Prompt verbietet ausdrücklich, Statistiken zu führen oder Texte verschiedener Verfasserinnen zu vergleichen. Das ist die Antwort auf die Frage des Personalrats — und die Grenze, hinter der die KI-Verordnung ein System als hochriskant einstuft.
 quellen:
   - "System-Prompt, Fassung v11 vom 29.07.2026 — zwölf Fassungen mit Anlass und Begründung"
-  - "KI-Verordnung (EU) 2024/1689, Anhang III | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
+  - "KI-Verordnung (EU) 2024/1689, Anhang III Nr. 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
 
 - Und damit kommen wir zum Kern der Aufgabe, unserem System-Prompt.
 - Er folgt der gängigen Sechs-Komponenten- Struktur
 
-### Rolle, Aufgabe, Format
-- **ROLLE**: Redaktionsassistenz, nicht Autorin.
-- **AUFGABE**: erst die Zielgruppe bestimmen, dann prüfen. Die Reihenfolge steht fest.
-- **FORMAT**: zu jedem Befund ein wörtliches Zitat, eine Begründung, ein konkreter Vorschlag. ==Ohne Vorschlag kein Befund.==
+### Rolle, Aufgabe, Format, Grenzen
+*(Vorlesen)*
 
 ### Kontext: die Wortliste
-- Der KONTEXT enthält das Hauswissen: acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln.
-- Der wichtigste Teil: 820 Wörter des Prüfungswortschatzes für das **Goethe-Zertifikat A1**. Vollständig im Prompt, nicht als Verweis.
-- ==Er schätzt das Sprachniveau also nicht, er begründet es.==
-- Das ist das Ergebnis der ersten Überarbeitung: Vorher behauptete der Prompt, gegen Wortlisten zu prüfen, hatte sie aber gar nicht. Er schätzte frei und klang nach Beleg — derselbe Fehler, den ich anderen Werkzeugen vorwerfe.
+- Der KONTEXT enthält das Hauswissen: acht Programmbereiche, interne Abkürzungen und auch die sechs Prüfregeln sind hier drin.
+- Der wichtigste Teil: 820 Wörter des Prüfungswortschatzes für das **Goethe-Zertifikat A1**. Die werden vollständig mit dem Prompt übergeben.
+- Das ist das Ergebnis der ersten Überarbeitung: Vorher hat die KI behauptet gegen die Wortlisten zu prüfen, was jedoch nicht erfolgt ist.
 - ((Der Grundstock dieser Listen stammt laut Goethe-Institut aus einer Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands in Frankfurt.))
 
 ### Der Kasten unten: die Zeile GRENZEN
