@@ -564,10 +564,12 @@ yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
-oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium
+oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Rahmen
 oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
-unten_links: Informieren || Die sieben übrigen Programmbereiche || Volkshochschul-Verband, stellt den KI-Rahmen
+unten_links: Informieren || Die sieben übrigen Programmbereiche
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
+quellen:
+  - "§ 4 Abs. 4 Satz 2 HPVG — Honorarkräfte werden mitvertreten | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
 
 ### NOTIZ
 
@@ -609,10 +611,10 @@ Darunter stehen die Teilnehmenden selbst, besonders in den Deutschkursen und
 in der Grundbildung. Sie sind diejenigen, für die das ganze Projekt gemacht
 ist, und sie haben in keinem Gremium eine Stimme.
 
-Für diesen ganzen Quadranten gilt dasselbe: hoch betroffen, kein formaler
-Einfluss. Beteiligung ist dort kein guter Stil, sondern das einzige
-Instrument, das überhaupt zur Verfügung steht. Was das praktisch heißt, steht
-auf der nächsten Folie.
+Die Teilnehmenden haben keine Stimme, in keinem Gremium und in keinem Gesetz.
+Bei ihnen ist Beteiligung kein guter Stil, sondern das einzige Instrument, das
+überhaupt zur Verfügung steht. Was das praktisch heißt, steht auf der nächsten
+Folie.
 
 
 ## 11 — Widerstand
