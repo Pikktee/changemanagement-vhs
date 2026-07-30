@@ -71,7 +71,7 @@ typ: zahlen
 kapitel: ÜBERBLICK
 titel: Die Technik wird geprüft,
 akzent: die Texte nicht.
-lede: Die Kursbeschreibungen entstehen in acht Programmbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Unternehmen an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
+lede: Die Kursbeschreibungen entstehen in vier Fachbereichen und erscheinen unverändert im Portal, im Programmheft und im Newsletter. Einfache Sprache bietet das Unternehmen an — für Betrieb und Kursgeschäft, nicht für die Kurstexte selbst.
 zahlen:
   - "5.800 || Kursbeschreibungen im Jahr"
   - "57 % || haben mindestens einen Befund || warn"
@@ -118,7 +118,7 @@ punkte:
   - "**Lösung** || Ein Prüfschritt vor der Veröffentlichung, als System-Prompt im KI-Zugang, den der Volkshochschul-Verband schon bereitstellt. Keine Beschaffung, kein neuer Vertrag."
   - "**Abgrenzung** || Die technische Barrierefreiheit der Website bleibt bei der städtischen IT. Die KI sieht nur den Kurstext."
   - "**Ergebnis** || Befundquote nach drei Monaten unter 25 Prozent statt heute 57. Aufwand im Regelbetrieb 29 Stunden im Jahr."
-callout: Erster Schritt: ein Pilot in einem Programmbereich, drei Monate, ohne Beschaffung.
+callout: Erster Schritt: ein Pilot in einem Fachbereich, drei Monate, ohne Beschaffung.
 calloutsub: Der Prompt schlägt vor, der Mensch entscheidet und veröffentlicht.
 quellen:
   - "Betriebssatzung der vhs Frankfurt | https://vhs.frankfurt.de/de/special-pages/important/betriebssatzung"
@@ -306,7 +306,7 @@ punkte1:
   - "Prüfbar, ohne den einzelnen Kurs zu kennen"
   - "Etablierte Programme wie axe-core, bei jeder Änderung"
   - "Gilt für alle 5.800 Texte gleich"
-spalte2: DER EINZELNE TEXT · Programmbereiche
+spalte2: DER EINZELNE TEXT · Fachbereiche
 punkte2:
   - "Versteht die Zielgruppe genau dieses Kurses ihn?"
   - "Nicht prüfbar, ohne zu wissen, wer liest"
@@ -370,10 +370,7 @@ quellen:
 - Der KONTEXT enthält das Hauswissen: acht Programmbereiche, interne Abkürzungen und auch die sechs Prüfregeln sind hier drin.
 - Der wichtigste Teil: 820 Wörter des Prüfungswortschatzes für das **Goethe-Zertifikat A1**. Die werden vollständig mit dem Prompt übergeben.
 - Das ist das Ergebnis der ersten Überarbeitung: Vorher hat die KI behauptet gegen die Wortlisten zu prüfen, was jedoch nicht erfolgt ist.
-- ==Und der Maßstab kommt nicht von mir:== Die Liste geht laut Goethe-Institut auf eine Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands zurück. ((Die sitzt in Frankfurt — Zufall, aber ein hübscher.))
-
-### Zeile GRENZEN
-- ==Bewertet Texte, niemals Personen.== Das ist der Satz, mit dem ich beim Personalrat antrete.
+- ==Funfact:== Die Liste geht laut Goethe-Institut auf eine Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands zurück.
 
 
 ## 9 — Wie es praktisch laeuft
@@ -399,38 +396,22 @@ quellen:
 
 ### NOTIZ
 
-Bleibt die Frage, wie das in den Alltag kommt. Zwei Wege, beide vom ersten Tag
-an offen.
+- Zur technischen Implementierung
+- Zwei Wege sind zu Beginn des Pilotprojekts verfügbar.
 
 ### Weg 1: Als KI-Assistent bei fobizz
 - Braucht keine eigene Technik.
-- Der Deutsche Volkshochschul-Verband hat im Mai 2025 eine Rahmenvereinbarung mit **fobizz** geschlossen: datenschutzkonformer KI-Zugang für alle Volkshochschulen, mit eigenen Assistenten und eigenen Anweisungen.
-- Genau das ist mein Prompt. Zustimmung außerhalb des Pilotbereichs braucht es nicht, weil der Rahmenvertrag schon da ist.
-- ((Zu klären bleibt, ob die vhs Frankfurt die Lizenz auch gebucht hat. Der Rahmenvertrag schafft die Möglichkeit, er ist nicht die Buchung.))
-
-### Die Einschränkung dazu
-- Diesen Weg habe ich nicht ausprobiert.
-- Mein Prüfwerkzeug bearbeitet jede Antwort nach: Es rechnet die Einstufung anhand einer Tabelle nach und entfernt Personennamen. Beides stand ursprünglich im Prompt, beides hielt das Modell nicht zuverlässig ein.
-- ==In einem fremden Assistenten gibt es diesen Code nicht.== Was das praktisch bedeutet, muss der Pilot zeigen.
+- Der Deutsche Volkshochschul-Verband hat im Mai 2025 eine Rahmenvereinbarung mit dem Anbieter **fobizz** geschlossen: datenschutzkonformer KI-Zugang für alle Volkshochschulen, mit eigenen Assistenten und eigenen Anweisungen.
+- Zustimmung außerhalb des Pilotbereichs braucht es nicht, weil bereits ein Rahmenvertrag besteht.
 
 ### Weg 2: Als eigenes Prüfwerkzeug
-- Das Werkzeug, das ich gebaut habe. Entwurf einfügen — oder bei einem vorhandenen Kurs nur die Nummer, dann holt es den Text selbst.
+- Einen Entwurf einfügen — oder einen vorhandenen Kurs auswählen
 - Die Schnittstelle des Kursportals ist öffentlich. Es braucht nur einen eigenen Server.
+- Auch um den Prompt zu testen, habe ich hier einen Prototyp gebaut.
 
-### Rechts im Bild: ein Befund
-- Ein Befund aus einem echten Durchlauf, dem Deutschkurs auf A2.
-- Jeder Befund hat dieselben vier Teile: Einstufung, Regel, wörtliche Stelle, Vorschlag.
-- Dieser hier ist Pflicht: Der Link heißt schlicht „hier“. Wer sich die Seite vorlesen lässt und von Link zu Link springt, hört nur „hier“.
-- Der Vorschlag daneben ist kein Kommentar, sondern fertiger Text zum Übernehmen.
-
-### Hier die Vorführung
-- Ich zeige euch das kurz live, an genau diesem Kurs.
-- ((Ein Prototyp für diese Arbeit. Er belegt, dass der Weg funktioniert — eine fertige Anwendung ist er nicht.))
-
-### Der Kasten unten
-- Kein Teil des Pilotprojekts: Man könnte die Prüfung ins Redaktionssystem einbauen, dort, wo der Text entsteht.
-- Nur wird das Portal von einem externen Dienstleister betreut. Also Auftrag, Budget, Vorlauf.
-- ==Man kauft nichts, bevor man weiß, ob es wirkt.==
+### Unten:
+- Perspektivisch möglich, aber kein Teil des Pilotprojekts: Man könnte die Prüfung direkt ins Redaktionssystem einbauen, also dort, wo der Text entsteht.
+- Allerdings wird das Portal von einem externen Dienstleister betreut.
 
 
 ## 10 — Stakeholder
@@ -440,13 +421,13 @@ kapitel: 03 · CHANGE MANAGEMENT
 titel: Wer eingebunden
 akzent: werden muss.
 klein: ja
-lede: Der Pilot beschränkt sich auf einen der acht Programmbereiche. Nur so ist der Kreis klein genug, dass man ihn wirklich einbinden kann.
+lede: Der Pilot beschränkt sich auf einen der vier Fachbereiche. Nur so ist der Kreis klein genug, dass man ihn wirklich einbinden kann.
 yhoch: Einfluss hoch
 yniedrig: Einfluss niedrig
 xniedrig: Betroffenheit niedrig
 xhoch: Betroffenheit hoch
 oben_links: Beobachten || Städtische IT || Advellence als Portaldienstleister || Betriebskommission als Aufsichtsgremium || Volkshochschul-Verband, stellt den KI-Zugang
-oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Fachbereich des Pilotbereichs || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
+oben_rechts: Eng einbinden || Direktor als Verantwortlicher der Inhalte || Der Pilot-Fachbereich || Redaktion des Programmhefts || Personalrat, Zustimmung erforderlich
 unten_links: Informieren || Die drei übrigen Fachbereiche
 unten_rechts: Konsultieren || Kursleitungen auf Honorarbasis || Teilnehmende, besonders in Deutschkursen und Grundbildung
 quellen:
@@ -454,14 +435,17 @@ quellen:
 
 ### NOTIZ
 
-Damit zum Change-Teil, und der beginnt mit den **Stakeholdern**. Die
+- Damit zum Change-Teil
+- Der Pilot beschränkt sich auf einen der vier Fachbereiche. Nur so ist der Kreis klein genug, dass man ihn wirklich einbinden kann.
+
+und der beginnt mit den **Stakeholdern**. Die
 **Einfluss-Betroffenheits-Matrix** sortiert sie nach zwei Fragen: Wer ist
 betroffen, und wer hat Einfluss.
 
 ### Oben rechts: Eng einbinden
-- Wer entscheidet oder zustimmen muss.
+- Ich fange an mit den Stakeholdern, die wir eng einbinden müssen.
 - **Der Direktor** — laut Impressum persönlich für die redaktionellen Inhalte verantwortlich.
-- **Der Fachbereich des Pilotbereichs** — entscheidet über den Text. Und zwar nur dieser eine: Vier gleichzeitig wären kein Pilot mehr.
+- **Der Pilot-Fachbereich** — entscheidet über den Text. Und zwar nur dieser eine: Vier gleichzeitig wären kein Pilot mehr.
 - **Die Redaktion des Programmhefts** — prüft Texte für den Druck schon heute, weiß also, wie Textprüfung geht.
 - **Der Personalrat** — hier ist die Einordnung zu schwach. Sein Einfluss ist kein hoher, sondern ein ==sperrender==: Die Einführung ist mitbestimmungspflichtig. ((Seine zwei von sechzehn Sitzen in der Betriebskommission sind daneben bedeutungslos.))
 
@@ -540,7 +524,7 @@ titel: Der Plan
 akzent: für die nächsten drei Monate.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
-strang1: Technische Implementation || Setup > Assistent anlegen, Regeln an echten Texten schärfen || Pilot > Ein Programmbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
+strang1: Technische Implementation || Setup > Assistent anlegen, Regeln an echten Texten schärfen || Pilot > Ein Fachbereich, nur neu entstehende Texte || Rollout > Vorbereitet, freigegeben erst nach der Nachmessung
 strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe || Training > Pflicht nach Artikel 4 KI-Verordnung, für alle, die bedienen || Support > Feste Sprechstunde, nicht auf Zuruf
 strang3: Change || Vorbereitung > Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die scharfen Regeln, dazu der Quick Win || Begleitung > Nachmessung, dann Entscheidung
 callout: Im Change-Strang steht das Fragen vor dem Handeln — die Bausteinfreigabe im ersten Monat, nicht im zweiten.
@@ -575,7 +559,7 @@ klein: ja
 schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
 schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
-  - "Einen Programmbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
+  - "Einen Fachbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
   - "Die Freigabe der Textbausteine klären > Sonst trifft der Quick Win auf niemanden."
   - "Assistent im KI-Zugang des Verbands anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
@@ -587,7 +571,7 @@ Die ersten dreißig Tage. Keine Aufzählung, sondern eine Reihenfolge:
 
 ### Die vier Schritte
 - Die **Dienstvereinbarung** zuerst, aus dem Grund von eben.
-- Dann einen **Programmbereich** gewinnen, und zwar freiwillig — ein zugewiesener liefert kein belastbares Ergebnis, sondern nur Erfüllung.
+- Dann einen **Fachbereich** gewinnen, und zwar freiwillig — ein zugewiesener liefert kein belastbares Ergebnis, sondern nur Erfüllung.
 - Dann die **Freigabe der Bausteine**.
 - Und erst als viertes das Technische, den **Assistenten anlegen**. Das kostet nichts: kein Einkauf, keine neue Stelle, der KI-Zugang ist da.
 
