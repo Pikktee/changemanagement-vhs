@@ -161,7 +161,7 @@ punkte1:
 spalte2: SO ENTSTEHT EIN KURSTEXT · ANGENOMMENER ABLAUF
 punkte2:
   - "Die Teams der vier Fachbereiche planen das Programm halbjährlich"
-  - "Der Text wird geschrieben — zugeliefert oder aus Bausteinen zusammengesetzt"
+  - "Der Text wird geschrieben — zugeliefert oder aus Textbausteinen zusammengesetzt"
   - "Der Text wird in das Kursverwaltungssystem eingepflegt"
   - "Er erscheint unverändert im Portal, teils wortgleich im Programmheft"
 callout: Zwischen Einpflegen und Veröffentlichen ist kein Prüfschritt auf Verständlichkeit vorgesehen.
@@ -470,7 +470,7 @@ akzent: und vier Antworten.
 klein: ja
 einwaende:
   - "Unsicherheit · im ganzen Haus || „Schreibt die KI jetzt unsere Texte?“ || Nein. Sie schlägt vor, der Fachbereich entscheidet und veröffentlicht. Nichts geht ohne einen Menschen ins Portal."
-  - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Vieles im Text sind Bausteine, die woanders gepflegt werden. Wer sie ändern darf, wird vor dem Pilot geklärt."
+  - "Verlustangst · Fachbereich || „Ich werde an Texten gemessen, die ich gar nicht ändern darf.“ || Stimmt. Vieles im Text sind Textbausteine, die woanders gepflegt werden. Wer sie ändern darf, wird vor dem Pilot geklärt."
   - "Fehlende Perspektive · Kursleitung || „Noch eine Aufgabe — bezahlt werde ich nach Unterrichtsstunden.“ || Der Einwand ist berechtigt. Deshalb wird im Fachbereich geprüft, am eingegangenen Text. Rückmeldung gerne, Pflicht nein."
   - "Gewohnheit · Redaktion des Programmhefts || „Die Texte stehen seit Jahren so da, beschwert hat sich nie jemand.“ || Stimmt — und ihr prüft Texte als Einzige im Haus heute schon. Nur beschwert sich niemand, der eine Beschreibung nicht versteht. Er meldet sich gar nicht erst an."
 callout: Drei dieser Einwände lassen sich beantworten. Der zweite braucht eine Entscheidung.
@@ -487,7 +487,7 @@ Jetzt zu den Widerständen.
 
 ### Verlustangst · Fachbereich
 - Der einzige Einwand, der noch offen ist.
-- Eine Kursbeschreibung ist selten von einer Hand: Anmeldehinweis, Beschreibung der Niveaustufe — solche Bausteine stehen wortgleich in vielen Kursen und werden nicht dort gepflegt, wo der Kurs angeboten wird.
+- Eine Kursbeschreibung ist selten von einer Hand: Anmeldehinweis, Beschreibung der Niveaustufe — solche Textbausteine stehen wortgleich in vielen Kursen und werden nicht dort gepflegt, wo der Kurs angeboten wird.
 - Wer die Befunde bekommt, darf den Text also oft gar nicht ändern.
 - Keine Angst vor der Maschine, sondern die Aussicht, für etwas geradezustehen, das einem nicht gehört.
 - Die Antwort ist deshalb keine Schulung, sondern eine Zuständigkeitsfrage — und die gehört vor den Pilot.
@@ -517,10 +517,10 @@ akzent: für die nächsten drei Monate.
 klein: ja
 monate: Monat 1 | Monat 2 | Monat 3
 strang1: Technische Implementation || Setup > Assistent im KI-Zugang anlegen, Prompt an echten Texten schärfen || Pilot > Ein Fachbereich prüft alle neu entstehenden Texte || Rollout > Nur vorbereitet — ob er kommt, entscheidet die Nachmessung
-strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Haus || Training > Vor dem ersten Durchlauf, Pflicht nach Artikel 4 KI-Verordnung || Support > Feste Sprechstunde, nicht auf Zuruf
-strang3: Change || Vorbereitung > Pilotbereich gewinnen, Betroffene befragen, Bausteinfreigabe klären || Einbindung > Der Bereich wählt die verbindlichen Regeln, korrigiert die Bausteine zuerst || Begleitung > Nachmessung mit unverändertem Skript, dann die Rollout-Entscheidung
+strang2: Kommunikation || Ankündigung > Erst die Dienstvereinbarung, dann die Bekanntgabe im Haus || Training > Am konkreten System, vor dem ersten Durchlauf — Pflicht nach Artikel 4 KI-Verordnung || Support > Feste Sprechstunde, nicht auf Zuruf
+strang3: Change || Vorbereitung > Pilotbereich gewinnen, Betroffene befragen, Freigabe der Textbausteine klären || Einbindung > Der Bereich wählt die verbindlichen Regeln, korrigiert die Textbausteine zuerst || Begleitung > Nachmessung mit unverändertem Skript, dann die Rollout-Entscheidung
 callout: Der Plan ist eine Kette von Freigaben — ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.
-calloutsub: Deshalb steht die Bausteinfreigabe im ersten Monat: Wer im zweiten korrigieren soll, braucht die Zuständigkeit vorher.
+calloutsub: Deshalb steht die Freigabe der Textbausteine im ersten Monat: Wer im zweiten korrigieren soll, braucht die Zuständigkeit vorher.
 quellen:
   - "§ 78 Abs. 1 Nr. 5 und § 66 HPVG, Fassung 2023 | https://www.gew-hrwm.de/fileadmin/user_upload/wiz/downloads/20230427_HEFT_HPVG_2023_FERTIG_BUCHVERSION_v3_online-Version_v3.pdf"
   - "KI-Verordnung (EU) 2024/1689, Artikel 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
@@ -537,14 +537,15 @@ ich erkläre die Logik dahinter.
 - Der Rollout im dritten Monat wird deshalb nur vorbereitet. Ob er kommt, entscheidet die Nachmessung — nicht der Kalender.
 
 ### Monat 2, Kommunikation: Training
-- Keine Kür, sondern Pflicht: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz.
-- Und zwar für das Personal und für alle, die im Auftrag mit Betrieb und Nutzung befasst sind.
-- Deshalb steht in der Zelle nicht „Personal“, sondern „alle, die bedienen“. ((Wer nicht bedient, braucht die Schulung nicht — deshalb bleiben die Kursleitungen aus dieser Kette.))
+- Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System: einen Kurstext prüfen lassen, die Befunde lesen, annehmen oder verwerfen — und die Grenze kennen: Die KI schlägt vor, entschieden wird im Fachbereich.
+- Verpflichtend ist das ohnehin: **Artikel 4 der KI-Verordnung** verlangt seit Februar 2025 ausreichende KI-Kompetenz — und zwar ausdrücklich bezogen auf den Einsatzkontext. Genau das leistet eine Schulung am Werkzeug selbst.
+- Die Pflicht gilt für das Personal und für alle, die im Auftrag mit Betrieb und Nutzung befasst sind. Deshalb steht in der Zelle nicht „Personal“, sondern „alle, die bedienen“. ((Wer nicht bedient, braucht die Schulung nicht — deshalb bleiben die Kursleitungen aus dieser Kette.))
 
-### Der Kasten unten: die Bausteinfreigabe
-- Im Change-Strang steht das Fragen vor dem Handeln: Die Freigabe der Textbausteine wird im ersten Monat geklärt, korrigiert wird im zweiten.
-- Warum die Bausteine zuerst? Ein korrigierter Baustein wirkt sofort in vielen Kursen gleichzeitig — der früheste sichtbare Erfolg, den dieses Projekt haben kann.
-- ==Ohne die Zuständigkeit aus dem ersten Monat dürfte ihn im zweiten niemand anfassen.==
+### Der Kasten unten: die Textbausteine
+- Was mit Textbausteinen gemeint ist: Textteile, die zentral gepflegt werden und wortgleich in vielen Kursbeschreibungen stehen — der Anmeldehinweis etwa, oder die Beschreibung der Niveaustufe.
+- Der Fachbereich, der die Befunde bekommt, darf genau diese Teile nicht ändern — das war die Verlustangst von der Widerstandsfolie. Beim Kernfall, dem Deutschkurs auf A2, ist das mehr als die halbe Beschreibung.
+- Warum zuerst? ==Ein korrigierter Textbaustein wirkt sofort in allen Kursen, die ihn verwenden== — der früheste sichtbare Erfolg, den dieses Projekt haben kann.
+- Deshalb das Fragen vor dem Handeln: Die Zuständigkeit wird im ersten Monat geklärt, korrigiert wird im zweiten. ((Ohne sie dürfte im zweiten Monat niemand einen Textbaustein anfassen.))
 
 
 ## 13 — Die ersten 30 Tage
@@ -558,7 +559,7 @@ schrittetitel: ERSTE 30 TAGE · JEDER SCHRITT BEDINGT DEN NÄCHSTEN
 schritte:
   - "Dienstvereinbarung mit dem Personalrat schließen > Vorher darf nichts angelegt werden."
   - "Einen Fachbereich freiwillig als Pilotbereich gewinnen > Ein zugewiesener liefert Erfüllung, kein Ergebnis."
-  - "Die Freigabe der Textbausteine klären > Sonst darf im Pilot niemand die Bausteine ändern."
+  - "Die Freigabe der Textbausteine klären > Sonst darf sie im Pilot niemand ändern."
   - "Assistent im KI-Zugang des Verbands anlegen > Keine Beschaffung, keine zusätzliche Stelle."
 callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand ändern darf.
 
@@ -570,7 +571,7 @@ Die ersten dreißig Tage. Keine Aufzählung, sondern eine Reihenfolge:
 ### Die vier Schritte
 - Die **Dienstvereinbarung** zuerst, aus dem Grund von eben.
 - Dann einen **Fachbereich** gewinnen, und zwar freiwillig — ein zugewiesener liefert kein belastbares Ergebnis, sondern nur Erfüllung.
-- Dann die **Freigabe der Bausteine**.
+- Dann die **Freigabe der Textbausteine**.
 - Und erst als viertes das Technische, den **Assistenten anlegen**. Das kostet nichts: kein Einkauf, keine neue Stelle, der KI-Zugang ist da.
 
 ### Der Kasten unten: der dritte Schritt
