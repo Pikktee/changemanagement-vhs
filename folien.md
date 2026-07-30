@@ -355,11 +355,8 @@ zeilen:
   - "GRENZEN | Bewertet Texte, niemals Personen. Schlägt vor statt umzuschreiben, erfindet nichts."
   - "KONTEXT | Acht Programmbereiche, interne Abkürzungen, sechs Prüfregeln, 820 Wörter des Goethe-Zertifikats A1."
   - "REGELN | Namen entfernen, wörtlich zitieren, höchstens fünfzehn Befunde, Pflichtbefunde zuerst."
-callout: Aus einer Textprüfung darf keine Leistungskontrolle werden.
-calloutfolge: „Bewertet Texte, niemals Personen.“ Der Prompt verbietet ausdrücklich, Statistiken zu führen oder Texte verschiedener Verfasserinnen zu vergleichen. Das ist die Antwort auf die Frage des Personalrats — und die Grenze, hinter der die KI-Verordnung ein System als hochriskant einstuft.
 quellen:
   - "System-Prompt, Fassung v11 vom 29.07.2026 — zwölf Fassungen mit Anlass und Begründung"
-  - "KI-Verordnung (EU) 2024/1689, Anhang III Nr. 4 | https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
 
 ### NOTIZ
 
@@ -375,11 +372,8 @@ quellen:
 - Das ist das Ergebnis der ersten Überarbeitung: Vorher hat die KI behauptet gegen die Wortlisten zu prüfen, was jedoch nicht erfolgt ist.
 - ==Und der Maßstab kommt nicht von mir:== Die Liste geht laut Goethe-Institut auf eine Veröffentlichung der Prüfungszentrale des Deutschen Volkshochschul-Verbands zurück. ((Die sitzt in Frankfurt — Zufall, aber ein hübscher.))
 
-### Der Kasten unten: die Zeile GRENZEN
-- „Bewertet Texte, niemals Personen.“ Das Werkzeug liefert Befunde zu Texten, die jemand geschrieben hat.
-- ==Wer die auswertet, bewertet Menschen.== Genau das verbietet der Prompt: keine Statistik, kein Vergleich zwischen Verfasserinnen.
-- Das ist die Antwort auf die Frage des Personalrats, ob hier Leistung kontrolliert wird.
-- ((Und es ist die Grenze zur KI-Verordnung: Systeme, die die Leistung Beschäftigter bewerten, stuft sie als hochriskant ein.))
+### Zeile GRENZEN
+- ==Bewertet Texte, niemals Personen.== Das ist der Satz, mit dem ich beim Personalrat antrete.
 
 
 ## 9 — Wie es praktisch laeuft
