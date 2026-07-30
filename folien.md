@@ -796,7 +796,7 @@ spalten: Kennzahl | heute | Ziel nach 3 Monaten | gemessen mit
 zeilen:
   - "Texte mit mindestens einem Befund | 57 % | ! unter 25 % | eigenes Messskript, unverändert"
   - "Neue Texte im Pilotbereich geprüft | 0 | + alle | Protokoll des Werkzeugs"
-  - "Deutschkurse A1/A2 mit Wörtern über Niveau | 31 von 31 | ! höchstens 10 von 31 | eigenes Messskript, unverändert"
+  - "Texte für Deutschkurse A1/A2 mit Wörtern über Niveau | 31 von 31 | ! höchstens 10 von 31 | eigenes Messskript, unverändert"
   - "Teilnehmende, die die Beschreibung verstanden haben | nicht erhoben | + Ausgangswert und Trend | Kurzbefragung am Kursende, freiwillig und vergütet"
 risiken:
   - "Die Protokolle werden gegen das Unternehmen verwendet. Sie belegen datiert, was vorher nur unbemerkt war. > Zweckbindung, Zugriffskreis und Löschfrist in dieselbe Dienstvereinbarung — und zu jedem Befundstand ein Abstellplan mit Datum."
