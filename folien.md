@@ -62,7 +62,7 @@ Willkommen zu meinem Abschlussprojekt!
 
 ### Ein konkreter Fall
 - Beispiel: Die Volkshochschule bietet Deutschkurse für Menschen an, die gerade erst Deutsch lernen.
-- Die Beschreibungen dieser Kurse sind oft in einem Deutsch geschrieben, das man erst nach dem Kurs versteht.
+- Die Beschreibungen dieser Kurse sind aber oft in einem Deutsch geschrieben, das man erst nach dem Kurs versteht.
 
 
 ## 2 — Executive Summary I: Worum es geht
@@ -86,20 +86,17 @@ quellen:
 
 Erstmal eine kurze Übersicht zum Projekt.
 
-### 5.800 Texte und 57 Prozent
+### ((5.800 Texte und 57 Prozent))
 
 - Die Volkshochschule veröffentlicht rund 5800 Kursbeschreibungen im Jahr.
-- Von allen Texten, die heute im Portal stehen, hat mehr als jeder zweite Text einen Befund. ((Die Zahl stammt von einem Skript, das ohne KI auskommt und deshalb eine der sechs Regeln nicht prüfen kann. Mit dem Prüfassistenten liegt der Wert höher.))
+- Von allen Texten, die heute im Portal stehen, hat mehr als jeder zweite Text einen Befund.
 
-### Fünf Jahre ohne externe Prüfung
-Die letzte externe Prüfung auf Barrierefreiheit der Website ist etwa 5 Jahre
-her. Die Zahl stammt aus der Erklärung zur Barrierefreiheit der
-Volkshochschule.
+### ((Fünf Jahre ohne externe Prüfung))
+- Die letzte externe Prüfung auf Barrierefreiheit der Website ist etwa 5 Jahre her. Die Zahl stammt aus der Erklärung zur Barrierefreiheit der Volkshochschule.
 
-### Einfache Sprache, der eigentliche Anlass
-Dort heißt es auch, dass Informationen zu Betrieb und Kursgeschäft in
-einfacher Sprache verfügbar sind. Das gilt jedoch nicht für die
-Kursbeschreibungen selbst, die immerhin den größten Textbestand darstellen.
+### ((Einfache Sprache, der eigentliche Anlass))
+- Dort heißt es auch, dass Informationen zu Betrieb und Kursgeschäft in einfacher Sprache verfügbar sind.
+- Das gilt aber nicht für die Kursbeschreibungen selbst, und die machen immerhin den größten Textbestand aus.
 
 ### Der Kasten unten
 Vor allem hier setzt das Projekt an.
@@ -125,7 +122,7 @@ quellen:
 
 ### NOTIZ
 
-Daraus folgt mein Vorschlag.
+Daraus folgt der Vorschlag.
 
 ### Ziel
 - *vorlesen*
@@ -134,7 +131,7 @@ Daraus folgt mein Vorschlag.
 - ==Ein Prüfschritt zur Sicherstellung der Zugänglichkeit eines Kurstextes für die Zielgruppe des Textes vor der Veröffentlichung.== (weiter vorlesen)
 
 ### Abgrenzung
-- Für die technische Barrierefreiheit der Website bleiben normale Prüfwerkzeug zuständig, zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
+- Für die technische Barrierefreiheit der Website bleiben normale Prüfwerkzeuge zuständig, zusammen mit der städtischen IT. Die KI sieht nur den Kurstext.
 
 ### Ergebnis
 - *vorlesen*
@@ -183,7 +180,7 @@ Zunächst zum Unternehmen und zum aktuellen Prozess.
 - Geleitet wird sie von einem Direktor, der laut Impressum auch persönlich für die redaktionellen Inhalte der Website verantwortlich ist.
 - Darüber steht eine Betriebskommission mit 16 Sitzen, 2 davon für den Personalrat.
 
-### Der Satz oben aus der Betriebssatzung
+### ((Der Satz oben aus der Betriebssatzung))
 Der Satz oben stammt wörtlich aus der Betriebssatzung: Die Angebote stehen
 grundsätzlich allen offen, ohne Rücksicht auf Vorbildung.
 
@@ -329,14 +326,14 @@ quellen:
 - Das ist prüfbar, ohne einen einzigen Kurs zu kennen.
 - Dafür gibt es etablierte Tools wie **axe-core**. Zuständig ist hier die städtische IT.
 
-### Der einzelne Text
+### ((Der einzelne Text))
 - Das Projekt prüft den einzelnen Text:
 - Versteht die Zielgruppe genau dieses Kurses ihn?
 - Die KI kann hier nur Vorschläge machen, die Entscheidung liegt beim Fachbereich.
 
 ### Callout
 - Die Trennlinie verläuft also nicht zwischen Technik und Sprache, sondern zwischen der Seite und dem einzelnen Text.
-- ==Neu ist allein der Schritt, für den man wissen muss, wer liest.==
+- ==Neu ist allein der Schritt, der die Zielgruppe kennen muss.==
 - Und genau dafür setzen wir ein KI-Sprachmodell ein.
 
 
@@ -478,31 +475,35 @@ calloutsub: Wem die Textbausteine gehören, muss vor dem Pilot geklärt sein. Da
 
 ### NOTIZ
 
-Jetzt zu den Widerständen.
+Jetzt zu den Widerständen. Ich erwarte hier vier — ob es dabei bleibt, zeigt
+die Befragung der Betroffenen im ersten Monat.
 
 ### Unsicherheit · im ganzen Haus
 - Die Frage, die als Erstes kommen könnte: Schreibt die KI jetzt unsere Texte?
 - Nein. Sie schlägt vor, mehr nicht. Entschieden und veröffentlicht wird von Menschen.
-- ==Das ist keine Beruhigung, sondern der Zuschnitt des Werkzeugs.==
 
-### Verlustangst · Fachbereich
+### Verlustangst in den Fachbereichen
+- "Ich werde an Texten gemessen, die ich gar nicht ändern darf."
 - Der einzige Einwand, der noch offen ist.
-- Eine Kursbeschreibung ist selten von einer Hand: Anmeldehinweis, Beschreibung der Niveaustufe — solche Textbausteine stehen wortgleich in vielen Kursen und werden nicht dort gepflegt, wo der Kurs angeboten wird.
+- Eine Kursbeschreibung ist oft nicht aus einer Hand: z.B. der Anmeldehinweis oder die Beschreibung der Niveaustufe — solche Textbausteine stehen wortgleich in vielen Kursen und werden nicht dort gepflegt, wo der Kurs angeboten wird.
 - Wer die Befunde bekommt, darf den Text also oft gar nicht ändern.
-- Keine Angst vor der Maschine, sondern die Aussicht, für etwas geradezustehen, das einem nicht gehört.
-- Die Antwort ist deshalb keine Schulung, sondern eine Zuständigkeitsfrage — und die gehört vor den Pilot.
+- Die Antwort ist deshalb hier keine Schulung, sondern eine Zuständigkeitsfrage — und die gehört vor den Pilot.
 
-### Fehlende Perspektive · Kursleitung
-- Bei den Honorarkräften schärfer als bei allen anderen: Ihre Abrechnungseinheit ist die Unterrichtsstunde, Textarbeit kommt darin nicht vor.
+### Fehlende Perspektive bei der Kursleitung
+- "Noch eine Aufgabe - bezahlt werde ich nach Unterrichtsstunden."
+- Bei den Honorarkräften wiegt der Einwand am schwersten: Bezahlt wird die Unterrichtsstunde. Arbeit am Text kommt in der Abrechnung nicht vor.
 - Der Einwand ist berechtigt und gehört auch so beantwortet.
-- Die Antwort ist der Zuschnitt: Geprüft wird im Fachbereich, an dem Text, der dort eingeht.
-- ((Das schützt auch ihren Status: Verbindliche Regeln und ein Protokoll je Text wären genau die Merkmale, an denen sich eine Scheinselbständigkeit festmachen lässt.))
+- Die Antwort:
+- Es kommt keine neue Aufgabe dazu.
+- Geprüft wird im Fachbereich, an dem Text, der dort eingeht.
+- Wer eine Rückmeldung möchte, bekommt sie, aber eine Pflicht wird daraus nicht.
+- Kontrolle ist das nicht: ==Geprüft wird der Text, nicht die Person, die ihn geschrieben hat.== Es wird kein Befund einer Kursleitung zugeordnet.
 
 ### Gewohnheit · Redaktion des Programmhefts
-- Der Satz, der jedes Qualitätsprojekt begleitet: Es hat sich doch nie jemand beschwert. Und er stimmt vermutlich.
+- Der Satz: Es hat sich doch nie jemand beschwert. Und das stimmt vermutlich sogar.
 - Diese Redaktion prüft als Einzige im Haus heute schon Texte. Sie ist keine Bremse, sondern der nächstliegende Verbündete — und so sollte man ihr auch begegnen.
-- Der Punkt ist nur: ==Wer sich beschwert, hat den Text gelesen und verstanden.==
-- Die Menschen, um die es geht, fragen nicht nach und melden sich auch nicht an. Ihr Fehlen sieht von innen aus wie Zufriedenheit. ((Dass es bisher niemand gesehen hat, ist deshalb kein Versäumnis, sondern liegt in der Sache.))
+- Das Problem ist: ==Wer sich beschwert, hat den Text gelesen und verstanden.==
+- Die Menschen, um die es geht, fragen nicht nach und melden sich auch nicht an. Ihr Fehlen sieht von innen aus wie Zufriedenheit. ((Dass es bisher niemand gesehen hat, ist deshalb kein Versäumnis, sondern liegt in der Sache an sich.))
 
 ### Der Kasten unten
 - Betroffene zu Beteiligten machen heißt hier: entscheiden, bevor geschult wird.
@@ -528,23 +529,24 @@ quellen:
 ### NOTIZ
 
 Der Zeitplan: drei Monate, drei Stränge, die neun Phasen aus der
-Aufgabenstellung. Und eine Logik dahinter, eine Kette von Freigaben:
-==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
-Ich gehe die Stränge einmal durch.
+Aufgabenstellung.
+- Der Plan ist eine Kette von Freigaben: ==Ohne Dienstvereinbarung kein Setup, ohne Training kein Pilot, ohne Nachmessung kein Rollout.==
+
+Gehen wir die Stränge einmal durch.
 
 ### Technische Implementation
-- **Setup:** Der Assistent wird im bestehenden KI-Zugang des Verbands angelegt. Den Prompt schärfe ich im Prüfwerkzeug an echten Kurstexten — jeder Lauf wird protokolliert.
+- **Setup:** Der Assistent wird im bestehenden KI-Zugang des Verbands angelegt. Der Prompt wird im Prüfwerkzeug an echten Kurstexten nachgeschärft — jeder Lauf wird protokolliert.
 - **Pilot:** Ein Fachbereich, nur neu entstehende Texte. Klein genug, um alle Beteiligten wirklich einzubinden.
-- **Rollout:** Wird nur vorbereitet. ==Ob er kommt, entscheidet die Nachmessung — nicht der Kalender.==
+- Der **Rollout:** wird im dritten Monat nur vorbereitet. Ob er kommt, entscheidet die Nachmessung.
 
 ### Kommunikation
 - **Ankündigung:** Erst die Dienstvereinbarung mit dem Personalrat, dann die Bekanntgabe im Haus — in dieser Reihenfolge, sonst verhandelt man öffentlich.
-- **Training:** Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System, bevor der erste Text geprüft wird. Pflicht ist sie ohnehin: **Artikel 4 der KI-Verordnung**, für alle, die bedienen. ((Wer nicht bedient, braucht keine Schulung — deshalb bleiben die Kursleitungen draußen.))
-- **Support:** Eine feste Sprechstunde statt Zuruf. Sie senkt die Schwelle zu fragen, hält den Aufwand planbar — und dieselbe Frage dreimal in einer Stunde ist ein Befund am Prompt oder an der Schulung.
+- **Training:** Kein KI-Grundlagenkurs, sondern eine Schulung am konkreten System, bevor der erste Text geprüft wird.
+- **Support:** Eine feste Sprechstunde statt Zuruf. Sie senkt die Schwelle zu fragen, hält den Aufwand planbar.
 
 ### Change
-- **Vorbereitung:** Den Pilotbereich gewinnen, nicht zuweisen. Die Betroffenen befragen, bevor etwas läuft. Und klären, wer die Textbausteine ändern darf — die zentral gepflegten Teile, die wortgleich in vielen Kursen stehen. ((Das war die Verlustangst von der Widerstandsfolie.))
-- **Einbindung:** Der Bereich wählt selbst, welche Regeln verbindlich gelten. Und er korrigiert die Textbausteine zuerst: ==Ein korrigierter Textbaustein wirkt sofort in allen Kursen, die ihn verwenden.==
+- **Vorbereitung:** Den Pilotbereich gewinnen, nicht zuweisen. Die Betroffenen befragen, bevor etwas läuft. Und klären, wer die zentral gepflegten Textbausteine ändern darf.
+- **Einbindung:** Der Bereich wählt selbst, welche Regeln verbindlich gelten und vor der Veröffentlichung behoben sind. Und er korrigiert die Textbausteine zuerst: ==Ein korrigierter Textbaustein wirkt sofort in allen Kursen, die ihn verwenden.==
 - **Begleitung:** Die Nachmessung, mit demselben Skript wie die Ausgangsmessung — sonst weiß man nicht, ob die Texte besser wurden oder nur die Messung anders. Danach fällt die Rollout-Entscheidung.
 
 
@@ -568,22 +570,20 @@ callout: Wer den dritten Schritt auslässt, misst im Pilot Befunde, die niemand 
 Das war der Plan für drei Monate — das hier ist sein erster Monat im Detail.
 Keine Aufzählung, sondern eine Reihenfolge: ==Jeder Schritt bedingt den nächsten.==
 
-### Schritt eins: die Dienstvereinbarung
+### Schritt eins
 - Zuerst die **Dienstvereinbarung** mit dem Personalrat — er ist der Einzige, der das Projekt anhalten kann, die Einführung ist mitbestimmungspflichtig.
-- Vorher wird nichts angelegt, auch nicht „nur zum Ausprobieren“. ((Ein Assistent, der schon läuft, während noch verhandelt wird, kostet genau das Vertrauen, von dem der Pilot lebt.))
+- Vorher wird nichts angelegt, auch nicht „nur zum Ausprobieren“.
 
-### Schritt zwei: den Pilotbereich gewinnen
+### Schritt zwei
 - Einen **Fachbereich** gewinnen, nicht zuweisen. Freiwillig deshalb, weil ein zugewiesener Pilot Erfüllung liefert, kein Ergebnis.
 - Der Bereich, der sich meldet, bekommt dafür etwas: Er wählt im zweiten Monat selbst, welche Regeln verbindlich gelten.
 
-### Schritt drei: die Freigabe der Textbausteine
+### Schritt drei
 - Klären, wer die zentral gepflegten **Textbausteine** ändern darf — die Teile, die wortgleich in vielen Kursen stehen.
 - Das ist der Schritt, den man am ehesten überspringt, und der teuerste: Lässt man ihn aus, liefert der Pilot eine Liste von Befunden, die im Pilotbereich niemand ändern darf.
-- ==Das Werkzeug hätte sich dann beim ersten Durchlauf selbst erledigt.== Das sagt auch der Kasten unten.
 
-### Schritt vier: der Assistent
+### Schritt vier
 - Erst als Letztes das Technische: den **Assistenten anlegen**. Das kostet nichts — kein Einkauf, keine neue Stelle, der KI-Zugang des Verbands ist da.
-- Dass der technische Schritt der letzte und der billigste ist, ist die Pointe dieser Folie: ==Die Arbeit liegt nicht in der Technik, sondern in den Zuständigkeiten davor.==
 
 
 ## 14 — Erfolgsmessung und Risiken
@@ -606,29 +606,23 @@ quellen: Eigene Auswertung aller 3.111 Kurstexte des Portals, 30.07.2026
 
 ### NOTIZ
 
-Und woran würde man merken, ob es gewirkt hat?
+Noch zur Erfolgsmessung, welche KPIs setzen wir an?
 
-### Die ersten drei Kennzahlen
-- Vier Kennzahlen, jede mit Ausgangswert und Ziel.
+### 1)
 - Die Befundquote soll von 57 Prozent unter 25 fallen.
+
+### 2)
 - Alle neuen Texte im Pilotbereich sollen geprüft sein.
+
+### 3)
 - Von den 31 Texten für Deutschkurse auf A1 und A2, die heute alle Wörter über dem Niveau ihrer Leser enthalten, sollen höchstens noch zehn betroffen sein.
 
-### Die vierte Kennzahl: die Befragung
-- Die ersten drei messen nur den Text, nicht die Wirkung. Deshalb frage ich die Teilnehmenden selbst.
-- Nicht über einen Fragebogen auf der Website — den füllt genau die Zielgruppe nicht aus, um die es geht.
-- Sondern im Kurs, am Ende einer Stunde, in einfacher Sprache.
-- ==Freiwillig und vergütet.== ((Sonst wäre sie eine neue Aufgabe ohne Bezahlung — bei Honorarkräften genau das Problem von der Widerstandsfolie.))
+### 4)
+- Die ersten drei messen nur den Text, nicht die Wirkung. Daher sollten wir auch die Teilnehmenden selbst befragen.
+- Nicht über einen Fragebogen auf der Website, sondern im Kurs, am Ende einer Stunde.
 
-### Letzte Spalte: womit gemessen wird
-- Die Nachmessung läuft mit demselben Skript wie die Ausgangsmessung. Dafür bleibt es unverändert liegen.
-- Sonst wüsste man hinterher nicht, ob die Texte besser geworden sind oder nur die Messung anders.
-
-### Das Risiko unten
-- Die ersten drei Kennzahlen lassen sich erfüllen, ohne dass ein einziger Text besser wird: Wer lange Sätze teilt und schwere Wörter austauscht, drückt die Quote.
-- ==Ein kürzerer Satz ist nicht automatisch ein verständlicherer.==
-- Genau dagegen steht die vierte. Sie fragt nicht den Text, sondern die Menschen, für die er geschrieben ist.
-- Ohne sie misst der Pilot am Ende nur seinen eigenen Maßstab.
+### Das Risiko
+*(vorlesen)*
 
 
 ## 15 — Schlussfolie
